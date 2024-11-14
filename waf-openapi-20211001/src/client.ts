@@ -9,26 +9,50 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class ChangeResourceGroupRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the new resource group. You can view the available resource groups in the Resource Management console.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * rg-aek2mcq***
    */
   newResourceGroupId?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the protected object in Web Application Firewall (WAF) that you want to manage.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * demo.aliyun.com-waf
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The resource type. The value is fixed as defenseresource.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * defenseresource
    */
@@ -60,6 +84,9 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 
 export class ChangeResourceGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 0A916D48-D206-5654-8D37-***
    */
@@ -360,9 +387,184 @@ export class CopyDefenseTemplateResponse extends $tea.Model {
   }
 }
 
+export class CreateApiExportRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 993
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-zxu3***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The extended parameters of the data export task. The parameter value is in the JSON format. The following keys are supported:
+   * 
+   * *   **instanceId**: the instance ID
+   * *   **clusterId**: the ID of the hybrid cloud cluster
+   * *   **orderKey**: the name of the field used to sort exported data
+   * *   **orderWay**: the sorting method of the exported data
+   * 
+   * @example
+   * {
+   *     "orderWay": "asc",
+   *     "orderKey": "endTs",
+   *     "instanceId": "waf_v3prepaid_public_cn-****"
+   * }
+   */
+  param?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * - **cn** (default): Chinese mainland.
+   * - **cn-hongkong**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the data export task. Valid values:
+   * 
+   * *   **apisec_api**: API tasks
+   * *   **apisec_abnormal**: API risk tasks
+   * *   **apisec_event**: API security event tasks
+   * 
+   * @example
+   * apisec_api
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The ID of the time zone.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      param: 'Param',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      type: 'Type',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      param: 'string',
+      region: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      type: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApiExportResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 62382992-F9AA-52B2-9147-66B3B9E51D74
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApiExportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateApiExportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateApiExportResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCloudResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -371,17 +573,31 @@ export class CreateCloudResourceRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The configurations of the listeners.
+   * 
    * This parameter is required.
    */
   listen?: CreateCloudResourceRequestListen;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
    * @example
    * 123
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   redirect?: CreateCloudResourceRequestRedirect;
   /**
    * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -389,6 +605,9 @@ export class CreateCloudResourceRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -423,6 +642,10 @@ export class CreateCloudResourceRequest extends $tea.Model {
 export class CreateCloudResourceShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -431,17 +654,31 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The configurations of the listeners.
+   * 
    * This parameter is required.
    */
   listenShrink?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
    * @example
    * 123
    */
   ownerUserId?: string;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   redirectShrink?: string;
   /**
    * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -449,6 +686,9 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -482,11 +722,17 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
 
 export class CreateCloudResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the resource that is added to WAF. The ID is automatically generated.
+   * 
    * @example
    * lb-***
    */
   cloudResourceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 66A98669-ER12-WE34-23PO-301469*****E
    */
@@ -726,14 +972,7 @@ export class CreateDefenseRuleRequest extends $tea.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The configurations of the protection rule. Specify a string that contains multiple parameters in the JSON format.
-   * 
-   * >  The parameters vary based on the value of the **DefenseScene** parameter.**** For more information, see the "**Protection rule parameters**" section in this topic.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * For more information, see the following section
    */
   rules?: string;
   /**
@@ -776,21 +1015,31 @@ export class CreateDefenseRuleRequest extends $tea.Model {
 export class CreateDefenseRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 26E46541-7AAB-5565-801D-F14DBDC5F186
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The IDs of the protection rules. Multiple IDs are separated by commas (,).
+   * 
+   * @example
+   * 22215,23354,462165
+   */
+  ruleIds?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      ruleIds: 'RuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      ruleIds: 'string',
     };
   }
 
@@ -1879,6 +2128,8 @@ export class CreateSM2CertRequest extends $tea.Model {
    * 
    * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
+   * This parameter is required.
+   * 
    * @example
    * waf_v2_public_cn-***
    */
@@ -2014,46 +2265,58 @@ export class CreateSM2CertResponse extends $tea.Model {
   }
 }
 
-export class DeleteApisecAbnormalRequest extends $tea.Model {
+export class DeleteApisecAbnormalsRequest extends $tea.Model {
   /**
-   * @example
-   * c0a96***4b9cd303467402a63dcc
+   * @remarks
+   * The risk IDs.
+   * 
+   * This parameter is required.
    */
-  abnormalId?: string;
+  abnormalIds?: string[];
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 428
    */
   clusterId?: string;
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * waf-cn-n6w***x52m
+   * waf_v3prepaid_public_cn-nwy*****
    */
   instanceId?: string;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
-   * rg-acfm2th****v6ay
+   * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
-      abnormalId: 'AbnormalId',
+      abnormalIds: 'AbnormalIds',
       clusterId: 'ClusterId',
       instanceId: 'InstanceId',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
     };
@@ -2061,10 +2324,9 @@ export class DeleteApisecAbnormalRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      abnormalId: 'string',
+      abnormalIds: { 'type': 'array', 'itemType': 'string' },
       clusterId: 'string',
       instanceId: 'string',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
     };
@@ -2075,31 +2337,24 @@ export class DeleteApisecAbnormalRequest extends $tea.Model {
   }
 }
 
-export class DeleteApisecAbnormalResponseBody extends $tea.Model {
+export class DeleteApisecAbnormalsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * 66A98669-CC6E-4F3E-80A6-7B***11AE
+   * D7861F61-5B61-46CE-A47C-6B19****5EB0
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
     };
   }
 
@@ -2108,10 +2363,10 @@ export class DeleteApisecAbnormalResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteApisecAbnormalResponse extends $tea.Model {
+export class DeleteApisecAbnormalsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DeleteApisecAbnormalResponseBody;
+  body?: DeleteApisecAbnormalsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2124,7 +2379,7 @@ export class DeleteApisecAbnormalResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DeleteApisecAbnormalResponseBody,
+      body: DeleteApisecAbnormalsResponseBody,
     };
   }
 
@@ -2133,36 +2388,49 @@ export class DeleteApisecAbnormalResponse extends $tea.Model {
   }
 }
 
-export class DeleteApisecEventRequest extends $tea.Model {
+export class DeleteApisecEventsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
-   * 433
+   * 428
    */
   clusterId?: string;
   /**
-   * @example
-   * 0b7ab137a065aab7656986***11db
+   * @remarks
+   * The IDs of the security events.
+   * 
+   * This parameter is required.
    */
-  eventId?: string;
+  eventIds?: string[];
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
-   * waf-cn-zz11sr5****
+   * waf_v3prepaid_public_cn-g4t*****
    */
   instanceId?: string;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -2170,9 +2438,8 @@ export class DeleteApisecEventRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clusterId: 'ClusterId',
-      eventId: 'EventId',
+      eventIds: 'EventIds',
       instanceId: 'InstanceId',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
     };
@@ -2181,9 +2448,8 @@ export class DeleteApisecEventRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clusterId: 'string',
-      eventId: 'string',
+      eventIds: { 'type': 'array', 'itemType': 'string' },
       instanceId: 'string',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
     };
@@ -2194,31 +2460,24 @@ export class DeleteApisecEventRequest extends $tea.Model {
   }
 }
 
-export class DeleteApisecEventResponseBody extends $tea.Model {
+export class DeleteApisecEventsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0
    */
   requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  result?: boolean;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
-      result: 'Result',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
-      result: 'boolean',
     };
   }
 
@@ -2227,10 +2486,10 @@ export class DeleteApisecEventResponseBody extends $tea.Model {
   }
 }
 
-export class DeleteApisecEventResponse extends $tea.Model {
+export class DeleteApisecEventsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: DeleteApisecEventResponseBody;
+  body?: DeleteApisecEventsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2243,7 +2502,7 @@ export class DeleteApisecEventResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: DeleteApisecEventResponseBody,
+      body: DeleteApisecEventsResponseBody,
     };
   }
 
@@ -2255,6 +2514,10 @@ export class DeleteApisecEventResponse extends $tea.Model {
 export class DeleteCloudResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2263,6 +2526,8 @@ export class DeleteCloudResourceRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The port of the resource that is added to WAF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2271,6 +2536,11 @@ export class DeleteCloudResourceRequest extends $tea.Model {
   port?: number;
   /**
    * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2279,6 +2549,8 @@ export class DeleteCloudResourceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2286,12 +2558,21 @@ export class DeleteCloudResourceRequest extends $tea.Model {
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
+   * The cloud service. Valid values:
+   * 
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: ECS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2327,6 +2608,9 @@ export class DeleteCloudResourceRequest extends $tea.Model {
 
 export class DeleteCloudResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-***
    */
@@ -3267,19 +3551,179 @@ export class DescribeAccountDelegatedStatusResponse extends $tea.Model {
   }
 }
 
+export class DescribeApiExportsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data export tasks.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-p****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   * 
+   * @example
+   * zh
+   */
+  lang?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The returned data export task.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the file.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      lang: 'Lang',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      lang: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiExportsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   */
+  apiExports?: DescribeApiExportsResponseBodyApiExports[];
+  /**
+   * @remarks
+   * The format of the exported file.
+   * 
+   * @example
+   * D9532525-E885-54E7-A178-D5554D563AFB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The status of the data export task. Valid values:
+   * 
+   * *   **expired**: The file is expired.
+   * *   **exporting**: Data is being exported.
+   * *   **completed**: Data is exported.
+   * 
+   * @example
+   * 7
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiExports: 'ApiExports',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiExports: { 'type': 'array', 'itemType': DescribeApiExportsResponseBodyApiExports },
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApiExportsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApiExportsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApiExportsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 428
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 1687313820
    */
   endTime?: number;
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3287,36 +3731,55 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * desc
    */
   orderWay?: string;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 1682571600
    */
@@ -3329,7 +3792,6 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
       orderWay: 'OrderWay',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
@@ -3344,7 +3806,6 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
       orderWay: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
@@ -3357,6 +3818,10 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
 }
 
 export class DescribeApisecAbnormalDomainStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: DescribeApisecAbnormalDomainStatisticResponseBodyData[];
   /**
    * @remarks
@@ -3367,6 +3832,9 @@ export class DescribeApisecAbnormalDomainStatisticResponseBody extends $tea.Mode
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -3417,19 +3885,702 @@ export class DescribeApisecAbnormalDomainStatisticResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisecAbnormalsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the risk.
+   * 
+   * @example
+   * 29c6401****99a2bad3943e26d8
+   */
+  abnormalId?: string;
+  /**
+   * @remarks
+   * The level of the risk. Valid values:
+   * 
+   * * **high**
+   * * **medium**
+   * * **low**
+   * 
+   * @example
+   * medium
+   */
+  abnormalLevel?: string;
+  /**
+   * @remarks
+   * The type of the risk.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * 
+   * @example
+   * LackOfSpeedLimit
+   */
+  abnormalTag?: string;
+  /**
+   * @remarks
+   * The risk-related API.
+   * 
+   * @example
+   * /api/users/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the risk-related API.
+   * 
+   * @example
+   * bd9efb8ad******d9ca6
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purposes of APIs.
+   * 
+   * @example
+   * RegisterAPI
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 546
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1684382100
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-z***9g301
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The name of the sorting field. Valid values:
+   * 
+   * * **firstTime (default)**: first detection time
+   * * **abnormalLevel**: risk level
+   * 
+   * @example
+   * allCnt
+   */
+  orderKey?: string;
+  /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * * **desc (default)**: in descending order
+   * * **asc**: in ascending order
+   * 
+   * @example
+   * desc
+   */
+  orderWay?: string;
+  /**
+   * @remarks
+   * The source of the risk type. Valid values:
+   * 
+   * * **custom**
+   * * **default**
+   * 
+   * @example
+   * custom
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 2
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * * **cn-hangzhou**: Chinese mainland
+   * 
+   * * **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-qingdao
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1684252800
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * The status of the risk. Valid values:
+   * 
+   * * **toBeConfirmed**
+   * * **confirmed**
+   * * **toBeFixed**
+   * * **fixed**
+   * * **ignored**
+   * 
+   * @example
+   * Confirmed
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalId: 'AbnormalId',
+      abnormalLevel: 'AbnormalLevel',
+      abnormalTag: 'AbnormalTag',
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiTag: 'ApiTag',
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      orderKey: 'OrderKey',
+      orderWay: 'OrderWay',
+      origin: 'Origin',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalId: 'string',
+      abnormalLevel: 'string',
+      abnormalTag: 'string',
+      apiFormat: 'string',
+      apiId: 'string',
+      apiTag: 'string',
+      clusterId: 'string',
+      endTime: 'string',
+      instanceId: 'string',
+      matchedHost: 'string',
+      orderKey: 'string',
+      orderWay: 'string',
+      origin: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'string',
+      userStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAbnormalsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The risks.
+   */
+  data?: DescribeApisecAbnormalsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9469646C-F2CC-5F0F-8401-C53***4F46
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 35
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecAbnormalsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecAbnormalsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecAbnormalsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecAbnormalsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecApiResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /auth/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * @example
+   * 867ade***24ee6e205b8da82b8f84
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The request method of the API. Valid values:
+   * 
+   * * **GET**
+   * * **POST**
+   * * **HEAD**
+   * * **PUT**
+   * * **DELETE**
+   * * **CONNECT**
+   * * **PATCH**
+   * * **OPTIONS**
+   * 
+   * @example
+   * POST
+   */
+  apiMethod?: string;
+  /**
+   * @remarks
+   * The API status. Valid values:
+   * 
+   * * **NewbornInterface**: The API is newly added.
+   * * **OfflineInterface**: The API is inactive.
+   * * **normal**: The API is normal.
+   * 
+   * @example
+   * OfflineInterface
+   */
+  apiStatus?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * 
+   * @example
+   * SendMail
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The service object. Valid values:
+   * 
+   * * **PublicAPI**: public services
+   * * **ThirdpartAPI**: cooperation with third-party partners
+   * * **InternalAPI**: internal office
+   * 
+   * @example
+   * innerAPI
+   */
+  apiType?: string;
+  /**
+   * @remarks
+   * Specifies whether authentication is required. Valid values:
+   * 
+   * * **0**: Authentication is required.
+   * * **1**: Authentication is not required.
+   * 
+   * @example
+   * 0
+   */
+  authFlag?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 740
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683388800
+   */
+  endTime?: string;
+  /**
+   * @remarks
+   * Specifies whether to follow the API. Valid values:
+   * 
+   * * **1**: follows the API.
+   * * **0**: does not follow the API.
+   * 
+   * @example
+   * 0
+   */
+  follow?: number;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-u***gr20j
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * API for logon
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The name of the sorting field. Valid values:
+   * 
+   * * **allCnt**: the total number of calls to the API in the previous 30 days
+   * * **botCnt**: the number of bot-initiated requests in the previous 30 days
+   * * **crossBorderCnt**: the number of cross-border requests in the previous 30 days
+   * * **abnormalNum**: the number of API-related risks
+   * * **eventNum**: the number of API-related security events
+   * * **farthestTs**: the time when the API was first detected
+   * * **lastestTs**: the time of the most recent access to the API
+   * 
+   * @example
+   * allCnt
+   */
+  orderKey?: string;
+  /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * * **desc** (default): descending order
+   * * **asc**: ascending order
+   * 
+   * @example
+   * desc
+   */
+  orderWay?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * * **cn-hangzhou**: Chinese mainland
+   * * **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The sensitive data type in the request.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported sensitive data types.
+   * 
+   * @example
+   * 1004,1005
+   */
+  requestSensitiveType?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The sensitivity level of the API. Valid values:
+   * 
+   * * **L1**: high sensitivity
+   * * **L2**: moderate sensitivity
+   * * **L3**: low sensitivity
+   * * **N**: non-sensitivity
+   * 
+   * @example
+   * L3
+   */
+  sensitiveLevel?: string;
+  /**
+   * @remarks
+   * The sensitive data type in the response.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported sensitive data types.
+   * 
+   * @example
+   * 1004
+   */
+  sensitiveType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1681833600
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiMethod: 'ApiMethod',
+      apiStatus: 'ApiStatus',
+      apiTag: 'ApiTag',
+      apiType: 'ApiType',
+      authFlag: 'AuthFlag',
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      follow: 'Follow',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      note: 'Note',
+      orderKey: 'OrderKey',
+      orderWay: 'OrderWay',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      requestSensitiveType: 'RequestSensitiveType',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      sensitiveLevel: 'SensitiveLevel',
+      sensitiveType: 'SensitiveType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      apiId: 'string',
+      apiMethod: 'string',
+      apiStatus: 'string',
+      apiTag: 'string',
+      apiType: 'string',
+      authFlag: 'string',
+      clusterId: 'string',
+      endTime: 'string',
+      follow: 'number',
+      instanceId: 'string',
+      matchedHost: 'string',
+      note: 'string',
+      orderKey: 'string',
+      orderWay: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      requestSensitiveType: 'string',
+      resourceManagerResourceGroupId: 'string',
+      sensitiveLevel: 'string',
+      sensitiveType: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecApiResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The API assets.
+   */
+  data?: DescribeApisecApiResourcesResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2EFCFE18-78F8-5079-B312-07***48B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecApiResourcesResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecApiResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecApiResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecApiResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecAssetTrendRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 590
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1683183599
    */
   endTime?: number;
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3437,21 +4588,28 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-aek**7uq
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1668496310
    */
@@ -3461,7 +4619,6 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
       clusterId: 'ClusterId',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
@@ -3473,7 +4630,6 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
       clusterId: 'string',
       endTime: 'number',
       instanceId: 'string',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
@@ -3486,6 +4642,10 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
 }
 
 export class DescribeApisecAssetTrendResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DescribeApisecAssetTrendResponseBodyData[];
   /**
    * @remarks
@@ -3541,17 +4701,27 @@ export class DescribeApisecAssetTrendResponse extends $tea.Model {
 
 export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 428
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1686895256
    */
   endTime?: number;
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3559,36 +4729,55 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * desc
    */
   orderWay?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfmvyknl****fa
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1668496310
    */
@@ -3601,7 +4790,6 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
       orderWay: 'OrderWay',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
@@ -3616,7 +4804,6 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
       orderWay: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
@@ -3629,6 +4816,10 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
 }
 
 export class DescribeApisecEventDomainStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: DescribeApisecEventDomainStatisticResponseBodyData[];
   /**
    * @remarks
@@ -3639,6 +4830,9 @@ export class DescribeApisecEventDomainStatisticResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -3681,6 +4875,320 @@ export class DescribeApisecEventDomainStatisticResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeApisecEventDomainStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /apisec/v1/register.php
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the event-related API.
+   * 
+   * @example
+   * 820b860***6205da93b935b28
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * 
+   * @example
+   * SendMail
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The Attack source IP.
+   * 
+   * @example
+   * 42.224.*.*
+   */
+  attackIp?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683703260
+   */
+  endTs?: number;
+  /**
+   * @remarks
+   * The ID of the API security event.
+   * 
+   * @example
+   * 18ba94fea9***e66ba0557b7b91
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * The severity level of the event. Valid values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * @example
+   * low
+   */
+  eventLevel?: string;
+  /**
+   * @remarks
+   * The type of the event.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported event types.
+   * 
+   * @example
+   * ObtainSensitiveUnauthorized
+   */
+  eventTag?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-5y***d31
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The name of the sorting field. Valid values:
+   * 
+   * *   **allCnt**: the number of attacks
+   * *   **startTs**: the start time of the event
+   * *   **endTs**: the end time of the event
+   * 
+   * @example
+   * startTs
+   */
+  orderKey?: string;
+  /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * *   **desc** (default): descending order
+   * *   **asc**: ascending order
+   * 
+   * @example
+   * desc
+   */
+  orderWay?: string;
+  /**
+   * @remarks
+   * The source of the event type. Valid values:
+   * 
+   * *   **custom**
+   * *   **default**
+   * 
+   * @example
+   * default
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683648000
+   */
+  startTs?: number;
+  /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
+   * 
+   * @example
+   * Ignore
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiTag: 'ApiTag',
+      attackIp: 'AttackIp',
+      clusterId: 'ClusterId',
+      endTs: 'EndTs',
+      eventId: 'EventId',
+      eventLevel: 'EventLevel',
+      eventTag: 'EventTag',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      orderKey: 'OrderKey',
+      orderWay: 'OrderWay',
+      origin: 'Origin',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTs: 'StartTs',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      apiId: 'string',
+      apiTag: 'string',
+      attackIp: 'string',
+      clusterId: 'string',
+      endTs: 'number',
+      eventId: 'string',
+      eventLevel: 'string',
+      eventTag: 'string',
+      instanceId: 'string',
+      matchedHost: 'string',
+      orderKey: 'string',
+      orderWay: 'string',
+      origin: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTs: 'number',
+      userStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The security events.
+   */
+  data?: DescribeApisecEventsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 12F4CC8F-7E9F-5E4D-BF7C-BD1EDDE0C282
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecEventsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecEventsResponseBody,
     };
   }
 
@@ -3800,19 +5308,749 @@ export class DescribeApisecLogDeliveriesResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisecMatchedHostsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 433
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-x0r37plpl0g
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address.
+   * 
+   * @example
+   * bc.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 8
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aekz5qqo7jthcsa
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The detection type. Valid values:
+   * 
+   * *   **api**: API-related domain names
+   * *   **abnormal**: risk-related domain names
+   * *   **event**: security event-related domain names
+   * 
+   * @example
+   * event
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      matchedHost: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecMatchedHostsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names.
+   */
+  data?: DescribeApisecMatchedHostsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8D4CA088-F72B-5658-BD5B-ECE8B8F0C7BB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecMatchedHostsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecMatchedHostsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecMatchedHostsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecMatchedHostsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionGroupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The switch of the API security module.
+   * 
+   * @example
+   * 1
+   */
+  apisecStatus?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the protected object group to which the protected object belongs.
+   * 
+   * @example
+   * group1
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apisecStatus: 'ApisecStatus',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroup: 'ResourceGroup',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apisecStatus: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroup: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The protected object groups.
+   */
+  data?: DescribeApisecProtectionGroupsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19****5EB0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of protected object groups.
+   * 
+   * @example
+   * 8
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecProtectionGroupsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionGroupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecProtectionGroupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecProtectionGroupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The switch of the API security module.
+   * 
+   * @example
+   * 1
+   */
+  apisecStatus?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the protected object.
+   * 
+   * @example
+   * cwaf-***-waf
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apisecStatus: 'ApisecStatus',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resource: 'Resource',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apisecStatus: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resource: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionResourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The protected objects.
+   */
+  data?: DescribeApisecProtectionResourcesResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2EFCFE18-78F8-5079-B312-07***48B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecProtectionResourcesResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecProtectionResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecProtectionResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0x***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The level of the policy.
+   * 
+   * If Type is set to risk or event, you can set this parameter to one of the following values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * If Type is set to sensitive_word, you can set this parameter to one of the following values:
+   * 
+   * *   **S1**
+   * *   **S2**
+   * *   **S3**
+   * *   **S4**
+   * 
+   * @example
+   * high
+   */
+  level?: string;
+  /**
+   * @remarks
+   * The name of the policy.
+   * 
+   * @example
+   * Information Leak
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The source of the policy. Valid values:
+   * 
+   * *   **custom**
+   * *   **default**
+   * 
+   * @example
+   * custom
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   **risk**: risk detection
+   * *   **event**: security event
+   * *   **sensitive_word**: sensitive data
+   * *   **auth_flag**: authentication credential
+   * *   **api_tag**: business purpose
+   * *   **desensitization**: masking
+   * *   **whitelist**: whitelist
+   * *   **recognition**: API recognition
+   * *   **offline_api**: lifecycle management
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * risk
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      level: 'Level',
+      name: 'Name',
+      origin: 'Origin',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      level: 'string',
+      name: 'string',
+      origin: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      status: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The policies.
+   */
+  data?: DescribeApisecRulesResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 6
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecRulesResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
    * @example
    * 428
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1686895256
    */
   endTime?: number;
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3820,41 +6058,66 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The sorting order.
+   * 
+   * *   asc: ascending order.
+   * *   desc: descending order.
+   * 
    * @example
    * desc
    */
   orderWay?: string;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
-   * @example
-   * cn
-   */
-  region?: string;
-  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * 
    * @example
    * 1668496310
    */
   startTime?: number;
   /**
+   * @remarks
+   * The sensitive data type.
+   * 
+   * *   request: sensitive data in requests.
+   * *   response: sensitive data in responses.
+   * 
    * @example
    * request
    */
@@ -3867,7 +6130,6 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
       orderWay: 'OrderWay',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
-      region: 'Region',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTime: 'StartTime',
@@ -3883,7 +6145,6 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
       orderWay: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      region: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
       startTime: 'number',
@@ -3897,6 +6158,10 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
 }
 
 export class DescribeApisecSensitiveDomainStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response parameters.
+   */
   data?: DescribeApisecSensitiveDomainStatisticResponseBodyData[];
   /**
    * @remarks
@@ -3907,6 +6172,9 @@ export class DescribeApisecSensitiveDomainStatisticResponseBody extends $tea.Mod
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 27
    */
@@ -4219,6 +6487,423 @@ export class DescribeApisecSlsProjectsResponse extends $tea.Model {
   }
 }
 
+export class DescribeApisecStatisticsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * * **cn-hangzhou**: Chinese mainland
+   * * **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-uax***b09
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aek2***uwbs5q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of statistics to be detected. Valid values:
+   * 
+   * *   **risk**: risk impact statistics
+   * *   **event**: attack impact statistics
+   * 
+   * @example
+   * asset_num
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecStatisticsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The check results.
+   */
+  data?: DescribeApisecStatisticsResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 221F0F14-54C6-59A1-9967-72***81B61A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeApisecStatisticsResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecStatisticsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecStatisticsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecStatisticsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSuggestionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * a60fd7e3021fe371c06dc1dcb883def0
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-pe336n43m04
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      clusterId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSuggestionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The protection suggestions.
+   */
+  data?: DescribeApisecSuggestionsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecSuggestionsResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSuggestionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecSuggestionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecSuggestionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecUserOperationsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-wwo36ksck1e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The object ID of the operation record.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fe8723e92e2037245014ab62161bbec8
+   */
+  objectId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aek2ax2y5****pi
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the operation record. Valid values:
+   * 
+   * *   **abnormal**: risk detection
+   * *   **event**: security event
+   * 
+   * @example
+   * event
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      objectId: 'ObjectId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      objectId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecUserOperationsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The operation records.
+   */
+  data?: DescribeApisecUserOperationsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C9825654-327B-5156-A570-847054B4CF10
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeApisecUserOperationsResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecUserOperationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeApisecUserOperationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeApisecUserOperationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeCertDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -4509,6 +7194,10 @@ export class DescribeCertsResponse extends $tea.Model {
 export class DescribeCloudResourceAccessPortDetailsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4516,32 +7205,55 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The port of the cloud service that is added to WAF.
+   * 
    * @example
    * 443
    */
   port?: string;
   /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * 
    * @example
    * https
    */
   protocol?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The instance ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4549,11 +7261,21 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $tea.Model {
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
+   * @remarks
+   * The cloud service. Valid values:
+   * 
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: ECS.
+   * 
    * @example
    * clb7
    */
@@ -4592,13 +7314,23 @@ export class DescribeCloudResourceAccessPortDetailsRequest extends $tea.Model {
 }
 
 export class DescribeCloudResourceAccessPortDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the ports of cloud services that are added to WAF.
+   */
   accessPortDetails?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2EFCFE18-78F8-5079-B312-07***48B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -4652,6 +7384,10 @@ export class DescribeCloudResourceAccessPortDetailsResponse extends $tea.Model {
 export class DescribeCloudResourceAccessedPortsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4659,12 +7395,20 @@ export class DescribeCloudResourceAccessedPortsRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The instance ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4672,6 +7416,9 @@ export class DescribeCloudResourceAccessedPortsRequest extends $tea.Model {
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-aekzwwkpn****5i
    */
@@ -4700,9 +7447,20 @@ export class DescribeCloudResourceAccessedPortsRequest extends $tea.Model {
 }
 
 export class DescribeCloudResourceAccessedPortsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP ports.
+   */
   http?: number[];
+  /**
+   * @remarks
+   * The HTTPS ports.
+   */
   https?: number[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C1823E96-EF4B-5BD2-9E02-1D18****3ED8
    */
@@ -4994,16 +7752,32 @@ export class DescribeCloudResourcesResponse extends $tea.Model {
 
 export class DescribeCnameCountRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
    * @example
    * waf_v3prepaid_public_cn-***
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * 阿里云资源组ID。
+   * 
    * @example
    * rg-acfm***q
    */
@@ -5030,8 +7804,15 @@ export class DescribeCnameCountRequest extends $tea.Model {
 }
 
 export class DescribeCnameCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+   */
   cnameCount?: DescribeCnameCountResponseBodyCnameCount;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * F35F45B0-5D6B-4238-BE02-A62D****E840
    */
@@ -5194,6 +7975,10 @@ export class DescribeDDoSStatusResponse extends $tea.Model {
 export class DescribeDefaultHttpsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5201,11 +7986,20 @@ export class DescribeDefaultHttpsRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -5232,8 +8026,15 @@ export class DescribeDefaultHttpsRequest extends $tea.Model {
 }
 
 export class DescribeDefaultHttpsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The default SSL and TLS settings.
+   */
   defaultHttps?: DescribeDefaultHttpsResponseBodyDefaultHttps;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F35F45B0-5D6B-4238-BE02-A62D****E840
    */
@@ -8054,6 +10855,450 @@ export class DescribeFlowTopUrlResponse extends $tea.Model {
   }
 }
 
+export class DescribeFreeUserAssetCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-cs0*****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserAssetCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The asset statistics provided by basic detection.
+   */
+  asset?: DescribeFreeUserAssetCountResponseBodyAsset;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 30488BF0-FD58-52DD-B396-D014549F43A3
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      asset: 'Asset',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      asset: DescribeFreeUserAssetCountResponseBodyAsset,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserAssetCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFreeUserAssetCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFreeUserAssetCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventCountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepay_public_intl-sg-vf***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventCountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the security events that are detected by using the basic detection feature.
+   */
+  event?: DescribeFreeUserEventCountResponseBodyEvent;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 0D9FB3BC-0DE9-58A8-9663-ACE56F24F405
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: DescribeFreeUserEventCountResponseBodyEvent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventCountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFreeUserEventCountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFreeUserEventCountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventTypesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-bl0****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventTypesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The types of security events on which basic detection is performed.
+   */
+  data?: DescribeFreeUserEventTypesResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * B9D6AD11-DD3D-5A27-B1D9-8A37F7777196
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeFreeUserEventTypesResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventTypesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFreeUserEventTypesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFreeUserEventTypesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-27a3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The security events on which basic detection is performed.
+   */
+  event?: DescribeFreeUserEventsResponseBodyEvent[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8A2DF88D-90C2-56E9-B8D5-36BB9646791C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: { 'type': 'array', 'itemType': DescribeFreeUserEventsResponseBodyEvent },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFreeUserEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFreeUserEventsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHybridCloudClusterRuleRequest extends $tea.Model {
   /**
    * @remarks
@@ -8194,6 +11439,10 @@ export class DescribeHybridCloudClusterRuleResponse extends $tea.Model {
 export class DescribeHybridCloudClustersRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8201,11 +11450,20 @@ export class DescribeHybridCloudClustersRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region where the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -8232,8 +11490,15 @@ export class DescribeHybridCloudClustersRequest extends $tea.Model {
 }
 
 export class DescribeHybridCloudClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the clusters.
+   */
   clusterInfos?: DescribeHybridCloudClustersResponseBodyClusterInfos[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 66A98669-ER12-WE34-23PO-301469*****E
    */
@@ -9907,7 +13172,21 @@ export class DescribeProductInstancesRequest extends $tea.Model {
    * lb-2zeugkfj81jvo****4tqm
    */
   resourceInstanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the instance that is added to WAF.
+   * 
+   * @example
+   * 1.X.X.1
+   */
   resourceInstanceIp?: string;
+  /**
+   * @remarks
+   * The name of the instance that is added to WAF.
+   * 
+   * @example
+   * demoInstanceName
+   */
   resourceInstanceName?: string;
   /**
    * @remarks
@@ -10735,11 +14014,13 @@ export class DescribeResourceSupportRegionsRequest extends $tea.Model {
    * rg-aekzpks****kdjq
    */
   resourceManagerResourceGroupId?: string;
+  resourceProduct?: string;
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceProduct: 'ResourceProduct',
     };
   }
 
@@ -10748,6 +14029,7 @@ export class DescribeResourceSupportRegionsRequest extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      resourceProduct: 'string',
     };
   }
 
@@ -11670,6 +14952,14 @@ export class DescribeRuleHitsTopTuleTypeRequest extends $tea.Model {
   resource?: string;
   /**
    * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aekzwwkpn****5i
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
    * The start point of the time period for which to query. Unit: seconds.
    * 
    * This parameter is required.
@@ -11684,6 +14974,7 @@ export class DescribeRuleHitsTopTuleTypeRequest extends $tea.Model {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTimestamp: 'StartTimestamp',
     };
   }
@@ -11694,6 +14985,7 @@ export class DescribeRuleHitsTopTuleTypeRequest extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceManagerResourceGroupId: 'string',
       startTimestamp: 'string',
     };
   }
@@ -12057,6 +15349,1495 @@ export class DescribeRuleHitsTopUrlResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRuleHitsTopUrlResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveApiStatisticRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 269
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.***.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      matchedHost: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveApiStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics.
+   */
+  data?: DescribeSensitiveApiStatisticResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveApiStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveApiStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveApiStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveApiStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-7pp26f1****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance check results.
+   */
+  data?: DescribeSensitiveDetectionResultResponseBodyData;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeSensitiveDetectionResultResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveDetectionResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveDetectionResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundDistributionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 443
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-tl32ast****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundDistributionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The traffic distribution of personal information records involved in cross-border data transfer.
+   */
+  data?: DescribeSensitiveOutboundDistributionResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveOutboundDistributionResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundDistributionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveOutboundDistributionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveOutboundDistributionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundStatisticRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   **report**: Risks exist in cross-border data transfer.
+   * *   **none**: No risks exist in cross-border data transfer.
+   * 
+   * @example
+   * report
+   */
+  detectionResult?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the sorting field. Valid values:
+   * 
+   * *   **total_count** (default): total number of data entries
+   * *   **outbound_count**: total number of data entries that are transferred across borders
+   * 
+   * @example
+   * total_count
+   */
+  orderKey?: string;
+  /**
+   * @remarks
+   * The sorting method. Valid values:
+   * 
+   * *   **desc** (default): in descending order
+   * *   **asc**: in ascending order
+   * 
+   * @example
+   * desc
+   */
+  orderWay?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the sensitive data. Separate multiple types with commas (,).
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data. Only built-in types of sensitive data are supported for this operation.
+   * 
+   * @example
+   * 1000,1001
+   */
+  sensitiveCode?: string;
+  /**
+   * @remarks
+   * The sensitivity level. Valid values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * @example
+   * high
+   */
+  sensitiveLevel?: string;
+  /**
+   * @remarks
+   * The type of the information. Valid values:
+   * 
+   * *   **info** (default): full personal information
+   * *   **sensitive**: sensitive personal information
+   * 
+   * @example
+   * info
+   */
+  sensitiveType?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      detectionResult: 'DetectionResult',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      orderKey: 'OrderKey',
+      orderWay: 'OrderWay',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveLevel: 'SensitiveLevel',
+      sensitiveType: 'SensitiveType',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      detectionResult: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      orderKey: 'string',
+      orderWay: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      sensitiveCode: 'string',
+      sensitiveLevel: 'string',
+      sensitiveType: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data types of personal information involved in cross-border data transfer.
+   */
+  data?: DescribeSensitiveOutboundStatisticResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2EFCFE18-78F8-5079-B312-07***48B
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveOutboundStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveOutboundStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveOutboundStatisticResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundTrendRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 433
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * >  You can query only data of the previous month, previous 3 months, previous 6 months, previous 12 months, and data generated since January 1 of last year for compliance check. You must specify a valid time range.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundTrendResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information records involved in cross-border data transfer.
+   */
+  data?: DescribeSensitiveOutboundTrendResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C1823E96-EF4B-5BD2-9E02-1D18****3ED8
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 7
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveOutboundTrendResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundTrendResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveOutboundTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveOutboundTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/users/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 103.118.55.**
+   */
+  clientIP?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 433
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1726057800
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_cdnsdf3****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The domain name of the API.
+   * 
+   * @example
+   * a.***.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the sensitive data.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * 
+   * @example
+   * 1000,1001
+   */
+  sensitiveCode?: string;
+  /**
+   * @remarks
+   * The response sensitive data.
+   * 
+   * @example
+   * user
+   */
+  sensitiveData?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723392000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      clientIP: 'ClientIP',
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      matchedHost: 'MatchedHost',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveData: 'SensitiveData',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      clientIP: 'string',
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      matchedHost: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      sensitiveCode: 'string',
+      sensitiveData: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestLogResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The access logs.
+   */
+  data?: DescribeSensitiveRequestLogResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 26E46541-7AAB-5565-801D-F14DBDC5****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 7
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveRequestLogResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestLogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveRequestLogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveRequestLogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 269
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aekzwwkpn****5i
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the sensitive data.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * 
+   * @example
+   * 1001
+   */
+  sensitiveCode?: number;
+  /**
+   * @remarks
+   * The sensitive data.
+   * 
+   * @example
+   * card
+   */
+  sensitiveData?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723392000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveData: 'SensitiveData',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      sensitiveCode: 'number',
+      sensitiveData: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The tracing results of the data.
+   */
+  data?: DescribeSensitiveRequestsResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 26E46541-7AAB-5565-801D-F14DBDC5****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveRequestsResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveRequestsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveRequestsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveStatisticRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1725966000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0xldbq****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **10**.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
+  startTime?: number;
+  /**
+   * @remarks
+   * The type of the statistics. Valid values:
+   * 
+   * *   **ip**: IP address
+   * *   **host**: domain name
+   * *   **sensitive_code**: sensitive data type
+   * *   **api**: sensitive data-related API
+   * 
+   * @example
+   * ip
+   */
+  statisticType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+      statisticType: 'StatisticType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+      statisticType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveStatisticResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The statistics of the sensitive data.
+   */
+  data?: DescribeSensitiveStatisticResponseBodyData[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': DescribeSensitiveStatisticResponseBodyData },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveStatisticResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSensitiveStatisticResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSensitiveStatisticResponseBody,
     };
   }
 
@@ -12714,6 +17495,862 @@ export class DescribeTemplateResourcesResponse extends $tea.Model {
   }
 }
 
+export class DescribeUserAbnormalTrendRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-uqm342yj***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTrendResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The trends of risks.
+   */
+  trend?: DescribeUserAbnormalTrendResponseBodyTrend[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trend: { 'type': 'array', 'itemType': DescribeUserAbnormalTrendResponseBodyTrend },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTrendResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserAbnormalTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserAbnormalTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 993
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1726113600
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-g4***201
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-ac***lani
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The types and statistics of risks.
+   */
+  abnormal?: DescribeUserAbnormalTypeResponseBodyAbnormal[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3E1CB966-1407-5988-9432-7***D784
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormal: 'Abnormal',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormal: { 'type': 'array', 'itemType': DescribeUserAbnormalTypeResponseBodyAbnormal },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserAbnormalTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserAbnormalTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserApiRequestRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/v1/know
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 3799f0695c0d687f3295d132fe49bc14
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * c.***.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-zxu38***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The type of the statistics. Valid values:
+   * 
+   * *   **api_ip**: total traffic
+   * *   **api_cross_border_ip**: cross-border traffic
+   * *   **api_bot_ip**: bot traffic
+   * *   **remote_region**: geographical location
+   * *   **client_id**: client type
+   * *   **http_referer**: Referer
+   * *   **api_cnt**: total number of calls
+   * *   **bot_cnt**: number of bot calls
+   * *   **cross_border_cnt**: number of cross-border requests
+   * *   **api_freq**: call frequency
+   * 
+   * @example
+   * api_ip
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      clusterId: 'ClusterId',
+      domain: 'Domain',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      apiId: 'string',
+      clusterId: 'string',
+      domain: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserApiRequestResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D13E4540-4432-5AD7-B216-6369512514F4
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The statistics.
+   */
+  requests?: DescribeUserApiRequestResponseBodyRequests[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      requests: 'Requests',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      requests: { 'type': 'array', 'itemType': DescribeUserApiRequestResponseBodyRequests },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserApiRequestResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserApiRequestResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserApiRequestResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The type of the statistics. Valid values:
+   * 
+   * *   **asset_num**: total number of APIs
+   * *   **asset_active**: number of active APIs
+   * *   **asset_newborn**: number of new APIs
+   * *   **asset_offline**: number of deactivated APIs
+   * *   **asset_bot**: number of APIs that are called by bots
+   * *   **asset_cross_border**: number of APIs that are called for cross-border data transfer
+   * *   **sensitive_api**: number of response-sensitive APIs
+   * *   **sensitive_domain**: number of response-sensitive domain names
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * asset_num
+   */
+  dataType?: string;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  days?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-uax37ijm***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dataType: 'DataType',
+      days: 'Days',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dataType: 'string',
+      days: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The API statistics.
+   */
+  assets?: DescribeUserAssetResponseBodyAssets[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C1823E96-EF4B-5BD2-9E02-1D18****3ED8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assets: 'Assets',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assets: { 'type': 'array', 'itemType': DescribeUserAssetResponseBodyAssets },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserAssetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserAssetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTrendRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-7mz2797x***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aekzwwk****cv5i
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTrendResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F51E6DD6-B2D2-57C9-90F1-FAFD0A19DE00
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The trends of attacks.
+   */
+  trend?: DescribeUserEventTrendResponseBodyTrend[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      trend: { 'type': 'array', 'itemType': DescribeUserEventTrendResponseBodyTrend },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTrendResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserEventTrendResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserEventTrendResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 976
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1726113600
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v2_public_cn-5y***h0t
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-aek***ktt3y
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      endTime: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The types and statistics of security events.
+   */
+  event?: DescribeUserEventTypeResponseBodyEvent[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 177BA739-6512-5470-98C6-E***0BAA3D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: { 'type': 'array', 'itemType': DescribeUserEventTypeResponseBodyEvent },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeUserEventTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeUserEventTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserSlsLogRegionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -13156,7 +18793,7 @@ export class DescribeVisitUasRequest extends $tea.Model {
    * @remarks
    * The region where the WAF instance resides. Valid values:
    * 
-   * *   **cn-hangzhou:** the Chinese mainland
+   * *   **cn-hangzhou:** the Chinese mainland.
    * *   **ap-southeast-1:** outside the Chinese mainland.
    * 
    * @example
@@ -13171,6 +18808,7 @@ export class DescribeVisitUasRequest extends $tea.Model {
    * www.aliyundoc.com
    */
   resource?: string;
+  resourceManagerResourceGroupId?: string;
   /**
    * @remarks
    * The beginning of the time range to query. Unit: seconds.
@@ -13187,6 +18825,7 @@ export class DescribeVisitUasRequest extends $tea.Model {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       resource: 'Resource',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       startTimestamp: 'StartTimestamp',
     };
   }
@@ -13197,6 +18836,7 @@ export class DescribeVisitUasRequest extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       resource: 'string',
+      resourceManagerResourceGroupId: 'string',
       startTimestamp: 'string',
     };
   }
@@ -13381,6 +19021,8 @@ export class ListTagKeysRequest extends $tea.Model {
    * The ID of the WAF instance.
    * 
    * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
    * 
    * @example
    * waf_v3prepaid_public_cn-wwo****iw02
@@ -13646,6 +19288,11 @@ export class ListTagResourcesResponse extends $tea.Model {
 export class ListTagValuesRequest extends $tea.Model {
   /**
    * @remarks
+   * This parameter is required.
+   */
+  instanceId?: string;
+  /**
+   * @remarks
    * The tag key.
    * 
    * This parameter is required.
@@ -13675,6 +19322,7 @@ export class ListTagValuesRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceManagerResourceGroupId?: string;
   /**
    * @remarks
    * The type of the resource. Set the value to ALIYUN::WAF::DEFENSERESOURCE.
@@ -13687,18 +19335,22 @@ export class ListTagValuesRequest extends $tea.Model {
   resourceType?: string;
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
       key: 'Key',
       nextToken: 'NextToken',
       regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
       resourceType: 'ResourceType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
       key: 'string',
       nextToken: 'string',
       regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
       resourceType: 'string',
     };
   }
@@ -13768,6 +19420,456 @@ export class ListTagValuesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecAbnormalsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The risk IDs.
+   * 
+   * This parameter is required.
+   */
+  abnormalIds?: string[];
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_public_cn-****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * already fixed.
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The risk status. Valid values:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **toBeFixed**
+   * *   **fixed**
+   * *   **ignored**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * fixed
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalIds: 'AbnormalIds',
+      clusterId: 'ClusterId',
+      instanceId: 'InstanceId',
+      note: 'Note',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalIds: { 'type': 'array', 'itemType': 'string' },
+      clusterId: 'string',
+      instanceId: 'string',
+      note: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      userStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecAbnormalsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C1823E96-EF4B-5BD2-9E02-1D18****3ED8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecAbnormalsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecAbnormalsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecAbnormalsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecApiResourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c68995b89069595c5c0399676f3ca64f
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to follow the API. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0** (default): no
+   * 
+   * @example
+   * 0
+   */
+  follow?: number;
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0xldbqt****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * know
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiId: 'ApiId',
+      clusterId: 'ClusterId',
+      follow: 'Follow',
+      instanceId: 'InstanceId',
+      note: 'Note',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiId: 'string',
+      clusterId: 'string',
+      follow: 'number',
+      instanceId: 'string',
+      note: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecApiResourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19****5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecApiResourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecApiResourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecApiResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecEventsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the hybrid cloud cluster.
+   * 
+   * @example
+   * 428
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * The IDs of the security events.
+   * 
+   * This parameter is required.
+   */
+  eventIds?: string[];
+  /**
+   * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_v3prepaid_***
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * already confirmed.
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The status of the event. Valid values:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * confirmed
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      eventIds: 'EventIds',
+      instanceId: 'InstanceId',
+      note: 'Note',
+      regionId: 'RegionId',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      eventIds: { 'type': 'array', 'itemType': 'string' },
+      instanceId: 'string',
+      note: 'string',
+      regionId: 'string',
+      resourceManagerResourceGroupId: 'string',
+      userStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-****-6B19160D5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecEventsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecEventsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecEventsResponseBody,
     };
   }
 
@@ -14073,9 +20175,302 @@ export class ModifyApisecLogDeliveryStatusResponse extends $tea.Model {
   }
 }
 
+export class ModifyApisecModuleStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf_elasticity-cn-0xldbqtm**
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The status of the compliance check feature. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
+  reportStatus?: number;
+  /**
+   * @remarks
+   * The name of the protected object group to which the protected object belongs.
+   * 
+   * @example
+   * group1
+   */
+  resourceGroups?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the protected object.
+   * 
+   * @example
+   * cwaf-***-waf
+   */
+  resources?: string;
+  /**
+   * @remarks
+   * The status of the tracing and auditing feature. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
+  traceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      reportStatus: 'ReportStatus',
+      resourceGroups: 'ResourceGroups',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resources: 'Resources',
+      traceStatus: 'TraceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      reportStatus: 'number',
+      resourceGroups: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resources: 'string',
+      traceStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecModuleStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19****5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecModuleStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecModuleStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecModuleStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the API security module. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  apisecStatus?: number;
+  /**
+   * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * waf-cn-tl32ast****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland
+   * *   **ap-southeast-1**: outside the Chinese mainland
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The name of the protected object group to which the protected object belongs.
+   * 
+   * @example
+   * group
+   */
+  resourceGroups?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
+   * @example
+   * rg-acfm***q
+   */
+  resourceManagerResourceGroupId?: string;
+  /**
+   * @remarks
+   * The name of the protected object.
+   * 
+   * @example
+   * alb-wewbb23dfset***
+   */
+  resources?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apisecStatus: 'ApisecStatus',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      resourceGroups: 'ResourceGroups',
+      resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resources: 'Resources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apisecStatus: 'number',
+      instanceId: 'string',
+      regionId: 'string',
+      resourceGroups: 'string',
+      resourceManagerResourceGroupId: 'string',
+      resources: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * D7861F61-5B61-46CE-A47C-6B19160D5EB0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyApisecStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyApisecStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyApisecStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyCloudResourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14084,12 +20479,23 @@ export class ModifyCloudResourceRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The configurations of the listeners.
+   * 
    * This parameter is required.
    */
   listen?: ModifyCloudResourceRequestListen;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   redirect?: ModifyCloudResourceRequestRedirect;
   /**
    * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14097,6 +20503,9 @@ export class ModifyCloudResourceRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -14129,6 +20538,10 @@ export class ModifyCloudResourceRequest extends $tea.Model {
 export class ModifyCloudResourceShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14137,12 +20550,23 @@ export class ModifyCloudResourceShrinkRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The configurations of the listeners.
+   * 
    * This parameter is required.
    */
   listenShrink?: string;
+  /**
+   * @remarks
+   * The configurations of the forwarding rule.
+   */
   redirectShrink?: string;
   /**
    * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14150,6 +20574,9 @@ export class ModifyCloudResourceShrinkRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
@@ -14181,11 +20608,17 @@ export class ModifyCloudResourceShrinkRequest extends $tea.Model {
 
 export class ModifyCloudResourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the resource that is added to WAF.
+   * 
    * @example
    * lb-xxx-80-clb7
    */
   cloudResource?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * D7861F61-5B61-46CE-A47C-***
    */
@@ -14237,6 +20670,8 @@ export class ModifyCloudResourceResponse extends $tea.Model {
 export class ModifyDefaultHttpsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the certificate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14244,18 +20679,39 @@ export class ModifyDefaultHttpsRequest extends $tea.Model {
    */
   certId?: string;
   /**
+   * @remarks
+   * The type of the cipher suites. Valid values:
+   * 
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites.
+   * *   **99**: custom cipher suites.
+   * 
    * @example
    * 0
    */
   cipherSuite?: number;
+  /**
+   * @remarks
+   * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+   */
   customCiphers?: string[];
   /**
+   * @remarks
+   * Specifies whether to support TLS 1.3. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   enableTLSv3?: boolean;
   /**
    * @remarks
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14263,17 +20719,32 @@ export class ModifyDefaultHttpsRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region in which the WAF instance is deployed. Valid values:
+   * 
+   * *   **cn-hangzhou**: the Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group.
+   * 
    * @example
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
+   * The version of the TLS protocol. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14313,6 +20784,9 @@ export class ModifyDefaultHttpsRequest extends $tea.Model {
 
 export class ModifyDefaultHttpsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 276D7566-31C9-4192-9DD1-***
    */
@@ -14728,15 +21202,7 @@ export class ModifyDefenseRuleRequest extends $tea.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The details of the protection rule. Specify a string that contains multiple parameters in the JSON format. You must specify the ID and the new configurations of the protection rule.
-   * 
-   * *   **id:** The ID of the protection rule. Data type: long. You must specify this parameter.
-   * *   The protection rule configurations: The role of this parameter is the same as that of the **Rules** parameter in the **CreateDefenseRule** topic. For more information, see the "**Protection rule parameters**" section in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * [{"id":2344,"policyId":1012,"action":"block"}]
    */
   rules?: string;
   /**
@@ -17802,8 +24268,23 @@ export class UntagResourcesResponse extends $tea.Model {
 }
 
 export class CreateCloudResourceRequestListenCertificates extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the HTTPS certificate. Valid values:
+   * 
+   * *   **default**: default certificate.
+   * *   **extension**: additional certificate.
+   * 
+   * @example
+   * default
+   */
   appliedType?: string;
   /**
+   * @remarks
+   * The ID of the certificate that you want to add.
+   * 
+   * >  You can call the [DescribeCertificates](https://help.aliyun.com/document_detail/160783.html) operation to query the IDs of all SSL certificates that are associated with a domain name.
+   * 
    * @example
    * 123-cn-hangzhou
    */
@@ -17828,14 +24309,35 @@ export class CreateCloudResourceRequestListenCertificates extends $tea.Model {
 }
 
 export class CreateCloudResourceRequestListen extends $tea.Model {
+  /**
+   * @remarks
+   * An array of certificates.
+   */
   certificates?: CreateCloudResourceRequestListenCertificates[];
   /**
+   * @remarks
+   * The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites. You can set the parameter to this value only if you set **TLSVersion** to **tlsv1.2**.
+   * *   **99**: custom cipher suites.
+   * 
    * @example
    * 1
    */
   cipherSuite?: number;
+  /**
+   * @remarks
+   * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+   */
   customCiphers?: string[];
   /**
+   * @remarks
+   * Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    * 
@@ -17844,12 +24346,20 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
    */
   enableTLSv3?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
    * @example
    * true
    */
   http2Enabled?: boolean;
   /**
    * @remarks
+   * The port of the resource that you want to add to WAF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17858,6 +24368,11 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
   port?: number;
   /**
    * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17866,6 +24381,8 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
   protocol?: string;
   /**
    * @remarks
+   * The ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17874,6 +24391,12 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
+   * The cloud service. Valid values:
+   * 
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: ECS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17881,6 +24404,13 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
    */
   resourceProduct?: string;
   /**
+   * @remarks
+   * The Transport Layer Security (TLS) version. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
    * @example
    * tlsv1
    */
@@ -17922,11 +24452,17 @@ export class CreateCloudResourceRequestListen extends $tea.Model {
 
 export class CreateCloudResourceRequestRedirectRequestHeaders extends $tea.Model {
   /**
+   * @remarks
+   * The key of the custom header field.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the custom header field.
+   * 
    * @example
    * value1
    */
@@ -17952,38 +24488,85 @@ export class CreateCloudResourceRequestRedirectRequestHeaders extends $tea.Model
 
 export class CreateCloudResourceRequestRedirect extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the persistent connection feature. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false:**
+   * 
    * @example
    * true
    */
   keepalive?: boolean;
   /**
+   * @remarks
+   * The number of requests that reuse persistent connections. Valid values: 60 to 1000.
+   * 
+   * >  This parameter specifies the number of requests that can reuse persistent connections after you enable the persistent connection feature.
+   * 
    * @example
    * 1000
    */
   keepaliveRequests?: number;
   /**
+   * @remarks
+   * The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * 
+   * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed
+   * 
    * @example
    * 15
    */
   keepaliveTimeout?: number;
   /**
+   * @remarks
+   * The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 1
    */
   readTimeout?: number;
+  /**
+   * @remarks
+   * The custom header fields. Specify the value in the [**{"k":"*key*","v":"*value*"}**] format. ***key*** specifies the key of the custom header field. ***value*** specifies the value of the custom header field.
+   * 
+   * >  If the request contains the custom header field, WAF overwrites the original value of the field with the specified value.
+   */
   requestHeaders?: CreateCloudResourceRequestRedirectRequestHeaders[];
   /**
+   * @remarks
+   * The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 1
    */
   writeTimeout?: number;
   /**
+   * @remarks
+   * The method that WAF uses to obtain the originating IP address of a client. Valid values:
+   * 
+   * *   **0**: No Layer 7 proxies are deployed in front of WAF.
+   * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+   * *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+   * 
    * @example
    * 1
    */
   xffHeaderMode?: number;
+  /**
+   * @remarks
+   * The custom header fields that are used to obtain the originating IP address of a client. Specify the value in the **["header1","header2",...]** format.
+   * 
+   * >  This parameter is required only if you set **XffHeaderMode** to 2.
+   */
   xffHeaders?: string[];
   /**
+   * @remarks
+   * Specifies whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -18529,28 +25112,131 @@ export class CreateDomainResponseBodyDomainInfo extends $tea.Model {
   }
 }
 
+export class DescribeApiExportsResponseBodyApiExports extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1725604852
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The name of the file.
+   * 
+   * @example
+   * file_16109541456445334c0f01d9a7444e0e908***.csv
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The download URL of the exported file.
+   * 
+   * @example
+   * https://waf-api-sec-cn.***.aliyuncs.com/file_1610954145***.csv
+   */
+  fileUrl?: string;
+  /**
+   * @remarks
+   * The format of the exported file.
+   * 
+   * @example
+   * CSV
+   */
+  format?: string;
+  /**
+   * @remarks
+   * The status of the data export task. Valid values:
+   * 
+   * * **expired**: The file is expired.
+   * 
+   * * **exporting**: Data is being exported.
+   * 
+   * * **completed**: Data is exported.
+   * 
+   * @example
+   * completed
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The type of the data export task. Valid values:
+   * 
+   * * **apisec_api**: API tasks
+   * 
+   * * **apisec_abnormal**: API risk tasks
+   * 
+   * * **apisec_event**: API security event tasks
+   * 
+   * @example
+   * apisec_api
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      fileName: 'FileName',
+      fileUrl: 'FileUrl',
+      format: 'Format',
+      status: 'Status',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      fileName: 'string',
+      fileUrl: 'string',
+      format: 'string',
+      status: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The number of APIs.
+   * 
    * @example
    * 10
    */
   apiCount?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * ba.aliyun.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The number of high-level risks.
+   * 
    * @example
    * 12
    */
   high?: number;
   /**
+   * @remarks
+   * The number of low-level risks.
+   * 
    * @example
    * 4
    */
   low?: number;
   /**
+   * @remarks
+   * The number of medium-level risks.
+   * 
    * @example
    * 9
    */
@@ -18580,23 +25266,537 @@ export class DescribeApisecAbnormalDomainStatisticResponseBodyData extends $tea.
   }
 }
 
+export class DescribeApisecAbnormalsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of risk-related security events.
+   * 
+   * @example
+   * 2
+   */
+  abnormalEventNumber?: number;
+  /**
+   * @remarks
+   * The ID of the risk.
+   * 
+   * @example
+   * 7c1431f27ae7e9c8cc64095***68e
+   */
+  abnormalId?: string;
+  /**
+   * @remarks
+   * The details of the risk. The value is a string that consists of multiple parameters in the JSON format. Valid values:
+   * 
+   * * **rule**: risk-related rule
+   * * **data_type**: sensitive data type
+   * * **custom_rule_name**: custom rule name
+   * * **rule_name**: built-in rule name
+   * 
+   * @example
+   * { "data_type": ["1005","1004"], "rule": { "parent": "RiskType_Permission", "code": "Risk_UnauthSensitive", "level": "high", "origin": "default", "name": "Risk_UnauthSensitive" } }
+   */
+  abnormalInfo?: string;
+  /**
+   * @remarks
+   * The level of the risk. Valid values:
+   * 
+   * * **high**
+   * * **medium**
+   * * **low**
+   * 
+   * @example
+   * high
+   */
+  abnormalLevel?: string;
+  /**
+   * @remarks
+   * The type of the risk.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * 
+   * @example
+   * LackOfSpeedLimit
+   */
+  abnormalTag?: string;
+  /**
+   * @remarks
+   * The status of the risk.
+   * 
+   * @example
+   * unresolved
+   */
+  abnromalStatus?: string;
+  /**
+   * @remarks
+   * The risk-related API.
+   * 
+   * @example
+   * /api/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the risk-related API.
+   * 
+   * @example
+   * 09559c0d71ca2ffc996b81***836d8
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purposes of APIs.
+   * 
+   * @example
+   * SendMail
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The time at which the risk was detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1684252800
+   */
+  discoverTime?: number;
+  /**
+   * @remarks
+   * The risk-related samples.
+   */
+  examples?: string[];
+  /**
+   * @remarks
+   * The time at which the risk was first detected. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1701138088
+   */
+  firstTime?: number;
+  /**
+   * @remarks
+   * Indicates whether the API is followed. Valid values:
+   * 
+   * *   **1**: yes
+   * *   **0**(default): no
+   * 
+   * @example
+   * 0
+   */
+  follow?: number;
+  /**
+   * @remarks
+   * The time at which the risk was marked as ignored. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1684252800
+   */
+  ignoreTime?: number;
+  /**
+   * @remarks
+   * The time at which the risk was last active. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1684252800
+   */
+  lastestTime?: number;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Business side notified
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The source of the risk type. Valid values:
+   * 
+   * *   **custom**
+   * *   **default**
+   * 
+   * @example
+   * custom
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The status of the risk. Valid values:
+   * 
+   * * **toBeConfirmed**
+   * * **confirmed**
+   * * **toBeFixed**
+   * * **fixed**
+   * * **ignored**
+   * 
+   * @example
+   * Confirmed
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalEventNumber: 'AbnormalEventNumber',
+      abnormalId: 'AbnormalId',
+      abnormalInfo: 'AbnormalInfo',
+      abnormalLevel: 'AbnormalLevel',
+      abnormalTag: 'AbnormalTag',
+      abnromalStatus: 'AbnromalStatus',
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiTag: 'ApiTag',
+      discoverTime: 'DiscoverTime',
+      examples: 'Examples',
+      firstTime: 'FirstTime',
+      follow: 'Follow',
+      ignoreTime: 'IgnoreTime',
+      lastestTime: 'LastestTime',
+      matchedHost: 'MatchedHost',
+      note: 'Note',
+      origin: 'Origin',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalEventNumber: 'number',
+      abnormalId: 'string',
+      abnormalInfo: 'string',
+      abnormalLevel: 'string',
+      abnormalTag: 'string',
+      abnromalStatus: 'string',
+      apiFormat: 'string',
+      apiId: 'string',
+      apiTag: 'string',
+      discoverTime: 'number',
+      examples: { 'type': 'array', 'itemType': 'string' },
+      firstTime: 'number',
+      follow: 'number',
+      ignoreTime: 'number',
+      lastestTime: 'number',
+      matchedHost: 'string',
+      note: 'string',
+      origin: 'string',
+      userStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecApiResourcesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of API-related risks.
+   * 
+   * @example
+   * 2
+   */
+  abnormalNum?: number;
+  /**
+   * @remarks
+   * The total number of calls to this API in the previous 30 days.
+   * 
+   * @example
+   * 10
+   */
+  allCnt?: number;
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /v1/etl/finddatabyvid
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * @example
+   * 867ade***24ee6e205b8da82b8f84
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The API-related information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
+   * 
+   * * **param_num**: the number of API parameters
+   * * **request_method**: the request method
+   * * **protocol**: the request protocol
+   * * **api_url**: the request URL
+   * * **poc_payload**: the request
+   * * **request**: the sample request
+   * * **response**: the sample response
+   * * **param**: the request parameters
+   */
+  apiInfo?: string;
+  /**
+   * @remarks
+   * The request method of the API. Valid values:
+   * 
+   * * **GET**
+   * * **POST**
+   * * **HEAD**
+   * * **PUT**
+   * * **DELETE**
+   * * **CONNECT**
+   * * **PATCH**
+   * * **OPTIONS**
+   * 
+   * @example
+   * POST
+   */
+  apiMethod?: string;
+  /**
+   * @remarks
+   * The API-related sensitive information. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
+   * 
+   * * **request_sensitive_list**: the sensitive data type in the request
+   * * **response_sensitive_list**: the sensitive data type in the response
+   * * **sensitive_list**: sensitive data types
+   * * **sensitive_level**: sensitivity level
+   * 
+   * @example
+   * {
+   *     "sensitive_list": ["1003","1005"],
+   *     "sensitive_level": "L2",
+   *     "request_sensitive_list": ["1003"],
+   *     "response_sensitive_list": ["1005"]
+   * }
+   */
+  apiSensitive?: string;
+  /**
+   * @remarks
+   * The sensitive data type in the request.
+   * 
+   * @example
+   * ["1002","1005"]
+   */
+  apiSensitiveRequest?: string;
+  /**
+   * @remarks
+   * The sensitive data type in the response.
+   * 
+   * @example
+   * ["1002","1005"]
+   */
+  apiSensitiveResponse?: string;
+  /**
+   * @remarks
+   * The API status. Valid values:
+   * 
+   * *   **NewbornInterface**: The API is newly added.
+   * *   **OfflineInterface**: The API is inactive.
+   * *   **normal**: The API is normal.
+   * 
+   * @example
+   * NewbornInterface
+   */
+  apiStatus?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * 
+   * @example
+   * SendMail
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The service object. Valid values:
+   * 
+   * *   **PublicAPI**: public services
+   * *   **ThirdpartAPI**: cooperation with third-party partners
+   * *   **InternalAPI**: internal office
+   * 
+   * @example
+   * PublicAPI
+   */
+  apiType?: string;
+  /**
+   * @remarks
+   * Indicates whether authentication is required. Valid values:
+   * 
+   * * **0**: Authentication is required.
+   * * **1**: Authentication is not required.
+   * 
+   * @example
+   * 1
+   */
+  authFlag?: string;
+  /**
+   * @remarks
+   * The number of bot-initiated requests in the previous 30 days.
+   * 
+   * @example
+   * 2
+   */
+  botCnt?: number;
+  /**
+   * @remarks
+   * The number of the cross-border requests in the previous 30 days.
+   * 
+   * @example
+   * 2
+   */
+  crossBorderCnt?: number;
+  /**
+   * @remarks
+   * The number of API-related security events.
+   * 
+   * @example
+   * 2
+   */
+  eventNum?: number;
+  /**
+   * @remarks
+   * The sample APIs.
+   */
+  examples?: string[];
+  /**
+   * @remarks
+   * The time when the API asset was first detected. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683388800
+   */
+  farthestTs?: number;
+  /**
+   * @remarks
+   * Specifies whether to follow the API. Valid values:
+   * 
+   * *   **1**: follows the API.
+   * *   **0**: does not follow the API.
+   * 
+   * @example
+   * 1
+   */
+  follow?: number;
+  /**
+   * @remarks
+   * The most recent access time of the API. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683388800
+   */
+  lastestTs?: number;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Password changed
+   */
+  note?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalNum: 'AbnormalNum',
+      allCnt: 'AllCnt',
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiInfo: 'ApiInfo',
+      apiMethod: 'ApiMethod',
+      apiSensitive: 'ApiSensitive',
+      apiSensitiveRequest: 'ApiSensitiveRequest',
+      apiSensitiveResponse: 'ApiSensitiveResponse',
+      apiStatus: 'ApiStatus',
+      apiTag: 'ApiTag',
+      apiType: 'ApiType',
+      authFlag: 'AuthFlag',
+      botCnt: 'BotCnt',
+      crossBorderCnt: 'CrossBorderCnt',
+      eventNum: 'EventNum',
+      examples: 'Examples',
+      farthestTs: 'FarthestTs',
+      follow: 'Follow',
+      lastestTs: 'LastestTs',
+      matchedHost: 'MatchedHost',
+      note: 'Note',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalNum: 'number',
+      allCnt: 'number',
+      apiFormat: 'string',
+      apiId: 'string',
+      apiInfo: 'string',
+      apiMethod: 'string',
+      apiSensitive: 'string',
+      apiSensitiveRequest: 'string',
+      apiSensitiveResponse: 'string',
+      apiStatus: 'string',
+      apiTag: 'string',
+      apiType: 'string',
+      authFlag: 'string',
+      botCnt: 'number',
+      crossBorderCnt: 'number',
+      eventNum: 'number',
+      examples: { 'type': 'array', 'itemType': 'string' },
+      farthestTs: 'number',
+      follow: 'number',
+      lastestTs: 'number',
+      matchedHost: 'string',
+      note: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecAssetTrendResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The number of active assets.
+   * 
    * @example
    * 60
    */
   assetActive?: number;
   /**
+   * @remarks
+   * The total number of assets.
+   * 
    * @example
    * 80
    */
   assetCount?: number;
   /**
+   * @remarks
+   * The number of deactivated assets.
+   * 
    * @example
    * 20
    */
   assetOffline?: number;
   /**
+   * @remarks
+   * The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1683600042
    */
@@ -18626,26 +25826,41 @@ export class DescribeApisecAssetTrendResponseBodyData extends $tea.Model {
 
 export class DescribeApisecEventDomainStatisticResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The number of APIs.
+   * 
    * @example
    * 10
    */
   apiCount?: number;
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * a.aliyun.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The number of high-risk security events.
+   * 
    * @example
    * 10
    */
   high?: number;
   /**
+   * @remarks
+   * The number of low-risk security events.
+   * 
    * @example
    * 2
    */
   low?: number;
   /**
+   * @remarks
+   * The number of medium-risk security events.
+   * 
    * @example
    * 6
    */
@@ -18667,6 +25882,279 @@ export class DescribeApisecEventDomainStatisticResponseBodyData extends $tea.Mod
       high: 'number',
       low: 'number',
       medium: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecEventsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of attacks.
+   * 
+   * @example
+   * 10
+   */
+  allCnt?: number;
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /apisec/v1/register.php
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API that is associated with the security event.
+   * 
+   * @example
+   * 2ecc1cf67b91853bc55545052ccf06a8
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The business purpose of the API.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * 
+   * @example
+   * SendMail
+   */
+  apiTag?: string;
+  /**
+   * @remarks
+   * The client that is attacked.
+   * 
+   * @example
+   * Chrome
+   */
+  attackClient?: string;
+  /**
+   * @remarks
+   * The information about the number of attacks. The value of this parameter is a JSON string that contains multiple parameters. Key indicates the timestamp in seconds, and Value indicates the number of attacks.
+   * 
+   * @example
+   * {\\"1717498320\\":500,\\"1717498380\\":529,\\"1717498440\\":20,\\"1717498260\\":518,\\"1717498200\\":481,\\"1717498140\\":52}
+   */
+  attackCntInfo?: string;
+  /**
+   * @remarks
+   * The source IP address of the attack.
+   * 
+   * @example
+   * 104.234.140.33
+   */
+  attackIp?: string;
+  /**
+   * @remarks
+   * The information about the attack source IP address. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
+   * 
+   * *   **ip**: the IP address
+   * *   **country_id**: the country ID
+   * *   **region_id**: the region ID
+   * *   **cnt**: the number of attacks
+   * 
+   * @example
+   * [{\\"ip\\":\\"72.*.*.119\\",\\"country_id\\":\\"US\\",\\"region_id\\":\\"\\",\\"cnt\\":\\"2100\\"}]
+   */
+  attackIpInfo?: string;
+  /**
+   * @remarks
+   * The end of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683703260
+   */
+  endTs?: number;
+  /**
+   * @remarks
+   * The ID of the event.
+   * 
+   * @example
+   * c82cb276847e9c96f9597d9f4b0cdcff
+   */
+  eventId?: string;
+  /**
+   * @remarks
+   * The details of the event. The value of this parameter is a JSON string that contains multiple parameters. The value includes the following parameters:
+   * 
+   * *   **ip_info**: the information about the attack source IP address. This parameter corresponds to the **AttackIpInfo** response parameter.
+   * *   **rule_id**: the ID of the rule corresponding to the event.
+   * *   **rule_tag**: the information about the rule corresponding to the event.
+   * 
+   * @example
+   * {}
+   */
+  eventInfo?: string;
+  /**
+   * @remarks
+   * The severity level of the event. Valid values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * @example
+   * medium
+   */
+  eventLevel?: string;
+  /**
+   * @remarks
+   * The type of the event.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported event types.
+   * 
+   * @example
+   * ObtainSensitiveUnauthorized
+   */
+  eventTag?: string;
+  /**
+   * @remarks
+   * Indicates whether the API is followed. Valid values:
+   * 
+   * *   **1**: The API is followed.
+   * *   **0**: The API is not followed.
+   * 
+   * @example
+   * 0
+   */
+  follow?: number;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Notified
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The source of the event type. Valid values:
+   * 
+   * *   **custom**
+   * *   **default**
+   * 
+   * @example
+   * custom
+   */
+  origin?: string;
+  /**
+   * @remarks
+   * The country to which the attack source IP address belongs.
+   * 
+   * @example
+   * US
+   */
+  remoteCountry?: string;
+  /**
+   * @remarks
+   * The region to which the attack source IP address belongs.
+   * 
+   * @example
+   * 110000
+   */
+  remoteRegion?: string;
+  /**
+   * @remarks
+   * The sample API request. The value of this parameter is a JSON string that contains multiple parameters.
+   * 
+   * @example
+   * {}
+   */
+  requestData?: string;
+  /**
+   * @remarks
+   * The sample API response. The value of this parameter is a JSON string that contains multiple parameters.
+   * 
+   * @example
+   * {}
+   */
+  responseData?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query. This value is a UNIX timestamp in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683648000
+   */
+  startTs?: number;
+  /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
+   * 
+   * @example
+   * Ignore
+   */
+  userStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allCnt: 'AllCnt',
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      apiTag: 'ApiTag',
+      attackClient: 'AttackClient',
+      attackCntInfo: 'AttackCntInfo',
+      attackIp: 'AttackIp',
+      attackIpInfo: 'AttackIpInfo',
+      endTs: 'EndTs',
+      eventId: 'EventId',
+      eventInfo: 'EventInfo',
+      eventLevel: 'EventLevel',
+      eventTag: 'EventTag',
+      follow: 'Follow',
+      matchedHost: 'MatchedHost',
+      note: 'Note',
+      origin: 'Origin',
+      remoteCountry: 'RemoteCountry',
+      remoteRegion: 'RemoteRegion',
+      requestData: 'RequestData',
+      responseData: 'ResponseData',
+      startTs: 'StartTs',
+      userStatus: 'UserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allCnt: 'number',
+      apiFormat: 'string',
+      apiId: 'string',
+      apiTag: 'string',
+      attackClient: 'string',
+      attackCntInfo: 'string',
+      attackIp: 'string',
+      attackIpInfo: 'string',
+      endTs: 'number',
+      eventId: 'string',
+      eventInfo: 'string',
+      eventLevel: 'string',
+      eventTag: 'string',
+      follow: 'number',
+      matchedHost: 'string',
+      note: 'string',
+      origin: 'string',
+      remoteCountry: 'string',
+      remoteRegion: 'string',
+      requestData: 'string',
+      responseData: 'string',
+      startTs: 'number',
+      userStatus: 'string',
     };
   }
 
@@ -18748,27 +26236,280 @@ export class DescribeApisecLogDeliveriesResponseBodyDeliveryConfigs extends $tea
   }
 }
 
+export class DescribeApisecMatchedHostsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of APIs related to the domain name.
+   * 
+   * @example
+   * 31
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The domain name or IP address.
+   * 
+   * @example
+   * bc.aliyun.com
+   */
+  matchedHost?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      matchedHost: 'MatchedHost',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      matchedHost: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionGroupsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The switch of the API security module.
+   * 
+   * @example
+   * 1
+   */
+  apisecStatus?: number;
+  /**
+   * @remarks
+   * The switch of the compliance check feature.
+   * 
+   * @example
+   * 0
+   */
+  reportStatus?: number;
+  /**
+   * @remarks
+   * The name of the protected object group.
+   * 
+   * @example
+   * group1
+   */
+  resourceGroup?: string;
+  /**
+   * @remarks
+   * The switch of the tracing and auditing feature.
+   * 
+   * @example
+   * 0
+   */
+  traceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apisecStatus: 'ApisecStatus',
+      reportStatus: 'ReportStatus',
+      resourceGroup: 'ResourceGroup',
+      traceStatus: 'TraceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apisecStatus: 'number',
+      reportStatus: 'number',
+      resourceGroup: 'string',
+      traceStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecProtectionResourcesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The switch of the API security module.
+   * 
+   * @example
+   * 1
+   */
+  apisecStatus?: number;
+  /**
+   * @remarks
+   * The switch of the compliance check feature.
+   * 
+   * @example
+   * 1
+   */
+  reportStatus?: number;
+  /**
+   * @remarks
+   * The protected object.
+   * 
+   * @example
+   * cwaf-***-waf
+   */
+  resource?: string;
+  /**
+   * @remarks
+   * The switch of the tracing and auditing feature.
+   * 
+   * @example
+   * 0
+   */
+  traceStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apisecStatus: 'ApisecStatus',
+      reportStatus: 'ReportStatus',
+      resource: 'Resource',
+      traceStatus: 'TraceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apisecStatus: 'number',
+      reportStatus: 'number',
+      resource: 'string',
+      traceStatus: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecRulesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * @example
+   * 34933
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The details of the policy. The value is a string that consists of multiple parameters in the JSON format.
+   * 
+   * @example
+   * {
+   *     "ext": "Date",
+   *     "regex": "-",
+   *     "code": "2009",
+   *     "level": "S1",
+   *     "origin": "default",
+   *     "name": "2009"
+   * }
+   */
+  rule?: string;
+  /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **1**: enabled
+   * *   **0**: disabled
+   * 
+   * @example
+   * 1
+   */
+  status?: number;
+  /**
+   * @remarks
+   * The type of the policy. Valid values:
+   * 
+   * *   **risk**: risk detection
+   * *   **event**: security event
+   * *   **sensitive_word**: sensitive data
+   * *   **auth_flag**: authentication credential
+   * *   **api_tag**: business purpose
+   * *   **desensitization**: data masking
+   * *   **whitelist**: whitelist
+   * *   **recognition**: API recognition
+   * *   **offline_api**: lifecycle management
+   * 
+   * @example
+   * risk
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The time when the policy was updated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1721095301
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      rule: 'Rule',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      rule: 'string',
+      status: 'number',
+      type: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The number of APIs that are involved.
+   * 
    * @example
    * 10
    */
   apiCount?: number;
   /**
+   * @remarks
+   * The number of sites that are involved.
+   * 
    * @example
    * 10
    */
   domainCount?: number;
   /**
+   * @remarks
+   * The code of the sensitive data.
+   * 
    * @example
    * 10
    */
   sensitiveCode?: string;
   /**
+   * @remarks
+   * The sensitivity level of the sensitive data.
+   * 
    * @example
    * L3
    */
   sensitiveLevel?: string;
+  /**
+   * @remarks
+   * The name of the sensitive data.
+   * 
+   * @example
+   * 1002
+   */
   sensitiveName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18787,6 +26528,376 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea
       sensitiveCode: 'string',
       sensitiveLevel: 'string',
       sensitiveName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of APIs.
+   * 
+   * @example
+   * /api/v1/login
+   */
+  api?: number;
+  /**
+   * @remarks
+   * The number of confirmed events.
+   * 
+   * @example
+   * 10
+   */
+  confirmed?: number;
+  /**
+   * @remarks
+   * The number of domain names.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  domain?: number;
+  /**
+   * @remarks
+   * The number of fixed risks.
+   * 
+   * @example
+   * 0
+   */
+  fixed?: number;
+  /**
+   * @remarks
+   * The number of high-risk events.
+   * 
+   * @example
+   * 10
+   */
+  high?: number;
+  /**
+   * @remarks
+   * The number of ignored risks.
+   * 
+   * @example
+   * 0
+   */
+  ignore?: number;
+  /**
+   * @remarks
+   * The number of low-risk events.
+   * 
+   * @example
+   * 10
+   */
+  low?: number;
+  /**
+   * @remarks
+   * The number of moderate-risk events.
+   * 
+   * @example
+   * 10
+   */
+  medium?: number;
+  /**
+   * @remarks
+   * The number of events to be confirmed.
+   * 
+   * @example
+   * 10
+   */
+  toBeConfirmed?: number;
+  /**
+   * @remarks
+   * The number of risks to be fixed.
+   * 
+   * @example
+   * 10
+   */
+  toBeFixed?: number;
+  /**
+   * @remarks
+   * The number of new high-risk events today.
+   * 
+   * @example
+   * 10
+   */
+  todayHigh?: string;
+  /**
+   * @remarks
+   * The number of new low-risk events today.
+   * 
+   * @example
+   * 10
+   */
+  todayLow?: number;
+  /**
+   * @remarks
+   * The number of new moderate-risk events today.
+   * 
+   * @example
+   * 10
+   */
+  todayMedium?: string;
+  /**
+   * @remarks
+   * The total number of new events today.
+   * 
+   * @example
+   * 30
+   */
+  todayTotal?: string;
+  /**
+   * @remarks
+   * The total number of events.
+   * 
+   * @example
+   * 30
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      api: 'Api',
+      confirmed: 'Confirmed',
+      domain: 'Domain',
+      fixed: 'Fixed',
+      high: 'High',
+      ignore: 'Ignore',
+      low: 'Low',
+      medium: 'Medium',
+      toBeConfirmed: 'ToBeConfirmed',
+      toBeFixed: 'ToBeFixed',
+      todayHigh: 'TodayHigh',
+      todayLow: 'TodayLow',
+      todayMedium: 'TodayMedium',
+      todayTotal: 'TodayTotal',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      api: 'number',
+      confirmed: 'number',
+      domain: 'number',
+      fixed: 'number',
+      high: 'number',
+      ignore: 'number',
+      low: 'number',
+      medium: 'number',
+      toBeConfirmed: 'number',
+      toBeFixed: 'number',
+      todayHigh: 'string',
+      todayLow: 'number',
+      todayMedium: 'string',
+      todayTotal: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecSuggestionsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /apisec/v1/saveinfo
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The domain name or IP address of the API.
+   * 
+   * @example
+   * a.aliyun.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The rule ID of the protection suggestion.
+   * 
+   * @example
+   * 15060a1f8fed40130b7c4a7bf8d8733b
+   */
+  suggestId?: string;
+  /**
+   * @remarks
+   * The rule content of the protection suggestion. The value is a string that consists of multiple parameters in the JSON format. Valid values:
+   * 
+   * *   **event_tags**: event type
+   * *   **black_iplist**: IP address blacklist
+   * *   **ip_baseline**: IP address
+   * *   **freq_baseline**: throttling frequency
+   * *   **client_id_baseline**: client information
+   * *   **country_baseline**: country information
+   * *   **province_baseline**: province information
+   * *   **sensitive_type**: sensitive information
+   * 
+   * @example
+   * {
+   *     "rule": "ClientRule",
+   *     "client_id_baseline": ["Edge"]
+   * }
+   */
+  suggestRule?: string;
+  /**
+   * @remarks
+   * The rule type of the protection suggestion. Valid values:
+   * 
+   * *   **BotRule**: bot management rules
+   * *   **BlackIPRule**: IP address blacklist rules
+   * *   **WhiteIPRule**: IP address whitelist rules
+   * *   **RateLimitRule**: throttling rules
+   * *   **ClientRule**: client rules
+   * *   **GeoRule**: region-related rules
+   * *   **SensitiveRule**: sensitive information rules
+   * *   **UnauthRule**: authentication rules
+   * 
+   * @example
+   * WhiteIPRule
+   */
+  suggestType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      matchedHost: 'MatchedHost',
+      suggestId: 'SuggestId',
+      suggestRule: 'SuggestRule',
+      suggestType: 'SuggestType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      matchedHost: 'string',
+      suggestId: 'string',
+      suggestRule: 'string',
+      suggestType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApisecUserOperationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The state before the operation.
+   * 
+   * Valid values of the risk state:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **toBeFixed**
+   * *   **fixed**
+   * *   **ignored**
+   * 
+   * Valid values of the event state:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
+   * 
+   * @example
+   * ignored
+   */
+  fromStatus?: string;
+  /**
+   * @remarks
+   * The remarks.
+   * 
+   * @example
+   * Handled
+   */
+  note?: string;
+  /**
+   * @remarks
+   * The object ID of the operation record.
+   * 
+   * @example
+   * 24d997acc48a67a01e09b9c5ad861287
+   */
+  objectId?: string;
+  /**
+   * @remarks
+   * The time at which the operation was performed. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1685072214
+   */
+  time?: number;
+  /**
+   * @remarks
+   * The state after the operation.
+   * 
+   * Valid values of the risk state:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **toBeFixed**
+   * *   **fixed**
+   * *   **ignored**
+   * 
+   * Valid values of the event state:
+   * 
+   * *   **toBeConfirmed**
+   * *   **confirmed**
+   * *   **ignored**
+   * 
+   * @example
+   * Confirmed
+   */
+  toStatus?: string;
+  /**
+   * @remarks
+   * The type of the operation record. Valid values:
+   * 
+   * *   **abnormal**: risk detection
+   * *   **event**: security event
+   * 
+   * @example
+   * abnormal
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The user ID.
+   * 
+   * @example
+   * 1610954****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fromStatus: 'FromStatus',
+      note: 'Note',
+      objectId: 'ObjectId',
+      time: 'Time',
+      toStatus: 'ToStatus',
+      type: 'Type',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fromStatus: 'string',
+      note: 'string',
+      objectId: 'string',
+      time: 'number',
+      toStatus: 'string',
+      type: 'string',
+      userId: 'string',
     };
   }
 
@@ -18969,16 +27080,28 @@ export class DescribeCertsResponseBodyCerts extends $tea.Model {
 
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates extends $tea.Model {
   /**
+   * @remarks
+   * The type of the HTTPS certificate. Valid values:
+   * 
+   * *   **default**: default certificate.
+   * *   **extension**: additional certificate.
+   * 
    * @example
    * default
    */
   appliedType?: string;
   /**
+   * @remarks
+   * The ID of the certificate.
+   * 
    * @example
    * 123-cn-hangzhou
    */
   certificateId?: string;
   /**
+   * @remarks
+   * The name of the certificate.
+   * 
    * @example
    * cert-name1
    */
@@ -19006,11 +27129,17 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders extends $tea.Model {
   /**
+   * @remarks
+   * The key of the custom header field.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the custom header field.
+   * 
    * @example
    * value1
    */
@@ -19035,81 +27164,182 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 }
 
 export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails extends $tea.Model {
+  /**
+   * @remarks
+   * The certificates that are associated with the ports of cloud services.
+   */
   certificates?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsCertificates[];
   /**
+   * @remarks
+   * The type of the cipher suites. Valid values:
+   * 
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites.
+   * *   **99**: custom cipher suites.
+   * 
    * @example
    * 1
    */
   cipherSuite?: number;
+  /**
+   * @remarks
+   * The custom cipher suites that you want to add. This parameter is available only if you set **CipherSuite** to **99**.
+   */
   customCiphers?: string[];
   /**
+   * @remarks
+   * Indicates whether to support TLS 1.3. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   enableTLSv3?: boolean;
   /**
+   * @remarks
+   * Indicates whether to enable HTTP/2. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * True
    */
   http2Enabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether to enable the persistent connection feature. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false:**
+   * 
    * @example
    * true
    */
   keepalive?: boolean;
   /**
+   * @remarks
+   * The number of reused persistent connections. Valid values: 60 to 1000.
+   * 
+   * >  This parameter specifies the number of requests that reuse persistent connections after you enable the persistent connection feature.
+   * 
    * @example
    * 1000
    */
   keepaliveRequests?: number;
   /**
+   * @remarks
+   * The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 15. Unit: seconds.
+   * 
+   * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed.
+   * 
    * @example
    * 10
    */
   keepaliveTimeout?: number;
+  /**
+   * @remarks
+   * The custom header field that you want to use to label requests that are processed by WAF.
+   * 
+   * >  This parameter is returned only when the traffic marking feature is enabled for the domain name.
+   */
   logHeaders?: DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetailsLogHeaders[];
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * 
    * @example
    * 123
    */
   ownerUserId?: string;
   /**
+   * @remarks
+   * The port of the cloud service that is added to WAF.
+   * 
    * @example
    * 443
    */
   port?: number;
   /**
+   * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * 
    * @example
    * https
    */
   protocol?: string;
   /**
+   * @remarks
+   * The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 5
    */
   readTimeout?: number;
   /**
+   * @remarks
+   * The status of the domain name. Valid values:
+   * 
+   * *   **1**: indicates that the port is available.
+   * *   **2**: indicates that the port is being created.
+   * *   **3**: indicates that the port is being modified.
+   * *   **4**: indicates that the port is being released.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The version of the Transport Layer Security (TLS) protocol. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
    * @example
    * tlsv1
    */
   TLSVersion?: string;
   /**
+   * @remarks
+   * The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 1
    */
   writeTimeout?: number;
   /**
+   * @remarks
+   * The method that WAF uses to obtain the originating IP address of a client. Valid values:
+   * 
+   * *   **0**: No Layer 7 proxies are deployed in front of WAF.
+   * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+   * *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+   * 
    * @example
    * 0
    */
   xffHeaderMode?: number;
+  /**
+   * @remarks
+   * The custom header field that is used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
+   * 
+   * >  This parameter is required only if you set **XffHeaderMode** to 2.
+   */
   xffHeaders?: string[];
   /**
+   * @remarks
+   * Indicates whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -19319,16 +27549,25 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
 
 export class DescribeCnameCountResponseBodyCnameCount extends $tea.Model {
   /**
+   * @remarks
+   * The number of domain names that are added to WAF in CNAME record mode.
+   * 
    * @example
    * 1
    */
   cname?: number;
   /**
+   * @remarks
+   * The number of domain names that are added to WAF in hybrid cloud reverse proxy mode.
+   * 
    * @example
    * 1
    */
   hybridCloudCname?: number;
   /**
+   * @remarks
+   * The total number of domain names that are added to WAF in CNAME record mode and hybrid cloud reverse proxy mode.
+   * 
    * @example
    * 1
    */
@@ -19397,26 +27636,52 @@ export class DescribeDDoSStatusResponseBodyDDoSStatus extends $tea.Model {
 
 export class DescribeDefaultHttpsResponseBodyDefaultHttps extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * 123-cn-hangzhou
    */
   certId?: string;
   /**
+   * @remarks
+   * The type of the cipher suites. Valid values:
+   * 
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites.
+   * *   **99**: custom cipher suites.
+   * 
    * @example
    * 1
    */
   cipherSuite?: string;
   /**
+   * @remarks
+   * The custom cipher suite.
+   * 
    * @example
    * ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384
    */
   customCiphers?: string;
   /**
+   * @remarks
+   * Indicates whether TLS 1.3 is supported. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   enableTLSv3?: boolean;
   /**
+   * @remarks
+   * The version of the TLS protocol. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
    * @example
    * tlsv1
    */
@@ -21703,6 +29968,226 @@ export class DescribeFlowTopUrlResponseBodyRuleHitsTopUrl extends $tea.Model {
   }
 }
 
+export class DescribeFreeUserAssetCountResponseBodyAsset extends $tea.Model {
+  /**
+   * @remarks
+   * The number of active APIs.
+   * 
+   * @example
+   * 34
+   */
+  assetActive?: number;
+  /**
+   * @remarks
+   * The total number of APIs.
+   * 
+   * @example
+   * 15
+   */
+  assetCount?: number;
+  /**
+   * @remarks
+   * The number of deactivated APIs.
+   * 
+   * @example
+   * 13
+   */
+  assetOffline?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetActive: 'AssetActive',
+      assetCount: 'AssetCount',
+      assetOffline: 'AssetOffline',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetActive: 'number',
+      assetCount: 'number',
+      assetOffline: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventCountResponseBodyEvent extends $tea.Model {
+  /**
+   * @remarks
+   * The number of high-risk events.
+   * 
+   * @example
+   * 1
+   */
+  eventHigh?: number;
+  /**
+   * @remarks
+   * The number of low-risk events.
+   * 
+   * @example
+   * 12
+   */
+  eventLow?: number;
+  /**
+   * @remarks
+   * The number of medium-risk events.
+   * 
+   * @example
+   * 3
+   */
+  eventMedium?: number;
+  /**
+   * @remarks
+   * The total number of security events.
+   * 
+   * @example
+   * 16
+   */
+  eventTotal?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventHigh: 'EventHigh',
+      eventLow: 'EventLow',
+      eventMedium: 'EventMedium',
+      eventTotal: 'EventTotal',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventHigh: 'number',
+      eventLow: 'number',
+      eventMedium: 'number',
+      eventTotal: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventTypesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of security events.
+   * 
+   * @example
+   * 4
+   */
+  eventNum?: string;
+  /**
+   * @remarks
+   * The type of the security event.
+   * 
+   * @example
+   * SMSInterfaceAbuse
+   */
+  eventType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventNum: 'EventNum',
+      eventType: 'EventType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventNum: 'string',
+      eventType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFreeUserEventsResponseBodyEvent extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The attacker IP address.
+   * 
+   * @example
+   * 104.234.140.**
+   */
+  attackIP?: string;
+  /**
+   * @remarks
+   * The time at which the attack was launched. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1683703260
+   */
+  attackTime?: number;
+  /**
+   * @remarks
+   * The domain name of the API.
+   * 
+   * @example
+   * www.***.cn
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The severity level of the security event. Valid values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * @example
+   * high
+   */
+  eventLevel?: string;
+  /**
+   * @remarks
+   * The type of the security event.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of security events.
+   * 
+   * @example
+   * Event_DataTraverse
+   */
+  eventTag?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      attackIP: 'AttackIP',
+      attackTime: 'AttackTime',
+      domain: 'Domain',
+      eventLevel: 'EventLevel',
+      eventTag: 'EventTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      attackIP: 'string',
+      attackTime: 'number',
+      domain: 'string',
+      eventLevel: 'string',
+      eventTag: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $tea.Model {
   /**
    * @remarks
@@ -21756,63 +30241,125 @@ export class DescribeHybridCloudClusterRuleResponseBodyClusterRule extends $tea.
 
 export class DescribeHybridCloudClustersResponseBodyClusterInfos extends $tea.Model {
   /**
+   * @remarks
+   * The network access mode. Valid values:
+   * 
+   * *   **internet**: Internet access.
+   * *   **vpc**: internal network access by using Express Connect circuits.
+   * 
    * @example
    * internet
    */
   accessMode?: string;
   /**
+   * @remarks
+   * The region where the virtual private cloud (VPC) resides. Valid values:
+   * 
+   * *   **cn-hangzhou**: China (Hangzhou).
+   * *   **cn-beiijng**: China (Beijing).
+   * *   **cn-shanghai**: China (Shanghai).
+   * 
    * @example
    * cn-hangzhou
    */
   accessRegion?: string;
+  /**
+   * @remarks
+   * The name of the cluster.
+   */
   clusterName?: string;
   /**
+   * @remarks
+   * The ID of the hybrid cloud cluster resource.
+   * 
    * @example
    * hdbc-cluster-t1****a
    */
   clusterResourceId?: string;
   /**
+   * @remarks
+   * The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * 
    * @example
    * 80,8080
    */
   httpPorts?: string;
   /**
+   * @remarks
+   * The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+   * 
    * @example
    * 443,8443
    */
   httpsPorts?: string;
   /**
+   * @remarks
+   * The ID of the cluster.
+   * 
    * @example
    * 524**8
    */
   id?: number;
   /**
+   * @remarks
+   * The number of protection nodes that can be added to the cluster.
+   * 
    * @example
    * 1
    */
   protectionServerCount?: number;
   /**
+   * @remarks
+   * The status of the proxy gateway. Valid values:
+   * 
+   * *   **on**: enabled.
+   * *   **off**: disabled.
+   * 
    * @example
    * off
    */
   proxyStatus?: string;
   /**
+   * @remarks
+   * The type of the cluster. Valid values:
+   * 
+   * *   **cname**: reverse proxy cluster.
+   * *   **service**: SDK-based traffic mirroring cluster.
+   * 
    * @example
    * cname
    */
   proxyType?: string;
+  /**
+   * @remarks
+   * The remarks about the cluster.
+   */
   remark?: string;
   /**
+   * @remarks
+   * The configurations of the rule.
+   * 
    * @example
    * {"enable":true,"param":{"breaker":{"duration":1,"failed":1,"recent_failed":1},"disable_protect":false,"max_request_body_len":1,"timeout":1}}
    */
   ruleConfig?: string;
   /**
+   * @remarks
+   * The status of manual bypass. Valid values:
+   * 
+   * *   **on**: enabled.
+   * *   **off**: disabled.
+   * 
    * @example
    * off
    */
   ruleStatus?: string;
   /**
+   * @remarks
+   * The type of the rule. Valid value:
+   * 
+   * *   **bypass**: Requests are allowed without security checks.
+   * 
    * @example
    * bypass
    */
@@ -23563,7 +32110,21 @@ export class DescribeProductInstancesResponseBodyProductInstances extends $tea.M
    * i-2ze1tm4pvghp****cluv
    */
   resourceInstanceId?: string;
+  /**
+   * @remarks
+   * The IP address of the instance that is added to WAF.
+   * 
+   * @example
+   * 1.X.X.1
+   */
   resourceInstanceIp?: string;
+  /**
+   * @remarks
+   * The name of the instance that is added to WAF.
+   * 
+   * @example
+   * demoInstanceName
+   */
   resourceInstanceName?: string;
   /**
    * @remarks
@@ -24176,6 +32737,773 @@ export class DescribeRuleHitsTopUrlResponseBodyRuleHitsTopUrl extends $tea.Model
   }
 }
 
+export class DescribeSensitiveApiStatisticResponseBodyDataList extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * @example
+   * d288137009c119a873d4c395****
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The number of personal information records involved in cross-border data transfer by API.
+   * 
+   * @example
+   * 78
+   */
+  infoCount?: number;
+  /**
+   * @remarks
+   * The types of sensitive data.
+   */
+  sensitiveCode?: string[];
+  /**
+   * @remarks
+   * The number of sensitive personal information records involved in cross-border data transfer by API.
+   * 
+   * @example
+   * 55
+   */
+  sensitiveCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      infoCount: 'InfoCount',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveCount: 'SensitiveCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      apiId: 'string',
+      infoCount: 'number',
+      sensitiveCode: { 'type': 'array', 'itemType': 'string' },
+      sensitiveCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveApiStatisticResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of personal information records involved in cross-border data transfer by domain name.
+   * 
+   * @example
+   * 213
+   */
+  infoOutboundCount?: number;
+  /**
+   * @remarks
+   * The domain name-related APIs.
+   */
+  list?: DescribeSensitiveApiStatisticResponseBodyDataList[];
+  /**
+   * @remarks
+   * The domain name or IP address.
+   * 
+   * @example
+   * www.***.top
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The number of sensitive personal information records involved in cross-border data transfer by domain name.
+   * 
+   * @example
+   * 127
+   */
+  sensitiveOutboundCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      infoOutboundCount: 'InfoOutboundCount',
+      list: 'List',
+      matchedHost: 'MatchedHost',
+      sensitiveOutboundCount: 'SensitiveOutboundCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoOutboundCount: 'number',
+      list: { 'type': 'array', 'itemType': DescribeSensitiveApiStatisticResponseBodyDataList },
+      matchedHost: 'string',
+      sensitiveOutboundCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponseBodyDataResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of personal information records.
+   * 
+   * @example
+   * 11
+   */
+  infoCount?: number;
+  /**
+   * @remarks
+   * The number of sensitive personal information records that are involved in cross-border data transfer.
+   * 
+   * @example
+   * 6
+   */
+  outboundCount?: number;
+  /**
+   * @remarks
+   * The sensitive data type.
+   * 
+   * @example
+   * 1002
+   */
+  sensitiveCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      infoCount: 'InfoCount',
+      outboundCount: 'OutboundCount',
+      sensitiveCode: 'SensitiveCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoCount: 'number',
+      outboundCount: 'number',
+      sensitiveCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponseBodyDataResultMax extends $tea.Model {
+  /**
+   * @remarks
+   * The number of sensitive personal information records that are of the most frequent sensitive data type.
+   * 
+   * @example
+   * 187
+   */
+  infoCount?: number;
+  /**
+   * @remarks
+   * The number of sensitive personal information records that are of the most frequent sensitive data type and are involved in cross-border data transfer.
+   * 
+   * @example
+   * 54
+   */
+  outboundCount?: number;
+  /**
+   * @remarks
+   * The most frequent sensitive data type.
+   * 
+   * @example
+   * 1003
+   */
+  sensitiveCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      infoCount: 'InfoCount',
+      outboundCount: 'OutboundCount',
+      sensitiveCode: 'SensitiveCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoCount: 'number',
+      outboundCount: 'number',
+      sensitiveCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponseBodyDataResult extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance check results. Valid values:
+   * 
+   * *   **report**: Risks exist in cross-border data transfer.
+   * *   **none**: No risks exist in cross-border data transfer.
+   * 
+   * @example
+   * report
+   */
+  detectionResult?: string;
+  /**
+   * @remarks
+   * The sensitive information check results by sensitive data type.
+   */
+  list?: DescribeSensitiveDetectionResultResponseBodyDataResultList[];
+  /**
+   * @remarks
+   * The maximum values in the statistics of sensitive data types.
+   */
+  max?: DescribeSensitiveDetectionResultResponseBodyDataResultMax;
+  static names(): { [key: string]: string } {
+    return {
+      detectionResult: 'DetectionResult',
+      list: 'List',
+      max: 'Max',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectionResult: 'string',
+      list: { 'type': 'array', 'itemType': DescribeSensitiveDetectionResultResponseBodyDataResultList },
+      max: DescribeSensitiveDetectionResultResponseBodyDataResultMax,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveDetectionResultResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance checks.
+   */
+  result?: DescribeSensitiveDetectionResultResponseBodyDataResult[];
+  static names(): { [key: string]: string } {
+    return {
+      result: 'Result',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      result: { 'type': 'array', 'itemType': DescribeSensitiveDetectionResultResponseBodyDataResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundDistributionResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The country to which the data is transferred.
+   * 
+   * @example
+   * US
+   */
+  country?: string;
+  /**
+   * @remarks
+   * The number of personal information records involved in cross-border data transfer.
+   * 
+   * @example
+   * 213
+   */
+  infoOutboundCount?: number;
+  /**
+   * @remarks
+   * The number of sensitive information records involved in cross-border data transfer.
+   * 
+   * @example
+   * 144
+   */
+  sensitiveOutboundCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      country: 'Country',
+      infoOutboundCount: 'InfoOutboundCount',
+      sensitiveOutboundCount: 'SensitiveOutboundCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      country: 'string',
+      infoOutboundCount: 'number',
+      sensitiveOutboundCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundStatisticResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   **report**: Risks exist in cross-border data transfer.
+   * *   **none**: No risks exist in cross-border data transfer.
+   * 
+   * @example
+   * report
+   */
+  detectionResult?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 546
+   */
+  infoCount?: number;
+  /**
+   * @remarks
+   * The number of data entries that are transferred across borders.
+   * 
+   * @example
+   * 300
+   */
+  outboundCount?: number;
+  /**
+   * @remarks
+   * The type of the sensitive data.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * 
+   * @example
+   * 1001
+   */
+  sensitiveCode?: number;
+  /**
+   * @remarks
+   * The sensitivity level. Valid values:
+   * 
+   * *   **high**
+   * *   **medium**
+   * *   **low**
+   * 
+   * @example
+   * high
+   */
+  sensitiveLevel?: string;
+  /**
+   * @remarks
+   * The type of the information. Valid values:
+   * 
+   * *   **info**: full personal information
+   * *   **sensitive**: sensitive personal information
+   * 
+   * @example
+   * info
+   */
+  sensitiveType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detectionResult: 'DetectionResult',
+      infoCount: 'InfoCount',
+      outboundCount: 'OutboundCount',
+      sensitiveCode: 'SensitiveCode',
+      sensitiveLevel: 'SensitiveLevel',
+      sensitiveType: 'SensitiveType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detectionResult: 'string',
+      infoCount: 'number',
+      outboundCount: 'number',
+      sensitiveCode: 'number',
+      sensitiveLevel: 'string',
+      sensitiveType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveOutboundTrendResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The total number of personal information records.
+   * 
+   * @example
+   * 672
+   */
+  infoCount?: number;
+  /**
+   * @remarks
+   * The total number of personal information records involved in cross-border data transfer.
+   * 
+   * @example
+   * 541
+   */
+  infoOutboundCount?: number;
+  /**
+   * @remarks
+   * The total number of sensitive information records involved in cross-border data transfer.
+   * 
+   * @example
+   * 378
+   */
+  sensitiveOutboundCount?: number;
+  /**
+   * @remarks
+   * The time of cross-border data transfer. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1672502400
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      infoCount: 'InfoCount',
+      infoOutboundCount: 'InfoOutboundCount',
+      sensitiveOutboundCount: 'SensitiveOutboundCount',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      infoCount: 'number',
+      infoOutboundCount: 'number',
+      sensitiveOutboundCount: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestLogResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/users/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * @example
+   * 197b52abcd81d6a8bd4***e477
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 103.118.55.**
+   */
+  clientIP?: string;
+  /**
+   * @remarks
+   * The number of sensitive data records involved in cross-border data transfer.
+   * 
+   * @example
+   * 12
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The domain name of the API.
+   * 
+   * @example
+   * a.****.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The time when the request was initiated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723392000
+   */
+  requestTime?: number;
+  /**
+   * @remarks
+   * The sensitive data.
+   * 
+   * @example
+   * A0Y5MPH3P
+   */
+  sensitiveList?: string;
+  /**
+   * @remarks
+   * The trace ID.
+   * 
+   * @example
+   * 0a3d455b17027784870843933dce3d
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      clientIP: 'ClientIP',
+      count: 'Count',
+      matchedHost: 'MatchedHost',
+      requestTime: 'RequestTime',
+      sensitiveList: 'SensitiveList',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      apiId: 'string',
+      clientIP: 'string',
+      count: 'number',
+      matchedHost: 'string',
+      requestTime: 'number',
+      sensitiveList: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestsResponseBodyDataInfoCount extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the sensitive data.
+   * 
+   * @example
+   * 1001
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The number of sensitive data entries.
+   * 
+   * @example
+   * 23
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveRequestsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The number of risks in the previous 30 days.
+   * 
+   * @example
+   * 23
+   */
+  abnormalCount?: number;
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/users/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The ID of the API.
+   * 
+   * @example
+   * 09559c0d71ca2ffc996b81***836d8
+   */
+  apiId?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 103.118.55.**
+   */
+  clientIP?: string;
+  /**
+   * @remarks
+   * The evaluation result. Valid values:
+   * 
+   * *   **leak**: Data leaks may occur.
+   * *   **none**: No data leak can occur.
+   * 
+   * @example
+   * leak
+   */
+  detectionResult?: string;
+  /**
+   * @remarks
+   * The number of events in the previous 30 days.
+   * 
+   * @example
+   * 679
+   */
+  eventCount?: number;
+  /**
+   * @remarks
+   * The statistics of the sensitive data.
+   */
+  infoCount?: DescribeSensitiveRequestsResponseBodyDataInfoCount[];
+  /**
+   * @remarks
+   * The domain name of the API.
+   * 
+   * @example
+   * a.****.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The sensitive data.
+   */
+  sensitiveList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      abnormalCount: 'AbnormalCount',
+      apiFormat: 'ApiFormat',
+      apiId: 'ApiId',
+      clientIP: 'ClientIP',
+      detectionResult: 'DetectionResult',
+      eventCount: 'EventCount',
+      infoCount: 'InfoCount',
+      matchedHost: 'MatchedHost',
+      sensitiveList: 'SensitiveList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalCount: 'number',
+      apiFormat: 'string',
+      apiId: 'string',
+      clientIP: 'string',
+      detectionResult: 'string',
+      eventCount: 'number',
+      infoCount: { 'type': 'array', 'itemType': DescribeSensitiveRequestsResponseBodyDataInfoCount },
+      matchedHost: 'string',
+      sensitiveList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSensitiveStatisticResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The API.
+   * 
+   * @example
+   * /api/login
+   */
+  apiFormat?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 10.50.11.**
+   */
+  clientIP?: string;
+  /**
+   * @remarks
+   * The number of entries returned.
+   * 
+   * @example
+   * 169
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The domain name.
+   * 
+   * @example
+   * a.****.com
+   */
+  matchedHost?: string;
+  /**
+   * @remarks
+   * The type of the sensitive data.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * 
+   * @example
+   * 1003
+   */
+  sensitiveCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiFormat: 'ApiFormat',
+      clientIP: 'ClientIP',
+      count: 'Count',
+      matchedHost: 'MatchedHost',
+      sensitiveCode: 'SensitiveCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiFormat: 'string',
+      clientIP: 'string',
+      count: 'number',
+      matchedHost: 'string',
+      sensitiveCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTemplateResourceCountResponseBodyResourceCount extends $tea.Model {
   /**
    * @remarks
@@ -24214,6 +33542,338 @@ export class DescribeTemplateResourceCountResponseBodyResourceCount extends $tea
       groupCount: 'number',
       singleCount: 'number',
       templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTrendResponseBodyTrend extends $tea.Model {
+  /**
+   * @remarks
+   * The number of high risks.
+   * 
+   * @example
+   * 12
+   */
+  abnormalHigh?: number;
+  /**
+   * @remarks
+   * The number of low risks.
+   * 
+   * @example
+   * 23
+   */
+  abnormalLow?: number;
+  /**
+   * @remarks
+   * The number of medium risks.
+   * 
+   * @example
+   * 14
+   */
+  abnormalMedium?: number;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1722268800
+   */
+  timeStamp?: number;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1722268800
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalHigh: 'AbnormalHigh',
+      abnormalLow: 'AbnormalLow',
+      abnormalMedium: 'AbnormalMedium',
+      timeStamp: 'TimeStamp',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalHigh: 'number',
+      abnormalLow: 'number',
+      abnormalMedium: 'number',
+      timeStamp: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the risk.
+   * 
+   * @example
+   * Risk_InternalWeakPasswd
+   */
+  abnormalCode?: string;
+  /**
+   * @remarks
+   * The number of risks.
+   * 
+   * @example
+   * 10
+   */
+  abnormalCount?: number;
+  /**
+   * @remarks
+   * The parent type of the risk.
+   * 
+   * @example
+   * RiskType_Account
+   */
+  abnormalParentType?: string;
+  /**
+   * @remarks
+   * The type of the risk.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * 
+   * @example
+   * LackOfSpeedLimit
+   */
+  abnormalType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abnormalCode: 'AbnormalCode',
+      abnormalCount: 'AbnormalCount',
+      abnormalParentType: 'AbnormalParentType',
+      abnormalType: 'AbnormalType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abnormalCode: 'string',
+      abnormalCount: 'number',
+      abnormalParentType: 'string',
+      abnormalType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserApiRequestResponseBodyRequests extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries returned.
+   * 
+   * @example
+   * 76
+   */
+  count?: number;
+  /**
+   * @remarks
+   * The type of the statistics. Valid values:
+   * 
+   * *   **client_list**: client
+   * *   **ip**: IP address
+   * *   **region_id** region
+   * *   **country_id**: country
+   * 
+   * @example
+   * {
+   *     "client_list": [
+   *         "Unknown"
+   *     ],
+   *     "ip": "47.92.113.***",
+   *     "region_id": "110000",
+   *     "country_id": "CN"
+   * }
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserAssetResponseBodyAssets extends $tea.Model {
+  /**
+   * @remarks
+   * The number of APIs returned.
+   * 
+   * @example
+   * 134
+   */
+  assetNum?: number;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  timeStamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      assetNum: 'AssetNum',
+      timeStamp: 'TimeStamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assetNum: 'number',
+      timeStamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTrendResponseBodyTrend extends $tea.Model {
+  /**
+   * @remarks
+   * The number of high-risk events.
+   * 
+   * @example
+   * 9
+   */
+  eventHigh?: number;
+  /**
+   * @remarks
+   * The number of low-risk events.
+   * 
+   * @example
+   * 23
+   */
+  eventLow?: number;
+  /**
+   * @remarks
+   * The number of medium-risk events.
+   * 
+   * @example
+   * 17
+   */
+  eventMedium?: number;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  timeStamp?: number;
+  /**
+   * @remarks
+   * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * 
+   * @example
+   * 1723435200
+   */
+  timestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventHigh: 'EventHigh',
+      eventLow: 'EventLow',
+      eventMedium: 'EventMedium',
+      timeStamp: 'TimeStamp',
+      timestamp: 'Timestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventHigh: 'number',
+      eventLow: 'number',
+      eventMedium: 'number',
+      timeStamp: 'number',
+      timestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeUserEventTypeResponseBodyEvent extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the security event.
+   * 
+   * @example
+   * Event_LoginCollision
+   */
+  eventCode?: string;
+  /**
+   * @remarks
+   * The number of events.
+   * 
+   * @example
+   * 0
+   */
+  eventCount?: number;
+  /**
+   * @remarks
+   * The parent type of the security event.
+   * 
+   * @example
+   * EventType_Account
+   */
+  eventParentType?: string;
+  /**
+   * @remarks
+   * The type of the security event.
+   * 
+   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of security events.
+   * 
+   * @example
+   * Event_AbnormalFrequency
+   */
+  eventType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      eventCount: 'EventCount',
+      eventParentType: 'EventParentType',
+      eventType: 'EventType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      eventCount: 'number',
+      eventParentType: 'string',
+      eventType: 'string',
     };
   }
 
@@ -24477,11 +34137,20 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
 export class ModifyCloudResourceRequestListenCertificates extends $tea.Model {
   /**
+   * @remarks
+   * The type of the HTTPS certificate. Valid values:
+   * 
+   * *   **default**: default certificate.
+   * *   **extension**: additional certificate.
+   * 
    * @example
    * default
    */
   appliedType?: string;
   /**
+   * @remarks
+   * The ID of the certificate.
+   * 
    * @example
    * 123-cn-hangzhou
    */
@@ -24506,14 +34175,35 @@ export class ModifyCloudResourceRequestListenCertificates extends $tea.Model {
 }
 
 export class ModifyCloudResourceRequestListen extends $tea.Model {
+  /**
+   * @remarks
+   * An array of certificates.
+   */
   certificates?: ModifyCloudResourceRequestListenCertificates[];
   /**
+   * @remarks
+   * The type of the cipher suites that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **1**: all cipher suites.
+   * *   **2**: strong cipher suites. You can set the parameter to this value only if you set **TLSVersion** to **tlsv1.2**.
+   * *   **99**: custom cipher suites.
+   * 
    * @example
    * 1
    */
   cipherSuite?: number;
+  /**
+   * @remarks
+   * An array of custom cipher suites.
+   */
   customCiphers?: string[];
   /**
+   * @remarks
+   * Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    * 
@@ -24522,12 +34212,20 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
    */
   enableTLSv3?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
    * @example
    * true
    */
   http2Enabled?: boolean;
   /**
    * @remarks
+   * The port of the resource that you want to add to WAF.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24536,6 +34234,11 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
   port?: number;
   /**
    * @remarks
+   * The type of the protocol. Valid values:
+   * 
+   * *   **http**
+   * *   **https**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24544,6 +34247,8 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
   protocol?: string;
   /**
    * @remarks
+   * The ID of the resource.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24552,6 +34257,12 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
+   * The cloud service. Valid values:
+   * 
+   * *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+   * *   **clb7**: Layer 7 CLB.
+   * *   **ecs**: Elastic Compute Service (ECS).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24559,6 +34270,13 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
    */
   resourceProduct?: string;
   /**
+   * @remarks
+   * The Transport Layer Security (TLS) version. This parameter is available only if you specify **HttpsPorts**. Valid values:
+   * 
+   * *   **tlsv1**
+   * *   **tlsv1.1**
+   * *   **tlsv1.2**
+   * 
    * @example
    * tlsv1.2
    */
@@ -24600,11 +34318,17 @@ export class ModifyCloudResourceRequestListen extends $tea.Model {
 
 export class ModifyCloudResourceRequestRedirectRequestHeaders extends $tea.Model {
   /**
+   * @remarks
+   * The key of the custom header field.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The value of the custom header field.
+   * 
    * @example
    * value1
    */
@@ -24630,38 +34354,83 @@ export class ModifyCloudResourceRequestRedirectRequestHeaders extends $tea.Model
 
 export class ModifyCloudResourceRequestRedirect extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the persistent connection feature. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false:**
+   * 
    * @example
    * true
    */
   keepalive?: boolean;
   /**
+   * @remarks
+   * The number of requests that reuse persistent connections. Valid values: 60 to 1000.
+   * 
+   * >  This parameter specifies the number of requests that can reuse persistent connections after you enable the persistent connection feature.
+   * 
    * @example
    * 1000
    */
   keepaliveRequests?: number;
   /**
+   * @remarks
+   * The timeout period for idle persistent connections. Valid values: 10 to 3600. Default value: 3600. Unit: seconds.
+   * 
+   * >  If no new requests are initiated over the idle persistent connection within the specified timeout period, the connection is closed.
+   * 
    * @example
    * 15
    */
   keepaliveTimeout?: number;
   /**
+   * @remarks
+   * The timeout period for read connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 1
    */
   readTimeout?: number;
+  /**
+   * @remarks
+   * The custom header field that you want to use to label requests that are processed by WAF.
+   */
   requestHeaders?: ModifyCloudResourceRequestRedirectRequestHeaders[];
   /**
+   * @remarks
+   * The timeout period for write connections. Unit: seconds. Valid values: 1 to 3600.
+   * 
    * @example
    * 1
    */
   writeTimeout?: number;
   /**
+   * @remarks
+   * The method that WAF uses to obtain the originating IP address of a client. Valid values:
+   * 
+   * *   **0**: No Layer 7 proxies are deployed in front of WAF.
+   * *   **1**: WAF reads the first value of the X-Forwarded-For (XFF) header field as the originating IP address of the client.
+   * *   **2**: WAF reads the value of a custom header field as the originating IP address of the client.
+   * 
    * @example
    * 0
    */
   xffHeaderMode?: number;
+  /**
+   * @remarks
+   * The custom header field that is used to obtain the originating IP address of a client. Specify the value in the ["header1","header2",...] format.
+   * 
+   * >  This parameter is required only if you set **XffHeaderMode** to 2.
+   */
   xffHeaders?: string[];
   /**
+   * @remarks
+   * Specifies whether to use the X-Forward-For-Proto header to identify the protocol used by WAF to forward requests to the origin server. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -25296,7 +35065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ChangeResourceGroup
+   * Changes the resource group to which a protected object belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25343,7 +35112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ChangeResourceGroup
+   * Changes the resource group to which a protected object belongs.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -25466,7 +35235,77 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接入云产品资源
+   * Creates a data export task in the API security module.
+   * 
+   * @param request - CreateApiExportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApiExportResponse
+   */
+  async createApiExportWithOptions(request: CreateApiExportRequest, runtime: $Util.RuntimeOptions): Promise<CreateApiExportResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateApiExport",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateApiExportResponse>(await this.callApi(params, req, runtime), new CreateApiExportResponse({}));
+  }
+
+  /**
+   * Creates a data export task in the API security module.
+   * 
+   * @param request - CreateApiExportRequest
+   * @returns CreateApiExportResponse
+   */
+  async createApiExport(request: CreateApiExportRequest): Promise<CreateApiExportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createApiExportWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
    * 
    * @param tmpReq - CreateCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25527,7 +35366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 接入云产品资源
+   * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
    * 
    * @param request - CreateCloudResourceRequest
    * @returns CreateCloudResourceResponse
@@ -25625,16 +35464,18 @@ export default class Client extends OpenApi {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
-    if (!Util.isUnset(request.rules)) {
-      query["Rules"] = request.rules;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.rules)) {
+      body["Rules"] = request.rules;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateDefenseRule",
@@ -26140,17 +35981,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除API安全风险
+   * Deletes multiple risks detected by the API security module at a time.
    * 
-   * @param request - DeleteApisecAbnormalRequest
+   * @param request - DeleteApisecAbnormalsRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteApisecAbnormalResponse
+   * @returns DeleteApisecAbnormalsResponse
    */
-  async deleteApisecAbnormalWithOptions(request: DeleteApisecAbnormalRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecAbnormalResponse> {
+  async deleteApisecAbnormalsWithOptions(request: DeleteApisecAbnormalsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecAbnormalsResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.abnormalId)) {
-      query["AbnormalId"] = request.abnormalId;
+    if (!Util.isUnset(request.abnormalIds)) {
+      query["AbnormalIds"] = request.abnormalIds;
     }
 
     if (!Util.isUnset(request.clusterId)) {
@@ -26159,10 +36000,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -26177,7 +36014,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DeleteApisecAbnormal",
+      action: "DeleteApisecAbnormals",
       version: "2021-10-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -26187,44 +36024,40 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApisecAbnormalResponse>(await this.callApi(params, req, runtime), new DeleteApisecAbnormalResponse({}));
+    return $tea.cast<DeleteApisecAbnormalsResponse>(await this.callApi(params, req, runtime), new DeleteApisecAbnormalsResponse({}));
   }
 
   /**
-   * 删除API安全风险
+   * Deletes multiple risks detected by the API security module at a time.
    * 
-   * @param request - DeleteApisecAbnormalRequest
-   * @returns DeleteApisecAbnormalResponse
+   * @param request - DeleteApisecAbnormalsRequest
+   * @returns DeleteApisecAbnormalsResponse
    */
-  async deleteApisecAbnormal(request: DeleteApisecAbnormalRequest): Promise<DeleteApisecAbnormalResponse> {
+  async deleteApisecAbnormals(request: DeleteApisecAbnormalsRequest): Promise<DeleteApisecAbnormalsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteApisecAbnormalWithOptions(request, runtime);
+    return await this.deleteApisecAbnormalsWithOptions(request, runtime);
   }
 
   /**
-   * 删除API安全事件
+   * Deletes multiple security events detected by the API security module at a time.
    * 
-   * @param request - DeleteApisecEventRequest
+   * @param request - DeleteApisecEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteApisecEventResponse
+   * @returns DeleteApisecEventsResponse
    */
-  async deleteApisecEventWithOptions(request: DeleteApisecEventRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecEventResponse> {
+  async deleteApisecEventsWithOptions(request: DeleteApisecEventsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteApisecEventsResponse> {
     Util.validateModel(request);
     let query = { };
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
 
-    if (!Util.isUnset(request.eventId)) {
-      query["EventId"] = request.eventId;
+    if (!Util.isUnset(request.eventIds)) {
+      query["EventIds"] = request.eventIds;
     }
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -26239,7 +36072,7 @@ export default class Client extends OpenApi {
       query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
-      action: "DeleteApisecEvent",
+      action: "DeleteApisecEvents",
       version: "2021-10-01",
       protocol: "HTTPS",
       pathname: "/",
@@ -26249,22 +36082,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApisecEventResponse>(await this.callApi(params, req, runtime), new DeleteApisecEventResponse({}));
+    return $tea.cast<DeleteApisecEventsResponse>(await this.callApi(params, req, runtime), new DeleteApisecEventsResponse({}));
   }
 
   /**
-   * 删除API安全事件
+   * Deletes multiple security events detected by the API security module at a time.
    * 
-   * @param request - DeleteApisecEventRequest
-   * @returns DeleteApisecEventResponse
+   * @param request - DeleteApisecEventsRequest
+   * @returns DeleteApisecEventsResponse
    */
-  async deleteApisecEvent(request: DeleteApisecEventRequest): Promise<DeleteApisecEventResponse> {
+  async deleteApisecEvents(request: DeleteApisecEventsRequest): Promise<DeleteApisecEventsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteApisecEventWithOptions(request, runtime);
+    return await this.deleteApisecEventsWithOptions(request, runtime);
   }
 
   /**
-   * 删除云产品资源
+   * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
    * 
    * @param request - DeleteCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26315,7 +36148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除云产品资源
+   * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
    * 
    * @param request - DeleteCloudResourceRequest
    * @returns DeleteCloudResourceResponse
@@ -26720,7 +36553,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全风险站点统计
+   * Queries the list of data export tasks in the API security module.
+   * 
+   * @param request - DescribeApiExportsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApiExportsResponse
+   */
+  async describeApiExportsWithOptions(request: DescribeApiExportsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApiExportsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApiExports",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApiExportsResponse>(await this.callApi(params, req, runtime), new DescribeApiExportsResponse({}));
+  }
+
+  /**
+   * Queries the list of data export tasks in the API security module.
+   * 
+   * @param request - DescribeApiExportsRequest
+   * @returns DescribeApiExportsResponse
+   */
+  async describeApiExports(request: DescribeApiExportsRequest): Promise<DescribeApiExportsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApiExportsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the statistics on domain names on which risks are detected by the API security module.
    * 
    * @param request - DescribeApisecAbnormalDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26753,10 +36648,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -26787,7 +36678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全风险站点统计
+   * Queries the statistics on domain names on which risks are detected by the API security module.
    * 
    * @param request - DescribeApisecAbnormalDomainStatisticRequest
    * @returns DescribeApisecAbnormalDomainStatisticResponse
@@ -26798,7 +36689,251 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全资产趋势图
+   * Queries the list of API security risks.
+   * 
+   * @param request - DescribeApisecAbnormalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecAbnormalsResponse
+   */
+  async describeApisecAbnormalsWithOptions(request: DescribeApisecAbnormalsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecAbnormalsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abnormalId)) {
+      query["AbnormalId"] = request.abnormalId;
+    }
+
+    if (!Util.isUnset(request.abnormalLevel)) {
+      query["AbnormalLevel"] = request.abnormalLevel;
+    }
+
+    if (!Util.isUnset(request.abnormalTag)) {
+      query["AbnormalTag"] = request.abnormalTag;
+    }
+
+    if (!Util.isUnset(request.apiFormat)) {
+      query["ApiFormat"] = request.apiFormat;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiTag)) {
+      query["ApiTag"] = request.apiTag;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.orderKey)) {
+      query["OrderKey"] = request.orderKey;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.userStatus)) {
+      query["UserStatus"] = request.userStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecAbnormals",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecAbnormalsResponse>(await this.callApi(params, req, runtime), new DescribeApisecAbnormalsResponse({}));
+  }
+
+  /**
+   * Queries the list of API security risks.
+   * 
+   * @param request - DescribeApisecAbnormalsRequest
+   * @returns DescribeApisecAbnormalsResponse
+   */
+  async describeApisecAbnormals(request: DescribeApisecAbnormalsRequest): Promise<DescribeApisecAbnormalsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecAbnormalsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries API assets in the API security module.
+   * 
+   * @param request - DescribeApisecApiResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecApiResourcesResponse
+   */
+  async describeApisecApiResourcesWithOptions(request: DescribeApisecApiResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecApiResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiFormat)) {
+      query["ApiFormat"] = request.apiFormat;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiMethod)) {
+      query["ApiMethod"] = request.apiMethod;
+    }
+
+    if (!Util.isUnset(request.apiStatus)) {
+      query["ApiStatus"] = request.apiStatus;
+    }
+
+    if (!Util.isUnset(request.apiTag)) {
+      query["ApiTag"] = request.apiTag;
+    }
+
+    if (!Util.isUnset(request.apiType)) {
+      query["ApiType"] = request.apiType;
+    }
+
+    if (!Util.isUnset(request.authFlag)) {
+      query["AuthFlag"] = request.authFlag;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.follow)) {
+      query["Follow"] = request.follow;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.orderKey)) {
+      query["OrderKey"] = request.orderKey;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.requestSensitiveType)) {
+      query["RequestSensitiveType"] = request.requestSensitiveType;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sensitiveLevel)) {
+      query["SensitiveLevel"] = request.sensitiveLevel;
+    }
+
+    if (!Util.isUnset(request.sensitiveType)) {
+      query["SensitiveType"] = request.sensitiveType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecApiResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecApiResourcesResponse>(await this.callApi(params, req, runtime), new DescribeApisecApiResourcesResponse({}));
+  }
+
+  /**
+   * Queries API assets in the API security module.
+   * 
+   * @param request - DescribeApisecApiResourcesRequest
+   * @returns DescribeApisecApiResourcesResponse
+   */
+  async describeApisecApiResources(request: DescribeApisecApiResourcesRequest): Promise<DescribeApisecApiResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecApiResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the asset trends in the API security module.
    * 
    * @param request - DescribeApisecAssetTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26817,10 +36952,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -26853,7 +36984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全资产趋势图
+   * Queries the asset trends in the API security module.
    * 
    * @param request - DescribeApisecAssetTrendRequest
    * @returns DescribeApisecAssetTrendResponse
@@ -26864,7 +36995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全事件站点统计
+   * Queries the statistics on domain names on which security events are detected by the API security module.
    * 
    * @param request - DescribeApisecEventDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26897,10 +37028,6 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
-    }
-
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -26931,7 +37058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全事件站点统计
+   * Queries the statistics on domain names on which security events are detected by the API security module.
    * 
    * @param request - DescribeApisecEventDomainStatisticRequest
    * @returns DescribeApisecEventDomainStatisticResponse
@@ -26939,6 +37066,124 @@ export default class Client extends OpenApi {
   async describeApisecEventDomainStatistic(request: DescribeApisecEventDomainStatisticRequest): Promise<DescribeApisecEventDomainStatisticResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisecEventDomainStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries API security events.
+   * 
+   * @param request - DescribeApisecEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecEventsResponse
+   */
+  async describeApisecEventsWithOptions(request: DescribeApisecEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiFormat)) {
+      query["ApiFormat"] = request.apiFormat;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.apiTag)) {
+      query["ApiTag"] = request.apiTag;
+    }
+
+    if (!Util.isUnset(request.attackIp)) {
+      query["AttackIp"] = request.attackIp;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTs)) {
+      query["EndTs"] = request.endTs;
+    }
+
+    if (!Util.isUnset(request.eventId)) {
+      query["EventId"] = request.eventId;
+    }
+
+    if (!Util.isUnset(request.eventLevel)) {
+      query["EventLevel"] = request.eventLevel;
+    }
+
+    if (!Util.isUnset(request.eventTag)) {
+      query["EventTag"] = request.eventTag;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.orderKey)) {
+      query["OrderKey"] = request.orderKey;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTs)) {
+      query["StartTs"] = request.startTs;
+    }
+
+    if (!Util.isUnset(request.userStatus)) {
+      query["UserStatus"] = request.userStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecEvents",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecEventsResponse>(await this.callApi(params, req, runtime), new DescribeApisecEventsResponse({}));
+  }
+
+  /**
+   * Queries API security events.
+   * 
+   * @param request - DescribeApisecEventsRequest
+   * @returns DescribeApisecEventsResponse
+   */
+  async describeApisecEvents(request: DescribeApisecEventsRequest): Promise<DescribeApisecEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecEventsWithOptions(request, runtime);
   }
 
   /**
@@ -26992,7 +37237,287 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全敏感数据类型统计
+   * Queries the list of domain names detected in the API security module.
+   * 
+   * @param request - DescribeApisecMatchedHostsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecMatchedHostsResponse
+   */
+  async describeApisecMatchedHostsWithOptions(request: DescribeApisecMatchedHostsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecMatchedHostsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecMatchedHosts",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecMatchedHostsResponse>(await this.callApi(params, req, runtime), new DescribeApisecMatchedHostsResponse({}));
+  }
+
+  /**
+   * Queries the list of domain names detected in the API security module.
+   * 
+   * @param request - DescribeApisecMatchedHostsRequest
+   * @returns DescribeApisecMatchedHostsResponse
+   */
+  async describeApisecMatchedHosts(request: DescribeApisecMatchedHostsRequest): Promise<DescribeApisecMatchedHostsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecMatchedHostsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of protected object groups to which API security policies are applied.
+   * 
+   * @param request - DescribeApisecProtectionGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecProtectionGroupsResponse
+   */
+  async describeApisecProtectionGroupsWithOptions(request: DescribeApisecProtectionGroupsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecProtectionGroupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apisecStatus)) {
+      query["ApisecStatus"] = request.apisecStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroup)) {
+      query["ResourceGroup"] = request.resourceGroup;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecProtectionGroups",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecProtectionGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApisecProtectionGroupsResponse({}));
+  }
+
+  /**
+   * Queries the list of protected object groups to which API security policies are applied.
+   * 
+   * @param request - DescribeApisecProtectionGroupsRequest
+   * @returns DescribeApisecProtectionGroupsResponse
+   */
+  async describeApisecProtectionGroups(request: DescribeApisecProtectionGroupsRequest): Promise<DescribeApisecProtectionGroupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecProtectionGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of protected objects to which API security policies are applied.
+   * 
+   * @param request - DescribeApisecProtectionResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecProtectionResourcesResponse
+   */
+  async describeApisecProtectionResourcesWithOptions(request: DescribeApisecProtectionResourcesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecProtectionResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apisecStatus)) {
+      query["ApisecStatus"] = request.apisecStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resource)) {
+      query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecProtectionResources",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecProtectionResourcesResponse>(await this.callApi(params, req, runtime), new DescribeApisecProtectionResourcesResponse({}));
+  }
+
+  /**
+   * Queries the list of protected objects to which API security policies are applied.
+   * 
+   * @param request - DescribeApisecProtectionResourcesRequest
+   * @returns DescribeApisecProtectionResourcesResponse
+   */
+  async describeApisecProtectionResources(request: DescribeApisecProtectionResourcesRequest): Promise<DescribeApisecProtectionResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecProtectionResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the policies configured in the API security module.
+   * 
+   * @param request - DescribeApisecRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecRulesResponse
+   */
+  async describeApisecRulesWithOptions(request: DescribeApisecRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.origin)) {
+      query["Origin"] = request.origin;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecRules",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecRulesResponse>(await this.callApi(params, req, runtime), new DescribeApisecRulesResponse({}));
+  }
+
+  /**
+   * Queries the policies configured in the API security module.
+   * 
+   * @param request - DescribeApisecRulesRequest
+   * @returns DescribeApisecRulesResponse
+   */
+  async describeApisecRules(request: DescribeApisecRulesRequest): Promise<DescribeApisecRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the statistics on domain names on which sensitive data is detected by the API security module.
    * 
    * @param request - DescribeApisecSensitiveDomainStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27023,10 +37548,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.region)) {
-      query["Region"] = request.region;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -27063,7 +37584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询API安全敏感数据类型统计
+   * Queries the statistics on domain names on which sensitive data is detected by the API security module.
    * 
    * @param request - DescribeApisecSensitiveDomainStatisticRequest
    * @returns DescribeApisecSensitiveDomainStatisticResponse
@@ -27183,6 +37704,184 @@ export default class Client extends OpenApi {
   async describeApisecSlsProjects(request: DescribeApisecSlsProjectsRequest): Promise<DescribeApisecSlsProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeApisecSlsProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the statistics of API security-related risks and events.
+   * 
+   * @param request - DescribeApisecStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecStatisticsResponse
+   */
+  async describeApisecStatisticsWithOptions(request: DescribeApisecStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecStatisticsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecStatistics",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecStatisticsResponse>(await this.callApi(params, req, runtime), new DescribeApisecStatisticsResponse({}));
+  }
+
+  /**
+   * Queries the statistics of API security-related risks and events.
+   * 
+   * @param request - DescribeApisecStatisticsRequest
+   * @returns DescribeApisecStatisticsResponse
+   */
+  async describeApisecStatistics(request: DescribeApisecStatisticsRequest): Promise<DescribeApisecStatisticsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecStatisticsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the protection suggestions for APIs.
+   * 
+   * @param request - DescribeApisecSuggestionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecSuggestionsResponse
+   */
+  async describeApisecSuggestionsWithOptions(request: DescribeApisecSuggestionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecSuggestionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecSuggestions",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecSuggestionsResponse>(await this.callApi(params, req, runtime), new DescribeApisecSuggestionsResponse({}));
+  }
+
+  /**
+   * Queries the protection suggestions for APIs.
+   * 
+   * @param request - DescribeApisecSuggestionsRequest
+   * @returns DescribeApisecSuggestionsResponse
+   */
+  async describeApisecSuggestions(request: DescribeApisecSuggestionsRequest): Promise<DescribeApisecSuggestionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecSuggestionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries user operation records in the API security module.
+   * 
+   * @param request - DescribeApisecUserOperationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApisecUserOperationsResponse
+   */
+  async describeApisecUserOperationsWithOptions(request: DescribeApisecUserOperationsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeApisecUserOperationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.objectId)) {
+      query["ObjectId"] = request.objectId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeApisecUserOperations",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeApisecUserOperationsResponse>(await this.callApi(params, req, runtime), new DescribeApisecUserOperationsResponse({}));
+  }
+
+  /**
+   * Queries user operation records in the API security module.
+   * 
+   * @param request - DescribeApisecUserOperationsRequest
+   * @returns DescribeApisecUserOperationsResponse
+   */
+  async describeApisecUserOperations(request: DescribeApisecUserOperationsRequest): Promise<DescribeApisecUserOperationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeApisecUserOperationsWithOptions(request, runtime);
   }
 
   /**
@@ -27306,7 +38005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云产品的端口详情
+   * Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessPortDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27369,7 +38068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云产品的端口详情
+   * Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessPortDetailsRequest
    * @returns DescribeCloudResourceAccessPortDetailsResponse
@@ -27380,7 +38079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询已接入云产品的端口列表
+   * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessedPortsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27423,7 +38122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询已接入云产品的端口列表
+   * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
    * 
    * @param request - DescribeCloudResourceAccessedPortsRequest
    * @returns DescribeCloudResourceAccessedPortsResponse
@@ -27528,7 +38227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Cname接入的数量
+   * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
    * 
    * @param request - DescribeCnameCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27567,7 +38266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Cname接入的数量
+   * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
    * 
    * @param request - DescribeCnameCountRequest
    * @returns DescribeCnameCountResponse
@@ -27628,7 +38327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询默认HTTPS配置
+   * Queries the default SSL and Transport Layer Security (TLS) settings.
    * 
    * @param request - DescribeDefaultHttpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27667,7 +38366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询默认HTTPS配置
+   * Queries the default SSL and Transport Layer Security (TLS) settings.
    * 
    * @param request - DescribeDefaultHttpsRequest
    * @returns DescribeDefaultHttpsResponse
@@ -28798,6 +39497,206 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the asset statistics provided by basic detection in the API security module.
+   * 
+   * @param request - DescribeFreeUserAssetCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFreeUserAssetCountResponse
+   */
+  async describeFreeUserAssetCountWithOptions(request: DescribeFreeUserAssetCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFreeUserAssetCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFreeUserAssetCount",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFreeUserAssetCountResponse>(await this.callApi(params, req, runtime), new DescribeFreeUserAssetCountResponse({}));
+  }
+
+  /**
+   * Queries the asset statistics provided by basic detection in the API security module.
+   * 
+   * @param request - DescribeFreeUserAssetCountRequest
+   * @returns DescribeFreeUserAssetCountResponse
+   */
+  async describeFreeUserAssetCount(request: DescribeFreeUserAssetCountRequest): Promise<DescribeFreeUserAssetCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFreeUserAssetCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+   * 
+   * @param request - DescribeFreeUserEventCountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFreeUserEventCountResponse
+   */
+  async describeFreeUserEventCountWithOptions(request: DescribeFreeUserEventCountRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFreeUserEventCountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFreeUserEventCount",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFreeUserEventCountResponse>(await this.callApi(params, req, runtime), new DescribeFreeUserEventCountResponse({}));
+  }
+
+  /**
+   * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
+   * 
+   * @param request - DescribeFreeUserEventCountRequest
+   * @returns DescribeFreeUserEventCountResponse
+   */
+  async describeFreeUserEventCount(request: DescribeFreeUserEventCountRequest): Promise<DescribeFreeUserEventCountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFreeUserEventCountWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the types of security events on which basic detection is performed in the API security module.
+   * 
+   * @param request - DescribeFreeUserEventTypesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFreeUserEventTypesResponse
+   */
+  async describeFreeUserEventTypesWithOptions(request: DescribeFreeUserEventTypesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFreeUserEventTypesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFreeUserEventTypes",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFreeUserEventTypesResponse>(await this.callApi(params, req, runtime), new DescribeFreeUserEventTypesResponse({}));
+  }
+
+  /**
+   * Queries the types of security events on which basic detection is performed in the API security module.
+   * 
+   * @param request - DescribeFreeUserEventTypesRequest
+   * @returns DescribeFreeUserEventTypesResponse
+   */
+  async describeFreeUserEventTypes(request: DescribeFreeUserEventTypesRequest): Promise<DescribeFreeUserEventTypesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFreeUserEventTypesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the list of security events on which basic detection is performed in the API security module.
+   * 
+   * @param request - DescribeFreeUserEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFreeUserEventsResponse
+   */
+  async describeFreeUserEventsWithOptions(request: DescribeFreeUserEventsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFreeUserEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFreeUserEvents",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFreeUserEventsResponse>(await this.callApi(params, req, runtime), new DescribeFreeUserEventsResponse({}));
+  }
+
+  /**
+   * Queries the list of security events on which basic detection is performed in the API security module.
+   * 
+   * @param request - DescribeFreeUserEventsRequest
+   * @returns DescribeFreeUserEventsResponse
+   */
+  async describeFreeUserEvents(request: DescribeFreeUserEventsRequest): Promise<DescribeFreeUserEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFreeUserEventsWithOptions(request, runtime);
+  }
+
+  /**
    * Obtains the rule information about a hybrid cloud cluster.
    * 
    * @param request - DescribeHybridCloudClusterRuleRequest
@@ -28836,7 +39735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询混合云集群列表
+   * Queries a list of hybrid cloud clusters.
    * 
    * @param request - DescribeHybridCloudClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28875,7 +39774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询混合云集群列表
+   * Queries a list of hybrid cloud clusters.
    * 
    * @param request - DescribeHybridCloudClustersRequest
    * @returns DescribeHybridCloudClustersResponse
@@ -29887,6 +40786,10 @@ export default class Client extends OpenApi {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
+    if (!Util.isUnset(request.resourceProduct)) {
+      query["ResourceProduct"] = request.resourceProduct;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -30275,6 +41178,10 @@ export default class Client extends OpenApi {
       query["Resource"] = request.resource;
     }
 
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
     if (!Util.isUnset(request.startTimestamp)) {
       query["StartTimestamp"] = request.startTimestamp;
     }
@@ -30433,6 +41340,602 @@ export default class Client extends OpenApi {
   async describeRuleHitsTopUrl(request: DescribeRuleHitsTopUrlRequest): Promise<DescribeRuleHitsTopUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRuleHitsTopUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the personal information-related APIs and domain names.
+   * 
+   * @param request - DescribeSensitiveApiStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveApiStatisticResponse
+   */
+  async describeSensitiveApiStatisticWithOptions(request: DescribeSensitiveApiStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveApiStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveApiStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveApiStatisticResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveApiStatisticResponse({}));
+  }
+
+  /**
+   * Queries the personal information-related APIs and domain names.
+   * 
+   * @param request - DescribeSensitiveApiStatisticRequest
+   * @returns DescribeSensitiveApiStatisticResponse
+   */
+  async describeSensitiveApiStatistic(request: DescribeSensitiveApiStatisticRequest): Promise<DescribeSensitiveApiStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveApiStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the compliance check results of API security.
+   * 
+   * @param request - DescribeSensitiveDetectionResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveDetectionResultResponse
+   */
+  async describeSensitiveDetectionResultWithOptions(request: DescribeSensitiveDetectionResultRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveDetectionResultResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveDetectionResult",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveDetectionResultResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveDetectionResultResponse({}));
+  }
+
+  /**
+   * Queries the compliance check results of API security.
+   * 
+   * @param request - DescribeSensitiveDetectionResultRequest
+   * @returns DescribeSensitiveDetectionResultResponse
+   */
+  async describeSensitiveDetectionResult(request: DescribeSensitiveDetectionResultRequest): Promise<DescribeSensitiveDetectionResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveDetectionResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the traffic distribution of personal information records involved in cross-border data transfer.
+   * 
+   * @param request - DescribeSensitiveOutboundDistributionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveOutboundDistributionResponse
+   */
+  async describeSensitiveOutboundDistributionWithOptions(request: DescribeSensitiveOutboundDistributionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveOutboundDistributionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveOutboundDistribution",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveOutboundDistributionResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveOutboundDistributionResponse({}));
+  }
+
+  /**
+   * Queries the traffic distribution of personal information records involved in cross-border data transfer.
+   * 
+   * @param request - DescribeSensitiveOutboundDistributionRequest
+   * @returns DescribeSensitiveOutboundDistributionResponse
+   */
+  async describeSensitiveOutboundDistribution(request: DescribeSensitiveOutboundDistributionRequest): Promise<DescribeSensitiveOutboundDistributionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveOutboundDistributionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the data types of personal information involved in cross-border data transfer.
+   * 
+   * @param request - DescribeSensitiveOutboundStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveOutboundStatisticResponse
+   */
+  async describeSensitiveOutboundStatisticWithOptions(request: DescribeSensitiveOutboundStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveOutboundStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.detectionResult)) {
+      query["DetectionResult"] = request.detectionResult;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.orderKey)) {
+      query["OrderKey"] = request.orderKey;
+    }
+
+    if (!Util.isUnset(request.orderWay)) {
+      query["OrderWay"] = request.orderWay;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sensitiveCode)) {
+      query["SensitiveCode"] = request.sensitiveCode;
+    }
+
+    if (!Util.isUnset(request.sensitiveLevel)) {
+      query["SensitiveLevel"] = request.sensitiveLevel;
+    }
+
+    if (!Util.isUnset(request.sensitiveType)) {
+      query["SensitiveType"] = request.sensitiveType;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveOutboundStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveOutboundStatisticResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveOutboundStatisticResponse({}));
+  }
+
+  /**
+   * Queries the data types of personal information involved in cross-border data transfer.
+   * 
+   * @param request - DescribeSensitiveOutboundStatisticRequest
+   * @returns DescribeSensitiveOutboundStatisticResponse
+   */
+  async describeSensitiveOutboundStatistic(request: DescribeSensitiveOutboundStatisticRequest): Promise<DescribeSensitiveOutboundStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveOutboundStatisticWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the trends of cross-border data transfer of personal information.
+   * 
+   * @param request - DescribeSensitiveOutboundTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveOutboundTrendResponse
+   */
+  async describeSensitiveOutboundTrendWithOptions(request: DescribeSensitiveOutboundTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveOutboundTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveOutboundTrend",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveOutboundTrendResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveOutboundTrendResponse({}));
+  }
+
+  /**
+   * Queries the trends of cross-border data transfer of personal information.
+   * 
+   * @param request - DescribeSensitiveOutboundTrendRequest
+   * @returns DescribeSensitiveOutboundTrendResponse
+   */
+  async describeSensitiveOutboundTrend(request: DescribeSensitiveOutboundTrendRequest): Promise<DescribeSensitiveOutboundTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveOutboundTrendWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the access logs of sensitive data.
+   * 
+   * @param request - DescribeSensitiveRequestLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveRequestLogResponse
+   */
+  async describeSensitiveRequestLogWithOptions(request: DescribeSensitiveRequestLogRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveRequestLogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiFormat)) {
+      query["ApiFormat"] = request.apiFormat;
+    }
+
+    if (!Util.isUnset(request.clientIP)) {
+      query["ClientIP"] = request.clientIP;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.matchedHost)) {
+      query["MatchedHost"] = request.matchedHost;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sensitiveCode)) {
+      query["SensitiveCode"] = request.sensitiveCode;
+    }
+
+    if (!Util.isUnset(request.sensitiveData)) {
+      query["SensitiveData"] = request.sensitiveData;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveRequestLog",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveRequestLogResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveRequestLogResponse({}));
+  }
+
+  /**
+   * Queries the access logs of sensitive data.
+   * 
+   * @param request - DescribeSensitiveRequestLogRequest
+   * @returns DescribeSensitiveRequestLogResponse
+   */
+  async describeSensitiveRequestLog(request: DescribeSensitiveRequestLogRequest): Promise<DescribeSensitiveRequestLogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveRequestLogWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the tracing results of sensitive data.
+   * 
+   * @param request - DescribeSensitiveRequestsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveRequestsResponse
+   */
+  async describeSensitiveRequestsWithOptions(request: DescribeSensitiveRequestsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveRequestsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.sensitiveCode)) {
+      query["SensitiveCode"] = request.sensitiveCode;
+    }
+
+    if (!Util.isUnset(request.sensitiveData)) {
+      query["SensitiveData"] = request.sensitiveData;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveRequests",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveRequestsResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveRequestsResponse({}));
+  }
+
+  /**
+   * Queries the tracing results of sensitive data.
+   * 
+   * @param request - DescribeSensitiveRequestsRequest
+   * @returns DescribeSensitiveRequestsResponse
+   */
+  async describeSensitiveRequests(request: DescribeSensitiveRequestsRequest): Promise<DescribeSensitiveRequestsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveRequestsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the sensitive data statistics of the tracing and auditing feature.
+   * 
+   * @param request - DescribeSensitiveStatisticRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSensitiveStatisticResponse
+   */
+  async describeSensitiveStatisticWithOptions(request: DescribeSensitiveStatisticRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSensitiveStatisticResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.statisticType)) {
+      query["StatisticType"] = request.statisticType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSensitiveStatistic",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSensitiveStatisticResponse>(await this.callApi(params, req, runtime), new DescribeSensitiveStatisticResponse({}));
+  }
+
+  /**
+   * Queries the sensitive data statistics of the tracing and auditing feature.
+   * 
+   * @param request - DescribeSensitiveStatisticRequest
+   * @returns DescribeSensitiveStatisticResponse
+   */
+  async describeSensitiveStatistic(request: DescribeSensitiveStatisticRequest): Promise<DescribeSensitiveStatisticResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSensitiveStatisticWithOptions(request, runtime);
   }
 
   /**
@@ -30698,6 +42201,370 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the trends of API security risks.
+   * 
+   * @param request - DescribeUserAbnormalTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserAbnormalTrendResponse
+   */
+  async describeUserAbnormalTrendWithOptions(request: DescribeUserAbnormalTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserAbnormalTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserAbnormalTrend",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserAbnormalTrendResponse>(await this.callApi(params, req, runtime), new DescribeUserAbnormalTrendResponse({}));
+  }
+
+  /**
+   * Queries the trends of API security risks.
+   * 
+   * @param request - DescribeUserAbnormalTrendRequest
+   * @returns DescribeUserAbnormalTrendResponse
+   */
+  async describeUserAbnormalTrend(request: DescribeUserAbnormalTrendRequest): Promise<DescribeUserAbnormalTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserAbnormalTrendWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the types and statistics of risks in the API security module.
+   * 
+   * @param request - DescribeUserAbnormalTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserAbnormalTypeResponse
+   */
+  async describeUserAbnormalTypeWithOptions(request: DescribeUserAbnormalTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserAbnormalTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserAbnormalType",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserAbnormalTypeResponse>(await this.callApi(params, req, runtime), new DescribeUserAbnormalTypeResponse({}));
+  }
+
+  /**
+   * Queries the types and statistics of risks in the API security module.
+   * 
+   * @param request - DescribeUserAbnormalTypeRequest
+   * @returns DescribeUserAbnormalTypeResponse
+   */
+  async describeUserAbnormalType(request: DescribeUserAbnormalTypeRequest): Promise<DescribeUserAbnormalTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserAbnormalTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the traffic statistics of an API.
+   * 
+   * @param request - DescribeUserApiRequestRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserApiRequestResponse
+   */
+  async describeUserApiRequestWithOptions(request: DescribeUserApiRequestRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserApiRequestResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiFormat)) {
+      query["ApiFormat"] = request.apiFormat;
+    }
+
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.domain)) {
+      query["Domain"] = request.domain;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserApiRequest",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserApiRequestResponse>(await this.callApi(params, req, runtime), new DescribeUserApiRequestResponse({}));
+  }
+
+  /**
+   * Queries the traffic statistics of an API.
+   * 
+   * @param request - DescribeUserApiRequestRequest
+   * @returns DescribeUserApiRequestResponse
+   */
+  async describeUserApiRequest(request: DescribeUserApiRequestRequest): Promise<DescribeUserApiRequestResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserApiRequestWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the user asset statistics in the API security module.
+   * 
+   * @param request - DescribeUserAssetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserAssetResponse
+   */
+  async describeUserAssetWithOptions(request: DescribeUserAssetRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserAssetResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dataType)) {
+      query["DataType"] = request.dataType;
+    }
+
+    if (!Util.isUnset(request.days)) {
+      query["Days"] = request.days;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserAsset",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserAssetResponse>(await this.callApi(params, req, runtime), new DescribeUserAssetResponse({}));
+  }
+
+  /**
+   * Queries the user asset statistics in the API security module.
+   * 
+   * @param request - DescribeUserAssetRequest
+   * @returns DescribeUserAssetResponse
+   */
+  async describeUserAsset(request: DescribeUserAssetRequest): Promise<DescribeUserAssetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserAssetWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the trends of attacks detected by the API security module.
+   * 
+   * @param request - DescribeUserEventTrendRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserEventTrendResponse
+   */
+  async describeUserEventTrendWithOptions(request: DescribeUserEventTrendRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEventTrendResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserEventTrend",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserEventTrendResponse>(await this.callApi(params, req, runtime), new DescribeUserEventTrendResponse({}));
+  }
+
+  /**
+   * Queries the trends of attacks detected by the API security module.
+   * 
+   * @param request - DescribeUserEventTrendRequest
+   * @returns DescribeUserEventTrendResponse
+   */
+  async describeUserEventTrend(request: DescribeUserEventTrendRequest): Promise<DescribeUserEventTrendResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserEventTrendWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the types and statistics of security events in the API security module.
+   * 
+   * @param request - DescribeUserEventTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserEventTypeResponse
+   */
+  async describeUserEventTypeWithOptions(request: DescribeUserEventTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserEventTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeUserEventType",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeUserEventTypeResponse>(await this.callApi(params, req, runtime), new DescribeUserEventTypeResponse({}));
+  }
+
+  /**
+   * Queries the types and statistics of security events in the API security module.
+   * 
+   * @param request - DescribeUserEventTypeRequest
+   * @returns DescribeUserEventTypeResponse
+   */
+  async describeUserEventType(request: DescribeUserEventTypeRequest): Promise<DescribeUserEventTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeUserEventTypeWithOptions(request, runtime);
+  }
+
+  /**
    * Queries available regions for log storage.
    * 
    * @param request - DescribeUserSlsLogRegionsRequest
@@ -30883,6 +42750,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resource)) {
       query["Resource"] = request.resource;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
     if (!Util.isUnset(request.startTimestamp)) {
@@ -31089,6 +42960,10 @@ export default class Client extends OpenApi {
   async listTagValuesWithOptions(request: ListTagValuesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagValuesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
     if (!Util.isUnset(request.key)) {
       query["Key"] = request.key;
     }
@@ -31099,6 +42974,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceType)) {
@@ -31131,6 +43010,204 @@ export default class Client extends OpenApi {
   async listTagValues(request: ListTagValuesRequest): Promise<ListTagValuesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the status of multiple risks detected by the API security module at a time.
+   * 
+   * @param request - ModifyApisecAbnormalsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApisecAbnormalsResponse
+   */
+  async modifyApisecAbnormalsWithOptions(request: ModifyApisecAbnormalsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecAbnormalsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abnormalIds)) {
+      query["AbnormalIds"] = request.abnormalIds;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.userStatus)) {
+      query["UserStatus"] = request.userStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecAbnormals",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecAbnormalsResponse>(await this.callApi(params, req, runtime), new ModifyApisecAbnormalsResponse({}));
+  }
+
+  /**
+   * Modifies the status of multiple risks detected by the API security module at a time.
+   * 
+   * @param request - ModifyApisecAbnormalsRequest
+   * @returns ModifyApisecAbnormalsResponse
+   */
+  async modifyApisecAbnormals(request: ModifyApisecAbnormalsRequest): Promise<ModifyApisecAbnormalsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecAbnormalsWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the annotations of APIs in the API security module.
+   * 
+   * @param request - ModifyApisecApiResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApisecApiResourceResponse
+   */
+  async modifyApisecApiResourceWithOptions(request: ModifyApisecApiResourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecApiResourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apiId)) {
+      query["ApiId"] = request.apiId;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.follow)) {
+      query["Follow"] = request.follow;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecApiResource",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecApiResourceResponse>(await this.callApi(params, req, runtime), new ModifyApisecApiResourceResponse({}));
+  }
+
+  /**
+   * Modifies the annotations of APIs in the API security module.
+   * 
+   * @param request - ModifyApisecApiResourceRequest
+   * @returns ModifyApisecApiResourceResponse
+   */
+  async modifyApisecApiResource(request: ModifyApisecApiResourceRequest): Promise<ModifyApisecApiResourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecApiResourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the status of multiple security events detected by the API security module at a time.
+   * 
+   * @param request - ModifyApisecEventsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApisecEventsResponse
+   */
+  async modifyApisecEventsWithOptions(request: ModifyApisecEventsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecEventsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.eventIds)) {
+      query["EventIds"] = request.eventIds;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.note)) {
+      query["Note"] = request.note;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.userStatus)) {
+      query["UserStatus"] = request.userStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecEvents",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecEventsResponse>(await this.callApi(params, req, runtime), new ModifyApisecEventsResponse({}));
+  }
+
+  /**
+   * Modifies the status of multiple security events detected by the API security module at a time.
+   * 
+   * @param request - ModifyApisecEventsRequest
+   * @returns ModifyApisecEventsResponse
+   */
+  async modifyApisecEvents(request: ModifyApisecEventsRequest): Promise<ModifyApisecEventsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecEventsWithOptions(request, runtime);
   }
 
   /**
@@ -31258,7 +43335,135 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品资源
+   * Changes the status of features in the API security module for protected objects or protected object groups.
+   * 
+   * @param request - ModifyApisecModuleStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApisecModuleStatusResponse
+   */
+  async modifyApisecModuleStatusWithOptions(request: ModifyApisecModuleStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecModuleStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.reportStatus)) {
+      query["ReportStatus"] = request.reportStatus;
+    }
+
+    if (!Util.isUnset(request.resourceGroups)) {
+      query["ResourceGroups"] = request.resourceGroups;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    if (!Util.isUnset(request.traceStatus)) {
+      query["TraceStatus"] = request.traceStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecModuleStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecModuleStatusResponse>(await this.callApi(params, req, runtime), new ModifyApisecModuleStatusResponse({}));
+  }
+
+  /**
+   * Changes the status of features in the API security module for protected objects or protected object groups.
+   * 
+   * @param request - ModifyApisecModuleStatusRequest
+   * @returns ModifyApisecModuleStatusResponse
+   */
+  async modifyApisecModuleStatus(request: ModifyApisecModuleStatusRequest): Promise<ModifyApisecModuleStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecModuleStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the status of the API security module for protected objects or protected object groups.
+   * 
+   * @param request - ModifyApisecStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyApisecStatusResponse
+   */
+  async modifyApisecStatusWithOptions(request: ModifyApisecStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyApisecStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.apisecStatus)) {
+      query["ApisecStatus"] = request.apisecStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroups)) {
+      query["ResourceGroups"] = request.resourceGroups;
+    }
+
+    if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
+      query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resources)) {
+      query["Resources"] = request.resources;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyApisecStatus",
+      version: "2021-10-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyApisecStatusResponse>(await this.callApi(params, req, runtime), new ModifyApisecStatusResponse({}));
+  }
+
+  /**
+   * Changes the status of the API security module for protected objects or protected object groups.
+   * 
+   * @param request - ModifyApisecStatusRequest
+   * @returns ModifyApisecStatusResponse
+   */
+  async modifyApisecStatus(request: ModifyApisecStatusRequest): Promise<ModifyApisecStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyApisecStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
    * 
    * @param tmpReq - ModifyCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31315,7 +43520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改云产品资源
+   * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
    * 
    * @param request - ModifyCloudResourceRequest
    * @returns ModifyCloudResourceResponse
@@ -31326,7 +43531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改默认HTTPS配置
+   * Modifies the default SSL and Transport Layer Security (TLS) settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31385,7 +43590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改默认HTTPS配置
+   * Modifies the default SSL and Transport Layer Security (TLS) settings.
    * 
    * @param request - ModifyDefaultHttpsRequest
    * @returns ModifyDefaultHttpsResponse
@@ -31561,16 +43766,18 @@ export default class Client extends OpenApi {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
-    if (!Util.isUnset(request.rules)) {
-      query["Rules"] = request.rules;
-    }
-
     if (!Util.isUnset(request.templateId)) {
       query["TemplateId"] = request.templateId;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.rules)) {
+      body["Rules"] = request.rules;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyDefenseRule",
