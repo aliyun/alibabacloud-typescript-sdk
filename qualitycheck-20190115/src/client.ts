@@ -2006,105 +2006,6 @@ export class CreateTaskAssignRuleResponse extends $tea.Model {
   }
 }
 
-export class CreateUserRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 82C91484-B2D5-4D2A-A21F-A6D73F4***
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateUserResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateUserResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateUserResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateWarningConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -2595,6 +2496,115 @@ export class DeleteBusinessCategoryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteBusinessCategoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCheckTypeToSchemeRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
+  baseMeAgentId?: number;
+  /**
+   * @example
+   * {"schemeId":"1376","checkType":"4"}
+   */
+  jsonStr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      baseMeAgentId: 'BaseMeAgentId',
+      jsonStr: 'JsonStr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseMeAgentId: 'number',
+      jsonStr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCheckTypeToSchemeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 48864
+   */
+  data?: string;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  messages?: string[];
+  /**
+   * @example
+   * F190ADE9-619A-447D-84E3-7E241A5C428E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      messages: 'Messages',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      messages: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCheckTypeToSchemeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCheckTypeToSchemeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCheckTypeToSchemeResponseBody,
     };
   }
 
@@ -3379,105 +3389,6 @@ export class DeleteSchemeTaskConfigResponse extends $tea.Model {
   }
 }
 
-export class DeleteScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 9987D326-83D9-4A42-B9A5-0B27F9B40539
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteScoreForApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteSkillGroupConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -3572,105 +3483,6 @@ export class DeleteSkillGroupConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSkillGroupConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 9987D326-83D9-4A42-B9A5-0B27F9B43539
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSubScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSubScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSubScoreForApiResponseBody,
     };
   }
 
@@ -6179,210 +5991,6 @@ export class HandleComplaintResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: HandleComplaintResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  data?: InsertScoreForApiResponseBodyData;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 96138D8D-8D26-4E41-BFF4-77AED1088BBD
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: InsertScoreForApiResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InsertScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InsertScoreForApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertSubScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertSubScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  data?: InsertSubScoreForApiResponseBodyData;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * D34079C5-AA2F-490E-ADD8-5BFF08AAE207
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: InsertSubScoreForApiResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertSubScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: InsertSubScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: InsertSubScoreForApiResponseBody,
     };
   }
 
@@ -10230,105 +9838,6 @@ export class UpdateSchemeTaskConfigResponse extends $tea.Model {
   }
 }
 
-export class UpdateScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 6987D326-83D9-4A42-B9A5-0B27F9B40539
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateScoreForApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateSkillGroupConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -10423,105 +9932,6 @@ export class UpdateSkillGroupConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSkillGroupConfigResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubScoreForApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * baseMeAgentId
-   */
-  baseMeAgentId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  jsonStr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      baseMeAgentId: 'BaseMeAgentId',
-      jsonStr: 'JsonStr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      baseMeAgentId: 'number',
-      jsonStr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubScoreForApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @example
-   * successful
-   */
-  message?: string;
-  /**
-   * @example
-   * 9987D326-83Q9-4A42-B9A5-0B27F9B40539
-   */
-  requestId?: string;
-  /**
-   * @example
-   * true
-   */
-  success?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSubScoreForApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSubScoreForApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSubScoreForApiResponseBody,
     };
   }
 
@@ -13319,6 +12729,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $tea.Model {
    */
   dataType?: number;
   description?: string;
+  initScore?: string;
   /**
    * @example
    * xxx
@@ -13373,6 +12784,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $tea.Model {
       createUserName: 'CreateUserName',
       dataType: 'DataType',
       description: 'Description',
+      initScore: 'InitScore',
       name: 'Name',
       ruleIds: 'RuleIds',
       ruleList: 'RuleList',
@@ -13394,6 +12806,7 @@ export class GetQualityCheckSchemeResponseBodyData extends $tea.Model {
       createUserName: 'string',
       dataType: 'number',
       description: 'string',
+      initScore: 'string',
       name: 'string',
       ruleIds: { 'type': 'array', 'itemType': 'string' },
       ruleList: { 'type': 'array', 'itemType': RulesInfo },
@@ -14530,6 +13943,7 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
    * 0108888****
    */
   caller?: string;
+  customerName?: string;
   /**
    * @example
    * XXXX
@@ -14640,6 +14054,7 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
       callType: 'CallType',
       callee: 'Callee',
       caller: 'Caller',
+      customerName: 'CustomerName',
       dataSetName: 'DataSetName',
       dialogueSize: 'DialogueSize',
       duration: 'Duration',
@@ -14673,6 +14088,7 @@ export class GetResultResponseBodyDataResultInfoRecording extends $tea.Model {
       callType: 'number',
       callee: 'string',
       caller: 'string',
+      customerName: 'string',
       dataSetName: 'string',
       dialogueSize: 'number',
       duration: 'number',
@@ -17941,58 +17357,6 @@ export class GetWarningStrategyConfigResponseBodyData extends $tea.Model {
       maxNumber: 'number',
       name: 'string',
       warningStrategyList: GetWarningStrategyConfigResponseBodyDataWarningStrategyList,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertScoreForApiResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 5728
-   */
-  scoreId?: number;
-  scoreName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scoreId: 'ScoreId',
-      scoreName: 'ScoreName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scoreId: 'number',
-      scoreName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class InsertSubScoreForApiResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 5730
-   */
-  scoreSubId?: number;
-  scoreSubName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      scoreSubId: 'ScoreSubId',
-      scoreSubName: 'ScoreSubName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      scoreSubId: 'number',
-      scoreSubName: 'string',
     };
   }
 
@@ -22113,10 +21477,13 @@ export default class Client extends OpenApi {
   /**
    * 会话组批量分配
    * 
+   * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
+   * 
    * @param request - AssignReviewerBySessionGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssignReviewerBySessionGroupResponse
    */
+  // Deprecated
   async assignReviewerBySessionGroupWithOptions(request: AssignReviewerBySessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<AssignReviewerBySessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22148,9 +21515,12 @@ export default class Client extends OpenApi {
   /**
    * 会话组批量分配
    * 
+   * @deprecated OpenAPI AssignReviewerBySessionGroup is deprecated
+   * 
    * @param request - AssignReviewerBySessionGroupRequest
    * @returns AssignReviewerBySessionGroupResponse
    */
+  // Deprecated
   async assignReviewerBySessionGroup(request: AssignReviewerBySessionGroupRequest): Promise<AssignReviewerBySessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.assignReviewerBySessionGroupWithOptions(request, runtime);
@@ -22467,54 +21837,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI CreateUser is deprecated
-   * 
-   * @param request - CreateUserRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateUserResponse
-   */
-  // Deprecated
-  async createUserWithOptions(request: CreateUserRequest, runtime: $Util.RuntimeOptions): Promise<CreateUserResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateUser",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateUserResponse>(await this.callApi(params, req, runtime), new CreateUserResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI CreateUser is deprecated
-   * 
-   * @param request - CreateUserRequest
-   * @returns CreateUserResponse
-   */
-  // Deprecated
-  async createUser(request: CreateUserRequest): Promise<CreateUserResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createUserWithOptions(request, runtime);
-  }
-
-  /**
    * @param request - CreateWarningConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateWarningConfigResponse
@@ -22729,6 +22051,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除质检唯独
+   * 
+   * @param request - DeleteCheckTypeToSchemeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCheckTypeToSchemeResponse
+   */
+  async deleteCheckTypeToSchemeWithOptions(request: DeleteCheckTypeToSchemeRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCheckTypeToSchemeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.baseMeAgentId)) {
+      query["BaseMeAgentId"] = request.baseMeAgentId;
+    }
+
+    if (!Util.isUnset(request.jsonStr)) {
+      query["JsonStr"] = request.jsonStr;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCheckTypeToScheme",
+      version: "2019-01-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCheckTypeToSchemeResponse>(await this.callApi(params, req, runtime), new DeleteCheckTypeToSchemeResponse({}));
+  }
+
+  /**
+   * 删除质检唯独
+   * 
+   * @param request - DeleteCheckTypeToSchemeRequest
+   * @returns DeleteCheckTypeToSchemeResponse
+   */
+  async deleteCheckTypeToScheme(request: DeleteCheckTypeToSchemeRequest): Promise<DeleteCheckTypeToSchemeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCheckTypeToSchemeWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteCustomizationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteCustomizationConfigResponse
@@ -22771,10 +22139,13 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteDataSet is deprecated
+   * 
    * @param request - DeleteDataSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataSetResponse
    */
+  // Deprecated
   async deleteDataSetWithOptions(request: DeleteDataSetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22804,9 +22175,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI DeleteDataSet is deprecated
+   * 
    * @param request - DeleteDataSetRequest
    * @returns DeleteDataSetResponse
    */
+  // Deprecated
   async deleteDataSet(request: DeleteDataSetRequest): Promise<DeleteDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDataSetWithOptions(request, runtime);
@@ -23061,54 +22435,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI DeleteScoreForApi is deprecated
-   * 
-   * @param request - DeleteScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteScoreForApiResponse
-   */
-  // Deprecated
-  async deleteScoreForApiWithOptions(request: DeleteScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteScoreForApiResponse>(await this.callApi(params, req, runtime), new DeleteScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI DeleteScoreForApi is deprecated
-   * 
-   * @param request - DeleteScoreForApiRequest
-   * @returns DeleteScoreForApiResponse
-   */
-  // Deprecated
-  async deleteScoreForApi(request: DeleteScoreForApiRequest): Promise<DeleteScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteScoreForApiWithOptions(request, runtime);
-  }
-
-  /**
    * @param request - DeleteSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteSkillGroupConfigResponse
@@ -23148,54 +22474,6 @@ export default class Client extends OpenApi {
   async deleteSkillGroupConfig(request: DeleteSkillGroupConfigRequest): Promise<DeleteSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSkillGroupConfigWithOptions(request, runtime);
-  }
-
-  /**
-   * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
-   * 
-   * @param request - DeleteSubScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteSubScoreForApiResponse
-   */
-  // Deprecated
-  async deleteSubScoreForApiWithOptions(request: DeleteSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSubScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteSubScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSubScoreForApiResponse>(await this.callApi(params, req, runtime), new DeleteSubScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI DeleteSubScoreForApi is deprecated
-   * 
-   * @param request - DeleteSubScoreForApiRequest
-   * @returns DeleteSubScoreForApiResponse
-   */
-  // Deprecated
-  async deleteSubScoreForApi(request: DeleteSubScoreForApiRequest): Promise<DeleteSubScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSubScoreForApiWithOptions(request, runtime);
   }
 
   /**
@@ -24277,102 +23555,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI InsertScoreForApi is deprecated
-   * 
-   * @param request - InsertScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns InsertScoreForApiResponse
-   */
-  // Deprecated
-  async insertScoreForApiWithOptions(request: InsertScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "InsertScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<InsertScoreForApiResponse>(await this.callApi(params, req, runtime), new InsertScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI InsertScoreForApi is deprecated
-   * 
-   * @param request - InsertScoreForApiRequest
-   * @returns InsertScoreForApiResponse
-   */
-  // Deprecated
-  async insertScoreForApi(request: InsertScoreForApiRequest): Promise<InsertScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.insertScoreForApiWithOptions(request, runtime);
-  }
-
-  /**
-   * @deprecated OpenAPI InsertSubScoreForApi is deprecated
-   * 
-   * @param request - InsertSubScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns InsertSubScoreForApiResponse
-   */
-  // Deprecated
-  async insertSubScoreForApiWithOptions(request: InsertSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<InsertSubScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "InsertSubScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<InsertSubScoreForApiResponse>(await this.callApi(params, req, runtime), new InsertSubScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI InsertSubScoreForApi is deprecated
-   * 
-   * @param request - InsertSubScoreForApiRequest
-   * @returns InsertSubScoreForApiResponse
-   */
-  // Deprecated
-  async insertSubScoreForApi(request: InsertSubScoreForApiRequest): Promise<InsertSubScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.insertSubScoreForApiWithOptions(request, runtime);
-  }
-
-  /**
    * @deprecated OpenAPI InvalidRule is deprecated, please use Qualitycheck::2019-01-15::DeleteRuleV4 instead.
    * 
    * @param request - InvalidRuleRequest
@@ -24465,10 +23647,13 @@ export default class Client extends OpenApi {
   /**
    * 获取数据集列表
    * 
+   * @deprecated OpenAPI ListDataSet is deprecated
+   * 
    * @param request - ListDataSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataSetResponse
    */
+  // Deprecated
   async listDataSetWithOptions(request: ListDataSetRequest, runtime: $Util.RuntimeOptions): Promise<ListDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24500,9 +23685,12 @@ export default class Client extends OpenApi {
   /**
    * 获取数据集列表
    * 
+   * @deprecated OpenAPI ListDataSet is deprecated
+   * 
    * @param request - ListDataSetRequest
    * @returns ListDataSetResponse
    */
+  // Deprecated
   async listDataSet(request: ListDataSetRequest): Promise<ListDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataSetWithOptions(request, runtime);
@@ -24837,10 +24025,13 @@ export default class Client extends OpenApi {
   /**
    * 获取会话组列表
    * 
+   * @deprecated OpenAPI ListSessionGroup is deprecated
+   * 
    * @param request - ListSessionGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListSessionGroupResponse
    */
+  // Deprecated
   async listSessionGroupWithOptions(request: ListSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24872,9 +24063,12 @@ export default class Client extends OpenApi {
   /**
    * 获取会话组列表
    * 
+   * @deprecated OpenAPI ListSessionGroup is deprecated
+   * 
    * @param request - ListSessionGroupRequest
    * @returns ListSessionGroupResponse
    */
+  // Deprecated
   async listSessionGroup(request: ListSessionGroupRequest): Promise<ListSessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSessionGroupWithOptions(request, runtime);
@@ -25143,10 +24337,13 @@ export default class Client extends OpenApi {
   /**
    * 会话组批量回收
    * 
+   * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
+   * 
    * @param request - RevertAssignedSessionGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RevertAssignedSessionGroupResponse
    */
+  // Deprecated
   async revertAssignedSessionGroupWithOptions(request: RevertAssignedSessionGroupRequest, runtime: $Util.RuntimeOptions): Promise<RevertAssignedSessionGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25178,19 +24375,25 @@ export default class Client extends OpenApi {
   /**
    * 会话组批量回收
    * 
+   * @deprecated OpenAPI RevertAssignedSessionGroup is deprecated
+   * 
    * @param request - RevertAssignedSessionGroupRequest
    * @returns RevertAssignedSessionGroupResponse
    */
+  // Deprecated
   async revertAssignedSessionGroup(request: RevertAssignedSessionGroupRequest): Promise<RevertAssignedSessionGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.revertAssignedSessionGroupWithOptions(request, runtime);
   }
 
   /**
+   * @deprecated OpenAPI SaveConfigDataSet is deprecated
+   * 
    * @param request - SaveConfigDataSetRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SaveConfigDataSetResponse
    */
+  // Deprecated
   async saveConfigDataSetWithOptions(request: SaveConfigDataSetRequest, runtime: $Util.RuntimeOptions): Promise<SaveConfigDataSetResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25220,9 +24423,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @deprecated OpenAPI SaveConfigDataSet is deprecated
+   * 
    * @param request - SaveConfigDataSetRequest
    * @returns SaveConfigDataSetResponse
    */
+  // Deprecated
   async saveConfigDataSet(request: SaveConfigDataSetRequest): Promise<SaveConfigDataSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveConfigDataSetWithOptions(request, runtime);
@@ -25923,54 +25129,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @deprecated OpenAPI UpdateScoreForApi is deprecated
-   * 
-   * @param request - UpdateScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateScoreForApiResponse
-   */
-  // Deprecated
-  async updateScoreForApiWithOptions(request: UpdateScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateScoreForApiResponse>(await this.callApi(params, req, runtime), new UpdateScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI UpdateScoreForApi is deprecated
-   * 
-   * @param request - UpdateScoreForApiRequest
-   * @returns UpdateScoreForApiResponse
-   */
-  // Deprecated
-  async updateScoreForApi(request: UpdateScoreForApiRequest): Promise<UpdateScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateScoreForApiWithOptions(request, runtime);
-  }
-
-  /**
    * @param request - UpdateSkillGroupConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateSkillGroupConfigResponse
@@ -26010,54 +25168,6 @@ export default class Client extends OpenApi {
   async updateSkillGroupConfig(request: UpdateSkillGroupConfigRequest): Promise<UpdateSkillGroupConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSkillGroupConfigWithOptions(request, runtime);
-  }
-
-  /**
-   * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
-   * 
-   * @param request - UpdateSubScoreForApiRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateSubScoreForApiResponse
-   */
-  // Deprecated
-  async updateSubScoreForApiWithOptions(request: UpdateSubScoreForApiRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSubScoreForApiResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.baseMeAgentId)) {
-      query["BaseMeAgentId"] = request.baseMeAgentId;
-    }
-
-    if (!Util.isUnset(request.jsonStr)) {
-      query["JsonStr"] = request.jsonStr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateSubScoreForApi",
-      version: "2019-01-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSubScoreForApiResponse>(await this.callApi(params, req, runtime), new UpdateSubScoreForApiResponse({}));
-  }
-
-  /**
-   * @deprecated OpenAPI UpdateSubScoreForApi is deprecated
-   * 
-   * @param request - UpdateSubScoreForApiRequest
-   * @returns UpdateSubScoreForApiResponse
-   */
-  // Deprecated
-  async updateSubScoreForApi(request: UpdateSubScoreForApiRequest): Promise<UpdateSubScoreForApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSubScoreForApiWithOptions(request, runtime);
   }
 
   /**
