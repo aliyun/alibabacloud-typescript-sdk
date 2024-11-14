@@ -20,6 +20,7 @@ export class AnchorResponse extends $tea.Model {
   gender?: string;
   resourceTypeDesc?: string;
   status?: string;
+  supportBgChange?: number;
   useScene?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35,6 +36,7 @@ export class AnchorResponse extends $tea.Model {
       gender: 'gender',
       resourceTypeDesc: 'resourceTypeDesc',
       status: 'status',
+      supportBgChange: 'supportBgChange',
       useScene: 'useScene',
     };
   }
@@ -53,6 +55,7 @@ export class AnchorResponse extends $tea.Model {
       gender: 'string',
       resourceTypeDesc: 'string',
       status: 'string',
+      supportBgChange: 'number',
       useScene: 'string',
     };
   }
@@ -294,6 +297,7 @@ export class Text extends $tea.Model {
    * xxx
    */
   desc?: string;
+  errMsg?: string;
   gmtCreate?: string;
   gmtModified?: string;
   illustrationTaskIdList?: number[];
@@ -357,6 +361,7 @@ export class Text extends $tea.Model {
       agentId: 'agentId',
       agentName: 'agentName',
       desc: 'desc',
+      errMsg: 'errMsg',
       gmtCreate: 'gmtCreate',
       gmtModified: 'gmtModified',
       illustrationTaskIdList: 'illustrationTaskIdList',
@@ -380,6 +385,7 @@ export class Text extends $tea.Model {
       agentId: 'string',
       agentName: 'string',
       desc: 'string',
+      errMsg: 'string',
       gmtCreate: 'string',
       gmtModified: 'string',
       illustrationTaskIdList: { 'type': 'array', 'itemType': 'number' },
@@ -1124,6 +1130,87 @@ export class CheckSessionResponse extends $tea.Model {
   }
 }
 
+export class CloseAICoachTaskSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 11
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 273610276967782972
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'sessionId',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseAICoachTaskSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0E06E0AA-D5B6-538C-8CE9-BAB79C68B690
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CloseAICoachTaskSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CloseAICoachTaskSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CloseAICoachTaskSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountTextRequest extends $tea.Model {
   /**
    * @remarks
@@ -1214,6 +1301,121 @@ export class CountTextResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CountTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAICoachTaskSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 821882330423951360
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 1730530943640489
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAICoachTaskSessionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * rtctoken
+   * 
+   * @example
+   * 11
+   */
+  channelToken?: string;
+  /**
+   * @example
+   * 4830493A-728F-5F19-BBCC-1443292E9C49
+   */
+  requestId?: string;
+  scriptInfo?: CreateAICoachTaskSessionResponseBodyScriptInfo;
+  /**
+   * @example
+   * 111
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * Token
+   * 
+   * @example
+   * 11
+   */
+  token?: string;
+  /**
+   * @example
+   * 11
+   */
+  webSocketUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelToken: 'channelToken',
+      requestId: 'requestId',
+      scriptInfo: 'scriptInfo',
+      sessionId: 'sessionId',
+      token: 'token',
+      webSocketUrl: 'webSocketUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelToken: 'string',
+      requestId: 'string',
+      scriptInfo: CreateAICoachTaskSessionResponseBodyScriptInfo,
+      sessionId: 'string',
+      token: 'string',
+      webSocketUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAICoachTaskSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAICoachTaskSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAICoachTaskSessionResponseBody,
     };
   }
 
@@ -1462,6 +1664,321 @@ export class CreateTextTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TextTaskResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishAICoachTaskSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * 111
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 222
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'sessionId',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishAICoachTaskSessionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 14878724-A835-578D-9DD5-4779ADCE9221
+   */
+  requestId?: string;
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class FinishAICoachTaskSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishAICoachTaskSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: FinishAICoachTaskSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionHistoryRequest extends $tea.Model {
+  /**
+   * @example
+   * 111
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 1251317954812712
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'sessionId',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionHistoryResponseBody extends $tea.Model {
+  conversationList?: GetAICoachTaskSessionHistoryResponseBodyConversationList[];
+  /**
+   * @example
+   * 0
+   */
+  duration?: number;
+  /**
+   * @example
+   * 2024-11-08 09:33:21
+   */
+  endTime?: string;
+  /**
+   * @example
+   * D5798660-1531-5D12-9C20-16FEE9D22351
+   */
+  requestId?: string;
+  scriptName?: string;
+  /**
+   * @example
+   * 2024-08-21 05:00:01
+   */
+  startTime?: string;
+  status?: string;
+  /**
+   * @example
+   * 1579404690269235
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conversationList: 'conversationList',
+      duration: 'duration',
+      endTime: 'endTime',
+      requestId: 'requestId',
+      scriptName: 'scriptName',
+      startTime: 'startTime',
+      status: 'status',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationList: { 'type': 'array', 'itemType': GetAICoachTaskSessionHistoryResponseBodyConversationList },
+      duration: 'number',
+      endTime: 'string',
+      requestId: 'string',
+      scriptName: 'string',
+      startTime: 'string',
+      status: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAICoachTaskSessionHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAICoachTaskSessionHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1111
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 1707732338016307
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'sessionId',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  duration?: number;
+  /**
+   * @example
+   * 2024-11-08 09:33:21
+   */
+  endTime?: string;
+  /**
+   * @example
+   * {}
+   */
+  evaluationResult?: string;
+  /**
+   * @example
+   * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
+   */
+  requestId?: string;
+  scriptName?: string;
+  /**
+   * @example
+   * 2024-10-11 09:58:01
+   */
+  startTime?: string;
+  status?: string;
+  /**
+   * @example
+   * 1276673855116835
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'duration',
+      endTime: 'endTime',
+      evaluationResult: 'evaluationResult',
+      requestId: 'requestId',
+      scriptName: 'scriptName',
+      startTime: 'startTime',
+      status: 'status',
+      uid: 'uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      endTime: 'string',
+      evaluationResult: 'string',
+      requestId: 'string',
+      scriptName: 'string',
+      startTime: 'string',
+      status: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionReportResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAICoachTaskSessionReportResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAICoachTaskSessionReportResponseBody,
     };
   }
 
@@ -1921,6 +2438,111 @@ export class InteractTextResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InteractTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAICoachTaskPageRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * FINISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * 111
+   */
+  studentId?: string;
+  /**
+   * @example
+   * 313123123
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      status: 'status',
+      studentId: 'studentId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      status: 'string',
+      studentId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAICoachTaskPageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D7F2B74F-63F2-5DD6-95E4-F408EAD6617E
+   */
+  requestId?: string;
+  taskList?: ListAICoachTaskPageResponseBodyTaskList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskList: 'taskList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskList: { 'type': 'array', 'itemType': ListAICoachTaskPageResponseBodyTaskList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAICoachTaskPageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAICoachTaskPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAICoachTaskPageResponseBody,
     };
   }
 
@@ -3944,6 +4566,71 @@ export class CountTextResponseBodyCountTextCmdList extends $tea.Model {
   }
 }
 
+export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $tea.Model {
+  initiator?: string;
+  /**
+   * @example
+   * 11
+   */
+  maxDuration?: number;
+  /**
+   * @example
+   * test
+   */
+  scriptDesc?: string;
+  scriptName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      initiator: 'initiator',
+      maxDuration: 'maxDuration',
+      scriptDesc: 'scriptDesc',
+      scriptName: 'scriptName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      initiator: 'string',
+      maxDuration: 'number',
+      scriptDesc: 'string',
+      scriptName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  evaluationResult?: string;
+  message?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      evaluationResult: 'evaluationResult',
+      message: 'message',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      evaluationResult: 'string',
+      message: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTextTemplateResponseBodyAvailableIndustryTextModeTypesTextStyles extends $tea.Model {
   desc?: string;
   /**
@@ -4028,6 +4715,50 @@ export class GetTextTemplateResponseBodyAvailableIndustry extends $tea.Model {
     return {
       name: 'string',
       textModeTypes: { 'type': 'array', 'itemType': GetTextTemplateResponseBodyAvailableIndustryTextModeTypes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAICoachTaskPageResponseBodyTaskList extends $tea.Model {
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  finishTime?: string;
+  /**
+   * @example
+   * FINISHED
+   */
+  status?: string;
+  /**
+   * @example
+   * 222
+   */
+  studentId?: string;
+  /**
+   * @example
+   * 11111111111
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      finishTime: 'finishTime',
+      status: 'status',
+      studentId: 'studentId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      finishTime: 'string',
+      status: 'string',
+      studentId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4950,6 +5681,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 学员关闭会话
+   * 
+   * @param request - CloseAICoachTaskSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CloseAICoachTaskSessionResponse
+   */
+  async closeAICoachTaskSessionWithOptions(request: CloseAICoachTaskSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CloseAICoachTaskSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      body["uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CloseAICoachTaskSession",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/closeSession`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CloseAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CloseAICoachTaskSessionResponse({}));
+  }
+
+  /**
+   * 学员关闭会话
+   * 
+   * @param request - CloseAICoachTaskSessionRequest
+   * @returns CloseAICoachTaskSessionResponse
+   */
+  async closeAICoachTaskSession(request: CloseAICoachTaskSessionRequest): Promise<CloseAICoachTaskSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.closeAICoachTaskSessionWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 文本数量统计
    * 
    * @param request - CountTextRequest
@@ -5004,6 +5784,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.countTextWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 学员开启对练会话
+   * 
+   * @param request - CreateAICoachTaskSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAICoachTaskSessionResponse
+   */
+  async createAICoachTaskSessionWithOptions(request: CreateAICoachTaskSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAICoachTaskSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["taskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      body["uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAICoachTaskSession",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/startSession`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CreateAICoachTaskSessionResponse({}));
+  }
+
+  /**
+   * 学员开启对练会话
+   * 
+   * @param request - CreateAICoachTaskSessionRequest
+   * @returns CreateAICoachTaskSessionResponse
+   */
+  async createAICoachTaskSession(request: CreateAICoachTaskSessionRequest): Promise<CreateAICoachTaskSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAICoachTaskSessionWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5181,6 +6010,153 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTextTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 学员完成会话
+   * 
+   * @param request - FinishAICoachTaskSessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishAICoachTaskSessionResponse
+   */
+  async finishAICoachTaskSessionWithOptions(request: FinishAICoachTaskSessionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<FinishAICoachTaskSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      body["uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "FinishAICoachTaskSession",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/finishSession`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<FinishAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new FinishAICoachTaskSessionResponse({}));
+  }
+
+  /**
+   * 学员完成会话
+   * 
+   * @param request - FinishAICoachTaskSessionRequest
+   * @returns FinishAICoachTaskSessionResponse
+   */
+  async finishAICoachTaskSession(request: FinishAICoachTaskSessionRequest): Promise<FinishAICoachTaskSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.finishAICoachTaskSessionWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 学员查询会话历史
+   * 
+   * @param request - GetAICoachTaskSessionHistoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachTaskSessionHistoryResponse
+   */
+  async getAICoachTaskSessionHistoryWithOptions(request: GetAICoachTaskSessionHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAICoachTaskSessionHistoryResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      query["uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAICoachTaskSessionHistory",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/querySessionHistory`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAICoachTaskSessionHistoryResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionHistoryResponse({}));
+  }
+
+  /**
+   * 学员查询会话历史
+   * 
+   * @param request - GetAICoachTaskSessionHistoryRequest
+   * @returns GetAICoachTaskSessionHistoryResponse
+   */
+  async getAICoachTaskSessionHistory(request: GetAICoachTaskSessionHistoryRequest): Promise<GetAICoachTaskSessionHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachTaskSessionHistoryWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 学员查询会话评测报告
+   * 
+   * @param request - GetAICoachTaskSessionReportRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAICoachTaskSessionReportResponse
+   */
+  async getAICoachTaskSessionReportWithOptions(request: GetAICoachTaskSessionReportRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAICoachTaskSessionReportResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.uid)) {
+      query["uid"] = request.uid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAICoachTaskSessionReport",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/queryTaskSessionReport`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAICoachTaskSessionReportResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionReportResponse({}));
+  }
+
+  /**
+   * 学员查询会话评测报告
+   * 
+   * @param request - GetAICoachTaskSessionReportRequest
+   * @returns GetAICoachTaskSessionReportResponse
+   */
+  async getAICoachTaskSessionReport(request: GetAICoachTaskSessionReportRequest): Promise<GetAICoachTaskSessionReportResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAICoachTaskSessionReportWithOptions(request, headers, runtime);
   }
 
   /**
@@ -5517,6 +6493,67 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.interactTextWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询任务列表
+   * 
+   * @param request - ListAICoachTaskPageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAICoachTaskPageResponse
+   */
+  async listAICoachTaskPageWithOptions(request: ListAICoachTaskPageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAICoachTaskPageResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.studentId)) {
+      query["studentId"] = request.studentId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAICoachTaskPage",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/aicoach/listTaskPage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAICoachTaskPageResponse>(await this.callApi(params, req, runtime), new ListAICoachTaskPageResponse({}));
+  }
+
+  /**
+   * 查询任务列表
+   * 
+   * @param request - ListAICoachTaskPageRequest
+   * @returns ListAICoachTaskPageResponse
+   */
+  async listAICoachTaskPage(request: ListAICoachTaskPageRequest): Promise<ListAICoachTaskPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAICoachTaskPageWithOptions(request, headers, runtime);
   }
 
   /**
