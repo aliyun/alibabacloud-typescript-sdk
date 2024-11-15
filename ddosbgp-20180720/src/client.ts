@@ -3320,6 +3320,7 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
    * ddosbgp-cn-n6w1r7nz****
    */
   instanceId?: string;
+  opAction?: number;
   /**
    * @remarks
    * The sorting method of operation logs. Set the value to **opdate**, which indicates sorting based on the operation time.
@@ -3386,6 +3387,7 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
       currentPage: 'CurrentPage',
       endTime: 'EndTime',
       instanceId: 'InstanceId',
+      opAction: 'OpAction',
       orderBy: 'OrderBy',
       orderDir: 'OrderDir',
       pageSize: 'PageSize',
@@ -3400,6 +3402,7 @@ export class DescribeOpEntitiesRequest extends $tea.Model {
       currentPage: 'number',
       endTime: 'number',
       instanceId: 'string',
+      opAction: 'number',
       orderBy: 'string',
       orderDir: 'string',
       pageSize: 'number',
@@ -7174,6 +7177,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
    * 1
    */
   coverageType?: number;
+  debtStatus?: number;
   /**
    * @remarks
    * The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
@@ -7260,6 +7264,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
       blackholdingCount: 'BlackholdingCount',
       commodityType: 'CommodityType',
       coverageType: 'CoverageType',
+      debtStatus: 'DebtStatus',
       expireTime: 'ExpireTime',
       gmtCreate: 'GmtCreate',
       instanceId: 'InstanceId',
@@ -7278,6 +7283,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
       blackholdingCount: 'string',
       commodityType: 'string',
       coverageType: 'number',
+      debtStatus: 'number',
       expireTime: 'number',
       gmtCreate: 'number',
       instanceId: 'string',
@@ -12408,6 +12414,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.opAction)) {
+      query["OpAction"] = request.opAction;
     }
 
     if (!Util.isUnset(request.orderBy)) {
