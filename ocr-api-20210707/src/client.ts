@@ -2699,6 +2699,7 @@ export class RecognizeEduPaperStructedRequest extends $tea.Model {
    * false
    */
   needRotate?: boolean;
+  outputOricoord?: boolean;
   /**
    * @example
    * default:默认, Math:数学, PrimarySchool_Math:小学数学, JHighSchool_Math: 初中数学, Chinese:语文, PrimarySchool_Chinese:小学语文, //JHighSchool_Chinese:初中语文, English:英语, PrimarySchool_English:小学英语, JHighSchool_English:初中英语, Physics:物理, JHighSchool_Physics:初中物理   //Chemistry: 化学, JHighSchool_Chemistry:初中化学, Biology:生物, JHighSchool_Biology:初中生物, History:历史, JHighSchool_History:初中历史, Geography:地理,   //JHighSchool_Geography:初中地理, Politics:政治, JHighSchool_Politics:初中政治   "templateType": "Math"
@@ -2713,6 +2714,7 @@ export class RecognizeEduPaperStructedRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       needRotate: 'NeedRotate',
+      outputOricoord: 'OutputOricoord',
       subject: 'Subject',
       url: 'Url',
       body: 'body',
@@ -2722,6 +2724,7 @@ export class RecognizeEduPaperStructedRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       needRotate: 'boolean',
+      outputOricoord: 'boolean',
       subject: 'string',
       url: 'string',
       body: 'Readable',
@@ -11066,6 +11069,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.needRotate)) {
       query["NeedRotate"] = request.needRotate;
+    }
+
+    if (!Util.isUnset(request.outputOricoord)) {
+      query["OutputOricoord"] = request.outputOricoord;
     }
 
     if (!Util.isUnset(request.subject)) {
