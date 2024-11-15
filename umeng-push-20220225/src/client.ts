@@ -211,6 +211,11 @@ export class ChannelProperties extends $tea.Model {
   useHuaweiMessage?: string;
   /**
    * @example
+   * true
+   */
+  useHuaweiPlainMessage?: string;
+  /**
+   * @example
    * "true",默认"false"
    */
   vivoAddBadge?: string;
@@ -229,6 +234,7 @@ export class ChannelProperties extends $tea.Model {
       oppoChannelId: 'oppoChannelId',
       oppoNotifyLevel: 'oppoNotifyLevel',
       useHuaweiMessage: 'useHuaweiMessage',
+      useHuaweiPlainMessage: 'useHuaweiPlainMessage',
       vivoAddBadge: 'vivoAddBadge',
       vivoCategory: 'vivoCategory',
       vivoPushMode: 'vivoPushMode',
@@ -248,6 +254,7 @@ export class ChannelProperties extends $tea.Model {
       oppoChannelId: 'string',
       oppoNotifyLevel: 'string',
       useHuaweiMessage: 'string',
+      useHuaweiPlainMessage: 'string',
       vivoAddBadge: 'string',
       vivoCategory: 'string',
       vivoPushMode: 'string',
