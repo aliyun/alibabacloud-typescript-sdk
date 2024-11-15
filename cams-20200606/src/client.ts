@@ -10,6 +10,8 @@ import * as $tea from '@alicloud/tea-typescript';
 export class AddChatappPhoneNumberRequest extends $tea.Model {
   /**
    * @remarks
+   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,30 +20,41 @@ export class AddChatappPhoneNumberRequest extends $tea.Model {
   cc?: string;
   /**
    * @remarks
+   * Adds a phone number for a WhatsApp Business account (WABA).
+   * 
    * This parameter is required.
    * 
    * @example
-   * 939283893939
+   * 93928389****
    */
   custSpaceId?: string;
   ownerId?: number;
   /**
    * @remarks
+   * AddChatappPhoneNumber
+   * 
    * This parameter is required.
    * 
    * @example
-   * 13800000000
+   * 1380000****
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * cams:ChatappPhoneNumberRegister
+   * 
    * @example
-   * 10202020
+   * 1020****
+   * 
+   * @deprecated
    */
   preValidateId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
+   * Private
+   * 
    * This parameter is required.
    * 
    * @example
@@ -82,15 +95,15 @@ export class AddChatappPhoneNumberRequest extends $tea.Model {
 export class AddChatappPhoneNumberResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * com.alicom.access.oxs.client.channel.aliyun.flow.AyFlowExecuteService
+   * 
+   * @example
+   * http://pop_access_slb_sgvpc/#vpc
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
-   * 
-   * *   The value OK indicates that the request was successful.
-   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * The phone number.
    * 
    * @example
    * OK
@@ -98,7 +111,7 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * com.alicom.access.oxs.client.channel.aliyun.flow.dto.AyCommonApiRequest
    * 
    * @example
    * None
@@ -106,13 +119,16 @@ export class AddChatappPhoneNumberResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * formData
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
   /**
+   * @remarks
+   * 13800000000
+   * 
    * @example
    * false
    */
@@ -179,6 +195,9 @@ export class BeeBotAssociateRequest extends $tea.Model {
    */
   chatBotInstanceId?: string;
   /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
    * @example
    * 293483938849493
    */
@@ -217,7 +236,7 @@ export class BeeBotAssociateRequest extends $tea.Model {
    * The input of the visitor.
    * 
    * @example
-   * 你好
+   * hello
    */
   utterance?: string;
   static names(): { [key: string]: string } {
@@ -261,6 +280,9 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
    */
   chatBotInstanceId?: string;
   /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
    * @example
    * 293483938849493
    */
@@ -299,7 +321,7 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
    * The input of the visitor.
    * 
    * @example
-   * 你好
+   * hello
    */
   utterance?: string;
   static names(): { [key: string]: string } {
@@ -332,6 +354,13 @@ export class BeeBotAssociateShrinkRequest extends $tea.Model {
 }
 
 export class BeeBotAssociateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The access denied for detailed information.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -415,7 +444,7 @@ export class BeeBotAssociateResponse extends $tea.Model {
 export class BeeBotChatRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the bot instance.
+   * Indicates whether the answer is in plain text or rich text.
    * 
    * This parameter is required.
    * 
@@ -424,13 +453,16 @@ export class BeeBotChatRequest extends $tea.Model {
    */
   chatBotInstanceId?: string;
   /**
+   * @remarks
+   * The metadata.
+   * 
    * @example
    * 293483938849493
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The name of the intent in the dialog flow. When this parameter is specified, the bot conducts a Q\\&A based on the intent.
+   * The source of the answer.
    * 
    * @example
    * intent
@@ -438,7 +470,7 @@ export class BeeBotChatRequest extends $tea.Model {
   intentName?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The source of the answer.
    * 
    * @example
    * ksiekdki39ksks93939
@@ -446,7 +478,7 @@ export class BeeBotChatRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The ID of the knowledge title in the knowledge base.
+   * The hit statement.
    * 
    * @example
    * 1
@@ -454,12 +486,12 @@ export class BeeBotChatRequest extends $tea.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * The list of codes for answers from different perspectives.
+   * Beijing
    */
   perspective?: string[];
   /**
    * @remarks
-   * The ID of the visitor, which is used to identify users in the current session.
+   * The information about the slot.
    * 
    * @example
    * 861500000000
@@ -467,7 +499,7 @@ export class BeeBotChatRequest extends $tea.Model {
   senderId?: string;
   /**
    * @remarks
-   * The nickname of the visitor in the current session.
+   * Beijing
    * 
    * @example
    * nick
@@ -475,7 +507,7 @@ export class BeeBotChatRequest extends $tea.Model {
   senderNick?: string;
   /**
    * @remarks
-   * The ID of the session, which is used to identify the session and store context information of the session.
+   * The title of the related knowledge.
    * 
    * @example
    * en
@@ -483,7 +515,7 @@ export class BeeBotChatRequest extends $tea.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The input of the visitor.
+   * The title of the hit question.
    * 
    * This parameter is required.
    * 
@@ -493,7 +525,10 @@ export class BeeBotChatRequest extends $tea.Model {
   utterance?: string;
   /**
    * @remarks
-   * The user-defined parameter set in JSON format. You can specify user-defined parameters for conversation engines.
+   * The node name. When AnswerSource is set to BotFramework, a value is returned for this parameter.
+   * 
+   * @example
+   * {\\"skills\\":\\"chat_search\\",\\"accessToken\\":\\"73f4d5c8e8c334d9b538890bca68ac9a\\",\\"senderStaffId\\":\\"1697204021326\\",\\"senderCorpId\\":\\"dingee291fb2828058b9\\"}
    */
   vendorParam?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -536,7 +571,7 @@ export class BeeBotChatRequest extends $tea.Model {
 export class BeeBotChatShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the bot instance.
+   * Indicates whether the answer is in plain text or rich text.
    * 
    * This parameter is required.
    * 
@@ -545,13 +580,16 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
    */
   chatBotInstanceId?: string;
   /**
+   * @remarks
+   * The metadata.
+   * 
    * @example
    * 293483938849493
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The name of the intent in the dialog flow. When this parameter is specified, the bot conducts a Q\\&A based on the intent.
+   * The source of the answer.
    * 
    * @example
    * intent
@@ -559,7 +597,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   intentName?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The source of the answer.
    * 
    * @example
    * ksiekdki39ksks93939
@@ -567,7 +605,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The ID of the knowledge title in the knowledge base.
+   * The hit statement.
    * 
    * @example
    * 1
@@ -575,12 +613,12 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * The list of codes for answers from different perspectives.
+   * Beijing
    */
   perspectiveShrink?: string;
   /**
    * @remarks
-   * The ID of the visitor, which is used to identify users in the current session.
+   * The information about the slot.
    * 
    * @example
    * 861500000000
@@ -588,7 +626,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   senderId?: string;
   /**
    * @remarks
-   * The nickname of the visitor in the current session.
+   * Beijing
    * 
    * @example
    * nick
@@ -596,7 +634,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   senderNick?: string;
   /**
    * @remarks
-   * The ID of the session, which is used to identify the session and store context information of the session.
+   * The title of the related knowledge.
    * 
    * @example
    * en
@@ -604,7 +642,7 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The input of the visitor.
+   * The title of the hit question.
    * 
    * This parameter is required.
    * 
@@ -614,7 +652,10 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
   utterance?: string;
   /**
    * @remarks
-   * The user-defined parameter set in JSON format. You can specify user-defined parameters for conversation engines.
+   * The node name. When AnswerSource is set to BotFramework, a value is returned for this parameter.
+   * 
+   * @example
+   * {\\"skills\\":\\"chat_search\\",\\"accessToken\\":\\"73f4d5c8e8c334d9b538890bca68ac9a\\",\\"senderStaffId\\":\\"1697204021326\\",\\"senderCorpId\\":\\"dingee291fb2828058b9\\"}
    */
   vendorParamShrink?: string;
   static names(): { [key: string]: string } {
@@ -655,10 +696,17 @@ export class BeeBotChatShrinkRequest extends $tea.Model {
 }
 
 export class BeeBotChatResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied for detailed information.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * If OK is returned, the request is successful.
+   * The content of the text message.
    * 
    * @example
    * OK
@@ -666,12 +714,12 @@ export class BeeBotChatResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The list of the recommended knowledge. When AnswerType is set to Recommend, the list of the recommended knowledge is returned by the bot for this parameter.
    */
   data?: BeeBotChatResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * Indicates whether the answer is in plain text or rich text.
    * 
    * @example
    * none
@@ -679,7 +727,7 @@ export class BeeBotChatResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The passthrough parameter.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -771,6 +819,13 @@ export class ChatappBindWabaRequest extends $tea.Model {
 }
 
 export class ChatappBindWabaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -785,7 +840,7 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: ChatappBindWabaResponseBodyData;
   /**
@@ -805,6 +860,12 @@ export class ChatappBindWabaResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -983,22 +1044,22 @@ export class ChatappEmbedSignUpResponse extends $tea.Model {
 export class ChatappMigrationRegisterRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * None
    * 
    * This parameter is required.
    * 
    * @example
-   * 293483938849493
+   * 29348393884****
    */
   custSpaceId?: string;
   /**
    * @remarks
-   * The phone number.
+   * phone number.
    * 
    * This parameter is required.
    * 
    * @example
-   * 86138001234
+   * 8613800****
    */
   phoneNumber?: string;
   static names(): { [key: string]: string } {
@@ -1021,6 +1082,13 @@ export class ChatappMigrationRegisterRequest extends $tea.Model {
 }
 
 export class ChatappMigrationRegisterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -1035,7 +1103,7 @@ export class ChatappMigrationRegisterResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * SUCCESS
@@ -1277,6 +1345,9 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
   /**
    * @remarks
    * The details about the access denial.
+   * 
+   * @example
+   * None
    */
   accessDeniedDetail?: string;
   /**
@@ -1293,6 +1364,9 @@ export class ChatappPhoneNumberDeregisterResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -1397,6 +1471,13 @@ export class ChatappPhoneNumberRegisterRequest extends $tea.Model {
 }
 
 export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -1426,6 +1507,12 @@ export class ChatappPhoneNumberRegisterResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -1750,6 +1837,8 @@ export class ChatappVerifyAndRegisterResponse extends $tea.Model {
 export class CreateChatappMigrationInitiateRequest extends $tea.Model {
   /**
    * @remarks
+   * The code of the country or region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1758,6 +1847,8 @@ export class CreateChatappMigrationInitiateRequest extends $tea.Model {
   countryCode?: string;
   /**
    * @remarks
+   * The space ID of the user within the ISV account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1766,6 +1857,8 @@ export class CreateChatappMigrationInitiateRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The mobile number without the country code or region code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1794,19 +1887,42 @@ export class CreateChatappMigrationInitiateRequest extends $tea.Model {
 }
 
 export class CreateChatappMigrationInitiateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the request denial..
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   A value of OK indicates that the request was successful.
+   * *   For more information about other response codes, see [API error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateChatappMigrationInitiateResponseBodyData;
   /**
+   * @remarks
+   * The error message returned.
+   * 
    * @example
    * SUCCESS
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
@@ -2178,6 +2294,13 @@ export class CreateChatappTemplateShrinkRequest extends $tea.Model {
 }
 
 export class CreateChatappTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -2375,6 +2498,9 @@ export class CreateFlowResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -2435,12 +2561,17 @@ export class CreateFlowResponse extends $tea.Model {
 
 export class CreatePhoneMessageQrdlRequest extends $tea.Model {
   /**
+   * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * 
    * @example
    * 838833
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * Produce QR code image format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2459,6 +2590,8 @@ export class CreatePhoneMessageQrdlRequest extends $tea.Model {
   phoneNumber?: string;
   /**
    * @remarks
+   * Message content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2490,6 +2623,9 @@ export class CreatePhoneMessageQrdlRequest extends $tea.Model {
 
 export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * If OK is returned, the request was successful.
+   * 
    * @example
    * OK
    */
@@ -2500,6 +2636,9 @@ export class CreatePhoneMessageQrdlResponseBody extends $tea.Model {
    */
   data?: CreatePhoneMessageQrdlResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * none
    */
@@ -2563,7 +2702,7 @@ export class CreatePhoneMessageQrdlResponse extends $tea.Model {
 export class DeleteChatappTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the ISV account.
+   * The space ID of the RAM user within the ISV account.
    * 
    * @example
    * 28251486512358****
@@ -2571,7 +2710,7 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
@@ -2581,13 +2720,16 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * skdi3kksloslikdkkdk
    */
   isvCode?: string;
   /**
+   * @remarks
+   * The template language.
+   * 
    * @example
    * zh_CN
    */
@@ -2597,18 +2739,24 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The code of the message template.
+   * The template code.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca3****
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * test
+   * test_name
    */
   templateName?: string;
   /**
+   * @remarks
+   * The template type. This parameter is required if you delete a template in a language.
+   * 
    * @example
    * WHATSAPP
    */
@@ -2649,13 +2797,20 @@ export class DeleteChatappTemplateRequest extends $tea.Model {
 }
 
 export class DeleteChatappTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The response code.
    * 
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -2663,7 +2818,7 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * User not authorized to operate on the specified resource.
@@ -2671,13 +2826,19 @@ export class DeleteChatappTemplateResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -2782,6 +2943,9 @@ export class DeleteFlowResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -2840,6 +3004,9 @@ export class DeleteFlowResponse extends $tea.Model {
 
 export class DeletePhoneMessageQrdlRequest extends $tea.Model {
   /**
+   * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
+   * 
    * @example
    * 883873773
    */
@@ -2856,6 +3023,8 @@ export class DeletePhoneMessageQrdlRequest extends $tea.Model {
   phoneNumber?: string;
   /**
    * @remarks
+   * QR code encoding.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2885,10 +3054,23 @@ export class DeletePhoneMessageQrdlRequest extends $tea.Model {
 
 export class DeletePhoneMessageQrdlResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   Other values indicate that the request failed. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -2984,11 +3166,17 @@ export class DeprecateFlowRequest extends $tea.Model {
 
 export class DeprecateFlowResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The result returns OK as normal.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Error description information.
+   * 
    * @example
    * None
    */
@@ -3385,6 +3573,9 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
    */
   templateCode?: string;
   /**
+   * @remarks
+   * Name of a template.
+   * 
    * @example
    * test_name
    */
@@ -3431,6 +3622,13 @@ export class GetChatappTemplateDetailRequest extends $tea.Model {
 }
 
 export class GetChatappTemplateDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied details.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -3720,7 +3918,7 @@ export class GetChatappTemplateMetricResponse extends $tea.Model {
 export class GetChatappUploadAuthorizationRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -3746,6 +3944,13 @@ export class GetChatappUploadAuthorizationRequest extends $tea.Model {
 }
 
 export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied for detailed information.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -3760,7 +3965,7 @@ export class GetChatappUploadAuthorizationResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetChatappUploadAuthorizationResponseBodyData;
   /**
@@ -4028,6 +4233,13 @@ export class GetCommerceSettingRequest extends $tea.Model {
 }
 
 export class GetCommerceSettingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied for detailed information.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -4050,7 +4262,7 @@ export class GetCommerceSettingResponseBody extends $tea.Model {
    * The error message.
    * 
    * @example
-   * OK
+   * None
    */
   message?: string;
   /**
@@ -4062,6 +4274,12 @@ export class GetCommerceSettingResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -4121,6 +4339,8 @@ export class GetCommerceSettingResponse extends $tea.Model {
 export class GetConversationalAutomationRequest extends $tea.Model {
   /**
    * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4130,10 +4350,12 @@ export class GetConversationalAutomationRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The phone number of the enterprise.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * 86130000***
    */
   phoneNumber?: string;
   resourceOwnerAccount?: string;
@@ -4164,24 +4386,53 @@ export class GetConversationalAutomationRequest extends $tea.Model {
 }
 
 export class GetConversationalAutomationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
-   * 示例值
+   * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetConversationalAutomationResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -4293,6 +4544,9 @@ export class GetFlowResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -4391,6 +4645,9 @@ export class GetFlowJSONAssestRequest extends $tea.Model {
 
 export class GetFlowJSONAssestResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * If OK is returned, the request was successful.
+   * 
    * @example
    * OK
    */
@@ -4400,6 +4657,13 @@ export class GetFlowJSONAssestResponseBody extends $tea.Model {
    * The returned data.
    */
   data?: GetFlowJSONAssestResponseBodyData;
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -4576,6 +4840,8 @@ export class GetFlowPreviewUrlResponse extends $tea.Model {
 export class GetMigrationVerifyCodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The space ID of the user under the independent software vendor (ISV) account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4584,6 +4850,8 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
+   * The language.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4592,6 +4860,8 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
   locale?: string;
   /**
    * @remarks
+   * The method to obtain the verification code. Valid values: SMS and VOICE.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4600,6 +4870,8 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
   method?: string;
   /**
    * @remarks
+   * Phone number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4630,19 +4902,42 @@ export class GetMigrationVerifyCodeRequest extends $tea.Model {
 }
 
 export class GetMigrationVerifyCodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * *   A value of OK indicates that the call is successful.
+   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetMigrationVerifyCodeResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * None
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
@@ -4700,6 +4995,8 @@ export class GetMigrationVerifyCodeResponse extends $tea.Model {
 export class GetPermissionByCodeRequest extends $tea.Model {
   /**
    * @remarks
+   * Authorize code information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4743,6 +5040,8 @@ export class GetPermissionByCodeRequest extends $tea.Model {
 export class GetPermissionByCodeShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * Authorize code information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4796,6 +5095,9 @@ export class GetPermissionByCodeResponseBody extends $tea.Model {
    */
   code?: string;
   /**
+   * @remarks
+   * Error description information.
+   * 
    * @example
    * SUCCESS
    */
@@ -4856,6 +5158,9 @@ export class GetPermissionByCodeResponse extends $tea.Model {
 
 export class GetPhoneEncryptionPublicKeyRequest extends $tea.Model {
   /**
+   * @remarks
+   * The space ID of the user under the independent software vendor (ISV) account.
+   * 
    * @example
    * 393838848
    */
@@ -4891,6 +5196,12 @@ export class GetPhoneEncryptionPublicKeyRequest extends $tea.Model {
 
 export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * 
    * @example
    * OK
    */
@@ -4900,6 +5211,13 @@ export class GetPhoneEncryptionPublicKeyResponseBody extends $tea.Model {
    * The returned data.
    */
   data?: GetPhoneEncryptionPublicKeyResponseBodyData;
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -5138,6 +5456,9 @@ export class GetPreValidatePhoneIdResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -5353,6 +5674,8 @@ export class GetWhatsappConnectionCatalogResponse extends $tea.Model {
 export class GetWhatsappHealthStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5360,12 +5683,23 @@ export class GetWhatsappHealthStatusRequest extends $tea.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * The template language.
+   * 
    * @example
    * en
    */
   language?: string;
   /**
    * @remarks
+   * The node type.
+   * 
+   * Valid values:
+   * 
+   * *   template: message template
+   * *   phone: phone number
+   * *   waba: WhatsApp Business Account (WABA)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5374,6 +5708,9 @@ export class GetWhatsappHealthStatusRequest extends $tea.Model {
   nodeType?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The phone number of the enterprise.
+   * 
    * @example
    * 86138***
    */
@@ -5381,6 +5718,9 @@ export class GetWhatsappHealthStatusRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The template code.
+   * 
    * @example
    * 399299***
    */
@@ -5427,24 +5767,53 @@ export class GetWhatsappHealthStatusRequest extends $tea.Model {
 }
 
 export class GetWhatsappHealthStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetWhatsappHealthStatusResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * DAC72B08-3327-33EF-BEDC-8EC3E83A6575
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -5504,12 +5873,21 @@ export class GetWhatsappHealthStatusResponse extends $tea.Model {
 export class IsvGetAppIdRequest extends $tea.Model {
   /**
    * @remarks
-   * 权限
+   * The permission.
+   * 
+   * Valid values:
+   * 
+   * *   whatsapp_business_messaging: sending permission on WhatsApp messages
+   * *   ads_management: management permission on advertisements
+   * *   catalog_management: management permission on catalogs
+   * 
+   * @example
+   * catalog_management
    */
   permissions?: string;
   /**
    * @remarks
-   * The type of the application. Set the value to WHATSAPP.
+   * The type of the app. Valid value: WHATSAPP.
    * 
    * This parameter is required.
    * 
@@ -5537,6 +5915,13 @@ export class IsvGetAppIdRequest extends $tea.Model {
 }
 
 export class IsvGetAppIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -5557,6 +5942,13 @@ export class IsvGetAppIdResponseBody extends $tea.Model {
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The ID of the configuration item.
+   * 
+   * @example
+   * 28972951817****
+   */
   configId?: string;
   /**
    * @remarks
@@ -5641,6 +6033,9 @@ export class ListChatappTemplateRequest extends $tea.Model {
    */
   auditStatus?: string;
   /**
+   * @remarks
+   * Template encoding.
+   * 
    * @example
    * 838888822*****
    */
@@ -5757,6 +6152,9 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
    */
   auditStatus?: string;
   /**
+   * @remarks
+   * Template encoding.
+   * 
    * @example
    * 838888822*****
    */
@@ -5859,6 +6257,13 @@ export class ListChatappTemplateShrinkRequest extends $tea.Model {
 }
 
 export class ListChatappTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -5873,7 +6278,7 @@ export class ListChatappTemplateResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The message templates.
+   * The list of the templates.
    */
   listTemplate?: ListChatappTemplateResponseBodyListTemplate[];
   /**
@@ -6055,6 +6460,9 @@ export class ListFlowResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -6115,6 +6523,9 @@ export class ListFlowResponse extends $tea.Model {
 
 export class ListPhoneMessageQrdlRequest extends $tea.Model {
   /**
+   * @remarks
+   * The space ID of the user within the independent software vendor (ISV) account.
+   * 
    * @example
    * 9383883
    */
@@ -6150,6 +6561,9 @@ export class ListPhoneMessageQrdlRequest extends $tea.Model {
 
 export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * If OK is returned, the request was successful.
+   * 
    * @example
    * OK
    */
@@ -6159,6 +6573,13 @@ export class ListPhoneMessageQrdlResponseBody extends $tea.Model {
    * The returned data.
    */
   data?: ListPhoneMessageQrdlResponseBodyData[];
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -6638,7 +7059,7 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
    * @remarks
    * The components of the message template.
    * 
-   * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
+   * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, you do not need to set the Text sub-parameter of the Components parameter because the value is automatically generated.
    * 
    * This parameter is required.
    */
@@ -6705,6 +7126,9 @@ export class ModifyChatappTemplateRequest extends $tea.Model {
    */
   templateCode?: string;
   /**
+   * @remarks
+   * Template name.
+   * 
    * @example
    * test_name
    */
@@ -6783,7 +7207,7 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
    * @remarks
    * The components of the message template.
    * 
-   * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
+   * >  If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, you do not need to set the Text sub-parameter of the Components parameter because the value is automatically generated.
    * 
    * This parameter is required.
    */
@@ -6850,6 +7274,9 @@ export class ModifyChatappTemplateShrinkRequest extends $tea.Model {
    */
   templateCode?: string;
   /**
+   * @remarks
+   * Template name.
+   * 
    * @example
    * test_name
    */
@@ -7188,13 +7615,16 @@ export class ModifyFlowResponse extends $tea.Model {
 
 export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business information.
+   * 
    * @example
-   * 关于
+   * business profile
    */
   about?: string;
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The address.
    * 
    * @example
    * The phone number.
@@ -7202,7 +7632,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   address?: string;
   /**
    * @remarks
-   * Modifies the business information of the account to which a specified phone number is bound.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -7212,7 +7642,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The address.
+   * The description of the phone number.
    * 
    * @example
    * test
@@ -7220,7 +7650,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The description.
+   * The email address.
    * 
    * @example
    * aa@aliyun.com
@@ -7229,7 +7659,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -7239,9 +7669,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The industry.
-   * 
-   * > Enum: {OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, RESTAURANT}
+   * The URL of the profile picture.
    * 
    * @example
    * http://a.img
@@ -7251,7 +7679,9 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Sichuan
+   * The industry.
+   * 
+   * >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
    * 
    * @example
    * OTHER
@@ -7259,7 +7689,7 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
   vertical?: string;
   /**
    * @remarks
-   * The email address.
+   * The URLs of the websites.
    */
   websites?: string[];
   static names(): { [key: string]: string } {
@@ -7303,13 +7733,16 @@ export class ModifyPhoneBusinessProfileRequest extends $tea.Model {
 
 export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business information.
+   * 
    * @example
-   * 关于
+   * business profile
    */
   about?: string;
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The address.
    * 
    * @example
    * The phone number.
@@ -7317,7 +7750,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   address?: string;
   /**
    * @remarks
-   * Modifies the business information of the account to which a specified phone number is bound.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -7327,7 +7760,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The address.
+   * The description of the phone number.
    * 
    * @example
    * test
@@ -7335,7 +7768,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The description.
+   * The email address.
    * 
    * @example
    * aa@aliyun.com
@@ -7344,7 +7777,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The mobile phone number.
    * 
    * This parameter is required.
    * 
@@ -7354,9 +7787,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The industry.
-   * 
-   * > Enum: {OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, RESTAURANT}
+   * The URL of the profile picture.
    * 
    * @example
    * http://a.img
@@ -7366,7 +7797,9 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Sichuan
+   * The industry.
+   * 
+   * >  Valid values: OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, and RESTAURANT.
    * 
    * @example
    * OTHER
@@ -7374,7 +7807,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
   vertical?: string;
   /**
    * @remarks
-   * The email address.
+   * The URLs of the websites.
    */
   websitesShrink?: string;
   static names(): { [key: string]: string } {
@@ -7417,6 +7850,13 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $tea.Model {
 }
 
 export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -7443,6 +7883,12 @@ export class ModifyPhoneBusinessProfileResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -7547,6 +7993,9 @@ export class PublishFlowResponseBody extends $tea.Model {
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * None
    */
   message?: string;
   /**
@@ -7690,6 +8139,12 @@ export class QueryChatappBindWabaResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -7749,7 +8204,7 @@ export class QueryChatappBindWabaResponse extends $tea.Model {
 export class QueryChatappPhoneNumbersRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the ISV account.
+   * The space ID of the RAM user within the ISV account.
    * 
    * @example
    * 293483938849493
@@ -7757,13 +8212,16 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The independent software vendor (ISV) verification code, which is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * aksik93kdkkxmwol93939
    */
   isvCode?: string;
   /**
+   * @remarks
+   * The state of the phone number.
+   * 
    * @example
    * VERIFIED
    */
@@ -7790,6 +8248,13 @@ export class QueryChatappPhoneNumbersRequest extends $tea.Model {
 }
 
 export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -7812,7 +8277,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The list of phone numbers.
+   * The phone numbers.
    */
   phoneNumbers?: QueryChatappPhoneNumbersResponseBodyPhoneNumbers[];
   /**
@@ -7876,7 +8341,7 @@ export class QueryChatappPhoneNumbersResponse extends $tea.Model {
 export class QueryPhoneBusinessProfileRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The space ID of the user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -7923,6 +8388,13 @@ export class QueryPhoneBusinessProfileRequest extends $tea.Model {
 }
 
 export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -7937,7 +8409,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: QueryPhoneBusinessProfileResponseBodyData;
   /**
@@ -7957,6 +8429,12 @@ export class QueryPhoneBusinessProfileResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -8016,7 +8494,7 @@ export class QueryPhoneBusinessProfileResponse extends $tea.Model {
 export class QueryWabaBusinessInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the independent software vendor (ISV) account.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -8029,7 +8507,7 @@ export class QueryWabaBusinessInfoRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the WABA.
+   * The ID of the WhatsApp Business Account (WABA).
    * 
    * This parameter is required.
    * 
@@ -8063,6 +8541,13 @@ export class QueryWabaBusinessInfoRequest extends $tea.Model {
 }
 
 export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -8097,6 +8582,12 @@ export class QueryWabaBusinessInfoResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
@@ -8156,7 +8647,11 @@ export class QueryWabaBusinessInfoResponse extends $tea.Model {
 export class SendChatappMassMessageRequest extends $tea.Model {
   /**
    * @remarks
-   * The channel type. Valid values: whatsapp, viber, and line.
+   * The type of the channel. Valid values:
+   * 
+   * *   **whatsapp**
+   * *   **viber**
+   * *   **line** (under development)
    * 
    * This parameter is required.
    * 
@@ -8174,7 +8669,9 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp Business account under the ISV account.
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -8184,20 +8681,23 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The fallback content.
+   * The content of the fallback message.
    * 
    * @example
    * Fallback message
    */
   fallBackContent?: string;
   /**
+   * @remarks
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
+   * 
    * @example
    * 120
    */
   fallBackDuration?: number;
   /**
    * @remarks
-   * The ID of the fallback strategy.
+   * The ID of the fallback policy.
    * 
    * @example
    * S00001
@@ -8205,13 +8705,10 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   fallBackId?: string;
   /**
    * @remarks
-   * The fallback rule.
+   * The fallback rule. Valid values:
    * 
-   * >  Valid values:
-   * 
-   * *   undelivered: A fallback is triggered if the WhatsApp message is not delivered to clients. When the WhatsApp message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
-   * 
-   * *   sentfailed: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
    * 
    * @example
    * undelivered
@@ -8219,7 +8716,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   fallBackRule?: string;
   /**
    * @remarks
-   * The phone number of the message sender.
+   * The mobile phone number of the message sender.
    * 
    * This parameter is required.
    * 
@@ -8229,7 +8726,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   from?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -8237,7 +8734,10 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The message type when the ChannelType parameter is set to viber. Valid values: promotion and transaction.
+   * The type of the Viber message. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
    * 
    * @example
    * promotion
@@ -8255,7 +8755,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   language?: string;
   /**
    * @remarks
-   * The phone numbers to which the message is sent.
+   * The mobile phone numbers of the message receivers.
    * 
    * This parameter is required.
    */
@@ -8270,7 +8770,7 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 100000001
@@ -8278,13 +8778,16 @@ export class SendChatappMassMessageRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
-   * The encoding of the message template.
+   * The template code.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca36bf5
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
    * test_name
    */
@@ -8349,7 +8852,11 @@ export class SendChatappMassMessageRequest extends $tea.Model {
 export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The channel type. Valid values: whatsapp, viber, and line.
+   * The type of the channel. Valid values:
+   * 
+   * *   **whatsapp**
+   * *   **viber**
+   * *   **line** (under development)
    * 
    * This parameter is required.
    * 
@@ -8367,7 +8874,9 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp Business account under the ISV account.
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -8377,20 +8886,23 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   custWabaId?: string;
   /**
    * @remarks
-   * The fallback content.
+   * The content of the fallback message.
    * 
    * @example
    * Fallback message
    */
   fallBackContent?: string;
   /**
+   * @remarks
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the message fails to be sent or the message receipt that indicates the message is not delivered to clients is received. Unit: seconds. Valid values: 60 to 43200.
+   * 
    * @example
    * 120
    */
   fallBackDuration?: number;
   /**
    * @remarks
-   * The ID of the fallback strategy.
+   * The ID of the fallback policy.
    * 
    * @example
    * S00001
@@ -8398,13 +8910,10 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   fallBackId?: string;
   /**
    * @remarks
-   * The fallback rule.
+   * The fallback rule. Valid values:
    * 
-   * >  Valid values:
-   * 
-   * *   undelivered: A fallback is triggered if the WhatsApp message is not delivered to clients. When the WhatsApp message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
-   * 
-   * *   sentfailed: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
    * 
    * @example
    * undelivered
@@ -8412,7 +8921,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   fallBackRule?: string;
   /**
    * @remarks
-   * The phone number of the message sender.
+   * The mobile phone number of the message sender.
    * 
    * This parameter is required.
    * 
@@ -8422,7 +8931,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   from?: string;
   /**
    * @remarks
-   * The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -8430,7 +8939,10 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The message type when the ChannelType parameter is set to viber. Valid values: promotion and transaction.
+   * The type of the Viber message. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
    * 
    * @example
    * promotion
@@ -8448,7 +8960,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   language?: string;
   /**
    * @remarks
-   * The phone numbers to which the message is sent.
+   * The mobile phone numbers of the message receivers.
    * 
    * This parameter is required.
    */
@@ -8463,7 +8975,7 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 100000001
@@ -8471,13 +8983,16 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
   taskId?: string;
   /**
    * @remarks
-   * The encoding of the message template.
+   * The template code.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca36bf5
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
    * test_name
    */
@@ -8540,6 +9055,13 @@ export class SendChatappMassMessageShrinkRequest extends $tea.Model {
 }
 
 export class SendChatappMassMessageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -8554,7 +9076,7 @@ export class SendChatappMassMessageResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the group of messages.
+   * The ID of the message group.
    * 
    * @example
    * 890000010002****
@@ -8629,11 +9151,11 @@ export class SendChatappMassMessageResponse extends $tea.Model {
 export class SendChatappMessageRequest extends $tea.Model {
   /**
    * @remarks
-   * The type of the message channel. Valid values:
+   * The channel type. Valid values:
    * 
    * *   **whatsapp**
    * *   **viber**
-   * *   line. The feature that ChatAPP sends messages by using Line is under development.
+   * *   **line** (under development)
    * 
    * This parameter is required.
    * 
@@ -8643,31 +9165,31 @@ export class SendChatappMessageRequest extends $tea.Model {
   channelType?: string;
   /**
    * @remarks
-   * The content of the message.
+   * The message content.
    * 
-   * **Usage notes when you set the ChannelType parameter to whatsapp:**
+   * **Notes on WhatsApp messages:**
    * 
-   * *   When you set the **MessageType** parameter to **text**, the **text** parameter is required and the **caption** parameter cannot be specified.
-   * *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **video**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **audio**, the **link** parameter is required and the **caption** parameter is invalid.
-   * *   When you set the **MessageType** parameter to **document**, the **link** and **fileName** parameters are required and the **caption** parameter is invalid.
-   * *   When you set the **MessageType** parameter to **interactive**, the **type** and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **contacts**, the **name** parameter is required.
-   * *   When you set the **MessageType** parameter to **location**, the **longitude** and **latitude** parameters are required.
-   * *   When you set the **MessageType** parameter to **sticker**, the **link** parameter is required, and the **caption** and **fileName** parameters are invalid.
-   * *   When you set the **MessageType** parameter to **reaction**, the **messageId** and **emoji** parameters are required.
+   * *   If you set **messageType** to **text**, you must specify **text** and must not specify **Caption**.
+   * *   If you set **messageType** to **image**, you must specify **Link**.
+   * *   If you set **messageType** to **video**, you must specify **Link**.
+   * *   If you set **messageType** to **audio**, **Link** is required and **Caption** is invalid.
+   * *   If you set **messageType** to **document**, **Link** and **FileName** are required and **Caption** is invalid.
+   * *   If you set **messageType** to **interactive**, you must specify **type** and **action**.
+   * *   If you set **messageType** to **contacts**, you must specify **name**.
+   * *   If you set **messageType** to **location**, you must specify **longitude** and **latitude**.
+   * *   If you set **messageType** to **sticker**, you must specify **Link**, and **Caption** and **FileName** are invalid.
+   * *   If you set **messageType** to **reaction**, you must specify **messageId** and **emoji**.
    * 
-   * **Usage notes when you set the ChannelType parameter to viber:**
+   * **Notes on Viber messages:**
    * 
-   * *   When you set the **MessageType** parameter to **text**, the **text** parameter is required.
-   * *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **video**, the **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-   * *   When you set the **MessageType** parameter to **document**, the **link**, **fileName**, and **fileType** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_button**, the **text**, **caption**, and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_image_button**, the **text**, **link**, **caption**, and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required. The **action** parameter is invalid.
+   * *   If you set **messageType** to **text**, you must specify **text**.
+   * *   If you set **messageType** to **image**, you must specify **link**.
+   * *   If you set **messageType** to **video**, you must specify **link**, **thumbnail**, **fileSize**, and **duration**.
+   * *   If you set **messageType** to **document**, you must specify **link**, **fileName**, and **fileType**.
+   * *   If you set **messageType** to **text_button**, you must specify **text**, **caption**, and **action**.
+   * *   If you set **messageType** to **text_image_button**, you must specify **text**, **link**, **caption**, and **action**.
+   * *   If you set **messageType** to **text_video**, you must specify **text**, **link**, **thumbnail**, **fileSize**, and **duration**.
+   * *   If you set **messageType** to **text_video_button**, you must specify **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption**. In addition, you must not specify **action**.
    * 
    * @example
    * {\\"text\\": \\"hello whatsapp\\", \\"link\\": \\"\\", \\"caption\\": \\"\\", \\"fileName\\": \\"\\" }
@@ -8675,7 +9197,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the message to reply to.
+   * The ID of the reply message.
    * 
    * @example
    * 61851ccb2f1365b16aee****
@@ -8691,7 +9213,9 @@ export class SendChatappMessageRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp account that you register.
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -8709,7 +9233,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackContent?: string;
   /**
    * @remarks
-   * Specifies the period of time after which the fallback Short Message Service (SMS) message is sent if the message receipt that indicates the message is delivered to customers is not received. If this parameter is left empty, the fallback SMS message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to customers** is received. Valid values: 60 to 43200. Unit: seconds.
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
    * 
    * @example
    * 120
@@ -8717,7 +9241,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackDuration?: number;
   /**
    * @remarks
-   * The ID of the fallback strategy. You can create a fallback strategy and view the information in the console.
+   * The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
    * 
    * @example
    * S_000001
@@ -8725,15 +9249,10 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackId?: string;
   /**
    * @remarks
-   * 回落规则。
+   * The fallback rule. Valid values:
    * 
-   * > 取值范围
-   * > - undelivered  消息不能发送到端时回落（在发送状态时模板、参数需要校验通过，模板被封、号码被封等不做校验）。参数值为空时默认使用此规则
-   * > - sentFailed  消息在校验模板、模板变量等参数时，校验不通过也会回落。只会强校验channelType, type, messageType, to, from(是否存在) 几个参数。
-   * 
-   * <props="china">
-   * 
-   * > 中国站此字段无效
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
    * 
    * @example
    * undelivered
@@ -8741,14 +9260,14 @@ export class SendChatappMessageRequest extends $tea.Model {
   fallBackRule?: string;
   /**
    * @remarks
-   * Flow发送数据
+   * The Flow action.
    */
   flowAction?: SendChatappMessageRequestFlowAction;
   /**
    * @remarks
-   * The phone number of the message sender.
+   * The mobile phone number of the message sender.
    * 
-   * > You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatAPP console.
+   * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
    * 
    * This parameter is required.
    * 
@@ -8758,7 +9277,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   from?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -8766,7 +9285,10 @@ export class SendChatappMessageRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The type of the Viber message. This parameter is required if you set the ChannelType parameter to viber. Valid values: promotion and transaction.
+   * The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
    * 
    * @example
    * promotion
@@ -8838,7 +9360,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 100000001
@@ -8853,6 +9375,9 @@ export class SendChatappMessageRequest extends $tea.Model {
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
    * test_name
    */
@@ -8864,7 +9389,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   templateParams?: { [key: string]: string };
   /**
    * @remarks
-   * The phone number that receives the message.
+   * The mobile phone number of the message receiver.
    * 
    * This parameter is required.
    * 
@@ -8874,7 +9399,7 @@ export class SendChatappMessageRequest extends $tea.Model {
   to?: string;
   /**
    * @remarks
-   * The tracking ID of the Viber message.
+   * The tracking data of the Viber message.
    * 
    * @example
    * tracking_id:123456
@@ -8890,10 +9415,10 @@ export class SendChatappMessageRequest extends $tea.Model {
   ttl?: number;
   /**
    * @remarks
-   * The type of the message. Valid values:
+   * The message type. Valid values:
    * 
-   * *   **template**: a template message. A template message is sent based on a template that is created in the ChatAPP console and is approved. You can send template messages at any time based on your business requirements.
-   * *   **message**: a custom message. You can send a custom message to a user only within 24 hours after you receive the last message from the user.
+   * *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
+   * *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
    * 
    * This parameter is required.
    * 
@@ -8971,11 +9496,11 @@ export class SendChatappMessageRequest extends $tea.Model {
 export class SendChatappMessageShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The type of the message channel. Valid values:
+   * The channel type. Valid values:
    * 
    * *   **whatsapp**
    * *   **viber**
-   * *   line. The feature that ChatAPP sends messages by using Line is under development.
+   * *   **line** (under development)
    * 
    * This parameter is required.
    * 
@@ -8985,31 +9510,31 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   channelType?: string;
   /**
    * @remarks
-   * The content of the message.
+   * The message content.
    * 
-   * **Usage notes when you set the ChannelType parameter to whatsapp:**
+   * **Notes on WhatsApp messages:**
    * 
-   * *   When you set the **MessageType** parameter to **text**, the **text** parameter is required and the **caption** parameter cannot be specified.
-   * *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **video**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **audio**, the **link** parameter is required and the **caption** parameter is invalid.
-   * *   When you set the **MessageType** parameter to **document**, the **link** and **fileName** parameters are required and the **caption** parameter is invalid.
-   * *   When you set the **MessageType** parameter to **interactive**, the **type** and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **contacts**, the **name** parameter is required.
-   * *   When you set the **MessageType** parameter to **location**, the **longitude** and **latitude** parameters are required.
-   * *   When you set the **MessageType** parameter to **sticker**, the **link** parameter is required, and the **caption** and **fileName** parameters are invalid.
-   * *   When you set the **MessageType** parameter to **reaction**, the **messageId** and **emoji** parameters are required.
+   * *   If you set **messageType** to **text**, you must specify **text** and must not specify **Caption**.
+   * *   If you set **messageType** to **image**, you must specify **Link**.
+   * *   If you set **messageType** to **video**, you must specify **Link**.
+   * *   If you set **messageType** to **audio**, **Link** is required and **Caption** is invalid.
+   * *   If you set **messageType** to **document**, **Link** and **FileName** are required and **Caption** is invalid.
+   * *   If you set **messageType** to **interactive**, you must specify **type** and **action**.
+   * *   If you set **messageType** to **contacts**, you must specify **name**.
+   * *   If you set **messageType** to **location**, you must specify **longitude** and **latitude**.
+   * *   If you set **messageType** to **sticker**, you must specify **Link**, and **Caption** and **FileName** are invalid.
+   * *   If you set **messageType** to **reaction**, you must specify **messageId** and **emoji**.
    * 
-   * **Usage notes when you set the ChannelType parameter to viber:**
+   * **Notes on Viber messages:**
    * 
-   * *   When you set the **MessageType** parameter to **text**, the **text** parameter is required.
-   * *   When you set the **MessageType** parameter to **image**, the **link** parameter is required.
-   * *   When you set the **MessageType** parameter to **video**, the **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-   * *   When you set the **MessageType** parameter to **document**, the **link**, **fileName**, and **fileType** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_button**, the **text**, **caption**, and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_image_button**, the **text**, **link**, **caption**, and **action** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_video**, the **text**, **link**, **thumbnail**, **fileSize**, and **duration** parameters are required.
-   * *   When you set the **MessageType** parameter to **text_video_button**, the **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption** parameters are required. The **action** parameter is invalid.
+   * *   If you set **messageType** to **text**, you must specify **text**.
+   * *   If you set **messageType** to **image**, you must specify **link**.
+   * *   If you set **messageType** to **video**, you must specify **link**, **thumbnail**, **fileSize**, and **duration**.
+   * *   If you set **messageType** to **document**, you must specify **link**, **fileName**, and **fileType**.
+   * *   If you set **messageType** to **text_button**, you must specify **text**, **caption**, and **action**.
+   * *   If you set **messageType** to **text_image_button**, you must specify **text**, **link**, **caption**, and **action**.
+   * *   If you set **messageType** to **text_video**, you must specify **text**, **link**, **thumbnail**, **fileSize**, and **duration**.
+   * *   If you set **messageType** to **text_video_button**, you must specify **text**, **link**, **thumbnail**, **fileSize**, **duration**, and **caption**. In addition, you must not specify **action**.
    * 
    * @example
    * {\\"text\\": \\"hello whatsapp\\", \\"link\\": \\"\\", \\"caption\\": \\"\\", \\"fileName\\": \\"\\" }
@@ -9017,7 +9542,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * The ID of the message to reply to.
+   * The ID of the reply message.
    * 
    * @example
    * 61851ccb2f1365b16aee****
@@ -9033,7 +9558,9 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp account that you register.
+   * The WhatsApp Business Account (WABA) ID of the RAM user within the independent software vendor (ISV) account.
+   * 
+   * >  CustWabaId is an obsolete parameter. Use CustSpaceId instead.
    * 
    * @example
    * 65921621816****
@@ -9051,7 +9578,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackContent?: string;
   /**
    * @remarks
-   * Specifies the period of time after which the fallback Short Message Service (SMS) message is sent if the message receipt that indicates the message is delivered to customers is not received. If this parameter is left empty, the fallback SMS message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to customers** is received. Valid values: 60 to 43200. Unit: seconds.
+   * Specifies the period of time after which the fallback message is sent if the message receipt that indicates the message is delivered to clients is not received. If this parameter is left empty, the fallback message is sent only when the **message fails to be sent** or **the message receipt that indicates the message is not delivered to clients** is received. Unit: seconds. Valid values: 60 to 43200.
    * 
    * @example
    * 120
@@ -9059,7 +9586,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackDuration?: number;
   /**
    * @remarks
-   * The ID of the fallback strategy. You can create a fallback strategy and view the information in the console.
+   * The ID of the fallback policy. You can create a fallback policy and view the information in the Chat App Message Service console.
    * 
    * @example
    * S_000001
@@ -9067,15 +9594,10 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackId?: string;
   /**
    * @remarks
-   * 回落规则。
+   * The fallback rule. Valid values:
    * 
-   * > 取值范围
-   * > - undelivered  消息不能发送到端时回落（在发送状态时模板、参数需要校验通过，模板被封、号码被封等不做校验）。参数值为空时默认使用此规则
-   * > - sentFailed  消息在校验模板、模板变量等参数时，校验不通过也会回落。只会强校验channelType, type, messageType, to, from(是否存在) 几个参数。
-   * 
-   * <props="china">
-   * 
-   * > 中国站此字段无效
+   * *   **undelivered**: A fallback is triggered if the message is not delivered to clients. When the message is being sent, the template parameters are verified. If the parameters fail to pass the verification, the message fails to be sent. Whether the template and phone number are prohibited is not verified. By default, this value is used when FallBackRule is left empty.
+   * *   **sentFailed**: A fallback is triggered even if the template parameters including variables fail to pass the verification. If the channelType, type, messageType, to, and from parameters fail to pass the verification, a fallback is not triggered.
    * 
    * @example
    * undelivered
@@ -9083,14 +9605,14 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   fallBackRule?: string;
   /**
    * @remarks
-   * Flow发送数据
+   * The Flow action.
    */
   flowActionShrink?: string;
   /**
    * @remarks
-   * The phone number of the message sender.
+   * The mobile phone number of the message sender.
    * 
-   * > You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the ChatAPP console.
+   * >  You can specify a mobile phone number that is registered for a WhatsApp account and is approved in the Chat App Message Service console.
    * 
    * This parameter is required.
    * 
@@ -9100,7 +9622,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   from?: string;
   /**
    * @remarks
-   * The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+   * The ISV verification code. This parameter is used to verify whether the RAM user is authorized by the ISV account.
    * 
    * @example
    * skdi3kksloslikdkkdk
@@ -9108,7 +9630,10 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   isvCode?: string;
   /**
    * @remarks
-   * The type of the Viber message. This parameter is required if you set the ChannelType parameter to viber. Valid values: promotion and transaction.
+   * The type of the Viber message. This parameter is required if ChannelType is set to viber. Valid values:
+   * 
+   * *   **promotion**
+   * *   **transaction**
    * 
    * @example
    * promotion
@@ -9180,7 +9705,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   tag?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 100000001
@@ -9195,6 +9720,9 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The name of the message template.
+   * 
    * @example
    * test_name
    */
@@ -9206,7 +9734,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   templateParamsShrink?: string;
   /**
    * @remarks
-   * The phone number that receives the message.
+   * The mobile phone number of the message receiver.
    * 
    * This parameter is required.
    * 
@@ -9216,7 +9744,7 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   to?: string;
   /**
    * @remarks
-   * The tracking ID of the Viber message.
+   * The tracking data of the Viber message.
    * 
    * @example
    * tracking_id:123456
@@ -9232,10 +9760,10 @@ export class SendChatappMessageShrinkRequest extends $tea.Model {
   ttl?: number;
   /**
    * @remarks
-   * The type of the message. Valid values:
+   * The message type. Valid values:
    * 
-   * *   **template**: a template message. A template message is sent based on a template that is created in the ChatAPP console and is approved. You can send template messages at any time based on your business requirements.
-   * *   **message**: a custom message. You can send a custom message to a user only within 24 hours after you receive the last message from the user.
+   * *   **template**: the template message. A template message is sent based on a template that is created and approved in the Chat App Message Service console. You can send template messages based on your business requirements.
+   * *   **message**: the custom message. You can send a custom WhatsApp message to a user only within 24 hours after you receive the last message from the user. This limit does not apply to custom Viber messages.
    * 
    * This parameter is required.
    * 
@@ -9397,7 +9925,7 @@ export class SendChatappMessageResponse extends $tea.Model {
 export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   /**
    * @remarks
-   * The use scenario.
+   * The business scenario.
    * 
    * This parameter is required.
    * 
@@ -9407,7 +9935,7 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   businessDesc?: string;
   /**
    * @remarks
-   * The email address of your business.
+   * The enterprise mail.
    * 
    * This parameter is required.
    * 
@@ -9419,6 +9947,8 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
    * @remarks
    * The country code.
    * 
+   * >  For more information about country codes, see [Country codes](https://help.aliyun.com/document_detail/608210.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9427,7 +9957,7 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   countryId?: string;
   /**
    * @remarks
-   * The display name of your business.
+   * The enterprise name.
    * 
    * This parameter is required.
    * 
@@ -9437,7 +9967,7 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   custName?: string;
   /**
    * @remarks
-   * The space ID of the user under the ISV account.
+   * The space ID of the user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -9447,11 +9977,7 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV or Client Agreement.
-   * 
-   * > Before you upload files to Object Storage Service (OSS) servers, you must call the GetChatappUploadAuthorization operation to obtain the authentication information required to upload files. You can use the SDK provided by OSS to upload files. When you upload a file, you must set the key parameter value. To set the value for the key parameter, concatenate the value of the Dir parameter and the file name by using a forward slash (/). You can obtain the value of the Dir parameter by calling the GetChatappUploadAuthorization operation.
-   * 
-   * > The value of this parameter is the name of the uploaded file.
+   * The ISV or Client agreement.
    * 
    * This parameter is required.
    * 
@@ -9461,7 +9987,7 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
   isvTerms?: string;
   /**
    * @remarks
-   * The address of your business.
+   * The enterprise address.
    * 
    * This parameter is required.
    * 
@@ -9499,6 +10025,13 @@ export class SubmitIsvCustomerTermsRequest extends $tea.Model {
 }
 
 export class SubmitIsvCustomerTermsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * /
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -9575,10 +10108,287 @@ export class SubmitIsvCustomerTermsResponse extends $tea.Model {
   }
 }
 
+export class TriggerChatFlowRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The declared occurrence time of the event, usually the time when the request was constructed, in milliseconds timestamp.
+   * 
+   * @example
+   * 1731502129000
+   */
+  claimTimeMillis?: number;
+  /**
+   * @remarks
+   * Input parameters in Key-Value format. The Key must match the input strategy configured at the start node of your flow.
+   * 
+   * @example
+   * {"my_biz_data_0": "hi", "my_biz_data_1": "1024"}
+   */
+  data?: { [key: string]: any };
+  /**
+   * @remarks
+   * The time when the event should be discarded, i.e., the expiration time. If this field is specified, the message will be discarded if it exceeds this time, in milliseconds timestamp.
+   * 
+   * @example
+   * 1731502729000
+   */
+  discardTimeMillis?: number;
+  /**
+   * @remarks
+   * Flow code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * f4912c16943b4dfba44bd6fedacf8c70
+   */
+  flowCode?: string;
+  /**
+   * @remarks
+   * External system transaction number, used to associate with external business system transactions. You can retrieve this parameter within the flow after triggering.
+   * 
+   * @example
+   * 8d4acf7e-e360-eb83-6d74-fcf9c4538fda
+   */
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Unique event ID used for idempotent triggers. Do not include any business semantics; you can retrieve this parameter within the flow after triggering.
+   * 
+   * @example
+   * c68622e6-5f0d-c8a4-af41-e949c2a7580e
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      claimTimeMillis: 'ClaimTimeMillis',
+      data: 'Data',
+      discardTimeMillis: 'DiscardTimeMillis',
+      flowCode: 'FlowCode',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      claimTimeMillis: 'number',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      discardTimeMillis: 'number',
+      flowCode: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerChatFlowShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The declared occurrence time of the event, usually the time when the request was constructed, in milliseconds timestamp.
+   * 
+   * @example
+   * 1731502129000
+   */
+  claimTimeMillis?: number;
+  /**
+   * @remarks
+   * Input parameters in Key-Value format. The Key must match the input strategy configured at the start node of your flow.
+   * 
+   * @example
+   * {"my_biz_data_0": "hi", "my_biz_data_1": "1024"}
+   */
+  dataShrink?: string;
+  /**
+   * @remarks
+   * The time when the event should be discarded, i.e., the expiration time. If this field is specified, the message will be discarded if it exceeds this time, in milliseconds timestamp.
+   * 
+   * @example
+   * 1731502729000
+   */
+  discardTimeMillis?: number;
+  /**
+   * @remarks
+   * Flow code.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * f4912c16943b4dfba44bd6fedacf8c70
+   */
+  flowCode?: string;
+  /**
+   * @remarks
+   * External system transaction number, used to associate with external business system transactions. You can retrieve this parameter within the flow after triggering.
+   * 
+   * @example
+   * 8d4acf7e-e360-eb83-6d74-fcf9c4538fda
+   */
+  outId?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * Unique event ID used for idempotent triggers. Do not include any business semantics; you can retrieve this parameter within the flow after triggering.
+   * 
+   * @example
+   * c68622e6-5f0d-c8a4-af41-e949c2a7580e
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      claimTimeMillis: 'ClaimTimeMillis',
+      dataShrink: 'Data',
+      discardTimeMillis: 'DiscardTimeMillis',
+      flowCode: 'FlowCode',
+      outId: 'OutId',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      claimTimeMillis: 'number',
+      dataShrink: 'string',
+      discardTimeMillis: 'number',
+      flowCode: 'string',
+      outId: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerChatFlowResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Details of access denial
+   * 
+   * @example
+   * 无
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * Status code.
+   * 
+   * @example
+   * 无
+   */
+  code?: string;
+  /**
+   * @remarks
+   * Returned data.
+   * 
+   * @example
+   * {}
+   */
+  data?: { [key: string]: any };
+  /**
+   * @remarks
+   * Error description message.
+   * 
+   * @example
+   * 无
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * 无
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Whether the call was successful.
+   * - **true**: Call succeeded.
+   * - **false**: Call failed.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TriggerChatFlowResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TriggerChatFlowResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TriggerChatFlowResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateAccountWebhookRequest extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user under the ISV account.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * This parameter is required.
    * 
@@ -9640,6 +10450,13 @@ export class UpdateAccountWebhookRequest extends $tea.Model {
 }
 
 export class UpdateAccountWebhookResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -9719,7 +10536,10 @@ export class UpdateAccountWebhookResponse extends $tea.Model {
 export class UpdateCommerceSettingRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to display the shopping cart button.
+   * Specifies whether to display the shopping cart button. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * This parameter is required.
    * 
@@ -9729,7 +10549,10 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
   cartEnable?: boolean;
   /**
    * @remarks
-   * Specifies whether to display the catalog button.
+   * Specifies whether to display the catalog button. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * This parameter is required.
    * 
@@ -9790,6 +10613,13 @@ export class UpdateCommerceSettingRequest extends $tea.Model {
 }
 
 export class UpdateCommerceSettingResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
    * @remarks
@@ -9819,6 +10649,12 @@ export class UpdateCommerceSettingResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -9874,16 +10710,25 @@ export class UpdateCommerceSettingResponse extends $tea.Model {
 }
 
 export class UpdateConversationalAutomationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The commands.
+   */
   commands?: UpdateConversationalAutomationRequestCommands[];
   /**
    * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 2993****
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the welcoming message.
+   * 
    * @example
    * true
    */
@@ -9891,12 +10736,18 @@ export class UpdateConversationalAutomationRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The phone number of the enterprise.
+   * 
    * This parameter is required.
    * 
    * @example
    * 86130000***
    */
   phoneNumber?: string;
+  /**
+   * @remarks
+   * The opening remarks.
+   */
   prompts?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -9932,16 +10783,25 @@ export class UpdateConversationalAutomationRequest extends $tea.Model {
 }
 
 export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The commands.
+   */
   commandsShrink?: string;
   /**
    * @remarks
+   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * 2993****
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the welcoming message.
+   * 
    * @example
    * true
    */
@@ -9949,12 +10809,18 @@ export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The phone number of the enterprise.
+   * 
    * This parameter is required.
    * 
    * @example
    * 86130000***
    */
   phoneNumber?: string;
+  /**
+   * @remarks
+   * The opening remarks.
+   */
   promptsShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -9990,23 +10856,48 @@ export class UpdateConversationalAutomationShrinkRequest extends $tea.Model {
 }
 
 export class UpdateConversationalAutomationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
+   * *   The value OK indicates that the request was successful.
+   * *   For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
-   * 示例值示例值示例值
+   * None
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 示例值示例值
+   * 90E63D28-E31D-1EB2-8939-A94866411B2O
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -10063,12 +10954,17 @@ export class UpdateConversationalAutomationResponse extends $tea.Model {
 
 export class UpdateFlowJSONAssetRequest extends $tea.Model {
   /**
+   * @remarks
+   * SpaceId/instance ID of ISV sub customer.
+   * 
    * @example
    * 9399393
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * JSON file generated according to Facebook flow rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10108,6 +11004,9 @@ export class UpdateFlowJSONAssetRequest extends $tea.Model {
 
 export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The result returns OK as normal.
+   * 
    * @example
    * OK
    */
@@ -10117,6 +11016,13 @@ export class UpdateFlowJSONAssetResponseBody extends $tea.Model {
    * The returned data.
    */
   data?: UpdateFlowJSONAssetResponseBodyData;
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -10176,12 +11082,17 @@ export class UpdateFlowJSONAssetResponse extends $tea.Model {
 
 export class UpdatePhoneEncryptionPublicKeyRequest extends $tea.Model {
   /**
+   * @remarks
+   * SpaceId/instanceId of ISV sub clients.
+   * 
    * @example
    * 399382882
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * Encrypt the public key.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10229,10 +11140,20 @@ export class UpdatePhoneEncryptionPublicKeyRequest extends $tea.Model {
 
 export class UpdatePhoneEncryptionPublicKeyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The result returns OK as normal.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -10290,12 +11211,17 @@ export class UpdatePhoneEncryptionPublicKeyResponse extends $tea.Model {
 
 export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
   /**
+   * @remarks
+   * SpaceId/instance ID of ISV sub customer.
+   * 
    * @example
    * 9383884
    */
   custSpaceId?: string;
   /**
    * @remarks
+   * Produce QR code image format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10304,6 +11230,8 @@ export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
   generateQrImage?: string;
   /**
    * @remarks
+   * Number, enter the country/region code+number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10312,6 +11240,8 @@ export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
   phoneNumber?: string;
   /**
    * @remarks
+   * Message content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10320,6 +11250,8 @@ export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
   prefilledMessage?: string;
   /**
    * @remarks
+   * QR code encoding.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10353,11 +11285,25 @@ export class UpdatePhoneMessageQrdlRequest extends $tea.Model {
 
 export class UpdatePhoneMessageQrdlResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The result returns OK as normal.
+   * 
    * @example
    * OK
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: UpdatePhoneMessageQrdlResponseBodyData;
+  /**
+   * @remarks
+   * Error description information.
+   * 
+   * @example
+   * None
+   */
   message?: string;
   /**
    * @remarks
@@ -10418,6 +11364,8 @@ export class UpdatePhoneMessageQrdlResponse extends $tea.Model {
 export class UpdatePhoneWebhookRequest extends $tea.Model {
   /**
    * @remarks
+   * SpaceId for ISV sub clients.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10425,12 +11373,19 @@ export class UpdatePhoneWebhookRequest extends $tea.Model {
    */
   custSpaceId?: string;
   /**
+   * @remarks
+   * Whether to use HTTP to receive receipts. Value:
+   * *   Y: Yes.
+   * *   N: No.
+   * 
    * @example
    * Y
    */
   httpFlag?: string;
   /**
    * @remarks
+   * phone number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10438,16 +11393,27 @@ export class UpdatePhoneWebhookRequest extends $tea.Model {
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * Whether to use queue method to receive receipts. Value:
+   * *   Y: Yes.
+   * *   N: No.
+   * 
    * @example
    * N
    */
   queueFlag?: string;
   /**
+   * @remarks
+   * HTTP status report interface callback address.
+   * 
    * @example
    * http://www.aliyun.com
    */
   statusCallbackUrl?: string;
   /**
+   * @remarks
+   * HTTP upstream message interface callback address.
+   * 
    * @example
    * http://aliyun.com
    */
@@ -10480,18 +11446,37 @@ export class UpdatePhoneWebhookRequest extends $tea.Model {
 }
 
 export class UpdatePhoneWebhookResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Access denied for detailed information.
+   * 
+   * @example
+   * None
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * *   A value of OK indicates that the call is successful.
+   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * Prompt message, there is a value when an exception is returned.
+   * 
    * @example
    * null
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486641****
    */
@@ -10547,7 +11532,7 @@ export class UpdatePhoneWebhookResponse extends $tea.Model {
 export class BeeBotAssociateResponseBodyDataAssociate extends $tea.Model {
   /**
    * @remarks
-   * The additional information.
+   * The metadata.
    * 
    * @example
    * {}
@@ -10555,7 +11540,10 @@ export class BeeBotAssociateResponseBodyDataAssociate extends $tea.Model {
   meta?: string;
   /**
    * @remarks
-   * The title of the associated question.
+   * The title of the related question.
+   * 
+   * @example
+   * Policy on Withdrawal of Housing Provident Fund
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -10623,7 +11611,7 @@ export class BeeBotAssociateResponseBodyData extends $tea.Model {
 export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extends $tea.Model {
   /**
    * @remarks
-   * The ID of the related knowledge.
+   * The ID of knowledge associated with knowledge.
    * 
    * @example
    * 735899
@@ -10631,7 +11619,10 @@ export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extend
   knowledgeId?: string;
   /**
    * @remarks
-   * The title of the related knowledge.
+   * The title of related knowledge.
+   * 
+   * @example
+   * Withdrawal of housing provident fund.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -10656,7 +11647,7 @@ export class BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges extend
 export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
   /**
    * @remarks
-   * The source of the answer.
+   * Distinguish answer types.
    * 
    * @example
    * KnowledgeBase
@@ -10664,17 +11655,23 @@ export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
   answerSource?: string;
   /**
    * @remarks
-   * The category of the knowledge.
+   * Knowledge category.
+   * 
+   * @example
+   * provident fund.
    */
   category?: string;
   /**
    * @remarks
-   * The content of the hit question.
+   * Hit the content of the problem.
+   * 
+   * @example
+   * Provident fund withdrawal, please search for provident fund withdrawal on the homepage and submit the form for handling the matter.
    */
   content?: string;
   /**
    * @remarks
-   * Indicates whether the answer is in plain text or rich text.
+   * Indication of plain/rich text answers.
    * 
    * @example
    * PLAIN_TEXT
@@ -10682,12 +11679,15 @@ export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
   contentType?: string;
   /**
    * @remarks
-   * The hit text.
+   * Hit statement.
+   * 
+   * @example
+   * provident fund
    */
   hitStatement?: string;
   /**
    * @remarks
-   * The ID of the hit question in the knowledge base.
+   * The ID of the hit problem in the knowledge base.
    * 
    * @example
    * 735898
@@ -10695,17 +11695,23 @@ export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The list of the related knowledge.
+   * Related knowledge list.
    */
   relatedKnowledges?: BeeBotChatResponseBodyDataMessagesKnowledgeRelatedKnowledges[];
   /**
    * @remarks
-   * The summary to the hit question.
+   * Introduction to hit problems.
+   * 
+   * @example
+   * Withdrawal of housing provident fund
    */
   summary?: string;
   /**
    * @remarks
-   * The title of the hit question.
+   * Hit the title of the problem.
+   * 
+   * @example
+   * Withdrawal of housing provident fund.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -10744,7 +11750,7 @@ export class BeeBotChatResponseBodyDataMessagesKnowledge extends $tea.Model {
 export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
   /**
    * @remarks
-   * The source of the recommended answer.
+   * Clarify the identification of the source.
    * 
    * @example
    * KNOWLEDGE
@@ -10752,7 +11758,7 @@ export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
   answerSource?: string;
   /**
    * @remarks
-   * The ID of the recommended knowledge.
+   * Clarify the knowledge ID.
    * 
    * @example
    * 4548
@@ -10760,7 +11766,10 @@ export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * The title of the recommended knowledge. Valid values: the entity in graph-based question answering, the knowledge title in knowledge-based question answering, or the column value in table-based question answering.
+   * Clarify the content, which may be the entities of graph Q&A, the knowledge titles of knowledge Q&A, or the column values of table Q&A.
+   * 
+   * @example
+   * Test plain text.
    */
   title?: string;
   static names(): { [key: string]: string } {
@@ -10787,7 +11796,7 @@ export class BeeBotChatResponseBodyDataMessagesRecommends extends $tea.Model {
 export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the slot is hit.
+   * Whether it hits.
    * 
    * @example
    * false
@@ -10795,12 +11804,15 @@ export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
   hit?: boolean;
   /**
    * @remarks
-   * The name.
+   * Name.
+   * 
+   * @example
+   * Check weather intentions. city
    */
   name?: string;
   /**
    * @remarks
-   * The original value.
+   * Original value.
    * 
    * @example
    * Beijing
@@ -10808,7 +11820,7 @@ export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
   origin?: string;
   /**
    * @remarks
-   * The specific value.
+   * Specific values.
    * 
    * @example
    * Beijing
@@ -10840,7 +11852,7 @@ export class BeeBotChatResponseBodyDataMessagesTextSlots extends $tea.Model {
 export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
   /**
    * @remarks
-   * The source of the answer.
+   * Distinguish answer types.
    * 
    * @example
    * BotFramework
@@ -10849,11 +11861,14 @@ export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
   /**
    * @remarks
    * The content of the text message.
+   * 
+   * @example
+   * May I ask where you want to check the weather?
    */
   content?: string;
   /**
    * @remarks
-   * Indicates whether the answer is in plain text or rich text.
+   * Indication of plain/rich text answers.
    * 
    * @example
    * PLAIN_TEXT
@@ -10861,37 +11876,49 @@ export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
   contentType?: string;
   /**
    * @remarks
-   * The name of the dialog. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+   * When AnswerSource is BotFramework, this field returns the name of the dialogue unit.
+   * 
+   * @example
+   * Example: Checking Weather
    */
   dialogName?: string;
   /**
    * @remarks
-   * The passthrough parameters are returned.
+   * This field returns transparent parameters.
    */
   ext?: { [key: string]: any };
   /**
    * @remarks
-   * When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+   * When AnswerSource is BotFramework, this field returns a transparent parameter.
    */
   externalFlags?: { [key: string]: any };
   /**
    * @remarks
-   * The hit text.
+   * Hit statement.
+   * 
+   * @example
+   * Check the weather.
    */
   hitStatement?: string;
   /**
    * @remarks
-   * The name of the intent. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+   * When AnswerSource is BotFramework, this field returns the intent name.
+   * 
+   * @example
+   * Check weather intention.
    */
   intentName?: string;
   /**
    * @remarks
-   * The metadata.
+   * Metadata.
+   * 
+   * @example
+   * [[{\\"columnName\\":\\"name\\",\\"stringValue\\":\\"wangshanshan\\"}]]
    */
   metaData?: string;
   /**
    * @remarks
-   * The ID of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+   * When AnswerSource is BotFramework, this field returns the node ID.
    * 
    * @example
    * 1410-c7a72a78.__city
@@ -10899,17 +11926,23 @@ export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The name of the node. When the AnswerSource parameter is set to BotFramework, the value of this parameter is returned.
+   * When AnswerSource is BotFramework, this field returns the node name.
+   * 
+   * @example
+   * Example: Checking Weather Check the weather and fill in the slots__ city
    */
   nodeName?: string;
   /**
    * @remarks
-   * The list of slots.
+   * Slot information list.
    */
   slots?: BeeBotChatResponseBodyDataMessagesTextSlots[];
   /**
    * @remarks
-   * The title of the chitchat.
+   * Custom Chat Topic Title.
+   * 
+   * @example
+   * greet.
    */
   userDefinedChatTitle?: string;
   static names(): { [key: string]: string } {
@@ -10956,7 +11989,7 @@ export class BeeBotChatResponseBodyDataMessagesText extends $tea.Model {
 export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
   /**
    * @remarks
-   * When the AnswerType parameter is set to Recommend, this parameter indicates the source of the recommended answer.
+   * When AnswerType is Recommended, this field indicates the source of the recommended answer.
    * 
    * @example
    * KNOWLEDGE
@@ -10964,7 +11997,7 @@ export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
   answerSource?: string;
   /**
    * @remarks
-   * The type of the answer.
+   * The type of this message.
    * 
    * @example
    * Text
@@ -10972,17 +12005,17 @@ export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
   answerType?: string;
   /**
    * @remarks
-   * When the AnswerType parameter is set to Knowledge, this parameter contains the Knowledge object returned by the bot.
+   * When AnswerType is Knowledge, this field contains the Knowledge object returned by the robot.
    */
   knowledge?: BeeBotChatResponseBodyDataMessagesKnowledge;
   /**
    * @remarks
-   * The list of recommended knowledge. When the AnswerType parameter is set to Recommend, this parameter is returned.
+   * When AnswerType is Recommended, this field contains a list of Recommendations returned by the robot.
    */
   recommends?: BeeBotChatResponseBodyDataMessagesRecommends[];
   /**
    * @remarks
-   * When the AnswerType parameter is set to Text, this parameter contains the Text object returned by the bot.
+   * When AnswerType is Text, this field contains the Text object returned by the robot.
    */
   text?: BeeBotChatResponseBodyDataMessagesText;
   static names(): { [key: string]: string } {
@@ -11013,7 +12046,7 @@ export class BeeBotChatResponseBodyDataMessages extends $tea.Model {
 export class BeeBotChatResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The ID of the response message.
+   * The ID of the recommended knowledge.
    * 
    * @example
    * ab6be8af-cee4-40c3-9919-2ac7461d7d98
@@ -11021,12 +12054,12 @@ export class BeeBotChatResponseBodyData extends $tea.Model {
   messageId?: string;
   /**
    * @remarks
-   * The list of messages.
+   * The source of the recommended answer. When AnswerType is set to Recommend, a value is returned for this parameter.
    */
   messages?: BeeBotChatResponseBodyDataMessages[];
   /**
    * @remarks
-   * The ID of the session.
+   * The source of the recommended answer.
    * 
    * @example
    * 1234
@@ -11056,7 +12089,7 @@ export class BeeBotChatResponseBodyData extends $tea.Model {
 export class ChatappBindWabaResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The space ID of the user.
+   * The space ID of the user within the independent software vendor (ISV) account.
    * 
    * @example
    * C02029392939939
@@ -11064,7 +12097,7 @@ export class ChatappBindWabaResponseBodyData extends $tea.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ID of the WhatsApp Business account.
+   * The ID of the WhatsApp Business Account (WABA).
    * 
    * @example
    * 2939828282
@@ -11329,16 +12362,25 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $tea.Model {
 
 export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the mobile number.
+   * 
    * @example
    * 82828893332
    */
   id?: string;
   /**
+   * @remarks
+   * The mobile number.
+   * 
    * @example
    * 8613900001234
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The state of the mobile number. Only MIGRATING may be returned, which indicates that the mobile number is being migrated.
+   * 
    * @example
    * MIGRATING
    */
@@ -11366,13 +12408,19 @@ export class CreateChatappMigrationInitiateResponseBodyData extends $tea.Model {
 
 export class CreateChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
   /**
+   * @remarks
+   * The name of the Android application package. This parameter is required if you create an Android application.
+   * 
    * @example
-   * com.aliyun.pack.***
+   * com.kuaidian.waimaistaff
    */
   packageName?: string;
   /**
+   * @remarks
+   * WhatsApp template is required when Category is Authoritative and Button Type is ONE_TAP/ZERO-TAP, indicating the signature hash value of the WhatsApp application.
+   * 
    * @example
-   * kdikie9398k
+   * ieid83kdiek
    */
   signatureHash?: string;
   static names(): { [key: string]: string } {
@@ -11404,31 +12452,48 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
    */
   autofillText?: string;
   /**
+   * @remarks
+   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+   * 
    * @example
    * 120293
    */
   couponCode?: string;
   /**
+   * @remarks
+   * The Flow action.
+   * 
+   * Valid values:
+   * 
+   * *   DATA_EXCHANGE
+   * *   NAVIGATE
+   * 
    * @example
    * NAVIGATE
    */
   flowAction?: string;
   /**
+   * @remarks
+   * The Flow ID.
+   * 
    * @example
-   * 28383872***
+   * 479884093605183
    */
   flowId?: string;
   /**
    * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages are not sent to customers if they click this button.
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
    * 
    * @example
    * false
    */
   isOptOut?: boolean;
   /**
+   * @remarks
+   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+   * 
    * @example
-   * SIGN_UP
+   * DETAILS
    */
   navigateScreen?: string;
   /**
@@ -11443,7 +12508,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   packageName?: string;
   /**
    * @remarks
-   * The phone number. This parameter is valid only if the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
+   * The phone number. This parameter is valid only when the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
    * 
    * @example
    * +861368897****
@@ -11459,6 +12524,10 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
    * @deprecated
    */
   signatureHash?: string;
+  /**
+   * @remarks
+   * List of supported apps.
+   */
   supportedApps?: CreateChatappTemplateRequestComponentsButtonsSupportedApps[];
   /**
    * @remarks
@@ -11475,16 +12544,12 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
    * *   **PHONE_NUMBER**: phone call button
    * *   **URL**: URL button
    * *   **QUICK_REPLY**: quick reply button
-   * *   **COPY_CODE**: copy code button if Category is set to AUTHENTICATION
+   * *   **COPY_CODE**: copy code button
    * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
    * 
    * > 
    * 
-   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   * 
-   * *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a WhatsApp message template.
-   * 
-   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If the Type sub-parameter of the Buttons parameter is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If the Type sub-parameter of the Buttons parameter is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
    * 
    * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
    * 
@@ -11496,7 +12561,7 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
   type?: string;
   /**
    * @remarks
-   * The URL to which you are redirected when you click the URL button.
+   * The URL to be accessed when you click the URL button.
    * 
    * @example
    * https://example.com
@@ -11558,17 +12623,29 @@ export class CreateChatappTemplateRequestComponentsButtons extends $tea.Model {
 
 export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * +8613800
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The text of the button.
+   * 
    * @example
    * Call me
    */
   text?: string;
   /**
    * @remarks
+   * The type of the button. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11576,11 +12653,20 @@ export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons ex
    */
   type?: string;
   /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
    * @example
    * https://alibaba.com/xx
    */
   url?: string;
   /**
+   * @remarks
+   * The type of the URL. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
    * @example
    * static
    */
@@ -11611,19 +12697,38 @@ export class CreateChatappTemplateRequestComponentsCardsCardComponentsButtons ex
 }
 
 export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+   */
   buttons?: CreateChatappTemplateRequestComponentsCardsCardComponentsButtons[];
   /**
+   * @remarks
+   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+   * 
+   * *   **IMAGE**
+   * *   **VIDEO**
+   * 
    * @example
    * IMAGE
    */
   format?: string;
   /**
+   * @remarks
+   * The body content of the carousel card.
+   * 
    * @example
    * Who is the very powerful team
    */
   text?: string;
   /**
    * @remarks
+   * The type of the component. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **BUTTONS**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11631,6 +12736,9 @@ export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the media resource.
+   * 
    * @example
    * https://alibaba.com/img.png
    */
@@ -11663,6 +12771,8 @@ export class CreateChatappTemplateRequestComponentsCardsCardComponents extends $
 export class CreateChatappTemplateRequestComponentsCards extends $tea.Model {
   /**
    * @remarks
+   * The components of the carousel card.
+   * 
    * This parameter is required.
    */
   cardComponents?: CreateChatappTemplateRequestComponentsCardsCardComponents[];
@@ -11686,7 +12796,7 @@ export class CreateChatappTemplateRequestComponentsCards extends $tea.Model {
 export class CreateChatappTemplateRequestComponents extends $tea.Model {
   /**
    * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid only if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
    * 
    * @example
    * true
@@ -11696,15 +12806,15 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
    * @remarks
    * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
    * 
-   * >  The following section describes the limits on the number of buttons in a WhatsApp message.
+   * >  ####
    * 
-   * *   A marketing or utility WhatsApp message template supports up to 10 buttons.
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
    * 
    * *   A WhatsApp message template can contain only one phone call button.
    * 
    * *   A WhatsApp message template can contain up to two URL buttons.
    * 
-   * *   In a WhatsApp message template, the quick reply button cannot be used together with the phone call button or the URL button.
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
    */
   buttons?: CreateChatappTemplateRequestComponentsButtons[];
   /**
@@ -11715,10 +12825,14 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
    * This is a video
    */
   caption?: string;
+  /**
+   * @remarks
+   * The carousel cards of the carousel template.
+   */
   cards?: CreateChatappTemplateRequestComponentsCards[];
   /**
    * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
    * 
    * @example
    * 5
@@ -11750,7 +12864,7 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
   fileType?: string;
   /**
    * @remarks
-   * The type of the media resources that are included in the message. Valid values:
+   * The type of the media resource. Valid values:
    * 
    * *   **TEXT**
    * *   **IMAGE**
@@ -11762,6 +12876,9 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
    */
   format?: string;
   /**
+   * @remarks
+   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
+   * 
    * @example
    * true
    */
@@ -11770,7 +12887,7 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
    * @remarks
    * The text of the message that you want to send.
    * 
-   * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter is empty.
+   * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter must be empty.
    * 
    * @example
    * hello whatsapp
@@ -11792,14 +12909,16 @@ export class CreateChatappTemplateRequestComponents extends $tea.Model {
    * *   **HEADER**
    * *   **FOOTER**
    * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
    * 
    * > 
    * 
-   * *   In WhatsApp message templates, a **BODY** component cannot exceed 1,024 characters in length, and a **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
    * 
-   * *   **FOOTER** components are not supported in Viber message templates.
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
    * 
-   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains both text and an image, the image is placed below the text in the message received on a device.
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
    * 
    * This parameter is required.
    * 
@@ -11941,11 +13060,17 @@ export class CreateFlowResponseBodyData extends $tea.Model {
 
 export class CreatePhoneMessageQrdlResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the deep link.
+   * 
    * @example
    * https://wa.qrdl/
    */
   deepLinkUrl?: string;
   /**
+   * @remarks
+   * The format of the generated image.
+   * 
    * @example
    * PNG
    */
@@ -11959,16 +13084,25 @@ export class CreatePhoneMessageQrdlResponseBodyData extends $tea.Model {
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The message content.
+   * 
    * @example
    * Hello
    */
   prefilledMessage?: string;
   /**
+   * @remarks
+   * The URL of the QR code.
+   * 
    * @example
    * http://img.png
    */
   qrImageUrl?: string;
   /**
+   * @remarks
+   * The mode of the quick-response (QR) code.
+   * 
    * @example
    * D9II3***
    */
@@ -12148,7 +13282,21 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttr
 }
 
 export class GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps extends $tea.Model {
+  /**
+   * @remarks
+   * The app package name.
+   * 
+   * @example
+   * com.test
+   */
   packageName?: string;
+  /**
+   * @remarks
+   * The app signing key hash.
+   * 
+   * @example
+   * 29kdkeik939
+   */
   signatureHash?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12193,8 +13341,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   extendAttrs?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsExtendAttrs;
   /**
    * @remarks
-   * flow 数据事件类型
-   * 取值范围：NAVIGATE/DATA_EXCHANGE
+   * The Flow action. Valid values: NAVIGATE and DATA_EXCHANGE.
    * 
    * @example
    * NAVIGATE
@@ -12202,7 +13349,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   flowAction?: string;
   /**
    * @remarks
-   * Flow ID
+   * The Flow ID.
    * 
    * @example
    * 3838292983
@@ -12210,7 +13357,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   flowId?: string;
   /**
    * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
    * 
    * @example
    * false
@@ -12218,8 +13365,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   isOptOut?: boolean;
   /**
    * @remarks
-   * 跳转屏 
-   * 在FlowAction=NAVIGATE时必填
+   * The first screen in the Flow. This parameter is returned if FlowAction is set to NAVIGATE.
    * 
    * @example
    * DETAILS
@@ -12249,6 +13395,10 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
    * 2993839
    */
   signatureHash?: string;
+  /**
+   * @remarks
+   * The apps that support one-tap authentication and zero-tap authentication.
+   */
   supportedApps?: GetChatappTemplateDetailResponseBodyDataComponentsButtonsSupportedApps[];
   /**
    * @remarks
@@ -12260,17 +13410,17 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   text?: string;
   /**
    * @remarks
-   * The type of the button. Valid values:
+   * The button type. Valid values:
    * 
    * *   **PHONE_NUMBER**: phone call button
    * *   **URL**: URL button
    * *   **QUICK_REPLY**: quick reply button
+   * *   **COPY_CODE**: copy code button
+   * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
    * 
    * > 
    * 
-   * *   In a message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   * 
-   * *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a message template.
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
    * 
    * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
    * 
@@ -12288,7 +13438,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsButtons extends $
   url?: string;
   /**
    * @remarks
-   * The type of the URL. Valid values:
+   * The URL type. Valid values:
    * 
    * *   **static**
    * *   **dynamic**
@@ -12353,7 +13503,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   phoneNumber?: string;
   /**
    * @remarks
-   * The button content.
+   * The button text.
    * 
    * @example
    * Button text
@@ -12369,7 +13519,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   type?: string;
   /**
    * @remarks
-   * The URL to be accessed when you click the URL button.
+   * The URL to which you are redirected when you click the URL button.
    * 
    * @example
    * https://aliyun.com
@@ -12411,12 +13561,12 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
 export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents extends $tea.Model {
   /**
    * @remarks
-   * The card buttons.
+   * The buttons of the carousel card.
    */
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponentsButtons[];
   /**
    * @remarks
-   * The type of the header in the carousel template. The header can only be an image or a video. The headers of all cards must be the same.
+   * The type of the header in the carousel template. The header can only be an image or a video. The headers of all carousel cards must be the same. The type of the media resources that are included in the message. Valid values: IMGAGE and VIDEO.
    * 
    * @example
    * HEADER
@@ -12424,7 +13574,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   format?: string;
   /**
    * @remarks
-   * The card text.
+   * The text of the carousel card.
    * 
    * @example
    * Body
@@ -12432,7 +13582,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   text?: string;
   /**
    * @remarks
-   * The type of the component.
+   * The component type.
    * 
    * @example
    * HEADER
@@ -12440,7 +13590,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
   type?: string;
   /**
    * @remarks
-   * The URL address.
+   * The URL.
    * 
    * @example
    * https://aliyun.com
@@ -12474,7 +13624,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponen
 export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $tea.Model {
   /**
    * @remarks
-   * The card components.
+   * The components of the carousel card.
    */
   cardComponents?: GetChatappTemplateDetailResponseBodyDataComponentsCardsCardComponents[];
   static names(): { [key: string]: string } {
@@ -12497,7 +13647,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponentsCards extends $te
 export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Model {
   /**
    * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
    * 
    * @example
    * false
@@ -12505,7 +13655,17 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   addSecretRecommendation?: boolean;
   /**
    * @remarks
-   * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**. Before you specify this parameter, the format of the value must be changed from JSON to String.
+   * The buttons. This parameter is returned only if the Type sub-parameter of the Components parameter is set to **BUTTONS**.
+   * 
+   * >  ####
+   * 
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
+   * 
+   * *   A WhatsApp message template can contain only one phone call button.
+   * 
+   * *   A WhatsApp message template can contain up to two URL buttons.
+   * 
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
    */
   buttons?: GetChatappTemplateDetailResponseBodyDataComponentsButtons[];
   /**
@@ -12523,7 +13683,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   cards?: GetChatappTemplateDetailResponseBodyDataComponentsCards[];
   /**
    * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER for a WhatsApp message template. The validity period of the verification code is displayed in the footer.
    * 
    * @example
    * 5
@@ -12531,7 +13691,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   codeExpirationMinutes?: number;
   /**
    * @remarks
-   * The length of the video in the Viber message template. Valid values: 0 to 600. Unit: seconds.
+   * The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
    * 
    * @example
    * 50
@@ -12619,20 +13779,22 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   thumbUrl?: string;
   /**
    * @remarks
-   * The type of the component. Valid values:
+   * The component type. Valid values:
    * 
    * *   **BODY**
    * *   **HEADER**
    * *   **FOOTER**
    * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
    * 
    * > 
    * 
-   * *   The following limits apply to components in WhatsApp message templates: A **BODY** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
    * 
-   * *   **FOOTER** components are not supported in Viber message templates.
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
    * 
-   * *   In a Viber message template, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains both text and an image, the image is placed below the text in the message received on a device.
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
    * 
    * @example
    * BODY
@@ -12648,7 +13810,7 @@ export class GetChatappTemplateDetailResponseBodyDataComponents extends $tea.Mod
   url?: string;
   /**
    * @remarks
-   * Indicates whether the coupon code will expire in the limited-time offer template.
+   * Indicates whether the coupon code has an expiration time in the limited-time offer template.
    * 
    * @example
    * true
@@ -13026,7 +14188,7 @@ export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The directory to which a file is uploaded in OSS.
+   * The directory to which the file is uploaded in Object Storage Service (OSS).
    * 
    * @example
    * 1000102939
@@ -13088,7 +14250,10 @@ export class GetChatappUploadAuthorizationResponseBodyData extends $tea.Model {
 export class GetCommerceSettingResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether the shopping cart button is displayed.
+   * Indicates whether the shopping cart button is displayed. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * false
@@ -13096,7 +14261,10 @@ export class GetCommerceSettingResponseBodyData extends $tea.Model {
   cartEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether the catalog button is displayed.
+   * Indicates whether the catalog button is displayed. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * false
@@ -13123,11 +14291,17 @@ export class GetCommerceSettingResponseBodyData extends $tea.Model {
 
 export class GetConversationalAutomationResponseBodyDataCommands extends $tea.Model {
   /**
+   * @remarks
+   * The description of the command.
+   * 
    * @example
    * description
    */
   commandDescription?: string;
   /**
+   * @remarks
+   * The name of the command.
+   * 
    * @example
    * common1
    */
@@ -13152,17 +14326,31 @@ export class GetConversationalAutomationResponseBodyDataCommands extends $tea.Mo
 }
 
 export class GetConversationalAutomationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The commands.
+   */
   commands?: GetConversationalAutomationResponseBodyDataCommands[];
   /**
+   * @remarks
+   * Indicates whether the welcoming message is enabled.
+   * 
    * @example
    * true
    */
   enableWelcomeMessage?: boolean;
   /**
+   * @remarks
+   * The phone number of the enterprise.
+   * 
    * @example
    * 86138****
    */
   phoneNumber?: string;
+  /**
+   * @remarks
+   * The opening remarks.
+   */
   prompts?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -13390,11 +14578,17 @@ export class GetFlowPreviewUrlResponseBodyData extends $tea.Model {
 
 export class GetMigrationVerifyCodeResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the number.
+   * 
    * @example
    * 82828893332
    */
   id?: string;
   /**
+   * @remarks
+   * Phone number.
+   * 
    * @example
    * 8613800001234
    */
@@ -13559,16 +14753,25 @@ export class GetPreValidatePhoneIdResponseBodyData extends $tea.Model {
 
 export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 141006
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The description of the error.
+   * 
    * @example
    * There is an error with the payment method.
    */
   errorDescription?: string;
   /**
+   * @remarks
+   * The possible solution to the error.
+   * 
    * @example
    * There was an error with your payment method. Please add a new payment method to the account.
    */
@@ -13596,37 +14799,62 @@ export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $tea.
 
 export class GetWhatsappHealthStatusResponseBodyDataEntities extends $tea.Model {
   /**
+   * @remarks
+   * The Business Manager ID.
+   * 
    * @example
    * 3992****
    */
   businessId?: string;
   /**
+   * @remarks
+   * Indicates whether the messages can be sent.
+   * 
    * @example
    * AVAILABLE
    */
   canSendMessage?: string;
   /**
+   * @remarks
+   * The entity type.
+   * 
    * @example
    * PHONE_NUMBER
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The reasons why the messages failed to be sent.
+   */
   errors?: GetWhatsappHealthStatusResponseBodyDataEntitiesErrors[];
   /**
+   * @remarks
+   * The template language.
+   * 
    * @example
    * en
    */
   language?: string;
   /**
+   * @remarks
+   * The phone number to which the messages are sent.
+   * 
    * @example
    * 86138****
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The template code. This parameter is returned when the NodeType parameter is set to **template**.
+   * 
    * @example
    * 939928****
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The WABA ID. You can view the WABA ID in the Chat App Message Service console after you create the WABA.
+   * 
    * @example
    * 39939***
    */
@@ -13664,10 +14892,17 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $tea.Model 
 
 export class GetWhatsappHealthStatusResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the messages can be sent.
+   * 
    * @example
    * AVAILABLE
    */
   canSendMessage?: string;
+  /**
+   * @remarks
+   * The queried entities.
+   */
   entities?: GetWhatsappHealthStatusResponseBodyDataEntities[];
   static names(): { [key: string]: string } {
     return {
@@ -13775,6 +15010,9 @@ export class ListChatappTemplateResponseBodyListTemplate extends $tea.Model {
    */
   language?: string;
   /**
+   * @remarks
+   * The time when the template was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1711006633000
    */
@@ -14177,13 +15415,19 @@ export class ListProductCatalogResponseBodyModel extends $tea.Model {
 
 export class ModifyChatappTemplateRequestComponentsButtonsSupportedApps extends $tea.Model {
   /**
+   * @remarks
+   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+   * 
    * @example
-   * com.aliyun.pack.***
+   * com.example.myapplication
    */
   packageName?: string;
   /**
+   * @remarks
+   * The Whatsapp template is required when the Category is\\" Authorisation \\"and the Button Type is\\" ONE_TAP/ZERO-TAP\\", indicating the signature hash value of the Whatsapp call application.
+   * 
    * @example
-   * kdikie9398k
+   * fk39kd93ks9
    */
   signatureHash?: string;
   static names(): { [key: string]: string } {
@@ -14215,31 +15459,48 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
    */
   autofillText?: string;
   /**
+   * @remarks
+   * The coupon code. It can contain only letters and digits. You can set this parameter to a variable such as $(couponCode). Specify the value of couponCode when you send a message.
+   * 
    * @example
    * 120293
    */
   couponCode?: string;
   /**
+   * @remarks
+   * The Flow action.
+   * 
+   * Valid values:
+   * 
+   * *   DATA_EXCHANGE
+   * *   NAVIGATE
+   * 
    * @example
    * NAVIGATE
    */
   flowAction?: string;
   /**
+   * @remarks
+   * The Flow ID.
+   * 
    * @example
-   * 28383872***
+   * 664597077870605
    */
   flowId?: string;
   /**
    * @remarks
-   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages are not sent to customers if they click this button.
+   * The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY for a WhatsApp message template. Marketing messages will not be sent to customers if you configure message sending in the Chat App Message Service console and the customers click this button.
    * 
    * @example
    * false
    */
   isOptOut?: boolean;
   /**
+   * @remarks
+   * The first screen in the Flow. This parameter is required if FlowAction is set to NAVIGATE.
+   * 
    * @example
-   * SIGN_UP
+   * DETAILS
    */
   navigateScreen?: string;
   /**
@@ -14270,6 +15531,10 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
    * @deprecated
    */
   signatureHash?: string;
+  /**
+   * @remarks
+   * List of supported apps.
+   */
   supportedApps?: ModifyChatappTemplateRequestComponentsButtonsSupportedApps[];
   /**
    * @remarks
@@ -14281,21 +15546,17 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   text?: string;
   /**
    * @remarks
-   * The type of the button. Valid values:
+   * The button type. Valid values:
    * 
    * *   **PHONE_NUMBER**: phone call button
    * *   **URL**: URL button
    * *   **QUICK_REPLY**: quick reply button
-   * *   **COPY_CODE**: copy code button if Category is set to AUTHENTICATION
+   * *   **COPY_CODE**: copy code button
    * *   **ONE_TAP**: one-tap autofill button if Category is set to AUTHENTICATION
    * 
    * > 
    * 
-   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
-   * 
-   * *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a WhatsApp message template.
-   * 
-   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If the Type sub-parameter of the Buttons parameter is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If the Type sub-parameter of the Buttons parameter is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
+   * *   If Category is set to AUTHENTICATION for a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If Type is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If Type is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value of Text indicates that you must manually copy the verification code.
    * 
    * *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
    * 
@@ -14315,7 +15576,7 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
   url?: string;
   /**
    * @remarks
-   * The type of the URL. Valid values:
+   * The URL type. Valid values:
    * 
    * *   **static**
    * *   **dynamic**
@@ -14369,17 +15630,29 @@ export class ModifyChatappTemplateRequestComponentsButtons extends $tea.Model {
 
 export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons extends $tea.Model {
   /**
+   * @remarks
+   * The phone number.
+   * 
    * @example
    * +8613800
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * The text of the button.
+   * 
    * @example
    * Call me
    */
   text?: string;
   /**
    * @remarks
+   * The button type. Valid values:
+   * 
+   * *   **PHONE_NUMBER**: phone call button
+   * *   **URL**: URL button
+   * *   **QUICK_REPLY**: quick reply button
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14387,11 +15660,20 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons ex
    */
   type?: string;
   /**
+   * @remarks
+   * The URL to which you are redirected when you click the URL button.
+   * 
    * @example
    * https://alibaba.com/xx
    */
   url?: string;
   /**
+   * @remarks
+   * The URL type. Valid values:
+   * 
+   * *   **static**
+   * *   **dynamic**
+   * 
    * @example
    * static
    */
@@ -14422,19 +15704,38 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons ex
 }
 
 export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $tea.Model {
+  /**
+   * @remarks
+   * The buttons. Specify this parameter only if you set the Type sub-parameter of the CardComponents parameter to BUTTONS. A carousel card can contain up to two buttons.
+   */
   buttons?: ModifyChatappTemplateRequestComponentsCardsCardComponentsButtons[];
   /**
+   * @remarks
+   * The type of the media resource. This parameter is valid if the Type sub-parameter of the CardComponents parameter is set to HEADER. Valid values:
+   * 
+   * *   **IMAGE**
+   * *   **VIDEO**
+   * 
    * @example
    * IMAGE
    */
   format?: string;
   /**
+   * @remarks
+   * The body content of the carousel card.
+   * 
    * @example
    * Who is the very powerful team
    */
   text?: string;
   /**
    * @remarks
+   * The component type. Valid values:
+   * 
+   * *   **BODY**
+   * *   **HEADER**
+   * *   **BUTTONS**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14442,6 +15743,9 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the media resource.
+   * 
    * @example
    * https://alibaba.com/img.png
    */
@@ -14474,6 +15778,8 @@ export class ModifyChatappTemplateRequestComponentsCardsCardComponents extends $
 export class ModifyChatappTemplateRequestComponentsCards extends $tea.Model {
   /**
    * @remarks
+   * The components of the carousel card.
+   * 
    * This parameter is required.
    */
   cardComponents?: ModifyChatappTemplateRequestComponentsCardsCardComponents[];
@@ -14497,7 +15803,7 @@ export class ModifyChatappTemplateRequestComponentsCards extends $tea.Model {
 export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   /**
    * @remarks
-   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid only if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
+   * The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY for a WhatsApp message template.
    * 
    * @example
    * false
@@ -14507,31 +15813,35 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
    * @remarks
    * The buttons. Specify this parameter only if you set the Type sub-parameter of the Components parameter to **BUTTONS**.
    * 
-   * >  The following section describes the limits on the number of buttons in a WhatsApp message.
+   * >  ####
    * 
-   * *   A marketing or utility WhatsApp message template supports up to 10 buttons.
+   * *   A marketing or utility WhatsApp message template can contain up to 10 buttons.
    * 
    * *   A WhatsApp message template can contain only one phone call button.
    * 
    * *   A WhatsApp message template can contain up to two URL buttons.
    * 
-   * *   In a WhatsApp message template, the quick reply button cannot be used together with the phone call button or the URL button.
+   * *   In a WhatsApp message template, a quick reply button cannot be used together with a phone call button or a URL button.
    */
   buttons?: ModifyChatappTemplateRequestComponentsButtons[];
   /**
    * @remarks
-   * The description.
+   * The description of the media resource.
    * 
-   * >  You can specify this parameter if the Type sub-parameter of the Components parameter is set to **HEADER** and the Format sub-parameter of the Components parameter is set to **IMAGE, DOCUMENT, or VIDEO**.
+   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
    * 
    * @example
    * This is a video
    */
   caption?: string;
+  /**
+   * @remarks
+   * The carousel cards of the carousel template.
+   */
   cards?: ModifyChatappTemplateRequestComponentsCards[];
   /**
    * @remarks
-   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+   * The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER. The validity period of the verification code is displayed in the footer.
    * 
    * @example
    * 5
@@ -14549,7 +15859,7 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
    * @remarks
    * The name of the document.
    * 
-   * >  You can specify this parameter if the Type sub-parameter of the Components parameter is set to **HEADER** and the Format sub-parameter of the Components parameter is set to **DOCUMENT**.
+   * >  If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format parameter is set to **DOCUMENT**, you can specify this parameter.
    * 
    * @example
    * video name
@@ -14565,7 +15875,7 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   fileType?: string;
   /**
    * @remarks
-   * The type of the media resources that are included in the message. Valid values:
+   * The type of the media resource. Valid values:
    * 
    * *   **TEXT**
    * *   **IMAGE**
@@ -14577,6 +15887,9 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
    */
   format?: string;
   /**
+   * @remarks
+   * Specifies whether the coupon code has an expiration time. Specify this parameter if the Type sub-parameter of the Components parameter is set to LIMITED_TIME_OFFER.
+   * 
    * @example
    * true
    */
@@ -14585,7 +15898,7 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
    * @remarks
    * The text of the message that you want to send.
    * 
-   * >  If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter is empty.
+   * >  If Category is set to AUTHENTICATION, do not specify the Text sub-parameter of the Components parameter.
    * 
    * @example
    * hello chatapp
@@ -14601,20 +15914,22 @@ export class ModifyChatappTemplateRequestComponents extends $tea.Model {
   thumbUrl?: string;
   /**
    * @remarks
-   * The type of the component. Valid values:
+   * The component type. Valid values:
    * 
    * *   **BODY**
    * *   **HEADER**
    * *   **FOOTER**
    * *   **BUTTONS**
+   * *   **CAROUSEL**
+   * *   **LIMITED_TIME_OFFER**
    * 
    * > 
    * 
-   * *   The following limits apply to components in WhatsApp message templates: A **BODY** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+   * *   In a WhatsApp message template, a **Body** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
    * 
-   * *   **FOOTER** components are not supported in Viber message templates.
+   * *   **FOOTER**, **CAROUSEL**, and **LIMITED_TIME_OFFER** components are not supported in Viber message templates.
    * 
-   * *   In a Viber message template, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and images, the images are placed under the text in the message received on a device.
+   * *   In Viber message templates, media resources such as images, videos, and documents are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed below the text in the message received on a device.
    * 
    * This parameter is required.
    * 
@@ -14771,13 +16086,23 @@ export class QueryChatappBindWabaResponseBodyData extends $tea.Model {
    * APPROVED
    */
   accountReviewStatus?: string;
+  /**
+   * @remarks
+   * WABA related information.
+   */
   authInternationalRateEligibility?: { [key: string]: any };
   /**
+   * @remarks
+   * The ID of the business platform.
+   * 
    * @example
    * 19293988***
    */
   businessId?: string;
   /**
+   * @remarks
+   * The name of the business platform.
+   * 
    * @example
    * Alibaba
    */
@@ -14815,8 +16140,11 @@ export class QueryChatappBindWabaResponseBodyData extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The start time when the authentication-international rate applies.
+   * 
    * @example
-   * 示例值示例值
+   * "start_time":1721952000
    */
   primaryBusinessLocation?: string;
   static names(): { [key: string]: string } {
@@ -14863,7 +16191,16 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   codeVerificationStatus?: string;
   /**
    * @remarks
-   * The maximum number of messages that can be sent to users by using the phone number.
+   * The number of phone numbers to which messages can be sent in a day.
+   * 
+   * Valid values:
+   * 
+   * *   TIER_100K: 100,000
+   * *   TIER_UNLIMITED: unlimited
+   * *   TIER_250: 250
+   * *   TIER_1K: 1,000
+   * *   TIER_50: 50
+   * *   TIER_10K: 10,000
    * 
    * @example
    * TIER_10
@@ -14895,12 +16232,14 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   phoneNumber?: string;
   /**
    * @remarks
-   * The quality rating of the phone number. Valid values:
+   * The quality rating of the phone number.
    * 
-   * *   **GREEN**
-   * *   **YELLOW**
-   * *   **RED**
-   * *   **UNKNOWN**
+   * Valid values:
+   * 
+   * *   RED
+   * *   YELLOW
+   * *   UNKNOWN
+   * *   GREEN
    * 
    * @example
    * GREEN
@@ -14908,19 +16247,21 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   qualityRating?: string;
   /**
    * @remarks
-   * The status of the phone number.
+   * The state of the phone number.
    * 
-   * *   PENDING
-   * *   DELETED
+   * Valid values:
+   * 
    * *   MIGRATED
-   * *   BANNED
-   * *   RESTRICTED
-   * *   RATE_LIMITED
    * *   FLAGGED
-   * *   CONNECTED
    * *   DISCONNECTED
-   * *   UNKNOWN
    * *   UNVERIFIED
+   * *   BANNED
+   * *   RATE_LIMITED
+   * *   PENDING
+   * *   CONNECTED
+   * *   UNKNOWN
+   * *   DELETED
+   * *   RESTRICTED
    * 
    * @example
    * CONNECTED
@@ -14936,7 +16277,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
   statusCallbackUrl?: string;
   /**
    * @remarks
-   * The status report notification queue.
+   * The status report queue.
    * 
    * @example
    * Alicom-Queue-****-ChatAppStatus
@@ -15007,8 +16348,11 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $tea.Model
 
 export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Regarding.
+   * 
    * @example
-   * 关于
+   * business profile
    */
   about?: string;
   /**
@@ -15037,7 +16381,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
   email?: string;
   /**
    * @remarks
-   * The URL of the profile picture.
+   * The profile picture.
    * 
    * @example
    * https://....img
@@ -15053,7 +16397,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
   vertical?: string;
   /**
    * @remarks
-   * The websites.
+   * The website.
    */
   websites?: string[];
   static names(): { [key: string]: string } {
@@ -15088,7 +16432,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $tea.Model {
 export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * The ID of the business platform.
+   * The Business Manager ID.
    * 
    * @example
    * 192882828733
@@ -15096,7 +16440,7 @@ export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
   businessId?: string;
   /**
    * @remarks
-   * The name of the business platform.
+   * The Business Manager name.
    * 
    * @example
    * Alibaba
@@ -15142,10 +16486,17 @@ export class QueryWabaBusinessInfoResponseBodyData extends $tea.Model {
 }
 
 export class SendChatappMassMessageRequestSenderListFlowAction extends $tea.Model {
+  /**
+   * @remarks
+   * The default parameter of the Flow.
+   */
   flowActionData?: { [key: string]: string };
   /**
+   * @remarks
+   * The information about the Flow token.
+   * 
    * @example
-   * 1122***
+   * kde****
    */
   flowToken?: string;
   static names(): { [key: string]: string } {
@@ -15260,10 +16611,14 @@ export class SendChatappMassMessageRequestSenderListProductAction extends $tea.M
 }
 
 export class SendChatappMassMessageRequestSenderList extends $tea.Model {
+  /**
+   * @remarks
+   * The Flow action.
+   */
   flowAction?: SendChatappMassMessageRequestSenderListFlowAction;
   /**
    * @remarks
-   * The payload.
+   * The payload of the button.
    */
   payload?: string[];
   /**
@@ -15278,7 +16633,7 @@ export class SendChatappMassMessageRequestSenderList extends $tea.Model {
   templateParams?: { [key: string]: string };
   /**
    * @remarks
-   * The phone number to which the message is sent.
+   * The mobile phone number of the message receiver.
    * 
    * This parameter is required.
    * 
@@ -15314,12 +16669,12 @@ export class SendChatappMassMessageRequestSenderList extends $tea.Model {
 export class SendChatappMessageRequestFlowAction extends $tea.Model {
   /**
    * @remarks
-   * flow默认参数
+   * The default parameter of the Flow.
    */
   flowActionData?: { [key: string]: string };
   /**
    * @remarks
-   * flow token信息
+   * The Flow token.
    * 
    * @example
    * 1122***
@@ -15406,7 +16761,7 @@ export class SendChatappMessageRequestProductActionSections extends $tea.Model {
 export class SendChatappMessageRequestProductAction extends $tea.Model {
   /**
    * @remarks
-   * The products. Up to 30 products can be added. The products can be divided into up to 10 categories.
+   * The products. Up to 30 products and 10 categories can be added.
    */
   sections?: SendChatappMessageRequestProductActionSections[];
   /**
@@ -15438,11 +16793,17 @@ export class SendChatappMessageRequestProductAction extends $tea.Model {
 
 export class UpdateConversationalAutomationRequestCommands extends $tea.Model {
   /**
+   * @remarks
+   * The description of the command.
+   * 
    * @example
-   * 命令1
+   * Command 1.
    */
   commandDescription?: string;
   /**
+   * @remarks
+   * The command name.
+   * 
    * @example
    * test
    */
@@ -15494,31 +16855,49 @@ export class UpdateFlowJSONAssetResponseBodyData extends $tea.Model {
 
 export class UpdatePhoneMessageQrdlResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Deep link address.
+   * 
    * @example
    * https://wa.msg/
    */
   deepLinkUrl?: string;
   /**
+   * @remarks
+   * Generate image types.
+   * 
    * @example
    * PNG
    */
   generateQrImage?: string;
   /**
+   * @remarks
+   * Number.
+   * 
    * @example
    * 8613800
    */
   phoneNumber?: string;
   /**
+   * @remarks
+   * Message content.
+   * 
    * @example
    * Hello
    */
   prefilledMessage?: string;
   /**
+   * @remarks
+   * QR code address.
+   * 
    * @example
    * https://img.png
    */
   qrImageUrl?: string;
   /**
+   * @remarks
+   * QR code encoding.
+   * 
    * @example
    * DEDEE998
    */
@@ -15575,9 +16954,6 @@ export default class Client extends OpenApi {
 
   /**
    * Adds a phone number for a WhatsApp Business account (WABA).
-   * 
-   * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - AddChatappPhoneNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15637,9 +17013,6 @@ export default class Client extends OpenApi {
 
   /**
    * Adds a phone number for a WhatsApp Business account (WABA).
-   * 
-   * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - AddChatappPhoneNumberRequest
    * @returns AddChatappPhoneNumberResponse
@@ -15731,7 +17104,7 @@ export default class Client extends OpenApi {
    * Conducts sessions with the bot based on its unique identifier (ID).
    * 
    * @remarks
-   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The ID of the session.
    * 
    * @param tmpReq - BeeBotChatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15815,7 +17188,7 @@ export default class Client extends OpenApi {
    * Conducts sessions with the bot based on its unique identifier (ID).
    * 
    * @remarks
-   * You can call this operation up to 100 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The ID of the session.
    * 
    * @param request - BeeBotChatRequest
    * @returns BeeBotChatResponse
@@ -15937,7 +17310,7 @@ export default class Client extends OpenApi {
    * Registers a phone number for migration.
    * 
    * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * @param request - ChatappMigrationRegisterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15975,7 +17348,7 @@ export default class Client extends OpenApi {
    * Registers a phone number for migration.
    * 
    * @remarks
-   * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * The space ID of the RAM user within the independent software vendor (ISV) account.
    * 
    * @param request - ChatappMigrationRegisterRequest
    * @returns ChatappMigrationRegisterResponse
@@ -16343,11 +17716,12 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code.
-   * \\\\*   Example: OK. This parameter indicates that the request is successful.
-   * \\\\*   Other values indicate that the request fails. For more information, see \\[Error codes]\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
+   * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
    * @remarks
-   * The error message.
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param tmpReq - CreateChatappTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16429,11 +17803,12 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code.
-   * \\\\*   Example: OK. This parameter indicates that the request is successful.
-   * \\\\*   Other values indicate that the request fails. For more information, see \\[Error codes]\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
+   * \\\\\\\\*   Example: OK. This parameter indicates that the request is successful.
+   * \\\\\\\\*   Other values indicate that the request fails. For more information, see \\\\\\[Error codes]\\\\\\(https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
    * @remarks
-   * The error message.
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to 50 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - CreateChatappTemplateRequest
    * @returns CreateChatappTemplateResponse
@@ -16506,7 +17881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消息发送二维码
+   * Creates a quick-response (QR) code that contains a message.
    * 
    * @param request - CreatePhoneMessageQrdlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16549,7 +17924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建消息发送二维码
+   * Creates a quick-response (QR) code that contains a message.
    * 
    * @param request - CreatePhoneMessageQrdlRequest
    * @returns CreatePhoneMessageQrdlResponse
@@ -16698,7 +18073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息发送二维码
+   * Deletes a quick-response (QR) code that contains a message.
    * 
    * @param request - DeletePhoneMessageQrdlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16737,7 +18112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除消息发送二维码
+   * Deletes a quick-response (QR) code that contains a message.
    * 
    * @param request - DeletePhoneMessageQrdlRequest
    * @returns DeletePhoneMessageQrdlResponse
@@ -16748,7 +18123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 弃用Flow
+   * Deprecates a Flow.
    * 
    * @param request - DeprecateFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16783,7 +18158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 弃用Flow
+   * Deprecates a Flow.
    * 
    * @param request - DeprecateFlowRequest
    * @returns DeprecateFlowResponse
@@ -17248,7 +18623,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码欢迎消息设置信息
+   * Configures welcoming messages, opening remarks, and commands.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - GetConversationalAutomationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17295,7 +18675,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码欢迎消息设置信息
+   * Configures welcoming messages, opening remarks, and commands.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - GetConversationalAutomationRequest
    * @returns GetConversationalAutomationResponse
@@ -17358,7 +18743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取flow的JSON文件
+   * Queries the JSON content of a Flow.
    * 
    * @param request - GetFlowJSONAssestRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17393,7 +18778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取flow的JSON文件
+   * Queries the JSON content of a Flow.
    * 
    * @param request - GetFlowJSONAssestRequest
    * @returns GetFlowJSONAssestResponse
@@ -17456,10 +18841,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The phone number.
+   * Obtain the verification code for the migration number.
    * 
    * @remarks
-   * The ID of the phone number.
+   * The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
    * 
    * @param request - GetMigrationVerifyCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17502,10 +18887,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The phone number.
+   * Obtain the verification code for the migration number.
    * 
    * @remarks
-   * The ID of the phone number.
+   * The single user QPS limit for this interface is 10 times per second. Exceeding the limit may result in restricted API calls, which may affect your business. Please make reasonable calls.
    * 
    * @param request - GetMigrationVerifyCodeRequest
    * @returns GetMigrationVerifyCodeResponse
@@ -17516,7 +18901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据Code获取权限
+   * Obtains permissions based on the authorization code obtained from embedded signup.
    * 
    * @param tmpReq - GetPermissionByCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17561,7 +18946,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据Code获取权限
+   * Obtains permissions based on the authorization code obtained from embedded signup.
    * 
    * @param request - GetPermissionByCodeRequest
    * @returns GetPermissionByCodeResponse
@@ -17572,7 +18957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码的公钥
+   * Queries the encryption public key of a phone number.
    * 
    * @param request - GetPhoneEncryptionPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17607,7 +18992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取号码的公钥
+   * Queries the encryption public key of a phone number.
    * 
    * @param request - GetPhoneEncryptionPublicKeyRequest
    * @returns GetPhoneEncryptionPublicKeyResponse
@@ -17786,7 +19171,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取whatsapp节点信息发送消息健康度
+   * Queries the messaging health status of different types of nodes.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - GetWhatsappHealthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17849,7 +19239,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取whatsapp节点信息发送消息健康度
+   * Queries the messaging health status of different types of nodes.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - GetWhatsappHealthStatusRequest
    * @returns GetWhatsappHealthStatusResponse
@@ -18062,7 +19457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消息发送二维码
+   * Queries the information about a list of quick-response (QR) codes that contain messages.
    * 
    * @param request - ListPhoneMessageQrdlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18097,7 +19492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消息发送二维码
+   * Queries the information about a list of quick-response (QR) codes that contain messages.
    * 
    * @param request - ListPhoneMessageQrdlRequest
    * @returns ListPhoneMessageQrdlResponse
@@ -19125,7 +20520,8 @@ export default class Client extends OpenApi {
    * Submits the agreement information for independent software vendor (ISV) customers.
    * 
    * @remarks
-   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
    * 
    * @param request - SubmitIsvCustomerTermsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19183,7 +20579,8 @@ export default class Client extends OpenApi {
    * Submits the agreement information for independent software vendor (ISV) customers.
    * 
    * @remarks
-   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   *   You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * *   After you call the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation to obtain the authentication information for uploading the file to Object Storage Service (OSS), you can use the authentication information to upload the file to the OSS server. To upload the file, you can call the SDK provided by OSS. When you upload the file, set the value of the key to the value of `Dir + "/" + file name`, such as C200293990209/isvTerms.pdf. The value of Dir is obtained from the [GetChatappUploadAuthorization](~~GetChatappUploadAuthorization~~) operation. The value of IsvTerms is obtained from the PutObject operation.
    * 
    * @param request - SubmitIsvCustomerTermsRequest
    * @returns SubmitIsvCustomerTermsResponse
@@ -19191,6 +20588,92 @@ export default class Client extends OpenApi {
   async submitIsvCustomerTerms(request: SubmitIsvCustomerTermsRequest): Promise<SubmitIsvCustomerTermsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitIsvCustomerTermsWithOptions(request, runtime);
+  }
+
+  /**
+   * Trigger an Online ChatFlow
+   * 
+   * @remarks
+   * After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+   * 
+   * @param tmpReq - TriggerChatFlowRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TriggerChatFlowResponse
+   */
+  async triggerChatFlowWithOptions(tmpReq: TriggerChatFlowRequest, runtime: $Util.RuntimeOptions): Promise<TriggerChatFlowResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TriggerChatFlowShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.data)) {
+      request.dataShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.data, "Data", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.claimTimeMillis)) {
+      query["ClaimTimeMillis"] = request.claimTimeMillis;
+    }
+
+    if (!Util.isUnset(request.dataShrink)) {
+      query["Data"] = request.dataShrink;
+    }
+
+    if (!Util.isUnset(request.discardTimeMillis)) {
+      query["DiscardTimeMillis"] = request.discardTimeMillis;
+    }
+
+    if (!Util.isUnset(request.flowCode)) {
+      query["FlowCode"] = request.flowCode;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      query["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TriggerChatFlow",
+      version: "2020-06-06",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TriggerChatFlowResponse>(await this.callApi(params, req, runtime), new TriggerChatFlowResponse({}));
+  }
+
+  /**
+   * Trigger an Online ChatFlow
+   * 
+   * @remarks
+   * After triggering an online flow, if your flow contains components that incur costs for cloud products, such as message sending or function calls, please ensure you fully understand the billing methods and prices of the related products before using this interface.
+   * 
+   * @param request - TriggerChatFlowRequest
+   * @returns TriggerChatFlowResponse
+   */
+  async triggerChatFlow(request: TriggerChatFlowRequest): Promise<TriggerChatFlowResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.triggerChatFlowWithOptions(request, runtime);
   }
 
   /**
@@ -19326,7 +20809,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新号码欢迎消息、命令等属性
+   * Modifies welcoming messages, opening remarks, and commands for a phone number.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param tmpReq - UpdateConversationalAutomationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19395,7 +20883,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新号码欢迎消息、命令等属性
+   * Modifies welcoming messages, opening remarks, and commands for a phone number.
+   * 
+   * @remarks
+   * ### [](#qps-)QPS limit
+   * You can call this operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * This operation will directly obtain data from Facebook, which sets an upper limit on the total number of calls for operations. We recommend that you take note of the limit when you call this operation.
    * 
    * @param request - UpdateConversationalAutomationRequest
    * @returns UpdateConversationalAutomationResponse
@@ -19406,7 +20899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新flow的表单内容
+   * Updates a Flow by using JSON content.
    * 
    * @param request - UpdateFlowJSONAssetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19445,7 +20938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新flow的表单内容
+   * Updates a Flow by using JSON content.
    * 
    * @param request - UpdateFlowJSONAssetRequest
    * @returns UpdateFlowJSONAssetResponse
@@ -19456,7 +20949,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新号码的公钥
+   * Updates the encryption public key of a phone number.
    * 
    * @param request - UpdatePhoneEncryptionPublicKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19495,7 +20988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新号码的公钥
+   * Updates the encryption public key of a phone number.
    * 
    * @param request - UpdatePhoneEncryptionPublicKeyRequest
    * @returns UpdatePhoneEncryptionPublicKeyResponse
@@ -19506,7 +20999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息发送二维码
+   * Modifies a quick-response (QR) code that contains a message.
    * 
    * @param request - UpdatePhoneMessageQrdlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -19553,7 +21046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改消息发送二维码
+   * Modifies a quick-response (QR) code that contains a message.
    * 
    * @param request - UpdatePhoneMessageQrdlRequest
    * @returns UpdatePhoneMessageQrdlResponse
@@ -19565,8 +21058,8 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code returned.
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * \\*   A value of OK indicates that the call is successful.
+   * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
    * 
    * @remarks
    * The error message returned.
@@ -19621,8 +21114,8 @@ export default class Client extends OpenApi {
 
   /**
    * The HTTP status code returned.
-   * *   A value of OK indicates that the call is successful.
-   * *   Other values indicate that the call fails. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * \\*   A value of OK indicates that the call is successful.
+   * \\*   Other values indicate that the call fails. For more information, see [Error codes]\\(~~196974~~).
    * 
    * @remarks
    * The error message returned.
