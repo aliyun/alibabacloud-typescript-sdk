@@ -8,14 +8,32 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class BatchEnrollAccountsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource accounts.
+   */
   accounts?: BatchEnrollAccountsRequestAccounts[];
   /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * If this parameter is left empty, the default baseline is used.
+   * 
    * @example
    * afb-bp1durvn3lgqe28v****
    */
   baselineId?: string;
+  /**
+   * @remarks
+   * The baseline items.
+   * 
+   * If this parameter is specified, the configurations of the baseline items are merged with the baseline applied to the specified account. The configurations of the same baseline items are subject to the configurations of this parameter. We recommend that you leave this parameter empty and configure the `BaselineId` parameter to specify an account baseline and apply the configurations of the account baseline to the account.
+   */
   baselineItems?: BatchEnrollAccountsRequestBaselineItems[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -45,6 +63,9 @@ export class BatchEnrollAccountsRequest extends $tea.Model {
 
 export class BatchEnrollAccountsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16B208DD-86BD-5E7D-AC93-FFD44B6FBDF1
    */
@@ -92,12 +113,32 @@ export class BatchEnrollAccountsResponse extends $tea.Model {
 }
 
 export class CreateAccountFactoryBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline items.
+   * 
+   * You can call the [ListAccountFactoryBaselineItems](~~ListAccountFactoryBaselineItems~~) operation to query a list of baseline items supported by the account factory in Cloud Governance Center.
+   */
   baselineItems?: CreateAccountFactoryBaselineRequestBaselineItems[];
+  /**
+   * @remarks
+   * The name of the baseline.
+   * 
+   * @example
+   * Default
+   */
   baselineName?: string;
+  /**
+   * @remarks
+   * The description of the baseline.
+   * 
+   * @example
+   * Default Baseline.
+   */
   description?: string;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -127,8 +168,18 @@ export class CreateAccountFactoryBaselineRequest extends $tea.Model {
 }
 
 export class CreateAccountFactoryBaselineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1e6ixtiwupap8m****
+   */
   baselineId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A5592E2E-0FC4-557C-B989-DF229B5EBE13
    */
@@ -179,11 +230,17 @@ export class CreateAccountFactoryBaselineResponse extends $tea.Model {
 
 export class DeleteAccountFactoryBaselineRequest extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * afb-bp1durvn3lgqe28v****
    */
   baselineId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -209,6 +266,9 @@ export class DeleteAccountFactoryBaselineRequest extends $tea.Model {
 
 export class DeleteAccountFactoryBaselineResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0F45D888-8C4D-55E5-ACA2-D1515159181D
    */
@@ -349,6 +409,10 @@ export class EnrollAccountRequest extends $tea.Model {
    * resell
    */
   resellAccountType?: string;
+  /**
+   * @remarks
+   * The tags. You can specify up to 20 tags.
+   */
   tag?: EnrollAccountRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -479,6 +543,10 @@ export class EnrollAccountShrinkRequest extends $tea.Model {
    * resell
    */
   resellAccountType?: string;
+  /**
+   * @remarks
+   * The tags. You can specify up to 20 tags.
+   */
   tagShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -964,29 +1032,48 @@ export class GetEnrolledAccountResponse extends $tea.Model {
 
 export class ListAccountFactoryBaselineItemsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * Valid values: 1 to 100. Default value: 10
+   * 
    * @example
    * 10
    */
   maxResults?: number;
+  /**
+   * @remarks
+   * The names of the baseline items.
+   */
   names?: string[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
    * @example
    * AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
    */
   nextToken?: string;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The type of the baseline items.
+   * 
    * @example
    * AccountFactory
    */
   type?: string;
+  /**
+   * @remarks
+   * The versions of the baseline items.
+   */
   versions?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1016,13 +1103,23 @@ export class ListAccountFactoryBaselineItemsRequest extends $tea.Model {
 }
 
 export class ListAccountFactoryBaselineItemsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline items.
+   */
   baselineItems?: ListAccountFactoryBaselineItemsResponseBodyBaselineItems[];
   /**
+   * @remarks
+   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * AAAAACDGQdAEX3m42z3sQ+f3VTK2Xr2DzYbz/SAfc/zJRqod
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B40D73D8-76AC-5D3C-AC63-4FC8AFCE6671
    */
@@ -1086,7 +1183,9 @@ export class ListAccountFactoryBaselinesRequest extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * You do not need to specify this parameter for the first request.
    * 
    * @example
    * AAAAALHWGpGoYCcYMxiFfmlhvh62Xr2DzYbz/SAfc*****
@@ -1094,7 +1193,7 @@ export class ListAccountFactoryBaselinesRequest extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -1124,7 +1223,7 @@ export class ListAccountFactoryBaselinesRequest extends $tea.Model {
 export class ListAccountFactoryBaselinesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * An array that consists of baselines.
+   * The baselines.
    */
   baselines?: ListAccountFactoryBaselinesResponseBodyBaselines[];
   /**
@@ -1307,11 +1406,20 @@ export class ListEnrolledAccountsResponse extends $tea.Model {
 
 export class ListEvaluationMetadataRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language. The information is returned in the specified language. Valid values:
+   * 
+   * *   en: English
+   * *   zh: Chinese
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -1336,8 +1444,15 @@ export class ListEvaluationMetadataRequest extends $tea.Model {
 }
 
 export class ListEvaluationMetadataResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata of a governance maturity check.
+   */
   evaluationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadata[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16B208DD-86BD-5E7D-AC93-FFD44B6FBDF1
    */
@@ -1388,26 +1503,43 @@ export class ListEvaluationMetadataResponse extends $tea.Model {
 
 export class ListEvaluationMetricDetailsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * 
    * @example
    * 103144549568****
    */
   accountId?: number;
   /**
+   * @remarks
+   * The ID of the check item.
+   * 
+   * You can call the [ListEvaluationMetadata](https://help.aliyun.com/document_detail/2841889.html) operation to query the ID of the check item.
+   * 
    * @example
    * xfyve5****
    */
   id?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return for a single request. Default value: 5.
+   * 
    * @example
    * 5
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -1439,15 +1571,25 @@ export class ListEvaluationMetricDetailsRequest extends $tea.Model {
 
 export class ListEvaluationMetricDetailsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * AAAAAGEaXR18y1rqykZHIqRuBejOqED4S3Xne33c7zbn****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AC9BD94C-D20C-4D27-88D4-89E8D75C****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the non-compliant resources.
+   */
   resources?: ListEvaluationMetricDetailsResponseBodyResources[];
   static names(): { [key: string]: string } {
     return {
@@ -1600,18 +1742,38 @@ export class ListEvaluationResultsResponse extends $tea.Model {
 }
 
 export class ListEvaluationScoreHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * 
+   * @example
+   * 176618589410****
+   */
   accountId?: number;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * By default, the historical scores that were generated in the seven days before the current date are queried.
+   * 
    * @example
    * 2024-07-11
    */
   endDate?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the YYYY-MM-DD format.
+   * 
+   * You can query the historical scores within the previous 180 days.
+   * 
    * @example
    * 2024-06-11
    */
@@ -1641,10 +1803,17 @@ export class ListEvaluationScoreHistoryRequest extends $tea.Model {
 
 export class ListEvaluationScoreHistoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AC9BD94C-D20C-4D27-88D4-89E8D75C051B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The historical scores.
+   */
   scoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistory;
   static names(): { [key: string]: string } {
     return {
@@ -1692,16 +1861,29 @@ export class ListEvaluationScoreHistoryResponse extends $tea.Model {
 
 export class RunEvaluationRequest extends $tea.Model {
   /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * 
    * @example
    * 176618589410****
    */
   accountId?: number;
+  metricIds?: string[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The check range of the governance maturity check. Valid values:
+   * 
+   * *   Account (default): A single-account governance maturity check is performed to check only the Alibaba Cloud account that you use to access Cloud Governance Center.
+   * *   ResourceDirectory: A multi-account governance maturity check is performed to check all members within a resource directory. Before you perform a multi-account governance maturity check, you must enable the multi-account governance maturity check feature.
+   * 
    * @example
    * ResourceDirectory
    */
@@ -1709,6 +1891,7 @@ export class RunEvaluationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      metricIds: 'MetricIds',
       regionId: 'RegionId',
       scope: 'Scope',
     };
@@ -1717,6 +1900,59 @@ export class RunEvaluationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'number',
+      metricIds: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      scope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunEvaluationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the member. This parameter takes effect only when a multi-account governance maturity check is performed.
+   * 
+   * @example
+   * 176618589410****
+   */
+  accountId?: number;
+  metricIdsShrink?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The check range of the governance maturity check. Valid values:
+   * 
+   * *   Account (default): A single-account governance maturity check is performed to check only the Alibaba Cloud account that you use to access Cloud Governance Center.
+   * *   ResourceDirectory: A multi-account governance maturity check is performed to check all members within a resource directory. Before you perform a multi-account governance maturity check, you must enable the multi-account governance maturity check feature.
+   * 
+   * @example
+   * ResourceDirectory
+   */
+  scope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'AccountId',
+      metricIdsShrink: 'MetricIds',
+      regionId: 'RegionId',
+      scope: 'Scope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'number',
+      metricIdsShrink: 'string',
       regionId: 'string',
       scope: 'string',
     };
@@ -1729,6 +1965,9 @@ export class RunEvaluationRequest extends $tea.Model {
 
 export class RunEvaluationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2D3E2A3A-F2B8-578D-9659-3195F94A****
    */
@@ -1776,13 +2015,34 @@ export class RunEvaluationResponse extends $tea.Model {
 }
 
 export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   * 
+   * @example
+   * afb-bp1pq3emlkt27vsj****
+   */
   baselineId?: string;
+  /**
+   * @remarks
+   * The baseline items.
+   * 
+   * You can call the [ListAccountFactoryBaselineItems](~~ListAccountFactoryBaselineItems~~) operation to query a list of baseline items supported by the account factory in Cloud Governance Center.
+   */
   baselineItems?: UpdateAccountFactoryBaselineRequestBaselineItems[];
+  /**
+   * @remarks
+   * The name of the baseline.
+   */
   baselineName?: string;
+  /**
+   * @remarks
+   * The description of the baseline.
+   */
   description?: string;
   /**
    * @remarks
-   * RegionId
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -1815,6 +2075,9 @@ export class UpdateAccountFactoryBaselineRequest extends $tea.Model {
 
 export class UpdateAccountFactoryBaselineResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C18A891D-7B04-51A1-AAC6-201727A361CE
    */
@@ -1863,6 +2126,9 @@ export class UpdateAccountFactoryBaselineResponse extends $tea.Model {
 
 export class BatchEnrollAccountsRequestAccounts extends $tea.Model {
   /**
+   * @remarks
+   * The account ID. This parameter is required.
+   * 
    * @example
    * 12868156179****
    */
@@ -1886,21 +2152,36 @@ export class BatchEnrollAccountsRequestAccounts extends $tea.Model {
 
 export class BatchEnrollAccountsRequestBaselineItems extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the baseline item.
+   * 
    * @example
    * {\\"Notifications\\":[{\\"GroupKey\\":\\"account_msg\\",\\"Contacts\\":[{\\"Name\\":\\"aa\\"}],\\"PmsgStatus\\":1,\\"EmailStatus\\":1,\\"SmsStatus\\":1}]}
    */
   config?: string;
   /**
+   * @remarks
+   * The name of the baseline item.
+   * 
    * @example
    * ACS-BP_ACCOUNT_FACTORY_VPC
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether to skip the baseline item. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
    * @example
    * false
    */
   skip?: boolean;
   /**
+   * @remarks
+   * The version of the baseline item.
+   * 
    * @example
    * 1.0
    */
@@ -1930,16 +2211,25 @@ export class BatchEnrollAccountsRequestBaselineItems extends $tea.Model {
 
 export class CreateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the baseline item. The value of this parameter is a JSON string.
+   * 
    * @example
    * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
    */
   config?: string;
   /**
+   * @remarks
+   * The name of the baseline item.
+   * 
    * @example
    * ACS-BP_ACCOUNT_FACTORY_VPC
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the baseline item.
+   * 
    * @example
    * 1.0
    */
@@ -2025,7 +2315,21 @@ export class EnrollAccountRequestBaselineItems extends $tea.Model {
 }
 
 export class EnrollAccountRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tagKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2468,16 +2772,25 @@ export class GetEnrolledAccountResponseBodyProgress extends $tea.Model {
 
 export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn extends $tea.Model {
   /**
+   * @remarks
+   * The name of the baseline item.
+   * 
    * @example
    * ACS-BP_ACCOUNT_FACTORY_VPC
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the baseline item.
+   * 
    * @example
    * AccountFactory
    */
   type?: string;
   /**
+   * @remarks
+   * The version of the baseline item.
+   * 
    * @example
    * 1.0
    */
@@ -2504,23 +2817,39 @@ export class ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn e
 }
 
 export class ListAccountFactoryBaselineItemsResponseBodyBaselineItems extends $tea.Model {
+  /**
+   * @remarks
+   * The dependency of the baseline item.
+   */
   dependsOn?: ListAccountFactoryBaselineItemsResponseBodyBaselineItemsDependsOn[];
   /**
+   * @remarks
+   * The description of the baseline item.
+   * 
    * @example
    * Notification.
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the baseline item.
+   * 
    * @example
    * ACS-BP_ACCOUNT_FACTORY_ACCOUNT_NOTIFICATION
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the baseline item.
+   * 
    * @example
    * AccountFactory
    */
   type?: string;
   /**
+   * @remarks
+   * The version of the baseline item.
+   * 
    * @example
    * 1.0
    */
@@ -2587,8 +2916,8 @@ export class ListAccountFactoryBaselinesResponseBodyBaselines extends $tea.Model
    * @remarks
    * The type of the baseline. Valid values:
    * 
-   * *   System: default baseline
-   * *   Custom: custom baseline
+   * *   System: default baseline.
+   * *   Custom: custom baseline.
    * 
    * @example
    * Custom
@@ -2733,13 +3062,28 @@ export class ListEnrolledAccountsResponseBodyEnrolledAccounts extends $tea.Model
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the fixing button.
+   */
   buttonName?: string;
   /**
+   * @remarks
+   * The navigation URL of the fixing button.
+   * 
    * @example
    * https://ram.console.aliyun.com/users
    */
   buttonRef?: string;
+  /**
+   * @remarks
+   * The fixing procedure.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The title of the fixing procedure.
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2766,14 +3110,43 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions extends $tea.Model {
   /**
+   * @remarks
+   * The fixing method.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   * 
    * @example
    * UnusedAccessKeyInRamUser
    */
   classification?: string;
+  /**
+   * @remarks
+   * The fixing cost.
+   */
   costDescription?: string;
+  /**
+   * @remarks
+   * The description of the fixing item.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The content of the fixing items.
+   */
   guidance?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActionsGuidance[];
+  /**
+   * @remarks
+   * The usage notes of the fixing item.
+   */
   notice?: string;
+  /**
+   * @remarks
+   * The fixing suggestion.
+   * 
+   * >  This parameter is returned only if the value of `RemediationType` is `Analysis`.
+   */
   suggestion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2803,8 +3176,19 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation extends $tea.Model {
+  /**
+   * @remarks
+   * The fixing operations.
+   */
   actions?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediationActions[];
   /**
+   * @remarks
+   * The type of the fixing method. Valid values:
+   * 
+   * *   Manual: manual fixing
+   * *   QuickFix: quick fixing
+   * *   Analysis: auxiliary decision-making
+   * 
    * @example
    * Manual
    */
@@ -2829,6 +3213,10 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The fixing items.
+   */
   remediation?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadataRemediation[];
   static names(): { [key: string]: string } {
     return {
@@ -2848,13 +3236,23 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemedia
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the resource property.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The name of the resource property.
+   * 
    * @example
    * AkLastUsedTime
    */
   propertyName?: string;
   /**
+   * @remarks
+   * The type of the resource property.
+   * 
    * @example
    * String
    */
@@ -2881,6 +3279,10 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourc
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata of the resource properties.
+   */
   resourcePropertyMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadataResourcePropertyMetadata[];
   static names(): { [key: string]: string } {
     return {
@@ -2901,30 +3303,67 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourc
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extends $tea.Model {
   /**
+   * @remarks
+   * The category of the check item.
+   * 
    * @example
    * Security
    */
   category?: string;
+  /**
+   * @remarks
+   * The description of the check item.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The display name of the check item.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The ID of the metadata.
+   * 
    * @example
    * pxgtda****
    */
   id?: string;
   /**
+   * @remarks
+   * The governance level of the check item.
+   * 
    * @example
    * High
    */
   recommendationLevel?: string;
+  /**
+   * @remarks
+   * The metadata of the fixing task.
+   */
   remediationMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataRemediationMetadata;
+  /**
+   * @remarks
+   * The metadata of the checked resources.
+   */
   resourceMetadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadataResourceMetadata;
   /**
+   * @remarks
+   * The scope of the check item. Valid values:
+   * 
+   * *   Account: the check item in a single-account governance maturity check
+   * *   ResourceDirectory: the check item in a multi-account governance maturity check
+   * 
    * @example
    * Account
    */
   scope?: string;
   /**
+   * @remarks
+   * The status of the check item. Valid values:
+   * 
+   * *   Released: The check item is released.
+   * *   Beta: The check item is pre-released.
+   * 
    * @example
    * Released
    */
@@ -2963,8 +3402,17 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata extend
 }
 
 export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The metadata objects of a specific metadata type.
+   */
   metadata?: ListEvaluationMetadataResponseBodyEvaluationMetadataMetadata[];
   /**
+   * @remarks
+   * The type of the metadata. Valid values:
+   * 
+   * *   Metric: the check item
+   * 
    * @example
    * Metric
    */
@@ -2990,10 +3438,17 @@ export class ListEvaluationMetadataResponseBodyEvaluationMetadata extends $tea.M
 
 export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties extends $tea.Model {
   /**
+   * @remarks
+   * The name of the resource attribute.
+   * 
    * @example
    * DisplayName
    */
   propertyName?: string;
+  /**
+   * @remarks
+   * The value of the resource attribute.
+   */
   propertyValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3015,30 +3470,66 @@ export class ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties 
 }
 
 export class ListEvaluationMetricDetailsResponseBodyResources extends $tea.Model {
+  /**
+   * @remarks
+   * 合规状态。取值：
+   * - NonCompliant：不合规。
+   * - Excluded：已忽略。
+   * - PendingExclusion：已忽略未生效。
+   * - PendingInclusion：已取消忽略未生效。
+   * 
+   * @example
+   * NonCompliant
+   */
   complianceType?: string;
   /**
+   * @remarks
+   * The region ID of the resource.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The check results further analyzed by auxiliary decision-making.
+   * 
+   * >  This parameter is returned only when the check item supports the auxiliary decision-making feature.
+   * 
    * @example
    * RecentUnloginRamUser
    */
   resourceClassification?: string;
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * 26435103783237****
    */
   resourceId?: string;
+  /**
+   * @remarks
+   * The name of the resource.
+   */
   resourceName?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account that owns the resource.
+   * 
    * @example
    * 176618589410****
    */
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The attributes of the resource.
+   */
   resourceProperties?: ListEvaluationMetricDetailsResponseBodyResourcesResourceProperties[];
   /**
+   * @remarks
+   * The type of the resource.
+   * 
    * @example
    * ACS::RAM::User
    */
@@ -3285,11 +3776,19 @@ export class ListEvaluationResultsResponseBodyResults extends $tea.Model {
 
 export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory extends $tea.Model {
   /**
+   * @remarks
+   * The time when the score was generated. The time is in UTC.
+   * 
    * @example
    * 2024-06-30T03:34:02Z
    */
   evaluationTime?: string;
   /**
+   * @remarks
+   * The score.
+   * 
+   * Valid values: 0 to 1.
+   * 
    * @example
    * 0.6753
    */
@@ -3314,6 +3813,10 @@ export class ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory
 }
 
 export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $tea.Model {
+  /**
+   * @remarks
+   * The historical scores.
+   */
   totalScoreHistory?: ListEvaluationScoreHistoryResponseBodyScoreHistoryTotalScoreHistory[];
   static names(): { [key: string]: string } {
     return {
@@ -3334,16 +3837,25 @@ export class ListEvaluationScoreHistoryResponseBodyScoreHistory extends $tea.Mod
 
 export class UpdateAccountFactoryBaselineRequestBaselineItems extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the baseline item. The value of this parameter is a JSON string.
+   * 
    * @example
    * {\\"EnabledServices\\":[\\"CEN_TR\\",\\"CDT\\",\\"CMS\\",\\"KMS\\"]}
    */
   config?: string;
   /**
+   * @remarks
+   * The name of the baseline item.
+   * 
    * @example
    * ACS-BP_ACCOUNT_FACTORY_VPC
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the baseline item.
+   * 
    * @example
    * 1.0
    */
@@ -3394,7 +3906,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号工厂批量注册账号
+   * Applies an account baseline to multiple existing resource accounts at a time.
+   * 
+   * @remarks
+   * You can call this operation to apply an account baseline to existing resource accounts.
+   * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
    * 
    * @param request - BatchEnrollAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3437,7 +3953,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 账号工厂批量注册账号
+   * Applies an account baseline to multiple existing resource accounts at a time.
+   * 
+   * @remarks
+   * You can call this operation to apply an account baseline to existing resource accounts.
+   * Accounts are enrolled in the account factory in asynchronous mode. After a resource account is created, an account baseline is applied to the account. You can call the [GetEnrolledAccount](https://help.aliyun.com/document_detail/609062.html) operation to query the details of the account enrolled in the account factory and check whether the account baseline is applied to the account.
    * 
    * @param request - BatchEnrollAccountsRequest
    * @returns BatchEnrollAccountsResponse
@@ -3448,7 +3968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账号工厂基线
+   * Creates a baseline of the account factory.
    * 
    * @param request - CreateAccountFactoryBaselineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3491,7 +4011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建账号工厂基线
+   * Creates a baseline of the account factory.
    * 
    * @param request - CreateAccountFactoryBaselineRequest
    * @returns CreateAccountFactoryBaselineResponse
@@ -3502,7 +4022,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账号工厂基线
+   * Deletes an account factory baseline.
    * 
    * @param request - DeleteAccountFactoryBaselineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3537,7 +4057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除账号工厂基线
+   * Deletes an account factory baseline.
    * 
    * @param request - DeleteAccountFactoryBaselineRequest
    * @returns DeleteAccountFactoryBaselineResponse
@@ -3732,7 +4252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取账号工厂基线元素列表
+   * Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
    * 
    * @param request - ListAccountFactoryBaselineItemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3783,7 +4303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取账号工厂基线元素列表
+   * Queries a list of baseline items that are supported by the account factory of Cloud Governance Center (CGC).
    * 
    * @param request - ListAccountFactoryBaselineItemsRequest
    * @returns ListAccountFactoryBaselineItemsResponse
@@ -3894,7 +4414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看治理检测定义
+   * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
    * 
    * @param request - ListEvaluationMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3929,7 +4449,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看治理检测定义
+   * Queries all available information about check items in a governance maturity check, including the name, ID, description, stage, resource metadata, and fixing guide.
    * 
    * @param request - ListEvaluationMetadataRequest
    * @returns ListEvaluationMetadataResponse
@@ -3940,7 +4460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云治理中心治理检测项结果详情
+   * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
    * 
    * @param request - ListEvaluationMetricDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3987,7 +4507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取云治理中心治理检测项结果详情
+   * Queries the non-compliant resource information of a check item, including the name, ID, category, type, region, and related metadata of non-compliant resources.
    * 
    * @param request - ListEvaluationMetricDetailsRequest
    * @returns ListEvaluationMetricDetailsResponse
@@ -4044,7 +4564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看治理检测定义
+   * Queries the historical scores of a governance maturity check.
    * 
    * @param request - ListEvaluationScoreHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4087,7 +4607,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看治理检测定义
+   * Queries the historical scores of a governance maturity check.
    * 
    * @param request - ListEvaluationScoreHistoryRequest
    * @returns ListEvaluationScoreHistoryResponse
@@ -4098,17 +4618,27 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行云治理中心治理检测
+   * Performs a governance maturity check.
    * 
-   * @param request - RunEvaluationRequest
+   * @param tmpReq - RunEvaluationRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunEvaluationResponse
    */
-  async runEvaluationWithOptions(request: RunEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<RunEvaluationResponse> {
-    Util.validateModel(request);
+  async runEvaluationWithOptions(tmpReq: RunEvaluationRequest, runtime: $Util.RuntimeOptions): Promise<RunEvaluationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunEvaluationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.metricIds)) {
+      request.metricIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.metricIds, "MetricIds", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.accountId)) {
       query["AccountId"] = request.accountId;
+    }
+
+    if (!Util.isUnset(request.metricIdsShrink)) {
+      query["MetricIds"] = request.metricIdsShrink;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -4137,7 +4667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 运行云治理中心治理检测
+   * Performs a governance maturity check.
    * 
    * @param request - RunEvaluationRequest
    * @returns RunEvaluationResponse
@@ -4148,7 +4678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新账号工厂基线
+   * Updates a baseline of the account factory.
    * 
    * @param request - UpdateAccountFactoryBaselineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4195,7 +4725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新账号工厂基线
+   * Updates a baseline of the account factory.
    * 
    * @param request - UpdateAccountFactoryBaselineRequest
    * @returns UpdateAccountFactoryBaselineResponse
