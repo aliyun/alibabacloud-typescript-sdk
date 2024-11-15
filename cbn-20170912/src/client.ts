@@ -12,8 +12,6 @@ export class ActiveFlowLogRequest extends $tea.Model {
    * @remarks
    * The ID of the Cloud Enterprise Network (CEN) instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cen-7qthudw0ll6jmc****
    */
@@ -651,10 +649,10 @@ export class AssociateTransitRouterMulticastDomainRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether only to precheck the API request. Valid values:
+   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
    * 
-   * *   **true**: prechecks the request but does not associate the vSwitch with the multicast domain. The system checks the required parameters, the request format, and the service limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * *   **false** (default): sends the request. The vSwitch is associated with the multicast domain after the request passes the precheck.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and sends the request.
    * 
    * @example
    * false
@@ -686,9 +684,7 @@ export class AssociateTransitRouterMulticastDomainRequest extends $tea.Model {
   transitRouterMulticastDomainId?: string;
   /**
    * @remarks
-   * The vSwitch IDs.
-   * 
-   * You can specify at most five vSwitch IDs in each call.
+   * The IDs of vSwitches.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -2188,7 +2184,9 @@ export class CreateCenRouteMapRequest extends $tea.Model {
    * @remarks
    * The prefix list against which routes are matched.
    * 
-   * You must specify the IP addresses in CIDR notation. You can enter at most 32 CIDR blocks.
+   * Specify IP addresses in CIDR notations. You can specify at most 32 CIDR blocks.
+   * 
+   * IPv4 and IPv4 addresses are supported.
    * 
    * @example
    * 10.10.10.0/24
@@ -2223,6 +2221,10 @@ export class CreateCenRouteMapRequest extends $tea.Model {
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  /**
+   * @remarks
+   * The destination region IDs of the route. You can specify at most 32 region IDs.
+   */
   destinationRegionIds?: string[];
   /**
    * @remarks
@@ -2658,6 +2660,7 @@ export class CreateFlowlogRequest extends $tea.Model {
    * 600
    */
   interval?: number;
+  logFormatString?: string;
   /**
    * @remarks
    * The Logstore where the flow log is stored.
@@ -2731,6 +2734,7 @@ export class CreateFlowlogRequest extends $tea.Model {
    * tr-attach-r6g0m3epjehw57****
    */
   transitRouterAttachmentId?: string;
+  transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
@@ -2738,6 +2742,7 @@ export class CreateFlowlogRequest extends $tea.Model {
       description: 'Description',
       flowLogName: 'FlowLogName',
       interval: 'Interval',
+      logFormatString: 'LogFormatString',
       logStoreName: 'LogStoreName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -2747,6 +2752,7 @@ export class CreateFlowlogRequest extends $tea.Model {
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
       transitRouterAttachmentId: 'TransitRouterAttachmentId',
+      transitRouterId: 'TransitRouterId',
     };
   }
 
@@ -2757,6 +2763,7 @@ export class CreateFlowlogRequest extends $tea.Model {
       description: 'string',
       flowLogName: 'string',
       interval: 'number',
+      logFormatString: 'string',
       logStoreName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -2766,6 +2773,7 @@ export class CreateFlowlogRequest extends $tea.Model {
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': CreateFlowlogRequestTag },
       transitRouterAttachmentId: 'string',
+      transitRouterId: 'string',
     };
   }
 
@@ -4391,9 +4399,9 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $tea.Model 
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-4266****
@@ -4401,10 +4409,12 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $tea.Model 
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
    * *   **false** (default): performs a dry run and sends the request.
+   * 
+   * >  This parameter is not in use.
    * 
    * @example
    * false
@@ -4412,9 +4422,9 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $tea.Model 
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the next hop.
+   * The ID of the next hop connection.
    * 
-   * > If **NextHopType** is set to **BlackHole**, you must set this parameter to **BlackHole**.
+   * To specify all CIDR blocks in the prefix list as blackhole routes, set this parameter to **BlackHole**.
    * 
    * This parameter is required.
    * 
@@ -4427,9 +4437,10 @@ export class CreateTransitRouterPrefixListAssociationRequest extends $tea.Model 
    * The type of the next hop. Valid values:
    * 
    * *   **BlackHole**: specifies that all the CIDR blocks in the prefix list are blackhole routes. Packets destined for the CIDR blocks are dropped.
-   * *   **VPC**: specifies that the next hop of the CIDR blocks in the prefix list is a virtual private cloud (VPC) connection.
-   * *   **VBR**: specifies that the next hop of the CIDR blocks in the prefix list is a virtual border router (VBR) connection.
-   * *   **TR**: specifies that the next hop of the CIDR blocks in the prefix list is an inter-region connection.
+   * *   **VPC**: specifies a virtual private cloud (VPC) connection as the next hop.
+   * *   **VBR**: specifies a virtual border router (VBR) connection as the next hop.
+   * *   **TR**: specifies an inter-region connection as the next hop.
+   * *   **ECR**: specifies an Express Connect Router (ECR) connection as the next hop.
    * 
    * @example
    * VPC
@@ -4621,7 +4632,7 @@ export class CreateTransitRouterRouteEntryRequest extends $tea.Model {
   transitRouterRouteEntryDescription?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry. IPv4 and IPv6 addresses are supported.
    * 
    * This parameter is required.
    * 
@@ -5707,8 +5718,6 @@ export class CreateTransitRouterVpnAttachmentRequest extends $tea.Model {
    * The ID of the zone in the current region.
    * 
    * Resources are deployed in the specified zone.
-   * 
-   * This parameter is required.
    */
   zone?: CreateTransitRouterVpnAttachmentRequestZone[];
   static names(): { [key: string]: string } {
@@ -5825,8 +5834,6 @@ export class DeactiveFlowLogRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the CEN instance.
-   * 
-   * This parameter is required.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -6825,8 +6832,6 @@ export class DeleteFlowlogRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the Cloud Enterprise Network (CEN) instance.
-   * 
-   * This parameter is required.
    * 
    * @example
    * cen-7qthudw0ll6jmc****
@@ -10786,7 +10791,7 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -10794,7 +10799,7 @@ export class DescribeCenRouteMapsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries per page. Default value: **10**.
    * 
    * @example
    * 10
@@ -11462,6 +11467,8 @@ export class DescribeFlowlogsRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  flowLogVersion?: string;
+  interval?: number;
   /**
    * @remarks
    * The name of the Logstore where the flow log is stored.
@@ -11538,6 +11545,7 @@ export class DescribeFlowlogsRequest extends $tea.Model {
    * tr-attach-qieks13jnt1cchy****
    */
   transitRouterAttachmentId?: string;
+  transitRouterId?: string;
   static names(): { [key: string]: string } {
     return {
       cenId: 'CenId',
@@ -11545,6 +11553,8 @@ export class DescribeFlowlogsRequest extends $tea.Model {
       description: 'Description',
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
+      flowLogVersion: 'FlowLogVersion',
+      interval: 'Interval',
       logStoreName: 'LogStoreName',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -11557,6 +11567,7 @@ export class DescribeFlowlogsRequest extends $tea.Model {
       status: 'Status',
       tag: 'Tag',
       transitRouterAttachmentId: 'TransitRouterAttachmentId',
+      transitRouterId: 'TransitRouterId',
     };
   }
 
@@ -11567,6 +11578,8 @@ export class DescribeFlowlogsRequest extends $tea.Model {
       description: 'string',
       flowLogId: 'string',
       flowLogName: 'string',
+      flowLogVersion: 'string',
+      interval: 'number',
       logStoreName: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -11579,6 +11592,7 @@ export class DescribeFlowlogsRequest extends $tea.Model {
       status: 'string',
       tag: { 'type': 'array', 'itemType': DescribeFlowlogsRequestTag },
       transitRouterAttachmentId: 'string',
+      transitRouterId: 'string',
     };
   }
 
@@ -11839,6 +11853,16 @@ export class DescribeGrantRulesToCenRequest extends $tea.Model {
    * 125012345612****
    */
   childInstanceOwnerId?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable IPv6.
+   * 
+   * 1.  This parameter takes effect only if ProductType is set to VPC.
+   * 2.  true: enables IPv6. false: disables IPv6. If you do not specify a value, network instances are not filtered based on this parameter.
+   * 
+   * @example
+   * true
+   */
   enabledIpv6?: boolean;
   /**
    * @remarks
@@ -14667,6 +14691,10 @@ export class ListCenInterRegionTrafficQosPoliciesResponse extends $tea.Model {
 }
 
 export class ListCenInterRegionTrafficQosQueuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 按照实际的生效带宽值进行过滤，只允许输入正整数，单位Mbps。
+   */
   effectiveBandwidthFilter?: ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter;
   /**
    * @remarks
@@ -15072,6 +15100,13 @@ export class ListGrantVSwitchesToCenRequest extends $tea.Model {
    * cen-44m0p68spvlrqq****
    */
   cenId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable IPv6. true: enables IPv6. false: disables IPv6. If you do not specify a value, vSwitches are not filtered based on this attribute.
+   * 
+   * @example
+   * true
+   */
   enabledIpv6?: boolean;
   ownerAccount?: string;
   ownerId?: number;
@@ -17655,7 +17690,7 @@ export class ListTransitRouterRouteEntriesRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The filter conditions for route CIDR blocks.
+   * The filter conditions.
    */
   routeFilter?: ListTransitRouterRouteEntriesRequestRouteFilter[];
   /**
@@ -20224,8 +20259,6 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
    * @remarks
    * The ID of the CEN instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cen-7qthudw0ll6jmc****
    */
@@ -20272,6 +20305,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
    * myFlowlog
    */
   flowLogName?: string;
+  interval?: number;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -20295,6 +20329,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
       description: 'Description',
       flowLogId: 'FlowLogId',
       flowLogName: 'FlowLogName',
+      interval: 'Interval',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -20310,6 +20345,7 @@ export class ModifyFlowLogAttributeRequest extends $tea.Model {
       description: 'string',
       flowLogId: 'string',
       flowLogName: 'string',
+      interval: 'number',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -21531,7 +21567,9 @@ export class RegisterTransitRouterMulticastGroupSourcesRequest extends $tea.Mode
   dryRun?: boolean;
   /**
    * @remarks
-   * The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.0.1** to **239.255.255.254**.
+   * The IP address of the multicast group to which the multicast source belongs. Valid values: **224.0.1.0** to **239.255.255.254**.
+   * 
+   * > 224.0.0.0 to 224.0.0.255 are reserved by the system and cannot be used by multicast groups.
    * 
    * If the multicast group does not exist in the multicast domain, the system automatically creates the multicast group in the multicast domain.
    * 
@@ -22237,11 +22275,12 @@ export class RevokeInstanceFromTransitRouterRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The type of the network instance. Default values:
+   * The type of the network instance. Valid values:
    * 
    * *   **VPC**: VPC
    * *   **ExpressConnect**: VBR
-   * *   **VPN**: IPsec connection
+   * *   **VPN**: IPsec-VPN connection
+   * *   **ECR**: ECR
    * 
    * This parameter is required.
    * 
@@ -23304,6 +23343,15 @@ export class UpdateCenInterRegionTrafficQosPolicyAttributeResponse extends $tea.
 }
 
 export class UpdateCenInterRegionTrafficQosQueueAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 按带宽绝对值模式分配时，当前队列可使用的跨地域带宽的绝对值，单位Mbps。
+   * 
+   * 输入数字即可，无需输入单位。
+   * 
+   * @example
+   * 1
+   */
   bandwidth?: number;
   /**
    * @remarks
@@ -24643,6 +24691,12 @@ export class UpdateTransitRouterVpcAttachmentAttributeRequest extends $tea.Model
    * testname
    */
   transitRouterAttachmentName?: string;
+  /**
+   * @remarks
+   * Feature configurations of the VPC connection.
+   * 
+   * *   ipv6Support: specifies whether to enable IPv6. Valid values: true and false. The default value is the status of the VPC connection.
+   */
   transitRouterVPCAttachmentOptions?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -24750,6 +24804,12 @@ export class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends $tea
    * testname
    */
   transitRouterAttachmentName?: string;
+  /**
+   * @remarks
+   * Feature configurations of the VPC connection.
+   * 
+   * *   ipv6Support: specifies whether to enable IPv6. Valid values: true and false. The default value is the status of the VPC connection.
+   */
   transitRouterVPCAttachmentOptionsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25274,6 +25334,13 @@ export class WithdrawPublishedRouteEntriesResponse extends $tea.Model {
 }
 
 export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Model {
+  /**
+   * @remarks
+   * The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+   * 
+   * @example
+   * IPv4
+   */
   addressFamily?: string;
   /**
    * @remarks
@@ -25293,7 +25360,7 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules e
    * 
    * You can specify at most two port numbers for this parameter. Take note of the following rules:
    * 
-   * *   If you enter only one port number, such as 1, packets whose destination port is 1 are considered a match.
+   * *   If you enter only one port number, such as 1, packets whose destination port is 1 are considered a match. A value of -1 specifies all destination ports.
    * *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 are considered a match.
    * *   If you enter two port numbers and one of them is -1, the other port must also be -1. In this case, packets are considered a match regardless of the destination port.
    */
@@ -25353,7 +25420,7 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules e
    * 
    * You can enter at most two port numbers. Take note of the following rules:
    * 
-   * *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match.
+   * *   If you enter only one port number, such as 1, packets whose source port is 1 are considered a match. A value of -1 specifies all source ports.
    * *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 are considered a match.
    * *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, packets are considered a match regardless of the source port.
    */
@@ -25372,7 +25439,7 @@ export class AddTrafficMatchRuleToTrafficMarkingPolicyRequestTrafficMatchRules e
    * @remarks
    * The name of the traffic classification rule.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name is optional. If you enter a name, it must be 1 to 128 characters in length, and cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -25752,10 +25819,17 @@ export class CreateFlowlogRequestTag extends $tea.Model {
 }
 
 export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Model {
+  /**
+   * @remarks
+   * The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+   * 
+   * @example
+   * IPv4
+   */
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block that is used to match packets.
+   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * Packets whose destination IP addresses fall into the specified destination CIDR block meet the traffic classification rule. If you do not specify a destination CIDR block, all packets meet the traffic classification rule.
    * 
@@ -25773,7 +25847,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
    * 
    * You can enter up to two port numbers. Take note of the following rules:
    * 
-   * *   If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule.
+   * *   If you enter only one port number, such as 1, packets whose destination port is 1 meet the traffic classification rule. A value of -1 specifies all destination ports.
    * *   If you enter two port numbers, such as 1 and 200, packets whose destination ports fall into 1 and 200 meet the traffic classification rule.
    * *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
    * 
@@ -25782,7 +25856,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
   dstPortRange?: number[];
   /**
    * @remarks
-   * The DSCP value that is used to match packets. Valid values: **0** to **63**.
+   * The Differentiated Service Code Point (DSCP) value that is used to match packets. Valid values: **0** to **63**.
    * 
    * Packets that carry the specified DSCP value meet the traffic classification rule. If you do not specify a DSCP value, all packets meet the traffic classification rule.
    * 
@@ -25800,7 +25874,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
    * 
    * Traffic classification rules support the following protocols: **HTTP**, **HTTPS**, **TCP**, **UDP**, **SSH**, and **Telnet**. For more information, log on to the [CEN console](https://cen.console.aliyun.com/cen/list).
    * 
-   * **Some protocols use a fixed port. Click to view protocols and ports.**
+   * **Some protocols use a fixed port. Click to view the protocols and ports.**
    * 
    * *   If the protocol is **ICMP**, the destination port must be **-1**.
    * *   If the protocol is **GRE**, the destination port must be **1**.
@@ -25823,7 +25897,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block that is used to match packets.
+   * The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
    * 
    * Packets whose source IP addresses fall into the specified source CIDR block meet the traffic classification rule. If you do not specify a source CIDR block, all packets meet the traffic classification rule.
    * 
@@ -25837,11 +25911,11 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
    * @remarks
    * The source port range that is used to match packets. Valid values: **-1** and **1** to **65535**.
    * 
-   * Packets whose source ports fall into the source port range meet the traffic classification rule. If you do not specify a source port range, all packets meet the traffic classification rule.
+   * Packets whose source ports fall within the source port range meet the traffic classification rule. If you do not specify a source port range, all packets meet the traffic classification rule.
    * 
    * You can enter up to two port numbers. Take note of the following rules:
    * 
-   * *   If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule.
+   * *   If you enter only one port number, such as 1, packets whose source port is 1 meet the traffic classification rule. A value of -1 specifies all source ports.
    * *   If you enter two port numbers, such as 1 and 200, packets whose source ports fall into 1 and 200 meet the traffic classification rule.
    * *   If you enter two port numbers and one of them is -1, the other port number must also be -1. In this case, all packets meet the traffic classification rule.
    * 
@@ -25854,7 +25928,7 @@ export class CreateTrafficMarkingPolicyRequestTrafficMatchRules extends $tea.Mod
    * 
    * You can create up to 50 traffic classification rules in each call. You can specify a description for each traffic classification rule.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -26542,8 +26616,6 @@ export class CreateTransitRouterVpnAttachmentRequestZone extends $tea.Model {
    * The zone ID of the read-only instance.
    * 
    * You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query the most recent zone list.
-   * 
-   * This parameter is required.
    * 
    * @example
    * cn-hangzhou-h
@@ -28637,7 +28709,9 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Mode
   destinationChildInstanceTypes?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationChildInstanceTypes;
   /**
    * @remarks
-   * The prefixes of the routes.
+   * The prefix list against which routes are matched.
+   * 
+   * IPv4 and IPv6 addresses are supported.
    */
   destinationCidrBlocks?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationCidrBlocks;
   /**
@@ -28658,6 +28732,10 @@ export class DescribeCenRouteMapsResponseBodyRouteMapsRouteMap extends $tea.Mode
    * false
    */
   destinationInstanceIdsReverseMatch?: boolean;
+  /**
+   * @remarks
+   * The IDs of the destination regions for the routing policy.
+   */
   destinationRegionIds?: DescribeCenRouteMapsResponseBodyRouteMapsRouteMapDestinationRegionIds;
   /**
    * @remarks
@@ -30629,12 +30707,26 @@ export class ListCenChildInstanceRouteEntriesToAttachmentResponseBodyRouteEntry 
 }
 
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesTrafficQosQueues extends $tea.Model {
+  /**
+   * @remarks
+   * 带宽保障类型为按绝对值模式时，当前队列分配的跨地域带宽的值。
+   * 
+   * @example
+   * 1
+   */
   bandwidth?: string;
   /**
    * @remarks
    * The differentiated services code point (DSCP) value that is used to match packets.
    */
   dscps?: number[];
+  /**
+   * @remarks
+   * 当前队列实际生效的带宽值。
+   * 
+   * @example
+   * 1.35
+   */
   effectiveBandwidth?: string;
   /**
    * @remarks
@@ -30698,6 +30790,15 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPoliciesT
 }
 
 export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * 带宽保障类型。
+   * - **byBandwidth**：按带宽绝对值模式配置QoS队列。
+   * - **byBandwidthPercent**：按带宽百分比模式配置QoS队列。
+   * 
+   * @example
+   * byBandwidthPercent
+   */
   bandwidthGuaranteeMode?: string;
   /**
    * @remarks
@@ -30789,7 +30890,21 @@ export class ListCenInterRegionTrafficQosPoliciesResponseBodyTrafficQosPolicies 
 }
 
 export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter extends $tea.Model {
+  /**
+   * @remarks
+   * 实际生效带宽大于或等于指定带宽值。
+   * 
+   * @example
+   * 50
+   */
   gte?: number;
+  /**
+   * @remarks
+   * 实际生效带宽小于或等于指定带宽值。
+   * 
+   * @example
+   * 20
+   */
   lte?: number;
   static names(): { [key: string]: string } {
     return {
@@ -30811,12 +30926,28 @@ export class ListCenInterRegionTrafficQosQueuesRequestEffectiveBandwidthFilter e
 }
 
 export class ListCenInterRegionTrafficQosQueuesResponseBodyTrafficQosQueues extends $tea.Model {
+  /**
+   * @remarks
+   * 带宽保障类型为按绝对值模式时，当前队列分配跨地域带宽的值。
+   * 
+   * 例如，**1**表示符合当前队列的流量报文最多只能使用1Mbps的跨地域带宽。
+   * 
+   * @example
+   * 1
+   */
   bandwidth?: string;
   /**
    * @remarks
    * The Differentiated Services Code Point (DSCP) value that matches the current QoS queue.
    */
   dscps?: number[];
+  /**
+   * @remarks
+   * 当前队列实际生效的带宽值。
+   * 
+   * @example
+   * 1.35
+   */
   effectiveBandwidth?: string;
   /**
    * @remarks
@@ -32705,9 +32836,9 @@ export class ListTransitRouterRouteEntriesRequestRouteFilter extends $tea.Model 
    * The match pattern for filtering CIDR blocks. Valid values:
    * 
    * *   **PrefixExactMatchCidrs**: exact matching.
-   * *   **LongestPrefixMatchCidrs**: longest prefix matching. The specified IP address and CIDR block are considered a match.
-   * *   **SubnetOfMatchCidrs**: subnet matching. The specified CIDR block is considered a match.
-   * *   **SupernetOfMatchCidrs**: supernet matching. The specified CIDR block is considered a match.
+   * *   **LongestPrefixMatchCidrs**: longest prefix matching. You can specify IP addresses and CIDR blocks.
+   * *   **SubnetOfMatchCidrs**: subnet matching. The subnets of the specified CIDR blocks, including the CIDR block, are matches against the match conditions.
+   * *   **SupernetOfMatchCidrs**: supernet matching. The supernets of the CIDR block, including the CIDR block, are matched against the match conditions.
    * 
    * By default, the logical operator among filter conditions is **AND**. Information about a route entry is returned only if the route entry matches all filter conditions. Filter conditions must be unique.
    * 
@@ -32884,7 +33015,7 @@ export class ListTransitRouterRouteEntriesResponseBodyTransitRouterRouteEntries 
   transitRouterRouteEntryDescription?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route.
+   * The destination CIDR block of the route entry. An IPv4 or IPv6 CIDR block is returned.
    * 
    * @example
    * 192.168.0.0/24
@@ -34698,10 +34829,17 @@ export class TagResourcesRequestTag extends $tea.Model {
 }
 
 export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules extends $tea.Model {
+  /**
+   * @remarks
+   * The address family. Valid values: You can set the value to IPv4 or IPv6, or leave the value empty.
+   * 
+   * @example
+   * IPv4
+   */
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block that is used to match packets.
+   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * Packets whose destination IP addresses fall into the specified destination CIDR block meet the traffic classification rule. If you do not specify a destination CIDR block, all packets meet the traffic classification rule.
    * 
@@ -34769,7 +34907,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block that is used to match packets.
+   * The source CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * Packets whose source IP addresses fall into the specified source CIDR block meet the traffic classification rule. If you do not specify a source CIDR block, all packets meet the traffic classification rule.
    * 
@@ -34852,10 +34990,17 @@ export class UpdateTrafficMarkingPolicyAttributeRequestAddTrafficMatchRules exte
 }
 
 export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules extends $tea.Model {
+  /**
+   * @remarks
+   * The address family. Valid values: You can set the value to IPv4 or IPv6, or leave the value empty.
+   * 
+   * @example
+   * IPv6
+   */
   addressFamily?: string;
   /**
    * @remarks
-   * The destination CIDR block that is used to match packets.
+   * The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * @example
    * 192.168.200.3/32
@@ -34886,7 +35031,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules e
   protocol?: string;
   /**
    * @remarks
-   * The source CIDR block that is used to match packets.
+   * The source CIDR block of packets. IPv4 and IPv6 addresses are supported.
    * 
    * @example
    * 10.72.0.0/16
@@ -34901,7 +35046,7 @@ export class UpdateTrafficMarkingPolicyAttributeRequestDeleteTrafficMatchRules e
    * @remarks
    * The description of the traffic classification rule.
    * 
-   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+   * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * Hangzhou-to-Qingdao CAT
@@ -36533,6 +36678,10 @@ export default class Client extends OpenApi {
       query["Interval"] = request.interval;
     }
 
+    if (!Util.isUnset(request.logFormatString)) {
+      query["LogFormatString"] = request.logFormatString;
+    }
+
     if (!Util.isUnset(request.logStoreName)) {
       query["LogStoreName"] = request.logStoreName;
     }
@@ -36567,6 +36716,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.transitRouterAttachmentId)) {
       query["TransitRouterAttachmentId"] = request.transitRouterAttachmentId;
+    }
+
+    if (!Util.isUnset(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -37385,13 +37538,10 @@ export default class Client extends OpenApi {
    * Associates the route table of an Enterprise Edition transit router with a prefix list.
    * 
    * @remarks
-   *   Only the route tables of Enterprise Edition transit routers can be associated with prefix lists.
-   * *   A prefix list can be associated only with one route table of an Enterprise Edition.
-   * *   The CIDR blocks in the prefix list cannot overlap with those in the route table of the Enterprise Edition transit router. Otherwise, the prefix list fails to be associated with the route table.
-   * *   If the route table of an Enterprise Edition transit router needs to be associated with multiple prefix lists, make sure that the CIDR blocks in the prefix lists do not overlap. Otherwise, the route table fails to be associated with the prefix lists.
-   * ### Prerequisites
+   * To associate an Enterprise Edition transit router with a route prefix, you must meet the following requirements:
+   * *   You are familiar with the limits and route compatibility notes of prefix lists. For more information, see [Prefix lists](https://help.aliyun.com/document_detail/445605.html).
    * *   A prefix list is created. For more information, see [CreateVpcPrefixList](https://help.aliyun.com/document_detail/437367.html).
-   * *   The prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router if the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts. For more information about how to share a prefix list with another Alibaba Cloud account, see [Resource sharing overview](https://help.aliyun.com/document_detail/160622.html) and [API reference for resource sharing](https://help.aliyun.com/document_detail/193445.html).
+   * *   If the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts, the prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router. For more information, see [Resource sharing](https://help.aliyun.com/document_detail/160622.html) and [API references for resource sharing](https://help.aliyun.com/document_detail/193445.html).
    * 
    * @param request - CreateTransitRouterPrefixListAssociationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37473,13 +37623,10 @@ export default class Client extends OpenApi {
    * Associates the route table of an Enterprise Edition transit router with a prefix list.
    * 
    * @remarks
-   *   Only the route tables of Enterprise Edition transit routers can be associated with prefix lists.
-   * *   A prefix list can be associated only with one route table of an Enterprise Edition.
-   * *   The CIDR blocks in the prefix list cannot overlap with those in the route table of the Enterprise Edition transit router. Otherwise, the prefix list fails to be associated with the route table.
-   * *   If the route table of an Enterprise Edition transit router needs to be associated with multiple prefix lists, make sure that the CIDR blocks in the prefix lists do not overlap. Otherwise, the route table fails to be associated with the prefix lists.
-   * ### Prerequisites
+   * To associate an Enterprise Edition transit router with a route prefix, you must meet the following requirements:
+   * *   You are familiar with the limits and route compatibility notes of prefix lists. For more information, see [Prefix lists](https://help.aliyun.com/document_detail/445605.html).
    * *   A prefix list is created. For more information, see [CreateVpcPrefixList](https://help.aliyun.com/document_detail/437367.html).
-   * *   The prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router if the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts. For more information about how to share a prefix list with another Alibaba Cloud account, see [Resource sharing overview](https://help.aliyun.com/document_detail/160622.html) and [API reference for resource sharing](https://help.aliyun.com/document_detail/193445.html).
+   * *   If the prefix list and the Enterprise Edition transit router belong to different Alibaba Cloud accounts, the prefix list is shared with the Alibaba Cloud account that owns the Enterprise Edition transit router. For more information, see [Resource sharing](https://help.aliyun.com/document_detail/160622.html) and [API references for resource sharing](https://help.aliyun.com/document_detail/193445.html).
    * 
    * @param request - CreateTransitRouterPrefixListAssociationRequest
    * @returns CreateTransitRouterPrefixListAssociationResponse
@@ -38149,18 +38296,18 @@ export default class Client extends OpenApi {
    * Deletes a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
-   * *DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
-   * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-   * *   If a CEN instance cannot be found, the CEN instance is deleted.
-   * #### Prerequisites
+   * *DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeCens** to query the status of a CEN instance.
+   * *   If the CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+   * *   If the CEN instance cannot be found, the CEN instance is deleted.
+   * ### [](#)Prerequisites
    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
    * *   For more information about how to detach a network instance, see the following topics:
    *     *   [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html)
    *     *   [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html)
    *     *   [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html)
    *     *   [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html)
-   *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
-   * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
+   *     > For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+   * *   For more information about how to delete custom route tables from an Enterprise Edition transit router, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
    * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65935.html).
    * 
    * @param request - DeleteCenRequest
@@ -38211,18 +38358,18 @@ export default class Client extends OpenApi {
    * Deletes a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
-   * *DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **DescribeCens** operation to query the status of a CEN instance.
-   * *   If a CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
-   * *   If a CEN instance cannot be found, the CEN instance is deleted.
-   * #### Prerequisites
+   * *DeleteCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeCens** to query the status of a CEN instance.
+   * *   If the CEN instance is in the **Deleting** state, the CEN instance is being deleted. In this case, you can query the CEN instance but cannot perform other operations.
+   * *   If the CEN instance cannot be found, the CEN instance is deleted.
+   * ### [](#)Prerequisites
    * The CEN instance that you want to delete is not associated with a bandwidth plan, and the transit router associated with the CEN instance does not have a network instance connection or a custom route table.
    * *   For more information about how to detach a network instance, see the following topics:
    *     *   [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html)
    *     *   [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html)
    *     *   [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html)
    *     *   [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html)
-   *      >For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
-   * *   For more information about how to delete a custom route table, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
+   *     > For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+   * *   For more information about how to delete custom route tables from an Enterprise Edition transit router, see [DeleteTransitRouterRouteTable](https://help.aliyun.com/document_detail/261235.html).
    * *   For more information about how to disassociate a bandwidth plan from a CEN instance, see [UnassociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65935.html).
    * 
    * @param request - DeleteCenRequest
@@ -38627,7 +38774,7 @@ export default class Client extends OpenApi {
    * @remarks
    * `DeleteCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
    * *   If a routing policy is in the **Deleting** state, the routing policy is being deleted. You can query the routing policy but cannot perform other operations.
-   * *   If a routing policy cannot be found, it is deleted.``
+   * *   If a routing policy cannot be found, it is deleted.
    * 
    * @param request - DeleteCenRouteMapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38687,7 +38834,7 @@ export default class Client extends OpenApi {
    * @remarks
    * `DeleteCenRouteMap` is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the background. You can call the `DescribeCenRouteMaps` operation to query the status of a routing policy.
    * *   If a routing policy is in the **Deleting** state, the routing policy is being deleted. You can query the routing policy but cannot perform other operations.
-   * *   If a routing policy cannot be found, it is deleted.``
+   * *   If a routing policy cannot be found, it is deleted.
    * 
    * @param request - DeleteCenRouteMapRequest
    * @returns DeleteCenRouteMapResponse
@@ -39542,14 +39689,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If **TransitRouterRouteEntryId** is set, you must not set **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts will occur.
-   * *   If **TransitRouterRouteEntryId** is not set, you must specify the set parameters based on the type of the next hop:
-   *     *   To delete a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
-   *     *   If the route that you want to delete is not a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
-   * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the system background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
-   *     *   If a route entry is in the **Deleting** state, the route entry is being deleted. You can query the route entry but cannot perform other operations.
+   * *   If you specify the **TransitRouterRouteEntryId** parameter to delete a specific route, you do not need to configure the **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts occur.
+   * *   If you do not specify the **TransitRouterRouteEntryId** parameter, configure the following parameters based on the next hop type of the route that you want to delete:
+   *     *   To delete a blackhole route, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
+   *     *   To delete routes other than blackhole routes, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
+   * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
+   *     *   If the route entry is in the **Deleting** state, the route entry is being deleted. In this case, you can query the route entry but cannot perform other operations.
    *     *   If a route entry cannot be found, it is deleted.
-   * ## Limits
+   * ### [](#)Limits
    * You can call this operation to delete only static routes. Automatically learned routes are not supported. You can call the [ListTransitRouterRouteEntries](https://help.aliyun.com/document_detail/260941.html) operation to query route types.
    * 
    * @param request - DeleteTransitRouterRouteEntryRequest
@@ -39625,14 +39772,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If **TransitRouterRouteEntryId** is set, you must not set **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts will occur.
-   * *   If **TransitRouterRouteEntryId** is not set, you must specify the set parameters based on the type of the next hop:
-   *     *   To delete a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
-   *     *   If the route that you want to delete is not a blackhole route, you must set **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
-   * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After you send a request, the system returns a **request ID** and runs the task in the system background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
-   *     *   If a route entry is in the **Deleting** state, the route entry is being deleted. You can query the route entry but cannot perform other operations.
+   * *   If you specify the **TransitRouterRouteEntryId** parameter to delete a specific route, you do not need to configure the **TransitRouterRouteTableId** or **TransitRouterRouteEntryDestinationCidrBlock**. Otherwise, parameter conflicts occur.
+   * *   If you do not specify the **TransitRouterRouteEntryId** parameter, configure the following parameters based on the next hop type of the route that you want to delete:
+   *     *   To delete a blackhole route, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, and **TransitRouterRouteEntryNextHopType**.
+   *     *   To delete routes other than blackhole routes, configure the following parameters: **TransitRouterRouteTableId**, **TransitRouterRouteEntryDestinationCidrBlock**, **TransitRouterRouteEntryNextHopType**, and **TransitRouterRouteEntryNextHopId**.
+   * *   **DeleteTransitRouterRouteEntry** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call the **ListTransitRouterRouteEntries** operation to query the status of a route entry.
+   *     *   If the route entry is in the **Deleting** state, the route entry is being deleted. In this case, you can query the route entry but cannot perform other operations.
    *     *   If a route entry cannot be found, it is deleted.
-   * ## Limits
+   * ### [](#)Limits
    * You can call this operation to delete only static routes. Automatically learned routes are not supported. You can call the [ListTransitRouterRouteEntries](https://help.aliyun.com/document_detail/260941.html) operation to query route types.
    * 
    * @param request - DeleteTransitRouterRouteEntryRequest
@@ -41165,6 +41312,14 @@ export default class Client extends OpenApi {
       query["FlowLogName"] = request.flowLogName;
     }
 
+    if (!Util.isUnset(request.flowLogVersion)) {
+      query["FlowLogVersion"] = request.flowLogVersion;
+    }
+
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
     if (!Util.isUnset(request.logStoreName)) {
       query["LogStoreName"] = request.logStoreName;
     }
@@ -41211,6 +41366,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.transitRouterAttachmentId)) {
       query["TransitRouterAttachmentId"] = request.transitRouterAttachmentId;
+    }
+
+    if (!Util.isUnset(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -42562,6 +42721,9 @@ export default class Client extends OpenApi {
   /**
    * Queries routes in route tables of network instances that point to network instance connections on Enterprise Edition transit routers.
    * 
+   * @remarks
+   * Before you call the ListCenChildInstanceRouteEntriesToAttachment operation, make sure that all request parameter values are valid. If a parameter is set to an invalid value, a request ID is returned, but the routes to the network instance are not returned.
+   * 
    * @param request - ListCenChildInstanceRouteEntriesToAttachmentRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCenChildInstanceRouteEntriesToAttachmentResponse
@@ -42632,6 +42794,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries routes in route tables of network instances that point to network instance connections on Enterprise Edition transit routers.
+   * 
+   * @remarks
+   * Before you call the ListCenChildInstanceRouteEntriesToAttachment operation, make sure that all request parameter values are valid. If a parameter is set to an invalid value, a request ID is returned, but the routes to the network instance are not returned.
    * 
    * @param request - ListCenChildInstanceRouteEntriesToAttachmentRequest
    * @returns ListCenChildInstanceRouteEntriesToAttachmentResponse
@@ -45342,6 +45507,10 @@ export default class Client extends OpenApi {
       query["FlowLogName"] = request.flowLogName;
     }
 
+    if (!Util.isUnset(request.interval)) {
+      query["Interval"] = request.interval;
+    }
+
     if (!Util.isUnset(request.ownerAccount)) {
       query["OwnerAccount"] = request.ownerAccount;
     }
@@ -46250,7 +46419,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Precautions
-   * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation.
+   * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. To delete a traffic classification rule, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation. Maintenance on this document has stopped.
    * 
    * @deprecated OpenAPI RemoveTraficMatchRuleFromTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::RemoveTrafficMatchRuleFromTrafficMarkingPolicy instead.
    * 
@@ -46316,7 +46485,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Precautions
-   * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. If you need to delete traffic classification rules from a traffic marking policy, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation.
+   * The **RemoveTraficMatchRuleFromTrafficMarkingPolicy** operation is deprecated and will be discontinued soon. To delete a traffic classification rule, call the [RemoveTrafficMatchRuleFromTrafficMarkingPolicy](https://help.aliyun.com/document_detail/452726.html) operation. Maintenance on this document has stopped.
    * 
    * @deprecated OpenAPI RemoveTraficMatchRuleFromTrafficMarkingPolicy is deprecated, please use Cbn::2017-09-12::RemoveTrafficMatchRuleFromTrafficMarkingPolicy instead.
    * 
@@ -46403,14 +46572,14 @@ export default class Client extends OpenApi {
    * Connects an on-premises network to a cloud service.
    * 
    * @remarks
-   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-   * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+   * *   This operation is supported only by Basic Edition transit routers. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
    *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
-   *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
-   *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
-   *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-   * # [](#)Prerequisites
+   *     *   If the cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
+   *     *   If the cloud service is in the **Active** state, the connection to the cloud service is created.
+   *     *   If the cloud service is in the **Failed** state, the connection to the cloud service failed.
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following conditions are met:
    * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
    * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
@@ -46487,14 +46656,14 @@ export default class Client extends OpenApi {
    * Connects an on-premises network to a cloud service.
    * 
    * @remarks
-   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service, and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
-   * *   You can call this operation only for a Basic Edition transit router. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
+   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block to provide services. These cloud services include Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access a cloud service, you must attach the virtual border router (VBR) or Cloud Connect Network (CCN) instance that is connected to your on-premises network to a Cloud Enterprise Network (CEN) instance. In addition, you must attach a virtual private cloud (VPC) that is deployed in the same region as the cloud service to the CEN instance. This way, your on-premises network can connect to the VPC that is deployed in the same region as the cloud service and access the cloud service through the VPC.
+   * *   This operation is supported only by Basic Edition transit routers. An on-premises network associated with a VBR can use CEN to access only a cloud service that is deployed in the same region.
    *     For example, if cloud services are deployed in the China (Beijing) region, only on-premises networks connected to VBRs in the China (Beijing) region can access the cloud services.
    * *   **ResolveAndRouteServiceInCen** is an asynchronous operation. After a request is sent, the system returns a **request ID** and runs the task in the background. You can call **DescribeRouteServicesInCen** to query the status of a cloud service.
-   *     *   If a cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
-   *     *   If a cloud service is in the **Active** state, the connection to the cloud service is created.
-   *     *   If a cloud service is in the **Failed** state, the connection to the cloud service failed.
-   * # [](#)Prerequisites
+   *     *   If the cloud service is in the **Creating** state, the connection to the cloud service is being created. In this case, you can query the cloud service but cannot perform other operations.
+   *     *   If the cloud service is in the **Active** state, the connection to the cloud service is created.
+   *     *   If the cloud service is in the **Failed** state, the connection to the cloud service failed.
+   * ### [](#)Prerequisites
    * Before you call this operation, make sure that the following conditions are met:
    * *   The VBR or CCN instance to which your on-premises network is connected is attached to a CEN instance.
    * *   A VPC that is deployed in the same region as the cloud service is attached to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
@@ -46511,14 +46680,15 @@ export default class Client extends OpenApi {
    * Revokes the permissions that a transit router has on network instances that belong to another Alibaba Cloud account.
    * 
    * @remarks
-   * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
-   * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
-   * ## [](#)Prerequisite
+   * `RevokeInstanceFromTransitRouter` can be used to revoke permissions on virtual private clouds (VPCs), virtual border routers (VBRs), IPsec-VPN connections, and Express Connect Router (ECRs) that belong to another Alibaba Cloud account.
+   * To revoke permissions on Cloud Connect Network (CCN) instances that belong to another Alibaba Cloud account, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
+   * ### [](#)Prerequisites
    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
-   * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
-   * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
-   * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
-   * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+   * *   For more information about how to detach VPCs from Enterprise Edition transit routers, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
+   * *   For more information about how to detach VBRs from Enterprise Edition transit routers, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
+   * *   For more information about how to detach IPsec-VPN connections from Enterprise Edition transit routers, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
+   * *   For more information about how to detach ECRs from Enterprise Edition transit routers, see [DeleteTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/443992.html).
+   * *   For more information about how to detach network instances from Basic Edition transit routers, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
    * 
    * @param request - RevokeInstanceFromTransitRouterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46584,14 +46754,15 @@ export default class Client extends OpenApi {
    * Revokes the permissions that a transit router has on network instances that belong to another Alibaba Cloud account.
    * 
    * @remarks
-   * `RevokeInstanceFromTransitRouter` disallows transit routers only from connecting to virtual private clouds (VPCs), virtual border routers (VBRs), and IPsec-VPN connections.
-   * If you want to disallow transit routers from connecting to Cloud Connect Network (CCN) instances, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
-   * ## [](#)Prerequisite
+   * `RevokeInstanceFromTransitRouter` can be used to revoke permissions on virtual private clouds (VPCs), virtual border routers (VBRs), IPsec-VPN connections, and Express Connect Router (ECRs) that belong to another Alibaba Cloud account.
+   * To revoke permissions on Cloud Connect Network (CCN) instances that belong to another Alibaba Cloud account, call the [RevokeInstanceFromCbn](https://help.aliyun.com/document_detail/126142.html) operation.
+   * ### [](#)Prerequisites
    * Before you call `RevokeInstanceFromTransitRouter`, you must detach the network instances from the transit router.
-   * *   For more information about how to detach VPCs from an Enterprise Edition transit router, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
-   * *   For more information about how to detach VBRs from an Enterprise Edition transit router, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
-   * *   For more information about how to detach IPsec-VPN connections from an Enterprise Edition transit router, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
-   * *   For more information about how to detach network instances from a Basic Edition transit router, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
+   * *   For more information about how to detach VPCs from Enterprise Edition transit routers, see [DeleteTransitRouterVpcAttachment](https://help.aliyun.com/document_detail/261220.html).
+   * *   For more information about how to detach VBRs from Enterprise Edition transit routers, see [DeleteTransitRouterVbrAttachment](https://help.aliyun.com/document_detail/261223.html).
+   * *   For more information about how to detach IPsec-VPN connections from Enterprise Edition transit routers, see [DeleteTransitRouterVpnAttachment](https://help.aliyun.com/document_detail/443992.html).
+   * *   For more information about how to detach ECRs from Enterprise Edition transit routers, see [DeleteTransitRouterEcrAttachment](https://help.aliyun.com/document_detail/443992.html).
+   * *   For more information about how to detach network instances from Basic Edition transit routers, see [DetachCenChildInstance](https://help.aliyun.com/document_detail/65915.html).
    * 
    * @param request - RevokeInstanceFromTransitRouterRequest
    * @returns RevokeInstanceFromTransitRouterResponse
@@ -46703,11 +46874,18 @@ export default class Client extends OpenApi {
    * Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
    * 
    * @remarks
-   * ### Prerequisites
-   * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
-   * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
-   * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
-   * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+   * This operation is used to manage bandwidth of inter-region connections only for Basic Edition transit routers.
+   * ### [](#)Prerequisites
+   * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html).
+   * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, change, or remove the bandwidth limit of an inter-region connection.
+   * *   If you set **BandwidthLimit** to a value other than 0, the bandwidth of the inter-region connection is set to the specified value.
+   * *   If you set **BandwidthLimit** to 0, the bandwidth of the inter-region connection is no longer limited.
+   * ### [](#)Limits
+   * *   The bandwidth limit of an inter-region connection cannot exceed the bandwidth limit of the associated bandwidth plan.
+   * *   The sum of bandwidth limits of all inter-region connections cannot exceed the bandwidth limit of the associated bandwidth plan.
+   * *   If bandwidth multiplexing is enabled for an inter-region connection, you cannot change the bandwidth of the inter-region connection.
+   * *   The **SetCenInterRegionBandwidthLimit** operation can be used to configure, modify, or delete the bandwidth of inter-region connections only for Basic Edition transit routers.
+   *     To configure, modify, or delete the bandwidth of inter-region connections for Enterprise Edition transit routers, call the [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html), [UpdateTransitRouterPeerAttachmentAttribute](https://help.aliyun.com/document_detail/261229.html), or [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html) operation.
    * 
    * @param request - SetCenInterRegionBandwidthLimitRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46773,11 +46951,18 @@ export default class Client extends OpenApi {
    * Configures, modifies, or deletes the bandwidth of inter-region connections for a Basic Edition transit router.
    * 
    * @remarks
-   * ### Prerequisites
-   * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see the [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html) topics.
-   * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, modify, or remove the maximum bandwidth value of an inter-region connection.
-   * - If you set **BandwidthLimit** to a value other than 0, the maximum bandwidth value of the inter-region connection is set or changed to the specified value.
-   * - If you set **BandwidthLimit** to 0, no bandwidth resource is allocated to the inter-region connection.
+   * This operation is used to manage bandwidth of inter-region connections only for Basic Edition transit routers.
+   * ### [](#)Prerequisites
+   * The Cloud Enterprise Network (CEN) instance is associated with a bandwidth plan. For more information, see [CreateCenBandwidthPackage](https://help.aliyun.com/document_detail/65919.html) and [AssociateCenBandwidthPackage](https://help.aliyun.com/document_detail/65934.html).
+   * You can call the **SetCenInterRegionBandwidthLimit** operation to configure, change, or remove the bandwidth limit of an inter-region connection.
+   * *   If you set **BandwidthLimit** to a value other than 0, the bandwidth of the inter-region connection is set to the specified value.
+   * *   If you set **BandwidthLimit** to 0, the bandwidth of the inter-region connection is no longer limited.
+   * ### [](#)Limits
+   * *   The bandwidth limit of an inter-region connection cannot exceed the bandwidth limit of the associated bandwidth plan.
+   * *   The sum of bandwidth limits of all inter-region connections cannot exceed the bandwidth limit of the associated bandwidth plan.
+   * *   If bandwidth multiplexing is enabled for an inter-region connection, you cannot change the bandwidth of the inter-region connection.
+   * *   The **SetCenInterRegionBandwidthLimit** operation can be used to configure, modify, or delete the bandwidth of inter-region connections only for Basic Edition transit routers.
+   *     To configure, modify, or delete the bandwidth of inter-region connections for Enterprise Edition transit routers, call the [CreateTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261363.html), [UpdateTransitRouterPeerAttachmentAttribute](https://help.aliyun.com/document_detail/261229.html), or [DeleteTransitRouterPeerAttachment](https://help.aliyun.com/document_detail/261227.html) operation.
    * 
    * @param request - SetCenInterRegionBandwidthLimitRequest
    * @returns SetCenInterRegionBandwidthLimitResponse
