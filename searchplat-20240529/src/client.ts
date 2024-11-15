@@ -386,6 +386,81 @@ export class GetDocumentSplitResponse extends $tea.Model {
   }
 }
 
+export class GetEmbeddingTuningRequest extends $tea.Model {
+  input?: number[][];
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      input: 'input',
+      parameters: 'parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEmbeddingTuningResponseBody extends $tea.Model {
+  latency?: number;
+  requestId?: string;
+  result?: GetEmbeddingTuningResponseBodyResult;
+  usage?: GetEmbeddingTuningResponseBodyUsage;
+  static names(): { [key: string]: string } {
+    return {
+      latency: 'latency',
+      requestId: 'request_id',
+      result: 'result',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      latency: 'number',
+      requestId: 'string',
+      result: GetEmbeddingTuningResponseBodyResult,
+      usage: GetEmbeddingTuningResponseBodyUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEmbeddingTuningResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEmbeddingTuningResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEmbeddingTuningResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageAnalyzeTaskStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -1212,6 +1287,44 @@ export class GetDocumentSplitResponseBodyUsage extends $tea.Model {
   }
 }
 
+export class GetEmbeddingTuningResponseBodyResult extends $tea.Model {
+  output?: number[][];
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'number' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEmbeddingTuningResponseBodyUsage extends $tea.Model {
+  docCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docCount: 'doc_count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageAnalyzeTaskStatusResponseBodyResultData extends $tea.Model {
   content?: string;
   contentType?: string;
@@ -1841,6 +1954,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getDocumentSplitWithOptions(workspaceName, serviceId, request, headers, runtime);
+  }
+
+  /**
+   * 向量微调
+   * 
+   * @param request - GetEmbeddingTuningRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEmbeddingTuningResponse
+   */
+  async getEmbeddingTuningWithOptions(workspaceName: string, serviceId: string, request: GetEmbeddingTuningRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEmbeddingTuningResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEmbeddingTuning",
+      version: "2024-05-29",
+      protocol: "HTTPS",
+      pathname: `/v3/openapi/workspaces/${workspaceName}/embedding-tuning/${serviceId}`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEmbeddingTuningResponse>(await this.execute(params, req, runtime), new GetEmbeddingTuningResponse({}));
+  }
+
+  /**
+   * 向量微调
+   * 
+   * @param request - GetEmbeddingTuningRequest
+   * @returns GetEmbeddingTuningResponse
+   */
+  async getEmbeddingTuning(workspaceName: string, serviceId: string, request: GetEmbeddingTuningRequest): Promise<GetEmbeddingTuningResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getEmbeddingTuningWithOptions(workspaceName, serviceId, request, headers, runtime);
   }
 
   /**
