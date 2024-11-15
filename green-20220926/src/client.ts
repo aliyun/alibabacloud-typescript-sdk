@@ -7,6 +7,111 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AddAnswerSampleRequest extends $tea.Model {
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * data/xxx.xlsx
+   */
+  sampleObject?: string;
+  samples?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      regionId: 'RegionId',
+      sampleObject: 'SampleObject',
+      samples: 'Samples',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      regionId: 'string',
+      sampleObject: 'string',
+      samples: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAnswerSampleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  result?: AddAnswerSampleResponseBodyResult;
+  /**
+   * @example
+   * alAxbbxxxx-xxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      requestId: 'RequestId',
+      result: 'Result',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      requestId: 'string',
+      result: AddAnswerSampleResponseBodyResult,
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAnswerSampleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAnswerSampleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddAnswerSampleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImageLibRequest extends $tea.Model {
   comment?: string;
   libName?: string;
@@ -954,6 +1059,216 @@ export class CreatStockOssCheckTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateAnswerLibRequest extends $tea.Model {
+  libName?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * oss-cip-shanghai
+   */
+  sampleBucket?: string;
+  /**
+   * @example
+   * data/xxx.xlsx
+   */
+  sampleObject?: string;
+  samples?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libName: 'LibName',
+      regionId: 'RegionId',
+      sampleBucket: 'SampleBucket',
+      sampleObject: 'SampleObject',
+      samples: 'Samples',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libName: 'string',
+      regionId: 'string',
+      sampleBucket: 'string',
+      sampleObject: 'string',
+      samples: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnswerLibResponseBody extends $tea.Model {
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  result?: CreateAnswerLibResponseBodyResult;
+  /**
+   * @example
+   * alAxbbxxxx-xxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      requestId: 'RequestId',
+      result: 'Result',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      requestId: 'string',
+      result: CreateAnswerLibResponseBodyResult,
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnswerLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAnswerLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAnswerLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallbackRequest extends $tea.Model {
+  /**
+   * @example
+   * SHA256
+   */
+  cryptType?: string;
+  name?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * all
+   */
+  scope?: string;
+  /**
+   * @example
+   * https://console.aliyun.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cryptType: 'CryptType',
+      name: 'Name',
+      regionId: 'RegionId',
+      scope: 'Scope',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cryptType: 'string',
+      name: 'string',
+      regionId: 'string',
+      scope: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: number;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePreCheckRequest extends $tea.Model {
   /**
    * @example
@@ -1107,6 +1422,271 @@ export class CreatePreCheckResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreatePreCheckResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerLibRequest extends $tea.Model {
+  /**
+   * @example
+   * alxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerLibResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAnswerLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAnswerLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerSampleRequest extends $tea.Model {
+  /**
+   * @example
+   * [15463605]
+   */
+  ids?: string;
+  /**
+   * @example
+   * alxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      libId: 'LibId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      libId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerSampleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAnswerSampleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAnswerSampleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAnswerSampleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallbackRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1480
+   */
+  id?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCallbackResponseBody,
     };
   }
 
@@ -1449,6 +2029,91 @@ export class DeleteKeywordLibResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteKeywordLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnswerSampleRequest extends $tea.Model {
+  /**
+   * @example
+   * alxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnswerSampleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnswerSampleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportAnswerSampleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportAnswerSampleResponseBody,
     };
   }
 
@@ -2382,6 +3047,153 @@ export class ExportTextScanResultResponse extends $tea.Model {
   }
 }
 
+export class GetAnswerImportProgressRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * alAxbbxxxx-xxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAnswerImportProgressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  i18nKey?: string;
+  illegalLengthSamples?: string[];
+  /**
+   * @example
+   * 1
+   */
+  invalidCount?: number;
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * 100
+   */
+  progress?: number;
+  /**
+   * @example
+   * 1
+   */
+  repeatCount?: number;
+  repeatSamples?: string[];
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 8
+   */
+  successCount?: number;
+  /**
+   * @example
+   * alAxbbxxxx-xxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  tips?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      i18nKey: 'I18nKey',
+      illegalLengthSamples: 'IllegalLengthSamples',
+      invalidCount: 'InvalidCount',
+      libId: 'LibId',
+      progress: 'Progress',
+      repeatCount: 'RepeatCount',
+      repeatSamples: 'RepeatSamples',
+      requestId: 'RequestId',
+      successCount: 'SuccessCount',
+      taskId: 'TaskId',
+      tips: 'Tips',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      i18nKey: 'string',
+      illegalLengthSamples: { 'type': 'array', 'itemType': 'string' },
+      invalidCount: 'number',
+      libId: 'string',
+      progress: 'number',
+      repeatCount: 'number',
+      repeatSamples: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      successCount: 'number',
+      taskId: 'string',
+      tips: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAnswerImportProgressResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAnswerImportProgressResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAnswerImportProgressResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetBackupBucketsListRequest extends $tea.Model {
   /**
    * @example
@@ -2997,6 +3809,108 @@ export class GetExecuteTimeResponse extends $tea.Model {
   }
 }
 
+export class GetImageSceneLabelConfRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageSceneLabelConfResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: { [key: string]: any }[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  msg?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageSceneLabelConfResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetImageSceneLabelConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetImageSceneLabelConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageSceneLabelListConfRequest extends $tea.Model {
   /**
    * @example
@@ -3317,6 +4231,108 @@ export class GetKeywordImportResultResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetKeywordImportResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKeywordLibRequest extends $tea.Model {
+  /**
+   * @example
+   * customxx_xxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKeywordLibResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetKeywordLibResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
+  msg?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetKeywordLibResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKeywordLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKeywordLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetKeywordLibResponseBody,
     };
   }
 
@@ -4889,6 +5905,154 @@ export class GetUserBuyStatusResponse extends $tea.Model {
   }
 }
 
+export class ListAnswerLibRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnswerLibResponseBody extends $tea.Model {
+  data?: ListAnswerLibResponseBodyData[];
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListAnswerLibResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnswerLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAnswerLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAnswerLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallbackRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallbackResponseBody extends $tea.Model {
+  data?: ListCallbackResponseBodyData[];
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': ListCallbackResponseBodyData },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImageLibRequest extends $tea.Model {
   /**
    * @example
@@ -5824,6 +6988,206 @@ export class ListServiceConfigsResponse extends $tea.Model {
   }
 }
 
+export class ModifyAnswerLibRequest extends $tea.Model {
+  /**
+   * @example
+   * custom_xxxx
+   */
+  libId?: string;
+  libName?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      libId: 'LibId',
+      libName: 'LibName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      libId: 'string',
+      libName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAnswerLibResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyAnswerLibResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyAnswerLibResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyAnswerLibResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackRequest extends $tea.Model {
+  /**
+   * @example
+   * SHA256
+   */
+  cryptType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 112
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  /**
+   * @example
+   * all
+   */
+  scope?: string;
+  /**
+   * @example
+   * https://www.aliyuncs.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cryptType: 'CryptType',
+      id: 'Id',
+      name: 'Name',
+      regionId: 'RegionId',
+      scope: 'Scope',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cryptType: 'string',
+      id: 'number',
+      name: 'string',
+      regionId: 'string',
+      scope: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * True
+   */
+  data?: boolean;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyServiceInfoRequest extends $tea.Model {
   /**
    * @example
@@ -5914,6 +7278,447 @@ export class ModifyServiceInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyServiceInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAnswerSampleByPageRequest extends $tea.Model {
+  answer?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * custom_xxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  sort?: { [key: string]: string };
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      currentPage: 'CurrentPage',
+      libId: 'LibId',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      sort: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      currentPage: 'number',
+      libId: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+      sort: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAnswerSampleByPageShrinkRequest extends $tea.Model {
+  answer?: string;
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * custom_xxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  sortShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      currentPage: 'CurrentPage',
+      libId: 'LibId',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      sortShrink: 'Sort',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      currentPage: 'number',
+      libId: 'string',
+      pageSize: 'number',
+      regionId: 'string',
+      sortShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAnswerSampleByPageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: QueryAnswerSampleByPageResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 58
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': QueryAnswerSampleByPageResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryAnswerSampleByPageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryAnswerSampleByPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryAnswerSampleByPageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  checkForOss?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11234
+   */
+  id?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkForOss: 'CheckForOss',
+      id: 'Id',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkForOss: 'boolean',
+      id: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * SHA256
+   */
+  cryptType?: string;
+  /**
+   * @example
+   * false
+   */
+  existsOssCheckTask?: boolean;
+  /**
+   * @example
+   * 2022-11-30 16:30:29
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-06-03 15:20:14
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 11234
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * all
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * Seed。
+   * 
+   * @example
+   * cb2MysbJTAAIf6gB3u4vpIEU-1ySnnf
+   */
+  seed?: string;
+  /**
+   * @remarks
+   * UID。
+   * 
+   * @example
+   * 19964*****086772
+   */
+  uid?: string;
+  /**
+   * @example
+   * https://www.aliyuncs.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cryptType: 'CryptType',
+      existsOssCheckTask: 'ExistsOssCheckTask',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      requestId: 'RequestId',
+      scope: 'Scope',
+      seed: 'Seed',
+      uid: 'Uid',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cryptType: 'string',
+      existsOssCheckTask: 'boolean',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      requestId: 'string',
+      scope: 'string',
+      seed: 'string',
+      uid: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCallbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackByPageRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-shanghai
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackByPageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  items?: QueryCallbackByPageResponseBodyItems[];
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'CurrentPage',
+      items: 'Items',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      items: { 'type': 'array', 'itemType': QueryCallbackByPageResponseBodyItems },
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackByPageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCallbackByPageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCallbackByPageResponseBody,
     };
   }
 
@@ -6652,6 +8457,84 @@ export class UpdateServiceConfigResponse extends $tea.Model {
   }
 }
 
+export class AddAnswerSampleResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  i18nKey?: string;
+  illegalLengthSamples?: string[];
+  /**
+   * @example
+   * 118
+   */
+  invalidCount?: number;
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * 100
+   */
+  progress?: number;
+  /**
+   * @example
+   * 98
+   */
+  repeatCount?: number;
+  repeatSamples?: string[];
+  /**
+   * @example
+   * 318
+   */
+  successCount?: number;
+  /**
+   * @example
+   * alAxbbxxxx-xxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 534
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      i18nKey: 'I18nKey',
+      illegalLengthSamples: 'IllegalLengthSamples',
+      invalidCount: 'InvalidCount',
+      libId: 'LibId',
+      progress: 'Progress',
+      repeatCount: 'RepeatCount',
+      repeatSamples: 'RepeatSamples',
+      successCount: 'SuccessCount',
+      taskId: 'TaskId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      i18nKey: 'string',
+      illegalLengthSamples: { 'type': 'array', 'itemType': 'string' },
+      invalidCount: 'number',
+      libId: 'string',
+      progress: 'number',
+      repeatCount: 'number',
+      repeatSamples: { 'type': 'array', 'itemType': 'string' },
+      successCount: 'number',
+      taskId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddImages2LibResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -6995,6 +8878,84 @@ export class AddKeywordsToLibResponseBodyData extends $tea.Model {
       keywordsResult: AddKeywordsToLibResponseBodyDataKeywordsResult,
       libId: 'string',
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnswerLibResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  i18nKey?: string;
+  illegalLengthSamples?: string[];
+  /**
+   * @example
+   * 1
+   */
+  invalidCount?: number;
+  /**
+   * @example
+   * alxxxx
+   */
+  libId?: string;
+  /**
+   * @example
+   * 100
+   */
+  progress?: number;
+  /**
+   * @example
+   * 1
+   */
+  repeatCount?: number;
+  repeatSamples?: string[];
+  /**
+   * @example
+   * 8
+   */
+  successCount?: number;
+  /**
+   * @example
+   * alAaaaxxx-xxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      i18nKey: 'I18nKey',
+      illegalLengthSamples: 'IllegalLengthSamples',
+      invalidCount: 'InvalidCount',
+      libId: 'LibId',
+      progress: 'Progress',
+      repeatCount: 'RepeatCount',
+      repeatSamples: 'RepeatSamples',
+      successCount: 'SuccessCount',
+      taskId: 'TaskId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      i18nKey: 'string',
+      illegalLengthSamples: { 'type': 'array', 'itemType': 'string' },
+      invalidCount: 'number',
+      libId: 'string',
+      progress: 'number',
+      repeatCount: 'number',
+      repeatSamples: { 'type': 'array', 'itemType': 'string' },
+      successCount: 'number',
+      taskId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -7347,6 +9308,53 @@ export class GetKeywordImportResultResponseBodyData extends $tea.Model {
       successCount: 'number',
       tips: 'string',
       totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKeywordLibResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-01-29 10:26:00
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 100
+   */
+  keywordCount?: string;
+  /**
+   * @example
+   * customxx_xxx
+   */
+  libId?: string;
+  libName?: string;
+  /**
+   * @example
+   * 1825457112123838
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtModified: 'GmtModified',
+      keywordCount: 'KeywordCount',
+      libId: 'LibId',
+      libName: 'LibName',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtModified: 'string',
+      keywordCount: 'string',
+      libId: 'string',
+      libName: 'string',
+      uid: 'string',
     };
   }
 
@@ -8251,6 +10259,137 @@ export class GetUserBuyStatusResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListAnswerLibResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  answerCount?: number;
+  /**
+   * @example
+   * 2024-06-03 18:15:01
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * alxxx
+   */
+  libId?: string;
+  libName?: string;
+  /**
+   * @remarks
+   * UID。
+   * 
+   * @example
+   * 1643953****74290
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answerCount: 'AnswerCount',
+      gmtModified: 'GmtModified',
+      libId: 'LibId',
+      libName: 'LibName',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerCount: 'number',
+      gmtModified: 'string',
+      libId: 'string',
+      libName: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCallbackResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * SHA256
+   */
+  cryptType?: string;
+  /**
+   * @example
+   * 2024-06-03 15:20:14
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-06-03 15:20:14
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 11234
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * all
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * Seed。
+   * 
+   * @example
+   * cbupVnpBjkgjFxfINMHKkrHS-1zZPUm
+   */
+  seed?: string;
+  /**
+   * @remarks
+   * UID。
+   * 
+   * @example
+   * 16537*****831937
+   */
+  uid?: string;
+  /**
+   * @example
+   * https://console.aliyun.com/
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cryptType: 'CryptType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      scope: 'Scope',
+      seed: 'Seed',
+      uid: 'Uid',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cryptType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      scope: 'string',
+      seed: 'string',
+      uid: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListImageLibResponseBodyLibList extends $tea.Model {
   comment?: string;
   /**
@@ -8822,6 +10961,137 @@ export class ListServiceConfigsResponseBodyData extends $tea.Model {
   }
 }
 
+export class QueryAnswerSampleByPageResponseBodyItems extends $tea.Model {
+  answer?: string;
+  /**
+   * @example
+   * 2023-07-31 06:16:06
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 1666
+   */
+  id?: number;
+  /**
+   * @example
+   * custom_xxxx
+   */
+  libId?: string;
+  /**
+   * @remarks
+   * UID。
+   * 
+   * @example
+   * 104813*****2399
+   */
+  uid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'Answer',
+      gmtCreate: 'GmtCreate',
+      id: 'Id',
+      libId: 'LibId',
+      uid: 'Uid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      gmtCreate: 'string',
+      id: 'number',
+      libId: 'string',
+      uid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCallbackByPageResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * SHA256
+   */
+  cryptType?: string;
+  /**
+   * @example
+   * 2024-06-03 15:20:14
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2024-06-03 15:20:14
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * 1697
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * all
+   */
+  scope?: string;
+  /**
+   * @remarks
+   * Seed。
+   * 
+   * @example
+   * cb6gYS8GXj4Vn4Y4FN0Y8R5M-1x46Mq
+   */
+  seed?: string;
+  /**
+   * @remarks
+   * UID。
+   * 
+   * @example
+   * 12161*****398900
+   */
+  uid?: string;
+  /**
+   * @example
+   * https://console.aliyun.com/
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cryptType: 'CryptType',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      id: 'Id',
+      name: 'Name',
+      scope: 'Scope',
+      seed: 'Seed',
+      uid: 'Uid',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cryptType: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      id: 'number',
+      name: 'string',
+      scope: 'string',
+      seed: 'string',
+      uid: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -8863,6 +11133,60 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 添加代答样本
+   * 
+   * @param request - AddAnswerSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAnswerSampleResponse
+   */
+  async addAnswerSampleWithOptions(request: AddAnswerSampleRequest, runtime: $Util.RuntimeOptions): Promise<AddAnswerSampleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sampleObject)) {
+      query["SampleObject"] = request.sampleObject;
+    }
+
+    if (!Util.isUnset(request.samples)) {
+      query["Samples"] = request.samples;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddAnswerSample",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAnswerSampleResponse>(await this.callApi(params, req, runtime), new AddAnswerSampleResponse({}));
+  }
+
+  /**
+   * 添加代答样本
+   * 
+   * @param request - AddAnswerSampleRequest
+   * @returns AddAnswerSampleResponse
+   */
+  async addAnswerSample(request: AddAnswerSampleRequest): Promise<AddAnswerSampleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addAnswerSampleWithOptions(request, runtime);
   }
 
   /**
@@ -9386,6 +11710,126 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建代答库
+   * 
+   * @param request - CreateAnswerLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAnswerLibResponse
+   */
+  async createAnswerLibWithOptions(request: CreateAnswerLibRequest, runtime: $Util.RuntimeOptions): Promise<CreateAnswerLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.libName)) {
+      body["LibName"] = request.libName;
+    }
+
+    if (!Util.isUnset(request.sampleBucket)) {
+      body["SampleBucket"] = request.sampleBucket;
+    }
+
+    if (!Util.isUnset(request.sampleObject)) {
+      body["SampleObject"] = request.sampleObject;
+    }
+
+    if (!Util.isUnset(request.samples)) {
+      body["Samples"] = request.samples;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAnswerLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAnswerLibResponse>(await this.callApi(params, req, runtime), new CreateAnswerLibResponse({}));
+  }
+
+  /**
+   * 创建代答库
+   * 
+   * @param request - CreateAnswerLibRequest
+   * @returns CreateAnswerLibResponse
+   */
+  async createAnswerLib(request: CreateAnswerLibRequest): Promise<CreateAnswerLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 新建消息通知
+   * 
+   * @param request - CreateCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateCallbackResponse
+   */
+  async createCallbackWithOptions(request: CreateCallbackRequest, runtime: $Util.RuntimeOptions): Promise<CreateCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cryptType)) {
+      body["CryptType"] = request.cryptType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateCallback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateCallbackResponse>(await this.callApi(params, req, runtime), new CreateCallbackResponse({}));
+  }
+
+  /**
+   * 新建消息通知
+   * 
+   * @param request - CreateCallbackRequest
+   * @returns CreateCallbackResponse
+   */
+  async createCallback(request: CreateCallbackRequest): Promise<CreateCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createCallbackWithOptions(request, runtime);
+  }
+
+  /**
    * 创建oss扫描任务前检查
    * 
    * @param request - CreatePreCheckRequest
@@ -9479,6 +11923,152 @@ export default class Client extends OpenApi {
   async createPreCheck(request: CreatePreCheckRequest): Promise<CreatePreCheckResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createPreCheckWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除代答库
+   * 
+   * @param request - DeleteAnswerLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAnswerLibResponse
+   */
+  async deleteAnswerLibWithOptions(request: DeleteAnswerLibRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAnswerLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAnswerLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAnswerLibResponse>(await this.callApi(params, req, runtime), new DeleteAnswerLibResponse({}));
+  }
+
+  /**
+   * 删除代答库
+   * 
+   * @param request - DeleteAnswerLibRequest
+   * @returns DeleteAnswerLibResponse
+   */
+  async deleteAnswerLib(request: DeleteAnswerLibRequest): Promise<DeleteAnswerLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除代答答案
+   * 
+   * @param request - DeleteAnswerSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAnswerSampleResponse
+   */
+  async deleteAnswerSampleWithOptions(request: DeleteAnswerSampleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAnswerSampleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.ids)) {
+      body["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.libId)) {
+      body["LibId"] = request.libId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAnswerSample",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAnswerSampleResponse>(await this.callApi(params, req, runtime), new DeleteAnswerSampleResponse({}));
+  }
+
+  /**
+   * 删除代答答案
+   * 
+   * @param request - DeleteAnswerSampleRequest
+   * @returns DeleteAnswerSampleResponse
+   */
+  async deleteAnswerSample(request: DeleteAnswerSampleRequest): Promise<DeleteAnswerSampleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAnswerSampleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除消息通知
+   * 
+   * @param request - DeleteCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCallbackResponse
+   */
+  async deleteCallbackWithOptions(request: DeleteCallbackRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCallback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCallbackResponse>(await this.callApi(params, req, runtime), new DeleteCallbackResponse({}));
+  }
+
+  /**
+   * 删除消息通知
+   * 
+   * @param request - DeleteCallbackRequest
+   * @returns DeleteCallbackResponse
+   */
+  async deleteCallback(request: DeleteCallbackRequest): Promise<DeleteCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCallbackWithOptions(request, runtime);
   }
 
   /**
@@ -9635,6 +12225,54 @@ export default class Client extends OpenApi {
   async deleteKeywordLib(request: DeleteKeywordLibRequest): Promise<DeleteKeywordLibResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteKeywordLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出代答答案
+   * 
+   * @param request - ExportAnswerSampleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportAnswerSampleResponse
+   */
+  async exportAnswerSampleWithOptions(request: ExportAnswerSampleRequest, runtime: $Util.RuntimeOptions): Promise<ExportAnswerSampleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.libId)) {
+      body["LibId"] = request.libId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportAnswerSample",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportAnswerSampleResponse>(await this.callApi(params, req, runtime), new ExportAnswerSampleResponse({}));
+  }
+
+  /**
+   * 导出代答答案
+   * 
+   * @param request - ExportAnswerSampleRequest
+   * @returns ExportAnswerSampleResponse
+   */
+  async exportAnswerSample(request: ExportAnswerSampleRequest): Promise<ExportAnswerSampleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportAnswerSampleWithOptions(request, runtime);
   }
 
   /**
@@ -10032,6 +12670,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取代答样本导入进度
+   * 
+   * @param request - GetAnswerImportProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAnswerImportProgressResponse
+   */
+  async getAnswerImportProgressWithOptions(request: GetAnswerImportProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetAnswerImportProgressResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAnswerImportProgress",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAnswerImportProgressResponse>(await this.callApi(params, req, runtime), new GetAnswerImportProgressResponse({}));
+  }
+
+  /**
+   * 获取代答样本导入进度
+   * 
+   * @param request - GetAnswerImportProgressRequest
+   * @returns GetAnswerImportProgressResponse
+   */
+  async getAnswerImportProgress(request: GetAnswerImportProgressRequest): Promise<GetAnswerImportProgressResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAnswerImportProgressWithOptions(request, runtime);
+  }
+
+  /**
    * 证据转存获取用户bucket列表
    * 
    * @param request - GetBackupBucketsListRequest
@@ -10320,6 +13004,48 @@ export default class Client extends OpenApi {
   /**
    * 获取图片规则标签信息
    * 
+   * @param request - GetImageSceneLabelConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageSceneLabelConfResponse
+   */
+  async getImageSceneLabelConfWithOptions(request: GetImageSceneLabelConfRequest, runtime: $Util.RuntimeOptions): Promise<GetImageSceneLabelConfResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetImageSceneLabelConf",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetImageSceneLabelConfResponse>(await this.callApi(params, req, runtime), new GetImageSceneLabelConfResponse({}));
+  }
+
+  /**
+   * 获取图片规则标签信息
+   * 
+   * @param request - GetImageSceneLabelConfRequest
+   * @returns GetImageSceneLabelConfResponse
+   */
+  async getImageSceneLabelConf(request: GetImageSceneLabelConfRequest): Promise<GetImageSceneLabelConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getImageSceneLabelConfWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取图片规则标签信息
+   * 
    * @param request - GetImageSceneLabelListConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetImageSceneLabelListConfResponse
@@ -10473,6 +13199,54 @@ export default class Client extends OpenApi {
   async getKeywordImportResult(request: GetKeywordImportResultRequest): Promise<GetKeywordImportResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getKeywordImportResultWithOptions(request, runtime);
+  }
+
+  /**
+   * 关键词库信息
+   * 
+   * @param request - GetKeywordLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKeywordLibResponse
+   */
+  async getKeywordLibWithOptions(request: GetKeywordLibRequest, runtime: $Util.RuntimeOptions): Promise<GetKeywordLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.libId)) {
+      body["LibId"] = request.libId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetKeywordLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetKeywordLibResponse>(await this.callApi(params, req, runtime), new GetKeywordLibResponse({}));
+  }
+
+  /**
+   * 关键词库信息
+   * 
+   * @param request - GetKeywordLibRequest
+   * @returns GetKeywordLibResponse
+   */
+  async getKeywordLib(request: GetKeywordLibRequest): Promise<GetKeywordLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getKeywordLibWithOptions(request, runtime);
   }
 
   /**
@@ -11128,6 +13902,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 代答库列表
+   * 
+   * @param request - ListAnswerLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAnswerLibResponse
+   */
+  async listAnswerLibWithOptions(request: ListAnswerLibRequest, runtime: $Util.RuntimeOptions): Promise<ListAnswerLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAnswerLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAnswerLibResponse>(await this.callApi(params, req, runtime), new ListAnswerLibResponse({}));
+  }
+
+  /**
+   * 代答库列表
+   * 
+   * @param request - ListAnswerLibRequest
+   * @returns ListAnswerLibResponse
+   */
+  async listAnswerLib(request: ListAnswerLibRequest): Promise<ListAnswerLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 消息通知列表
+   * 
+   * @param request - ListCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCallbackResponse
+   */
+  async listCallbackWithOptions(request: ListCallbackRequest, runtime: $Util.RuntimeOptions): Promise<ListCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCallback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCallbackResponse>(await this.callApi(params, req, runtime), new ListCallbackResponse({}));
+  }
+
+  /**
+   * 消息通知列表
+   * 
+   * @param request - ListCallbackRequest
+   * @returns ListCallbackResponse
+   */
+  async listCallback(request: ListCallbackRequest): Promise<ListCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCallbackWithOptions(request, runtime);
+  }
+
+  /**
    * 图库列表
    * 
    * @param request - ListImageLibRequest
@@ -11496,6 +14354,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新代答库
+   * 
+   * @param request - ModifyAnswerLibRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyAnswerLibResponse
+   */
+  async modifyAnswerLibWithOptions(request: ModifyAnswerLibRequest, runtime: $Util.RuntimeOptions): Promise<ModifyAnswerLibResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!Util.isUnset(request.libName)) {
+      query["LibName"] = request.libName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyAnswerLib",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyAnswerLibResponse>(await this.callApi(params, req, runtime), new ModifyAnswerLibResponse({}));
+  }
+
+  /**
+   * 更新代答库
+   * 
+   * @param request - ModifyAnswerLibRequest
+   * @returns ModifyAnswerLibResponse
+   */
+  async modifyAnswerLib(request: ModifyAnswerLibRequest): Promise<ModifyAnswerLibResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyAnswerLibWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改消息通知
+   * 
+   * @param request - ModifyCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCallbackResponse
+   */
+  async modifyCallbackWithOptions(request: ModifyCallbackRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.cryptType)) {
+      body["CryptType"] = request.cryptType;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      body["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.url)) {
+      body["Url"] = request.url;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCallback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCallbackResponse>(await this.callApi(params, req, runtime), new ModifyCallbackResponse({}));
+  }
+
+  /**
+   * 修改消息通知
+   * 
+   * @param request - ModifyCallbackRequest
+   * @returns ModifyCallbackResponse
+   */
+  async modifyCallback(request: ModifyCallbackRequest): Promise<ModifyCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCallbackWithOptions(request, runtime);
+  }
+
+  /**
    * 编辑服务
    * 
    * @param request - ModifyServiceInfoRequest
@@ -11553,6 +14525,178 @@ export default class Client extends OpenApi {
   async modifyServiceInfo(request: ModifyServiceInfoRequest): Promise<ModifyServiceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyServiceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询代答样本
+   * 
+   * @param tmpReq - QueryAnswerSampleByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryAnswerSampleByPageResponse
+   */
+  async queryAnswerSampleByPageWithOptions(tmpReq: QueryAnswerSampleByPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryAnswerSampleByPageResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryAnswerSampleByPageShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sort)) {
+      request.sortShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sort, "Sort", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.answer)) {
+      query["Answer"] = request.answer;
+    }
+
+    if (!Util.isUnset(request.currentPage)) {
+      query["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.libId)) {
+      query["LibId"] = request.libId;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sortShrink)) {
+      query["Sort"] = request.sortShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryAnswerSampleByPage",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryAnswerSampleByPageResponse>(await this.callApi(params, req, runtime), new QueryAnswerSampleByPageResponse({}));
+  }
+
+  /**
+   * 分页查询代答样本
+   * 
+   * @param request - QueryAnswerSampleByPageRequest
+   * @returns QueryAnswerSampleByPageResponse
+   */
+  async queryAnswerSampleByPage(request: QueryAnswerSampleByPageRequest): Promise<QueryAnswerSampleByPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryAnswerSampleByPageWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询单个回调配置
+   * 
+   * @param request - QueryCallbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCallbackResponse
+   */
+  async queryCallbackWithOptions(request: QueryCallbackRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkForOss)) {
+      body["CheckForOss"] = request.checkForOss;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCallback",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallbackResponse>(await this.callApi(params, req, runtime), new QueryCallbackResponse({}));
+  }
+
+  /**
+   * 查询单个回调配置
+   * 
+   * @param request - QueryCallbackRequest
+   * @returns QueryCallbackResponse
+   */
+  async queryCallback(request: QueryCallbackRequest): Promise<QueryCallbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCallbackWithOptions(request, runtime);
+  }
+
+  /**
+   * 消息通知
+   * 
+   * @param request - QueryCallbackByPageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCallbackByPageResponse
+   */
+  async queryCallbackByPageWithOptions(request: QueryCallbackByPageRequest, runtime: $Util.RuntimeOptions): Promise<QueryCallbackByPageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.currentPage)) {
+      body["CurrentPage"] = request.currentPage;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCallbackByPage",
+      version: "2022-09-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCallbackByPageResponse>(await this.callApi(params, req, runtime), new QueryCallbackByPageResponse({}));
+  }
+
+  /**
+   * 消息通知
+   * 
+   * @param request - QueryCallbackByPageRequest
+   * @returns QueryCallbackByPageResponse
+   */
+  async queryCallbackByPage(request: QueryCallbackByPageRequest): Promise<QueryCallbackByPageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCallbackByPageWithOptions(request, runtime);
   }
 
   /**
