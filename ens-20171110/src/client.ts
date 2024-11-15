@@ -4175,6 +4175,108 @@ export class CreateForwardEntryResponse extends $tea.Model {
   }
 }
 
+export class CreateHaVipRequest extends $tea.Model {
+  /**
+   * @example
+   * 6
+   */
+  amount?: number;
+  /**
+   * @example
+   * testDescription
+   */
+  description?: string;
+  /**
+   * @example
+   * 120.24.243.91
+   */
+  ipAddress?: string;
+  /**
+   * @example
+   * yourName
+   */
+  name?: string;
+  /**
+   * @example
+   * vsw-5****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      description: 'Description',
+      ipAddress: 'IpAddress',
+      name: 'Name',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      description: 'string',
+      ipAddress: 'string',
+      name: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHaVipResponseBody extends $tea.Model {
+  haVipIds?: string[];
+  /**
+   * @example
+   * AAE90880-4970-4D81-A534-A6C0F3631F74
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      haVipIds: 'HaVipIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      haVipIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateHaVipResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateHaVipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateHaVipResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateImageRequest extends $tea.Model {
   /**
    * @remarks
@@ -8943,6 +9045,100 @@ export class DeleteForwardEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteForwardEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHaVipsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  haVipIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      haVipIds: 'HaVipIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      haVipIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHaVipsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  haVipIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      haVipIdsShrink: 'HaVipIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      haVipIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHaVipsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 6666C5A5-75ED-422E-A022-7121FA18C968
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteHaVipsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteHaVipsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteHaVipsResponseBody,
     };
   }
 
@@ -58038,6 +58234,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建高可用VIP
+   * 
+   * @param request - CreateHaVipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateHaVipResponse
+   */
+  async createHaVipWithOptions(request: CreateHaVipRequest, runtime: $Util.RuntimeOptions): Promise<CreateHaVipResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ipAddress)) {
+      query["IpAddress"] = request.ipAddress;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateHaVip",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateHaVipResponse>(await this.callApi(params, req, runtime), new CreateHaVipResponse({}));
+  }
+
+  /**
+   * 创建高可用VIP
+   * 
+   * @param request - CreateHaVipRequest
+   * @returns CreateHaVipResponse
+   */
+  async createHaVip(request: CreateHaVipRequest): Promise<CreateHaVipResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createHaVipWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an image from an instance.
    * 
    * @param request - CreateImageRequest
@@ -60113,6 +60367,54 @@ export default class Client extends OpenApi {
   async deleteForwardEntry(request: DeleteForwardEntryRequest): Promise<DeleteForwardEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteForwardEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除高可用VIP实例
+   * 
+   * @param tmpReq - DeleteHaVipsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHaVipsResponse
+   */
+  async deleteHaVipsWithOptions(tmpReq: DeleteHaVipsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHaVipsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteHaVipsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.haVipIds)) {
+      request.haVipIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.haVipIds, "HaVipIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.haVipIdsShrink)) {
+      query["HaVipIds"] = request.haVipIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteHaVips",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteHaVipsResponse>(await this.callApi(params, req, runtime), new DeleteHaVipsResponse({}));
+  }
+
+  /**
+   * 删除高可用VIP实例
+   * 
+   * @param request - DeleteHaVipsRequest
+   * @returns DeleteHaVipsResponse
+   */
+  async deleteHaVips(request: DeleteHaVipsRequest): Promise<DeleteHaVipsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteHaVipsWithOptions(request, runtime);
   }
 
   /**
