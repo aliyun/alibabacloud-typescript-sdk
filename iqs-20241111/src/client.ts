@@ -328,8 +328,129 @@ export class WeiboItem extends $tea.Model {
   }
 }
 
-export class GenericSearchRequest extends $tea.Model {
+export class AiSearchRequest extends $tea.Model {
+  /**
+   * @example
+   * finance
+   */
+  industry?: string;
+  /**
+   * @example
+   * {\\"total_count\\": 6851, \\"page_number\\": 54, \\"page_size\\": 100}
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   query?: string;
+  /**
+   * @example
+   * 17dc8bcd-f34a-46d1-a7a3-0fa3d1ce3824
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * OneWeek
+   */
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      sessionId: 'sessionId',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'number',
+      query: 'string',
+      sessionId: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBody extends $tea.Model {
+  header?: AiSearchResponseBodyHeader;
+  /**
+   * @example
+   * {"header":{"eventId":"6f617de0-204f-406f-a9be-34779c06d498","event":"on_common_search_start","responseTime":120},"payload":"","requestId":"715d01a0-de7e-42c3-abca-b901fcd79b39"}
+   */
+  payload?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ECB2144C-E277-5434-80E6-12D26678D364
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: AiSearchResponseBodyHeader,
+      payload: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AiSearchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AiSearchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenericAdvancedSearchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  /**
+   * @example
+   * job-4065bee3-e7aa-49fc-aad2-a8e3a7fd6acd
+   */
+  sessionId?: string;
   /**
    * @example
    * OneWeek
@@ -338,6 +459,7 @@ export class GenericSearchRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       query: 'query',
+      sessionId: 'sessionId',
       timeRange: 'timeRange',
     };
   }
@@ -345,6 +467,75 @@ export class GenericSearchRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       query: 'string',
+      sessionId: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenericAdvancedSearchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenericSearchResult;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenericSearchResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenericSearchRequest extends $tea.Model {
+  industry?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  sessionId?: string;
+  /**
+   * @example
+   * OneWeek
+   */
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      sessionId: 'sessionId',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'number',
+      query: 'string',
+      sessionId: 'string',
       timeRange: 'string',
     };
   }
@@ -379,6 +570,43 @@ export class GenericSearchResponse extends $tea.Model {
   }
 }
 
+export class AiSearchResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * on_common_search_end
+   */
+  event?: string;
+  /**
+   * @example
+   * 988021f0-951a-43d0-ba4d-785359e7e7be
+   */
+  eventId?: string;
+  /**
+   * @example
+   * 1293
+   */
+  responseTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'event',
+      eventId: 'eventId',
+      responseTime: 'responseTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: 'string',
+      eventId: 'string',
+      responseTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -403,6 +631,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * AI搜索流式接口
+   * 
+   * @param request - AiSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AiSearchResponse
+   */
+  async aiSearchWithOptions(request: AiSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AiSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AiSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AiSearchResponse>(await this.callApi(params, req, runtime), new AiSearchResponse({}));
+  }
+
+  /**
+   * AI搜索流式接口
+   * 
+   * @param request - AiSearchRequest
+   * @returns AiSearchResponse
+   */
+  async aiSearch(request: AiSearchRequest): Promise<AiSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aiSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 增强版通用搜索
+   * 
+   * @param request - GenericAdvancedSearchRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenericAdvancedSearchResponse
+   */
+  async genericAdvancedSearchWithOptions(request: GenericAdvancedSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenericAdvancedSearchResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.query)) {
+      query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.timeRange)) {
+      query["timeRange"] = request.timeRange;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenericAdvancedSearch",
+      version: "2024-11-11",
+      protocol: "HTTPS",
+      pathname: `/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericAdvancedSearch`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenericAdvancedSearchResponse>(await this.callApi(params, req, runtime), new GenericAdvancedSearchResponse({}));
+  }
+
+  /**
+   * 增强版通用搜索
+   * 
+   * @param request - GenericAdvancedSearchRequest
+   * @returns GenericAdvancedSearchResponse
+   */
+  async genericAdvancedSearch(request: GenericAdvancedSearchRequest): Promise<GenericAdvancedSearchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.genericAdvancedSearchWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 通用搜索
    * 
    * @param request - GenericSearchRequest
@@ -413,8 +755,20 @@ export default class Client extends OpenApi {
   async genericSearchWithOptions(request: GenericSearchRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenericSearchResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.industry)) {
+      query["industry"] = request.industry;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["page"] = request.page;
+    }
+
     if (!Util.isUnset(request.query)) {
       query["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
     }
 
     if (!Util.isUnset(request.timeRange)) {
