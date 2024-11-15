@@ -1708,6 +1708,118 @@ export class DescribeDeviceInfoResponse extends $tea.Model {
   }
 }
 
+export class DescribeFaceGuardRiskRequest extends $tea.Model {
+  /**
+   * @example
+   * aba9830f471a4335af4612c8adaa91b0
+   */
+  bizId?: string;
+  /**
+   * @example
+   * McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+   */
+  deviceToken?: string;
+  /**
+   * @example
+   * e0c34a77f5ac40a5aa5e6ed20c35xxxx
+   */
+  outerOrderNo?: string;
+  /**
+   * @example
+   * FACE_GUARD
+   */
+  productCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizId: 'BizId',
+      deviceToken: 'DeviceToken',
+      outerOrderNo: 'OuterOrderNo',
+      productCode: 'ProductCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizId: 'string',
+      deviceToken: 'string',
+      outerOrderNo: 'string',
+      productCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceGuardRiskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83E0B4C10
+   */
+  requestId?: string;
+  resultObject?: DescribeFaceGuardRiskResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: DescribeFaceGuardRiskResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeFaceGuardRiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeFaceGuardRiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeFaceGuardRiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFaceVerifyRequest extends $tea.Model {
   /**
    * @example
@@ -5310,6 +5422,45 @@ export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $tea.Model {
   }
 }
 
+export class DescribeFaceGuardRiskResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * ROOT,VPN,HOOK
+   */
+  riakTags?: string;
+  /**
+   * @example
+   * {
+   *   "code": 200
+   *   "badNet":false,
+   *   "umid":"74e37355171ab62230063569350d368e",
+   *   "fileTags":"basic_root,basic_hook",
+   *   "queryCount":1,
+   *   "querySessionCount":1,
+   *   "queryUmidCount":1
+   *   "platform":"Android"
+   * }
+   */
+  riskExtends?: string;
+  static names(): { [key: string]: string } {
+    return {
+      riakTags: 'RiakTags',
+      riskExtends: 'RiskExtends',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      riakTags: 'string',
+      riskExtends: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeFaceVerifyResponseBodyResultObject extends $tea.Model {
   deviceRisk?: string;
   /**
@@ -7501,6 +7652,60 @@ export default class Client extends OpenApi {
   async describeDeviceInfo(request: DescribeDeviceInfoRequest): Promise<DescribeDeviceInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeDeviceInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 金融级人脸保镖服务
+   * 
+   * @param request - DescribeFaceGuardRiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeFaceGuardRiskResponse
+   */
+  async describeFaceGuardRiskWithOptions(request: DescribeFaceGuardRiskRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFaceGuardRiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bizId)) {
+      query["BizId"] = request.bizId;
+    }
+
+    if (!Util.isUnset(request.deviceToken)) {
+      query["DeviceToken"] = request.deviceToken;
+    }
+
+    if (!Util.isUnset(request.outerOrderNo)) {
+      query["OuterOrderNo"] = request.outerOrderNo;
+    }
+
+    if (!Util.isUnset(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeFaceGuardRisk",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeFaceGuardRiskResponse>(await this.callApi(params, req, runtime), new DescribeFaceGuardRiskResponse({}));
+  }
+
+  /**
+   * 金融级人脸保镖服务
+   * 
+   * @param request - DescribeFaceGuardRiskRequest
+   * @returns DescribeFaceGuardRiskResponse
+   */
+  async describeFaceGuardRisk(request: DescribeFaceGuardRiskRequest): Promise<DescribeFaceGuardRiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeFaceGuardRiskWithOptions(request, runtime);
   }
 
   /**
