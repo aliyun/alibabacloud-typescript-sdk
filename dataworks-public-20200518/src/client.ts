@@ -33661,9 +33661,9 @@ export class ListManualDagInstancesResponse extends $tea.Model {
 export class ListMeasureDataRequest extends $tea.Model {
   /**
    * @remarks
-   * The measurement component.
+   * The measurement component. Valid values:
    * 
-   * *   This parameter is set to Count if the DomainCode parameter is set to DideAlarmPhone or DideAlarmSms. In this case, statistics on the number of phone calls or text messages that are used to send alert notifications are collected.
+   * *   Count: phone call-based alerts and text message-based alerts
    * 
    * This parameter is required.
    * 
@@ -33673,7 +33673,7 @@ export class ListMeasureDataRequest extends $tea.Model {
   componentCode?: string;
   /**
    * @remarks
-   * The item to be measured. Valid values:
+   * The measurement item. Valid values:
    * 
    * *   DideAlarmPhone: phone call-based alerts
    * *   DideAlarmSms: text message-based alerts
@@ -33686,7 +33686,7 @@ export class ListMeasureDataRequest extends $tea.Model {
   domainCode?: string;
   /**
    * @remarks
-   * The end timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the last 30 days.
+   * The end timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the previous 30 days.
    * 
    * This parameter is required.
    * 
@@ -33696,7 +33696,7 @@ export class ListMeasureDataRequest extends $tea.Model {
   endTime?: number;
   /**
    * @remarks
-   * The start timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the last 30 days.
+   * The start timestamp of the measurement period, in milliseconds. The measurement period is calculated in days. You can query only the data within the previous 30 days.
    * 
    * This parameter is required.
    * 
@@ -48628,8 +48628,6 @@ export class UpdateQualityRuleRequest extends $tea.Model {
   /**
    * @remarks
    * The checker ID. Valid values: 2: indicates that the current value is compared with the average value of the previous 7 days. 3: indicates that the current value is compared with the average value of the previous 30 days. 4: indicates that the current value is compared with the value 1 day earlier. 5: indicates that the current value is compared with the value 7 days earlier. 6: indicates that the current value is compared with the value 30 days earlier. 7: indicates the variance between the current value and the value 7 days earlier. 8: indicates the variance between the current value and the value 30 days earlier. 9: indicates that the current value is compared with a fixed value. 10: indicates that the current value is compared with the value 1, 7, or 30 days earlier. 11: indicates that the current value is compared with the value of the previous cycle. You can call the [ListQualityRules](https://help.aliyun.com/document_detail/173995.html) operation to query the ID.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 9
@@ -95633,7 +95631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DataWorks计量数据
+   * Queries the statistics on the number of phone call-based alerts or text message-based alerts reported within the tenant to which your account belongs during the previous 30 days.
    * 
    * @param request - ListMeasureDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -95676,7 +95674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DataWorks计量数据
+   * Queries the statistics on the number of phone call-based alerts or text message-based alerts reported within the tenant to which your account belongs during the previous 30 days.
    * 
    * @param request - ListMeasureDataRequest
    * @returns ListMeasureDataResponse
