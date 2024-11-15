@@ -81,6 +81,7 @@ export class DemoCategory extends $tea.Model {
 }
 
 export class ForwardInfo extends $tea.Model {
+  accessType?: string[];
   /**
    * @example
    * dsw-notebook
@@ -98,33 +99,49 @@ export class ForwardInfo extends $tea.Model {
   enable?: boolean;
   /**
    * @example
-   * ngw-bp1uewa15k4iy5770****
+   * 10086
    */
-  natGatewayId?: string;
+  externalPort?: string;
   /**
    * @example
    * 22
    */
-  port?: string;
+  forwardPort?: string;
+  /**
+   * @example
+   * ssh
+   */
+  name?: string;
+  /**
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
+  natGatewayId?: string;
   SSHPublicKey?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       containerName: 'ContainerName',
       eipAllocationId: 'EipAllocationId',
       enable: 'Enable',
+      externalPort: 'ExternalPort',
+      forwardPort: 'ForwardPort',
+      name: 'Name',
       natGatewayId: 'NatGatewayId',
-      port: 'Port',
       SSHPublicKey: 'SSHPublicKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessType: { 'type': 'array', 'itemType': 'string' },
       containerName: 'string',
       eipAllocationId: 'string',
       enable: 'boolean',
+      externalPort: 'string',
+      forwardPort: 'string',
+      name: 'string',
       natGatewayId: 'string',
-      port: 'string',
       SSHPublicKey: 'string',
     };
   }
@@ -135,6 +152,7 @@ export class ForwardInfo extends $tea.Model {
 }
 
 export class ForwardInfoResponse extends $tea.Model {
+  accessType?: string[];
   connectInfo?: ForwardInfoResponseConnectInfo;
   /**
    * @example
@@ -153,35 +171,51 @@ export class ForwardInfoResponse extends $tea.Model {
   enable?: boolean;
   /**
    * @example
-   * ngw-bp1uewa15k4iy5770****
+   * 1024
    */
-  natGatewayId?: string;
+  externalPort?: string;
   /**
    * @example
    * 22
    */
-  port?: string;
+  forwardPort?: string;
+  /**
+   * @example
+   * ssh
+   */
+  name?: string;
+  /**
+   * @example
+   * ngw-bp1uewa15k4iy5770****
+   */
+  natGatewayId?: string;
   SSHPublicKey?: string;
   static names(): { [key: string]: string } {
     return {
+      accessType: 'AccessType',
       connectInfo: 'ConnectInfo',
       containerName: 'ContainerName',
       eipAllocationId: 'EipAllocationId',
       enable: 'Enable',
+      externalPort: 'ExternalPort',
+      forwardPort: 'ForwardPort',
+      name: 'Name',
       natGatewayId: 'NatGatewayId',
-      port: 'Port',
       SSHPublicKey: 'SSHPublicKey',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessType: { 'type': 'array', 'itemType': 'string' },
       connectInfo: ForwardInfoResponseConnectInfo,
       containerName: 'string',
       eipAllocationId: 'string',
       enable: 'boolean',
+      externalPort: 'string',
+      forwardPort: 'string',
+      name: 'string',
       natGatewayId: 'string',
-      port: 'string',
       SSHPublicKey: 'string',
     };
   }
