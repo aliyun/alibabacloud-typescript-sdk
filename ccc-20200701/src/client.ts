@@ -777,6 +777,121 @@ export class AddCasesResponse extends $tea.Model {
   }
 }
 
+export class AddFeedbackRequest extends $tea.Model {
+  feedback?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * thumbsUp
+   */
+  rating?: number;
+  /**
+   * @example
+   * f780ade8-****-458b-b067-63077946a570
+   */
+  taskId?: string;
+  /**
+   * @example
+   * Abstract:fields
+   */
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      feedback: 'Feedback',
+      instanceId: 'InstanceId',
+      rating: 'Rating',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      feedback: 'string',
+      instanceId: 'string',
+      rating: 'number',
+      taskId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFeedbackResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @example
+   * C81FD1A5-4B99-470A-A527-D80150228784
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddFeedbackResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddFeedbackResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddFeedbackResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddNumbersToSkillGroupRequest extends $tea.Model {
   instNumberGroupIdList?: string;
   /**
@@ -2834,9 +2949,20 @@ export class ChangeVisibilityRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * szpczf
    */
   instanceId?: string;
+  /**
+   * @example
+   * true
+   */
   invisible?: boolean;
+  /**
+   * @example
+   * sam@szpczf
+   */
   userId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2860,11 +2986,27 @@ export class ChangeVisibilityRequest extends $tea.Model {
 }
 
 export class ChangeVisibilityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ChangeVisibilityResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Internal service issue. Detail:.
+   */
   message?: string;
   params?: string[];
+  /**
+   * @example
+   * 24BE19E8-BF7D-4992-A35E-15EBA874F2E5
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5803,6 +5945,107 @@ export class DeleteDocumentsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * b7feb007-994a-497f-8934-2f0c6f89867c
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * EEEE671A-3E24-4A04-81E6-6C4F5B39DF75
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteInstanceResponseBody,
     };
   }
 
@@ -20347,6 +20590,130 @@ export class ListSkillLevelsOfUserResponse extends $tea.Model {
   }
 }
 
+export class ListSmsMetadataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ["SATISFACTION_SURVEY","CONTACT_FLOW_NODE"]
+   */
+  scenarioListJson?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      scenarioListJson: 'ScenarioListJson',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      scenarioListJson: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmsMetadataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  data?: ListSmsMetadataResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  params?: string[];
+  /**
+   * @example
+   * 8707EB29-BAED-4302-B999-40BA61877437
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      params: 'Params',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ListSmsMetadataResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      params: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmsMetadataResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSmsMetadataResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSmsMetadataResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTicketTasksRequest extends $tea.Model {
   /**
    * @remarks
@@ -30833,14 +31200,46 @@ export class CancelAttendedTransferResponseBodyData extends $tea.Model {
 
 export class ChangeVisibilityResponseBodyData extends $tea.Model {
   breakCode?: string;
+  /**
+   * @example
+   * Yealink SIP-T23G 44.84.203.6
+   */
   deviceId?: string;
+  /**
+   * @example
+   * 8001****
+   */
   extension?: string;
+  /**
+   * @example
+   * szpczf
+   */
   instanceId?: string;
+  /**
+   * @example
+   * job-330557290544431104
+   */
   jobId?: string;
+  /**
+   * @example
+   * False
+   */
   outboundScenario?: boolean;
   signedSkillGroupIdList?: string[];
+  /**
+   * @example
+   * sam@szpczf
+   */
   userId?: string;
+  /**
+   * @example
+   * Ready
+   */
   userState?: string;
+  /**
+   * @example
+   * ON_SITE
+   */
   workMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50587,6 +50986,106 @@ export class ListSkillLevelsOfUserResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListSmsMetadataResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 15772400000****
+   */
+  aliyunUid?: number;
+  description?: string;
+  /**
+   * @example
+   * ccc-test
+   */
+  instanceId?: string;
+  name?: string;
+  /**
+   * @example
+   * MISSED_CALL_NOTIFICATION
+   */
+  scenario?: string;
+  signName?: string;
+  /**
+   * @example
+   * 5ffc1c9a-4d3d-4019-*****-73255fb01d1c
+   */
+  smsMetadataId?: string;
+  /**
+   * @example
+   * SMS_468xxxx298
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      scenario: 'Scenario',
+      signName: 'SignName',
+      smsMetadataId: 'SmsMetadataId',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'number',
+      description: 'string',
+      instanceId: 'string',
+      name: 'string',
+      scenario: 'string',
+      signName: 'string',
+      smsMetadataId: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSmsMetadataResponseBodyData extends $tea.Model {
+  list?: ListSmsMetadataResponseBodyDataList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 100
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      list: 'List',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      list: { 'type': 'array', 'itemType': ListSmsMetadataResponseBodyDataList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTicketTasksResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -56417,6 +56916,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - AddFeedbackRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddFeedbackResponse
+   */
+  async addFeedbackWithOptions(request: AddFeedbackRequest, runtime: $Util.RuntimeOptions): Promise<AddFeedbackResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.feedback)) {
+      query["Feedback"] = request.feedback;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.rating)) {
+      query["Rating"] = request.rating;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddFeedback",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddFeedbackResponse>(await this.callApi(params, req, runtime), new AddFeedbackResponse({}));
+  }
+
+  /**
+   * @param request - AddFeedbackRequest
+   * @returns AddFeedbackResponse
+   */
+  async addFeedback(request: AddFeedbackRequest): Promise<AddFeedbackResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addFeedbackWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - AddNumbersToSkillGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddNumbersToSkillGroupResponse
@@ -58534,6 +59087,44 @@ export default class Client extends OpenApi {
   async deleteDocuments(request: DeleteDocumentsRequest): Promise<DeleteDocumentsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DeleteInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstanceWithOptions(request: DeleteInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteInstance",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteInstanceResponse>(await this.callApi(params, req, runtime), new DeleteInstanceResponse({}));
+  }
+
+  /**
+   * @param request - DeleteInstanceRequest
+   * @returns DeleteInstanceResponse
+   */
+  async deleteInstance(request: DeleteInstanceRequest): Promise<DeleteInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -64724,6 +65315,56 @@ export default class Client extends OpenApi {
   async listSkillLevelsOfUser(request: ListSkillLevelsOfUserRequest): Promise<ListSkillLevelsOfUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSkillLevelsOfUserWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListSmsMetadataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSmsMetadataResponse
+   */
+  async listSmsMetadataWithOptions(request: ListSmsMetadataRequest, runtime: $Util.RuntimeOptions): Promise<ListSmsMetadataResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.scenarioListJson)) {
+      query["ScenarioListJson"] = request.scenarioListJson;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSmsMetadata",
+      version: "2020-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSmsMetadataResponse>(await this.callApi(params, req, runtime), new ListSmsMetadataResponse({}));
+  }
+
+  /**
+   * @param request - ListSmsMetadataRequest
+   * @returns ListSmsMetadataResponse
+   */
+  async listSmsMetadata(request: ListSmsMetadataRequest): Promise<ListSmsMetadataResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSmsMetadataWithOptions(request, runtime);
   }
 
   /**
