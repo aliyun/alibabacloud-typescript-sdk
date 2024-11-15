@@ -5072,6 +5072,158 @@ export class GetInstanceListResponse extends $tea.Model {
   }
 }
 
+export class GetKafkaClientIpRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1716343502000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * group_name
+   */
+  group?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alikafka_post-cn-v0h1fgs2****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1716343501000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * topic_name
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * byInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      group: 'Group',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      startTime: 'StartTime',
+      topic: 'Topic',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      group: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+      startTime: 'number',
+      topic: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetKafkaClientIpResponseBodyData;
+  /**
+   * @example
+   * operation success.
+   */
+  message?: string;
+  /**
+   * @example
+   * E57A8862-DF68-4055-8E55-B80CB4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: GetKafkaClientIpResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetKafkaClientIpResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetKafkaClientIpResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetQuotaTipRequest extends $tea.Model {
   /**
    * @remarks
@@ -11206,6 +11358,25 @@ export class GetInstanceListResponseBodyInstanceListInstanceVOUpgradeServiceDeta
   }
 }
 
+export class GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds extends $tea.Model {
+  vSwitchIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      vSwitchIds: 'VSwitchIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Model {
   /**
    * @remarks
@@ -11215,6 +11386,8 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * {\\"enable.vpc_sasl_ssl\\":\\"false\\",\\"kafka.log.retention.hours\\":\\"66\\",\\"enable.acl\\":\\"false\\",\\"kafka.message.max.bytes\\":\\"6291456\\"}
    */
   allConfig?: string;
+  autoCreateGroupEnable?: boolean;
+  autoCreateTopicEnable?: boolean;
   /**
    * @remarks
    * The parameters that are returned for the ApsaraMQ for Confluent instance.
@@ -11228,6 +11401,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * 1577961819000
    */
   createTime?: number;
+  defaultPartitionNum?: number;
   /**
    * @remarks
    * The type of the network in which the instance is deployed. Valid values:
@@ -11555,6 +11729,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
    * vsw-bp1fvuw0ljd7vzmo3****
    */
   vSwitchId?: string;
+  vSwitchIds?: GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds;
   /**
    * @remarks
    * The instance status. The valid values are consistent with the values displayed in the ApsaraMQ for Kafka console. This parameter is used in the new version of ApsaraMQ for Kafka.
@@ -11601,8 +11776,11 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   static names(): { [key: string]: string } {
     return {
       allConfig: 'AllConfig',
+      autoCreateGroupEnable: 'AutoCreateGroupEnable',
+      autoCreateTopicEnable: 'AutoCreateTopicEnable',
       confluentConfig: 'ConfluentConfig',
       createTime: 'CreateTime',
+      defaultPartitionNum: 'DefaultPartitionNum',
       deployType: 'DeployType',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
@@ -11638,6 +11816,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       usedPartitionCount: 'UsedPartitionCount',
       usedTopicCount: 'UsedTopicCount',
       vSwitchId: 'VSwitchId',
+      vSwitchIds: 'VSwitchIds',
       viewInstanceStatusCode: 'ViewInstanceStatusCode',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
@@ -11647,8 +11826,11 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   static types(): { [key: string]: any } {
     return {
       allConfig: 'string',
+      autoCreateGroupEnable: 'boolean',
+      autoCreateTopicEnable: 'boolean',
       confluentConfig: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig,
       createTime: 'number',
+      defaultPartitionNum: 'number',
       deployType: 'number',
       diskSize: 'number',
       diskType: 'number',
@@ -11684,6 +11866,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       usedPartitionCount: 'number',
       usedTopicCount: 'number',
       vSwitchId: 'string',
+      vSwitchIds: GetInstanceListResponseBodyInstanceListInstanceVOVSwitchIds,
       viewInstanceStatusCode: 'number',
       vpcId: 'string',
       zoneId: 'string',
@@ -11706,6 +11889,154 @@ export class GetInstanceListResponseBodyInstanceList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceVO: { 'type': 'array', 'itemType': GetInstanceListResponseBodyInstanceListInstanceVO },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBodyDataDataDataDataData extends $tea.Model {
+  /**
+   * @example
+   * 58.210.117.154
+   */
+  ip?: string;
+  /**
+   * @example
+   * 3
+   */
+  num?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ip: 'Ip',
+      num: 'Num',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ip: 'string',
+      num: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBodyDataDataDataData extends $tea.Model {
+  data?: GetKafkaClientIpResponseBodyDataDataDataDataData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetKafkaClientIpResponseBodyDataDataDataDataData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBodyDataDataData extends $tea.Model {
+  data?: GetKafkaClientIpResponseBodyDataDataDataData;
+  /**
+   * @example
+   * OFFSET_COMMIT
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetKafkaClientIpResponseBodyDataDataDataData,
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBodyDataData extends $tea.Model {
+  data?: GetKafkaClientIpResponseBodyDataDataData[];
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': GetKafkaClientIpResponseBodyDataDataData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetKafkaClientIpResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  alert?: boolean;
+  data?: GetKafkaClientIpResponseBodyDataData;
+  /**
+   * @example
+   * 1716343502000
+   */
+  endDate?: number;
+  /**
+   * @example
+   * 1
+   */
+  searchTimeRange?: number;
+  /**
+   * @example
+   * 1716343501000
+   */
+  startDate?: number;
+  /**
+   * @example
+   * 7
+   */
+  timeLimitDay?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alert: 'Alert',
+      data: 'Data',
+      endDate: 'EndDate',
+      searchTimeRange: 'SearchTimeRange',
+      startDate: 'StartDate',
+      timeLimitDay: 'TimeLimitDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alert: 'boolean',
+      data: GetKafkaClientIpResponseBodyDataData,
+      endDate: 'number',
+      searchTimeRange: 'number',
+      startDate: 'number',
+      timeLimitDay: 'number',
     };
   }
 
@@ -14319,6 +14650,72 @@ export default class Client extends OpenApi {
   async getInstanceList(request: GetInstanceListRequest): Promise<GetInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取kafka客户端ip
+   * 
+   * @param request - GetKafkaClientIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKafkaClientIpResponse
+   */
+  async getKafkaClientIpWithOptions(request: GetKafkaClientIpRequest, runtime: $Util.RuntimeOptions): Promise<GetKafkaClientIpResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.group)) {
+      query["Group"] = request.group;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      query["Topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetKafkaClientIp",
+      version: "2019-09-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetKafkaClientIpResponse>(await this.callApi(params, req, runtime), new GetKafkaClientIpResponse({}));
+  }
+
+  /**
+   * 获取kafka客户端ip
+   * 
+   * @param request - GetKafkaClientIpRequest
+   * @returns GetKafkaClientIpResponse
+   */
+  async getKafkaClientIp(request: GetKafkaClientIpRequest): Promise<GetKafkaClientIpResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getKafkaClientIpWithOptions(request, runtime);
   }
 
   /**
