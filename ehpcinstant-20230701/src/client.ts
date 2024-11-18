@@ -3331,6 +3331,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
    * app-image
    */
   name?: string;
+  osTag?: string;
   /**
    * @example
    * v1.0
@@ -3344,6 +3345,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       imageId: 'ImageId',
       imageType: 'ImageType',
       name: 'Name',
+      osTag: 'OsTag',
       version: 'Version',
     };
   }
@@ -3356,6 +3358,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       imageId: 'string',
       imageType: 'string',
       name: 'string',
+      osTag: 'string',
       version: 'string',
     };
   }
