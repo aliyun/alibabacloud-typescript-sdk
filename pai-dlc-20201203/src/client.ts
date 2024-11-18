@@ -2608,11 +2608,13 @@ export class StatusTransitionItem extends $tea.Model {
 
 export class Tensorboard extends $tea.Model {
   accessibility?: string;
+  cpu?: number;
   /**
    * @example
    * datasource-test
    */
   dataSourceId?: string;
+  dataSourceType?: string;
   /**
    * @example
    * test
@@ -2643,6 +2645,9 @@ export class Tensorboard extends $tea.Model {
    * dlc-20210114104214-vf9lowjt3pso
    */
   jobId?: string;
+  maxRunningTimeMinutes?: number;
+  memory?: number;
+  options?: string;
   priority?: string;
   quotaId?: string;
   quotaName?: string;
@@ -2671,6 +2676,7 @@ export class Tensorboard extends $tea.Model {
    * /root/data
    */
   summaryPath?: string;
+  summaryRelativePath?: string;
   tensorboardDataSources?: TensorboardDataSourceSpec[];
   /**
    * @example
@@ -2683,6 +2689,7 @@ export class Tensorboard extends $tea.Model {
    * http://xxxxxx
    */
   tensorboardUrl?: string;
+  token?: string;
   /**
    * @example
    * lycxxxxx
@@ -2693,16 +2700,22 @@ export class Tensorboard extends $tea.Model {
    * tensorboard.pai
    */
   username?: string;
+  workspaceid?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
+      cpu: 'Cpu',
       dataSourceId: 'DataSourceId',
+      dataSourceType: 'DataSourceType',
       displayName: 'DisplayName',
       duration: 'Duration',
       gmtCreateTime: 'GmtCreateTime',
       gmtFinishTime: 'GmtFinishTime',
       gmtModifyTime: 'GmtModifyTime',
       jobId: 'JobId',
+      maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
+      memory: 'Memory',
+      options: 'Options',
       priority: 'Priority',
       quotaId: 'QuotaId',
       quotaName: 'QuotaName',
@@ -2711,25 +2724,33 @@ export class Tensorboard extends $tea.Model {
       requestId: 'RequestId',
       status: 'Status',
       summaryPath: 'SummaryPath',
+      summaryRelativePath: 'SummaryRelativePath',
       tensorboardDataSources: 'TensorboardDataSources',
       tensorboardId: 'TensorboardId',
       tensorboardSpec: 'TensorboardSpec',
       tensorboardUrl: 'TensorboardUrl',
+      token: 'Token',
       userId: 'UserId',
       username: 'Username',
+      workspaceid: 'Workspaceid',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       accessibility: 'string',
+      cpu: 'number',
       dataSourceId: 'string',
+      dataSourceType: 'string',
       displayName: 'string',
       duration: 'string',
       gmtCreateTime: 'string',
       gmtFinishTime: 'string',
       gmtModifyTime: 'string',
       jobId: 'string',
+      maxRunningTimeMinutes: 'number',
+      memory: 'number',
+      options: 'string',
       priority: 'string',
       quotaId: 'string',
       quotaName: 'string',
@@ -2738,12 +2759,15 @@ export class Tensorboard extends $tea.Model {
       requestId: 'string',
       status: 'string',
       summaryPath: 'string',
+      summaryRelativePath: 'string',
       tensorboardDataSources: { 'type': 'array', 'itemType': TensorboardDataSourceSpec },
       tensorboardId: 'string',
       tensorboardSpec: TensorboardSpec,
       tensorboardUrl: 'string',
+      token: 'string',
       userId: 'string',
       username: 'string',
+      workspaceid: 'string',
     };
   }
 
@@ -5646,6 +5670,7 @@ export class UpdateTensorboardRequest extends $tea.Model {
    * MaxRunningTimeMinutes
    */
   maxRunningTimeMinutes?: number;
+  priority?: string;
   /**
    * @example
    * 380
@@ -5655,6 +5680,7 @@ export class UpdateTensorboardRequest extends $tea.Model {
     return {
       accessibility: 'Accessibility',
       maxRunningTimeMinutes: 'MaxRunningTimeMinutes',
+      priority: 'Priority',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -5663,6 +5689,7 @@ export class UpdateTensorboardRequest extends $tea.Model {
     return {
       accessibility: 'string',
       maxRunningTimeMinutes: 'number',
+      priority: 'string',
       workspaceId: 'string',
     };
   }
@@ -7752,6 +7779,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxRunningTimeMinutes)) {
       query["MaxRunningTimeMinutes"] = request.maxRunningTimeMinutes;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
