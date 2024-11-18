@@ -7041,6 +7041,145 @@ export class CreateNetworkAclEntryResponse extends $tea.Model {
   }
 }
 
+export class CreateNetworkInterfaceRequest extends $tea.Model {
+  /**
+   * @example
+   * example
+   */
+  description?: string;
+  /**
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  securityGroupIds?: string[];
+  /**
+   * @example
+   * vsw-5****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      securityGroupIds: 'SecurityGroupIds',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      securityGroupIds: { 'type': 'array', 'itemType': 'string' },
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * example
+   */
+  description?: string;
+  /**
+   * @example
+   * name
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  securityGroupIdsShrink?: string;
+  /**
+   * @example
+   * vsw-5****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      securityGroupIdsShrink: 'SecurityGroupIds',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      securityGroupIdsShrink: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponseBody extends $tea.Model {
+  networkInterfaceIds?: string[];
+  /**
+   * @example
+   * F3B261DD-3858-4D3C-877D-303ADF374600
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceIds: 'NetworkInterfaceIds',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceIds: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNetworkInterfaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNetworkInterfaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNetworkInterfaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSDGRequest extends $tea.Model {
   /**
    * @remarks
@@ -9850,6 +9989,100 @@ export class DeleteNetworkAclEntryResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNetworkAclEntryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkInterfacesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  networkInterfaceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceIds: 'NetworkInterfaceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkInterfacesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  networkInterfaceIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      networkInterfaceIdsShrink: 'NetworkInterfaceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      networkInterfaceIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkInterfacesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteNetworkInterfacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteNetworkInterfacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteNetworkInterfacesResponseBody,
     };
   }
 
@@ -42933,6 +43166,8 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
    * 2021-11-11T14:34:55+08:00
    */
   creationTime?: string;
+  deleteWithInstance?: boolean;
+  description?: string;
   /**
    * @remarks
    * The billing method of the cloud disk or local disk. Valid values:
@@ -43074,6 +43309,8 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
     return {
       category: 'Category',
       creationTime: 'CreationTime',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
       diskChargeType: 'DiskChargeType',
       diskId: 'DiskId',
       diskName: 'DiskName',
@@ -43095,6 +43332,8 @@ export class DescribeDisksResponseBodyDisksDisks extends $tea.Model {
     return {
       category: 'string',
       creationTime: 'string',
+      deleteWithInstance: 'boolean',
+      description: 'string',
       diskChargeType: 'string',
       diskId: 'string',
       diskName: 'string',
@@ -59442,6 +59681,66 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建弹性网卡
+   * 
+   * @param tmpReq - CreateNetworkInterfaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNetworkInterfaceResponse
+   */
+  async createNetworkInterfaceWithOptions(tmpReq: CreateNetworkInterfaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNetworkInterfaceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateNetworkInterfaceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.securityGroupIds)) {
+      request.securityGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.securityGroupIds, "SecurityGroupIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.securityGroupIdsShrink)) {
+      query["SecurityGroupIds"] = request.securityGroupIdsShrink;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNetworkInterface",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNetworkInterfaceResponse>(await this.callApi(params, req, runtime), new CreateNetworkInterfaceResponse({}));
+  }
+
+  /**
+   * 创建弹性网卡
+   * 
+   * @param request - CreateNetworkInterfaceRequest
+   * @returns CreateNetworkInterfaceResponse
+   */
+  async createNetworkInterface(request: CreateNetworkInterfaceRequest): Promise<CreateNetworkInterfaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNetworkInterfaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a shared data group (SDG) on an Android in Container (AIC) instance.
    * 
    * @remarks
@@ -60793,6 +61092,54 @@ export default class Client extends OpenApi {
   async deleteNetworkAclEntry(request: DeleteNetworkAclEntryRequest): Promise<DeleteNetworkAclEntryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNetworkAclEntryWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除弹性网卡
+   * 
+   * @param tmpReq - DeleteNetworkInterfacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNetworkInterfacesResponse
+   */
+  async deleteNetworkInterfacesWithOptions(tmpReq: DeleteNetworkInterfacesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteNetworkInterfacesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteNetworkInterfacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.networkInterfaceIds)) {
+      request.networkInterfaceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkInterfaceIds, "NetworkInterfaceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.networkInterfaceIdsShrink)) {
+      query["NetworkInterfaceIds"] = request.networkInterfaceIdsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteNetworkInterfaces",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteNetworkInterfacesResponse>(await this.callApi(params, req, runtime), new DeleteNetworkInterfacesResponse({}));
+  }
+
+  /**
+   * 删除弹性网卡
+   * 
+   * @param request - DeleteNetworkInterfacesRequest
+   * @returns DeleteNetworkInterfacesResponse
+   */
+  async deleteNetworkInterfaces(request: DeleteNetworkInterfacesRequest): Promise<DeleteNetworkInterfacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteNetworkInterfacesWithOptions(request, runtime);
   }
 
   /**
