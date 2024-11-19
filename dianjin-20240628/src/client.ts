@@ -7118,6 +7118,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckListOriginDial
 }
 
 export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $tea.Model {
+  bizType?: string;
   checkExplanation?: string;
   /**
    * @example
@@ -7157,8 +7158,10 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
    * wcm_start
    */
   ruleId?: string;
+  ruleType?: string;
   static names(): { [key: string]: string } {
     return {
+      bizType: 'bizType',
       checkExplanation: 'checkExplanation',
       checkPassed: 'checkPassed',
       checkProcess: 'checkProcess',
@@ -7170,11 +7173,13 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
       qualityGroupId: 'qualityGroupId',
       ruleDescription: 'ruleDescription',
       ruleId: 'ruleId',
+      ruleType: 'ruleType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      bizType: 'string',
       checkExplanation: 'string',
       checkPassed: 'string',
       checkProcess: 'string',
@@ -7186,6 +7191,7 @@ export class GetQualityCheckTaskResultResponseBodyDataQualityCheckList extends $
       qualityGroupId: 'string',
       ruleDescription: 'string',
       ruleId: 'string',
+      ruleType: 'string',
     };
   }
 
