@@ -2565,6 +2565,8 @@ export class CreateEdgeContainerAppRecordResponse extends $tea.Model {
 export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2573,6 +2575,9 @@ export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The container group to be deployed for this version, which contains information about images.\\
+   * The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2598,6 +2603,8 @@ export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
   containers?: CreateEdgeContainerAppVersionRequestContainers[];
   /**
    * @remarks
+   * The version name, which must be 6 to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2605,6 +2612,9 @@ export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The description of the version.
+   * 
    * @example
    * test app
    */
@@ -2635,6 +2645,8 @@ export class CreateEdgeContainerAppVersionRequest extends $tea.Model {
 export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2643,6 +2655,9 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The container group to be deployed for this version, which contains information about images.\\
+   * The image data contains the image address, startup command, parameters, environment variables, and probe rules. You can specify one or more images. The parameter value is a JSON string.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2668,6 +2683,8 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
   containersShrink?: string;
   /**
    * @remarks
+   * The version name, which must be 6 to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2675,6 +2692,9 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The description of the version.
+   * 
    * @example
    * test app
    */
@@ -2704,11 +2724,17 @@ export class CreateEdgeContainerAppVersionShrinkRequest extends $tea.Model {
 
 export class CreateEdgeContainerAppVersionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the created version.
+   * 
    * @example
    * ver-87962637161651****
    */
@@ -7895,57 +7921,6 @@ export class DescribeHttpDDoSAttackProtectionResponse extends $tea.Model {
   }
 }
 
-export class DescribeIPRangeListResponseBody extends $tea.Model {
-  content?: DescribeIPRangeListResponseBodyContent[];
-  /**
-   * @example
-   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: { 'type': 'array', 'itemType': DescribeIPRangeListResponseBodyContent },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIPRangeListResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeIPRangeListResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeIPRangeListResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DescribeKvAccountStatusResponseBody extends $tea.Model {
   /**
    * @example
@@ -12199,17 +12174,25 @@ export class ListCacheReserveInstancesResponse extends $tea.Model {
 
 export class ListClientCertificatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12239,32 +12222,54 @@ export class ListClientCertificatesRequest extends $tea.Model {
 
 export class ListClientCertificatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The client certificates.
+   */
   result?: ListClientCertificatesResponseBodyResult[];
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 5
    */
@@ -13912,7 +13917,7 @@ export class ListRecordsRequest extends $tea.Model {
    * @example
    * true
    */
-  proxied?: string;
+  proxied?: boolean;
   /**
    * @example
    * fuzzy
@@ -13960,7 +13965,7 @@ export class ListRecordsRequest extends $tea.Model {
       bizName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      proxied: 'string',
+      proxied: 'boolean',
       recordMatchType: 'string',
       recordName: 'string',
       siteId: 'number',
@@ -22346,45 +22351,73 @@ export class BatchPutKvRequestKvList extends $tea.Model {
 
 export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends $tea.Model {
   /**
+   * @remarks
+   * The domain name of the Container Registry image.
+   * 
    * @example
    * 1500.***.net
    */
   domain?: string;
   /**
+   * @remarks
+   * The ID of the Container Registry instance.
+   * 
    * @example
    * xcdn-9axbo****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether the image is an enterprise-level Container Registry image.
+   * 
    * @example
    * false
    */
   isEnterpriseRegistry?: boolean;
   /**
+   * @remarks
+   * The regions in which the Container Registry instance resides.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the image repository.
+   * 
    * @example
    * crr-h1ghghu60ct****
    */
   repoId?: string;
   /**
+   * @remarks
+   * The name of the image repository.
+   * 
    * @example
    * test_71
    */
   repoName?: string;
   /**
+   * @remarks
+   * The namespace to which the image repository belongs.
+   * 
    * @example
    * safeline
    */
   repoNamespace?: string;
   /**
+   * @remarks
+   * The tag of the Container Registry image.
+   * 
    * @example
    * 3.40.2
    */
   tag?: string;
+  /**
+   * @remarks
+   * The URL of the Container Registry image tag.
+   */
   tagUrl?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22421,56 +22454,89 @@ export class CreateEdgeContainerAppVersionRequestContainersACRImageInfo extends 
 
 export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends $tea.Model {
   /**
+   * @remarks
+   * The command of the exec type probe.
+   * 
    * @example
    * echo ok
    */
   command?: string;
   /**
+   * @remarks
+   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * 
    * @example
    * 3
    */
   failureThreshold?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
    * @example
    * www.rewrite.com
    */
   host?: string;
   /**
+   * @remarks
+   * The request headers that are included in the container health check request.
+   * 
    * @example
    * [{\\"Content-Type\\":\\"application/json\\"}]
    */
   httpHeaders?: string;
   /**
+   * @remarks
+   * The latency for container probe initialization.
+   * 
    * @example
    * 1
    */
   initialDelaySeconds?: number;
   /**
+   * @remarks
+   * The health check path.
+   * 
    * @example
    * /
    */
   path?: string;
   /**
+   * @remarks
+   * The interval between container health checks.
+   * 
    * @example
    * 1
    */
   periodSeconds?: number;
   /**
+   * @remarks
+   * The health check port.
+   * 
    * @example
    * 9991
    */
   port?: number;
   /**
+   * @remarks
+   * The protocol that the container health check request uses.
+   * 
    * @example
    * http
    */
   scheme?: string;
   /**
+   * @remarks
+   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * 
    * @example
    * 1
    */
   successThreshold?: number;
   /**
+   * @remarks
+   * The timeout period of the container health check.
+   * 
    * @example
    * 1
    */
@@ -22513,12 +22579,39 @@ export class CreateEdgeContainerAppVersionRequestContainersProbeContent extends 
 }
 
 export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the Container Registry image.
+   */
   ACRImageInfo?: CreateEdgeContainerAppVersionRequestContainersACRImageInfo;
+  /**
+   * @remarks
+   * The arguments that are passed to the container startup command. Separate the parameters with spaces.
+   * 
+   * @example
+   * -a
+   */
   args?: string;
+  /**
+   * @remarks
+   * The command that is used to start the container. Separate the arguments with spaces.
+   * 
+   * @example
+   * nginx
+   */
   command?: string;
+  /**
+   * @remarks
+   * The environment variables. Separate the environment variables with commas (,).
+   * 
+   * @example
+   * VITE_APP_TITLE=My App
+   */
   envVariables?: string;
   /**
    * @remarks
+   * The address of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22527,6 +22620,8 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
   image?: string;
   /**
    * @remarks
+   * Specifies whether the image is a Container Registry image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22535,32 +22630,69 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
   isACRImage?: boolean;
   /**
    * @remarks
+   * The name of the container. The name must be unique in the same container group.
+   * 
    * This parameter is required.
    * 
    * @example
    * lxg-demo-er
    */
   name?: string;
+  /**
+   * @remarks
+   * The command that is run before the container is started. Separate the arguments with spaces.
+   * 
+   * @example
+   * sh poststart.sh "echo hello world"
+   */
   postStart?: string;
+  /**
+   * @remarks
+   * The command that is run before the container is stopped. Separate the arguments with spaces.
+   * 
+   * @example
+   * sh prestop.sh "echo hello world"
+   */
   preStop?: string;
   /**
    * @remarks
+   * The content of the container health probe.
+   * 
    * This parameter is required.
    */
   probeContent?: CreateEdgeContainerAppVersionRequestContainersProbeContent;
   /**
    * @remarks
+   * The type of the probe. Valid values:
+   * 
+   * *   exec: the command type.
+   * *   tcpSocket: the TCP probe type.
+   * *   httpGet: the HTTP access type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * exec
    */
   probeType?: string;
   /**
    * @remarks
+   * The compute specification of the container. Valid values: 1C2G, 2C4G, 2C8G, 4C8G, 4C16G, 8C16G, and 8C32G.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1C2G
    */
   spec?: string;
   /**
    * @remarks
+   * The storage capacity. Valid values: 0.5G, 10G, 20G, and 30G.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 0.5G
    */
   storage?: string;
   static names(): { [key: string]: string } {
@@ -23541,36 +23673,6 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
       startTime: 'string',
       target: 'string',
       targetId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeIPRangeListResponseBodyContent extends $tea.Model {
-  /**
-   * @example
-   * 172.16.0.0/12
-   */
-  cidr?: string;
-  /**
-   * @example
-   * IPv4
-   */
-  ipType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cidr: 'Cidr',
-      ipType: 'IpType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cidr: 'string',
-      ipType: 'string',
     };
   }
 
@@ -25445,71 +25547,113 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Mode
 
 export class ListClientCertificatesResponseBodyResult extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the CA certificate.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   CACertificateId?: string;
   /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
    * @example
    * www.example.com
    */
   commonName?: string;
   /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
    * @example
    * 2024-06-24 07:48:51
    */
   createTime?: string;
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
    */
   id?: string;
   /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
    * @example
    * GlobalSign nv-sa
    */
   issuer?: string;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * yourCertName
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
    * @example
    * 2024-03-31 02:08:00
    */
   notAfter?: string;
   /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
    * @example
    * 2023-03-31 02:08:00
    */
   notBefore?: string;
   /**
+   * @remarks
+   * The public key algorithm of the certificate.
+   * 
    * @example
    * RSA
    */
   pubkeyAlgorithm?: string;
   /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
    * @example
    * www.example.com,*.example.com
    */
   SAN?: string;
   /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
    * @example
    * SHA256-RSA
    */
   signatureAlgorithm?: string;
   /**
+   * @remarks
+   * The certificate status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The certificate type.
+   * 
    * @example
    * dcdn
    */
   type?: string;
   /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
    * @example
    * 2024-07-20 06:18:42
    */
@@ -29850,7 +29994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器应用的版本
+   * Creates a version for a containerized application. You can iterate the application based on the version.
    * 
    * @param tmpReq - CreateEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29899,7 +30043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器应用的版本
+   * Creates a version for a containerized application. You can iterate the application based on the version.
    * 
    * @param request - CreateEdgeContainerAppVersionRequest
    * @returns CreateEdgeContainerAppVersionResponse
@@ -32356,38 +32500,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询加速服务节点IP段列表
-   * 
-   * @param request - DescribeIPRangeListRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeIPRangeListResponse
-   */
-  async describeIPRangeListWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeIPRangeListResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
-    let params = new $OpenApi.Params({
-      action: "DescribeIPRangeList",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeIPRangeListResponse>(await this.callApi(params, req, runtime), new DescribeIPRangeListResponse({}));
-  }
-
-  /**
-   * 查询加速服务节点IP段列表
-   * @returns DescribeIPRangeListResponse
-   */
-  async describeIPRangeList(): Promise<DescribeIPRangeListResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeIPRangeListWithOptions(runtime);
-  }
-
-  /**
    * 查询账户的KV状态信
    * 
    * @param request - DescribeKvAccountStatusRequest
@@ -34133,7 +34245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下客户端证书列表
+   * Queries client certificates configured for a website.
    * 
    * @param request - ListClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34160,7 +34272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下客户端证书列表
+   * Queries client certificates configured for a website.
    * 
    * @param request - ListClientCertificatesRequest
    * @returns ListClientCertificatesResponse
