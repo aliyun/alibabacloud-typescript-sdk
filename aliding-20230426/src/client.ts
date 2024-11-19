@@ -4632,6 +4632,376 @@ export class CommitFileResponse extends $tea.Model {
   }
 }
 
+export class CopyDentryHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: CopyDentryHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: CopyDentryHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b9XJljElJv6RPGyA
+   */
+  dentryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24458420428
+   */
+  spaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b9XJljElJv6RPG
+   */
+  targetSpaceId?: string;
+  tenantContext?: CopyDentryRequestTenantContext;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA2
+   */
+  toNextDentryId?: string;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA4
+   */
+  toParentDentryId?: string;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA3
+   */
+  toPrevDentryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentryId: 'DentryId',
+      name: 'Name',
+      spaceId: 'SpaceId',
+      targetSpaceId: 'TargetSpaceId',
+      tenantContext: 'TenantContext',
+      toNextDentryId: 'ToNextDentryId',
+      toParentDentryId: 'ToParentDentryId',
+      toPrevDentryId: 'ToPrevDentryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryId: 'string',
+      name: 'string',
+      spaceId: 'string',
+      targetSpaceId: 'string',
+      tenantContext: CopyDentryRequestTenantContext,
+      toNextDentryId: 'string',
+      toParentDentryId: 'string',
+      toPrevDentryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b9XJljElJv6RPGyA
+   */
+  dentryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 24458420428
+   */
+  spaceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * b9XJljElJv6RPG
+   */
+  targetSpaceId?: string;
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA2
+   */
+  toNextDentryId?: string;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA4
+   */
+  toParentDentryId?: string;
+  /**
+   * @example
+   * b9XJljElJv6RPGyA3
+   */
+  toPrevDentryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentryId: 'DentryId',
+      name: 'Name',
+      spaceId: 'SpaceId',
+      targetSpaceId: 'TargetSpaceId',
+      tenantContextShrink: 'TenantContext',
+      toNextDentryId: 'ToNextDentryId',
+      toParentDentryId: 'ToParentDentryId',
+      toPrevDentryId: 'ToPrevDentryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryId: 'string',
+      name: 'string',
+      spaceId: 'string',
+      targetSpaceId: 'string',
+      tenantContextShrink: 'string',
+      toNextDentryId: 'string',
+      toParentDentryId: 'string',
+      toPrevDentryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * alidoc
+   */
+  contentType?: string;
+  /**
+   * @example
+   * 12345678
+   */
+  createdTime?: number;
+  creator?: { [key: string]: any };
+  /**
+   * @example
+   * abc
+   */
+  dentryId?: string;
+  /**
+   * @example
+   * file
+   */
+  dentryType?: string;
+  /**
+   * @example
+   * cdefg
+   */
+  dentryUuid?: string;
+  /**
+   * @example
+   * aabbcc
+   */
+  docKey?: string;
+  /**
+   * @example
+   * alidoc
+   */
+  extension?: string;
+  /**
+   * @example
+   * false
+   */
+  hasChildren?: boolean;
+  linkSourceInfo?: CopyDentryResponseBodyLinkSourceInfo;
+  /**
+   * @example
+   * hello
+   */
+  name?: string;
+  /**
+   * @example
+   * 测试组织/测试知识库/abc
+   */
+  path?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  space?: CopyDentryResponseBodySpace;
+  /**
+   * @example
+   * bcd
+   */
+  spaceId?: string;
+  /**
+   * @example
+   * 12345678
+   */
+  updatedTime?: number;
+  /**
+   * @example
+   * {\\"UserId\\": \\"353851\\", \\"Name\\": u\\"\\u848b\\u7fbd\\u4e2d\\"}
+   */
+  updater?: { [key: string]: any };
+  /**
+   * @example
+   * https://xxx.yy
+   */
+  url?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  visitorInfo?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'contentType',
+      createdTime: 'createdTime',
+      creator: 'creator',
+      dentryId: 'dentryId',
+      dentryType: 'dentryType',
+      dentryUuid: 'dentryUuid',
+      docKey: 'docKey',
+      extension: 'extension',
+      hasChildren: 'hasChildren',
+      linkSourceInfo: 'linkSourceInfo',
+      name: 'name',
+      path: 'path',
+      requestId: 'requestId',
+      space: 'space',
+      spaceId: 'spaceId',
+      updatedTime: 'updatedTime',
+      updater: 'updater',
+      url: 'url',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+      visitorInfo: 'visitorInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      createdTime: 'number',
+      creator: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      dentryId: 'string',
+      dentryType: 'string',
+      dentryUuid: 'string',
+      docKey: 'string',
+      extension: 'string',
+      hasChildren: 'boolean',
+      linkSourceInfo: CopyDentryResponseBodyLinkSourceInfo,
+      name: 'string',
+      path: 'string',
+      requestId: 'string',
+      space: CopyDentryResponseBodySpace,
+      spaceId: 'string',
+      updatedTime: 'number',
+      updater: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      url: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+      visitorInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CopyDentryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CopyDentryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeliveryPlanHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: CreateDeliveryPlanHeadersAccountContext;
@@ -14032,6 +14402,177 @@ export class GetCorpTasksResponse extends $tea.Model {
   }
 }
 
+export class GetDeptNoHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetDeptNoHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetDeptNoHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoRequest extends $tea.Model {
+  tenantContext?: GetDeptNoRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  deptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      deptId: 'deptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: GetDeptNoRequestTenantContext,
+      deptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  deptId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      deptId: 'deptId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      deptId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
+  deptNo?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptNo: 'deptNo',
+      requestId: 'requestId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptNo: 'string',
+      requestId: 'string',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeptNoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeptNoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDocContentHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetDocContentHeadersAccountContext;
@@ -19859,6 +20400,255 @@ export class GetOperationRecordsResponse extends $tea.Model {
   }
 }
 
+export class GetOrgLiveListHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetOrgLiveListHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetOrgLiveListHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * db4d318xxxxx
+   */
+  corpId?: string;
+  /**
+   * @example
+   * 1720211800000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1719211800000
+   */
+  startTime?: number;
+  tenantContext?: GetOrgLiveListRequestTenantContext;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      tenantContext: 'TenantContext',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+      tenantContext: GetOrgLiveListRequestTenantContext,
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * db4d318xxxxx
+   */
+  corpId?: string;
+  /**
+   * @example
+   * 1720211800000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1719211800000
+   */
+  startTime?: number;
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      corpId: 'CorpId',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      startTime: 'StartTime',
+      tenantContextShrink: 'TenantContext',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      corpId: 'string',
+      endTime: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      startTime: 'number',
+      tenantContextShrink: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  result?: GetOrgLiveListResponseBodyResult;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      result: 'result',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: GetOrgLiveListResponseBodyResult,
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOrgLiveListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOrgLiveListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProcessDefinitionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetProcessDefinitionHeadersAccountContext;
@@ -23155,6 +23945,7 @@ export class GetUserResponseBody extends $tea.Model {
    */
   title?: string;
   unionEmpExt?: GetUserResponseBodyUnionEmpExt;
+  unionid?: string;
   /**
    * @example
    * zhangsan
@@ -23198,6 +23989,7 @@ export class GetUserResponseBody extends $tea.Model {
       telephone: 'telephone',
       title: 'title',
       unionEmpExt: 'unionEmpExt',
+      unionid: 'unionid',
       userid: 'userid',
       workPlace: 'workPlace',
     };
@@ -23236,6 +24028,7 @@ export class GetUserResponseBody extends $tea.Model {
       telephone: 'string',
       title: 'string',
       unionEmpExt: GetUserResponseBodyUnionEmpExt,
+      unionid: 'string',
       userid: 'string',
       workPlace: 'string',
     };
@@ -37432,6 +38225,213 @@ export class SetColumnsVisibilityResponse extends $tea.Model {
   }
 }
 
+export class SetConferenceHostsHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: SetConferenceHostsHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: SetConferenceHostsHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * add
+   */
+  operationType?: string;
+  tenantContext?: SetConferenceHostsRequestTenantContext;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345"]
+   */
+  userIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationType: 'OperationType',
+      tenantContext: 'TenantContext',
+      userIds: 'UserIds',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationType: 'string',
+      tenantContext: SetConferenceHostsRequestTenantContext,
+      userIds: { 'type': 'array', 'itemType': 'string' },
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * add
+   */
+  operationType?: string;
+  tenantContextShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * [ "012345"]
+   */
+  userIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 607452e01401526ee39609e1
+   */
+  conferenceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operationType: 'OperationType',
+      tenantContextShrink: 'TenantContext',
+      userIdsShrink: 'UserIds',
+      conferenceId: 'conferenceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operationType: 'string',
+      tenantContextShrink: 'string',
+      userIdsShrink: 'string',
+      conferenceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  success?: boolean;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      success: 'success',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetConferenceHostsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetConferenceHostsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetRowsVisibilityHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: SetRowsVisibilityHeadersAccountContext;
@@ -45649,6 +46649,642 @@ export class CommitFileResponseBodyDentry extends $tea.Model {
   }
 }
 
+export class CopyDentryHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodyLinkSourceInfoIconUrl extends $tea.Model {
+  /**
+   * @example
+   * gh
+   */
+  line?: string;
+  /**
+   * @example
+   * def
+   */
+  small?: string;
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+      small: 'Small',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: 'string',
+      small: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodyLinkSourceInfo extends $tea.Model {
+  /**
+   * @example
+   * docx
+   */
+  extension?: string;
+  iconUrl?: CopyDentryResponseBodyLinkSourceInfoIconUrl;
+  /**
+   * @example
+   * def
+   */
+  id?: string;
+  /**
+   * @example
+   * 0
+   */
+  linkType?: number;
+  /**
+   * @example
+   * def
+   */
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      iconUrl: 'IconUrl',
+      id: 'Id',
+      linkType: 'LinkType',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      iconUrl: CopyDentryResponseBodyLinkSourceInfoIconUrl,
+      id: 'string',
+      linkType: 'number',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceHdIconVO extends $tea.Model {
+  /**
+   * @example
+   * http://
+   */
+  icon?: string;
+  /**
+   * @example
+   * type
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'Icon',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceIconVO extends $tea.Model {
+  /**
+   * @example
+   * http://
+   */
+  icon?: string;
+  /**
+   * @example
+   * type
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      icon: 'Icon',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      icon: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceOwner extends $tea.Model {
+  /**
+   * @example
+   * 小钉
+   */
+  name?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListCreator extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
+  name?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl extends $tea.Model {
+  /**
+   * @example
+   * gh
+   */
+  line?: string;
+  /**
+   * @example
+   * def
+   */
+  small?: string;
+  static names(): { [key: string]: string } {
+    return {
+      line: 'Line',
+      small: 'Small',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      line: 'string',
+      small: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListLinkSourceInfo extends $tea.Model {
+  /**
+   * @example
+   * docx
+   */
+  extension?: string;
+  iconUrl?: CopyDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl;
+  /**
+   * @example
+   * def
+   */
+  id?: string;
+  /**
+   * @example
+   * 0
+   */
+  linkType?: number;
+  /**
+   * @example
+   * def
+   */
+  spaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      iconUrl: 'IconUrl',
+      id: 'Id',
+      linkType: 'LinkType',
+      spaceId: 'SpaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      iconUrl: CopyDentryResponseBodySpaceRecentListLinkSourceInfoIconUrl,
+      id: 'string',
+      linkType: 'number',
+      spaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListStatisticalInfo extends $tea.Model {
+  wordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      wordCount: 'WordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      wordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListUpdater extends $tea.Model {
+  /**
+   * @example
+   * hello
+   */
+  name?: string;
+  /**
+   * @example
+   * 012345
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentListVisitorInfo extends $tea.Model {
+  dentryActions?: string[];
+  /**
+   * @example
+   * 1
+   */
+  roleCode?: string;
+  spaceActions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dentryActions: 'DentryActions',
+      roleCode: 'RoleCode',
+      spaceActions: 'SpaceActions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryActions: { 'type': 'array', 'itemType': 'string' },
+      roleCode: 'string',
+      spaceActions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceRecentList extends $tea.Model {
+  /**
+   * @example
+   * alidoc
+   */
+  contentType?: string;
+  /**
+   * @example
+   * 12345678
+   */
+  createdTime?: number;
+  creator?: CopyDentryResponseBodySpaceRecentListCreator;
+  /**
+   * @example
+   * abc
+   */
+  dentryId?: string;
+  /**
+   * @example
+   * file
+   */
+  dentryType?: string;
+  /**
+   * @example
+   * cdefg
+   */
+  dentryUuid?: string;
+  /**
+   * @example
+   * aabbcc
+   */
+  docKey?: string;
+  /**
+   * @example
+   * alidoc
+   */
+  extension?: string;
+  /**
+   * @example
+   * false
+   */
+  hasChildren?: boolean;
+  linkSourceInfo?: CopyDentryResponseBodySpaceRecentListLinkSourceInfo;
+  /**
+   * @example
+   * hello
+   */
+  name?: string;
+  /**
+   * @example
+   * 测试组织/测试知识库/abc
+   */
+  path?: string;
+  space?: any;
+  /**
+   * @example
+   * bcd
+   */
+  spaceId?: string;
+  statisticalInfo?: CopyDentryResponseBodySpaceRecentListStatisticalInfo;
+  /**
+   * @example
+   * 12345678
+   */
+  updatedTime?: number;
+  updater?: CopyDentryResponseBodySpaceRecentListUpdater;
+  /**
+   * @example
+   * https://xxx.yy
+   */
+  url?: string;
+  visitorInfo?: CopyDentryResponseBodySpaceRecentListVisitorInfo;
+  static names(): { [key: string]: string } {
+    return {
+      contentType: 'ContentType',
+      createdTime: 'CreatedTime',
+      creator: 'Creator',
+      dentryId: 'DentryId',
+      dentryType: 'DentryType',
+      dentryUuid: 'DentryUuid',
+      docKey: 'DocKey',
+      extension: 'Extension',
+      hasChildren: 'HasChildren',
+      linkSourceInfo: 'LinkSourceInfo',
+      name: 'Name',
+      path: 'Path',
+      space: 'Space',
+      spaceId: 'SpaceId',
+      statisticalInfo: 'StatisticalInfo',
+      updatedTime: 'UpdatedTime',
+      updater: 'Updater',
+      url: 'Url',
+      visitorInfo: 'VisitorInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentType: 'string',
+      createdTime: 'number',
+      creator: CopyDentryResponseBodySpaceRecentListCreator,
+      dentryId: 'string',
+      dentryType: 'string',
+      dentryUuid: 'string',
+      docKey: 'string',
+      extension: 'string',
+      hasChildren: 'boolean',
+      linkSourceInfo: CopyDentryResponseBodySpaceRecentListLinkSourceInfo,
+      name: 'string',
+      path: 'string',
+      space: 'any',
+      spaceId: 'string',
+      statisticalInfo: CopyDentryResponseBodySpaceRecentListStatisticalInfo,
+      updatedTime: 'number',
+      updater: CopyDentryResponseBodySpaceRecentListUpdater,
+      url: 'string',
+      visitorInfo: CopyDentryResponseBodySpaceRecentListVisitorInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpaceVisitorInfo extends $tea.Model {
+  /**
+   * @example
+   * GET_DENTRY
+   */
+  dentryActions?: string[];
+  /**
+   * @example
+   * 3
+   */
+  roleCode?: string;
+  /**
+   * @example
+   * GET_SPACE
+   */
+  spaceActions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      dentryActions: 'DentryActions',
+      roleCode: 'RoleCode',
+      spaceActions: 'SpaceActions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryActions: { 'type': 'array', 'itemType': 'string' },
+      roleCode: 'string',
+      spaceActions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CopyDentryResponseBodySpace extends $tea.Model {
+  /**
+   * @example
+   * https://img.alicdn.com/imgextra/i1/O1xxxxx.png
+   */
+  cover?: string;
+  /**
+   * @example
+   * 这是简介
+   */
+  description?: string;
+  hdIconVO?: CopyDentryResponseBodySpaceHdIconVO;
+  iconVO?: CopyDentryResponseBodySpaceIconVO;
+  /**
+   * @example
+   * n9XJxxxxx
+   */
+  id?: string;
+  name?: string;
+  /**
+   * @example
+   * 测试知识库
+   */
+  owner?: CopyDentryResponseBodySpaceOwner;
+  recentList?: CopyDentryResponseBodySpaceRecentList[];
+  /**
+   * @example
+   * 1
+   */
+  type?: number;
+  /**
+   * @example
+   * https://alidocs.dingtalk.com/i/spaces/n9XJ*******Xy/overview
+   */
+  url?: string;
+  visitorInfo?: CopyDentryResponseBodySpaceVisitorInfo;
+  static names(): { [key: string]: string } {
+    return {
+      cover: 'Cover',
+      description: 'Description',
+      hdIconVO: 'HdIconVO',
+      iconVO: 'IconVO',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      recentList: 'RecentList',
+      type: 'Type',
+      url: 'Url',
+      visitorInfo: 'VisitorInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cover: 'string',
+      description: 'string',
+      hdIconVO: CopyDentryResponseBodySpaceHdIconVO,
+      iconVO: CopyDentryResponseBodySpaceIconVO,
+      id: 'string',
+      name: 'string',
+      owner: CopyDentryResponseBodySpaceOwner,
+      recentList: { 'type': 'array', 'itemType': CopyDentryResponseBodySpaceRecentList },
+      type: 'number',
+      url: 'string',
+      visitorInfo: CopyDentryResponseBodySpaceVisitorInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDeliveryPlanHeadersAccountContext extends $tea.Model {
   /**
    * @example
@@ -49308,6 +50944,55 @@ export class GetCorpTasksResponseBodyData extends $tea.Model {
       taskType: 'string',
       title: 'string',
       titleInEnglish: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeptNoRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -53776,6 +55461,310 @@ export class GetOperationRecordsResponseBodyResult extends $tea.Model {
       taskId: 'string',
       taskType: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $tea.Model {
+  /**
+   * @example
+   * nickName
+   */
+  anchorNickname?: string;
+  /**
+   * @example
+   * ersqqdddf
+   */
+  anchorUserId?: string;
+  /**
+   * @example
+   * 1398324600000
+   */
+  liveEndTime?: number;
+  /**
+   * @example
+   * 1398321600000
+   */
+  liveStartTime?: number;
+  /**
+   * @example
+   * 4d38xxxxx
+   */
+  liveUuid?: string;
+  /**
+   * @example
+   * 群OpenConversationId
+   */
+  shareOpenConversationIds?: string[];
+  /**
+   * @example
+   * 直播标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchorNickname: 'AnchorNickname',
+      anchorUserId: 'AnchorUserId',
+      liveEndTime: 'LiveEndTime',
+      liveStartTime: 'LiveStartTime',
+      liveUuid: 'LiveUuid',
+      shareOpenConversationIds: 'ShareOpenConversationIds',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorNickname: 'string',
+      anchorUserId: 'string',
+      liveEndTime: 'number',
+      liveStartTime: 'number',
+      liveUuid: 'string',
+      shareOpenConversationIds: { 'type': 'array', 'itemType': 'string' },
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBodyResultNewLive extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @example
+   * []
+   */
+  liveList?: GetOrgLiveListResponseBodyResultNewLiveLiveList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'HasMore',
+      liveList: 'LiveList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      liveList: { 'type': 'array', 'itemType': GetOrgLiveListResponseBodyResultNewLiveLiveList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $tea.Model {
+  /**
+   * @example
+   * nickName
+   */
+  anchorNickname?: string;
+  /**
+   * @example
+   * 012345
+   */
+  anchorUserId?: string;
+  /**
+   * @example
+   * 1398324600000
+   */
+  liveEndTime?: number;
+  /**
+   * @example
+   * 1398321600000
+   */
+  liveStartTime?: number;
+  /**
+   * @example
+   * 4d38xxxxx
+   */
+  liveUuid?: string;
+  /**
+   * @example
+   * 直播标题
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchorNickname: 'AnchorNickname',
+      anchorUserId: 'AnchorUserId',
+      liveEndTime: 'LiveEndTime',
+      liveStartTime: 'LiveStartTime',
+      liveUuid: 'LiveUuid',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorNickname: 'string',
+      anchorUserId: 'string',
+      liveEndTime: 'number',
+      liveStartTime: 'number',
+      liveUuid: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBodyResultUpdateLive extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @example
+   * []
+   */
+  liveList?: GetOrgLiveListResponseBodyResultUpdateLiveLiveList[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hasMore: 'HasMore',
+      liveList: 'LiveList',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasMore: 'boolean',
+      liveList: { 'type': 'array', 'itemType': GetOrgLiveListResponseBodyResultUpdateLiveLiveList },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgLiveListResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * 新建的直播列表
+   */
+  newLive?: GetOrgLiveListResponseBodyResultNewLive;
+  /**
+   * @example
+   * 修改的直播列表
+   */
+  updateLive?: GetOrgLiveListResponseBodyResultUpdateLive;
+  static names(): { [key: string]: string } {
+    return {
+      newLive: 'NewLive',
+      updateLive: 'UpdateLive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      newLive: GetOrgLiveListResponseBodyResultNewLive,
+      updateLive: GetOrgLiveListResponseBodyResultUpdateLive,
     };
   }
 
@@ -63221,6 +65210,7 @@ export class QueryMeetingRoomResponseBodyResult extends $tea.Model {
    * 0
    */
   roomStatus?: number;
+  roomUnionId?: string;
   static names(): { [key: string]: string } {
     return {
       corpId: 'CorpId',
@@ -63237,6 +65227,7 @@ export class QueryMeetingRoomResponseBodyResult extends $tea.Model {
       roomPicture: 'RoomPicture',
       roomStaffId: 'RoomStaffId',
       roomStatus: 'RoomStatus',
+      roomUnionId: 'RoomUnionId',
     };
   }
 
@@ -63256,6 +65247,7 @@ export class QueryMeetingRoomResponseBodyResult extends $tea.Model {
       roomPicture: 'string',
       roomStaffId: 'string',
       roomStatus: 'number',
+      roomUnionId: 'string',
     };
   }
 
@@ -66457,6 +68449,55 @@ export class SetColumnsVisibilityRequestTenantContext extends $tea.Model {
   /**
    * @example
    * 1
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetConferenceHostsRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
    */
   tenantId?: string;
   static names(): { [key: string]: string } {
@@ -70182,6 +72223,100 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new CommitFileHeaders({ });
     return await this.commitFileWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建知识库节点副本
+   * 
+   * @param tmpReq - CopyDentryRequest
+   * @param tmpHeader - CopyDentryHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CopyDentryResponse
+   */
+  async copyDentryWithOptions(tmpReq: CopyDentryRequest, tmpHeader: CopyDentryHeaders, runtime: $Util.RuntimeOptions): Promise<CopyDentryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CopyDentryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new CopyDentryShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dentryId)) {
+      body["DentryId"] = request.dentryId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.spaceId)) {
+      body["SpaceId"] = request.spaceId;
+    }
+
+    if (!Util.isUnset(request.targetSpaceId)) {
+      body["TargetSpaceId"] = request.targetSpaceId;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.toNextDentryId)) {
+      body["ToNextDentryId"] = request.toNextDentryId;
+    }
+
+    if (!Util.isUnset(request.toParentDentryId)) {
+      body["ToParentDentryId"] = request.toParentDentryId;
+    }
+
+    if (!Util.isUnset(request.toPrevDentryId)) {
+      body["ToPrevDentryId"] = request.toPrevDentryId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CopyDentry",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v2/documents/copyDentry`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CopyDentryResponse>(await this.callApi(params, req, runtime), new CopyDentryResponse({}));
+  }
+
+  /**
+   * 创建知识库节点副本
+   * 
+   * @param request - CopyDentryRequest
+   * @returns CopyDentryResponse
+   */
+  async copyDentry(request: CopyDentryRequest): Promise<CopyDentryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new CopyDentryHeaders({ });
+    return await this.copyDentryWithOptions(request, headers, runtime);
   }
 
   /**
@@ -74157,6 +76292,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param tmpReq - GetDeptNoRequest
+   * @param tmpHeader - GetDeptNoHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeptNoResponse
+   */
+  async getDeptNoWithOptions(tmpReq: GetDeptNoRequest, tmpHeader: GetDeptNoHeaders, runtime: $Util.RuntimeOptions): Promise<GetDeptNoResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetDeptNoShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetDeptNoShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.deptId)) {
+      body["deptId"] = request.deptId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeptNo",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/aliding/v1/dept/getDeptNo`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeptNoResponse>(await this.callApi(params, req, runtime), new GetDeptNoResponse({}));
+  }
+
+  /**
+   * @param request - GetDeptNoRequest
+   * @returns GetDeptNoResponse
+   */
+  async getDeptNo(request: GetDeptNoRequest): Promise<GetDeptNoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetDeptNoHeaders({ });
+    return await this.getDeptNoWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 委托权限获取文档内容
    * 
    * @param tmpReq - GetDocContentRequest
@@ -76610,6 +78811,92 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new GetOperationRecordsHeaders({ });
     return await this.getOperationRecordsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param tmpReq - GetOrgLiveListRequest
+   * @param tmpHeader - GetOrgLiveListHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrgLiveListResponse
+   */
+  async getOrgLiveListWithOptions(tmpReq: GetOrgLiveListRequest, tmpHeader: GetOrgLiveListHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrgLiveListResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetOrgLiveListShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetOrgLiveListShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.corpId)) {
+      body["CorpId"] = request.corpId;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOrgLiveList",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/getOrgLiveList`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOrgLiveListResponse>(await this.callApi(params, req, runtime), new GetOrgLiveListResponse({}));
+  }
+
+  /**
+   * @param request - GetOrgLiveListRequest
+   * @returns GetOrgLiveListResponse
+   */
+  async getOrgLiveList(request: GetOrgLiveListRequest): Promise<GetOrgLiveListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetOrgLiveListHeaders({ });
+    return await this.getOrgLiveListWithOptions(request, headers, runtime);
   }
 
   /**
@@ -83492,6 +85779,88 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new SetColumnsVisibilityHeaders({ });
     return await this.setColumnsVisibilityWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 设置联席主持人
+   * 
+   * @param tmpReq - SetConferenceHostsRequest
+   * @param tmpHeader - SetConferenceHostsHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetConferenceHostsResponse
+   */
+  async setConferenceHostsWithOptions(tmpReq: SetConferenceHostsRequest, tmpHeader: SetConferenceHostsHeaders, runtime: $Util.RuntimeOptions): Promise<SetConferenceHostsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetConferenceHostsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new SetConferenceHostsShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.userIds)) {
+      request.userIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.userIds, "UserIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.operationType)) {
+      body["OperationType"] = request.operationType;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.userIdsShrink)) {
+      body["UserIds"] = request.userIdsShrink;
+    }
+
+    if (!Util.isUnset(request.conferenceId)) {
+      body["conferenceId"] = request.conferenceId;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetConferenceHosts",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/setConferenceHosts`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetConferenceHostsResponse>(await this.callApi(params, req, runtime), new SetConferenceHostsResponse({}));
+  }
+
+  /**
+   * 设置联席主持人
+   * 
+   * @param request - SetConferenceHostsRequest
+   * @returns SetConferenceHostsResponse
+   */
+  async setConferenceHosts(request: SetConferenceHostsRequest): Promise<SetConferenceHostsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new SetConferenceHostsHeaders({ });
+    return await this.setConferenceHostsWithOptions(request, headers, runtime);
   }
 
   /**
