@@ -1836,6 +1836,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   cloudMonitorFlags?: boolean;
   /**
@@ -1883,6 +1885,7 @@ export class CreateClusterRequest extends $tea.Model {
    * 172.20.0.0/16
    */
   containerCidr?: string;
+  controlPlaneConfig?: CreateClusterRequestControlPlaneConfig;
   /**
    * @remarks
    * The control plane component for which you want to enable log collection.
@@ -1917,6 +1920,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * none
+   * 
+   * @deprecated
    */
   cpuPolicy?: string;
   /**
@@ -2002,6 +2007,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   formatDisk?: boolean;
   /**
@@ -2010,6 +2017,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * m-bp16z7xko3vvv8gt****
+   * 
+   * @deprecated
    */
   imageId?: string;
   /**
@@ -2030,6 +2039,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * AliyunLinux
+   * 
+   * @deprecated
    */
   imageType?: string;
   /**
@@ -2037,6 +2048,8 @@ export class CreateClusterRequest extends $tea.Model {
    * The existing Elastic Compute Service (ECS) instances that are specified as worker nodes for the cluster.
    * 
    * >  This parameter is required if you create worker nodes on existing ECS instances.
+   * 
+   * @deprecated
    */
   instances?: string[];
   /**
@@ -2074,6 +2087,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   keepInstanceName?: boolean;
   /**
@@ -2082,6 +2097,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * secrity-key
+   * 
+   * @deprecated
    */
   keyPair?: string;
   /**
@@ -2117,6 +2134,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * slb.s2.small
+   * 
+   * @deprecated
    */
   loadBalancerSpec?: string;
   /**
@@ -2133,6 +2152,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * Hello@1234
+   * 
+   * @deprecated
    */
   loginPassword?: string;
   /**
@@ -2151,6 +2172,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   masterAutoRenew?: boolean;
   /**
@@ -2163,6 +2186,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   masterAutoRenewPeriod?: number;
   /**
@@ -2173,6 +2198,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 3
+   * 
+   * @deprecated
    */
   masterCount?: number;
   /**
@@ -2186,11 +2213,15 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * PrePaid
+   * 
+   * @deprecated
    */
   masterInstanceChargeType?: string;
   /**
    * @remarks
    * The instance types of master nodes. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * 
+   * @deprecated
    */
   masterInstanceTypes?: string[];
   /**
@@ -2203,6 +2234,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   masterPeriod?: number;
   /**
@@ -2213,6 +2246,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * Month
+   * 
+   * @deprecated
    */
   masterPeriodUnit?: string;
   /**
@@ -2227,6 +2262,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * cloud_ssd
+   * 
+   * @deprecated
    */
   masterSystemDiskCategory?: string;
   /**
@@ -2235,6 +2272,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * PL1
+   * 
+   * @deprecated
    */
   masterSystemDiskPerformanceLevel?: string;
   /**
@@ -2245,6 +2284,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 120
+   * 
+   * @deprecated
    */
   masterSystemDiskSize?: number;
   /**
@@ -2253,6 +2294,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * sp-2zej1nogjvovnz4z****
+   * 
+   * @deprecated
    */
   masterSystemDiskSnapshotPolicyId?: string;
   /**
@@ -2260,6 +2303,8 @@ export class CreateClusterRequest extends $tea.Model {
    * The IDs of the vSwitches that are specified for master nodes. You can specify up to three vSwitches. We recommend that you specify three vSwitches in different zones to ensure high availability.
    * 
    * The number of vSwitches must be the same as that specified in `master_count` and the same as those specified in `master_vswitch_ids`.
+   * 
+   * @deprecated
    */
   masterVswitchIds?: string[];
   /**
@@ -2305,6 +2350,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * aliyun.com00055test
+   * 
+   * @deprecated
    */
   nodeNameMode?: string;
   /**
@@ -2348,6 +2395,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * Linux
+   * 
+   * @deprecated
    */
   osType?: string;
   /**
@@ -2391,6 +2440,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * CentOS
+   * 
+   * @deprecated
    */
   platform?: string;
   /**
@@ -2429,6 +2480,8 @@ export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
    * The ApsaraDB RDS instances. Select the ApsaraDB RDS instances that you want to add to the whitelist. We recommend that you add the pod CIDR block and node CIDR block to the ApsaraDB RDS instances in the ApsaraDB RDS console. When you configure the ApsaraDB RDS instances, you cannot scale out the number of nodes because the instances are not in the Running state.
+   * 
+   * @deprecated
    */
   rdsInstances?: string[];
   /**
@@ -2475,6 +2528,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   securityHardeningOs?: boolean;
   /**
@@ -2537,6 +2592,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * false
+   * 
+   * @deprecated
    */
   socEnabled?: boolean;
   /**
@@ -2563,6 +2620,8 @@ export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
    * The taint. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+   * 
+   * @deprecated
    */
   taints?: Taint[];
   /**
@@ -2573,6 +2632,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 60
+   * 
+   * @deprecated
    */
   timeoutMins?: number;
   /**
@@ -2798,6 +2859,7 @@ export class CreateClusterRequest extends $tea.Model {
       clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
       containerCidr: 'container_cidr',
+      controlPlaneConfig: 'control_plane_config',
       controlplaneLogComponents: 'controlplane_log_components',
       controlplaneLogProject: 'controlplane_log_project',
       controlplaneLogTtl: 'controlplane_log_ttl',
@@ -2900,6 +2962,7 @@ export class CreateClusterRequest extends $tea.Model {
       clusterSpec: 'string',
       clusterType: 'string',
       containerCidr: 'string',
+      controlPlaneConfig: CreateClusterRequestControlPlaneConfig,
       controlplaneLogComponents: { 'type': 'array', 'itemType': 'string' },
       controlplaneLogProject: 'string',
       controlplaneLogTtl: 'string',
@@ -5636,6 +5699,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
    * 172.20.0.0/16
    */
   containerCidr?: string;
+  controlPlaneConfig?: DescribeClusterDetailResponseBodyControlPlaneConfig;
   /**
    * @remarks
    * The time when the cluster was created.
@@ -5945,6 +6009,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       clusterSpec: 'cluster_spec',
       clusterType: 'cluster_type',
       containerCidr: 'container_cidr',
+      controlPlaneConfig: 'control_plane_config',
       created: 'created',
       currentVersion: 'current_version',
       deletionProtection: 'deletion_protection',
@@ -5989,6 +6054,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
       clusterSpec: 'string',
       clusterType: 'string',
       containerCidr: 'string',
+      controlPlaneConfig: DescribeClusterDetailResponseBodyControlPlaneConfig,
       created: 'string',
       currentVersion: 'string',
       deletionProtection: 'boolean',
@@ -11114,6 +11180,7 @@ export class ModifyClusterRequest extends $tea.Model {
    * cluster-new-name
    */
   clusterName?: string;
+  controlPlaneConfig?: ModifyClusterRequestControlPlaneConfig;
   /**
    * @remarks
    * Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
@@ -11203,6 +11270,7 @@ export class ModifyClusterRequest extends $tea.Model {
       apiServerEip: 'api_server_eip',
       apiServerEipId: 'api_server_eip_id',
       clusterName: 'cluster_name',
+      controlPlaneConfig: 'control_plane_config',
       deletionProtection: 'deletion_protection',
       enableRrsa: 'enable_rrsa',
       ingressDomainRebinding: 'ingress_domain_rebinding',
@@ -11223,6 +11291,7 @@ export class ModifyClusterRequest extends $tea.Model {
       apiServerEip: 'boolean',
       apiServerEipId: 'string',
       clusterName: 'string',
+      controlPlaneConfig: ModifyClusterRequestControlPlaneConfig,
       deletionProtection: 'boolean',
       enableRrsa: 'boolean',
       ingressDomainRebinding: 'boolean',
@@ -15739,6 +15808,94 @@ export class CheckServiceRoleResponseBodyRoles extends $tea.Model {
   }
 }
 
+export class CreateClusterRequestControlPlaneConfig extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  chargeType?: string;
+  cloudMonitorFlags?: boolean;
+  cpuPolicy?: string;
+  deploymentsetId?: string;
+  imageId?: string;
+  imageType?: string;
+  instanceTypes?: string[];
+  keyPair?: string;
+  loginPassword?: string;
+  nodePortRange?: string;
+  period?: number;
+  periodUnit?: string;
+  runtime?: string;
+  securityHardeningOs?: boolean;
+  size?: number;
+  socEnabled?: boolean;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
+  systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'auto_renew',
+      autoRenewPeriod: 'auto_renew_period',
+      chargeType: 'charge_type',
+      cloudMonitorFlags: 'cloud_monitor_flags',
+      cpuPolicy: 'cpu_policy',
+      deploymentsetId: 'deploymentset_id',
+      imageId: 'image_id',
+      imageType: 'image_type',
+      instanceTypes: 'instance_types',
+      keyPair: 'key_pair',
+      loginPassword: 'login_password',
+      nodePortRange: 'node_port_range',
+      period: 'period',
+      periodUnit: 'period_unit',
+      runtime: 'runtime',
+      securityHardeningOs: 'security_hardening_os',
+      size: 'size',
+      socEnabled: 'soc_enabled',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategory: 'system_disk_category',
+      systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
+      systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      chargeType: 'string',
+      cloudMonitorFlags: 'boolean',
+      cpuPolicy: 'string',
+      deploymentsetId: 'string',
+      imageId: 'string',
+      imageType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      keyPair: 'string',
+      loginPassword: 'string',
+      nodePortRange: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      runtime: 'string',
+      securityHardeningOs: 'boolean',
+      size: 'number',
+      socEnabled: 'boolean',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
+      systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateClusterRequestOperationPolicyClusterAutoUpgrade extends $tea.Model {
   /**
    * @remarks
@@ -17512,6 +17669,91 @@ export class DescribeAddonsResponseBodyComponentGroups extends $tea.Model {
     return {
       groupName: 'string',
       items: { 'type': 'array', 'itemType': DescribeAddonsResponseBodyComponentGroupsItems },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  chargeType?: string;
+  cloudMonitorFlags?: boolean;
+  cpuPolicy?: string;
+  deploymentsetId?: string;
+  imageId?: string;
+  imageType?: string;
+  instanceTypes?: string[];
+  keyPair?: string;
+  nodePortRange?: string;
+  period?: number;
+  periodUnit?: string;
+  runtime?: string;
+  securityHardeningOs?: boolean;
+  size?: number;
+  socEnabled?: boolean;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
+  systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'auto_renew',
+      autoRenewPeriod: 'auto_renew_period',
+      chargeType: 'charge_type',
+      cloudMonitorFlags: 'cloud_monitor_flags',
+      cpuPolicy: 'cpu_policy',
+      deploymentsetId: 'deploymentset_id',
+      imageId: 'image_id',
+      imageType: 'image_type',
+      instanceTypes: 'instance_types',
+      keyPair: 'key_pair',
+      nodePortRange: 'node_port_range',
+      period: 'period',
+      periodUnit: 'period_unit',
+      runtime: 'runtime',
+      securityHardeningOs: 'security_hardening_os',
+      size: 'size',
+      socEnabled: 'soc_enabled',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategory: 'system_disk_category',
+      systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
+      systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      chargeType: 'string',
+      cloudMonitorFlags: 'boolean',
+      cpuPolicy: 'string',
+      deploymentsetId: 'string',
+      imageId: 'string',
+      imageType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      keyPair: 'string',
+      nodePortRange: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      runtime: 'string',
+      securityHardeningOs: 'boolean',
+      size: 'number',
+      socEnabled: 'boolean',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
+      systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
     };
   }
 
@@ -23855,22 +24097,52 @@ export class DescribePolicyInstancesResponseBody extends $tea.Model {
    */
   policyAction?: string;
   /**
+   * @remarks
+   * Creation time (deprecated, do not use).
+   * 
+   * @example
+   * 2024-10-29T18:09:12+08:00
+   * 
    * @deprecated
    */
   created?: string;
   /**
+   * @remarks
+   * Update time (deprecated, do not use).
+   * 
+   * @example
+   * 2024-10-29T18:09:12+08:00
+   * 
    * @deprecated
    */
   updated?: string;
   /**
+   * @remarks
+   * Resource ID (deprecated, do not use).
+   * 
+   * @example
+   * 123456***
+   * 
    * @deprecated
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Violation count processing in the cluster (deprecated, do not use).
+   * 
+   * @example
+   * 0
+   * 
    * @deprecated
    */
   totalViolations?: number;
   /**
+   * @remarks
+   * Deletion status (deprecated, do not use).
+   * 
+   * @example
+   * 0
+   * 
    * @deprecated
    */
   isDeleted?: number;
@@ -26034,6 +26306,94 @@ export class ModifyClusterRequestApiServerCustomCertSans extends $tea.Model {
     return {
       action: 'string',
       subjectAlternativeNames: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyClusterRequestControlPlaneConfig extends $tea.Model {
+  autoRenew?: boolean;
+  autoRenewPeriod?: number;
+  chargeType?: string;
+  cloudMonitorFlags?: boolean;
+  cpuPolicy?: string;
+  deploymentsetId?: string;
+  imageId?: string;
+  imageType?: string;
+  instanceTypes?: string[];
+  keyPair?: string;
+  loginPassword?: string;
+  nodePortRange?: string;
+  period?: number;
+  periodUnit?: string;
+  runtime?: string;
+  securityHardeningOs?: boolean;
+  size?: number;
+  socEnabled?: boolean;
+  systemDiskBurstingEnabled?: boolean;
+  systemDiskCategory?: string;
+  systemDiskPerformanceLevel?: string;
+  systemDiskProvisionedIops?: number;
+  systemDiskSize?: number;
+  systemDiskSnapshotPolicyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'auto_renew',
+      autoRenewPeriod: 'auto_renew_period',
+      chargeType: 'charge_type',
+      cloudMonitorFlags: 'cloud_monitor_flags',
+      cpuPolicy: 'cpu_policy',
+      deploymentsetId: 'deploymentset_id',
+      imageId: 'image_id',
+      imageType: 'image_type',
+      instanceTypes: 'instance_types',
+      keyPair: 'key_pair',
+      loginPassword: 'login_password',
+      nodePortRange: 'node_port_range',
+      period: 'period',
+      periodUnit: 'period_unit',
+      runtime: 'runtime',
+      securityHardeningOs: 'security_hardening_os',
+      size: 'size',
+      socEnabled: 'soc_enabled',
+      systemDiskBurstingEnabled: 'system_disk_bursting_enabled',
+      systemDiskCategory: 'system_disk_category',
+      systemDiskPerformanceLevel: 'system_disk_performance_level',
+      systemDiskProvisionedIops: 'system_disk_provisioned_iops',
+      systemDiskSize: 'system_disk_size',
+      systemDiskSnapshotPolicyId: 'system_disk_snapshot_policy_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'boolean',
+      autoRenewPeriod: 'number',
+      chargeType: 'string',
+      cloudMonitorFlags: 'boolean',
+      cpuPolicy: 'string',
+      deploymentsetId: 'string',
+      imageId: 'string',
+      imageType: 'string',
+      instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      keyPair: 'string',
+      loginPassword: 'string',
+      nodePortRange: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      runtime: 'string',
+      securityHardeningOs: 'boolean',
+      size: 'number',
+      socEnabled: 'boolean',
+      systemDiskBurstingEnabled: 'boolean',
+      systemDiskCategory: 'string',
+      systemDiskPerformanceLevel: 'string',
+      systemDiskProvisionedIops: 'number',
+      systemDiskSize: 'number',
+      systemDiskSnapshotPolicyId: 'string',
     };
   }
 
@@ -28526,6 +28886,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.containerCidr)) {
       body["container_cidr"] = request.containerCidr;
+    }
+
+    if (!Util.isUnset(request.controlPlaneConfig)) {
+      body["control_plane_config"] = request.controlPlaneConfig;
     }
 
     if (!Util.isUnset(request.controlplaneLogComponents)) {
@@ -32927,6 +33291,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterName)) {
       body["cluster_name"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.controlPlaneConfig)) {
+      body["control_plane_config"] = request.controlPlaneConfig;
     }
 
     if (!Util.isUnset(request.deletionProtection)) {
