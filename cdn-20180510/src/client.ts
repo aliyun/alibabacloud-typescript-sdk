@@ -5006,6 +5006,9 @@ export class DescribeCdnDomainStagingConfigResponse extends $tea.Model {
 
 export class DescribeCdnFullDomainsBlockIPConfigRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IP address or CIDR block to query. Separate multiple values with commas (,). You can specify up to 50 IP addresses or CIDR blocks.
+   * 
    * @example
    * 1.XXX.XXX.1,2.XXX.XXX.2
    */
@@ -5029,16 +5032,31 @@ export class DescribeCdnFullDomainsBlockIPConfigRequest extends $tea.Model {
 
 export class DescribeCdnFullDomainsBlockIPConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
+   * The value of Code is not 0 in the following scenarios:
+   * 
+   * *   The format of the IP address is invalid.
+   * *   The number of IP addresses exceeds the upper limit.
+   * *   Other abnormal scenarios.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The returned results. If the operation is successful, URLs of OSS objects are returned. If the operation fails, an error message is returned.
+   * 
    * @example
    * http://xxxx-api.oss-cn-hangzhou.aliyuncs.com/blocklist%2Fxxxxxxxxxxxx.txt?Expires=1682663947&OSSAccessKeyId=xxxxxxxxxx&Signature=xxxxxx
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 95994621-8382-464B-8762-C708E73568D1
    */
@@ -5092,6 +5110,8 @@ export class DescribeCdnFullDomainsBlockIPConfigResponse extends $tea.Model {
 export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The end time must be later than the start time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5100,6 +5120,8 @@ export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The IP address or CIDR blocks to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5108,6 +5130,8 @@ export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
   IPList?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5137,17 +5161,36 @@ export class DescribeCdnFullDomainsBlockIPHistoryRequest extends $tea.Model {
 
 export class DescribeCdnFullDomainsBlockIPHistoryResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
+   * The value of Code is not 0 in the following scenarios:
+   * 
+   * *   The format of the IP address is invalid.
+   * *   The format of the time is invalid.
+   * *   Other abnormal scenarios.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The description of the status returned.
+   * 
    * @example
    * OK
    */
   description?: string;
+  /**
+   * @remarks
+   * The result of the operation.
+   */
   IPBlockInfo?: DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BCD7D917-76F1-442F-BB75-C810DE34C761
    */
@@ -6590,8 +6633,15 @@ export class DescribeCdnTypesRequest extends $tea.Model {
 }
 
 export class DescribeCdnTypesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The types of the domain names.
+   */
   cdnTypes?: DescribeCdnTypesResponseBodyCdnTypes;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BDA62CE4-3477-439A-B52E-D2D7C829D7C1
    */
@@ -7740,6 +7790,72 @@ export class DescribeCertificateInfoByIDResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeCertificateInfoByIDResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomDomainSampleRateRequest extends $tea.Model {
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomDomainSampleRateResponseBody extends $tea.Model {
+  content?: DescribeCustomDomainSampleRateResponseBodyContent;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: DescribeCustomDomainSampleRateResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomDomainSampleRateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCustomDomainSampleRateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCustomDomainSampleRateResponseBody,
     };
   }
 
@@ -17062,26 +17178,44 @@ export class DescribeUserCdnStatusRequest extends $tea.Model {
 
 export class DescribeUserCdnStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whetherAlibaba Cloud CDN is activated.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether your account has overdue payments.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   inDebt?: boolean;
   /**
+   * @remarks
+   * Indicates whether the grace period for your overdue payments expired.
+   * 
    * @example
    * false
    */
   inDebtOverdue?: boolean;
   /**
+   * @remarks
+   * Indicates whether the service is available.
+   * 
    * @example
    * true
    */
   onService?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 39B1DC7F-9D25-5D54-8F02-6EE26A7F48CA
    */
@@ -18359,6 +18493,64 @@ export class ListFCTriggerResponse extends $tea.Model {
   }
 }
 
+export class ListRealtimeLogDeliveryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The logging information.
+   */
+  content?: ListRealtimeLogDeliveryResponseBodyContent;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 30559C03-86C9-4EEC-B840-0DC5F5A2189B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: ListRealtimeLogDeliveryResponseBodyContent,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRealtimeLogDeliveryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRealtimeLogDeliveryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRealtimeLogDeliveryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRealtimeLogDeliveryDomainsRequest extends $tea.Model {
   /**
    * @remarks
@@ -19129,6 +19321,86 @@ export class ModifyCdnServiceResponse extends $tea.Model {
   }
 }
 
+export class ModifyCustomDomainSampleRateRequest extends $tea.Model {
+  baseConfigID?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  domainName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  sampleRate?: number;
+  sinkID?: number;
+  static names(): { [key: string]: string } {
+    return {
+      baseConfigID: 'BaseConfigID',
+      domainName: 'DomainName',
+      sampleRate: 'SampleRate',
+      sinkID: 'SinkID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      baseConfigID: 'string',
+      domainName: 'string',
+      sampleRate: 'number',
+      sinkID: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomDomainSampleRateResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCustomDomainSampleRateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCustomDomainSampleRateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCustomDomainSampleRateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyRealtimeLogDeliveryRequest extends $tea.Model {
   /**
    * @remarks
@@ -19568,6 +19840,8 @@ export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
   cacheTag?: string;
   /**
    * @remarks
+   * The accelerated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19575,6 +19849,12 @@ export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
    */
   domainName?: string;
   /**
+   * @remarks
+   * Specifies whether to purge all resources that you submit if the requested content is one of the resources that you submit to purge. Default value: false.
+   * 
+   * *   **true**: The nearest POP fetches all resources from the origin server, delivers them to the client, and updates the cache with the new version.
+   * *   **false**: The nearest POP checks the Last-Modified parameter of the resource on the origin server. If the parameter value is the same as that of the cached resource, the POP serves the cached resource. If the parameter value is not the same as that of the cached resource, the POP fetches the latest version from the origin server, delivers it to the client, and updates the cache with the new version.
+   * 
    * @example
    * true
    */
@@ -19602,11 +19882,20 @@ export class RefreshObjectCacheByCacheTagRequest extends $tea.Model {
 
 export class RefreshObjectCacheByCacheTagResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the refresh task. If multiple tasks are returned, the task IDs are separated by commas (,). The task IDs are merged based on the following rules:
+   * 
+   * *   If the tasks are specified for the same accelerated domain name, submitted within the same second, and run to refresh content based on URLs instead of directories, the task IDs are merged into one task ID (RefreshTaskId).
+   * *   If the number of tasks that are specified for the same accelerated domain name, submitted within the same second, and run to refresh content based on URLs instead of directories exceeds 2,000, every 2,000 task IDs are merged into one task ID (RefreshTaskId).
+   * 
    * @example
    * 17772470184
    */
   refreshTaskId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 2E5AD83F-BD7B-462E-8319-2E30E305519A
    */
@@ -19656,46 +19945,12 @@ export class RefreshObjectCacheByCacheTagResponse extends $tea.Model {
 }
 
 export class RefreshObjectCachesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * When the comparison between the source content and the source site resources is consistent, should the resources within the corresponding range be forcibly refreshed. The default is false.
-   * 
-   * *   **true**: purges all resources in the range that corresponds to the type of the purge task. If you set this parameter to true, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
-   * *   **false**: purges the changed resources in the range that corresponds to the type of the purge task. If you set this parameter to false, when the requested resource matches the resource in the range that corresponds to the type of the purge task, the POP obtains the Last-Modified parameter of the resource from the origin server. If the obtained value of the Last-Modified parameter is the same as that of the cached resource, the cached resource is returned. Otherwise, the POP retrieves the resource from the origin server, returns the resource to the client, and caches the resource.
-   * 
-   * >  This parameter takes effect only when the ObjectType parameter is not set to File.
-   * 
-   * @example
-   * false
-   */
   force?: boolean;
   /**
    * @remarks
-   * *   If you submit multiple URLs or directories at a time, separate them with line breaks (\\n) or (\\r\\n).
-   * *   The total number of domain names contained all URLs in a submitted task cannot exceed 10.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * http://example.com/image/1.png\\nhttp://aliyundoc.com/image/2.png
    */
   objectPath?: string;
-  /**
-   * @remarks
-   * The type of the object that you want to refresh. Valid values:
-   * 
-   * *   **File** (default): refreshes one or more files.
-   * *   **Directory**: refreshes the files in one or more directories.
-   * *   **Regex**: refreshes content based on regular expressions.
-   * *   **ExQuery**: omits parameters after the question mark in the URL and refreshes content.
-   * 
-   * If you set the ObjectType parameter to File or Directory, you can view [Refresh and prefetch resources](https://help.aliyun.com/document_detail/27140.html) to obtain more information. If you set the ObjectType parameter to Regex, you can view [Configure URL refresh rules that contain regular expressions](https://help.aliyun.com/document_detail/146195.html) to obtain more information.
-   * 
-   * If you set the ObjectType parameter to Directory, the resources in the directory that you want to refresh are marked as expired. You cannot delete the directory. If clients request resources on POPs that are marked as expired, Alibaba Cloud CDN checks whether the resources on your origin server are updated. If resources are updated, Alibaba Cloud CDN retrieves the latest version of the resources and returns the resources to the clients. Otherwise, the origin server returns the 304 status code.
-   * 
-   * @example
-   * File
-   */
   objectType?: string;
   ownerId?: number;
   securityToken?: string;
@@ -20365,12 +20620,17 @@ export class SetCdnDomainStagingConfigResponse extends $tea.Model {
 
 export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
   /**
+   * @remarks
+   * The duration for which IP addresses or CIDR blocks are blocked. Unit: seconds. The value **0** specifies that IP addresses or CIDR blocks are permanently blocked. This parameter is available only if you set **OperationType** to **block**.
+   * 
    * @example
    * 3000
    */
   blockInterval?: number;
   /**
    * @remarks
+   * The IP addresses that you want to block or unblock. Separate multiple IP addresses with commas (,). You can specify up to 1,000 IP addresses.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20379,6 +20639,11 @@ export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
   IPList?: string;
   /**
    * @remarks
+   * The type of the operation.
+   * 
+   * *   block
+   * *   unblock
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20386,6 +20651,13 @@ export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
    */
   operationType?: string;
   /**
+   * @remarks
+   * The type of the blocking duration. This parameter is available only if you set **OperationType** to **block**. Valid values:
+   * 
+   * *   **cover**: The blocking duration that is specified in the request takes effect.
+   * *   **uncover**: The longer one of the blocking duration that is specified in the request and the remaining blocking duration takes effect.
+   * *   Default value: cover.
+   * 
    * @example
    * cover
    */
@@ -20415,16 +20687,25 @@ export class SetCdnFullDomainsBlockIPRequest extends $tea.Model {
 
 export class SetCdnFullDomainsBlockIPResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code. The status code 0 indicates that the call is successful. If another status code is returned, the call fails.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * The additional information returned. If the request was successful, OK is returned. If the request failed, an error message is returned.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 23ACE7E2-2302-42E3-98F8-E5E697FD86C3
    */
@@ -23307,16 +23588,28 @@ export class DescribeCdnDomainStagingConfigResponseBodyDomainConfigs extends $te
 
 export class DescribeCdnFullDomainsBlockIPHistoryResponseBodyIPBlockInfo extends $tea.Model {
   /**
+   * @remarks
+   * The blocked IP address or CIDR block.
+   * 
    * @example
    * 1.XXX.XXX.0~1.XXX.XXX.255
    */
   blockIP?: string;
   /**
+   * @remarks
+   * The delivery time.
+   * 
    * @example
    * 2023-04-24 18:49:37
    */
   deliverTime?: string;
   /**
+   * @remarks
+   * The delivery status.
+   * 
+   * *   Success
+   * *   Failed
+   * 
    * @example
    * Success
    */
@@ -23919,11 +24212,17 @@ export class DescribeCdnServiceResponseBodyOperationLocks extends $tea.Model {
 
 export class DescribeCdnTypesResponseBodyCdnTypesCdnType extends $tea.Model {
   /**
+   * @remarks
+   * The description of the domain name type.
+   * 
    * @example
    * Download Acceleration
    */
   desc?: string;
   /**
+   * @remarks
+   * The type of the domain name.
+   * 
    * @example
    * download
    */
@@ -24925,6 +25224,47 @@ export class DescribeCertificateInfoByIDResponseBodyCertInfos extends $tea.Model
   static types(): { [key: string]: any } {
     return {
       certInfo: { 'type': 'array', 'itemType': DescribeCertificateInfoByIDResponseBodyCertInfosCertInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomDomainSampleRateResponseBodyContentDomainContent extends $tea.Model {
+  domainName?: string;
+  sampleRate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      domainName: 'DomainName',
+      sampleRate: 'SampleRate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainName: 'string',
+      sampleRate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCustomDomainSampleRateResponseBodyContent extends $tea.Model {
+  domainContent?: DescribeCustomDomainSampleRateResponseBodyContentDomainContent[];
+  static names(): { [key: string]: string } {
+    return {
+      domainContent: 'DomainContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainContent: { 'type': 'array', 'itemType': DescribeCustomDomainSampleRateResponseBodyContentDomainContent },
     };
   }
 
@@ -31405,6 +31745,101 @@ export class ListFCTriggerResponseBodyFCTriggers extends $tea.Model {
   }
 }
 
+export class ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The domain ID.
+   * 
+   * @example
+   * 1001010
+   */
+  dmId?: number;
+  /**
+   * @remarks
+   * The accelerated domain name.
+   * 
+   * @example
+   * example.com
+   */
+  domain?: string;
+  /**
+   * @remarks
+   * The name of the Logstore where log entries are stored.
+   * 
+   * @example
+   * test
+   */
+  logstore?: string;
+  /**
+   * @remarks
+   * The name of the Log Service project that is used for real-time log delivery.
+   * 
+   * @example
+   * test
+   */
+  project?: string;
+  /**
+   * @remarks
+   * The ID of the region where the Log Service project is deployed.
+   * 
+   * @example
+   * cn-hangzhou-corp
+   */
+  region?: string;
+  /**
+   * @remarks
+   * The status of real-time log delivery.
+   * 
+   * @example
+   * online
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dmId: 'DmId',
+      domain: 'Domain',
+      logstore: 'Logstore',
+      project: 'Project',
+      region: 'Region',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dmId: 'number',
+      domain: 'string',
+      logstore: 'string',
+      project: 'string',
+      region: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRealtimeLogDeliveryResponseBodyContent extends $tea.Model {
+  realtimeLogDeliveryInfo?: ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      realtimeLogDeliveryInfo: 'RealtimeLogDeliveryInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      realtimeLogDeliveryInfo: { 'type': 'array', 'itemType': ListRealtimeLogDeliveryResponseBodyContentRealtimeLogDeliveryInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListRealtimeLogDeliveryDomainsResponseBodyContentDomains extends $tea.Model {
   /**
    * @remarks
@@ -34343,7 +34778,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取海量封禁全量配置
+   * You can call the DescribeCdnFullDomainsBlockIPConfig operation to query the configurations of full blocking.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+   * *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of IP address-Corresponding expiration time. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
+   * *   You can share OSS URLs with others. The shared URLs are valid for three days.
    * 
    * @param request - DescribeCdnFullDomainsBlockIPConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34374,7 +34816,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取海量封禁全量配置
+   * You can call the DescribeCdnFullDomainsBlockIPConfig operation to query the configurations of full blocking.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation,[submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   If you specify IP addresses or CIDR blocks, IP addresses that are effective and the corresponding expiration time are returned. If you do not specify IP addresses or CIDR blocks, all effective IP addresses and the corresponding expiration time are returned.
+   * *   The results are written to OSS and returned as OSS URLs. The content in OSS objects is in the format of IP address-Corresponding expiration time. The expiration time is in the YYYY-MM-DD hh:mm:ss format.
+   * *   You can share OSS URLs with others. The shared URLs are valid for three days.
    * 
    * @param request - DescribeCdnFullDomainsBlockIPConfigRequest
    * @returns DescribeCdnFullDomainsBlockIPConfigResponse
@@ -34385,7 +34834,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户海量封禁历史
+   * Queries the blocking history.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+   * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
+   * *   The maximum time range to query is 90 days.
+   * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
    * 
    * @param request - DescribeCdnFullDomainsBlockIPHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34424,7 +34881,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户海量封禁历史
+   * Queries the blocking history.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   For a specified IP addresses and time range, the time when the IP address was delivered to the edge and the corresponding result are returned.
+   * *   If a specified IP address or CIDR block has multiple blocking records in a specified time range, the records are sorted by delivery time in descending order.
+   * *   The maximum time range to query is 90 days.
+   * *   If no blocking record exists or delivery fails for the given IP address and time range, the delivery time is empty.
    * 
    * @param request - DescribeCdnFullDomainsBlockIPHistoryRequest
    * @returns DescribeCdnFullDomainsBlockIPHistoryResponse
@@ -35077,6 +35542,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the types of domain names.
+   * 
    * @param request - DescribeCdnTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCdnTypesResponse
@@ -35114,6 +35581,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the types of domain names.
+   * 
    * @param request - DescribeCdnTypesRequest
    * @returns DescribeCdnTypesResponse
    */
@@ -35616,6 +36085,44 @@ export default class Client extends OpenApi {
   async describeCertificateInfoByID(request: DescribeCertificateInfoByIDRequest): Promise<DescribeCertificateInfoByIDResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeCertificateInfoByIDWithOptions(request, runtime);
+  }
+
+  /**
+   * A客户定制查询域名采样率
+   * 
+   * @param request - DescribeCustomDomainSampleRateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCustomDomainSampleRateResponse
+   */
+  async describeCustomDomainSampleRateWithOptions(request: DescribeCustomDomainSampleRateRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCustomDomainSampleRateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCustomDomainSampleRate",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCustomDomainSampleRateResponse>(await this.callApi(params, req, runtime), new DescribeCustomDomainSampleRateResponse({}));
+  }
+
+  /**
+   * A客户定制查询域名采样率
+   * 
+   * @param request - DescribeCustomDomainSampleRateRequest
+   * @returns DescribeCustomDomainSampleRateResponse
+   */
+  async describeCustomDomainSampleRate(request: DescribeCustomDomainSampleRateRequest): Promise<DescribeCustomDomainSampleRateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCustomDomainSampleRateWithOptions(request, runtime);
   }
 
   /**
@@ -39655,6 +40162,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of a user.
+   * 
    * @param request - DescribeUserCdnStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeUserCdnStatusResponse
@@ -39688,6 +40197,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of a user.
+   * 
    * @param request - DescribeUserCdnStatusRequest
    * @returns DescribeUserCdnStatusResponse
    */
@@ -40303,6 +40814,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries all real-time log delivery tasks within your Alibaba Cloud account.
+   * 
+   * @remarks
+   * \\*\\* \\*\\*
+   * 
+   * @param request - ListRealtimeLogDeliveryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRealtimeLogDeliveryResponse
+   */
+  async listRealtimeLogDeliveryWithOptions(runtime: $Util.RuntimeOptions): Promise<ListRealtimeLogDeliveryResponse> {
+    let req = new $OpenApi.OpenApiRequest({ });
+    let params = new $OpenApi.Params({
+      action: "ListRealtimeLogDelivery",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRealtimeLogDeliveryResponse>(await this.callApi(params, req, runtime), new ListRealtimeLogDeliveryResponse({}));
+  }
+
+  /**
+   * Queries all real-time log delivery tasks within your Alibaba Cloud account.
+   * 
+   * @remarks
+   * \\*\\* \\*\\*
+   * @returns ListRealtimeLogDeliveryResponse
+   */
+  async listRealtimeLogDelivery(): Promise<ListRealtimeLogDeliveryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRealtimeLogDeliveryWithOptions(runtime);
+  }
+
+  /**
    * Queries all domain names that are associated with a specific real-time log delivery configuration record.
    * 
    * @remarks
@@ -40719,6 +41268,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * A客户定制修改域名采样率接口
+   * 
+   * @param request - ModifyCustomDomainSampleRateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCustomDomainSampleRateResponse
+   */
+  async modifyCustomDomainSampleRateWithOptions(request: ModifyCustomDomainSampleRateRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCustomDomainSampleRateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.baseConfigID)) {
+      body["BaseConfigID"] = request.baseConfigID;
+    }
+
+    if (!Util.isUnset(request.domainName)) {
+      body["DomainName"] = request.domainName;
+    }
+
+    if (!Util.isUnset(request.sampleRate)) {
+      body["SampleRate"] = request.sampleRate;
+    }
+
+    if (!Util.isUnset(request.sinkID)) {
+      body["SinkID"] = request.sinkID;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCustomDomainSampleRate",
+      version: "2018-05-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCustomDomainSampleRateResponse>(await this.callApi(params, req, runtime), new ModifyCustomDomainSampleRateResponse({}));
+  }
+
+  /**
+   * A客户定制修改域名采样率接口
+   * 
+   * @param request - ModifyCustomDomainSampleRateRequest
+   * @returns ModifyCustomDomainSampleRateResponse
+   */
+  async modifyCustomDomainSampleRate(request: ModifyCustomDomainSampleRateRequest): Promise<ModifyCustomDomainSampleRateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCustomDomainSampleRateWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the configurations of real-time log delivery for a specific domain name. Each domain name supports only one Logstore.
    * 
    * @remarks
@@ -40961,7 +41564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 指定缓存tag刷新节点上的文件内容
+   * Refreshes the cache based on cache tags that you configured.
    * 
    * @param request - RefreshObjectCacheByCacheTagRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41000,7 +41603,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 指定缓存tag刷新节点上的文件内容
+   * Refreshes the cache based on cache tags that you configured.
    * 
    * @param request - RefreshObjectCacheByCacheTagRequest
    * @returns RefreshObjectCacheByCacheTagResponse
@@ -41035,18 +41638,6 @@ export default class Client extends OpenApi {
   async refreshObjectCachesWithOptions(request: RefreshObjectCachesRequest, runtime: $Util.RuntimeOptions): Promise<RefreshObjectCachesResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.force)) {
-      query["Force"] = request.force;
-    }
-
-    if (!Util.isUnset(request.objectPath)) {
-      query["ObjectPath"] = request.objectPath;
-    }
-
-    if (!Util.isUnset(request.objectType)) {
-      query["ObjectType"] = request.objectType;
-    }
-
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
     }
@@ -41055,8 +41646,22 @@ export default class Client extends OpenApi {
       query["SecurityToken"] = request.securityToken;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.force)) {
+      body["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.objectPath)) {
+      body["ObjectPath"] = request.objectPath;
+    }
+
+    if (!Util.isUnset(request.objectType)) {
+      body["ObjectType"] = request.objectType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "RefreshObjectCaches",
@@ -41405,7 +42010,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置CDN上的海量封禁功能
+   * Blocks or unblocks IP addresses from accessing domain names.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   This operation is suitable for blocking or unblocking a maximum of 1,000 IP addresses or CIDR blocks at a time.
    * 
    * @param request - SetCdnFullDomainsBlockIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41448,7 +42058,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置CDN上的海量封禁功能
+   * Blocks or unblocks IP addresses from accessing domain names.
+   * 
+   * @remarks
+   * > 
+   * *   To use this operation, [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex).
+   * *   This operation is suitable for blocking or unblocking a maximum of 1,000 IP addresses or CIDR blocks at a time.
    * 
    * @param request - SetCdnFullDomainsBlockIPRequest
    * @returns SetCdnFullDomainsBlockIPResponse
