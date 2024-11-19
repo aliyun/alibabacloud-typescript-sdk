@@ -1425,7 +1425,7 @@ export class ListResourceShareAssociationsRequest extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+   * The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -1444,6 +1444,8 @@ export class ListResourceShareAssociationsRequest extends $tea.Model {
   /**
    * @remarks
    * The IDs of the resource shares.
+   * 
+   * Valid values of N: 1 to 5. This indicates that a maximum of five resource shares can be specified at a time.
    * 
    * @example
    * rs-6GRmdD3X****
@@ -1491,7 +1493,7 @@ export class ListResourceShareAssociationsRequest extends $tea.Model {
 export class ListResourceShareAssociationsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+   * The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
    * 
    * @example
    * TGlzdFJlc291cm****
@@ -1499,7 +1501,7 @@ export class ListResourceShareAssociationsResponseBody extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 11BA57B5-7301-4E2F-BBA5-2AE4C2F4FCDB
@@ -2314,6 +2316,113 @@ export class ListSharedTargetsResponse extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ResourceShare
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * caeba0bbb2be03f84eb48b699f0a****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 8054B059-6B36-53BF-AA45-B8C9A0ED05AB
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RejectResourceShareInvitationRequest extends $tea.Model {
   /**
    * @remarks
@@ -2394,6 +2503,201 @@ export class RejectResourceShareInvitationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RejectResourceShareInvitationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ResourceShare
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tag?: TagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  all?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ResourceShare
+   */
+  resourceType?: string;
+  tagKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      all: 'All',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      all: 'boolean',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tagKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * E7747EDF-EDDC-5B38-9B6A-6392B9C92B1C
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UntagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UntagResourcesResponseBody,
     };
   }
 
@@ -2520,16 +2824,42 @@ export class UpdateResourceShareResponse extends $tea.Model {
 export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcceptInvitationFailedDetails extends $tea.Model {
   /**
    * @remarks
-   * The type of the sharing operation. Valid values:
+   * This parameter is deprecated. The OperationType parameter is used instead.
+   * 
+   * @example
+   * Associate
+   */
+  associateType?: string;
+  /**
+   * @remarks
+   * The failure description.
+   * 
+   * @example
+   * You cannot access the specified resource at this time.
+   */
+  failureDescription?: string;
+  /**
+   * @remarks
+   * The failure cause. Valid values:
+   * 
+   * *   Unavailable: The resource cannot be shared.
+   * *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
+   * *   ZonalResourceInaccessible: The resource is unavailable in this region.
+   * *   InternalError: An internal error occurred during the check.
+   * 
+   * @example
+   * Unavailable
+   */
+  failureReason?: string;
+  /**
+   * @remarks
+   * The operation type. Valid values:
    * 
    * *   Associate
    * 
    * @example
    * Associate
    */
-  associateType?: string;
-  failureDescription?: string;
-  failureReason?: string;
   operationType?: string;
   /**
    * @remarks
@@ -2551,12 +2881,7 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcc
   resourceType?: string;
   /**
    * @remarks
-   * The failure status. Valid values:
-   * 
-   * *   Unavailable: The resource cannot be shared.
-   * *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
-   * *   ZonalResourceInaccessible: The resource is unavailable in this region.
-   * *   InternalError: An internal error occurred during the check.
+   * This parameter is deprecated. The FailureReason parameter is used instead.
    * 
    * @example
    * Unavailable
@@ -2564,7 +2889,7 @@ export class AcceptResourceShareInvitationResponseBodyResourceShareInvitationAcc
   status?: string;
   /**
    * @remarks
-   * The failure cause.
+   * This parameter is deprecated. The FailureDescription parameter is used instead.
    * 
    * @example
    * You cannot access the specified resource at this time.
@@ -3706,13 +4031,84 @@ export class ListPermissionsResponseBodyPermissions extends $tea.Model {
 }
 
 export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated. The OperationType parameter is used instead.
+   * 
+   * @example
+   * None
+   */
   associateType?: string;
+  /**
+   * @remarks
+   * The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+   * 
+   * *   If the value of AssociationType is Resource, the value of this parameter is the ID of the principal.
+   * *   If the value of AssociationType is Target, the value of this parameter is the ID of the resource.
+   * 
+   * @example
+   * 172050525300****
+   */
   entityId?: string;
+  /**
+   * @remarks
+   * The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+   * 
+   * *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For information about the types of resources that can be shared, see Services that work with Resource Sharing.
+   * *   If the value of AssociationType is Target, the value of this parameter is `ResourceDirectory`, `Folder`, `Account`, or `Service`.
+   * 
+   * @example
+   * Account
+   */
   entityType?: string;
+  /**
+   * @remarks
+   * The failure description.
+   * 
+   * @example
+   * You cannot access the specified resource at this time.
+   */
   failureDescription?: string;
+  /**
+   * @remarks
+   * The failure cause. Valid values:
+   * 
+   * *   Unavailable: The resource does not exist.
+   * *   LimitExceeded: The number of principals for the resource exceeds the upper limit.
+   * *   ZonalResourceInaccessible: The resource is unavailable in this region.
+   * *   InternalError: An internal error occurred.
+   * *   UnsupportedOperation: You cannot perform this operation.
+   * 
+   * @example
+   * Unavailable
+   */
   failureReason?: string;
+  /**
+   * @remarks
+   * The operation type. Valid values:
+   * 
+   * *   Associate
+   * *   Disassociate
+   * 
+   * @example
+   * Associate
+   */
   operationType?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated. The FailureReason parameter is used instead.
+   * 
+   * @example
+   * None
+   */
   status?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated. The FailureDescription parameter is used instead.
+   * 
+   * @example
+   * None
+   */
   statusMessage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3746,6 +4142,10 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociationsA
 }
 
 export class ListResourceShareAssociationsResponseBodyResourceShareAssociations extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the failure.
+   */
   associationFailedDetails?: ListResourceShareAssociationsResponseBodyResourceShareAssociationsAssociationFailedDetails[];
   /**
    * @remarks
@@ -3797,7 +4197,7 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
    * @remarks
    * The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
    * 
-   * *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the shared resource.
+   * *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the resource.
    * *   If the value of `AssociationType` is `Target`, the value of this parameter is the ID of the principal.
    * 
    * @example
@@ -3808,7 +4208,7 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
    * @remarks
    * The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
    * 
-   * *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
+   * *   If the value of AssociationType is Resource, the value of this parameter is the type of the resource. For information about the types of resources that can be shared, see [Services that work with Resource Sharing](https://help.aliyun.com/document_detail/450526.html).
    * *   If the value of AssociationType is Target, the value of this parameter is `Account`.
    * 
    * @example
@@ -3819,8 +4219,8 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
    * @remarks
    * Indicates whether the principal is outside the resource directory. Valid values:
    * 
-   * *   true: The principal is outside the resource directory.
-   * *   false: The principal is in the resource directory.
+   * *   true
+   * *   false
    * 
    * @example
    * false
@@ -3842,6 +4242,25 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
    * example
    */
   resourceShareName?: string;
+  /**
+   * @remarks
+   * The properties of the principal, such as the time range within which the resource is shared. Valid values of `timeRangeType`:
+   * 
+   * *   timeRange: a specific time range
+   * *   day: all day
+   * 
+   * >  This parameter is returned only if the principal is an Alibaba Cloud service.
+   * 
+   * @example
+   * {
+   *     "timeRange":{
+   *         "timeRangeType":"timeRange",
+   *         "beginAtTime":"00:00",
+   *         "timezone":"UTC+8",
+   *         "endAtTime":"19:59"
+   *     }
+   * }
+   */
   targetProperty?: string;
   /**
    * @remarks
@@ -3896,7 +4315,37 @@ export class ListResourceShareAssociationsResponseBodyResourceShareAssociations 
 export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInvitationFailedDetails extends $tea.Model {
   /**
    * @remarks
-   * The type of the sharing operation. Valid values:
+   * This parameter is deprecated. The OperationType parameter is used instead.
+   * 
+   * @example
+   * Associate
+   */
+  associateType?: string;
+  /**
+   * @remarks
+   * The failure description.
+   * 
+   * @example
+   * You cannot access the specified resource at this time.
+   */
+  failureDescription?: string;
+  /**
+   * @remarks
+   * The failure cause. Valid values:
+   * 
+   * *   Unavailable: The resource cannot be shared.
+   * *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
+   * *   ZonalResourceInaccessible: The resource is unavailable in this region.
+   * *   InternalError: An internal error occurred during the check.
+   * *   UnsupportedOperation: You cannot perform this operation.
+   * 
+   * @example
+   * Unavailable
+   */
+  failureReason?: string;
+  /**
+   * @remarks
+   * The operation type. Valid values:
    * 
    * *   Associate
    * *   Disassociate
@@ -3904,9 +4353,6 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInv
    * @example
    * Associate
    */
-  associateType?: string;
-  failureDescription?: string;
-  failureReason?: string;
   operationType?: string;
   /**
    * @remarks
@@ -3928,13 +4374,7 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInv
   resourceType?: string;
   /**
    * @remarks
-   * The failure status. Valid values:
-   * 
-   * *   Unavailable: The resource cannot be shared.
-   * *   LimitExceeded: The number of shared resources within the Alibaba Cloud account exceeds the upper limit.
-   * *   ZonalResourceInaccessible: The resource is unavailable in this region.
-   * *   UnsupportedOperation: The operation is not allowed because another association exists.
-   * *   InternalError: An internal error occurred during the check.
+   * This parameter is deprecated. The FailureReason parameter is used instead.
    * 
    * @example
    * Unavailable
@@ -3942,7 +4382,7 @@ export class ListResourceShareInvitationsResponseBodyResourceShareInvitationsInv
   status?: string;
   /**
    * @remarks
-   * The failure cause.
+   * This parameter is deprecated. The FailureDescription parameter is used instead.
    * 
    * @example
    * You cannot access the specified resource at this time.
@@ -4505,6 +4945,99 @@ export class ListSharedTargetsResponseBodySharedTargets extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @example
+   * rs-PqysnzIj****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * ResourceShare
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * k1
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * v1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RejectResourceShareInvitationResponseBodyResourceShareInvitation extends $tea.Model {
   /**
    * @remarks
@@ -4603,6 +5136,36 @@ export class RejectResourceShareInvitationResponseBodyResourceShareInvitation ex
       resourceShareName: 'string',
       senderAccountId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * k1
+   */
+  key?: string;
+  /**
+   * @example
+   * v1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5907,6 +6470,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2020-01-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * 查询资源标签
+   * 
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
    * 拒绝组织外共享邀请
    * 
    * @remarks
@@ -5952,6 +6573,118 @@ export default class Client extends OpenApi {
   async rejectResourceShareInvitation(request: RejectResourceShareInvitationRequest): Promise<RejectResourceShareInvitationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rejectResourceShareInvitationWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TagResourcesResponse
+   */
+  async tagResourcesWithOptions(request: TagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<TagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TagResources",
+      version: "2020-01-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+  }
+
+  /**
+   * 资源打用户标签
+   * 
+   * @param request - TagResourcesRequest
+   * @returns TagResourcesResponse
+   */
+  async tagResources(request: TagResourcesRequest): Promise<TagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.tagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UntagResourcesResponse
+   */
+  async untagResourcesWithOptions(request: UntagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<UntagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.all)) {
+      query["All"] = request.all;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tagKey)) {
+      query["TagKey"] = request.tagKey;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UntagResources",
+      version: "2020-01-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+  }
+
+  /**
+   * 资源去除用户标签
+   * 
+   * @param request - UntagResourcesRequest
+   * @returns UntagResourcesResponse
+   */
+  async untagResources(request: UntagResourcesRequest): Promise<UntagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.untagResourcesWithOptions(request, runtime);
   }
 
   /**
