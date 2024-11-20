@@ -4848,6 +4848,8 @@ export class CreateWafRuleResponse extends $tea.Model {
 export class CreateWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the custom cookie.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4855,18 +4857,36 @@ export class CreateWaitingRoomRequest extends $tea.Model {
    */
   cookieName?: string;
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * Hello%20world!
    */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
+   * Specifies whether to enable the waiting room. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4875,21 +4895,38 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   enable?: string;
   /**
    * @remarks
+   * The hostname and path.
+   * 
    * This parameter is required.
    */
   hostNameAndPath?: CreateWaitingRoomRequestHostNameAndPath[];
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * enus
    */
   language?: string;
   /**
    * @remarks
+   * The name of the waiting room.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4898,6 +4935,8 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The maximum number of new users per minute.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4905,12 +4944,25 @@ export class CreateWaitingRoomRequest extends $tea.Model {
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to queue all requests. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   queueAllEnable?: string;
   /**
    * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4919,6 +4971,12 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   queuingMethod?: string;
   /**
    * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4927,6 +4985,8 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   queuingStatusCode?: string;
   /**
    * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4935,6 +4995,8 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4943,6 +5005,8 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The maximum number of active users.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4951,6 +5015,11 @@ export class CreateWaitingRoomRequest extends $tea.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5009,6 +5078,8 @@ export class CreateWaitingRoomRequest extends $tea.Model {
 export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the custom cookie.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5016,18 +5087,36 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
    */
   cookieName?: string;
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * Hello%20world!
    */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
+   * Specifies whether to enable the waiting room. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5036,21 +5125,38 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   enable?: string;
   /**
    * @remarks
+   * The hostname and path.
+   * 
    * This parameter is required.
    */
   hostNameAndPathShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * enus
    */
   language?: string;
   /**
    * @remarks
+   * The name of the waiting room.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5059,6 +5165,8 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The maximum number of new users per minute.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5066,12 +5174,25 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to queue all requests. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   queueAllEnable?: string;
   /**
    * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5080,6 +5201,12 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   queuingMethod?: string;
   /**
    * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5088,6 +5215,8 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   queuingStatusCode?: string;
   /**
    * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5096,6 +5225,8 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5104,6 +5235,8 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The maximum number of active users.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5112,6 +5245,11 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5169,6 +5307,9 @@ export class CreateWaitingRoomShrinkRequest extends $tea.Model {
 
 export class CreateWaitingRoomResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 85H66C7B-671A-4297-9187-2C4477247A74
    */
@@ -23491,6 +23632,8 @@ export class CreateUserDeliveryTaskRequestSlsDelivery extends $tea.Model {
 export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   /**
    * @remarks
+   * The domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23499,6 +23642,8 @@ export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   domain?: string;
   /**
    * @remarks
+   * The path.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23507,6 +23652,8 @@ export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   path?: string;
   /**
    * @remarks
+   * The subdomain.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23601,6 +23748,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
    * 800
    */
   bps?: number;
+  coverage?: string;
   /**
    * @example
    * 50
@@ -23616,6 +23764,7 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
    * web-cc_1
    */
   eventId?: string;
+  eventResult?: string;
   /**
    * @example
    * web-cc
@@ -23649,9 +23798,11 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bps: 'Bps',
+      coverage: 'Coverage',
       cps: 'Cps',
       endTime: 'EndTime',
       eventId: 'EventId',
+      eventResult: 'EventResult',
       eventType: 'EventType',
       pps: 'Pps',
       qps: 'Qps',
@@ -23664,9 +23815,11 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bps: 'number',
+      coverage: 'string',
       cps: 'number',
       endTime: 'string',
       eventId: 'string',
+      eventResult: 'string',
       eventType: 'string',
       pps: 'number',
       qps: 'number',
@@ -30968,7 +31121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室
+   * Creates a waiting room for a website.
    * 
    * @param tmpReq - CreateWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31069,7 +31222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室
+   * Creates a waiting room for a website.
    * 
    * @param request - CreateWaitingRoomRequest
    * @returns CreateWaitingRoomResponse
