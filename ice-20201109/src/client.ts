@@ -573,36 +573,91 @@ export class AddTemplateRequest extends $tea.Model {
    */
   config?: string;
   /**
+   * @remarks
+   * The URL of the template thumbnail.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The name of the custom template.
+   * 
    * @example
    * 视频添加水印模板
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the template preview video.
+   * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
    */
   previewMedia?: string;
   /**
+   * @remarks
+   * The IDs of the materials associated with the template for use by the regular template editor.
+   * 
    * @example
    * {"video":["1805a0c6ca544fb395a06ca683619655"]}
    */
   relatedMediaids?: string;
   /**
+   * @remarks
+   * The source from which the template is created. Valid values:
+   * 
+   * *   OpenAPI
+   * *   AliyunConsole
+   * *   WebSDK
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * 
    * @example
    * OpenAPI
    */
   source?: string;
   /**
+   * @remarks
+   * The template state. Valid values:
+   * 
+   * *   Available: The template is available.
+   * *   Created: The template is created but not ready for use.
+   * *   Uploading: The video is being uploaded.
+   * *   Processing: The advanced template is being processed.
+   * *   UploadFailed: Failed to upload the video.
+   * *   ProcessFailed: Failed to process the advanced template.
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The template type. Valid values:
+   * 
+   * *   Timeline: a regular template created based on the timeline of a video editing project, in which multiple materials are arranged in sequence across multiple layers. It can be used to convert text and images into videos, create photo albums, add opening and closing parts, and apply the default watermark.
+   * *   VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * 
    * @example
    * Timeline
    */
@@ -641,12 +696,16 @@ export class AddTemplateRequest extends $tea.Model {
 export class AddTemplateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The template information.
+   */
   template?: AddTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -939,6 +998,8 @@ export class BatchGetMediaInfosResponse extends $tea.Model {
 export class CancelDNAJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media fingerprint analysis job that you want to cancel.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -976,11 +1037,17 @@ export class CancelDNAJobRequest extends $tea.Model {
 
 export class CancelDNAJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 2288c6ca184c0e47098a5b665e2a12****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -1106,6 +1173,8 @@ export class CancelFavoritePublicMediaResponse extends $tea.Model {
 export class CreateAuditRequest extends $tea.Model {
   /**
    * @remarks
+   * The review results. You can specify the results for a maximum of 20 videos at a time. The value must be converted to a string. For more information about the parameters in AuditContent, see the "AuditContent" section of this topic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1142,6 +1211,9 @@ export class CreateAuditRequest extends $tea.Model {
 
 export class CreateAuditResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -1189,33 +1261,68 @@ export class CreateAuditResponse extends $tea.Model {
 }
 
 export class CreateAvatarTrainingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * *   The description of the digital human.
+   * *   The description can be up to 1,000 characters in length.
+   */
   avatarDescription?: string;
   /**
    * @remarks
+   * *   The name of the digital human.
+   * *   The name can be up to seven characters in length.
+   * 
    * This parameter is required.
    */
   avatarName?: string;
   /**
+   * @remarks
+   * The type of the digital human.
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
   /**
+   * @remarks
+   * *   The media asset ID of the portrait image.
+   * *   The value must be 32 characters in length.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   portrait?: string;
   /**
+   * @remarks
+   * *   The thumbnail URL.
+   * *   After the digital human is trained, the thumbnail is uploaded to this URL.
+   * *   The URL must be a valid public Object Storage Service (OSS) URL.
+   * *   The URL can be up to 512 characters in length.
+   * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
    */
   thumbnail?: string;
   /**
+   * @remarks
+   * *   Specifies whether the training video supports alpha channels.
+   * 
+   *     **
+   * 
+   *     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+   * 
    * @example
    * True
    */
   transparent?: boolean;
   /**
+   * @remarks
+   * *   The ID of the video used for training.
+   * *   The value must be 32 characters in length.
+   * *   Supported formats: MP4, MOV, and WebM.
+   * *   The duration of the video must be 5 to 15 minutes.
+   * *   The resolution of the video must be 1920×1080 or 1080×1920.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
@@ -1250,13 +1357,23 @@ export class CreateAvatarTrainingJobRequest extends $tea.Model {
 }
 
 export class CreateAvatarTrainingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateAvatarTrainingJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1310,6 +1427,8 @@ export class CreateAvatarTrainingJobResponse extends $tea.Model {
 export class CreateCustomTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1317,12 +1436,42 @@ export class CreateCustomTemplateRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The template subtype.
+   * 
+   * Valid values for transcoding templates:
+   * 
+   * *   1 (Normal): regular template.
+   * *   2 (AudioTranscode): audio transcoding template.
+   * *   3 (Remux): container format conversion template.
+   * *   4 (NarrowBandV1): Narrowband HD 1.0 template.
+   * *   5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * 
+   * Valid values for snapshot templates:
+   * 
+   * *   1 (Normal): regular template.
+   * *   2 (Sprite): sprite template.
+   * *   3 (WebVtt): WebVTT template.
+   * 
+   * Valid values for AI-assisted content moderation templates:
+   * 
+   * *   1 (Video): video moderation template.
+   * *   2 (Audio): audio moderation template.
+   * *   3 (Image): image moderation template.
+   * 
+   * Valid values for AI-assisted intelligent erasure templates.
+   * 
+   * *   1 (VideoDelogo): logo erasure template.
+   * *   2 (VideoDetext): subtitle erasure template.
+   * 
    * @example
    * 1
    */
   subtype?: number;
   /**
    * @remarks
+   * The template configurations. For more information, see [Template parameters](https://help.aliyun.com/document_detail/448291.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1331,6 +1480,20 @@ export class CreateCustomTemplateRequest extends $tea.Model {
   templateConfig?: string;
   /**
    * @remarks
+   * The template type. Valid values:
+   * 
+   * *   1: transcoding template.
+   * *   2: snapshot template.
+   * *   3: animated image template.
+   * *   4\\. image watermark template.
+   * *   5: text watermark template.
+   * *   6: subtitle template.
+   * *   7: AI-assisted content moderation template.
+   * *   8: AI-assisted intelligent thumbnail template.
+   * *   9: AI-assisted intelligent erasure template.
+   * *   10: AI-assisted media fingerprint analysis template.
+   * *   11: AI-assisted smart tagging template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1361,8 +1524,15 @@ export class CreateCustomTemplateRequest extends $tea.Model {
 }
 
 export class CreateCustomTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The template information.
+   */
   customTemplate?: CreateCustomTemplateResponseBodyCustomTemplate;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -1414,6 +1584,11 @@ export class CreateCustomTemplateResponse extends $tea.Model {
 export class CreateCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1422,21 +1597,45 @@ export class CreateCustomizedVoiceJobRequest extends $tea.Model {
   gender?: string;
   /**
    * @remarks
+   * The scenario. Valid values:
+   * 
+   * *   story
+   * *   interaction
+   * *   navigation
+   * 
    * This parameter is required.
    * 
    * @example
    * story
    */
   scenario?: string;
+  /**
+   * @remarks
+   * The voice description.
+   * 
+   * *   The description can be up to 256 characters in length.
+   */
   voiceDesc?: string;
   /**
    * @remarks
+   * The voice ID. It can be the English name or Chinese Pinyin of the voice.
+   * 
+   * *   The value must be a unique ID that is not used by other custom voices.
+   * *   The ID can be up to 32 characters in length.
+   * *   Only letters and digits are supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * xiaozhuan
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * The voice name.
+   * 
+   * *   The name can be up to 32 characters in length.
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1464,13 +1663,23 @@ export class CreateCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class CreateCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: CreateCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true false
+   * 
    * @example
    * true
    */
@@ -1522,14 +1731,28 @@ export class CreateCustomizedVoiceJobResponse extends $tea.Model {
 }
 
 export class CreateDNADBRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   */
   description?: string;
   /**
+   * @remarks
+   * The model of the media fingerprint library. Valid values:
+   * 
+   * *   **Video**
+   * *   **Audio**
+   * *   **Image**
+   * *   **Text** (supported only in the China (Shanghai) region)
+   * 
    * @example
    * Video
    */
   model?: string;
   /**
    * @remarks
+   * The name of the media fingerprint library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1570,8 +1793,15 @@ export class CreateDNADBRequest extends $tea.Model {
 }
 
 export class CreateDNADBResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the media fingerprint library.
+   */
   DBInfo?: CreateDNADBResponseBodyDBInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -2163,6 +2393,8 @@ export class CreateLiveTranscodeTemplateResponse extends $tea.Model {
 export class CreatePipelineRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the MPS queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2170,12 +2402,21 @@ export class CreatePipelineRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The priority. Default value: 6. Valid values: 1 to 10. A greater value specifies a higher priority.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
    * @remarks
+   * The type of the MPS queue. Valid values:
+   * 
+   * 1.  Standard: standard MPS queue.
+   * 2.  Boost: MPS queue with transcoding speed boosted.
+   * 3.  NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2204,8 +2445,15 @@ export class CreatePipelineRequest extends $tea.Model {
 }
 
 export class CreatePipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the MPS queue.
+   */
   pipeline?: CreatePipelineResponseBodyPipeline;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -2899,6 +3147,8 @@ export class CreateUploadStreamResponse extends $tea.Model {
 export class DecryptKMSDataKeyRequest extends $tea.Model {
   /**
    * @remarks
+   * The ciphertext that you want to decrypt.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2923,8 +3173,15 @@ export class DecryptKMSDataKeyRequest extends $tea.Model {
 }
 
 export class DecryptKMSDataKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the decryption result.
+   */
   dataKey?: DecryptKMSDataKeyResponseBodyDataKey;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -2976,6 +3233,8 @@ export class DecryptKMSDataKeyResponse extends $tea.Model {
 export class DeleteAvatarTrainingJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the digital human training job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3000,13 +3259,26 @@ export class DeleteAvatarTrainingJobRequest extends $tea.Model {
 }
 
 export class DeleteAvatarTrainingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DeleteAvatarTrainingJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3143,6 +3415,8 @@ export class DeleteCategoryResponse extends $tea.Model {
 export class DeleteCustomTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the custom template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3168,11 +3442,17 @@ export class DeleteCustomTemplateRequest extends $tea.Model {
 
 export class DeleteCustomTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -3224,6 +3504,8 @@ export class DeleteCustomTemplateResponse extends $tea.Model {
 export class DeleteCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3249,11 +3531,20 @@ export class DeleteCustomizedVoiceJobRequest extends $tea.Model {
 
 export class DeleteCustomizedVoiceJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3305,6 +3596,8 @@ export class DeleteCustomizedVoiceJobResponse extends $tea.Model {
 export class DeleteDNADBRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media fingerprint library that you want to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3342,6 +3635,9 @@ export class DeleteDNADBRequest extends $tea.Model {
 
 export class DeleteDNADBResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -3391,6 +3687,8 @@ export class DeleteDNADBResponse extends $tea.Model {
 export class DeleteDNAFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media fingerprint library from which you want to delete files.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3401,6 +3699,8 @@ export class DeleteDNAFilesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The primary key values of the files that you want to delete. Separate multiple values with commas (,). You can delete up to 50 files at a time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3438,6 +3738,9 @@ export class DeleteDNAFilesRequest extends $tea.Model {
 
 export class DeleteDNAFilesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -4556,6 +4859,8 @@ export class DeleteMediaMarksResponse extends $tea.Model {
 export class DeletePipelineRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the MPS queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4581,11 +4886,17 @@ export class DeletePipelineRequest extends $tea.Model {
 
 export class DeletePipelineResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -4751,6 +5062,9 @@ export class DeletePlayInfoResponse extends $tea.Model {
 
 export class DeleteSmartJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the jobs to delete. Separate multiple IDs with commas (,).
+   * 
    * @example
    * ******b48fb04483915d4f2cd8******,******042d5e4db6866f6289d1******
    */
@@ -4775,7 +5089,7 @@ export class DeleteSmartJobRequest extends $tea.Model {
 export class DeleteSmartJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * RequestId
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -4825,6 +5139,9 @@ export class DeleteSmartJobResponse extends $tea.Model {
 
 export class DeleteTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the templates that you want to delete. Separate multiple IDs with commas (,).
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****,****20b48fb04483915d4f2cd8ac****
    */
@@ -4848,6 +5165,9 @@ export class DeleteTemplateRequest extends $tea.Model {
 
 export class DeleteTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -4974,6 +5294,8 @@ export class DescribeAIAgentInstanceResponse extends $tea.Model {
 export class DescribeMeterImsEditUsageRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4982,6 +5304,8 @@ export class DescribeMeterImsEditUsageRequest extends $tea.Model {
   endTs?: number;
   /**
    * @remarks
+   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4989,12 +5313,17 @@ export class DescribeMeterImsEditUsageRequest extends $tea.Model {
    */
   interval?: number;
   /**
+   * @remarks
+   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5025,8 +5354,15 @@ export class DescribeMeterImsEditUsageRequest extends $tea.Model {
 }
 
 export class DescribeMeterImsEditUsageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The usage statistics of IMS on VOD editing.
+   */
   data?: DescribeMeterImsEditUsageResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7F3AE2C6-5CC6-5712-BAC5-5A735A157687
    */
@@ -5078,6 +5414,8 @@ export class DescribeMeterImsEditUsageResponse extends $tea.Model {
 export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5086,6 +5424,8 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
   endTs?: number;
   /**
    * @remarks
+   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5093,12 +5433,17 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
    */
   interval?: string;
   /**
+   * @remarks
+   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5129,8 +5474,15 @@ export class DescribeMeterImsMediaConvertUHDUsageRequest extends $tea.Model {
 }
 
 export class DescribeMeterImsMediaConvertUHDUsageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The usage statistics of IMS on UHD transcoding of MPS.
+   */
   data?: DescribeMeterImsMediaConvertUHDUsageResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA98A0C-7870-15FE-B96F-8880BB600A2C
    */
@@ -5182,6 +5534,8 @@ export class DescribeMeterImsMediaConvertUHDUsageResponse extends $tea.Model {
 export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The value is a 10-digit timestamp. The maximum query range is 31 days. The duration between StartTs and EndTs cannot exceed 31 days.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5190,6 +5544,8 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
   endTs?: number;
   /**
    * @remarks
+   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5197,12 +5553,17 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
    */
   interval?: number;
   /**
+   * @remarks
+   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. The value is a 10-digit timestamp. You can query data within the last 90 days.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5233,8 +5594,15 @@ export class DescribeMeterImsMediaConvertUsageRequest extends $tea.Model {
 }
 
 export class DescribeMeterImsMediaConvertUsageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The usage statistics of IMS on VOD transcoding.
+   */
   data?: DescribeMeterImsMediaConvertUsageResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FBBB5210-2B78-58FB-A6FE-9DD887BB2C61
    */
@@ -5286,6 +5654,8 @@ export class DescribeMeterImsMediaConvertUsageResponse extends $tea.Model {
 export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The value is a 10-digit timestamp. The maximum query range is 31 days. The duration between StartTs and EndTs cannot exceed 31 days.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5294,6 +5664,8 @@ export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
   endTs?: number;
   /**
    * @remarks
+   * The time granularity of the query. Valid values: 3600 (hour) and 86400 (day).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5301,12 +5673,17 @@ export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
    */
   interval?: number;
   /**
+   * @remarks
+   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. The value is a 10-digit timestamp. You can query data within the last 90 days.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5337,8 +5714,15 @@ export class DescribeMeterImsMpsAiUsageRequest extends $tea.Model {
 }
 
 export class DescribeMeterImsMpsAiUsageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The usage statistics of IMS on AI processing of MPS.
+   */
   data?: DescribeMeterImsMpsAiUsageResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
    */
@@ -5390,6 +5774,8 @@ export class DescribeMeterImsMpsAiUsageResponse extends $tea.Model {
 export class DescribeMeterImsSummaryRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5397,12 +5783,17 @@ export class DescribeMeterImsSummaryRequest extends $tea.Model {
    */
   endTs?: number;
   /**
+   * @remarks
+   * This parameter does not take effect. By default, the usage data of all regions is returned.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. The value is a 10-digit timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5431,8 +5822,15 @@ export class DescribeMeterImsSummaryRequest extends $tea.Model {
 }
 
 export class DescribeMeterImsSummaryResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The usage statistics of IMS.
+   */
   data?: DescribeMeterImsSummaryResponseBodyData[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA98A0C-7870-15FE-B96F-8880BB600A2C
    */
@@ -5864,6 +6262,8 @@ export class DescribeRtcRobotInstanceResponse extends $tea.Model {
 export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The sequence number of the recording file.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5872,6 +6272,12 @@ export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
   audioRecordId?: number;
   /**
    * @remarks
+   * The URL of the recording file.
+   * 
+   * > : The URL must be an Object Storage Service (OSS) URL within your Alibaba Cloud account. The OSS bucket must be in the same region in which IMS is activated.
+   * 
+   * > : The audio file must be in the WAV or PCM format and must be a 16-bit mono audio file at 48000 Hz.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5880,6 +6286,8 @@ export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
   recordUrl?: string;
   /**
    * @remarks
+   * The voice ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5908,13 +6316,23 @@ export class DetectAudioForCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class DetectAudioForCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: DetectAudioForCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true false
+   * 
    * @example
    * true
    */
@@ -6201,6 +6619,7 @@ export class GenerateAIAgentCallRequest extends $tea.Model {
    */
   expire?: number;
   templateConfig?: AIAgentTemplateConfig;
+  userData?: string;
   /**
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
@@ -6211,6 +6630,7 @@ export class GenerateAIAgentCallRequest extends $tea.Model {
       AIAgentId: 'AIAgentId',
       expire: 'Expire',
       templateConfig: 'TemplateConfig',
+      userData: 'UserData',
       userId: 'UserId',
     };
   }
@@ -6220,6 +6640,7 @@ export class GenerateAIAgentCallRequest extends $tea.Model {
       AIAgentId: 'string',
       expire: 'number',
       templateConfig: AIAgentTemplateConfig,
+      userData: 'string',
       userId: 'string',
     };
   }
@@ -6244,6 +6665,7 @@ export class GenerateAIAgentCallShrinkRequest extends $tea.Model {
    */
   expire?: number;
   templateConfigShrink?: string;
+  userData?: string;
   /**
    * @example
    * 877ae632caae49b1afc81c2e8194ffb4
@@ -6254,6 +6676,7 @@ export class GenerateAIAgentCallShrinkRequest extends $tea.Model {
       AIAgentId: 'AIAgentId',
       expire: 'Expire',
       templateConfigShrink: 'TemplateConfig',
+      userData: 'UserData',
       userId: 'UserId',
     };
   }
@@ -6263,6 +6686,7 @@ export class GenerateAIAgentCallShrinkRequest extends $tea.Model {
       AIAgentId: 'string',
       expire: 'number',
       templateConfigShrink: 'string',
+      userData: 'string',
       userId: 'string',
     };
   }
@@ -6356,8 +6780,15 @@ export class GenerateAIAgentCallResponse extends $tea.Model {
 }
 
 export class GenerateKMSDataKeyResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the data key.
+   */
   dataKey?: GenerateKMSDataKeyResponseBodyDataKey;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -6409,6 +6840,8 @@ export class GenerateKMSDataKeyResponse extends $tea.Model {
 export class GetAvatarRequest extends $tea.Model {
   /**
    * @remarks
+   * *   The ID of the digital human.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6433,13 +6866,26 @@ export class GetAvatarRequest extends $tea.Model {
 }
 
 export class GetAvatarResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetAvatarResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
@@ -6493,6 +6939,8 @@ export class GetAvatarResponse extends $tea.Model {
 export class GetAvatarTrainingJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the digital human training job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6517,13 +6965,23 @@ export class GetAvatarTrainingJobRequest extends $tea.Model {
 }
 
 export class GetAvatarTrainingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned if the request was successful.
+   */
   data?: GetAvatarTrainingJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -6576,6 +7034,9 @@ export class GetAvatarTrainingJobResponse extends $tea.Model {
 
 export class GetBatchMediaProducingJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the quick video production job.
+   * 
    * @example
    * ****b4549d46c88681030f6e****
    */
@@ -6598,8 +7059,15 @@ export class GetBatchMediaProducingJobRequest extends $tea.Model {
 }
 
 export class GetBatchMediaProducingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the quick video production job.
+   */
   editingBatchJob?: GetBatchMediaProducingJobResponseBodyEditingBatchJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
@@ -6850,16 +7318,25 @@ export class GetContentAnalyzeConfigResponse extends $tea.Model {
 
 export class GetCustomTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The template subtype.
+   * 
    * @example
    * 1
    */
   subtype?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The ID of the template type that is used to query the default template. This parameter is required if TemplateId is not specified.
+   * 
    * @example
    * 1
    */
@@ -6886,8 +7363,15 @@ export class GetCustomTemplateRequest extends $tea.Model {
 }
 
 export class GetCustomTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The template information.
+   */
   customTemplate?: GetCustomTemplateResponseBodyCustomTemplate;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -6938,6 +7422,9 @@ export class GetCustomTemplateResponse extends $tea.Model {
 
 export class GetCustomizedVoiceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
@@ -6960,13 +7447,26 @@ export class GetCustomizedVoiceRequest extends $tea.Model {
 }
 
 export class GetCustomizedVoiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetCustomizedVoiceResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -7020,6 +7520,8 @@ export class GetCustomizedVoiceResponse extends $tea.Model {
 export class GetCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7044,13 +7546,26 @@ export class GetCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class GetCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned if the request was successful.
+   */
   data?: GetCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -7180,6 +7695,14 @@ export class GetDefaultStorageLocationResponse extends $tea.Model {
 export class GetDemonstrationForCustomizedVoiceJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The demonstration scenario.
+   * 
+   * Valid values:
+   * 
+   * *   **story**
+   * *   **interaction**
+   * *   **navigation**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7204,13 +7727,26 @@ export class GetDemonstrationForCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class GetDemonstrationForCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetDemonstrationForCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -7263,6 +7799,9 @@ export class GetDemonstrationForCustomizedVoiceJobResponse extends $tea.Model {
 
 export class GetDynamicImageJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
@@ -7285,8 +7824,15 @@ export class GetDynamicImageJobRequest extends $tea.Model {
 }
 
 export class GetDynamicImageJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the snapshot job.
+   */
   dynamicImageJob?: GetDynamicImageJobResponseBodyDynamicImageJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******36-3C1E-4417-BDB2-1E034F******
    */
@@ -7754,6 +8300,9 @@ export class GetLiveEditingIndexFileResponse extends $tea.Model {
 
 export class GetLiveEditingJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the live editing job.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
@@ -7776,8 +8325,15 @@ export class GetLiveEditingJobRequest extends $tea.Model {
 }
 
 export class GetLiveEditingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the live editing job.
+   */
   liveEditingJob?: GetLiveEditingJobResponseBodyLiveEditingJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
@@ -8552,6 +9108,9 @@ export class GetMediaInfoResponse extends $tea.Model {
 
 export class GetMediaInfoJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
@@ -8580,6 +9139,9 @@ export class GetMediaInfoJobResponseBody extends $tea.Model {
    */
   mediaInfoJob?: GetMediaInfoJobResponseBodyMediaInfoJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -8736,6 +9298,9 @@ export class GetMediaMarksResponse extends $tea.Model {
 
 export class GetMediaProducingJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media editing and production job.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
@@ -8758,8 +9323,15 @@ export class GetMediaProducingJobRequest extends $tea.Model {
 }
 
 export class GetMediaProducingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the online editing project.
+   */
   mediaProducingJob?: GetMediaProducingJobResponseBodyMediaProducingJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****83B7-7F87-4792-BFE9-63CD2137****
    */
@@ -8811,6 +9383,8 @@ export class GetMediaProducingJobResponse extends $tea.Model {
 export class GetPackageJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The job ID. You can obtain the job ID from the response parameters of the [SubmitPackageJob](https://help.aliyun.com/document_detail/461964.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8835,8 +9409,15 @@ export class GetPackageJobRequest extends $tea.Model {
 }
 
 export class GetPackageJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the packaging job.
+   */
   packageJob?: GetPackageJobResponseBodyPackageJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -8888,6 +9469,8 @@ export class GetPackageJobResponse extends $tea.Model {
 export class GetPipelineRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the MPS queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8912,8 +9495,15 @@ export class GetPipelineRequest extends $tea.Model {
 }
 
 export class GetPipelineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the MPS queue.
+   */
   pipeline?: GetPipelineResponseBodyPipeline;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -9143,6 +9733,9 @@ export class GetPublicMediaInfoResponse extends $tea.Model {
 
 export class GetSmartHandleJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -9166,28 +9759,58 @@ export class GetSmartHandleJobRequest extends $tea.Model {
 
 export class GetSmartHandleJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The job results.
+   */
   jobResult?: GetSmartHandleJobResponseBodyJobResult;
   /**
+   * @remarks
+   * The job results.
+   * 
    * @example
    * {}
    */
   output?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the intelligent job.
+   */
   smartJobInfo?: GetSmartHandleJobResponseBodySmartJobInfo;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Finished
+   * *   Failed
+   * *   Executing
+   * *   Created
+   * 
    * @example
    * Finished
    */
   state?: string;
   /**
+   * @remarks
+   * The user-defined data in the JSON format.
+   * 
    * @example
    * {"user":"data"}
    */
@@ -9249,6 +9872,8 @@ export class GetSmartHandleJobResponse extends $tea.Model {
 export class GetSnapshotJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the snapshot job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9274,10 +9899,17 @@ export class GetSnapshotJobRequest extends $tea.Model {
 
 export class GetSnapshotJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the snapshot job.
+   */
   snapshotJob?: GetSnapshotJobResponseBodySnapshotJob;
   static names(): { [key: string]: string } {
     return {
@@ -9325,26 +9957,44 @@ export class GetSnapshotJobResponse extends $tea.Model {
 
 export class GetSnapshotUrlsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results. Valid values: Asc and Desc.
+   * 
+   * *
+   * *
+   * 
    * @example
    * Asc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 30. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The authentication timeout period. Unit: seconds Default value: 3600. Maximum value: 129600 (36 hours).
+   * 
    * @example
    * 3600
    */
@@ -9376,17 +10026,30 @@ export class GetSnapshotUrlsRequest extends $tea.Model {
 
 export class GetSnapshotUrlsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of snapshot URLs.
+   */
   snapshotUrls?: string[];
   /**
+   * @remarks
+   * The total number of snapshots.
+   * 
    * @example
    * 30
    */
   total?: number;
   /**
+   * @remarks
+   * The URL of the WebVTT file.
+   * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/ouoput.vtt
    */
@@ -9533,6 +10196,8 @@ export class GetStorageListResponse extends $tea.Model {
 export class GetSystemTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9558,10 +10223,17 @@ export class GetSystemTemplateRequest extends $tea.Model {
 
 export class GetSystemTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The template information.
+   */
   systemTemplate?: GetSystemTemplateResponseBodySystemTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -9609,11 +10281,17 @@ export class GetSystemTemplateResponse extends $tea.Model {
 
 export class GetTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to return the information about the associated materials. Default value: 0. Valid values: 0 and 1. A value of 1 specifies that the information about the associated materials is returned. This parameter is valid only for regular templates.
+   * 
    * @example
    * 0
    */
   relatedMediaidFlag?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -9639,10 +10317,17 @@ export class GetTemplateRequest extends $tea.Model {
 
 export class GetTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The template information.
+   */
   template?: GetTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {
     return {
@@ -9690,12 +10375,17 @@ export class GetTemplateResponse extends $tea.Model {
 
 export class GetTemplateMaterialsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The materials that you want to query.
+   * 
    * @example
    * ["music.mp3","config.json","assets/1.jpg"]
    */
   fileList?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9723,13 +10413,16 @@ export class GetTemplateMaterialsRequest extends $tea.Model {
 
 export class GetTemplateMaterialsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The URLs of the associated materials.
+   * 
    * @example
    * {"music.mp3":"https://bucket.oss-cn-shanghai.aliyuncs.com/music.mp3?sign=xxx","config.json":"https://bucket.oss-cn-shanghai.aliyuncs.com/config.json?sign=xxx","assets/1.jpg":"https://bucket.oss-cn-shanghai.aliyuncs.com/assets/1.jpg?sign=xxx"}
    */
   materialUrls?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -9781,6 +10474,9 @@ export class GetTemplateMaterialsResponse extends $tea.Model {
 
 export class GetTemplateParamsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -9803,16 +10499,23 @@ export class GetTemplateParamsRequest extends $tea.Model {
 }
 
 export class GetTemplateParamsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried parameters.
+   */
   paramList?: GetTemplateParamsResponseBodyParamList[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ******419c8741c1b4325f035b******
    */
@@ -9865,6 +10568,9 @@ export class GetTemplateParamsResponse extends $tea.Model {
 
 export class GetTranscodeJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
@@ -9888,6 +10594,9 @@ export class GetTranscodeJobRequest extends $tea.Model {
 
 export class GetTranscodeJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 9EDC30DC-0050-5459-B788-F761B2BE359B
    */
@@ -10251,6 +10960,9 @@ export class GetVideoListResponse extends $tea.Model {
 
 export class GetWorkflowTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the workflow task.
+   * 
    * @example
    * ******4215e042b3966ca5441e******
    */
@@ -10275,12 +10987,16 @@ export class GetWorkflowTaskRequest extends $tea.Model {
 export class GetWorkflowTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******0C-7870-15FE-B96F-8880BB******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the workflow task.
+   */
   workflowTask?: GetWorkflowTaskResponseBodyWorkflowTask;
   static names(): { [key: string]: string } {
     return {
@@ -10691,16 +11407,29 @@ export class ListAllPublicMediaTagsResponse extends $tea.Model {
 
 export class ListAvatarTrainingJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * *   The page number.
+   * *   Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * *   The number of entries per page.
+   * *   Default value: 10.
+   * *   Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * *   The job state.
+   * *   Valid values: Init, Queuing, Training, Success, and Fail.
+   * 
    * @example
    * Success
    */
@@ -10727,13 +11456,26 @@ export class ListAvatarTrainingJobsRequest extends $tea.Model {
 }
 
 export class ListAvatarTrainingJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListAvatarTrainingJobsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -10786,16 +11528,28 @@ export class ListAvatarTrainingJobsResponse extends $tea.Model {
 
 export class ListAvatarsRequest extends $tea.Model {
   /**
+   * @remarks
+   * *   The type of the digital human.
+   * *   2DAvatar
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
   /**
+   * @remarks
+   * *   The page number.
+   * *   Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * *   The number of entries per page.
+   * *   Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -10822,13 +11576,26 @@ export class ListAvatarsRequest extends $tea.Model {
 }
 
 export class ListAvatarsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListAvatarsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -10881,41 +11648,85 @@ export class ListAvatarsResponse extends $tea.Model {
 
 export class ListBatchMediaProducingJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2023-06-05T15:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The ID of the quick video production job.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   Script: script-based editing job that mixes media assets.
+   * *   Smart_Mix: intelligent editing job that mixes media assets.
+   * 
    * @example
    * Script
    */
   jobType?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * mRZkKAovub0xWVfH14he4Q==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The sorting parameter. Valid values:
+   * 
+   * *   desc (default): sorted by creation time in descending order.
+   * *   asc: sorted by creation time in ascending order.
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-02-02T00:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Finished
+   * *   Init
+   * *   Failed
+   * *   Processing
+   * 
    * @example
    * Finished
    */
@@ -10952,20 +11763,32 @@ export class ListBatchMediaProducingJobsRequest extends $tea.Model {
 }
 
 export class ListBatchMediaProducingJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried quick video production jobs.
+   */
   editingBatchJobList?: ListBatchMediaProducingJobsResponseBodyEditingBatchJobList[];
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
+   * Default value: 10.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
@@ -11021,37 +11844,95 @@ export class ListBatchMediaProducingJobsResponse extends $tea.Model {
 
 export class ListCustomTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * test-template
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which the entries are sorted. Valid values:
+   * 
+   * *   CreateTimeDesc: sorted by creation time in descending order.
+   * *   CreateTimeAsc: sorted by creation time in ascending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
+   * *   Valid values for transcoding templates:
+   * 
+   *     *   1 (Normal): regular template.
+   *     *   2 (AudioTranscode): audio transcoding template.
+   *     *   3 (Remux): container format conversion template.
+   *     *   4 (NarrowBandV1): Narrowband HD 1.0 template.
+   *     *   5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * 
+   * *   Valid values for snapshot templates:
+   * 
+   *     *   1 (Normal): regular template.
+   *     *   2 (Sprite): sprite template.
+   *     *   3 (WebVtt): WebVTT template.
+   * 
+   * *   Valid values for AI-assisted content moderation templates:
+   * 
+   *     *   1 (Video): video moderation template.
+   *     *   2 (Audio): audio moderation template.
+   *     *   3 (Image): image moderation template.
+   * 
+   * *   Valid values for AI-assisted intelligent erasure templates:
+   * 
+   *     *   1 (VideoDelogo): logo erasure template.
+   *     *   2 (VideoDetext): subtitle erasure template.
+   * 
    * @example
    * 2
    */
   subtype?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
    * @remarks
+   * The template type. Valid values:
+   * 
+   * *   1: transcoding template.
+   * *   2: snapshot template.
+   * *   3: animated image template.
+   * *   4\\. image watermark template.
+   * *   5: text watermark template.
+   * *   6: subtitle template.
+   * *   7: AI-assisted content moderation template.
+   * *   8: AI-assisted intelligent thumbnail template.
+   * *   9: AI-assisted intelligent erasure template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11088,13 +11969,23 @@ export class ListCustomTemplatesRequest extends $tea.Model {
 }
 
 export class ListCustomTemplatesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried templates.
+   */
   customTemplateList?: ListCustomTemplatesResponseBodyCustomTemplateList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of templates.
+   * 
    * @example
    * 20
    */
@@ -11147,15 +12038,33 @@ export class ListCustomTemplatesResponse extends $tea.Model {
 
 export class ListCustomizedVoiceJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The type of the human voice cloning job. Valid values:
+   * 
+   * *   Basic
+   * *   Standard
+   * 
+   * > : If you do not specify this parameter, the default value Basic is used.
+   * 
+   * @example
+   * Standard
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11179,13 +12088,23 @@ export class ListCustomizedVoiceJobsRequest extends $tea.Model {
 }
 
 export class ListCustomizedVoiceJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListCustomizedVoiceJobsResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true false
+   * 
    * @example
    * true
    */
@@ -11238,15 +12157,33 @@ export class ListCustomizedVoiceJobsResponse extends $tea.Model {
 
 export class ListCustomizedVoicesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * *   The voice type. Valid values:
+   * 
+   *     *   Basic
+   *     *   Standard
+   * 
+   * *   If you do not specify this parameter, the default value Basic is used.
+   * 
+   * @example
+   * Standard
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11270,13 +12207,26 @@ export class ListCustomizedVoicesRequest extends $tea.Model {
 }
 
 export class ListCustomizedVoicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListCustomizedVoicesResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -11329,6 +12279,9 @@ export class ListCustomizedVoicesResponse extends $tea.Model {
 
 export class ListDNADBRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the media fingerprint libraries. We recommend that you query at most 10 libraries at a time. Separate multiple library IDs with commas (,).
+   * 
    * @example
    * 2288c6ca184c0e47098a5b665e2a12****,78dc866518b843259669df58ed30****
    */
@@ -11363,8 +12316,15 @@ export class ListDNADBRequest extends $tea.Model {
 }
 
 export class ListDNADBResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried media fingerprint libraries.
+   */
   DBList?: ListDNADBResponseBodyDBList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -11416,6 +12376,8 @@ export class ListDNADBResponse extends $tea.Model {
 export class ListDNAFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media fingerprint library.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11423,6 +12385,9 @@ export class ListDNAFilesRequest extends $tea.Model {
    */
   DBId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****
    */
@@ -11430,6 +12395,9 @@ export class ListDNAFilesRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
@@ -11466,13 +12434,23 @@ export class ListDNAFilesRequest extends $tea.Model {
 }
 
 export class ListDNAFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried files.
+   */
   fileList?: ListDNAFilesResponseBodyFileList[];
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2AE89FA5-E620-56C7-9B80-75D09757385A
    */
@@ -11525,36 +12503,66 @@ export class ListDNAFilesResponse extends $tea.Model {
 
 export class ListDynamicImageJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range during which the jobs to be queried were created.
+   * 
    * @example
    * 2022-07-14T00:00:00Z
    */
   endOfCreateTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * cdb3e74639973036bc84
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results. Valid values:
+   * 
+   * 1.  CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * 2.  CreateTimeDesc: sorts the jobs by creation time in descending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The beginning of the time range during which the jobs to be queried were created.
+   * 
    * @example
    * 2022-07-12T00:00:00Z
    */
   startOfCreateTime?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
@@ -11589,13 +12597,23 @@ export class ListDynamicImageJobsRequest extends $tea.Model {
 }
 
 export class ListDynamicImageJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of jobs.
+   */
   jobs?: ListDynamicImageJobsResponseBodyJobs[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -13189,36 +14207,64 @@ export class ListMediaBasicInfosResponse extends $tea.Model {
 
 export class ListMediaInfoJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-15T00:00:00Z
    */
   endOfCreateTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb11cbe
    */
   jobId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results. Valid values:
+   * 
+   * *   CreateTimeDesc: sorts the query results by creation time in descending order.
+   * *   CreateTimeAsc: sorts the query results by creation time in ascending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-01T00:00:00Z
    */
   startOfCreateTime?: string;
   /**
+   * @remarks
+   * The state of the job. Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
@@ -13253,13 +14299,23 @@ export class ListMediaInfoJobsRequest extends $tea.Model {
 }
 
 export class ListMediaInfoJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of media information analysis jobs.
+   */
   jobs?: ListMediaInfoJobsResponseBodyJobs[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+   * 
    * @example
    * 019daf5780f74831b0e1a767c9f1c178
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -13416,47 +14472,101 @@ export class ListMediaMarksResponse extends $tea.Model {
 
 export class ListMediaProducingJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. The maximum time range between EndTime and StartTime cannot exceed 30 days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-02-02T23:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   LiveEditingJob: live editing job.
+   * *   EditingJob: regular template-based editing job
+   * *   VETemplateJob: advanced template-based editing job.
+   * 
    * @example
    * EditingJob
    */
   jobType?: string;
   /**
+   * @remarks
+   * The search keyword. For example, you can use a job ID as the keyword to search for jobs.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   keyword?: string;
   /**
+   * @remarks
+   * The ID of the quick video production job. If this parameter is specified, the subjobs of the quick video production job are queried.
+   * 
    * @example
    * ******8750b54e3c976a47da6f******
    */
   masterJobId?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 100
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
+   * @example
+   * ******927cfb53d05b96c1bfe1******
+   */
   projectId?: string;
   /**
+   * @remarks
+   * The sorting parameter. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   CreationTime:Asc: sorted by creation time in ascending order.
+   * *   CreationTime:Desc: sorted by creation time in descending order.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The job is initialized.
+   * *   Failed: The job failed.
+   * *   Success: The job is successful.
+   * *   Processing: The job is in progress.
+   * 
    * @example
    * Success
    */
@@ -13498,19 +14608,31 @@ export class ListMediaProducingJobsRequest extends $tea.Model {
 
 export class ListMediaProducingJobsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned.
+   * 
+   * Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 100
    */
   maxResults?: string;
+  /**
+   * @remarks
+   * The queried media editing and production jobs.
+   */
   mediaProducingJobList?: ListMediaProducingJobsResponseBodyMediaProducingJobList[];
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * 8EqYpQbZ6Eh7+Zz8DxVYoQ==
    */
   nextToken?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -13566,36 +14688,64 @@ export class ListMediaProducingJobsResponse extends $tea.Model {
 
 export class ListPackageJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-15T00:00:00Z
    */
   endOfCreateTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb11cbe
    */
   jobId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results. Valid values:
+   * 
+   * *   CreateTimeDesc: sorts the jobs by creation time in descending order.
+   * *   CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 0 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-01T00:00:00Z
    */
   startOfCreateTime?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
@@ -13630,8 +14780,15 @@ export class ListPackageJobsRequest extends $tea.Model {
 }
 
 export class ListPackageJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of packaging jobs.
+   */
   packageJobList?: ListPackageJobsResponseBodyPackageJobList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -13682,6 +14839,15 @@ export class ListPackageJobsResponse extends $tea.Model {
 
 export class ListPipelinesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The type of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Boost: MPS queue with transcoding speed boosted.
+   * *   Standard: standard MPS queue.
+   * *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * 
    * @example
    * Standard
    */
@@ -13704,8 +14870,15 @@ export class ListPipelinesRequest extends $tea.Model {
 }
 
 export class ListPipelinesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried MPS queues.
+   */
   pipelineList?: ListPipelinesResponseBodyPipelineList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -14057,36 +15230,78 @@ export class ListSearchLibResponse extends $tea.Model {
 
 export class ListSmartJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Finished: The job is complete.
+   * *   Failed: The job failed.
+   * *   Executing: The job is in progress.
+   * *   Created: The job is created.
+   * 
    * @example
    * Finished
    */
   jobState?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   ASR: automatic speech recognition(job) job.
+   * *   DynamicChart: dynamic chart job.
+   * *   VideoTranslation: video translation job.
+   * *   TextToSpeech: intelligent audio production job.
+   * 
    * @example
    * ASR
    */
   jobType?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return.
+   * 
+   * Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ****73f33c91-d59383e8280b****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting parameter. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   CreationTime:Asc: sorted by creation time in ascending order.
+   * *   CreationTime:Desc: sorted by creation time in descending order.
+   * 
    * @example
    * CreationTime:Desc
    */
@@ -14122,22 +15337,38 @@ export class ListSmartJobsRequest extends $tea.Model {
 
 export class ListSmartJobsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned on a single page. The value is set to the maximum number of entries returned on each page except for the last page. Valid example: 10,10,5. Invalid example: 10,5,10.
+   * 
    * @example
    * 10
    */
   maxResults?: string;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * CBB6BC61D08
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****9262E3DA-07FA-4862-FCBB6BC61D08*****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried intelligent jobs.
+   */
   smartJobList?: ListSmartJobsResponseBodySmartJobList[];
   /**
+   * @remarks
+   * Optional. The total number of entries returned. By default, this parameter is not returned.
+   * 
    * @example
    * 110
    */
@@ -14194,11 +15425,17 @@ export class ListSmartJobsResponse extends $tea.Model {
 
 export class ListSmartSysAvatarModelsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
@@ -14227,12 +15464,22 @@ export class ListSmartSysAvatarModelsRequest extends $tea.Model {
 
 export class ListSmartSysAvatarModelsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried digital humans.
+   */
   smartSysAvatarModelList?: ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList[];
   /**
+   * @remarks
+   * The total number of system digital human images returned.
+   * 
    * @example
    * 4
    */
@@ -14286,9 +15533,16 @@ export class ListSmartSysAvatarModelsResponse extends $tea.Model {
 export class ListSmartVoiceGroupsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 627B30EB-1D0A-5C6D-8467-431626E0FA10
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried speaker groups.
+   */
   voiceGroups?: ListSmartVoiceGroupsResponseBodyVoiceGroups[];
   static names(): { [key: string]: string } {
     return {
@@ -14336,36 +15590,71 @@ export class ListSmartVoiceGroupsResponse extends $tea.Model {
 
 export class ListSnapshotJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range during which the jobs to be queried were created.
+   * 
    * @example
    * 2022-07-14T00:00:00Z
    */
   endOfCreateTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results.
+   * 
+   * 1.  CreateTimeDesc
+   * 2.  CreateTimeAsc
+   * 
+   * Valid values:
+   * 
+   * *   CreateTimeDesc: sorts the jobs by creation time in descending order
+   * *   CreateTimeAsc: sorts the jobs by creation time in ascending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The beginning of the time range during which the jobs to be queried were created.
+   * 
    * @example
    * 2022-07-12T00:00:00Z
    */
   startOfCreateTime?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
@@ -14400,13 +15689,23 @@ export class ListSnapshotJobsRequest extends $tea.Model {
 }
 
 export class ListSnapshotJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of jobs.
+   */
   jobs?: ListSnapshotJobsResponseBodyJobs[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -14459,37 +15758,57 @@ export class ListSnapshotJobsResponse extends $tea.Model {
 
 export class ListSystemTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * SampleTemplate
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20 Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The template state. Valid values: Normal, Invisible, and All.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
    * @example
    * 1
    */
   subtype?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
    * @remarks
+   * The template type. Separate multiple types with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14527,12 +15846,22 @@ export class ListSystemTemplatesRequest extends $tea.Model {
 
 export class ListSystemTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried templates.
+   */
   systemTemplateList?: ListSystemTemplatesResponseBodySystemTemplateList[];
   /**
+   * @remarks
+   * The total number of templates.
+   * 
    * @example
    * 20
    */
@@ -14585,36 +15914,82 @@ export class ListSystemTemplatesResponse extends $tea.Model {
 
 export class ListTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The source from which the template was created.
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole
+   * *   WebSDK
+   * *   OpenAPI
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The search keyword. You can use the template ID or title as the keyword to search for templates.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting parameter. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   CreationTime:Asc: sorted by creation time in ascending order.
+   * *   CreationTime:Desc: sorted by creation time in descending order.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortType?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
+   * Valid values:
+   * 
+   * *   UploadFailed: Failed to upload the video.
+   * *   ProcessFailed: Failed to process the advanced template.
+   * *   Available: The template is available.
+   * *   Uploading: The video is being uploaded.
+   * *   Created: The template is created but not ready for use.
+   * *   Processing: The advanced template is being processed.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
+   * Valid values:
+   * 
+   * *   Timeline
+   * *   VETemplate
+   * 
    * @example
    * Timeline
    */
@@ -14650,12 +16025,22 @@ export class ListTemplatesRequest extends $tea.Model {
 
 export class ListTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried templates.
+   */
   templates?: ListTemplatesResponseBodyTemplates[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -14708,36 +16093,64 @@ export class ListTemplatesResponse extends $tea.Model {
 
 export class ListTranscodeJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-15T00:00:00Z
    */
   endOfCreateTime?: string;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The order that you use to sort the query results. Valid values:
+   * 
+   * *   CreateTimeDesc: sorts the query results by creation time in descending order.
+   * *   CreateTimeAsc: sorts the query results by creation time in ascending order.
+   * 
    * @example
    * CreateTimeDesc
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 0 to 100. Default value: 20.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
-   * 7b38a5d86f1e47838927b6e7ccb11cbe
+   * 7b38a5d86f1e47838927b6e7ccb1****
    */
   parentJobId?: string;
   /**
+   * @remarks
+   * The beginning of the time range during which the jobs to be queried were created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-07-01T00:00:00Z
    */
   startOfCreateTime?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
@@ -14772,13 +16185,23 @@ export class ListTranscodeJobsRequest extends $tea.Model {
 }
 
 export class ListTranscodeJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of jobs.
+   */
   jobs?: ListTranscodeJobsResponseBodyJobs[];
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+   * 
    * @example
    * 019daf5780f74831b0e1a767c9f1c178
    */
   nextPageToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -14831,6 +16254,9 @@ export class ListTranscodeJobsResponse extends $tea.Model {
 
 export class QueryDNAJobListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the media fingerprint analysis jobs that you want to query. We recommend that you query at most 10 jobs at a time. Separate multiple job IDs with commas (,).
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
    */
@@ -14865,8 +16291,15 @@ export class QueryDNAJobListRequest extends $tea.Model {
 }
 
 export class QueryDNAJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried media fingerprint analysis jobs.
+   */
   jobList?: QueryDNAJobListResponseBodyJobList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -14916,9 +16349,15 @@ export class QueryDNAJobListResponse extends $tea.Model {
 }
 
 export class QueryIProductionJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the intelligent production job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14946,53 +16385,118 @@ export class QueryIProductionJobRequest extends $tea.Model {
 
 export class QueryIProductionJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-07T07:16:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2021-11-26T14:50:25Z
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The name of the algorithm that you want to use for the job. Valid values:
+   * 
+   * *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
+   * *   **VideoClip**: This algorithm intelligently generates a summary for a video.
+   * *   **VideoDelogo**: This algorithm removes logos from a video.
+   * *   **VideoDetext**: This algorithm removes captions from a video.
+   * 
    * @example
    * Cover
    */
   functionName?: string;
+  /**
+   * @remarks
+   * The input file.
+   */
   input?: QueryIProductionJobResponseBodyInput;
   /**
+   * @remarks
+   * The ID of the intelligent production job.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm.
+   * 
    * @example
    * {"Model":"gif"}
    */
   jobParams?: string;
+  /**
+   * @remarks
+   * The name of the intelligent production job.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The output file.
+   */
   output?: QueryIProductionJobResponseBodyOutput;
+  /**
+   * @remarks
+   * The output files.
+   */
   outputFiles?: string[];
+  /**
+   * @remarks
+   * The URLs of the output files.
+   */
   outputUrls?: string[];
+  /**
+   * @remarks
+   * The ID of the request.
+   */
   requestId?: string;
   /**
+   * @remarks
+   * The output of the algorithm. The output is in JSON format and varies based on the algorithm. For more information, see the "Parameters of Result" section of this topic.
+   * 
    * @example
    * {}
    */
   result?: string;
+  /**
+   * @remarks
+   * The scheduling configuration.
+   */
   scheduleConfig?: QueryIProductionJobResponseBodyScheduleConfig;
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   Queuing: The job is waiting in the queue.
+   * *   Analysing: The job is in progress.
+   * *   Fail: The job failed.
+   * *   Success: The job was successful.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The user-defined data that is returned in the response.
+   * 
    * @example
    * {"test":1}
    */
@@ -15072,6 +16576,8 @@ export class QueryIProductionJobResponse extends $tea.Model {
 export class QueryMediaCensorJobDetailRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the content moderation job. You can obtain the job ID from the response parameters of the [SubmitMediaCensorJob](https://help.aliyun.com/document_detail/444848.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15079,11 +16585,20 @@ export class QueryMediaCensorJobDetailRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * *   Default value: **30**.
+   * *   Valid values: **1 to 300**.
+   * 
    * @example
    * 30
    */
   maximumPageSize?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****
    */
@@ -15122,8 +16637,15 @@ export class QueryMediaCensorJobDetailRequest extends $tea.Model {
 }
 
 export class QueryMediaCensorJobDetailResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The results of the content moderation job.
+   */
   mediaCensorJobDetail?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B42299E6-F71F-465F-8FE9-4FC2E3D3C2CA
    */
@@ -15174,21 +16696,39 @@ export class QueryMediaCensorJobDetailResponse extends $tea.Model {
 
 export class QueryMediaCensorJobListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * *   Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * *   Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2022-02-14T02:16:07Z
    */
   endOfJobCreatedTimeRange?: string;
   /**
+   * @remarks
+   * The IDs of the content moderation jobs. You can obtain the ID of a content moderation job from the response parameters of the SubmitMediaCensorJob operation. Separate multiple IDs with commas (,).
+   * 
    * @example
    * fa9c34be3bcf42919ac4d1775239****,78dc866518b843259669df58ed30****
    */
   jobIds?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * *   Default value: **30**.
+   * *   Valid values: **1 to 300**.
+   * 
    * @example
    * 20
    */
   maximumPageSize?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * 79aff3eee82242e092899db5f669
    */
@@ -15196,6 +16736,9 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the jobs were submitted.
+   * 
    * @example
    * c5b30b7c0d0e4a0abde1d5f9e751****
    */
@@ -15203,11 +16746,26 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * *   Specify the time in the ISO 8601 standard. The time must be in UTC.
+   * *   Format: yyyy-MM-ddTHH:mm:ssZ.
+   * 
    * @example
    * 2021-12-22T03:48:05Z
    */
   startOfJobCreatedTimeRange?: string;
   /**
+   * @remarks
+   * The state of the jobs that you want to query. Valid values:
+   * 
+   * *   **All**: all jobs.
+   * *   **Queuing**: the jobs that are waiting in the queue.
+   * *   **Analysing**: the jobs that are in progress.
+   * *   **Fail**: failed jobs.
+   * *   **Success**: successful jobs.
+   * 
    * @example
    * All
    */
@@ -15250,14 +16808,28 @@ export class QueryMediaCensorJobListRequest extends $tea.Model {
 }
 
 export class QueryMediaCensorJobListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried content moderation jobs.
+   */
   mediaCensorJobList?: QueryMediaCensorJobListResponseBodyMediaCensorJobList;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. The value is 32-character UUID. If the returned query results cannot be displayed within one page, this parameter is returned. The value of this parameter is updated for each query.
+   * 
    * @example
    * 9b1a42bc6e8d46e6a1383b7e7f01****
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The IDs of the jobs that do not exist. This parameter is not returned if all the specified jobs are found.
+   */
   nonExistIds?: QueryMediaCensorJobListResponseBodyNonExistIds;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D1D5C080-8E2F-5030-8AB4-13092F17631B
    */
@@ -15726,6 +17298,8 @@ export class QuerySearchLibResponse extends $tea.Model {
 export class QuerySmarttagJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the smart tagging job that you want to query. You can obtain the job ID from the response parameters of the SubmitSmarttagJob operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15733,6 +17307,12 @@ export class QuerySmarttagJobRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The extra parameters that you want to query in the request. The value is a JSON string. Example: {"labelResultType":"auto"}. The value of labelResultType is of the STRING type. Valid values:
+   * 
+   * *   auto: machine tagging
+   * *   hmi: tagging by human and machine
+   * 
    * @example
    * {"labelResultType":"auto"}
    */
@@ -15758,17 +17338,35 @@ export class QuerySmarttagJobRequest extends $tea.Model {
 
 export class QuerySmarttagJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status of the job. Valid values:
+   * 
+   * *   **Success**: The job was successful.
+   * *   **Fail**: The job failed.
+   * *   **Processing**: The job is in progress.
+   * *   **Submitted**: The job is submitted and waiting to be processed.
+   * 
    * @example
    * Success
    */
   jobStatus?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The analysis results of the smart tagging job. The value is an array.
+   */
   results?: QuerySmarttagJobResponseBodyResults;
   /**
+   * @remarks
+   * The content of callback messages that are sent to Simple Message Queue (SMQ) when the information of the smart tagging job changes. For more information about the parameters contained in the callback message, see the "Callback parameters" section of this topic.
+   * 
    * @example
    * {"userId":"123432412831"}
    */
@@ -18085,6 +19683,8 @@ export class SetContentAnalyzeConfigResponse extends $tea.Model {
 export class SetDefaultCustomTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18110,11 +19710,17 @@ export class SetDefaultCustomTemplateRequest extends $tea.Model {
 
 export class SetDefaultCustomTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -18806,6 +20412,9 @@ export class StartRtcRobotInstanceResponse extends $tea.Model {
 
 export class StartWorkflowRequest extends $tea.Model {
   /**
+   * @remarks
+   * The workflow input. Only media assets are supported.
+   * 
    * @example
    * {
    *       "Type": "Media",
@@ -18813,8 +20422,15 @@ export class StartWorkflowRequest extends $tea.Model {
    * }
    */
   taskInput?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.htm).
+   */
   userData?: string;
   /**
+   * @remarks
+   * The ID of the workflow template. To view the template ID, log on to the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) and choose Configurations > Workflow Template.
+   * 
    * @example
    * ******f0e54971ecbffd472190******
    */
@@ -18842,11 +20458,17 @@ export class StartWorkflowRequest extends $tea.Model {
 
 export class StartWorkflowResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******42-E8E1-4FBB-8E52-F4225C******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the workflow task.
+   * 
    * @example
    * ******22dad741d086a50325f9******
    */
@@ -19048,33 +20670,54 @@ export class StopRtcRobotInstanceResponse extends $tea.Model {
 
 export class SubmitASRJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job description, which can up to 128 bytes in length.
+   * 
    * @example
    * 测试描述
    */
   description?: string;
   /**
+   * @remarks
+   * The speech duration.
+   * 
    * @example
    * 00:00:10
    */
   duration?: string;
   /**
+   * @remarks
+   * The input file. You can specify an Object Storage Service (OSS) URL or the ID of a media asset in the media asset library.
+   * 
    * @example
    * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ****20b48fb04483915d4f2cd8ac****
    */
   inputFile?: string;
   /**
+   * @remarks
+   * The start time of the speech to recognize.
+   * 
    * @example
    * 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job title, which can be up to 128 bytes in length.
+   * 
    * @example
    * 测试标题
    */
   title?: string;
   /**
+   * @remarks
+   * The user-defined data in the JSON format. You can specify your business information, such as the business environment and job information.
+   * 
    * @example
-   * {"user":"data"}
+   * {
+   *       "user": "data",
+   *       "env": "prod"
+   * }
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -19106,16 +20749,30 @@ export class SubmitASRJobRequest extends $tea.Model {
 
 export class SubmitASRJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   Created
+   * *   Executing
+   * *   Finished
+   * *   Failed
+   * 
    * @example
    * Finished
    */
@@ -19168,12 +20825,29 @@ export class SubmitASRJobResponse extends $tea.Model {
 
 export class SubmitAudioProduceJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The job description.
+   * 
+   * *   The job description can be up to 1,024 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * 任务描述  长度不超过1024字节  UTF8编码
    */
   description?: string;
   /**
    * @remarks
+   * The audio editing configurations.
+   * 
+   * *   voice: the [voice type](https://help.aliyun.com/document_detail/402424.html).
+   * *   customizedVoice: the ID of the personalized human voice.
+   * *   format: the format of the output file. Valid values: PCM, WAV, and MP3.
+   * *   volume: the volume. Default value: 50. Valid values: 0 to 100.
+   * *   speech_rate: the speech tempo. Default value: 0. Value range: -500 to 500.
+   * *   pitch_rate: the intonation. Default value: 0. Value range: -500 to 500.
+   * 
+   * >  If you specify both voice and customizedVoice, customizedVoice takes precedence over voice.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19182,6 +20856,8 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
   editingConfig?: string;
   /**
    * @remarks
+   * The text content. A maximum of 2,000 characters are supported. The [Speech Synthesis Markup Language (SSML)](https://help.aliyun.com/document_detail/2672807.html) is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19190,6 +20866,8 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
   inputConfig?: string;
   /**
    * @remarks
+   * The output audio configurations.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19197,16 +20875,28 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
    */
   outputConfig?: string;
   /**
+   * @remarks
+   * Specifies whether to overwrite the existing Object Storage Service (OSS) object.
+   * 
    * @example
    * true
    */
   overwrite?: boolean;
   /**
+   * @remarks
+   * The job title. If you do not specify this parameter, the system generates a title based on the current date.
+   * 
+   * *   The job title can be up to 128 bytes in length.
+   * *   The value must be encoded in UTF-8.
+   * 
    * @example
    * 任务标题。若不提供，根据日期自动生成默认title  长度不超过128字节  UTF8编码
    */
   title?: string;
   /**
+   * @remarks
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * 
    * @example
    * {"user":"data"}
    */
@@ -19242,21 +20932,38 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
 
 export class SubmitAudioProduceJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * ****2bcbfcfa30fccb36f72dca22****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   Created
+   * *   Executing
+   * *   Finished
+   * *   Failed
+   * 
    * @example
    * Created
    */
@@ -19312,6 +21019,8 @@ export class SubmitAudioProduceJobResponse extends $tea.Model {
 export class SubmitAvatarTrainingJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the digital human training job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19336,13 +21045,23 @@ export class SubmitAvatarTrainingJobRequest extends $tea.Model {
 }
 
 export class SubmitAvatarTrainingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitAvatarTrainingJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * *****ACB-44F2-5F2D-88D7-1283E70*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -19514,11 +21233,17 @@ export class SubmitAvatarVideoJobResponse extends $tea.Model {
 
 export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ****12e8864746a0a398****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+   * 
    * @example
    * {
    *   "MediaConfig": {
@@ -19533,8 +21258,15 @@ export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
    * }
    */
   editingConfig?: string;
+  /**
+   * @remarks
+   * The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
+   */
   inputConfig?: string;
   /**
+   * @remarks
+   * The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+   * 
    * @example
    * {
    *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
@@ -19546,6 +21278,10 @@ export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
    * }
    */
   outputConfig?: string;
+  /**
+   * @remarks
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19574,11 +21310,17 @@ export class SubmitBatchMediaProducingJobRequest extends $tea.Model {
 
 export class SubmitBatchMediaProducingJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the quick video production job.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
@@ -19629,12 +21371,25 @@ export class SubmitBatchMediaProducingJobResponse extends $tea.Model {
 
 export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the sample audio file.
+   * 
+   * *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
+   * 
+   * *   If this parameter is not specified, no sample audio file is generated.
+   * 
+   *     **
+   * 
+   *     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
+   * 
    * @example
    * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.MP3
    */
   demoAudioMediaURL?: string;
   /**
    * @remarks
+   * The voice ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19661,13 +21416,26 @@ export class SubmitCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class SubmitCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -19720,12 +21488,17 @@ export class SubmitCustomizedVoiceJobResponse extends $tea.Model {
 
 export class SubmitDNAJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the media fingerprint analysis job. The value is a JSON object. If you specify this parameter, the template parameters are overwritten.
+   * 
    * @example
    * {"SaveType": "save","MediaType"":"video"}
    */
   config?: string;
   /**
    * @remarks
+   * The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19734,18 +21507,25 @@ export class SubmitDNAJobRequest extends $tea.Model {
   DBId?: string;
   /**
    * @remarks
+   * The input file for media fingerprint analysis.
+   * 
    * This parameter is required.
    */
   input?: SubmitDNAJobRequestInput;
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the media fingerprint analysis job is submitted.
+   * 
    * @example
    * 5246b8d12a62433ab77845074039****
    */
   pipelineId?: string;
   /**
    * @remarks
+   * The primary key of the video. You must make sure that each primary key is unique.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19755,11 +21535,17 @@ export class SubmitDNAJobRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * S00000101-100060
    */
   templateId?: string;
   /**
+   * @remarks
+   * The user-defined data. The data can be up to 128 bytes in length.
+   * 
    * @example
    * userData
    */
@@ -19803,12 +21589,17 @@ export class SubmitDNAJobRequest extends $tea.Model {
 
 export class SubmitDNAJobShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The configurations of the media fingerprint analysis job. The value is a JSON object. If you specify this parameter, the template parameters are overwritten.
+   * 
    * @example
    * {"SaveType": "save","MediaType"":"video"}
    */
   config?: string;
   /**
    * @remarks
+   * The ID of the media fingerprint library. If you do not specify this parameter, the default media fingerprint library is used. For more information about how to create a media fingerprint library, see [CreateDNADB](https://help.aliyun.com/document_detail/479275.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19817,18 +21608,25 @@ export class SubmitDNAJobShrinkRequest extends $tea.Model {
   DBId?: string;
   /**
    * @remarks
+   * The input file for media fingerprint analysis.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the media fingerprint analysis job is submitted.
+   * 
    * @example
    * 5246b8d12a62433ab77845074039****
    */
   pipelineId?: string;
   /**
    * @remarks
+   * The primary key of the video. You must make sure that each primary key is unique.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19838,11 +21636,17 @@ export class SubmitDNAJobShrinkRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * S00000101-100060
    */
   templateId?: string;
   /**
+   * @remarks
+   * The user-defined data. The data can be up to 128 bytes in length.
+   * 
    * @example
    * userData
    */
@@ -19886,11 +21690,17 @@ export class SubmitDNAJobShrinkRequest extends $tea.Model {
 
 export class SubmitDNAJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media fingerprint analysis job. We recommend that you save this ID for subsequent calls of other operations.
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -20089,26 +21899,42 @@ export class SubmitDynamicChartJobResponse extends $tea.Model {
 export class SubmitDynamicImageJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   input?: SubmitDynamicImageJobRequestInput;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
   /**
    * @remarks
+   * The output of the job.
+   * 
    * This parameter is required.
    */
   output?: SubmitDynamicImageJobRequestOutput;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfig?: SubmitDynamicImageJobRequestScheduleConfig;
   /**
    * @remarks
+   * The snapshot template configuration.
+   * 
    * This parameter is required.
    */
   templateConfig?: SubmitDynamicImageJobRequestTemplateConfig;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"SampleKey": "SampleValue"}
    */
@@ -20143,26 +21969,42 @@ export class SubmitDynamicImageJobRequest extends $tea.Model {
 export class SubmitDynamicImageJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
   /**
    * @remarks
+   * The output of the job.
+   * 
    * This parameter is required.
    */
   outputShrink?: string;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfigShrink?: string;
   /**
    * @remarks
+   * The snapshot template configuration.
+   * 
    * This parameter is required.
    */
   templateConfigShrink?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"SampleKey": "SampleValue"}
    */
@@ -20196,11 +22038,17 @@ export class SubmitDynamicImageJobShrinkRequest extends $tea.Model {
 
 export class SubmitDynamicImageJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -20252,6 +22100,22 @@ export class SubmitDynamicImageJobResponse extends $tea.Model {
 export class SubmitIProductionJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the algorithm that you want to use for the job. Valid values:
+   * 
+   * *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
+   * *   **VideoClip**: This algorithm intelligently generates a summary for a video.
+   * *   **VideoDelogo**: This algorithm removes logos from a video.
+   * *   **VideoDetext**: This algorithm removes captions from a video.
+   * *   **CaptionExtraction**: This algorithm extracts captions from a video and generates the caption file.
+   * *   **VideoGreenScreenMatting**: This algorithm performs green-screen image matting on a video and generates a new video.
+   * *   **FaceBeauty**: This algorithm performs video retouching.
+   * *   **VideoH2V**: This algorithm transforms a video from the landscape mode to the portrait mode.
+   * *   **MusicSegmentDetect**: This algorithm detects the chorus of a song.
+   * *   **AudioBeatDetection**: This algorithm detects rhythms.
+   * *   **AudioQualityAssessment**: This algorithm assesses the audio quality.
+   * *   **SpeechDenoise**: This algorithm performs noise reduction.
+   * *   **AudioMixing**: This algorithm mixes audio streams.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20260,28 +22124,49 @@ export class SubmitIProductionJobRequest extends $tea.Model {
   functionName?: string;
   /**
    * @remarks
+   * The input file. The file can be an Object Storage Service (OSS) object or a media asset.
+   * 
    * This parameter is required.
    */
   input?: SubmitIProductionJobRequestInput;
   /**
+   * @remarks
+   * The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm. For more information, see the "Parameters of JobParams" section of this topic.
+   * 
    * @example
    * {"Model":"gif"}
    */
   jobParams?: string;
   modelId?: string;
+  /**
+   * @remarks
+   * The name of the intelligent production job. The name can be up to 100 characters in length.
+   */
   name?: string;
   /**
    * @remarks
+   * The output file. The file can be an OSS object or a media asset.
+   * 
    * This parameter is required.
    */
   output?: SubmitIProductionJobRequestOutput;
+  /**
+   * @remarks
+   * The scheduling configuration.
+   */
   scheduleConfig?: SubmitIProductionJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The user-defined data that is returned in the response. The value can be up to 1,024 bytes in length.
+   * 
    * @example
    * {"test":1}
    */
@@ -20322,6 +22207,22 @@ export class SubmitIProductionJobRequest extends $tea.Model {
 export class SubmitIProductionJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the algorithm that you want to use for the job. Valid values:
+   * 
+   * *   **Cover**: This algorithm intelligently generates a thumbnail image for a video.
+   * *   **VideoClip**: This algorithm intelligently generates a summary for a video.
+   * *   **VideoDelogo**: This algorithm removes logos from a video.
+   * *   **VideoDetext**: This algorithm removes captions from a video.
+   * *   **CaptionExtraction**: This algorithm extracts captions from a video and generates the caption file.
+   * *   **VideoGreenScreenMatting**: This algorithm performs green-screen image matting on a video and generates a new video.
+   * *   **FaceBeauty**: This algorithm performs video retouching.
+   * *   **VideoH2V**: This algorithm transforms a video from the landscape mode to the portrait mode.
+   * *   **MusicSegmentDetect**: This algorithm detects the chorus of a song.
+   * *   **AudioBeatDetection**: This algorithm detects rhythms.
+   * *   **AudioQualityAssessment**: This algorithm assesses the audio quality.
+   * *   **SpeechDenoise**: This algorithm performs noise reduction.
+   * *   **AudioMixing**: This algorithm mixes audio streams.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20330,28 +22231,49 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
   functionName?: string;
   /**
    * @remarks
+   * The input file. The file can be an Object Storage Service (OSS) object or a media asset.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The algorithm-specific parameters. The parameters are specified as JSON objects and vary based on the algorithm. For more information, see the "Parameters of JobParams" section of this topic.
+   * 
    * @example
    * {"Model":"gif"}
    */
   jobParams?: string;
   modelId?: string;
+  /**
+   * @remarks
+   * The name of the intelligent production job. The name can be up to 100 characters in length.
+   */
   name?: string;
   /**
    * @remarks
+   * The output file. The file can be an OSS object or a media asset.
+   * 
    * This parameter is required.
    */
   outputShrink?: string;
+  /**
+   * @remarks
+   * The scheduling configuration.
+   */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The user-defined data that is returned in the response. The value can be up to 1,024 bytes in length.
+   * 
    * @example
    * {"test":1}
    */
@@ -20391,11 +22313,17 @@ export class SubmitIProductionJobShrinkRequest extends $tea.Model {
 
 export class SubmitIProductionJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the intelligent production job.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C1849434-FC47-5DC1-92B6-F7EAAFE3851E
    */
@@ -20447,6 +22375,10 @@ export class SubmitIProductionJobResponse extends $tea.Model {
 export class SubmitLiveEditingJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The clips in the JSON array format. The output video is created by merging these clips sequentially.
+   * 
+   * Each clip has a start time and an end time. If no live stream parameters are specified, the outer live stream configurations apply. The start and end timestamps are in UTC. For more information about the parameters, see the "Clip" section of this topic.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20454,23 +22386,61 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
    */
   clips?: string;
   /**
+   * @remarks
+   * The live stream configurations, in the JSON format. The configurations must include the following parameters:
+   * 
+   * *   AppName: the name of the application to which the live stream belongs.
+   * *   DomainName: the domain name of the application.
+   * *   StreamName: the name of the live stream.
+   * 
    * @example
    * { "AppName": "app", "DomainName": "domain.com", "StreamName": "stream"  }
    */
   liveStreamConfig?: string;
   /**
+   * @remarks
+   * The production configurations, in the JSON format. Mode specifies the editing mode. Valid values:
+   * 
+   * *   **AccurateFast** (default): fast editing. It is faster than the Accurate mode. The resolution of the output file is the same as that of the source stream. You cannot specify the width and height of the output file.
+   * *   **Accurate**: accurate editing. In this mode, you can specify the width and height of the output file.
+   * *   **Rough**: rough editing. The minimum precision is one TS segment. The output file comprises all segments within the specified time range. You can specify the width and height of the output file.
+   * *   **RoughFast**: fast rough editing. It is faster than the Accurate mode. The minimum precision is one TS segment. The output file comprises all segments within the specified time range. The resolution of the output file is the same as that of the source stream. You cannot specify the width and height of the output file.
+   * 
    * @example
    * { "Mode": "AccurateFast"}
    */
   mediaProduceConfig?: string;
+  /**
+   * @remarks
+   * The configurations of the output file, in the JSON format. You can specify an OSS URL or a storage location in a storage bucket of ApsaraVideo VOD.
+   * 
+   * *   To store the output file in OSS, you must specify MediaURL.
+   * *   To store the output file in ApsaraVideo VOD, you must specify StorageLocation and FileName.
+   */
   outputMediaConfig?: string;
+  /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * *   oss-object: OSS object in an OSS bucket.
+   * *   vod-media: media asset in Alibaba Cloud VOD.
+   * 
+   * @example
+   * oss-object
+   */
   outputMediaTarget?: string;
   /**
+   * @remarks
+   * The ID of the live editing project. If this parameter is specified, the system reads the storage configurations of the project. If this parameter is not specified, the specified storage configurations take precedence.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length.
+   * 
    * @example
    * {"key": "value"}
    */
@@ -20506,31 +22476,49 @@ export class SubmitLiveEditingJobRequest extends $tea.Model {
 
 export class SubmitLiveEditingJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the live editing job.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http://test-bucket.cn-shanghai.aliyuncs.com/test.mp4
    */
   mediaURL?: string;
   /**
+   * @remarks
+   * The ID of the live editing project.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+   * 
    * @example
    * ****d7578s4h75ci945c14b****
    */
@@ -21213,43 +23201,86 @@ export class SubmitMediaAiAnalysisJobResponse extends $tea.Model {
 
 export class SubmitMediaCensorJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The live comments of the video.
+   * 
+   * >  If this parameter is specified, the system checks the live comments specified by this parameter instead of the live comments of the input file specified by Media.
+   * 
    * @example
    * hello world
    */
   barrages?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) objects that are used as the thumbnails. Specify the thumbnails in a JSON array. A maximum of five thumbnails are supported.
+   * 
+   * >  If this parameter is specified, the system checks the thumbnails specified by this parameter instead of the thumbnails of the input file specified by **Media**.
+   * 
    * @example
    * [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
    */
   coverImages?: string;
   /**
+   * @remarks
+   * The video description, which can be up to 128 bytes in length.
+   * 
+   * >  If this parameter is specified, the system checks the description specified by this parameter instead of the description of the input file specified by Media.
+   * 
    * @example
    * example description
    */
   description?: string;
+  /**
+   * @remarks
+   * The information about the file to be moderated.
+   */
   input?: SubmitMediaCensorJobRequestInput;
   /**
+   * @remarks
+   * The callback URL. Simple Message Queue (SMQ, formerly MNS) and HTTP callbacks are supported.
+   * 
    * @example
    * mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
    */
   notifyUrl?: string;
   /**
+   * @remarks
+   * The output snapshots. The moderation job generates output snapshots and the result JSON file in the path corresponding to the input file.
+   * 
+   * *   File name format of output snapshots: oss://bucket/snapshot-{Count}.jpg. In the path, bucket indicates an OSS bucket that resides in the same region as the current project, and {Count} is the sequence number of the snapshot.
+   * *   The detailed moderation results are stored in the {jobId}.output file in the same OSS folder as the output snapshots. For more information about the parameters in the output file, see [Output parameters of media moderation jobs](https://help.aliyun.com/document_detail/609211.html).
+   * 
    * @example
    * oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
    */
   output?: string;
+  /**
+   * @remarks
+   * The scheduling configurations.
+   */
   scheduleConfig?: SubmitMediaCensorJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The template ID. If this parameter is not specified, the default template is used for moderation.
+   * 
    * @example
    * S00000001-100060
    */
   templateId?: string;
   /**
+   * @remarks
+   * The video title, which can be up to 64 bytes in length.
+   * 
+   * >  If this parameter is specified, the system checks the title specified by this parameter instead of the title of the input file specified by Media.
+   * 
    * @example
    * Hello World
    */
   title?: string;
   /**
+   * @remarks
+   * The user-defined data, which can be up to 128 bytes in length.
+   * 
    * @example
    * UserDatatestid-001-****
    */
@@ -21291,43 +23322,86 @@ export class SubmitMediaCensorJobRequest extends $tea.Model {
 
 export class SubmitMediaCensorJobShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The live comments of the video.
+   * 
+   * >  If this parameter is specified, the system checks the live comments specified by this parameter instead of the live comments of the input file specified by Media.
+   * 
    * @example
    * hello world
    */
   barrages?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) objects that are used as the thumbnails. Specify the thumbnails in a JSON array. A maximum of five thumbnails are supported.
+   * 
+   * >  If this parameter is specified, the system checks the thumbnails specified by this parameter instead of the thumbnails of the input file specified by **Media**.
+   * 
    * @example
    * [{"Bucket":"example-bucket-****","Location":"oss-cn-shanghai","Object":"example-****.jpeg","RoleArn":"acs:ram::1997018457688683:role/AliyunICEDefaultRole"}]
    */
   coverImages?: string;
   /**
+   * @remarks
+   * The video description, which can be up to 128 bytes in length.
+   * 
+   * >  If this parameter is specified, the system checks the description specified by this parameter instead of the description of the input file specified by Media.
+   * 
    * @example
    * example description
    */
   description?: string;
+  /**
+   * @remarks
+   * The information about the file to be moderated.
+   */
   inputShrink?: string;
   /**
+   * @remarks
+   * The callback URL. Simple Message Queue (SMQ, formerly MNS) and HTTP callbacks are supported.
+   * 
    * @example
    * mns://125340688170****.oss-cn-shanghai.aliyuncs.com/queues/example-pipeline
    */
   notifyUrl?: string;
   /**
+   * @remarks
+   * The output snapshots. The moderation job generates output snapshots and the result JSON file in the path corresponding to the input file.
+   * 
+   * *   File name format of output snapshots: oss://bucket/snapshot-{Count}.jpg. In the path, bucket indicates an OSS bucket that resides in the same region as the current project, and {Count} is the sequence number of the snapshot.
+   * *   The detailed moderation results are stored in the {jobId}.output file in the same OSS folder as the output snapshots. For more information about the parameters in the output file, see [Output parameters of media moderation jobs](https://help.aliyun.com/document_detail/609211.html).
+   * 
    * @example
    * oss://sashimi-cn-shanghai/censor/snapshot-{Count}.jpg
    */
   output?: string;
+  /**
+   * @remarks
+   * The scheduling configurations.
+   */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The template ID. If this parameter is not specified, the default template is used for moderation.
+   * 
    * @example
    * S00000001-100060
    */
   templateId?: string;
   /**
+   * @remarks
+   * The video title, which can be up to 64 bytes in length.
+   * 
+   * >  If this parameter is specified, the system checks the title specified by this parameter instead of the title of the input file specified by Media.
+   * 
    * @example
    * Hello World
    */
   title?: string;
   /**
+   * @remarks
+   * The user-defined data, which can be up to 128 bytes in length.
+   * 
    * @example
    * UserDatatestid-001-****
    */
@@ -21369,11 +23443,17 @@ export class SubmitMediaCensorJobShrinkRequest extends $tea.Model {
 
 export class SubmitMediaCensorJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the content moderation job. We recommend that you save this ID for subsequent calls of other operations.
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 25818875-5F78-4A13-BEF6-D7393642CA58
    */
@@ -21425,16 +23505,28 @@ export class SubmitMediaCensorJobResponse extends $tea.Model {
 export class SubmitMediaInfoJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   input?: SubmitMediaInfoJobRequestInput;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The scheduling parameters.
+   */
   scheduleConfig?: SubmitMediaInfoJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -21465,16 +23557,28 @@ export class SubmitMediaInfoJobRequest extends $tea.Model {
 export class SubmitMediaInfoJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The scheduling parameters.
+   */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -21509,6 +23613,9 @@ export class SubmitMediaInfoJobResponseBody extends $tea.Model {
    */
   mediaInfoJob?: SubmitMediaInfoJobResponseBodyMediaInfoJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -21559,13 +23666,40 @@ export class SubmitMediaInfoJobResponse extends $tea.Model {
 
 export class SubmitMediaProducingJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ****12e8864746a0a398****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   */
   clipsParam?: string;
+  /**
+   * @remarks
+   * The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html#title-10z-t9u-n69).
+   * 
+   * >  If no thumbnail is specified in EditingProduceConfig, the first frame of the video is used as the thumbnail.
+   * 
+   * *   AutoRegisterInputVodMedia: specifies whether to automatically register the ApsaraVideo VOD media assets in your timeline with IMS. Default value: true.
+   * *   OutputWebmTransparentChannel: specifies whether the output video contains alpha channels. Default value: false.
+   * *   CoverConfig: the custom thumbnail parameters.
+   * *
+   * 
+   * @example
+   * {
+   *       "AutoRegisterInputVodMedia": "true",
+   *       "OutputWebmTransparentChannel": "true"
+   * }
+   */
   editingProduceConfig?: string;
   /**
+   * @remarks
+   * The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.445712.0.0.49a716dbA8hgdz#97ff26d0e3c28).
+   * 
    * @example
    * {
    *       "Title":"test-title",
@@ -21575,6 +23709,12 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   mediaMetadata?: string;
   /**
    * @remarks
+   * The configurations of the output file, in the JSON format. You can specify an OSS URL or a storage location in a storage bucket of ApsaraVideo VOD.
+   * 
+   * To store the output file in OSS, you must specify MediaURL. To store the output file in ApsaraVideo VOD, you must specify StorageLocation and FileName.
+   * 
+   * For more information, see [OutputMediaConfig](https://help.aliyun.com/document_detail/357745.html#title-4j6-ve7-g31).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21582,27 +23722,62 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
    */
   outputMediaConfig?: string;
   /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * *   oss-object: OSS object in an OSS bucket.
+   * *   vod-media: media asset in ApsaraVideo VOD.
+   * *   S3: output file based on the Amazon Simple Storage Service (S3) protocol.
+   * 
    * @example
    * oss-object
    */
   outputMediaTarget?: string;
   /**
+   * @remarks
+   * The ID of the editing project.
+   * 
+   * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty.
+   * 
    * @example
    * xxxxxfb2101cb318xxxxx
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html#title-yvp-81k-wff).
+   */
   projectMetadata?: string;
   /**
+   * @remarks
+   * The source of the editing and production request. Valid values:
+   * 
+   * *   OpenAPI
+   * *   AliyunConsole
+   * *   WebSDK
+   * 
    * @example
    * OPENAPI
    */
   source?: string;
   /**
+   * @remarks
+   * The template ID. The template is used to build a timeline with ease.
+   * 
+   * > : You must specify one of ProgectId, Timeline, and TempalteId and leave the other two parameters empty. If TemplateId is specified, ClipsParam must also be specified.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
   timeline?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   * 
+   * @example
+   * {"NotifyAddress":"https://xx.com/xx","RegisterMediaNotifyAddress":"https://xxx.com/xx"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21645,26 +23820,41 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
 
 export class SubmitMediaProducingJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * ****c469e944b5a856828dc2****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The ID of the editing project.
+   * 
    * @example
    * ****b4549d46c88681030f6e****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+   * 
    * @example
    * ****d8s4h75ci975745c14b****
    */
@@ -21722,21 +23912,35 @@ export class SubmitMediaProducingJobResponse extends $tea.Model {
 export class SubmitPackageJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   inputs?: SubmitPackageJobRequestInputs[];
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
    * @remarks
+   * The output of the job.
+   * 
    * This parameter is required.
    */
   output?: SubmitPackageJobRequestOutput;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfig?: SubmitPackageJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"param": "value"}
    */
@@ -21769,21 +23973,35 @@ export class SubmitPackageJobRequest extends $tea.Model {
 export class SubmitPackageJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   inputsShrink?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
    * @remarks
+   * The output of the job.
+   * 
    * This parameter is required.
    */
   outputShrink?: string;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"param": "value"}
    */
@@ -21815,11 +24033,17 @@ export class SubmitPackageJobShrinkRequest extends $tea.Model {
 
 export class SubmitPackageJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 2d705f385b704ee5b*******a36d93e0
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -21870,51 +24094,80 @@ export class SubmitPackageJobResponse extends $tea.Model {
 
 export class SubmitSmarttagJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The video description. The description can contain letters, digits, and hyphens (-) and cannot start with a special character. The description can be up to 1 KB in length.
+   * 
    * @example
    * example content ****
    */
   content?: string;
   /**
+   * @remarks
+   * This parameter is discontinued.
+   * 
    * @example
    * http://123.com/testVideo.mp4
    */
   contentAddr?: string;
   /**
+   * @remarks
+   * This parameter is discontinued.
+   * 
    * @example
    * application/zip
    */
   contentType?: string;
   /**
    * @remarks
-   * input
+   * The job input.
    */
   input?: SubmitSmarttagJobRequestInput;
   /**
+   * @remarks
+   * The URL for receiving callbacks. Set the value to an HTTP URL or an HTTPS URL.
+   * 
    * @example
    * https://example.com/endpoint/aliyun/ai?id=76401125000***
    */
   notifyUrl?: string;
   /**
+   * @remarks
+   * The additional request parameters. The value is a JSON string. Example: {"needAsrData":true, "needOcrData":false}. The following parameters are supported:
+   * 
+   * *   needAsrData: specifies whether to query the automatic speech recognition (ASR) data. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   needOcrData: specifies whether to query the optical character recognition (OCR) data. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   needMetaData: specifies whether to query the metadata. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   nlpParams: the input parameters of the natural language processing (NLP) operator. The value is a JSON object. This parameter is empty by default, which indicates that the NLP operator is not used. For more information, see the "nlpParams" section of this topic.
+   * 
    * @example
    * {"needAsrData":true, "needOcrData":false}
    */
   params?: string;
   /**
    * @remarks
-   * scheduleConfig
+   * The scheduling configurations.
    */
   scheduleConfig?: SubmitSmarttagJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The ID of the template that specifies the analysis algorithms. For more information about template operations, see [Configure templates](https://help.aliyun.com/document_detail/445702.html).
+   * 
    * @example
    * 39f8e0bc005e4f309379701645f4
    */
   templateId?: string;
   /**
+   * @remarks
+   * The video title. The title can contain letters, digits, and hyphens (-) and cannot start with a special character. The title can be up to 256 bytes in length.
+   * 
    * @example
    * example-title-****
    */
   title?: string;
   /**
+   * @remarks
+   * The data to be passed through Simple Message Queue (SMQ, formerly MNS) during callbacks. The data can be up to 1 KB in length. For more information about how to specify an SMQ queue for receiving callbacks, see UpdatePipeline.
+   * 
    * @example
    * {“a”:"test"}
    */
@@ -21956,51 +24209,80 @@ export class SubmitSmarttagJobRequest extends $tea.Model {
 
 export class SubmitSmarttagJobShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The video description. The description can contain letters, digits, and hyphens (-) and cannot start with a special character. The description can be up to 1 KB in length.
+   * 
    * @example
    * example content ****
    */
   content?: string;
   /**
+   * @remarks
+   * This parameter is discontinued.
+   * 
    * @example
    * http://123.com/testVideo.mp4
    */
   contentAddr?: string;
   /**
+   * @remarks
+   * This parameter is discontinued.
+   * 
    * @example
    * application/zip
    */
   contentType?: string;
   /**
    * @remarks
-   * input
+   * The job input.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The URL for receiving callbacks. Set the value to an HTTP URL or an HTTPS URL.
+   * 
    * @example
    * https://example.com/endpoint/aliyun/ai?id=76401125000***
    */
   notifyUrl?: string;
   /**
+   * @remarks
+   * The additional request parameters. The value is a JSON string. Example: {"needAsrData":true, "needOcrData":false}. The following parameters are supported:
+   * 
+   * *   needAsrData: specifies whether to query the automatic speech recognition (ASR) data. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   needOcrData: specifies whether to query the optical character recognition (OCR) data. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   needMetaData: specifies whether to query the metadata. The value is of the BOOLEAN type. Default value: false. Valid values: true and false.
+   * *   nlpParams: the input parameters of the natural language processing (NLP) operator. The value is a JSON object. This parameter is empty by default, which indicates that the NLP operator is not used. For more information, see the "nlpParams" section of this topic.
+   * 
    * @example
    * {"needAsrData":true, "needOcrData":false}
    */
   params?: string;
   /**
    * @remarks
-   * scheduleConfig
+   * The scheduling configurations.
    */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The ID of the template that specifies the analysis algorithms. For more information about template operations, see [Configure templates](https://help.aliyun.com/document_detail/445702.html).
+   * 
    * @example
    * 39f8e0bc005e4f309379701645f4
    */
   templateId?: string;
   /**
+   * @remarks
+   * The video title. The title can contain letters, digits, and hyphens (-) and cannot start with a special character. The title can be up to 256 bytes in length.
+   * 
    * @example
    * example-title-****
    */
   title?: string;
   /**
+   * @remarks
+   * The data to be passed through Simple Message Queue (SMQ, formerly MNS) during callbacks. The data can be up to 1 KB in length. For more information about how to specify an SMQ queue for receiving callbacks, see UpdatePipeline.
+   * 
    * @example
    * {“a”:"test"}
    */
@@ -22042,11 +24324,17 @@ export class SubmitSmarttagJobShrinkRequest extends $tea.Model {
 
 export class SubmitSmarttagJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the smart tagging job. We recommend that you save this ID for subsequent calls of other operations.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -22098,26 +24386,42 @@ export class SubmitSmarttagJobResponse extends $tea.Model {
 export class SubmitSnapshotJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The snapshot input.
+   * 
    * This parameter is required.
    */
   input?: SubmitSnapshotJobRequestInput;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
   /**
    * @remarks
+   * The snapshot output.
+   * 
    * This parameter is required.
    */
   output?: SubmitSnapshotJobRequestOutput;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfig?: SubmitSnapshotJobRequestScheduleConfig;
   /**
    * @remarks
+   * The snapshot template configuration.
+   * 
    * This parameter is required.
    */
   templateConfig?: SubmitSnapshotJobRequestTemplateConfig;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"test parameter": "test value"}
    */
@@ -22152,26 +24456,42 @@ export class SubmitSnapshotJobRequest extends $tea.Model {
 export class SubmitSnapshotJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The snapshot input.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
   /**
    * @remarks
+   * The snapshot output.
+   * 
    * This parameter is required.
    */
   outputShrink?: string;
+  /**
+   * @remarks
+   * The scheduling settings.
+   */
   scheduleConfigShrink?: string;
   /**
    * @remarks
+   * The snapshot template configuration.
+   * 
    * This parameter is required.
    */
   templateConfigShrink?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"test parameter": "test value"}
    */
@@ -22205,11 +24525,17 @@ export class SubmitSnapshotJobShrinkRequest extends $tea.Model {
 
 export class SubmitSnapshotJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -22260,12 +24586,22 @@ export class SubmitSnapshotJobResponse extends $tea.Model {
 
 export class SubmitSportsHighlightsJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ****12e8864746a0a398****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
   inputConfig?: string;
   /**
+   * @remarks
+   * The output configurations.
+   * 
    * @example
    * {
    *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
@@ -22275,6 +24611,10 @@ export class SubmitSportsHighlightsJobRequest extends $tea.Model {
    * }
    */
   outputConfig?: string;
+  /**
+   * @remarks
+   * The user-defined data.
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22301,11 +24641,17 @@ export class SubmitSportsHighlightsJobRequest extends $tea.Model {
 
 export class SubmitSportsHighlightsJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the sports highlights job.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****36-3C1E-4417-BDB2-1E034F****
    */
@@ -22356,25 +24702,63 @@ export class SubmitSportsHighlightsJobResponse extends $tea.Model {
 
 export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * *   The material assets IDs of the materials for training.
+   * *   Separate multiple media IDs with commas (,).
+   * 
+   * > : The total duration of all materials must be within 15 to 30 minutes. The duration of each material must be greater than 1 minute.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****,****571c704445f9a0ee011406c2****
    */
   audios?: string;
   /**
+   * @remarks
+   * *   The media asset ID of the authentication audio.
+   * 
+   * *   Upload an audio file for identity authentication. If the voiceprint extracted from the uploaded file differs from that of the training file, the job fails.
+   * 
+   *     **
+   * 
+   *     **Note**: Clearly read and record the following text: I confirm to customize human voice cloning and provide audio files that contain my voice for training. I promise that I am responsible for the customized content and that the content complies with laws and regulations.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   authentication?: string;
   /**
+   * @remarks
+   * The URL of the sample audio file.
+   * 
+   * *   If this parameter is specified, a sample audio file is generated at the specified Object Storage Service (OSS) URL after the training is complete.
+   * 
+   * *   If this parameter is not specified, no sample audio file is generated.
+   * 
+   *     **
+   * 
+   *     **Note**: The URL must be a valid public OSS URL within your Alibaba Cloud account.
+   * 
    * @example
    * https://your-bucket.oss-cn-shanghai.aliyuncs.com/demo.mp3
    */
   demoAudioMediaURL?: string;
   /**
+   * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
    * @example
    * female
    */
   gender?: string;
+  /**
+   * @remarks
+   * The voice name.
+   * 
+   * *   The name can be up to 32 characters in length.
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22402,13 +24786,26 @@ export class SubmitStandardCustomizedVoiceJobRequest extends $tea.Model {
 }
 
 export class SubmitStandardCustomizedVoiceJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: SubmitStandardCustomizedVoiceJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -22462,16 +24859,28 @@ export class SubmitStandardCustomizedVoiceJobResponse extends $tea.Model {
 export class SubmitSyncMediaInfoJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   input?: SubmitSyncMediaInfoJobRequestInput;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The scheduling parameters. This parameter is optional.
+   */
   scheduleConfig?: SubmitSyncMediaInfoJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -22502,16 +24911,28 @@ export class SubmitSyncMediaInfoJobRequest extends $tea.Model {
 export class SubmitSyncMediaInfoJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The input of the job.
+   * 
    * This parameter is required.
    */
   inputShrink?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The scheduling parameters. This parameter is optional.
+   */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -22546,6 +24967,9 @@ export class SubmitSyncMediaInfoJobResponseBody extends $tea.Model {
    */
   mediaInfoJob?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -22595,14 +25019,42 @@ export class SubmitSyncMediaInfoJobResponse extends $tea.Model {
 }
 
 export class SubmitTextGenerateJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The job description, which can be up to 1,024 bytes in length and must be encoded in UTF-8.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The text generation configurations, including keywords and the requirements for the word count and number of output copies.
+   */
   generateConfig?: string;
+  /**
+   * @remarks
+   * The job title.
+   * 
+   * The job title can be up to 128 bytes in length.
+   * 
+   * The value must be encoded in UTF-8.
+   */
   title?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   MarketingCopy: the marketing copy.
+   * *   Title: the short video title.
+   * 
    * @example
    * MarketingCopy
    */
   type?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22631,13 +25083,16 @@ export class SubmitTextGenerateJobRequest extends $tea.Model {
 
 export class SubmitTextGenerateJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID
    * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
@@ -22688,28 +25143,54 @@ export class SubmitTextGenerateJobResponse extends $tea.Model {
 }
 
 export class SubmitTranscodeJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * job-name
    */
   inputGroup?: SubmitTranscodeJobRequestInputGroup[];
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
    * @remarks
+   * The output group of the job.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * user-data
    */
   outputGroup?: SubmitTranscodeJobRequestOutputGroup[];
   /**
+   * @remarks
+   * The scheduling information about the job.
+   * 
    * @example
    * job-name
    */
   scheduleConfig?: SubmitTranscodeJobRequestScheduleConfig;
   /**
+   * @remarks
+   * The custom settings. The value must be in the JSON format and can be up to 512 bytes in length. You can specify a [custom callback URL](https://help.aliyun.com/document_detail/451631.html).
+   * 
    * @example
    * user-data
    */
@@ -22742,28 +25223,54 @@ export class SubmitTranscodeJobRequest extends $tea.Model {
 }
 
 export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * @example
+   * ****12e8864746a0a398****
+   */
   clientToken?: string;
   /**
    * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * job-name
    */
   inputGroupShrink?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
    * @remarks
+   * The output group of the job.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * user-data
    */
   outputGroupShrink?: string;
   /**
+   * @remarks
+   * The scheduling information about the job.
+   * 
    * @example
    * job-name
    */
   scheduleConfigShrink?: string;
   /**
+   * @remarks
+   * The custom settings. The value must be in the JSON format and can be up to 512 bytes in length. You can specify a [custom callback URL](https://help.aliyun.com/document_detail/451631.html).
+   * 
    * @example
    * user-data
    */
@@ -22797,6 +25304,9 @@ export class SubmitTranscodeJobShrinkRequest extends $tea.Model {
 
 export class SubmitTranscodeJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
@@ -22896,7 +25406,11 @@ export class SubmitVideoTranslationJobRequest extends $tea.Model {
   title?: string;
   /**
    * @remarks
-   * *   The user data.
+   * *   The user-defined data.
+   * *   The data must be in the JSON format, and can be up to 512 characters in length.
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx"}
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -23114,10 +25628,22 @@ export class UpdateAIAgentInstanceResponse extends $tea.Model {
 }
 
 export class UpdateAvatarTrainingJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * *   The description of the digital human.
+   * *   The description can be up to 1,000 characters in length.
+   */
   avatarDescription?: string;
+  /**
+   * @remarks
+   * *   The name of the digital human.
+   * *   The name can be up to seven characters in length.
+   */
   avatarName?: string;
   /**
    * @remarks
+   * The ID of the digital human training job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23125,21 +25651,48 @@ export class UpdateAvatarTrainingJobRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * *   The media asset ID of the portrait image.
+   * *   The value must be 32 characters in length.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   portrait?: string;
   /**
+   * @remarks
+   * *   The thumbnail URL.
+   * *   After the digital human is trained, the thumbnail is uploaded to this URL.
+   * *   The URL must be a valid public Object Storage Service (OSS) URL.
+   * *   The URL can be up to 512 characters in length.
+   * *   The URL cannot be updated after the digital human is trained.
+   * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
    */
   thumbnail?: string;
   /**
+   * @remarks
+   * *   Indicates whether the input video supports alpha channels.
+   * 
+   * *   You can modify this parameter only if the job is in the Init or Fail state.
+   * 
+   *     **
+   * 
+   *     **Note**: Make sure that the current settings are consistent with those of the submitted training video. Otherwise, the digital human may malfunction.
+   * 
    * @example
    * True
    */
   transparent?: boolean;
   /**
+   * @remarks
+   * *   The ID of the video used for training.
+   * *   The value must be 32 characters in length.
+   * *   Supported formats: MP4, MOV, and WebM.
+   * *   The duration of the video must be 5 to 15 minutes.
+   * *   The resolution of the video must be 1920×1080 or 1080×1920.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
@@ -23174,13 +25727,26 @@ export class UpdateAvatarTrainingJobRequest extends $tea.Model {
 }
 
 export class UpdateAvatarTrainingJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: UpdateAvatarTrainingJobResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -23325,17 +25891,25 @@ export class UpdateCategoryResponse extends $tea.Model {
 
 export class UpdateCustomTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * test-template
    */
   name?: string;
   /**
+   * @remarks
+   * The [template parameters](https://help.aliyun.com/document_detail/448291.html).
+   * 
    * @example
    * {"param": "sample"}
    */
   templateConfig?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23365,11 +25939,17 @@ export class UpdateCustomTemplateRequest extends $tea.Model {
 
 export class UpdateCustomTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -23420,12 +26000,17 @@ export class UpdateCustomTemplateResponse extends $tea.Model {
 
 export class UpdateCustomizedVoiceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The media asset ID of the sample audio file.
+   * 
    * @example
    * ****4d5e829d498aaf966b119348****
    */
   demoAudioMediaId?: string;
   /**
    * @remarks
+   * The voice ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23453,11 +26038,20 @@ export class UpdateCustomizedVoiceRequest extends $tea.Model {
 
 export class UpdateCustomizedVoiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E84BE44-58A7-****-****-FBEBEA16EF94
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -23520,7 +26114,7 @@ export class UpdateEditingProjectRequest extends $tea.Model {
   businessStatus?: string;
   /**
    * @remarks
-   * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information<props="china">, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use an advanced template](https://help.aliyun.com/document_detail/291418.html).
+   * The material parameter corresponding to the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified.
    */
   clipsParam?: string;
   /**
@@ -24619,12 +27213,17 @@ export class UpdateMediaToSearchLibResponse extends $tea.Model {
 
 export class UpdatePipelineRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
    * @example
    * test-pipeline
    */
   name?: string;
   /**
    * @remarks
+   * The ID of the MPS queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24632,11 +27231,22 @@ export class UpdatePipelineRequest extends $tea.Model {
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the MPS queue. Valid values: 1 to 10.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The state of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Active
+   * *   Paused
+   * 
    * @example
    * Paused
    */
@@ -24666,11 +27276,17 @@ export class UpdatePipelineRequest extends $tea.Model {
 
 export class UpdatePipelineResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -24835,36 +27451,70 @@ export class UpdateTemplateRequest extends $tea.Model {
    */
   config?: string;
   /**
+   * @remarks
+   * The URL of the template thumbnail.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The name of the online editing template.
+   * 
    * @example
    * 视频添加水印模板
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the preview video.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   previewMedia?: string;
   /**
+   * @remarks
+   * The IDs of the materials associated with the template for use by the regular template editor.
+   * 
    * @example
    * {"video":["******c04f1d4a06996144cc1a******","******cb7db64841b159b4f2ea******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
    */
   relatedMediaids?: string;
   /**
+   * @remarks
+   * The source from which the template is modified. Default value: OpenAPI. Valid values:
+   * 
+   * *   AliyunConsole
+   * *   OpenAPI
+   * *   WebSDK
+   * 
    * @example
    * OpenAPI
    */
   source?: string;
   /**
+   * @remarks
+   * The template state. Valid values:
+   * 
+   * *   Available: The template is available.
+   * *   Created: The template is created but not ready for use.
+   * *   Uploading: The video is being uploaded.
+   * *   Processing: The advanced template is being processed.
+   * *   UploadFailed: Failed to upload the video.
+   * *   ProcessFailed: Failed to process the advanced template.
+   * 
+   * >  After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the online editing template. You can obtain the template ID in the [Intelligent Media Services (IMS) console](https://ice.console.aliyun.com/production/template/list/common) or the response parameters of the [AddTemplate](https://help.aliyun.com/document_detail/441161.html) operation.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -24902,6 +27552,9 @@ export class UpdateTemplateRequest extends $tea.Model {
 
 export class UpdateTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -25386,12 +28039,14 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
@@ -25401,12 +28056,14 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
 
@@ -25419,12 +28076,14 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      workflowOverrideParams: 'string',
     };
   }
 
@@ -25441,12 +28100,14 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
@@ -25456,12 +28117,14 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
 
@@ -25474,12 +28137,14 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      workflowOverrideParams: 'string',
     };
   }
 
@@ -25490,48 +28155,60 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
 
 export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   asrMaxSilence?: number;
+  avatarUrl?: string;
+  avatarUrlType?: string;
   bailianAppParams?: string;
   enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
   userOnlineTimeout?: number;
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
+      avatarUrl: 'AvatarUrl',
+      avatarUrlType: 'AvatarUrlType',
       bailianAppParams: 'BailianAppParams',
       enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
       userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       asrMaxSilence: 'number',
+      avatarUrl: 'string',
+      avatarUrlType: 'string',
       bailianAppParams: 'string',
       enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
       userOnlineTimeout: 'number',
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      workflowOverrideParams: 'string',
     };
   }
 
@@ -26138,46 +28815,99 @@ export class AddEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
 
 export class AddTemplateResponseBodyTemplate extends $tea.Model {
   /**
+   * @remarks
+   * The template configurations.
+   * 
    * @example
    * 参见Timeline模板Config文档
    */
   config?: string;
   /**
+   * @remarks
+   * The URL of the template thumbnail.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
    */
   coverUrl?: string;
   /**
+   * @remarks
+   * The source from which the template was created.
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole
+   * *   WebSDK
+   * *   OpenAPI
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The source from which the template was modified.
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole
+   * *   WebSDK
+   * *   OpenAPI
+   * 
    * @example
    * OpenAPI
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * 视频添加水印模板
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the preview video.
+   * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
    */
   previewMedia?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
+   * Valid values:
+   * 
+   * *   UploadFailed: Failed to upload the video.
+   * *   ProcessFailed: Failed to process the advanced template.
+   * *   Available: The template is available.
+   * *   Uploading: The video is being uploaded.
+   * *   Created: The template is created but not ready for use.
+   * *   Processing: The advanced template is being processed.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****01bf24bf41c78b2754cb3187****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
+   * Valid values:
+   * 
+   * *   Timeline: regular template.
+   * *   VETemplate: advanced template.
+   * 
    * @example
    * Timeline
    */
@@ -26602,6 +29332,9 @@ export class BatchGetMediaInfosResponseBodyMediaInfos extends $tea.Model {
 
 export class CreateAvatarTrainingJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
    */
@@ -26625,51 +29358,81 @@ export class CreateAvatarTrainingJobResponseBodyData extends $tea.Model {
 
 export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-04-19T02:04:31Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Indicates whether the template is the default template.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-04-19T02:04:31Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype name of the template.
+   * 
    * @example
    * Remux
    */
   subtype?: string;
   /**
+   * @remarks
+   * The template configurations.
+   * 
    * @example
    * {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * test-template
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type ID of the template.
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * The type name of the template.
+   * 
    * @example
    * TranscodeTemplate
    */
@@ -26711,11 +29474,17 @@ export class CreateCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
 
 export class CreateCustomizedVoiceJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * @example
    * ****29faef8144638ba42eb8e037****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
@@ -26741,22 +29510,38 @@ export class CreateCustomizedVoiceJobResponseBodyData extends $tea.Model {
 
 export class CreateDNADBResponseBodyDBInfo extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media fingerprint library. We recommend that you save this ID for subsequent calls of other operations.
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
    */
   DBId?: string;
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   */
   description?: string;
   /**
+   * @remarks
+   * The model of the media fingerprint library.
+   * 
    * @example
    * Video
    */
   model?: string;
   /**
+   * @remarks
+   * The name of the media fingerprint library.
+   * 
    * @example
    * example name
    */
   name?: string;
   /**
+   * @remarks
+   * The state of the media fingerprint library. After a media fingerprint library is created, it enters the offline state. After the media fingerprint library is processed at the backend, it enters the active state.
+   * 
    * @example
    * offline
    */
@@ -27232,36 +30017,68 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model
 
 export class CreatePipelineResponseBodyPipeline extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
    * @example
    * test-pipeline
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the MPS queue.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Boost: MPS queue with transcoding speed boosted.
+   * *   Standard: standard MPS queue.
+   * *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * 
    * @example
    * Standard
    */
   speed?: string;
   /**
+   * @remarks
+   * The state of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Active
+   * *   Paused
+   * 
    * @example
    * Active
    */
@@ -27297,11 +30114,17 @@ export class CreatePipelineResponseBodyPipeline extends $tea.Model {
 
 export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the customer master key (CMK) that was used to decrypt the ciphertext.
+   * 
    * @example
    * 202b9877-5a25-46e3-a763-e20791b5****
    */
   keyId?: string;
   /**
+   * @remarks
+   * The plaintext that is generated after decryption.
+   * 
    * @example
    * tRYXuCwgja12xxO1N/gZERDDCLw9doZEQiPDk/Bv****
    */
@@ -27327,6 +30150,9 @@ export class DecryptKMSDataKeyResponseBodyDataKey extends $tea.Model {
 
 export class DeleteAvatarTrainingJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
    */
@@ -27468,16 +30294,25 @@ export class DescribeAIAgentInstanceResponseBodyInstance extends $tea.Model {
 
 export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The usage duration, in minutes.
+   * 
    * @example
    * 1.23
    */
   duration?: number;
   /**
+   * @remarks
+   * The video profile.
+   * 
    * @example
    * 1080P
    */
   profile?: string;
   /**
+   * @remarks
+   * The beginning time of usage. The value is a 10-digit timestamp.
+   * 
    * @example
    * 1656950400
    */
@@ -27505,16 +30340,25 @@ export class DescribeMeterImsEditUsageResponseBodyData extends $tea.Model {
 
 export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The usage duration, in minutes.
+   * 
    * @example
    * 308028
    */
   duration?: number;
   /**
+   * @remarks
+   * The transcoding specifications.
+   * 
    * @example
    * SuperResolution.Standard.1080P
    */
   specification?: string;
   /**
+   * @remarks
+   * The beginning time of usage. The value is a 10-digit timestamp.
+   * 
    * @example
    * 1656950400
    */
@@ -27542,16 +30386,25 @@ export class DescribeMeterImsMediaConvertUHDUsageResponseBodyData extends $tea.M
 
 export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The usage duration, in minutes.
+   * 
    * @example
    * 20
    */
   duration?: number;
   /**
+   * @remarks
+   * The transcoding specifications.
+   * 
    * @example
    * H264.HD
    */
   specification?: string;
   /**
+   * @remarks
+   * The beginning time of usage. The value is a 10-digit timestamp.
+   * 
    * @example
    * 1656950400
    */
@@ -27579,15 +30432,25 @@ export class DescribeMeterImsMediaConvertUsageResponseBodyData extends $tea.Mode
 
 export class DescribeMeterImsMpsAiUsageResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The usage duration, in minutes.
+   * 
    * @example
    * 644
    */
   duration?: number;
   /**
+   * @remarks
+   * The beginning time of usage. The value is a 10-digit timestamp.
+   * 
    * @example
    * 1656950400
    */
   time?: number;
+  /**
+   * @remarks
+   * The AI type. Valid values:
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27612,29 +30475,65 @@ export class DescribeMeterImsMpsAiUsageResponseBodyData extends $tea.Model {
 
 export class DescribeMeterImsSummaryResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The duration of video editing.
+   * 
    * @example
    * 8722
    */
   editingDuration?: string;
+  /**
+   * @remarks
+   * The duration of live editing.
+   * 
+   * @example
+   * 2000
+   */
   liveEditDuration?: string;
+  /**
+   * @remarks
+   * The duration of live stream recording.
+   * 
+   * @example
+   * 100
+   */
   liveRecordDuration?: string;
+  /**
+   * @remarks
+   * The number of live stream snapshots.
+   * 
+   * @example
+   * 100
+   */
   liveSnapshotCount?: string;
   /**
+   * @remarks
+   * The duration of live stream transcoding.
+   * 
    * @example
    * 12356
    */
   liveTranscodeDuration?: number;
   /**
+   * @remarks
+   * The duration of AI processing.
+   * 
    * @example
    * 0
    */
   mpsAiDuration?: number;
   /**
+   * @remarks
+   * The duration of video-on-demand (VOD) transcoding.
+   * 
    * @example
    * 17337
    */
   mpsTranscodeDuration?: number;
   /**
+   * @remarks
+   * The duration of audio and video enhancement.
+   * 
    * @example
    * 300
    */
@@ -27791,10 +30690,20 @@ export class DescribeRtcRobotInstanceResponseBodyConfig extends $tea.Model {
 
 export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the audio file passes the check. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * false
    */
   pass?: boolean;
+  /**
+   * @remarks
+   * The reason returned if the audio file failed to pass the check.
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27817,16 +30726,25 @@ export class DetectAudioForCustomizedVoiceJobResponseBodyData extends $tea.Model
 
 export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of the encrypted data key. This parameter is used as CipherText when you create a transcoding job.
+   * 
    * @example
    * ODZhOWVmZDktM2QxNi00ODk0LWJkNGYtMWZjNDNmM2YyYWJmS7FmDBBQ0BkKsQrtRnidtPwirmDcS0ZuJCU41xxAAWk4Z8qsADfbV0b+i6kQmlvj79dJdGOvtX69Uycs901qOjop4bTS****
    */
   ciphertextBlob?: string;
   /**
+   * @remarks
+   * The ID of the customer master key (CMK). The ID must be globally unique.
+   * 
    * @example
    * 7906979c-8e06-46a2-be2d-68e3ccbc****
    */
   keyId?: string;
   /**
+   * @remarks
+   * The Base64-encoded plaintext of the data key.
+   * 
    * @example
    * QmFzZTY0IGVuY29kZWQgcGxhaW50****
    */
@@ -27853,34 +30771,71 @@ export class GenerateKMSDataKeyResponseBodyDataKey extends $tea.Model {
 }
 
 export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the digital human.
+   */
   avatarDescription?: string;
   /**
+   * @remarks
+   * The ID of the digital human.
+   * 
    * @example
    * Avatar-XXXX
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The name of the digital human.
+   */
   avatarName?: string;
   /**
+   * @remarks
+   * The type of the digital human.
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
+  /**
+   * @remarks
+   * The height of the digital human image in pixels.
+   * 
+   * @example
+   * 1920
+   */
   height?: number;
   /**
+   * @remarks
+   * The media asset ID of the portrait image.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   portrait?: string;
   /**
+   * @remarks
+   * The thumbnail URL.
+   * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
    */
   thumbnail?: string;
   /**
+   * @remarks
+   * Indicates whether the digital human supports alpha channels.
+   * 
    * @example
    * true
    */
   transparent?: boolean;
+  /**
+   * @remarks
+   * The width of the digital human image in pixels.
+   * 
+   * @example
+   * 1080
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27916,6 +30871,10 @@ export class GetAvatarResponseBodyDataAvatar extends $tea.Model {
 }
 
 export class GetAvatarResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the digital human.
+   */
   avatar?: GetAvatarResponseBodyDataAvatar;
   static names(): { [key: string]: string } {
     return {
@@ -27935,55 +30894,100 @@ export class GetAvatarResponseBodyData extends $tea.Model {
 }
 
 export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the digital human.
+   */
   avatarDescription?: string;
   /**
+   * @remarks
+   * The ID of the digital human.
+   * 
    * @example
    * Avatar-XXXX
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The name of the digital human.
+   */
   avatarName?: string;
   /**
+   * @remarks
+   * The type of the digital human.
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
   /**
+   * @remarks
+   * *   The time when the first training was initiated.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   firstTrainingTime?: string;
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * ****55d86f7f4587943ce7734d6b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * *   The time when the last training was initiated.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   lastTrainingTime?: string;
+  /**
+   * @remarks
+   * The status description.
+   */
   message?: string;
   /**
+   * @remarks
+   * The media asset ID of the portrait image.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   portrait?: string;
   /**
+   * @remarks
+   * *   The state of the digital human training job.
+   * *   Valid values: Init, Queuing, Training, Success, and Fail.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The thumbnail URL.
+   * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
    */
   thumbnail?: string;
   /**
+   * @remarks
+   * Indicates whether the input video supports alpha channels.
+   * 
    * @example
    * true
    */
   transparent?: boolean;
   /**
+   * @remarks
+   * The ID of the video used for training.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
@@ -28030,6 +31034,10 @@ export class GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob extends $tea.
 }
 
 export class GetAvatarTrainingJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the digital human training job.
+   */
   avatarTrainingJob?: GetAvatarTrainingJobResponseBodyDataAvatarTrainingJob;
   static names(): { [key: string]: string } {
     return {
@@ -28050,32 +31058,65 @@ export class GetAvatarTrainingJobResponseBodyData extends $tea.Model {
 
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList extends $tea.Model {
   /**
+   * @remarks
+   * The error code that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+   * 
    * @example
    * InvalidMaterial.NotFound
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message that is returned if the subjob failed. This parameter is not returned if the subjob is successful.
+   * 
    * @example
    * The specified clips id not found:["****30d0b5e871eebb2ff7f6c75a****"]
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The subjob ID.
+   * 
    * @example
    * ****8e81933d44e3ae69e2f81485****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The ID of the output media asset.
+   * 
    * @example
    * ****1470b11171ee9d19e7e6c66a****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http:/xxx.oss-cn-shanghai.aliyuncs.com/xxx_0.mp4
    */
   mediaURL?: string;
+  /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
+   * @example
+   * ****7cc47fe04eaa81bd853acb6a****
+   */
   projectId?: string;
   /**
+   * @remarks
+   * The subjob state. Valid values:
+   * 
+   * Init: The subjob is initialized.
+   * 
+   * Processing: The subjob is in progress.
+   * 
+   * Success: The subjob is successful.
+   * 
+   * Failed: The subjob failed.
+   * 
    * @example
    * Success
    */
@@ -28110,9 +31151,28 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList exte
 }
 
 export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the job was complete.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-06-13T08:57:07Z
+   */
   completeTime?: string;
+  /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-06-13T08:47:07Z
+   */
   createTime?: string;
   /**
+   * @remarks
+   * The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+   * 
    * @example
    * {
    *   "MediaConfig": {
@@ -28128,6 +31188,13 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
    */
   editingConfig?: string;
   /**
+   * @remarks
+   * The extended information. This parameter contains the following fields:
+   * 
+   * ErrorCode: the error code of the main job.
+   * 
+   * ErrorMessage: the error message of the main job.
+   * 
    * @example
    * {
    * 	"ErrorCode": "InvalidMaterial.NotFound",
@@ -28135,15 +31202,34 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
    * }
    */
   extend?: string;
+  /**
+   * @remarks
+   * The input configurations. For more information, see [InputConfig](~~2692547#2faed1559549n~~).
+   */
   inputConfig?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****b6b2750d4308892ac3330238****
    */
   jobId?: string;
   jobType?: string;
+  /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-06-13T08:57:07Z
+   */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+   * 
    * @example
    * {
    *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
@@ -28156,12 +31242,28 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
    */
   outputConfig?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * Init: The job is initialized.
+   * 
+   * Processing: The job is in progress.
+   * 
+   * Finished: The job is complete.
+   * 
    * @example
    * Finished
    */
   status?: string;
+  /**
+   * @remarks
+   * The quick video production subjobs.
+   */
   subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
   /**
+   * @remarks
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+   * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
    */
@@ -28446,57 +31548,90 @@ export class GetCustomTemplateResponseBodyCustomTemplateFrontendHint extends $te
 
 export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-01-01T10:00:00Z
    */
   createTime?: string;
   frontendHint?: GetCustomTemplateResponseBodyCustomTemplateFrontendHint;
   /**
+   * @remarks
+   * Indicates whether the template is the default template.
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-01-01T11:00:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
    * @example
    * 1
    */
   subtype?: number;
   /**
+   * @remarks
+   * The subtype name of the template.
+   * 
    * @example
    * Normal
    */
   subtypeName?: string;
   /**
+   * @remarks
+   * The template parameters.
+   * 
    * @example
    * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * 测试转码模板
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type ID of the template.
+   * 
    * @example
    * 2
    */
   type?: number;
   /**
+   * @remarks
+   * The type name of the template.
+   * 
    * @example
    * SnapshotTemplate
    */
@@ -28542,26 +31677,55 @@ export class GetCustomTemplateResponseBodyCustomTemplate extends $tea.Model {
 
 export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $tea.Model {
   /**
+   * @remarks
+   * The media asset ID of the sample audio file.
+   * 
    * @example
    * ****42d3c312402982be65975f5b****
    */
   demoAudioMediaId?: string;
   /**
+   * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
    * @example
    * female
    */
   gender?: string;
   /**
+   * @remarks
+   * The demonstration scenario.
+   * 
+   * Valid values:
+   * 
+   * *   **story**
+   * *   **interaction**
+   * *   **navigation**
+   * 
    * @example
    * interaction
    */
   scenario?: string;
+  /**
+   * @remarks
+   * The voice description.
+   */
   voiceDesc?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * The voice name.
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28591,6 +31755,10 @@ export class GetCustomizedVoiceResponseBodyDataCustomizedVoice extends $tea.Mode
 }
 
 export class GetCustomizedVoiceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The personalized human voice.
+   */
   customizedVoice?: GetCustomizedVoiceResponseBodyDataCustomizedVoice;
   static names(): { [key: string]: string } {
     return {
@@ -28610,27 +31778,99 @@ export class GetCustomizedVoiceResponseBodyData extends $tea.Model {
 }
 
 export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-06-07T02:27:08Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
+   * @example
+   * female
+   */
   gender?: string;
   /**
+   * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The status description.
+   */
   message?: string;
+  /**
+   * @remarks
+   * The scenario. Valid values:
+   * 
+   * *   story
+   * *   interaction
+   * *   navigation
+   * 
+   * @example
+   * story
+   */
   scenario?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   Initialization
+   * *   AudioDetecting
+   * *   PreTraining
+   * *   Training
+   * *   Success
+   * *   Fail
+   * 
    * @example
    * Fail
    */
   status?: string;
+  /**
+   * @remarks
+   * The type of the human voice cloning job. Valid values:
+   * 
+   * *   Basic
+   * *   Standard
+   * 
+   * @example
+   * Standard
+   */
   type?: string;
+  /**
+   * @remarks
+   * The voice description.
+   * 
+   * @example
+   * This is an exclusive voice
+   */
   voiceDesc?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * The voice name.
+   * 
+   * @example
+   * Xiaozhuan
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28668,6 +31908,10 @@ export class GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob extends $te
 }
 
 export class GetCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the human voice cloning job.
+   */
   customizedVoiceJob?: GetCustomizedVoiceJobResponseBodyDataCustomizedVoiceJob;
   static names(): { [key: string]: string } {
     return {
@@ -28688,15 +31932,31 @@ export class GetCustomizedVoiceJobResponseBodyData extends $tea.Model {
 
 export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList extends $tea.Model {
   /**
+   * @remarks
+   * The sequence number of the text, which corresponds to the AduioRecordId parameter to be passed during audio check.
+   * 
    * @example
    * 2
    */
   audioId?: number;
   /**
+   * @remarks
+   * The URL of the sample audio.
+   * 
+   * *   The value is an Object Storage Service (OSS) URL.
+   * 
+   *     **
+   * 
+   *     **Note**: The URL expires in 12 hours.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/1.wav
    */
   demoAudio?: string;
+  /**
+   * @remarks
+   * The text content to be read.
+   */
   text?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28720,6 +31980,10 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationL
 }
 
 export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * A list of 20 text entries to be read and the corresponding sample audio.
+   */
   demonstrationList?: GetDemonstrationForCustomizedVoiceJobResponseBodyDataDemonstrationList[];
   static names(): { [key: string]: string } {
     return {
@@ -28741,7 +32005,7 @@ export class GetDemonstrationForCustomizedVoiceJobResponseBodyData extends $tea.
 export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
@@ -28749,7 +32013,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
   bucket?: string;
   /**
    * @remarks
-   * OSS Location
+   * The OSS location.
    * 
    * @example
    * oss-cn-shanghai
@@ -28757,7 +32021,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
   location?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * sample-input.mp4
@@ -28786,12 +32050,30 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile extends $
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  OSS://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * oss://test-bucket/sample-input.mp4
    */
   media?: string;
+  /**
+   * @remarks
+   * The three key elements of OSS.
+   */
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobInputOssFile;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -28820,7 +32102,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobInput extends $tea.Mod
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The OSS bucket.
    * 
    * @example
    * sample-bucket
@@ -28828,7 +32110,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
   bucket?: string;
   /**
    * @remarks
-   * OSS Location
+   * The OSS location.
    * 
    * @example
    * oss-cn-shanghai
@@ -28836,7 +32118,7 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
   location?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * path/to/object
@@ -28865,12 +32147,25 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile extends 
 
 export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  OSS://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   media?: string;
+  /**
+   * @remarks
+   * The three key elements of OSS.
+   */
   ossFile?: GetDynamicImageJobResponseBodyDynamicImageJobOutputOssFile;
   /**
+   * @remarks
+   * The type of the input file. Valid values: OSS: an OSS object. Media: a media asset.
+   * 
    * @example
    * Media
    */
@@ -28898,78 +32193,143 @@ export class GetDynamicImageJobResponseBodyDynamicImageJobOutput extends $tea.Mo
 
 export class GetDynamicImageJobResponseBodyDynamicImageJob extends $tea.Model {
   /**
+   * @remarks
+   * Error codes
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: GetDynamicImageJobResponseBodyDynamicImageJobInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message that is returned.
+   * 
    * @example
    * The specified resource for "CustomTemplate" could not be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: GetDynamicImageJobResponseBodyDynamicImageJobOutput;
   /**
+   * @remarks
+   * The URL of the output animated image.
+   * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output.gif
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The animation template configuration.
+   * 
    * @example
    * {"Format":"gif","Fps":5,"Height":1080,"Width":1920}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The request trigger source.
+   * 
+   * Valid values:
+   * 
+   * *   Console
+   * *   Workflow
+   * *   API
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"sampleParam": "sampleValue"}
    */
@@ -29725,16 +33085,25 @@ export class GetEditingProjectMaterialsResponseBodyMediaInfos extends $tea.Model
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig extends $tea.Model {
   /**
+   * @remarks
+   * The name of the application to which the live stream belongs.
+   * 
    * @example
    * app
    */
   appName?: string;
   /**
+   * @remarks
+   * The domain name of the live stream.
+   * 
    * @example
    * domain.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The name of the live stream.
+   * 
    * @example
    * streamName
    */
@@ -29762,6 +33131,9 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig extends
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig extends $tea.Model {
   /**
+   * @remarks
+   * The editing mode. Default value: Accurate.
+   * 
    * @example
    * Accurate
    */
@@ -29785,36 +33157,57 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig exten
 
 export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output file. Unit: Kbit/s. You can leave this parameter empty. The default value is the maximum bitrate of the input materials.
+   * 
    * @example
    * 1000
    */
   bitrate?: number;
   /**
+   * @remarks
+   * If OutputMediaTarget is set to vod-media, this parameter indicates the file name of the output file. The value contains the file name extension but not the path.
+   * 
    * @example
    * test.mp4
    */
   fileName?: string;
   /**
+   * @remarks
+   * The height of the output file. You can leave this parameter empty. The default value is the maximum height of the input materials.
+   * 
    * @example
    * 480
    */
   height?: number;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * https://testice-testbucket.oss-cn-shanghai.aliyuncs.com/test.mp4
    */
   mediaURL?: string;
   /**
+   * @remarks
+   * If OutputMediaTarget is set to vod-media, this parameter indicates the storage location of the media asset in ApsaraVideo VOD. The storage location is the path of the file in ApsaraVideo VOD, excluding the prefix http://. Example: outin-xxxxxx.oss-cn-shanghai.aliyuncs.com.
+   * 
    * @example
    * outin-xxxxxx.oss-cn-shanghai.aliyuncs.com
    */
   storageLocation?: string;
   /**
+   * @remarks
+   * The ID of the VOD transcoding template group. If VOD transcoding is not required, set the value to VOD_NO_TRANSCODE.
+   * 
    * @example
    * VOD_NO_TRANSCODE
    */
   vodTemplateGroupId?: string;
   /**
+   * @remarks
+   * The width of the output file. You can leave this parameter empty. The default value is the maximum width of the input materials.
+   * 
    * @example
    * 640
    */
@@ -29850,64 +33243,112 @@ export class GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig extend
 
 export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
   /**
+   * @remarks
+   * The clips.
+   * 
    * @example
    * [{\\"StartTime\\": \\" 2021-06-21T08:01:00Z\\",  \\"EndTime\\": \\" 2021-06-21T08:03:00Z\\" }]
    */
   clips?: string;
   /**
+   * @remarks
+   * The response code. Note: Pay attention to this parameter if the job failed.
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the live editing job was completed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:52Z
    */
   completeTime?: string;
   /**
+   * @remarks
+   * The time when the live editing job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The ID of the live editing job.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The live editing configurations.
+   */
   liveStreamConfig?: GetLiveEditingJobResponseBodyLiveEditingJobLiveStreamConfig;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * ****0cc6ba49eab379332c5b****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The production configurations.
+   */
   mediaProduceConfig?: GetLiveEditingJobResponseBodyLiveEditingJobMediaProduceConfig;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
    */
   mediaURL?: string;
   /**
+   * @remarks
+   * The returned message. Note: Pay attention to this parameter if the job failed.
+   * 
    * @example
    * The specific parameter LiveStreamConfig is not valid.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the live editing job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:49Z
    */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The storage configurations of the output file.
+   */
   outputMediaConfig?: GetLiveEditingJobResponseBodyLiveEditingJobOutputMediaConfig;
   /**
+   * @remarks
+   * The ID of the live editing project.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The state of the live editing job. Valid values: Init, Queuing, Processing, Success, and Failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"key": "value\\"}
    */
@@ -31888,11 +35329,20 @@ export class GetMediaInfoResponseBodyMediaInfo extends $tea.Model {
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -31918,76 +35368,121 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * us
    */
   lang?: string;
   /**
+   * @remarks
+   * The sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -32039,61 +35534,97 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStream
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * e520090207114cc7a392d44f0b211574
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -32139,116 +35670,189 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicIn
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the file.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -32315,8 +35919,20 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStream
 }
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -32341,11 +35957,17 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $t
 
 export class GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -32371,50 +35993,93 @@ export class GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.
 
 export class GetMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether asynchronous processing was performed.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: GetMediaInfoJobResponseBodyMediaInfoJobInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The details of the media information.
+   */
   mediaInfoProperty?: GetMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information.
+   */
   scheduleConfig?: GetMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
   /**
+   * @remarks
+   * The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+   * 
    * @example
    * Init
    */
   status?: string;
+  /**
+   * @remarks
+   * The job submission information.
+   */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values: API, WorkFlow, and Console.
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -32462,78 +36127,159 @@ export class GetMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 
 export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Model {
   /**
+   * @remarks
+   * The template parameters of the media editing and production job.
+   * 
    * @example
    * {"VideoArray":["****05512043f49f697f7425****","****05512043f49f697f7425****","****05512043f49f697f7425****"]}
    */
   clipsParam?: string;
   /**
+   * @remarks
+   * The response code
+   * 
+   * Note: Pay attention to this parameter if the job failed.
+   * 
    * @example
    * ExceededMaximumValue
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the media editing and production job was complete.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:52Z
    */
   completeTime?: string;
   /**
+   * @remarks
+   * The time when the media editing and production job was created.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The duration of the output file.
+   * 
+   * Note: This parameter has a value if the job is successful and the output file is an audio or video file.
+   * 
    * @example
    * 30.500000
    */
   duration?: number;
   /**
+   * @remarks
+   * The ID of the media editing and production job.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * ****0cc6ba49eab379332c5b****
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example2.mp4
    */
   mediaURL?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
+   * Note: Pay attention to this parameter if the job failed.
+   * 
    * @example
    * The specified "Width_Height" has exceeded maximum value.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the media editing and production job was last modified.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:49Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The state of the media editing and production job. Valid values:
+   * 
+   * Init
+   * 
+   * Queuing
+   * 
+   * Processing
+   * 
+   * Success
+   * 
+   * Failed
+   * 
    * @example
    * Failed
    */
   status?: string;
+  /**
+   * @remarks
+   * The materials of the media editing and production job if the job is a subjob of a quick video production job, including the broadcast text and title.
+   * 
+   * @example
+   * {"Title": "Title", "SpeechText": "Broadcast text of a quick video production job"}
+   */
   subJobMaterials?: string;
   /**
+   * @remarks
+   * The ID of the template used by the media editing and production job.
+   * 
    * @example
    * ****6e76134d739cc3e85d3e****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The timeline of the media editing and production job.
+   * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
    */
   timeline?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format.
+   * 
+   * @example
+   * {"NotifyAddress":"http://xx.xx.xxx","Key":"Valuexxx"}
+   */
   userData?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file in ApsaraVideo VOD if the output file is stored in ApsaraVideo VOD.
+   * 
    * @example
    * ****332c5b0cc6ba49eab379****
    */
@@ -32589,11 +36335,23 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
 
 export class GetPackageJobResponseBodyPackageJobInputsInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -32618,6 +36376,10 @@ export class GetPackageJobResponseBodyPackageJobInputsInput extends $tea.Model {
 }
 
 export class GetPackageJobResponseBodyPackageJobInputs extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the input stream file.
+   */
   input?: GetPackageJobResponseBodyPackageJobInputsInput;
   static names(): { [key: string]: string } {
     return {
@@ -32638,11 +36400,23 @@ export class GetPackageJobResponseBodyPackageJobInputs extends $tea.Model {
 
 export class GetPackageJobResponseBodyPackageJobOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.m3u8
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -32668,69 +36442,127 @@ export class GetPackageJobResponseBodyPackageJobOutput extends $tea.Model {
 
 export class GetPackageJobResponseBodyPackageJob extends $tea.Model {
   /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-09-08T11:34:05Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-09-08T11:44:05Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   inputs?: GetPackageJobResponseBodyPackageJobInputs[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message that is returned.
+   * 
    * @example
    * Resource content bad.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-09-08T11:44:05Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: GetPackageJobResponseBodyPackageJobOutput;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/output.m3u8
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * 36f3fee40aa047c0b067d0fb85edc12b
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The state of the job.
+   * 
    * @example
    * Init
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-09-08T11:34:05Z
    */
   submitTime?: string;
+  /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * *   API
+   * *   WorkFlow
+   * *   Console
+   * 
+   * @example
+   * API
+   */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"param": "value"}
    */
@@ -32784,36 +36616,68 @@ export class GetPackageJobResponseBodyPackageJob extends $tea.Model {
 
 export class GetPipelineResponseBodyPipeline extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
    * @example
    * test-pipeline
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the MPS queue. Valid values: 1 to 10.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Standard: standard MPS queue.
+   * *   Boost: MPS queue with transcoding speed boosted.
+   * *   NarrowBandHDV2: MPS queue that supports Narrowband HD 2.0.
+   * 
    * @example
    * Standard
    */
   speed?: string;
   /**
+   * @remarks
+   * The state of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Active
+   * *   Paused
+   * 
    * @example
    * Active
    */
@@ -33989,20 +37853,27 @@ export class GetPublicMediaInfoResponseBodyMediaInfo extends $tea.Model {
 export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
   /**
    * @remarks
-   * 智能分析结果
+   * The AI analysis result.
    * 
    * @example
-   * 拆条或智能标签信息
+   * Intelligent segmentation or tagging information
    */
   aiResult?: string;
   /**
    * @remarks
-   * 媒资Id
+   * The ID of the media asset.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The token usage. This parameter is returned only for keyword-based text generation jobs.
+   * 
+   * @example
+   * {"total_tokens":100}
+   */
   usage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34027,6 +37898,9 @@ export class GetSmartHandleJobResponseBodyJobResult extends $tea.Model {
 
 export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.Model {
   /**
+   * @remarks
+   * The OSS URL or the ID of the material in the media asset library.
+   * 
    * @example
    * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4 或 ******11-DB8D-4A9A-875B-275798******
    */
@@ -34051,7 +37925,7 @@ export class GetSmartHandleJobResponseBodySmartJobInfoInputConfig extends $tea.M
 export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
@@ -34059,7 +37933,7 @@ export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.
   bucket?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * test-object
@@ -34086,35 +37960,58 @@ export class GetSmartHandleJobResponseBodySmartJobInfoOutputConfig extends $tea.
 
 export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job description.
+   * 
    * @example
    * 测试描述
    */
   description?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
   inputConfig?: GetSmartHandleJobResponseBodySmartJobInfoInputConfig;
   /**
+   * @remarks
+   * The job type.
+   * 
    * @example
    * ASR
    */
   jobType?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The output configurations.
+   */
   outputConfig?: GetSmartHandleJobResponseBodySmartJobInfoOutputConfig;
   /**
+   * @remarks
+   * The job title.
+   * 
    * @example
    * 测试标题
    */
   title?: string;
   /**
    * @remarks
-   * userid。
+   * The user ID.
    * 
    * @example
    * 1974526429******
@@ -34154,7 +38051,7 @@ export class GetSmartHandleJobResponseBodySmartJobInfo extends $tea.Model {
 export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
@@ -34162,7 +38059,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Mode
   bucket?: string;
   /**
    * @remarks
-   * OSS Location
+   * The OSS location.
    * 
    * @example
    * oss-cn-shanghai
@@ -34170,7 +38067,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Mode
   location?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * object.mp4
@@ -34199,12 +38096,28 @@ export class GetSnapshotJobResponseBodySnapshotJobInputOssFile extends $tea.Mode
 
 export class GetSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * oss://test-bucket/object.mp4
    */
   media?: string;
+  /**
+   * @remarks
+   * The three key elements of OSS.
+   */
   ossFile?: GetSnapshotJobResponseBodySnapshotJobInputOssFile;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -34233,7 +38146,7 @@ export class GetSnapshotJobResponseBodySnapshotJobInput extends $tea.Model {
 export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The OSS bucket.
    * 
    * @example
    * test-bucket
@@ -34241,7 +38154,7 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Mod
   bucket?: string;
   /**
    * @remarks
-   * OSS Location
+   * The OSS location.
    * 
    * @example
    * oss-cn-shanghai
@@ -34249,7 +38162,7 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Mod
   location?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * output-{Count}.jpg
@@ -34278,12 +38191,30 @@ export class GetSnapshotJobResponseBodySnapshotJobOutputOssFile extends $tea.Mod
 
 export class GetSnapshotJobResponseBodySnapshotJobOutput extends $tea.Model {
   /**
+   * @remarks
+   * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+   * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
    */
   media?: string;
+  /**
+   * @remarks
+   * The three key elements of OSS.
+   */
   ossFile?: GetSnapshotJobResponseBodySnapshotJobOutputOssFile;
   /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * 1.  OSS: an OSS object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -34311,84 +38242,162 @@ export class GetSnapshotJobResponseBodySnapshotJobOutput extends $tea.Model {
 
 export class GetSnapshotJobResponseBodySnapshotJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the snapshots were captured in asynchronous mode. Default value: true.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * Error codes
+   * 
    * @example
    * ResourceNotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The number of snapshots.
+   * 
    * @example
    * 8
    */
   count?: number;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: GetSnapshotJobResponseBodySnapshotJobInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message that is returned.
+   * 
    * @example
    * The specified resource for "Pipeline" could not be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: GetSnapshotJobResponseBodySnapshotJobOutput;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The snapshot template configuration.
+   * 
    * @example
    * {"Type":"Normal","FrameType":"normal","Time":0,"Count":10}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****d80e4e4044975745c14b****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The request trigger source.
+   * 
+   * Valid values:
+   * 
+   * *   Console
+   * *   Workflow
+   * *   API
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * Snapshot types
+   * 
+   * Valid values:
+   * 
+   * *   WebVtt
+   * *   Sprite
+   * *   Normal
+   * 
    * @example
    * Sprite
    */
   type?: string;
   /**
+   * @remarks
+   * The user-defined parameters.
+   * 
    * @example
    * {"test parameter": "test value"}
    */
@@ -34527,41 +38536,65 @@ export class GetStorageListResponseBodyStorageInfoList extends $tea.Model {
 
 export class GetSystemTemplateResponseBodySystemTemplate extends $tea.Model {
   /**
+   * @remarks
+   * The template state.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
    * @example
    * 1
    */
   subtype?: number;
   /**
+   * @remarks
+   * The subtype name of the template.
+   * 
    * @example
    * Normal
    */
   subtypeName?: string;
   /**
+   * @remarks
+   * The template parameters.
+   * 
    * @example
    * {"Container":{"Format":"m3u8"},"TransConfig":{"TransMode":"onepass"},"Video":{"Codec":"H.264","Maxrate":8000,"Preset":"medium","PixFmt":"yuv420p","Width":2048,"Bitrate":3500},"Audio":{"Codec":"aac","Bitrate":160,"Samplerate":44100,"Channels":2}}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * S00000001-100060
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * M3U8-2K
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type ID of the template.
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * The type name of the template.
+   * 
    * @example
    * TranscodeTemplate
    */
@@ -34599,71 +38632,142 @@ export class GetSystemTemplateResponseBodySystemTemplate extends $tea.Model {
 
 export class GetTemplateResponseBodyTemplate extends $tea.Model {
   /**
+   * @remarks
+   * The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
+   * 
+   * *   [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html)
+   * *   [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html)
+   * 
    * @example
    * {"Media1":"mediaId","Text1":"text"}
    */
   clipsParam?: string;
   /**
+   * @remarks
+   * The template configurations.
+   * 
+   * *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/277430.html).
+   * *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html#title-3tf-skt-eoi).
+   * 
    * @example
    * 参考Timeline模板配置详解
    */
   config?: string;
   /**
+   * @remarks
+   * The thumbnail URL.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The source from which the template was created. Valid values:
+   * 
+   * *   AliyunConsole
+   * *   OpenAPI
+   * *   WebSDK
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The source from which the template was modified. Valid values:
+   * 
+   * *   AliyunConsole
+   * *   OpenAPI
+   * *   WebSDK
+   * 
    * @example
    * OpenAPI
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * 视频添加水印模板
    */
   name?: string;
   /**
+   * @remarks
+   * The preview media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   previewMedia?: string;
   /**
+   * @remarks
+   * The state of the preview media asset. Valid values:
+   * 
+   * *   Init: the initial state, which indicates that the source file is not ready.
+   * *   Preparing: The source file is being prepared. For example, the file is being uploaded or edited.
+   * *   PrepareFail: The source file failed to be prepared. For example, the information about the source file failed to be obtained.
+   * *   Normal: The source file is ready.
+   * 
    * @example
    * Normal
    */
   previewMediaStatus?: string;
   /**
+   * @remarks
+   * The IDs of the materials associated with the template for use by the regular template editor.
+   * 
    * @example
    * {"video":["******c04f1d4a06996144cc1a******"],"audio":["******c04f1d4a06996144cc1a******"],"image":["******c04f1d4a06996144cc1a******"]}
    */
   relatedMediaids?: string;
   /**
+   * @remarks
+   * The template state. Valid values:
+   * 
+   * *   Available
+   * *   Created
+   * *   Uploading
+   * *   Processing
+   * *   UploadFailed
+   * *   ProcessFailed
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type. Valid values:
+   * 
+   * *   Timeline
+   * *   VETemplate
+   * 
    * @example
    * Timeline
    */
@@ -34712,15 +38816,39 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
 }
 
 export class GetTemplateParamsResponseBodyParamList extends $tea.Model {
+  /**
+   * @remarks
+   * The original subtitle content.
+   */
   content?: string;
+  /**
+   * @remarks
+   * The thumbnail URL of the original material.
+   */
   coverUrl?: string;
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * video1
    */
   key?: string;
+  /**
+   * @remarks
+   * The URL of the original material.
+   */
   mediaUrl?: string;
   /**
+   * @remarks
+   * The material type.
+   * 
+   * Valid values:
+   * 
+   * *   Video
+   * *   Text
+   * *   Image
+   * 
    * @example
    * Image
    */
@@ -34752,11 +38880,23 @@ export class GetTemplateParamsResponseBodyParamList extends $tea.Model {
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -34782,12 +38922,31 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $te
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
+  /**
+   * @remarks
+   * The URL of the output stream.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -34816,6 +38975,8 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput exte
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34823,17 +38984,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34865,21 +39034,33 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HLS encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The endpoint of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * The encryption type.
+   * 
    * @example
    * PrivateEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The type of the key service. Valid values: KMS and Base64.
+   * 
    * @example
    * KMS
    */
@@ -34909,11 +39090,23 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -34939,11 +39132,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the stream. Valid values: the number of seconds or "ToEND".
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 00:00:05
    */
@@ -34969,28 +39168,51 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The position of the watermark on the x-axis.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The position of the watermark on the y-axis.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The reference position of the watermark. Valid values: TopLeft, TopRight, BottomLeft, and BottomRight. Default value: TopLeft.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The timeline settings.
+   */
   timeline?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 32
    */
@@ -35025,8 +39247,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -35052,11 +39281,23 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -35082,12 +39323,22 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -35114,8 +39365,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -35141,51 +39399,81 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the text size was adjusted based on the output video dimensions. Valid values: true and false. Default value: false.
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The border color.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The border width.
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The distance of the watermark from the left edge.
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The distance of the watermark from the top edge.
+   * 
    * @example
    * 10
    */
@@ -35226,8 +39514,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -35253,21 +39548,33 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -35297,35 +39604,65 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: [8,1000].
+   * *   Unit: Kbit/s.
+   * *   Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the audio stream is deleted.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Default value: 44100.
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -35358,6 +39695,9 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -35381,11 +39721,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -35410,6 +39756,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -35429,13 +39779,112 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
+   * 
+   * Valid values: rescale, crop, pad, and none.
+   * 
+   * Default value: none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate was checked. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input audio is less than that of the output audio, the bitrate of the input audio is used for transcoding.
+   * *   false
+   * 
+   * Default value:
+   * 
+   * *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   * *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate was checked. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input audio is less than that of the output audio, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video resolution was checked. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true If the width or height of the input video is less than that of the output video, the resolution of the input video is used for transcoding.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the video resolution was checked. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true If the width or height of the input video is less than that of the output video, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate was checked. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input video is less than that of the output video, the bitrate of the input video is used for transcoding.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate was checked. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input video is less than that of the output video, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The video transcoding mode. Valid values:
+   * 
+   * *   onepass: You can set this parameter to onepass if the Bitrate parameter is set to ABR. The encoding speed of this mode is faster than that of the twopass mode.
+   * *   twopass: You can set this parameter to twopass if the Bitrate parameter is set to VBR. The encoding speed of this mode is slower than that of the onepass mode.
+   * *   CBR: the constant bitrate mode.
+   * 
+   * Default value: onepass.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -35470,91 +39919,186 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum ABR. This parameter takes effect only for Narrowband HD 1.0.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average bitrate of the video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Valid values: [1000,128000].
+   * *   Default value: 6000.
+   * *   Unit: KB.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Valid values: [0,51].
+   * *   Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
+   * *   If this parameter is specified, the value of Bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values: border: automatically detects and removes black bars. A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Valid values: (0,60].
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between two keyframes.
+   * 
+   * *   Valid values: [1,1080000].
+   * *   Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the height of the input video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the output video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the video was removed.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the width of the input video.
+   * 
    * @example
    * 1920
    */
@@ -35611,10 +40155,30 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
+  /**
+   * @remarks
+   * The conditional transcoding configurations.
+   */
   transConfig?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -35642,8 +40206,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -35668,11 +40239,35 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration of an image.
+   */
   imageWatermarks?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermark.
+   */
   textWatermarks?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   transcode?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -35702,7 +40297,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConf
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The output file configuration.
+   */
   output?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput;
+  /**
+   * @remarks
+   * The job processing configuration.
+   */
   processConfig?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig;
   static names(): { [key: string]: string } {
     return {
@@ -35725,11 +40328,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends $t
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the snapshot job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -35754,13 +40363,32 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the media asset. This parameter is specified only when the media asset is transcoded.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   inputUrl?: string;
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -35788,76 +40416,121 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputG
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -35909,61 +40582,97 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type. Valid values: source_file and transcode_file.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 486c2890096871edba6f81848c016303
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -36009,116 +40718,189 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image. Valid values: 0, 90, 180, and 270. Default value: 0.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -36185,8 +40967,20 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -36211,12 +41005,31 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFil
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
+  /**
+   * @remarks
+   * The path of the transcoded output stream. This parameter is required only when the output is a media asset.
+   * 
+   * @example
+   * oss://bucket/path/to/{MediaId}/{JobId}.mp4
+   */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -36245,6 +41058,8 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36252,17 +41067,25 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36294,21 +41117,33 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HTTP Live Streaming (HLS) encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The endpoint of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * The encryption type.
+   * 
    * @example
    * PrivateEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The type of the key service. Valid values: KMS and Base64.
+   * 
    * @example
    * KMS
    */
@@ -36338,11 +41173,23 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -36368,11 +41215,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the stream. Valid values: the number of seconds or "ToEND".
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 00:00:05
    */
@@ -36398,28 +41251,51 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The position of the watermark on the x-axis.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The position of the watermark on the y-axis.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The reference position of the watermark. Valid values: TopLeft, TopRight, BottomLeft, and BottomRight. Default value: TopLeft.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The timeline settings.
+   */
   timeline?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 32
    */
@@ -36454,8 +41330,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -36481,11 +41364,23 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -36511,12 +41406,22 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -36543,8 +41448,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -36570,51 +41482,81 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the text size was adjusted based on the output video dimensions. Valid values: true and false. Default value: false.
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The border color.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The border width.
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The distance of the watermark from the left edge.
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The distance of the watermark from the top edge.
+   * 
    * @example
    * 10
    */
@@ -36655,8 +41597,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -36682,21 +41631,33 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -36726,35 +41687,64 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: [8,1000].
+   * *   Unit: Kbit/s.
+   * *   Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the audio stream is deleted.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Default value: 44100. Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -36787,6 +41777,9 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -36810,11 +41803,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -36839,6 +41838,10 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -36858,13 +41861,114 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
+   * 
+   * Valid values: rescale, crop, pad, and none.
+   * 
+   * Default value: none.
+   * 
+   * For more information about examples, see How do I set the resolution for an output video?
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate was checked. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input audio is less than that of the output audio, the bitrate of the input audio is used for transcoding.
+   * *   false
+   * 
+   * Default value:
+   * 
+   * *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   * *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the audio bitrate was checked. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input audio is less than that of the output audio, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video resolution was checked. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true If the width or height of the input video is less than that of the output video, the resolution of the input video is used for transcoding.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Indicates whether the video resolution was checked. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true If the width or height of the input video is less than that of the output video, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate was checked. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input video is less than that of the output video, the bitrate of the input video is used for transcoding.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Indicates whether the video bitrate was checked. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true If the bitrate of the input video is less than that of the output video, the transcoding job fails.
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The video transcoding mode. Valid values:
+   * 
+   * *   onepass: You can set this parameter to onepass if the Bitrate parameter is set to ABR. The encoding speed of this mode is faster than that of the twopass mode.
+   * *   twopass: You can set this parameter to twopass if the Bitrate parameter is set to VBR. The encoding speed of this mode is slower than that of the onepass mode.
+   * *   CBR: the constant bitrate mode.
+   * 
+   * Default value: onepass.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -36899,91 +42003,188 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum adaptive bitrate (ABR). This parameter takes effect only for Narrowband HD 1.0.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average bitrate of the video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Valid values: [1000,128000].
+   * *   Default value: 6000.
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Valid values: [0,51].
+   * *   Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
+   * 
+   * If this parameter is specified, the value of Bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   border: automatically detects and removes black bars.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Valid values: (0,60]. The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between two keyframes.
+   * 
+   * *   Valid values: [1,1080000].
+   * *   Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * 
+   * Default value: the height of the input video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the output video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video. Format: width:height:left:top.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the video was removed.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * 
+   * Default value: the width of the input video.
+   * 
    * @example
    * 1920
    */
@@ -37040,11 +42241,31 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The conditional transcoding configurations.
+   */
   transConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig;
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -37074,8 +42295,15 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -37100,12 +42328,43 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 }
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration of an image.
+   */
   imageWatermarks?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * Indicates whether the tags of the input stream are inherited in the output stream. This parameter does not take effect when the input is not a media asset. Default value: false.
+   * 
+   * @example
+   * true
+   */
   isInheritTags?: boolean;
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermark.
+   */
   textWatermarks?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   transcode?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -37138,11 +42397,17 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProces
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the snapshot job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -37168,61 +42433,114 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSchedu
 
 export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   */
   inputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup[];
   /**
+   * @remarks
+   * The subjob ID.
+   * 
    * @example
    * 7d6a7e0d4db2457a8d45ff5d43e1bf0a
    */
   jobId?: string;
   /**
+   * @remarks
+   * The index number of the subjob in the entire job.
+   * 
    * @example
    * 0
    */
   jobIndex?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * transcode-job
    */
   name?: string;
+  /**
+   * @remarks
+   * The media information about the video generated by the job.
+   */
   outFileMeta?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta;
+  /**
+   * @remarks
+   * The output file configuration.
+   */
   output?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput;
   /**
+   * @remarks
+   * The main job ID.
+   * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
    */
   parentJobId?: string;
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   processConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig;
   /**
+   * @remarks
+   * The ID of the request that submitted the job.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information about the job.
+   */
   scheduleConfig?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig;
   /**
+   * @remarks
+   * The state of the transcoding job. Valid values: Init (the job is submitted), Success (the job is successful), Fail (the job failed), and Deleted (the job is deleted).
+   * 
    * @example
    * Init
    */
   status?: string;
   /**
+   * @remarks
+   * The job submission result.
+   * 
    * @example
    * {}
    */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -37276,60 +42594,116 @@ export class GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList exten
 
 export class GetTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   */
   inputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobInputGroup[];
   /**
+   * @remarks
+   * The number of subjobs.
+   * 
    * @example
    * 1
    */
   jobCount?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * transcode-job
    */
   name?: string;
+  /**
+   * @remarks
+   * The output group of the job.
+   */
   outputGroup?: GetTranscodeJobResponseBodyTranscodeParentJobOutputGroup[];
   /**
+   * @remarks
+   * The main job ID.
+   * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
    */
   parentJobId?: string;
   /**
+   * @remarks
+   * The completion percentage of the job.
+   * 
    * @example
    * 0
    */
   percent?: number;
   /**
+   * @remarks
+   * The ID of the request that submitted the job.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling configuration of the job.
+   */
   scheduleConfig?: GetTranscodeJobResponseBodyTranscodeParentJobScheduleConfig;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   Success: At least one of the subjobs is successful.
+   * *   Fail: All subjobs failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
+  /**
+   * @remarks
+   * The list of subjobs.
+   */
   transcodeJobList?: GetTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList[];
   /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * *   API
+   * *   WorkFlow
+   * *   Console
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -37664,27 +43038,57 @@ export class GetVideoListResponseBodyMediaList extends $tea.Model {
 
 export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model {
   /**
+   * @remarks
+   * The time when the workflow was created.
+   * 
    * @example
    * 2022-11-27T10:02:12Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the workflow was last modified.
+   * 
    * @example
    * 2022-11-29T02:06:19Z
    */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The workflow name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The workflow state.
+   * 
+   * Valid values:
+   * 
+   * *   Active
+   * *   Inactive
+   * 
    * @example
    * Active
    */
   status?: string;
   /**
+   * @remarks
+   * The workflow type.
+   * 
+   * Valid values:
+   * 
+   * *   Customize: custom workflow.
+   * *   System: system workflow.
+   * *   Common: user-created workflow.
+   * 
    * @example
    * Common
    */
   type?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * ******63dca94c609de02ac0d1******
    */
@@ -37717,28 +43121,55 @@ export class GetWorkflowTaskResponseBodyWorkflowTaskWorkflow extends $tea.Model 
 }
 
 export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
+  /**
+   * @remarks
+   * The results for all nodes of the workflow task.
+   */
   activityResults?: string;
   /**
+   * @remarks
+   * The time when the task was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-01-04T02:05:17Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the task was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-01-04T02:06:19Z
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The task state.
+   * 
+   * Valid values:
+   * 
+   * *   Init: The task is being initialized.
+   * *   Failed: The task failed.
+   * *   Canceled: The task is canceled.
+   * *   Processing: The task is in progress.
+   * *   Succeed: The task is successful.
+   * 
    * @example
    * Succeed
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the workflow task.
+   * 
    * @example
    * ******4215e042b3966ca5441e******
    */
   taskId?: string;
   /**
+   * @remarks
+   * The input of the workflow task.
+   * 
    * @example
    * {
    *       "Type": "Media",
@@ -37747,10 +43178,17 @@ export class GetWorkflowTaskResponseBodyWorkflowTask extends $tea.Model {
    */
   taskInput?: string;
   /**
+   * @remarks
+   * The user-defined field that was specified when the workflow task was submitted.
+   * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
    */
   userData?: string;
+  /**
+   * @remarks
+   * The workflow Information.
+   */
   workflow?: GetWorkflowTaskResponseBodyWorkflowTaskWorkflow;
   static names(): { [key: string]: string } {
     return {
@@ -37928,45 +43366,84 @@ export class ListAllPublicMediaTagsResponseBodyMediaTagList extends $tea.Model {
 }
 
 export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the digital human.
+   */
   avatarDescription?: string;
   /**
+   * @remarks
+   * The ID of the digital human.
+   * 
    * @example
    * Avatar-XXX
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The name of the digital human.
+   */
   avatarName?: string;
   /**
+   * @remarks
+   * The type of the digital human.
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
   /**
+   * @remarks
+   * *   The time when the job was created.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * *   The time when the first training was initiated.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   firstTrainingTime?: string;
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * *****aded114489ea02e0addf93*****
    */
   jobId?: string;
   /**
+   * @remarks
+   * *   The time when the last training was initiated.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2020-12-23T13:33:40Z
    */
   lastTrainingTime?: string;
+  /**
+   * @remarks
+   * The status description.
+   */
   message?: string;
   /**
+   * @remarks
+   * The media asset ID of the portrait image.
+   * 
    * @example
    * *****aded114489ea02e0addf93*****
    */
   portrait?: string;
   /**
+   * @remarks
+   * The state of the digital human training job.
+   * 
    * @example
    * Normal
    */
@@ -38009,8 +43486,15 @@ export class ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList extends
 }
 
 export class ListAvatarTrainingJobsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The list of digital human training jobs.
+   */
   avatarTrainingJobList?: ListAvatarTrainingJobsResponseBodyDataAvatarTrainingJobList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 3
    */
@@ -38035,28 +43519,55 @@ export class ListAvatarTrainingJobsResponseBodyData extends $tea.Model {
 }
 
 export class ListAvatarsResponseBodyDataAvatarList extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the digital human.
+   */
   avatarDescription?: string;
   /**
+   * @remarks
+   * The ID of the digital human.
+   * 
    * @example
    * Avatar-XXX
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The name of the digital human.
+   */
   avatarName?: string;
   /**
+   * @remarks
+   * The type of the digital human.
+   * 
    * @example
    * 2DAvatar
    */
   avatarType?: string;
   /**
+   * @remarks
+   * The media asset ID of the portrait image.
+   * 
    * @example
    * ****571c704445f9a0ee011406c2****
    */
   portrait?: string;
   /**
+   * @remarks
+   * The thumbnail URL.
+   * 
    * @example
    * https://your-bucket.oss-cn-hangzhou.aliyuncs.com/thumbnail.png
    */
   thumbnail?: string;
+  /**
+   * @remarks
+   * Indicates whether the digital human image supports the alpha channels.
+   * 
+   * @example
+   * true
+   */
   transparent?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -38088,8 +43599,15 @@ export class ListAvatarsResponseBodyDataAvatarList extends $tea.Model {
 }
 
 export class ListAvatarsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The queried digital humans.
+   */
   avatarList?: ListAvatarsResponseBodyDataAvatarList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -38115,16 +43633,25 @@ export class ListAvatarsResponseBodyData extends $tea.Model {
 
 export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-06-09T06:38:09Z
    */
   completeTime?: string;
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-06-09T06:36:48Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The editing configurations. For more information, see [EditingConfig](~~2692547#1be9bba03b7qu~~).
+   * 
    * @example
    * {
    *   "MediaConfig": {
@@ -38139,24 +43666,52 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
    * }
    */
   editingConfig?: string;
+  /**
+   * @remarks
+   * The extended information of the job.
+   * 
+   * @example
+   * {}
+   */
   extend?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
   inputConfig?: string;
   /**
+   * @remarks
+   * The ID of the quick video production job.
+   * 
    * @example
    * ******7ecbee4c6d9b8474498e******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   Script: script-based editing job that mixes media assets.
+   * *   Smart_Mix: intelligent editing job that mixes media assets.
+   * 
    * @example
    * Script
    */
   jobType?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2023-06-09T06:37:58Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The output configurations. For more information, see [OutputConfig](~~2692547#447b928fcbuoa~~).
+   * 
    * @example
    * {
    *   "MediaURL": "http://xxx.oss-cn-shanghai.aliyuncs.com/xxx_{index}.mp4",
@@ -38169,10 +43724,24 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
    */
   outputConfig?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Finished
+   * *   Init
+   * *   Failed
+   * *   Processing
+   * 
    * @example
    * Finished
    */
   status?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/zh/ims/use-cases/to-configure-a-callback-when-a-clip-completes).
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38251,57 +43820,99 @@ export class ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint exten
 
 export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   frontendHint?: ListCustomTemplatesResponseBodyCustomTemplateListFrontendHint;
   /**
+   * @remarks
+   * Indicates whether the template is the default template.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   isDefault?: boolean;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
+   * Valid values:
+   * 
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
    * @example
    * 2
    */
   subtype?: number;
   /**
+   * @remarks
+   * The subtype name of the template.
+   * 
    * @example
    * AudioTranscode
    */
   subtypeName?: string;
   /**
+   * @remarks
+   * The template parameters.
+   * 
    * @example
    * {"Container":{"Format":"mp3"},"Audio":{"Codec":"mp3","Bitrate":"64","Samplerate":"22050","Channels":"2"}}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * test-template
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type ID of the template.
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * The type name of the template.
+   * 
    * @example
    * TranscodeTemplate
    */
@@ -38346,40 +43957,106 @@ export class ListCustomTemplatesResponseBodyCustomTemplateList extends $tea.Mode
 }
 
 export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList extends $tea.Model {
+  /**
+   * @remarks
+   * *   The time when the job was created.
+   * *   The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2023-04-01T06:23:59Z
+   */
   createTime?: string;
   /**
+   * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
    * @example
    * female
    */
   gender?: string;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-06-27T02:42:28Z
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * @example
    * 2245ab99a7fd4116a4fd3f499b7a56c5
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The returned message.
+   */
   message?: string;
   /**
+   * @remarks
+   * The scenario. Valid values:
+   * 
+   * *   story
+   * *   interaction
+   * *   navigation
+   * 
    * @example
    * story
    */
   scenario?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   Initialization
+   * *   AudioDetecting
+   * *   PreTraining
+   * *   Training
+   * *   Success
+   * *   Fail
+   * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * *   The voice type. Valid values:
+   * 
+   *     *   Basic
+   *     *   Standard
+   * 
+   * @example
+   * Standard
+   */
   type?: string;
+  /**
+   * @remarks
+   * The voice description.
+   * 
+   * *   The description can be up to 256 characters in length.
+   */
   voiceDesc?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * The voice name.
+   * 
+   * *   The name can be up to 32 characters in length.
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38419,8 +44096,15 @@ export class ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList exten
 }
 
 export class ListCustomizedVoiceJobsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The queried human voice cloning jobs.
+   */
   customizedVoiceJobList?: ListCustomizedVoiceJobsResponseBodyDataCustomizedVoiceJobList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 271
    */
@@ -38446,27 +44130,64 @@ export class ListCustomizedVoiceJobsResponseBodyData extends $tea.Model {
 
 export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $tea.Model {
   /**
+   * @remarks
+   * The media asset ID of the sample audio file.
+   * 
    * @example
    * ****4d5e829d498aaf966b119348****
    */
   demoAudioMediaId?: string;
   /**
+   * @remarks
+   * The gender. Valid values:
+   * 
+   * *   female
+   * *   male
+   * 
    * @example
    * male
    */
   gender?: string;
   /**
+   * @remarks
+   * The scenario. Valid values:
+   * 
+   * *   story
+   * *   interaction
+   * *   navigation
+   * 
    * @example
    * story
    */
   scenario?: string;
+  /**
+   * @remarks
+   * *   The voice type. Valid values:
+   * 
+   *     *   Basic
+   *     *   Standard
+   * 
+   * @example
+   * Standard
+   */
   type?: string;
+  /**
+   * @remarks
+   * The voice description.
+   */
   voiceDesc?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
   voiceId?: string;
+  /**
+   * @remarks
+   * The voice name.
+   */
   voiceName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38498,8 +44219,15 @@ export class ListCustomizedVoicesResponseBodyDataCustomizedVoiceList extends $te
 }
 
 export class ListCustomizedVoicesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The queried personalized human voices.
+   */
   customizedVoiceList?: ListCustomizedVoicesResponseBodyDataCustomizedVoiceList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 41
    */
@@ -38525,22 +44253,47 @@ export class ListCustomizedVoicesResponseBodyData extends $tea.Model {
 
 export class ListDNADBResponseBodyDBList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
    */
   DBId?: string;
+  /**
+   * @remarks
+   * The description of the media fingerprint library.
+   */
   description?: string;
   /**
+   * @remarks
+   * The model of the media fingerprint library. Valid values:
+   * 
+   * *   **Video**
+   * *   **Audio**
+   * *   **Image**
+   * *   **Text** (supported only in the China (Shanghai) region)
+   * 
    * @example
    * Video
    */
   model?: string;
   /**
+   * @remarks
+   * The name of the media fingerprint library.
+   * 
    * @example
    * example-name
    */
   name?: string;
   /**
+   * @remarks
+   * The state of the media fingerprint library. Default value: **offline**. ****Valid values:
+   * 
+   * *   **offline**: The media fingerprint library is offline.
+   * *   **active**: The media fingerprint library is online.
+   * *   **deleted**: The media fingerprint library is deleted.
+   * 
    * @example
    * active
    */
@@ -38572,16 +44325,25 @@ export class ListDNADBResponseBodyDBList extends $tea.Model {
 
 export class ListDNAFilesResponseBodyFileListInputFile extends $tea.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
    * @example
    * example-bucket
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
    * @example
    * oss-cn-beijing
    */
   location?: string;
   /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
    * @example
    * example-****.mp4
    */
@@ -38608,8 +44370,15 @@ export class ListDNAFilesResponseBodyFileListInputFile extends $tea.Model {
 }
 
 export class ListDNAFilesResponseBodyFileList extends $tea.Model {
+  /**
+   * @remarks
+   * The Object Storage Service (OSS) information about the input file.
+   */
   inputFile?: ListDNAFilesResponseBodyFileListInputFile;
   /**
+   * @remarks
+   * The primary key of the file.
+   * 
    * @example
    * ae0fd49c0840e14daf0d66a75b83****
    */
@@ -38635,11 +44404,26 @@ export class ListDNAFilesResponseBodyFileList extends $tea.Model {
 
 export class ListDynamicImageJobsResponseBodyJobsInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  OSS://bucket/object
+   * 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * oss://bucket/object
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
+   * *
+   * *
+   * 
    * @example
    * OSS
    */
@@ -38665,11 +44449,26 @@ export class ListDynamicImageJobsResponseBodyJobsInput extends $tea.Model {
 
 export class ListDynamicImageJobsResponseBodyJobsOutput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  OSS://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * 1.  OSS: an OSS object.
+   * 2.  Media: a media asset.
+   * 
+   * *
+   * *
+   * 
    * @example
    * Media
    */
@@ -38695,53 +44494,101 @@ export class ListDynamicImageJobsResponseBodyJobsOutput extends $tea.Model {
 
 export class ListDynamicImageJobsResponseBodyJobs extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: ListDynamicImageJobsResponseBodyJobsInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: ListDynamicImageJobsResponseBodyJobsOutput;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job failed.
+   * *   **Init**: The job is submitted.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****cdb3e74639973036bc84****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The request trigger source.
+   * 
+   * Valid values:
+   * 
+   * *   Console
+   * *   Workflow
+   * *   API
+   * 
    * @example
    * API
    */
@@ -40343,11 +46190,23 @@ export class ListMediaBasicInfosResponseBodyMediaInfos extends $tea.Model {
 
 export class ListMediaInfoJobsResponseBodyJobsInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -40373,76 +46232,121 @@ export class ListMediaInfoJobsResponseBodyJobsInput extends $tea.Model {
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The sampling format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -40494,61 +46398,97 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoLi
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type. Valid values: source_file and transcode_file.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 4765337007f571edbfdf81848c016303
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 848
    */
@@ -40594,116 +46534,192 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo ext
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image.
+   * 
+   * *   Valid values: 0, 90, 180, and 270.
+   * *   Default value: 0.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width.
+   * 
    * @example
    * 848
    */
@@ -40770,8 +46786,20 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoLi
 }
 
 export class ListMediaInfoJobsResponseBodyJobsMediaInfoProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: ListMediaInfoJobsResponseBodyJobsMediaInfoPropertyVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -40796,11 +46824,17 @@ export class ListMediaInfoJobsResponseBodyJobsMediaInfoProperty extends $tea.Mod
 
 export class ListMediaInfoJobsResponseBodyJobsScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -40826,50 +46860,101 @@ export class ListMediaInfoJobsResponseBodyJobsScheduleConfig extends $tea.Model 
 
 export class ListMediaInfoJobsResponseBodyJobs extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether asynchronous processing was performed.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: ListMediaInfoJobsResponseBodyJobsInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The details of the media information.
+   */
   mediaInfoProperty?: ListMediaInfoJobsResponseBodyJobsMediaInfoProperty;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information.
+   */
   scheduleConfig?: ListMediaInfoJobsResponseBodyJobsScheduleConfig;
   /**
+   * @remarks
+   * The state of the job. Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * 
    * @example
    * Init
    */
   status?: string;
+  /**
+   * @remarks
+   * The job submission information.
+   */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * *   API
+   * *   WorkFlow
+   * *   Console
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -40916,63 +47001,117 @@ export class ListMediaInfoJobsResponseBodyJobs extends $tea.Model {
 }
 
 export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $tea.Model {
+  /**
+   * @remarks
+   * The template material parameters.
+   * 
+   * @example
+   * {"Text1":"text","Text0":"text","Media1":"mediaId","Media0":"mediaId"}
+   */
   clipsParam?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * Success
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-03-21T16:40:30Z
    */
   completeTime?: string;
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-03-21T16:40:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The duration of the output file. Unit: seconds.
+   * 
    * @example
    * 15.5
    */
   duration?: number;
   /**
+   * @remarks
+   * The ID of the online editing job.
+   * 
    * @example
    * ******8750b54e3c976a47da6f******
    */
   jobId?: string;
   /**
+   * @remarks
+   * The media asset ID of the output file.
+   * 
    * @example
    * 0ce4ea70f52471edab61f7e7d6786302
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The URL of the output file.
+   * 
    * @example
    * http://your-bucket.oss-cn-shanghai.aliyuncs.com/your-video.mp4
    */
   mediaURL?: string;
+  /**
+   * @remarks
+   * The returned message. Note: Pay attention to this parameter if the job failed.
+   * 
+   * @example
+   * The resource operated InputFile is bad
+   */
   message?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2022-03-21T16:41:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ******faa3b542f5a6135217e3******
    */
   projectId?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
    * @example
    * Sucess
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the online editing template.
+   * 
    * @example
    * cb786a39c5d44cecb23d8c864facffc1
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The user-defined data in the JSON format.
+   * 
+   * @example
+   * {"key":"value"}
+   */
   userData?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41019,11 +47158,23 @@ export class ListMediaProducingJobsResponseBodyMediaProducingJobList extends $te
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -41048,6 +47199,10 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput ext
 }
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputs extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the input stream file.
+   */
   input?: ListPackageJobsResponseBodyPackageJobListPackageJobsInputsInput;
   static names(): { [key: string]: string } {
     return {
@@ -41068,11 +47223,23 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsInputs extends 
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -41098,68 +47265,119 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobsOutput extends 
 
 export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $tea.Model {
   /**
+   * @remarks
+   * The error code returned if the job fails.
+   * 
    * @example
    * InvalidParameter
    */
   code?: string;
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-07-07T14:00:32Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-07-07T15:00:32Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   inputs?: ListPackageJobsResponseBodyPackageJobListPackageJobsInputs[];
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 7b38a5d86f1e47838927b6e7ccb11cbe
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message that is returned.
+   * 
    * @example
    * Resource content bad.
    */
   message?: string;
   /**
+   * @remarks
+   * The time when the job was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-07-07T15:00:32Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * job-name
    */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: ListPackageJobsResponseBodyPackageJobListPackageJobsOutput;
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * 
    * @example
    * 5b40833e4c3e4d4e95a866abb9a42510
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority. Default value: 6.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The state of the job.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-07-07T14:00:32Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * *   API
+   * *   WorkFlow
+   * *   Console
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"param": "value"}
    */
@@ -41211,10 +47429,17 @@ export class ListPackageJobsResponseBodyPackageJobListPackageJobs extends $tea.M
 
 export class ListPackageJobsResponseBodyPackageJobList extends $tea.Model {
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. The token of the next page is returned after you call this operation for the first time.
+   * 
    * @example
    * 019daf5780f74831b0e1a767c9f1c178
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The list of packaging jobs.
+   */
   packageJobs?: ListPackageJobsResponseBodyPackageJobListPackageJobs[];
   static names(): { [key: string]: string } {
     return {
@@ -41237,36 +47462,62 @@ export class ListPackageJobsResponseBodyPackageJobList extends $tea.Model {
 
 export class ListPipelinesResponseBodyPipelineList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the MPS queue.
+   * 
    * @example
    * test-pipeline
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the MPS queue.
+   * 
    * @example
    * 6
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of the MPS queue.
+   * 
    * @example
    * Standard
    */
   speed?: string;
   /**
+   * @remarks
+   * The state of the MPS queue.
+   * 
+   * Valid values:
+   * 
+   * *   Active
+   * *   Paused
+   * 
    * @example
    * Active
    */
@@ -41704,11 +47955,17 @@ export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
 
 export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model {
   /**
+   * @remarks
+   * The information about the input file.
+   * 
    * @example
    * oss://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
    */
   inputFile?: string;
   /**
+   * @remarks
+   * The keyword information.
+   * 
    * @example
    * 测试关键词
    */
@@ -41735,7 +47992,7 @@ export class ListSmartJobsResponseBodySmartJobListInputConfig extends $tea.Model
 export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Model {
   /**
    * @remarks
-   * OSS Bucket
+   * The Object Storage Service (OSS) bucket.
    * 
    * @example
    * test-bucket
@@ -41743,7 +48000,7 @@ export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Mode
   bucket?: string;
   /**
    * @remarks
-   * OSS Object
+   * The OSS object.
    * 
    * @example
    * test-object
@@ -41770,53 +48027,104 @@ export class ListSmartJobsResponseBodySmartJobListOutputConfig extends $tea.Mode
 
 export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job description.
+   * 
    * @example
    * 测试描述
    */
   description?: string;
   /**
+   * @remarks
+   * The editing configurations.
+   * 
    * @example
    * {"AudioConfig":{},"InputConfig":""}
    */
   editingConfig?: string;
+  /**
+   * @remarks
+   * The input configurations.
+   */
   inputConfig?: ListSmartJobsResponseBodySmartJobListInputConfig;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
+   * Valid values:
+   * 
+   * *   Finished: The job is complete.
+   * *   Failed: The job failed.
+   * *   Executing: The job is in progress.
+   * *   Created: The job is created.
+   * 
    * @example
    * Finished
    */
   jobState?: string;
   /**
+   * @remarks
+   * The job type.
+   * 
+   * Valid values:
+   * 
+   * *   ASR: ASR job.
+   * *   DynamicChart: dynamic chart job.
+   * *   TextToSpeech: intelligent audio production job.
+   * 
    * @example
    * ASR
    */
   jobType?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
+  /**
+   * @remarks
+   * The output configurations.
+   */
   outputConfig?: ListSmartJobsResponseBodySmartJobListOutputConfig;
   /**
+   * @remarks
+   * The job title.
+   * 
    * @example
    * 测试标题
    */
   title?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * {"user":"data"}
    */
   userData?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 1084506228******
    */
@@ -41862,24 +48170,65 @@ export class ListSmartJobsResponseBodySmartJobList extends $tea.Model {
 
 export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the digital human. The ID is required to submit a separate digital human rendering job or use the digital human image in an intelligent timeline.
+   * 
    * @example
    * yunqiao
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The name of the digital human.
+   */
   avatarName?: string;
+  /**
+   * @remarks
+   * The video bitrate.
+   * 
+   * @example
+   * 4000
+   */
   bitrate?: number;
   /**
+   * @remarks
+   * The sample thumbnail URL of the digital human.
+   * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/coverDemo/yunqiao.mp4
    */
   coverUrl?: string;
+  /**
+   * @remarks
+   * The video height.
+   * 
+   * @example
+   * 1920
+   */
   height?: number;
+  /**
+   * @remarks
+   * Indicates whether portrait mask rendering is supported.
+   * 
+   * @example
+   * false
+   */
   outputMask?: boolean;
   /**
+   * @remarks
+   * The sample video URL of the digital human.
+   * 
    * @example
    * http://ice-pub-media.myalicdn.com/smart/avatarModel/videoDemo/yunqiao.mp4
    */
   videoUrl?: string;
+  /**
+   * @remarks
+   * The video width.
+   * 
+   * @example
+   * 1080
+   */
   width?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41913,22 +48262,54 @@ export class ListSmartSysAvatarModelsResponseBodySmartSysAvatarModelList extends
 }
 
 export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.Model {
+  /**
+   * @remarks
+   * The speaker description.
+   */
   desc?: string;
+  /**
+   * @remarks
+   * The speaker name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The remarks of the speaker.
+   */
   remark?: string;
   supportSampleRate?: string;
+  /**
+   * @remarks
+   * The tag of the speaker type.
+   */
   tag?: string;
   /**
+   * @remarks
+   * The speaker ID.
+   * 
    * @example
    * zhitian
    */
   voice?: string;
   /**
+   * @remarks
+   * The speaker type.
+   * 
+   * Valid values:
+   * 
+   * *   Male
+   * *   Female
+   * *   Boy
+   * *   Girl
+   * 
    * @example
    * Female
    */
   voiceType?: string;
   /**
+   * @remarks
+   * The URL of the sample audio file.
+   * 
    * @example
    * https://***.com/zhiqing.mp3
    */
@@ -41965,7 +48346,15 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList extends $tea.M
 }
 
 export class ListSmartVoiceGroupsResponseBodyVoiceGroups extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the speaker group.
+   */
   type?: string;
+  /**
+   * @remarks
+   * The speakers.
+   */
   voiceList?: ListSmartVoiceGroupsResponseBodyVoiceGroupsVoiceList[];
   static names(): { [key: string]: string } {
     return {
@@ -41988,11 +48377,20 @@ export class ListSmartVoiceGroupsResponseBodyVoiceGroups extends $tea.Model {
 
 export class ListSnapshotJobsResponseBodyJobsInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats: 1. OSS://bucket/object 2. http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
    * @example
    * oss://bucket/object.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42018,11 +48416,25 @@ export class ListSnapshotJobsResponseBodyJobsInput extends $tea.Model {
 
 export class ListSnapshotJobsResponseBodyJobsOutput extends $tea.Model {
   /**
+   * @remarks
+   * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  OSS://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+   * 
    * @example
    * http://test-bucket.oss-cn-shanghai.aliyuncs.com/output-{Count}.jpg
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * 1.  OSS: an OSS object.
+   * 2.  Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42048,68 +48460,131 @@ export class ListSnapshotJobsResponseBodyJobsOutput extends $tea.Model {
 
 export class ListSnapshotJobsResponseBodyJobs extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the snapshots were captured in asynchronous mode.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * The number of snapshots.
+   * 
    * @example
    * 10
    */
   count?: number;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: ListSnapshotJobsResponseBodyJobsInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2022-07-12T16:30:54Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * SampleJob
    */
   name?: string;
+  /**
+   * @remarks
+   * The output of the job.
+   */
   output?: ListSnapshotJobsResponseBodyJobsOutput;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job failed.
+   * *   **Init**: The job is submitted.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-07-12T16:17:54Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The request trigger source.
+   * 
+   * Valid values:
+   * 
+   * *   Console
+   * *   Workflow
+   * *   API
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The type of the job.
+   * 
+   * Valid values:
+   * 
+   * *   WebVtt
+   * *   Sprite
+   * *   Normal
+   * 
    * @example
    * Sprite
    */
@@ -42161,41 +48636,65 @@ export class ListSnapshotJobsResponseBodyJobs extends $tea.Model {
 
 export class ListSystemTemplatesResponseBodySystemTemplateList extends $tea.Model {
   /**
+   * @remarks
+   * The template state.
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The subtype ID of the template.
+   * 
    * @example
    * 1
    */
   subtype?: number;
   /**
+   * @remarks
+   * The subtype name of the template.
+   * 
    * @example
    * Remux
    */
   subtypeName?: string;
   /**
+   * @remarks
+   * The template parameters.
+   * 
    * @example
    * {"Container":{"Format":"flv"},"Video":{},"Audio":{}}
    */
   templateConfig?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * S00000001-000000
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * FLV-COPY
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type ID of the template.
+   * 
    * @example
    * 1
    */
   type?: number;
   /**
+   * @remarks
+   * The type name of the template.
+   * 
    * @example
    * TranscodeTemplate
    */
@@ -42234,68 +48733,137 @@ export class ListSystemTemplatesResponseBodySystemTemplateList extends $tea.Mode
 export class ListTemplatesResponseBodyTemplates extends $tea.Model {
   /**
    * @remarks
-   * ClipsParam
+   * The clip parameters.
    * 
    * @example
    * {"Media1":"mediaId","Text1":"text"}
    */
   clipsParam?: string;
   /**
+   * @remarks
+   * The template configurations.
+   * 
    * @example
    * 参考Timeline模板配置详解
    */
   config?: string;
   /**
+   * @remarks
+   * The thumbnail URL.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/cover.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The source from which the template was created.
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole
+   * *   WebSDK
+   * *   OpenAPI
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The source from which the template was modified.
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole
+   * *   WebSDK
+   * *   OpenAPI
+   * 
    * @example
    * OpenAPI
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the template was last modified.
+   * 
    * @example
    * 2020-12-26T04:11:10Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * 视频添加水印模板
    */
   name?: string;
   /**
+   * @remarks
+   * The preview media asset.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   previewMedia?: string;
   /**
+   * @remarks
+   * The state of the preview media asset.
+   * 
+   * Valid values:
+   * 
+   * *   PrepareFail
+   * *   Init
+   * *   Normal
+   * *   Preparing
+   * 
    * @example
    * Normal
    */
   previewMediaStatus?: string;
   /**
+   * @remarks
+   * The template state.
+   * 
+   * Valid values:
+   * 
+   * *   UploadFailed: Failed to upload the video.
+   * *   ProcessFailed: Failed to process the advanced template.
+   * *   Available: The template is available.
+   * *   Uploading: The video is being uploaded.
+   * *   Created: The template is created but not ready for use.
+   * *   Processing: The advanced template is being processed.
+   * 
    * @example
    * Available
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
+   * Valid values:
+   * 
+   * *   Timeline: regular template.
+   * *   VETemplate: advanced template.
+   * 
    * @example
    * Timeline
    */
@@ -42342,13 +48910,32 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
 }
 
 export class ListTranscodeJobsResponseBodyJobsInputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the media asset. This parameter is specified only when the media asset is transcoded.
+   * 
+   * @example
+   * oss://bucket/path/to/video.mp4
+   */
   inputUrl?: string;
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42376,12 +48963,28 @@ export class ListTranscodeJobsResponseBodyJobsInputGroup extends $tea.Model {
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
+  /**
+   * @remarks
+   * The URL of the transcoded output stream. This parameter is required only when the output is a media asset.
+   * 
+   * @example
+   * oss://bucket/path/to/{MediaId}/{JobId}.mp4
+   */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42410,6 +49013,8 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupOutput extends $tea.Mod
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42417,17 +49022,25 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineCon
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42459,16 +49072,25 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineCon
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HTTP Live Streaming (HLS) encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The endpoint of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * The encryption type.
+   * 
    * @example
    * PrivateEncryption
    */
@@ -42496,11 +49118,20 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigEncryption
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42526,11 +49157,17 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the stream. Valid values: the number of seconds or "ToEND".
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The beginning of the time range for which data was queried.
+   * 
    * @example
    * 00:00:05
    */
@@ -42556,28 +49193,51 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The position of the watermark on the x-axis.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The position of the watermark on the y-axis.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The reference position of the watermark. Valid values: TopLeft, TopRight, BottomLeft, and BottomRight. Default value: TopLeft.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The timeline settings.
+   */
   timeline?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 32
    */
@@ -42612,8 +49272,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -42639,11 +49306,23 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWater
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, the ID of a media asset is returned.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -42669,12 +49348,22 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -42701,8 +49390,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitlesOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -42728,51 +49424,81 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitles 
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the text size was adjusted based on the output video dimensions. true / false, default: false
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The border color.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The border width.
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The distance of the watermark from the left edge.
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The distance of the watermark from the top edge.
+   * 
    * @example
    * 10
    */
@@ -42813,8 +49539,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWaterm
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -42840,21 +49573,33 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWaterm
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -42884,35 +49629,65 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: [8,1000].
+   * *   Unit: Kbit/s.
+   * *   Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the audio stream is deleted.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Default value: 44100.
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -42945,6 +49720,9 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -42968,11 +49746,17 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -42997,6 +49781,10 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -43017,91 +49805,184 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum adaptive bitrate (ABR). This parameter takes effect only for Narrowband HD 1.0. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average bitrate of the video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Valid values: [1000,128000].
+   * *   Default value: 6000.
+   * *   Unit: KB.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Valid values: [0,51].
+   * *   Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
+   * 
+   * If this parameter is set, the value of Bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   border: automatically detects and removes black bars.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Valid values: (0,60].
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between two keyframes.
+   * 
+   * *   Valid values: [1,1080000].
+   * *   Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the height of the input video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Indicates whether the auto-rotate screen feature is enabled.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the output video. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Indicates whether the video was removed.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the width of the input video.
+   * 
    * @example
    * 1920
    */
@@ -43158,10 +50039,26 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
   tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -43189,8 +50086,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeO
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscodeOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -43215,12 +50119,40 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscode 
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration for an image.
+   */
   imageWatermarks?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * Indicates whether the tags of the input stream are inherited in the output stream. This parameter does not take effect when the input is not a media asset. Default value: false.
+   */
   isInheritTags?: boolean;
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermarks.
+   */
   textWatermarks?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   transcode?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -43252,7 +50184,15 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfig extends $
 }
 
 export class ListTranscodeJobsResponseBodyJobsOutputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The output file configuration.
+   */
   output?: ListTranscodeJobsResponseBodyJobsOutputGroupOutput;
+  /**
+   * @remarks
+   * The job processing configuration.
+   */
   processConfig?: ListTranscodeJobsResponseBodyJobsOutputGroupProcessConfig;
   static names(): { [key: string]: string } {
     return {
@@ -43275,11 +50215,17 @@ export class ListTranscodeJobsResponseBodyJobsOutputGroup extends $tea.Model {
 
 export class ListTranscodeJobsResponseBodyJobsScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -43305,59 +50251,111 @@ export class ListTranscodeJobsResponseBodyJobsScheduleConfig extends $tea.Model 
 
 export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   */
   inputGroup?: ListTranscodeJobsResponseBodyJobsInputGroup[];
   /**
+   * @remarks
+   * The number of subjobs.
+   * 
    * @example
    * 1
    */
   jobCount?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * transcode-job
    */
   name?: string;
+  /**
+   * @remarks
+   * The output group of the job.
+   */
   outputGroup?: ListTranscodeJobsResponseBodyJobsOutputGroup[];
   /**
+   * @remarks
+   * The main job ID.
+   * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
    */
   parentJobId?: string;
   /**
+   * @remarks
+   * The completion percentage of the job.
+   * 
    * @example
    * 0
    */
   percent?: number;
   /**
+   * @remarks
+   * The ID of the request that submitted the job.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling configuration of the job.
+   */
   scheduleConfig?: ListTranscodeJobsResponseBodyJobsScheduleConfig;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   Success: At least one of the subjobs is successful.
+   * *   Fail: All subjobs failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values:
+   * 
+   * *   API
+   * *   WorkFlow
+   * *   Console
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -43407,11 +50405,26 @@ export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
 
 export class QueryDNAJobListResponseBodyJobListInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. The file can be an OSS object or a media asset. The path of an OSS object can be in one of the following formats:
+   * 
+   * 1\\. oss://bucket/object
+   * 
+   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * In the preceding paths, bucket indicates an OSS bucket that resides in the same region as the current project, and object indicates the path of the object in the bucket.
+   * 
    * @example
    * 1b1b9cd148034739af413150fded****
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: Object Storage Service (OSS) object.
+   * 2.  Media: media asset.
+   * 
    * @example
    * Media
    */
@@ -43437,57 +50450,99 @@ export class QueryDNAJobListResponseBodyJobListInput extends $tea.Model {
 
 export class QueryDNAJobListResponseBodyJobList extends $tea.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * "InvalidParameter.ResourceNotFound"
    */
   code?: string;
   /**
+   * @remarks
+   * The configurations of the media fingerprint analysis job.
+   * 
    * @example
    * {"SaveType": "save","MediaType"":"video"}
    */
   config?: string;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-12-28T03:21:37Z
    */
   creationTime?: string;
   /**
+   * @remarks
+   * The ID of the media fingerprint library.
+   * 
    * @example
    * 2288c6ca184c0e47098a5b665e2a12****
    */
   DBId?: string;
   /**
+   * @remarks
+   * The URL of the media fingerprint analysis result.
+   * 
    * @example
    * http://test_bucket.oss-cn-shanghai.aliyuncs.com/fingerprint/video/search_result/5/5.txt
    */
   DNAResult?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-12-28T03:21:44Z
    */
   finishTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 88c6ca184c0e47098a5b665e2a12****
    */
   id?: string;
+  /**
+   * @remarks
+   * The details of the input file.
+   */
   input?: QueryDNAJobListResponseBodyJobListInput;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * "The resource operated \\"a887d0b***d805ef6f7f6786302\\" cannot be found"
    */
   message?: string;
   /**
+   * @remarks
+   * The primary key of the video. You must make sure that each primary key is unique.
+   * 
    * @example
    * 3ca84a39a9024f19853b21be9cf9****
    */
   primaryKey?: string;
   /**
+   * @remarks
+   * The job state. Valid values:
+   * 
+   * *   **Queuing**: The job is waiting in the queue.
+   * *   **Analysing**: The job is in progress.
+   * *   **Success**: The job is successful.
+   * *   **Fail**: The job failed.
+   * 
    * @example
    * Queuing
    */
   status?: string;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * testdna
    */
@@ -43533,11 +50588,23 @@ export class QueryDNAJobListResponseBodyJobList extends $tea.Model {
 
 export class QueryIProductionJobResponseBodyInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
    * @example
    * oss://bucket/object
    */
   media?: string;
   /**
+   * @remarks
+   * The media type. Valid values:
+   * 
+   * 1.  OSS: Object Storage Service (OSS) object
+   * 2.  Media: media asset
+   * 
    * @example
    * OSS
    */
@@ -43563,11 +50630,23 @@ export class QueryIProductionJobResponseBodyInput extends $tea.Model {
 
 export class QueryIProductionJobResponseBodyOutput extends $tea.Model {
   /**
+   * @remarks
+   * The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
    * @example
    * oss://bucket/object
    */
   media?: string;
   /**
+   * @remarks
+   * The media type. Valid values:
+   * 
+   * *   OSS: OSS object
+   * *   Media: media asset
+   * 
    * @example
    * OSS
    */
@@ -43593,11 +50672,20 @@ export class QueryIProductionJobResponseBodyOutput extends $tea.Model {
 
 export class QueryIProductionJobResponseBodyScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue.
+   * 
    * @example
    * a54fdc9c9aab413caef0d1150f565e86
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job in the MPS queue to which the job is added.
+   * 
+   * *   A value of 10 indicates the highest priority.
+   * *   Default value: **6**.
+   * 
    * @example
    * 6
    */
@@ -43623,21 +50711,45 @@ export class QueryIProductionJobResponseBodyScheduleConfig extends $tea.Model {
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 99.91
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
@@ -43667,21 +50779,94 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCen
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result.
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live broadcasting in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * Normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * Antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
@@ -43730,20 +50915,33 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The OSS bucket in which the thumbnail is stored.
+   * 
    * @example
    * bucket-out-test-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the thumbnail resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) object that is used as the thumbnail.
+   * 
    * @example
    * test/ai/censor/v2/vme-****.jpg
    */
   object?: string;
+  /**
+   * @remarks
+   * The moderation results.
+   */
   results?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
     return {
@@ -43789,21 +50987,45 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImage
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * terrorism
    */
   label?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * review
    */
@@ -43833,16 +51055,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensor
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput extends $tea.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
    * @example
    * bucket-test-in-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
    * @example
    * test/ai/censor/test-****.mp4
    */
@@ -43870,21 +51101,45 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput exte
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * meaningless
    */
   label?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 99.91
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * block
    */
@@ -43914,21 +51169,94 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCenso
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResultsCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result.
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live broadcasting in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * meaningless
    */
   label?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * terrorism
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * review
    */
@@ -43977,21 +51305,94 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result.
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live broadcasting in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * flood
    */
   label?: string;
   /**
+   * @remarks
+   * The score.
+   * 
    * @example
    * 99.99
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * porn
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * block
    */
@@ -44039,13 +51440,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results that include information such as labels and scores.
+   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
   /**
+   * @remarks
+   * The OSS object that is generated as the output snapshot.
+   * 
+   * >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * 
    * @example
    * output{Count}.jpg
    */
   object?: string;
   /**
+   * @remarks
+   * The position in the video. Format: `hh:mm:ss[.SSS]`.
+   * 
    * @example
    * 00:02:59.999
    */
@@ -44091,12 +51504,23 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * A collection of moderation results. The information includes the summary about various scenarios such as pornographic content moderation and terrorist content moderation.
+   */
   censorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultCensorResults;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ea04afcca7cd4e80b9ece8fbb251****
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The moderation results that are sorted in ascending order by time.
+   */
   videoTimelines?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
     return {
@@ -44121,16 +51545,27 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCens
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile extends $tea.Model {
   /**
+   * @remarks
+   * The OSS bucket in which the output snapshot is stored.
+   * 
    * @example
    * test-bucket-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the output snapshot resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The OSS object that is generated as the output snapshot.
+   * 
+   * >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * 
    * @example
    * output{Count}.jpg
    */
@@ -44158,12 +51593,25 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig extends $tea.Model {
   /**
+   * @remarks
+   * The custom business type. Default value: common.
+   * 
    * @example
    * common
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The information about output snapshots.
+   */
   outputFile?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfigOutputFile;
   /**
+   * @remarks
+   * Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
+   * 
+   * *   **true**: The video content needs to be moderated.
+   * *   **false**: The video content does not need to be moderated.
+   * 
    * @example
    * true
    */
@@ -44190,57 +51638,118 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCenso
 }
 
 export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results of live comments.
+   */
   barrageCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailBarrageCensorResult;
   /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job is successful.
+   * 
    * @example
    * InvalidParameter.ResourceNotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The moderation results of thumbnails.
+   */
   coverImageCensorResults?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailCoverImageCensorResults;
   /**
+   * @remarks
+   * The time when the content moderation job was created.
+   * 
    * @example
    * 2018-09-13T16:32:24Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The moderation results of descriptions.
+   */
   descCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailDescCensorResult;
   /**
+   * @remarks
+   * The time when the content moderation job was complete.
+   * 
    * @example
    * 2018-09-13T16:38:24Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailInput;
   /**
+   * @remarks
+   * The ID of the content moderation job.
+   * 
    * @example
    * f8f166eea7a44e9bb0a4aecf9543****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job is successful.
+   * 
    * @example
    * The resource operated cannot be found
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job was submitted.
+   * 
    * @example
    * c5b30b7c0d0e4a0abde1d5f9e751****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
    * @example
    * Success
    */
   state?: string;
   /**
+   * @remarks
+   * The overall result of the content moderation job. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
+   * 
    * @example
    * block
    */
   suggestion?: string;
+  /**
+   * @remarks
+   * The moderation results of titles.
+   */
   titleCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailTitleCensorResult;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * example userdata ****
    */
   userData?: string;
+  /**
+   * @remarks
+   * The moderation results of videos.
+   */
   vensorCensorResult?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVensorCensorResult;
+  /**
+   * @remarks
+   * The video moderation configurations.
+   */
   videoCensorConfig?: QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetailVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
@@ -44291,21 +51800,45 @@ export class QueryMediaCensorJobDetailResponseBodyMediaCensorJobDetail extends $
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 99.91
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
@@ -44335,21 +51868,96 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResultsResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live streaming in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * live
    */
   scene?: string;
   /**
+   * @remarks
+   * The overall result of the moderation job. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
+   * >  If the moderation result of any type of content is review, the overall result is review. If the moderation result of any type of content is block, the overall result is block.
+   * 
    * @example
    * pass
    */
@@ -44398,20 +52006,33 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The OSS bucket in which the thumbnail is stored.
+   * 
    * @example
    * example-Bucket-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the thumbnail resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) object that is used as the thumbnail.
+   * 
    * @example
    * test/ai/censor/v2/vme-****.jpg
    */
   object?: string;
+  /**
+   * @remarks
+   * The moderation results.
+   */
   results?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResultsCoverImageCensorResultResults;
   static names(): { [key: string]: string } {
     return {
@@ -44457,21 +52078,45 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
@@ -44501,16 +52146,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The name of the OSS bucket in which the input file is stored.
+   * 
    * @example
    * bucket-test-in-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The OSS region in which the input file resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The name of the OSS object that is used as the input file.
+   * 
    * @example
    * test/ai/censor/test-****.mp4
    */
@@ -44538,21 +52192,45 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,). Valid values:
+   * 
+   * *   **normal**: normal content.
+   * *   **spam**: spam.
+   * *   **ad**: ads.
+   * *   **abuse**: abuse content.
+   * *   **flood**: excessive junk content.
+   * *   **contraband**: prohibited content.
+   * *   **meaningless**: meaningless content.
+   * 
    * @example
    * meaningless
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. The value is **antispam**.
+   * 
    * @example
    * antispam
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * block
    */
@@ -44582,21 +52260,94 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResultsCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live streaming in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * meaningless
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * ad
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
@@ -44645,21 +52396,94 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResultsCensorResult extends $tea.Model {
   /**
+   * @remarks
+   * The label of the moderation result. Separate multiple labels with commas (,).
+   * 
+   * *   Valid values in the pornographic content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **sexy**: sexy content.
+   *     *   **porn**: pornographic content.
+   * 
+   * *   Valid values in the terrorist content moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **bloody**: bloody content.
+   *     *   **explosion**: explosion and smoke.
+   *     *   **outfit**: special costume.
+   *     *   **logo**: special logo.
+   *     *   **weapon**: weapon.
+   *     *   **politics**: political content.
+   *     *   **violence**: violence.
+   *     *   **crowd**: crowd.
+   *     *   **parade**: parade.
+   *     *   **carcrash**: car accident.
+   *     *   **flag**: flag.
+   *     *   **location**: landmark.
+   *     *   **others**: other content.
+   * 
+   * *   Valid values in the ad moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **ad**: other ads.
+   *     *   **politics**: political content in text.
+   *     *   **porn**: pornographic content in text.
+   *     *   **abuse**: abuse in text.
+   *     *   **terrorism**: terrorist content in text.
+   *     *   **contraband**: prohibited content in text.
+   *     *   **spam**: spam in text.
+   *     *   **npx**: illegal ad.
+   *     *   **qrcode**: QR code.
+   *     *   **programCode**: mini program code.
+   * 
+   * *   Valid values in the undesirable scene moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **meaningless**: meaningless content, such as a black or white screen.
+   *     *   **PIP**: picture-in-picture.
+   *     *   **smoking**: smoking.
+   *     *   **drivelive**: live streaming in a running vehicle.
+   * 
+   * *   Valid values in the logo moderation scenario:
+   * 
+   *     *   **normal**: normal content.
+   *     *   **TV**: controlled logo.
+   *     *   **trademark**: trademark.
+   * 
    * @example
    * normal
    */
   label?: string;
   /**
+   * @remarks
+   * The score. Valid values: 0 to 100.
+   * 
    * @example
    * 100
    */
   rate?: string;
   /**
+   * @remarks
+   * The moderation scenario. Valid values:
+   * 
+   * *   **porn**: pornographic content moderation.
+   * *   **terrorism**: terrorist content moderation.
+   * *   **ad**: ad moderation.
+   * *   **live**: undesirable scene moderation.
+   * *   **logo**: logo moderation.
+   * 
    * @example
    * porn
    */
   scene?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * block
    */
@@ -44707,13 +52531,25 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimeline extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results that include information such as labels and scores.
+   */
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelinesVideoTimelineCensorResults;
   /**
+   * @remarks
+   * The OSS object that is generated as the output snapshot.
+   * 
+   * >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg`, `output00002-****.jpg`, and so on.
+   * 
    * @example
    * output{Count}.jpg
    */
   object?: string;
   /**
+   * @remarks
+   * The position in the video. Format: `hh:mm:ss[.SSS]`.
+   * 
    * @example
    * 00:02:59.999
    */
@@ -44759,12 +52595,23 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult extends $tea.Model {
+  /**
+   * @remarks
+   * A collection of moderation results. The information includes the summary about various scenarios such as pornographic content moderation and terrorist content moderation.
+   */
   censorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultCensorResults;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * ea04afcca7cd4e80b9ece8fbb251
    */
   nextPageToken?: string;
+  /**
+   * @remarks
+   * The moderation results that are sorted in ascending order by time.
+   */
   videoTimelines?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResultVideoTimelines;
   static names(): { [key: string]: string } {
     return {
@@ -44789,16 +52636,27 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile extends $tea.Model {
   /**
+   * @remarks
+   * The OSS bucket in which the output snapshot is stored.
+   * 
    * @example
    * test-bucket-****
    */
   bucket?: string;
   /**
+   * @remarks
+   * The ID of the region in which the output snapshot resides.
+   * 
    * @example
    * oss-cn-shanghai
    */
   location?: string;
   /**
+   * @remarks
+   * The OSS object that is generated as the output snapshot.
+   * 
+   * >  In the example, {Count} is a placeholder. The OSS objects that are generated as output snapshots are named `output00001-****.jpg, output00002-****.jpg`, and so on.
+   * 
    * @example
    * output{Count}.jpg
    */
@@ -44826,12 +52684,27 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig extends $tea.Model {
   /**
+   * @remarks
+   * The moderation template. Default value: common. The default value indicates that the default template is used.
+   * 
+   * >  If the moderation template is not specified, the default value common is returned. If a custom moderation template that is created by submitting a ticket is specified, the UID of the template is returned.
+   * 
    * @example
    * common
    */
   bizType?: string;
+  /**
+   * @remarks
+   * The information about output snapshots.
+   */
   outputFile?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfigOutputFile;
   /**
+   * @remarks
+   * Indicates whether the video content needs to be moderated. Default value: **true**. Valid values:
+   * 
+   * *   **true**: The video content needs to be moderated.
+   * *   **false**: The video content does not need to be moderated.
+   * 
    * @example
    * true
    */
@@ -44858,57 +52731,116 @@ export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob
 }
 
 export class QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJob extends $tea.Model {
+  /**
+   * @remarks
+   * The moderation results of live comments.
+   */
   barrageCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobBarrageCensorResult;
   /**
+   * @remarks
+   * The error code returned if the job failed. This parameter is not returned if the job is successful.
+   * 
    * @example
    * InvalidParameter.ResourceNotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The moderation results of thumbnails.
+   */
   coverImageCensorResults?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobCoverImageCensorResults;
   /**
+   * @remarks
+   * The time when the content moderation job was created.
+   * 
    * @example
    * 2021-11-04T07:25:48Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The moderation results of descriptions.
+   */
   descCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobDescCensorResult;
   /**
+   * @remarks
+   * The time when the content moderation job was complete.
+   * 
    * @example
    * 2021-11-04T07:25:50Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The information about the job input.
+   */
   input?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobInput;
   /**
+   * @remarks
+   * The ID of the content moderation job.
+   * 
    * @example
    * f8f166eea7a44e9bb0a4aecf9543
    */
   jobId?: string;
   /**
+   * @remarks
+   * The error message returned if the job failed. This parameter is not returned if the job is successful.
+   * 
    * @example
    * The resource operated cannot be found
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * c5b30b7c0d0e4a0abde1d5f9e751****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
    * @example
    * Success
    */
   state?: string;
   /**
+   * @remarks
+   * The recommended subsequent operation. Valid values:
+   * 
+   * *   **pass**: The content passes the moderation.
+   * *   **review**: The content needs to be manually reviewed.
+   * *   **block**: The content needs to be blocked.
+   * 
    * @example
    * pass
    */
   suggestion?: string;
+  /**
+   * @remarks
+   * The moderation results of titles.
+   */
   titleCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobTitleCensorResult;
   /**
+   * @remarks
+   * The user-defined data.
+   * 
    * @example
    * example userdata ****
    */
   userData?: string;
+  /**
+   * @remarks
+   * The moderation results of videos.
+   */
   vensorCensorResult?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVensorCensorResult;
+  /**
+   * @remarks
+   * The video moderation configurations.
+   */
   videoCensorConfig?: QueryMediaCensorJobListResponseBodyMediaCensorJobListMediaCensorJobVideoCensorConfig;
   static names(): { [key: string]: string } {
     return {
@@ -45061,11 +52993,35 @@ export class QueryMediaIndexJobResponseBodyIndexJobInfoList extends $tea.Model {
 
 export class QuerySmarttagJobResponseBodyResultsResult extends $tea.Model {
   /**
+   * @remarks
+   * The details of the analysis result. The value is a JSON string. For more information about the parameters of different result types, see the "Parameters of different result types" section of this topic.
+   * 
    * @example
    * {"title":"example-title-****"}
    */
   data?: string;
   /**
+   * @remarks
+   * The type of the analysis result.
+   * 
+   * *   The type of the analysis result based on Smart tagging V1.0. Valid values:
+   * 
+   * 1.  TextLabel: the text tag.
+   * 2.  VideoLabel: the video tag.
+   * 3.  ASR: the original result of automatic speech recognition (ASR). By default, this type of result is not returned.
+   * 4.  OCR: the original result of optical character recognition (OCR). By default, this type of result is not returned.
+   * 5.  NLP: the natural language processing (NLP)-based result. By default, this type of result is not returned.
+   * 
+   * *   The type of the analysis result based on Smart tagging V2.0. Valid values:
+   * 
+   * 1.  CPVLabel
+   * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
+   * 
+   * *   The type of the analysis result based on Smart tagging V2.0-custom. Valid values:
+   * 
+   * 1.  CPVLabel
+   * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
+   * 
    * @example
    * Meta
    */
@@ -47357,6 +55313,7 @@ export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
    */
   voiceId?: string;
   voiceprintId?: string;
+  volume?: number;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
@@ -47367,6 +55324,7 @@ export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
       userOnlineTimeout: 'UserOnlineTimeout',
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
+      volume: 'Volume',
     };
   }
 
@@ -47380,6 +55338,7 @@ export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
       userOnlineTimeout: 'number',
       voiceId: 'string',
       voiceprintId: 'string',
+      volume: 'number',
     };
   }
 
@@ -47390,6 +55349,9 @@ export class StartRtcRobotInstanceRequestConfig extends $tea.Model {
 
 export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * ****29faef8144638ba42eb8e037****
    */
@@ -47413,11 +55375,17 @@ export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
 
 export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The voice ID.
+   * 
    * @example
    * xiaozhuan
    */
@@ -47444,6 +55412,14 @@ export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
 export class SubmitDNAJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1\\. oss://bucket/object
+   * 
+   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * In the preceding paths, bucket indicates an OSS bucket that resides in the same region as the current project, and object indicates the path of the object in the bucket.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47452,6 +55428,11 @@ export class SubmitDNAJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: Object Storage Service (OSS) object.
+   * 2.  Media: media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47480,6 +55461,15 @@ export class SubmitDNAJobRequestInput extends $tea.Model {
 export class SubmitDynamicImageJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The input file. If Type is set to OSS, set this parameter to the URL of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47488,6 +55478,14 @@ export class SubmitDynamicImageJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
+   * *
+   * *
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47516,6 +55514,15 @@ export class SubmitDynamicImageJobRequestInput extends $tea.Model {
 export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
   /**
    * @remarks
+   * The output file. The file can be an OSS object or a media asset. The URL of an OSS object can be in one of the following formats:
+   * 
+   * *   oss://bucket/object
+   * *   http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47524,6 +55531,14 @@ export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * 1.  OSS: an OSS object.
+   * 2.  Media: a media asset.
+   * 
+   * *
+   * *
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47551,11 +55566,17 @@ export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
 
 export class SubmitDynamicImageJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority. Valid values: 1 to 10. Default value: 6. A greater value specifies a higher priority.
+   * 
    * @example
    * 6
    */
@@ -47580,8 +55601,29 @@ export class SubmitDynamicImageJobRequestScheduleConfig extends $tea.Model {
 }
 
 export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan extends $tea.Model {
+  /**
+   * @remarks
+   * The length of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   */
   duration?: string;
+  /**
+   * @remarks
+   * The length of the ending part of the original clip to be cropped out. If you specify this parameter, the Duration parameter becomes invalid.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   */
   end?: string;
+  /**
+   * @remarks
+   * The start point of the clip.
+   * 
+   * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
+   * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   */
   seek?: string;
   static names(): { [key: string]: string } {
     return {
@@ -47606,32 +55648,67 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
 
 export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The format of the animated image. Valid values:
+   * 
+   * *   **gif**
+   * *   **webp**
+   * 
    * @example
    * gif
    */
   format?: string;
   /**
+   * @remarks
+   * The frame rate. Valid values: [1,60].
+   * 
    * @example
    * 15
    */
   fps?: number;
   /**
+   * @remarks
+   * The height of the animated image. Valid values: [128,4096].
+   * 
    * @example
    * 720
    */
   height?: number;
   /**
+   * @remarks
+   * Specifies whether to enable the auto-rotate screen feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: **true**.
+   * 
+   * >  If this feature is enabled, the width of the output video corresponds to the long side of the input video, which is the height of the input video in portrait mode. The height of the output video corresponds to the short side of the input video, which is the width of the input video in portrait mode.
+   * 
    * @example
    * false
    */
   longShortMode?: boolean;
   /**
+   * @remarks
+   * The scan mode. Valid values:
+   * 
+   * *   **interlaced**
+   * *   **progressive** This is the default value.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
+  /**
+   * @remarks
+   * The timeline parameters.
+   */
   timeSpan?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan;
   /**
+   * @remarks
+   * The width of the animated image. Valid values: [128,4096].
+   * 
    * @example
    * 1024
    */
@@ -47666,9 +55743,15 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParams extends $
 }
 
 export class SubmitDynamicImageJobRequestTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters.
+   */
   overwriteParams?: SubmitDynamicImageJobRequestTemplateConfigOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47697,6 +55780,11 @@ export class SubmitDynamicImageJobRequestTemplateConfig extends $tea.Model {
 export class SubmitIProductionJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[regionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47705,6 +55793,11 @@ export class SubmitIProductionJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The media type. Valid values:
+   * 
+   * *   OSS: OSS object
+   * *   Media: media asset
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47733,6 +55826,11 @@ export class SubmitIProductionJobRequestInput extends $tea.Model {
 export class SubmitIProductionJobRequestOutput extends $tea.Model {
   /**
    * @remarks
+   * The output file. If Type is set to OSS, set this parameter to the path of an OSS object. If Type is set to Media, set this parameter to the ID of a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object bucket in the path specifies an OSS bucket that resides in the same region as the intelligent production job. object in the path specifies the object path in OSS.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47741,6 +55839,11 @@ export class SubmitIProductionJobRequestOutput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The media type. Valid values:
+   * 
+   * *   OSS: OSS object
+   * *   Media: media asset
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47768,11 +55871,17 @@ export class SubmitIProductionJobRequestOutput extends $tea.Model {
 
 export class SubmitIProductionJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue.
+   * 
    * @example
    * 5246b8d12a62433ab77845074039c3dc
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. A smaller value indicates a higher priority.
+   * 
    * @example
    * 6
    */
@@ -48052,11 +56161,27 @@ export class SubmitLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
 
 export class SubmitMediaCensorJobRequestInput extends $tea.Model {
   /**
+   * @remarks
+   * The input file. The file can be an OSS object or a media asset. You can specify the path of an OSS object in one of the following formats:
+   * 
+   * 1\\. oss://bucket/object
+   * 
+   * 2\\. http(s)://bucket.oss-[regionId].aliyuncs.com/object
+   * 
+   * In the preceding paths, bucket indicates an OSS bucket that resides in the same region as the current project, and object indicates the path of the object in the bucket.
+   * 
    * @example
    * 1b1b9cd148034739af413150fded****
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * OSS: OSS object.
+   * 
+   * Media: media asset.
+   * 
    * @example
    * Media
    */
@@ -48082,11 +56207,17 @@ export class SubmitMediaCensorJobRequestInput extends $tea.Model {
 
 export class SubmitMediaCensorJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which the job is submitted.
+   * 
    * @example
    * 5246b8d12a62433ab77845074039****
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The job priority. A larger value indicates a higher priority. Valid values: 1 to 10.
+   * 
    * @example
    * 6
    */
@@ -48113,6 +56244,14 @@ export class SubmitMediaCensorJobRequestScheduleConfig extends $tea.Model {
 export class SubmitMediaInfoJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * 
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48121,6 +56260,8 @@ export class SubmitMediaInfoJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the media object. Valid values: OSS and Media. A value of OSS indicates an Object Storage Service (OSS) object. A value of Media indicates a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48148,11 +56289,17 @@ export class SubmitMediaInfoJobRequestInput extends $tea.Model {
 
 export class SubmitMediaInfoJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -48178,11 +56325,17 @@ export class SubmitMediaInfoJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, the URL of an OSS object is returned. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values: OSS and Media. A value of OSS indicates an OSS object. A value of Media indicates a media asset.
+   * 
    * @example
    * OSS
    */
@@ -48208,76 +56361,121 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model 
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * us
    */
   lang?: string;
   /**
+   * @remarks
+   * The sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -48329,61 +56527,97 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStr
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 2b36bd19c13f4145b094c0cad80dbce5
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -48429,116 +56663,189 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasi
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the file.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -48605,8 +56912,20 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStr
 }
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -48631,11 +56950,17 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -48661,54 +56986,96 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $t
 
 export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether asynchronous processing was performed.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: SubmitMediaInfoJobResponseBodyMediaInfoJobInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The details of the media information.
+   */
   mediaInfoProperty?: SubmitMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information.
+   */
   scheduleConfig?: SubmitMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
   /**
+   * @remarks
+   * The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+   * 
    * @example
    * Init
    */
   status?: string;
   /**
+   * @remarks
+   * The job submission information.
+   * 
    * @example
    * {}
    */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values: API, WorkFlow, and Console.
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -48757,6 +57124,11 @@ export class SubmitMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 export class SubmitPackageJobRequestInputsInput extends $tea.Model {
   /**
    * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48765,6 +57137,11 @@ export class SubmitPackageJobRequestInputsInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48793,6 +57170,8 @@ export class SubmitPackageJobRequestInputsInput extends $tea.Model {
 export class SubmitPackageJobRequestInputs extends $tea.Model {
   /**
    * @remarks
+   * The information about the input stream file.
+   * 
    * This parameter is required.
    */
   input?: SubmitPackageJobRequestInputsInput;
@@ -48816,6 +57195,8 @@ export class SubmitPackageJobRequestInputs extends $tea.Model {
 export class SubmitPackageJobRequestOutput extends $tea.Model {
   /**
    * @remarks
+   * The media object. If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48824,6 +57205,11 @@ export class SubmitPackageJobRequestOutput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48851,11 +57237,17 @@ export class SubmitPackageJobRequestOutput extends $tea.Model {
 
 export class SubmitPackageJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -48881,11 +57273,25 @@ export class SubmitPackageJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitSmarttagJobRequestInput extends $tea.Model {
   /**
+   * @remarks
+   * If Type is set to OSS, specify an OSS path. Example: OSS://test-bucket/video/202208/test.mp4.
+   * 
+   * If Type is set to Media, specify a media asset ID. Example: c5c62d8f0361337cab312dce8e77dc6d.
+   * 
+   * If Type is set to URL, specify an HTTP URL. Example: https://zc-test.oss-cn-shanghai.aliyuncs.com/test/unknowFace.mp4.
+   * 
    * @example
    * c5c62d8f0361337cab312dce8e77dc6d
    */
   media?: string;
   /**
+   * @remarks
+   * The media type. Valid values:
+   * 
+   * *   OSS
+   * *   Media
+   * *   URL
+   * 
    * @example
    * Media
    */
@@ -48911,11 +57317,17 @@ export class SubmitSmarttagJobRequestInput extends $tea.Model {
 
 export class SubmitSmarttagJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue to which you want to submit the smart tagging job. The MPS queue is bound to an SMQ queue. This parameter specifies the default MPS queue. By default, an MPS queue can process a maximum of two concurrent smart tagging jobs. To increase the limit, submit a ticket.
+   * 
    * @example
    * acdbfe4323bcfdae
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The job priority. This parameter is not implemented. You can leave this parameter empty or enter a random value.
+   * 
    * @example
    * 4
    */
@@ -48942,6 +57354,13 @@ export class SubmitSmarttagJobRequestScheduleConfig extends $tea.Model {
 export class SubmitSnapshotJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The input file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48950,6 +57369,11 @@ export class SubmitSnapshotJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the input file. Valid values:
+   * 
+   * 1.  OSS: an Object Storage Service (OSS) object.
+   * 2.  Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48978,6 +57402,15 @@ export class SubmitSnapshotJobRequestInput extends $tea.Model {
 export class SubmitSnapshotJobRequestOutput extends $tea.Model {
   /**
    * @remarks
+   * The output file. If Type is set to OSS, the URL of an OSS object is returned. If Type is set to Media, the ID of a media asset is returned. The URL of an OSS object can be in one of the following formats:
+   * 
+   * 1.  oss://bucket/object
+   * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object
+   * 
+   * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48986,6 +57419,11 @@ export class SubmitSnapshotJobRequestOutput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the output file. Valid values:
+   * 
+   * 1.  OSS: an OSS object.
+   * 2.  Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49013,6 +57451,9 @@ export class SubmitSnapshotJobRequestOutput extends $tea.Model {
 
 export class SubmitSnapshotJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the ApsaraVideo Media Processing (MPS) queue that is used to run the job.
+   * 
    * @example
    * ****96e8864746a0b6f3****
    */
@@ -49036,36 +57477,57 @@ export class SubmitSnapshotJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig extends $tea.Model {
   /**
+   * @remarks
+   * The height of a single snapshot before tiling. The default value is the height of the output snapshot.
+   * 
    * @example
    * 480
    */
   cellHeight?: number;
   /**
+   * @remarks
+   * The width of a single snapshot before tiling. The default value is the width of the output snapshot.
+   * 
    * @example
    * 720
    */
   cellWidth?: number;
   /**
+   * @remarks
+   * The background color.
+   * 
    * @example
    * #000000
    */
   color?: string;
   /**
+   * @remarks
+   * The number of columns that the image sprite contains.
+   * 
    * @example
    * 20
    */
   columns?: number;
   /**
+   * @remarks
+   * The number of rows that the image sprite contains.
+   * 
    * @example
    * 20
    */
   lines?: number;
   /**
+   * @remarks
+   * The width of the frame. Default value: 0. Unit: pixels.
+   * 
    * @example
    * 20
    */
   margin?: number;
   /**
+   * @remarks
+   * The spacing between two adjacent snapshots. Default value: 0. Unit: pixels.
+   * 
    * @example
    * 20
    */
@@ -49101,52 +57563,86 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshot
 
 export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The threshold that is used to filter out black frames for the first snapshot to be captured. This feature is available if you request the system to capture multiple snapshots.
+   * 
    * @example
    * 30
    */
   blackLevel?: number;
   /**
+   * @remarks
+   * The number of snapshots.
+   * 
    * @example
    * 5
    */
   count?: number;
   /**
+   * @remarks
+   * The type of the frame.
+   * 
    * @example
    * intra
    */
   frameType?: string;
   /**
+   * @remarks
+   * The height of a captured snapshot.
+   * 
    * @example
    * 480
    */
   height?: number;
   /**
+   * @remarks
+   * The interval at which snapshots are captured.
+   * 
    * @example
    * 10
    */
   interval?: number;
   /**
+   * @remarks
+   * The WebVTT snapshot configuration that specifies whether to merge the output snapshots.
+   * 
    * @example
    * true
    */
   isSptFrag?: boolean;
   /**
+   * @remarks
+   * The color value threshold that determines whether a pixel is black.
+   * 
    * @example
    * 70
    */
   pixelBlackThreshold?: number;
+  /**
+   * @remarks
+   * The configuration of the sprite snapshot.
+   */
   spriteSnapshotConfig?: SubmitSnapshotJobRequestTemplateConfigOverwriteParamsSpriteSnapshotConfig;
   /**
+   * @remarks
+   * The point in time at which the system starts to capture snapshots in the input video.
+   * 
    * @example
    * 1000
    */
   time?: number;
   /**
+   * @remarks
+   * The snapshot type. Valid values:
+   * 
    * @example
    * Sprite
    */
   type?: string;
   /**
+   * @remarks
+   * The width of a captured snapshot.
+   * 
    * @example
    * 720
    */
@@ -49189,9 +57685,15 @@ export class SubmitSnapshotJobRequestTemplateConfigOverwriteParams extends $tea.
 }
 
 export class SubmitSnapshotJobRequestTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters.
+   */
   overwriteParams?: SubmitSnapshotJobRequestTemplateConfigOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49219,6 +57721,9 @@ export class SubmitSnapshotJobRequestTemplateConfig extends $tea.Model {
 
 export class SubmitStandardCustomizedVoiceJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the human voice cloning job.
+   * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
    */
@@ -49243,6 +57748,14 @@ export class SubmitStandardCustomizedVoiceJobResponseBodyData extends $tea.Model
 export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
   /**
    * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * 
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49251,6 +57764,11 @@ export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the media object.
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49278,11 +57796,17 @@ export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
 
 export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -49308,11 +57832,20 @@ export class SubmitSyncMediaInfoJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -49338,76 +57871,121 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput extends $tea.Mo
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the file.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * us
    */
   lang?: string;
   /**
+   * @remarks
+   * The sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -49459,61 +58037,99 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudi
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file. Valid values:
+   * 
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 999e68259c924f52a6be603cbb3f91cc
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -49559,116 +58175,189 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFile
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the file.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * zh
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -49735,8 +58424,20 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVide
 }
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoPropertyVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -49761,11 +58462,17 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty ext
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -49791,54 +58498,96 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig extend
 
 export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether asynchronous processing was performed.
+   * 
    * @example
    * true
    */
   async?: boolean;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input of the job.
+   */
   input?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobInput;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ab4802364a2e49208c99efab82dfa8e8
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The details of the media information.
+   */
   mediaInfoProperty?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobMediaInfoProperty;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * job-name
    */
   name?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4879B9DE-E4B6-19DC-91F5-9D5F4DCE4168
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information.
+   */
   scheduleConfig?: SubmitSyncMediaInfoJobResponseBodyMediaInfoJobScheduleConfig;
   /**
+   * @remarks
+   * The state of the job. Valid values: Init (the job is submitted), Success (the job is successful), and Fail (the job failed).
+   * 
    * @example
    * Init
    */
   status?: string;
   /**
+   * @remarks
+   * The job submission information.
+   * 
    * @example
    * {}
    */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The source of the job. Valid values: API, WorkFlow, and Console.
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -49886,12 +58635,26 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
 
 export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the input stream.
+   * 
+   * *   This parameter takes effect only when Type is set to Media. You can select a specific file within the media asset as an input.
+   * *   The system checks whether the input URL exists within the media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   inputUrl?: string;
   /**
    * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * 
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49900,6 +58663,11 @@ export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
   media?: string;
   /**
    * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an Object Storage Service (OSS) object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49930,6 +58698,14 @@ export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
 export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
   /**
    * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * 
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * 
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49937,12 +58713,32 @@ export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
    */
   media?: string;
   /**
+   * @remarks
+   * The URL of the output stream.\\
+   * This parameter takes effect only when Type is set to Media. You can select a specific file within the media asset as an output.\\
+   * Supported placeholders:
+   * 
+   * *   {MediaId}: the ID of the media asset.
+   * *   {JobId}: the ID of the transcoding subjob.
+   * *   {MediaBucket}: the bucket to which the media asset belongs.
+   * *   {ExtName}: the file suffix, which uses the output format of the transcoding template.
+   * *   {DestMd5}: the MD5 value of the transcoded output file.\\
+   *     Notes:
+   * 
+   * 1.  This parameter must contain the {MediaId} and {JobId} placeholders.
+   * 2.  The output bucket is the same as the bucket to which the media asset belongs.
+   * 
    * @example
    * oss://bucket/path/to/{MediaId}/{JobId}.mp4
    */
   outputUrl?: string;
   /**
    * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49973,6 +58769,8 @@ export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49980,17 +58778,25 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs ext
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50022,21 +58828,39 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs ext
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HTTP Live Streaming (HLS) encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The address of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * Specifies the encryption type. Valid values:
+   * 
+   * *   PrivateEncryption: Alibaba Cloud proprietary cryptography
+   * *   HLSEncryption: HTTP Live Streaming (HLS) encryption
+   * 
    * @example
    * PrivateEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The key service type for HLS encryption. Valid values:
+   * 
+   * *   KMS
+   * *   Base64
+   * 
    * @example
    * KMS
    */
@@ -50066,11 +58890,23 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption extends
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -50096,11 +58932,24 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The time range in which the watermark is displayed.
+   * 
+   * *   Valid values: integers and ToEND.
+   * *   Default value: ToEND.
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The beginning of the time range in which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Value values: integers.
+   * *   Default value: 0.
+   * 
    * @example
    * 00:00:05
    */
@@ -50126,28 +58975,98 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the horizontal offset to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the vertical offset to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the watermark image in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark height.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark height to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The position of the watermark.
+   * 
+   * *   Valid values: TopRight, TopLeft, BottomRight, and BottomLeft.
+   * *   Default value: TopRight.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The time settings of the dynamic watermark.
+   */
   timeline?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the watermark in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark width.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark width to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
@@ -50182,9 +59101,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOve
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarksOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50212,11 +59137,23 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks ex
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -50242,12 +59179,22 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -50274,9 +59221,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitlesOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50304,51 +59257,96 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles extends 
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to the font size based on the output video dimensions. true / false, default: false
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The outline color of the text watermark. Default value: black. For more information, see BorderColor.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The outline width of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: (0,4096].
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the text.
+   * 
+   * *   Valid values: (0,1].
+   * *   Default value: 1.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text. Default value: SimSun.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
+   * *   Default value: 16.
+   * *   Valid values: (4,120).
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The left margin of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The top margin of the text.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
@@ -50389,9 +59387,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOver
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarksOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50419,21 +59423,33 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks ext
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -50463,35 +59479,57 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file. Valid values: [8,1000]. Unit: Kbit/s. Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the audio stream.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate. Valid values: 22050, 32000, 44100, 48000, and 96000. Default value: 44100. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -50524,6 +59562,9 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -50547,11 +59588,17 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -50576,6 +59623,10 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -50595,13 +59646,112 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
+   * 
+   * Valid values: rescale, crop, pad, and none.
+   * 
+   * Default value: none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the bitrate of the input audio is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value:
+   * 
+   * *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   * *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the resolution of the input video is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the bitrate of the input video is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The video transcoding mode. Valid values:
+   * 
+   * *   onepass: You can set this parameter to onepass if the Bitrate parameter is set to ABR. The encoding speed of this mode is faster than that of the twopass mode.
+   * *   twopass: You can set this parameter to twopass if the Bitrate parameter is set to VBR. The encoding speed of this mode is slower than that of the onepass mode.
+   * *   CBR: the constant bitrate mode.
+   * 
+   * Default value: onepass.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -50636,91 +59786,158 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum adaptive bitrate (ABR). This parameter takes effect only for Narrowband HD 1.0. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average video bitrate. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size. Valid values: [1000,128000]. Default value: 6000. Unit: KB.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor (CRF). Valid values: [0,51]. Default value: 23 if the encoding format is H.264, or 26 if the encoding format is H.265.
+   * 
+   * >  If this parameter is specified, the setting of the bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   border: automatically detects and removes black bars.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate. Valid values:(0,60]. Default value: the frame rate of the input file.
+   * 
+   * >  The value is 60 if the frame rate of the input file exceeds 60.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between keyframes. Valid values: [1,1080000]. Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the video. Valid values: [128,4096]. Unit: pixels. Default value: the original height of the video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the auto-rotate screen feature.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the video. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video. Format: width:height:left:top. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to remove the video.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the video. Valid values: [128,4096]. Unit: pixels. Default value: the original width of the video.
+   * 
    * @example
    * 1920
    */
@@ -50777,10 +59994,30 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
+  /**
+   * @remarks
+   * The conditional transcoding configurations.
+   */
   transConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -50808,9 +60045,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwrite
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscodeOverwriteParams;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -50837,13 +60080,35 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode extends 
 }
 
 export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: SubmitTranscodeJobRequestOutputGroupProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: SubmitTranscodeJobRequestOutputGroupProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration of an image.
+   */
   imageWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: SubmitTranscodeJobRequestOutputGroupProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermark.
+   */
   textWatermarks?: SubmitTranscodeJobRequestOutputGroupProcessConfigTextWatermarks[];
   /**
    * @remarks
+   * The transcoding configuration.
+   * 
    * This parameter is required.
    */
   transcode?: SubmitTranscodeJobRequestOutputGroupProcessConfigTranscode;
@@ -50877,11 +60142,15 @@ export class SubmitTranscodeJobRequestOutputGroupProcessConfig extends $tea.Mode
 export class SubmitTranscodeJobRequestOutputGroup extends $tea.Model {
   /**
    * @remarks
+   * The output file configuration.
+   * 
    * This parameter is required.
    */
   output?: SubmitTranscodeJobRequestOutputGroupOutput;
   /**
    * @remarks
+   * The job processing configuration.
+   * 
    * This parameter is required.
    */
   processConfig?: SubmitTranscodeJobRequestOutputGroupProcessConfig;
@@ -50906,11 +60175,17 @@ export class SubmitTranscodeJobRequestOutputGroup extends $tea.Model {
 
 export class SubmitTranscodeJobRequestScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -50936,11 +60211,23 @@ export class SubmitTranscodeJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -50966,11 +60253,23 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup extends 
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -50997,6 +60296,8 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput e
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51004,17 +60305,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51046,21 +60355,33 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HLS encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The address of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * Specifies the encryption type.
+   * 
    * @example
    * PrivateEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The type of the key service. Valid values: KMS and Base64.
+   * 
    * @example
    * KMS
    */
@@ -51090,11 +60411,23 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -51120,11 +60453,24 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The time range in which the watermark is displayed.
+   * 
+   * *   Valid values: integers and ToEND.
+   * *   Default value: ToEND.
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The beginning of the time range in which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Value values: integers.
+   * *   Default value: 0.
+   * 
    * @example
    * 00:00:05
    */
@@ -51150,28 +60496,98 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the horizontal offset to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the vertical offset to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the watermark image in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark height.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark height to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The position of the watermark.
+   * 
+   * *   Valid values: TopRight, TopLeft, BottomRight, and BottomLeft.
+   * *   Default value: TopRight.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The time settings of the dynamic watermark.
+   */
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the watermark in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark width.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark width to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
@@ -51206,8 +60622,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -51233,11 +60656,20 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object. If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported. If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -51263,12 +60695,22 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -51295,8 +60737,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitlesOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -51322,51 +60771,99 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to the font size based on the output video dimensions.
+   * 
+   * *   true: false
+   * *   default: false
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The outline color of the text watermark. Default value: black. For more information, see BorderColor.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The outline width of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: (0,4096].
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the text.
+   * 
+   * *   Valid values: (0,1].
+   * *   Default value: 1.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text. Default value: SimSun.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
+   * *   Default value: 16.
+   * *   Valid values: (4,120).
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The left margin of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The top margin of the text.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
@@ -51407,8 +60904,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -51434,21 +60938,33 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -51478,35 +60994,64 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: [8,1000].
+   * *   Unit: Kbit/s.
+   * *   Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the audio stream.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000. Default value: 44100.
+   * *   Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -51539,6 +61084,9 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -51562,11 +61110,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -51591,6 +61145,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -51610,13 +61168,112 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
+   * 
+   * Valid values: rescale, crop, pad, and none.
+   * 
+   * Default value: none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the bitrate of the input audio is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value:
+   * 
+   * *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   * *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the resolution of the input video is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the bitrate of the input video is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution.
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The video transcoding mode. Valid values:
+   * 
+   * *   onepass: You can set this parameter to onepass if the Bitrate parameter is set to ABR. The encoding speed of this mode is faster than that of the twopass mode.
+   * *   twopass: You can set this parameter to twopass if the Bitrate parameter is set to VBR. The encoding speed of this mode is slower than that of the onepass mode.
+   * *   CBR: the constant bitrate mode.
+   * 
+   * Default value: onepass.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51651,91 +61308,190 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum ABR. This parameter takes effect only for Narrowband HD 1.0.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average bitrate of the video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Valid values: [1000,128000].
+   * *   Default value: 6000.
+   * *   Unit: KB.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Valid values: [0,51].
+   * *   Default value: 23 if the encoding format is H.264, or Default value when the Codec parameter is set to H.265: 26.
+   * 
+   * If this parameter is specified, the value of Bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   border: automatically detects and removes black bars.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Valid values: (0,60].
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between two keyframes.
+   * 
+   * *   Valid values: [1,1080000].
+   * *   Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the height of the input video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the auto-rotate screen feature.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the output video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to remove the video.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the width of the input video.
+   * 
    * @example
    * 1920
    */
@@ -51792,10 +61548,30 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsMuxConfig;
+  /**
+   * @remarks
+   * The conditional transcoding configurations.
+   */
   transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsTransConfig;
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -51823,8 +61599,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscodeOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -51849,11 +61632,35 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration of an image.
+   */
   imageWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermark.
+   */
   textWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   transcode?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -51883,7 +61690,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessC
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The output file configuration.
+   */
   output?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupOutput;
+  /**
+   * @remarks
+   * The job processing configuration.
+   */
   processConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroupProcessConfig;
   static names(): { [key: string]: string } {
     return {
@@ -51906,11 +61721,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup extends
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -51936,16 +61757,34 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig exte
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the input stream:
+   * 
+   * *   This parameter takes effect only when Type is set to Media. You can select a specific file within the media asset as an input.
+   * *   The system checks whether the input URL exists within the media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   inputUrl?: string;
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -51973,76 +61812,121 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInp
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 0.f
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The sound channel layout.
+   * 
    * @example
    * stereo
    */
   channelLayout?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * AAC (Advanced Audio Coding)
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * aac
    */
   codecName?: string;
   /**
+   * @remarks
+   * The encoder tag.
+   * 
    * @example
    * 0x000f
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The name of the encoder tag.
+   * 
    * @example
    * [15][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/44100
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 1
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The sample format.
+   * 
    * @example
    * fltp
    */
   sampleFmt?: string;
   /**
+   * @remarks
+   * The sampling rate. Unit: Hz.
+   * 
    * @example
    * 44100
    */
   sampleRate?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
@@ -52094,61 +61978,97 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 888.563
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The duration of the video. Unit: seconds.
+   * 
    * @example
    * 403.039999
    */
   duration?: string;
   /**
+   * @remarks
+   * The file name.
+   * 
    * @example
    * file.m3u8
    */
   fileName?: string;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 31737
    */
   fileSize?: string;
   /**
+   * @remarks
+   * The state of the file.
+   * 
    * @example
    * Normal
    */
   fileStatus?: string;
   /**
+   * @remarks
+   * The file type. Valid values: source_file and transcode_file.
+   * 
    * @example
    * source_file
    */
   fileType?: string;
   /**
+   * @remarks
+   * The URL of the file.
+   * 
    * @example
    * http://bucket.oss-cn-shanghai.aliyuncs.com/path/to/file.m3u8
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * The name of the video format.
+   * 
    * @example
    * hls,applehttp
    */
   formatName?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The ID of the media asset.
+   * 
    * @example
    * 73e07de0f77171eca3fc7035d0b26402
    */
   mediaId?: string;
   /**
+   * @remarks
+   * The region in which the file resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -52194,116 +62114,189 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The average frame rate.
+   * 
    * @example
    * 25.0
    */
   avgFps?: string;
   /**
+   * @remarks
+   * The bitrate.
+   * 
    * @example
    * 888.563
    */
   bitRate?: string;
   /**
+   * @remarks
+   * The name of the encoding format.
+   * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
    */
   codecLongName?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * h264
    */
   codecName?: string;
   /**
+   * @remarks
+   * The tag of the encoding format.
+   * 
    * @example
    * 0x001b
    */
   codecTag?: string;
   /**
+   * @remarks
+   * The tag string of the encoding format.
+   * 
    * @example
    * [27][0][0][0]
    */
   codecTagString?: string;
   /**
+   * @remarks
+   * The time base of the encoder.
+   * 
    * @example
    * 1/50
    */
   codecTimeBase?: string;
   /**
+   * @remarks
+   * The display aspect ratio.
+   * 
    * @example
    * 16:9
    */
   dar?: string;
   /**
+   * @remarks
+   * The duration of the stream. Unit: seconds.
+   * 
    * @example
    * 403.039989
    */
   duration?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
    * @example
    * 25.0
    */
   fps?: string;
   /**
+   * @remarks
+   * Indicates whether the video stream contains bidirectional frames (B-frames). Valid values:
+   * 
+   * *   0: The stream contains no B-frames.
+   * *   1: The stream contains one B-frame.
+   * *   2: The stream contains multiple consecutive B-frames.
+   * 
    * @example
    * 2
    */
   hasBFrames?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 478
    */
   height?: string;
   /**
+   * @remarks
+   * The sequence number of the stream.
+   * 
    * @example
    * 0
    */
   index?: string;
   /**
+   * @remarks
+   * The language of the stream.
+   * 
    * @example
    * cn
    */
   lang?: string;
   /**
+   * @remarks
+   * The codec level.
+   * 
    * @example
    * 31
    */
   level?: string;
   /**
+   * @remarks
+   * The total number of frames.
+   * 
    * @example
    * 10040
    */
   numFrames?: string;
   /**
+   * @remarks
+   * The pixel format.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The encoder profile.
+   * 
    * @example
    * High
    */
   profile?: string;
   /**
+   * @remarks
+   * The rotation angle of the video image. Valid values: 0, 90, 180, and 270. Default value: 0.
+   * 
    * @example
    * 0
    */
   rotate?: string;
   /**
+   * @remarks
+   * The aspect ratio of the area from which the sampling points are collected.
+   * 
    * @example
    * 478:477
    */
   sar?: string;
   /**
+   * @remarks
+   * The start time of the stream.
+   * 
    * @example
    * 1.473556
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time base.
+   * 
    * @example
    * 1/90000
    */
   timeBase?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 848
    */
@@ -52370,8 +62363,20 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the audio stream.
+   */
   audioStreamInfoList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaAudioStreamInfoList[];
+  /**
+   * @remarks
+   * The basic file information.
+   */
   fileBasicInfo?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaFileBasicInfo;
+  /**
+   * @remarks
+   * The information about the video stream.
+   */
   videoStreamInfoList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMetaVideoStreamInfoList[];
   static names(): { [key: string]: string } {
     return {
@@ -52396,16 +62401,43 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The URL of the output stream.\\
+   * This parameter takes effect only when Type is set to Media. You can select a specific file within the media asset as an output.\\
+   * Supported placeholders:
+   * 
+   * *   {MediaId}: the ID of the media asset.
+   * *   {JobId}: the ID of the transcoding subjob.
+   * *   {MediaBucket}: the bucket to which the media asset belongs.
+   * *   {ExtName}: the file suffix, which uses the output format of the transcoding template.
+   * *   {DestMd5}: the MD5 value of the transcoded output file.\\
+   *     Notes:
+   * 
+   * 1.  This parameter must contain the {MediaId} and {JobId} placeholders.
+   * 2.  The output bucket is the same as the bucket to which the media asset belongs.
+   * 
    * @example
    * oss://bucket/path/to/{MediaId}/{JobId}.mp4
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -52434,6 +62466,8 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOut
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs extends $tea.Model {
   /**
    * @remarks
+   * The audio stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52441,17 +62475,25 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
    */
   audioIndex?: string;
   /**
+   * @remarks
+   * The duration of the input stream. The default value is the duration of the video.
+   * 
    * @example
    * 20.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The start time of the input stream. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   start?: number;
   /**
    * @remarks
+   * The video stream index.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52483,21 +62525,33 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption extends $tea.Model {
   /**
+   * @remarks
+   * The ciphertext of HLS encryption.
+   * 
    * @example
    * MTYi00NDU0LTg5O****
    */
   cipherText?: string;
   /**
+   * @remarks
+   * The address of the decryption service for HLS encryption.
+   * 
    * @example
    * https://sample.com/path?CipherText=MTYi00NDU0LTg5O****
    */
   decryptKeyUri?: string;
   /**
+   * @remarks
+   * Specifies the encryption type.
+   * 
    * @example
    * PrivateEncryption
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The type of the key service. Valid values: KMS and Base64.
+   * 
    * @example
    * KMS
    */
@@ -52527,11 +62581,23 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -52557,11 +62623,24 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline extends $tea.Model {
   /**
+   * @remarks
+   * The time range in which the watermark is displayed.
+   * 
+   * *   Valid values: integers and ToEND.
+   * *   Default value: ToEND.
+   * 
    * @example
    * ToEND
    */
   duration?: string;
   /**
+   * @remarks
+   * The beginning of the time range in which the watermark is displayed.
+   * 
+   * *   Unit: seconds.
+   * *   Value values: integers.
+   * *   Default value: 0.
+   * 
    * @example
    * 00:00:05
    */
@@ -52587,28 +62666,98 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The horizontal offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the horizontal offset to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dx?: string;
   /**
+   * @remarks
+   * The vertical offset of the watermark relative to the output video. Default value: 0.
+   * 
+   * The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the horizontal offset.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the vertical offset to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 10
    */
   dy?: string;
+  /**
+   * @remarks
+   * The watermark image file.
+   */
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsFile;
   /**
+   * @remarks
+   * The height of the watermark image in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark height.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark height to the height of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
   height?: string;
   /**
+   * @remarks
+   * The position of the watermark.
+   * 
+   * *   Valid values: TopRight, TopLeft, BottomRight, and BottomLeft.
+   * *   Default value: TopRight.
+   * 
    * @example
    * TopLeft
    */
   referPos?: string;
+  /**
+   * @remarks
+   * The time settings of the dynamic watermark.
+   */
   timeline?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParamsTimeline;
   /**
+   * @remarks
+   * The width of the watermark in the output video. The following value types are supported:
+   * 
+   * *   Integer: the pixel value of the watermark width.
+   * 
+   *     *   Valid values: [8,4096].
+   *     *   Unit: pixels.
+   * 
+   * *   Decimal: the ratio of the watermark width to the width of the output video.
+   * 
+   *     *   Valid values: (0,1).
+   *     *   The decimal number can be accurate to four decimal places, such as 0.9999. Excessive digits are automatically discarded.
+   * 
    * @example
    * 32
    */
@@ -52643,8 +62792,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -52670,11 +62826,23 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile extends $tea.Model {
   /**
+   * @remarks
+   * The media object.
+   * 
+   * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
+   * *   If Type is set to Media, set this parameter to the ID of a media asset.
+   * 
    * @example
    * oss://bucket/path/to/video.mp4
    */
   media?: string;
   /**
+   * @remarks
+   * The type of the media object. Valid values:
+   * 
+   * *   OSS: an OSS object.
+   * *   Media: a media asset.
+   * 
    * @example
    * OSS
    */
@@ -52700,12 +62868,22 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * The file encoding format.
+   * 
    * @example
    * UTF-8
    */
   charEnc?: string;
+  /**
+   * @remarks
+   * The subtitle file.
+   */
   file?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParamsFile;
   /**
+   * @remarks
+   * The format of the subtitle file.
+   * 
    * @example
    * vtt
    */
@@ -52732,8 +62910,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitlesOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -52759,51 +62944,96 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to the font size based on the output video dimensions. true / false, default: false
+   * 
    * @example
    * false
    */
   adaptive?: string;
   /**
+   * @remarks
+   * The outline color of the text watermark. Default value: black. For more information, see BorderColor.
+   * 
    * @example
    * #006400
    */
   borderColor?: string;
   /**
+   * @remarks
+   * The outline width of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: (0,4096].
+   * 
    * @example
    * 0
    */
   borderWidth?: number;
   /**
+   * @remarks
+   * The watermark text. Base64 encoding is not required. The string must be encoded in UTF-8.
+   * 
    * @example
    * 测试水印
    */
   content?: string;
   /**
+   * @remarks
+   * The transparency of the text.
+   * 
+   * *   Valid values: (0,1].
+   * *   Default value: 1.
+   * 
    * @example
    * 1.0
    */
   fontAlpha?: string;
   /**
+   * @remarks
+   * The color of the text.
+   * 
    * @example
    * #006400
    */
   fontColor?: string;
   /**
+   * @remarks
+   * The font of the text. Default value: SimSun.
+   * 
    * @example
    * SimSun
    */
   fontName?: string;
   /**
+   * @remarks
+   * The size of the text.
+   * 
+   * *   Default value: 16.
+   * *   Valid values: (4,120).
+   * 
    * @example
    * 16
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The left margin of the text watermark.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
   left?: string;
   /**
+   * @remarks
+   * The top margin of the text.
+   * 
+   * *   Default value: 0.
+   * *   Valid values: [0,4096].
+   * 
    * @example
    * 10
    */
@@ -52844,8 +63074,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarksOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -52871,21 +63108,33 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume extends $tea.Model {
   /**
+   * @remarks
+   * The output volume.
+   * 
    * @example
    * -6
    */
   integratedLoudnessTarget?: string;
   /**
+   * @remarks
+   * The volume range.
+   * 
    * @example
    * 8
    */
   loudnessRangeTarget?: string;
   /**
+   * @remarks
+   * The volume adjustment method. Valid values:
+   * 
    * @example
    * auto
    */
   method?: string;
   /**
+   * @remarks
+   * The peak volume.
+   * 
    * @example
    * -1
    */
@@ -52915,35 +63164,65 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate of the output file.
+   * 
+   * *   Valid values: [8,1000].
+   * *   Unit: Kbit/s.
+   * *   Default value: 128.
+   * 
    * @example
    * 128
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Default value: 2.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC, MP3, VORBIS, and FLAC. Default value: AAC.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. If the Codec parameter is set to AAC, the valid values are aac_low, aac_he, aac_he_v2, aac_ld, and aac_eld.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the audio stream.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The sampling rate.
+   * 
+   * *   Default value: 44100.
+   * *   Valid values: 22050, 32000, 44100, 48000, and 96000.
+   * *   Unit: Hz.
+   * 
    * @example
    * 44100
    */
   samplerate?: string;
+  /**
+   * @remarks
+   * The volume configurations.
+   */
   volume?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudioVolume;
   static names(): { [key: string]: string } {
     return {
@@ -52976,6 +63255,9 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer extends $tea.Model {
   /**
+   * @remarks
+   * The container format.
+   * 
    * @example
    * mp4
    */
@@ -52999,11 +63281,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment extends $tea.Model {
   /**
+   * @remarks
+   * The segment length.
+   * 
    * @example
    * 10
    */
   duration?: string;
   /**
+   * @remarks
+   * The forced segmentation point in time.
+   * 
    * @example
    * 2,3
    */
@@ -53028,6 +63316,10 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The segment settings.
+   */
   segment?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfigSegment;
   static names(): { [key: string]: string } {
     return {
@@ -53047,13 +63339,100 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to adjust the resolution. This parameter takes effect only if both the Width and Height parameters are specified. You can use this parameter together with the LongShortMode parameter.
+   * 
+   * Valid values: rescale, crop, pad, and none.
+   * 
+   * Default value: none.
+   * 
+   * @example
+   * none
+   */
   adjDarMethod?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the bitrate of the input audio is used for transcoding.
+   * *   false: does not check the video resolution.
+   * 
+   * Default values:
+   * 
+   * *   If this parameter is not specified and the codec of the output audio is different from that of the input audio, the default value is false.
+   * *   If this parameter is not specified and the codec of the output audio is the same as that of the input audio, the default value is true.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the audio bitrate. You can specify only one of the IsCheckAudioBitrate and IsCheckAudioBitrateFail parameters. The priority of the IsCheckAudioBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input audio is less than that of the output audio, the transcoding job fails.
+   * *   false: does not check the video resolution. This is the default value.
+   * 
+   * @example
+   * true
+   */
   isCheckAudioBitrateFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the resolution of the input video is used for transcoding.
+   * *   false: does not check the video resolution. This is the default value.
+   * 
+   * @example
+   * true
+   */
   isCheckReso?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video resolution. You can specify only one of the IsCheckReso and IsCheckResoFail parameters. The priority of the IsCheckResoFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the width or height of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution. This is the default value.
+   * 
+   * @example
+   * true
+   */
   isCheckResoFail?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the bitrate of the input video is used for transcoding.
+   * *   false: does not check the video resolution. This is the default value.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrate?: string;
+  /**
+   * @remarks
+   * Specifies whether to check the video bitrate. You can specify only one of the IsCheckVideoBitrate and IsCheckVideoBitrateFail parameters. The priority of the IsCheckVideoBitrateFail parameter is higher. Valid values:
+   * 
+   * *   true: checks the video resolution. If the bitrate of the input video is less than that of the output video, the transcoding job fails.
+   * *   false: does not check the video resolution. This is the default value.
+   * 
+   * @example
+   * true
+   */
   isCheckVideoBitrateFail?: string;
+  /**
+   * @remarks
+   * The video transcoding mode. Valid values:
+   * 
+   * *   onepass: You can set this parameter to onepass if the Bitrate parameter is set to ABR. This is the default value. The encoding speed of this mode is faster than that of the twopass mode.
+   * *   twopass: You can set this parameter to twopass if the Bitrate parameter is set to VBR. The encoding speed of this mode is slower than that of the onepass mode.
+   * *   CBR: the constant bitrate mode.
+   * 
+   * @example
+   * onepass
+   */
   transMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -53088,91 +63467,184 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo extends $tea.Model {
   /**
+   * @remarks
+   * The maximum ABR. This parameter takes effect only for Narrowband HD 1.0. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 6000
    */
   abrMax?: string;
   /**
+   * @remarks
+   * The average bitrate of the video.
+   * 
+   * *   Valid values: [10,50000].
+   * *   Unit: Kbit/s.
+   * 
    * @example
    * 3000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The buffer size.
+   * 
+   * *   Valid values: [1000,128000].
+   * *   Default value: 6000.
+   * *   Unit: KB.
+   * 
    * @example
    * 6000
    */
   bufsize?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The constant rate factor.
+   * 
+   * *   Valid values: [0,51].
+   * *   Default value: 23 if the encoding format is H.264, or Default value when the Codec parameter is set to H.265: 26.
+   * 
+   * If this parameter is specified, the value of Bitrate becomes invalid.
+   * 
    * @example
    * 23
    */
   crf?: string;
   /**
+   * @remarks
+   * The method of video cropping. Valid values:
+   * 
+   * *   border: automatically detects and removes black bars.
+   * *   A value in the width:height:left:top format: crops the videos based on the custom settings. Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   crop?: string;
   /**
+   * @remarks
+   * The frame rate.
+   * 
+   * *   Valid values: (0,60].
+   * *   The value is 60 if the frame rate of the input video exceeds 60.
+   * *   Default value: the frame rate of the input video.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The maximum number of frames between two keyframes.
+   * 
+   * *   Valid values: [1,1080000].
+   * *   Default value: 250.
+   * 
    * @example
    * 250
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the height of the input video.
+   * 
    * @example
    * 1080
    */
   height?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the auto-rotate screen feature.
+   * 
    * @example
    * false
    */
   longShortMode?: string;
   /**
+   * @remarks
+   * The maximum bitrate of the output video. Valid values: [10,50000]. Unit: Kbit/s.
+   * 
    * @example
    * 9000
    */
   maxrate?: string;
   /**
+   * @remarks
+   * The black bars added to the video.
+   * 
+   * *   Format: width:height:left:top.
+   * *   Example: 1280:800:0:140.
+   * 
    * @example
    * 1280:800:0:140
    */
   pad?: string;
   /**
+   * @remarks
+   * The pixel format of the video. Valid values: standard pixel formats such as yuv420p and yuvj420p.
+   * 
    * @example
    * yuv420p
    */
   pixFmt?: string;
   /**
+   * @remarks
+   * The preset video algorithm. This parameter takes effect only if the encoding format is H.264. Valid values: veryfast, fast, medium, slow, and slower. Default value: medium.
+   * 
    * @example
    * medium
    */
   preset?: string;
   /**
+   * @remarks
+   * The encoding profile. Valid values: baseline, main, and high.
+   * 
+   * *   baseline: applicable to mobile devices.
+   * *   main: applicable to standard-definition devices.
+   * *   high: applicable to high-definition devices.
+   * 
+   * Default value: high.
+   * 
    * @example
    * Main
    */
   profile?: string;
   /**
+   * @remarks
+   * Specifies whether to remove the video.
+   * 
    * @example
    * false
    */
   remove?: string;
   /**
+   * @remarks
+   * The scan mode. Valid values: interlaced and progressive.
+   * 
    * @example
    * progressive
    */
   scanMode?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
+   * *   Valid values: [128,4096].
+   * *   Unit: pixels.
+   * *   Default value: the width of the input video.
+   * 
    * @example
    * 1920
    */
@@ -53229,10 +63701,30 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams extends $tea.Model {
+  /**
+   * @remarks
+   * The audio settings.
+   */
   audio?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsAudio;
+  /**
+   * @remarks
+   * The encapsulation format settings.
+   */
   container?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsContainer;
+  /**
+   * @remarks
+   * The encapsulation settings.
+   */
   muxConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsMuxConfig;
+  /**
+   * @remarks
+   * The conditional transcoding configurations.
+   */
   transConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsTransConfig;
+  /**
+   * @remarks
+   * The video settings.
+   */
   video?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParamsVideo;
   static names(): { [key: string]: string } {
     return {
@@ -53260,8 +63752,15 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode extends $tea.Model {
+  /**
+   * @remarks
+   * The parameters that are used to overwrite the corresponding parameters of the template.
+   */
   overwriteParams?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscodeOverwriteParams;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9547c6ad97cb4f2aaa29683ebd18d410
    */
@@ -53286,11 +63785,35 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 }
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The multi-input stream merge configuration.
+   */
   combineConfigs?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigCombineConfigs[];
+  /**
+   * @remarks
+   * The encryption settings.
+   */
   encryption?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigEncryption;
+  /**
+   * @remarks
+   * The watermark configuration of an image.
+   */
   imageWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigImageWatermarks[];
+  /**
+   * @remarks
+   * The subtitle configuration.
+   */
   subtitles?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigSubtitles[];
+  /**
+   * @remarks
+   * The configurations of the text watermark.
+   */
   textWatermarks?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTextWatermarks[];
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   transcode?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfigTranscode;
   static names(): { [key: string]: string } {
     return {
@@ -53321,11 +63844,17 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListPro
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the MPS queue to which the job was submitted.
+   * 
    * @example
    * e37ebee5d98b4781897f6086e89f9c56
    */
   pipelineId?: string;
   /**
+   * @remarks
+   * The priority of the job. Valid values: 1 to 10. The greater the value, the higher the priority.
+   * 
    * @example
    * 5
    */
@@ -53351,61 +63880,120 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListSch
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   */
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListInputGroup[];
   /**
+   * @remarks
+   * The subjob ID.
+   * 
    * @example
    * 7d6a7e0d4db2457a8d45ff5d43e1bf0a
    */
   jobId?: string;
   /**
+   * @remarks
+   * The index number of the subjob in the entire job.
+   * 
    * @example
    * 0
    */
   jobIndex?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * transcode-job
    */
   name?: string;
+  /**
+   * @remarks
+   * The media information about the video generated by the job.
+   */
   outFileMeta?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutFileMeta;
+  /**
+   * @remarks
+   * The output file configuration.
+   */
   output?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListOutput;
   /**
+   * @remarks
+   * The main job ID.
+   * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
    */
   parentJobId?: string;
+  /**
+   * @remarks
+   * The transcoding configuration.
+   */
   processConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListProcessConfig;
   /**
+   * @remarks
+   * The ID of the request that submitted the job.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling information about the job.
+   */
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobListScheduleConfig;
   /**
+   * @remarks
+   * The state of the transcoding job. Valid values:
+   * 
+   * *   Init: The job is submitted.
+   * *   Processing: The job is in progress.
+   * *   Success: The job is successful.
+   * *   Fail: The job failed.
+   * *   Deleted: The job is deleted.
+   * 
    * @example
    * Init
    */
   status?: string;
   /**
+   * @remarks
+   * The job submission result.
+   * 
    * @example
    * {}
    */
   submitResultJson?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -53459,60 +64047,109 @@ export class SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList ex
 
 export class SubmitTranscodeJobResponseBodyTranscodeParentJob extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the job was complete. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   finishTime?: string;
+  /**
+   * @remarks
+   * The input group of the job. An input of a single file indicates a transcoding job. An input of multiple files indicates an audio and video stream merge job.
+   */
   inputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobInputGroup[];
   /**
+   * @remarks
+   * The number of subjobs.
+   * 
    * @example
    * 1
    */
   jobCount?: number;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * transcode-job
    */
   name?: string;
+  /**
+   * @remarks
+   * The output group of the job.
+   */
   outputGroup?: SubmitTranscodeJobResponseBodyTranscodeParentJobOutputGroup[];
   /**
+   * @remarks
+   * The main job ID.
+   * 
    * @example
    * 8b2198504dd340b7b3c9842a74fc9baa
    */
   parentJobId?: string;
   /**
+   * @remarks
+   * The completion percentage of the job.
+   * 
    * @example
    * 0
    */
   percent?: number;
   /**
+   * @remarks
+   * The ID of the request that submitted the job.
+   * 
    * @example
    * 31E30781-9495-5E2D-A84D-759B0A01E262
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling configuration of the job.
+   */
   scheduleConfig?: SubmitTranscodeJobResponseBodyTranscodeParentJobScheduleConfig;
   /**
+   * @remarks
+   * The state of the job. Success: At least one of the subjobs is successful. Fail: All subjobs failed.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the job was submitted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-01-12T08:49:41Z
    */
   submitTime?: string;
+  /**
+   * @remarks
+   * The list of subjobs.
+   */
   transcodeJobList?: SubmitTranscodeJobResponseBodyTranscodeParentJobTranscodeJobList[];
   /**
+   * @remarks
+   * The source of the job. Valid values: API, WorkFlow, and Console.
+   * 
    * @example
    * API
    */
   triggerSource?: string;
   /**
+   * @remarks
+   * The user data.
+   * 
    * @example
    * user-data
    */
@@ -53590,6 +64227,9 @@ export class SubmitVideoTranslationJobResponseBodyData extends $tea.Model {
 
 export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the digital human training job.
+   * 
    * @example
    * ****d718e2ff4f018ccf419a7b71****
    */
@@ -54268,7 +64908,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AddTemplate
+   * Creates a template.
+   * 
+   * @remarks
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54329,7 +64974,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * AddTemplate
+   * Creates a template.
+   * 
+   * @remarks
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
    * @returns AddTemplateResponse
@@ -54440,7 +65090,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消DNA作业
+   * Cancels a media fingerprint analysis job.
+   * 
+   * @remarks
+   *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+   * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
    * 
    * @param request - CancelDNAJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54487,7 +65141,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消DNA作业
+   * Cancels a media fingerprint analysis job.
+   * 
+   * @remarks
+   *   You can cancel a media fingerprint analysis job only if the job is in the Queuing state.
+   * *   We recommend that you call the **UpdatePipeline** operation to set the status of the ApsaraVideo Media Processing (MPS) queue to Paused before you cancel a job. This suspends job scheduling in the MPS queue. After the job is canceled, you must set the status of the MPS queue back to Active so that the other jobs in the MPS queue can be scheduled.
    * 
    * @param request - CancelDNAJobRequest
    * @returns CancelDNAJobResponse
@@ -54540,7 +65198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交人工审核
+   * Submits manual review results for media assets.
    * 
    * @param request - CreateAuditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54571,7 +65229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交人工审核
+   * Submits manual review results for media assets.
    * 
    * @param request - CreateAuditRequest
    * @returns CreateAuditResponse
@@ -54582,7 +65240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数字人训练任务
+   * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54637,7 +65295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数字人训练任务
+   * Creates a digital human training job. You can configure the basic information of the digital human and the materials required for the training. Note: This operation is used to initialize the training job. It does not submit the training job. To submit the training job, call the SubmitAvatarTrainingJob operation.
    * 
    * @param request - CreateAvatarTrainingJobRequest
    * @returns CreateAvatarTrainingJobResponse
@@ -54648,7 +65306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建媒体处理自定义模板
+   * Creates a custom template.
    * 
    * @param request - CreateCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54691,7 +65349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建媒体处理自定义模板
+   * Creates a custom template.
    * 
    * @param request - CreateCustomTemplateRequest
    * @returns CreateCustomTemplateResponse
@@ -54702,7 +65360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建人声克隆任务
+   * Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
    * 
    * @param request - CreateCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54749,7 +65407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建人声克隆任务
+   * Creates a human voice cloning job. You can configure the basic information of the human voice cloning job.
    * 
    * @param request - CreateCustomizedVoiceJobRequest
    * @returns CreateCustomizedVoiceJobResponse
@@ -54760,7 +65418,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指纹库
+   * Creates media fingerprint libraries.
+   * 
+   * @remarks
+   *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
    * 
    * @param request - CreateDNADBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54815,7 +65476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建指纹库
+   * Creates media fingerprint libraries.
+   * 
+   * @remarks
+   *   You can create up to five media fingerprint libraries within an account. To increase the quota, submit a ticket. You can call the DeleteDNADB operation to delete the fingerprint libraries that you no longer need.
    * 
    * @param request - CreateDNADBRequest
    * @returns CreateDNADBResponse
@@ -55068,7 +65732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加用户管道配置
+   * Creates an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - CreatePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55107,7 +65771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加用户管道配置
+   * Creates an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - CreatePipelineRequest
    * @returns CreatePipelineResponse
@@ -55372,7 +66036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解密KMS密钥DataKey
+   * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
    * 
    * @param request - DecryptKMSDataKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55403,7 +66067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解密KMS密钥DataKey
+   * Decrypts the ciphertext specified by CiphertextBlob in the Key Management Service (KMS) data key.
    * 
    * @param request - DecryptKMSDataKeyRequest
    * @returns DecryptKMSDataKeyResponse
@@ -55414,7 +66078,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数字人训练任务信息
+   * Deletes a digital human training job that is in the Init or Fail state.
    * 
    * @param request - DeleteAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55445,7 +66109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数字人训练任务信息
+   * Deletes a digital human training job that is in the Init or Fail state.
    * 
    * @param request - DeleteAvatarTrainingJobRequest
    * @returns DeleteAvatarTrainingJobResponse
@@ -55504,7 +66168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒体处理自定义模板
+   * Deletes a custom template.
    * 
    * @param request - DeleteCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55535,7 +66199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除媒体处理自定义模板
+   * Deletes a custom template.
    * 
    * @param request - DeleteCustomTemplateRequest
    * @returns DeleteCustomTemplateResponse
@@ -55546,7 +66210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的专属人声任务
+   * Deletes a human voice cloning job that is not in the Training or Success state.
    * 
    * @param request - DeleteCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55577,7 +66241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除用户的专属人声任务
+   * Deletes a human voice cloning job that is not in the Training or Success state.
    * 
    * @param request - DeleteCustomizedVoiceJobRequest
    * @returns DeleteCustomizedVoiceJobResponse
@@ -55588,7 +66252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNA库
+   * Deletes a media fingerprint library.
    * 
    * @param request - DeleteDNADBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55635,7 +66299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNA库
+   * Deletes a media fingerprint library.
    * 
    * @param request - DeleteDNADBRequest
    * @returns DeleteDNADBResponse
@@ -55646,7 +66310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNA文件
+   * Deletes files from a media fingerprint library.
    * 
    * @param request - DeleteDNAFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55697,7 +66361,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除DNA文件
+   * Deletes files from a media fingerprint library.
    * 
    * @param request - DeleteDNAFilesRequest
    * @returns DeleteDNAFilesResponse
@@ -56216,7 +66880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除管道配置
+   * Deletes an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - DeletePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56247,7 +66911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除管道配置
+   * Deletes an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - DeletePipelineRequest
    * @returns DeletePipelineResponse
@@ -56314,7 +66978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteSmartJob
+   * Deletes intelligent jobs based on job IDs.
    * 
    * @param request - DeleteSmartJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56345,7 +67009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteSmartJob
+   * Deletes intelligent jobs based on job IDs.
    * 
    * @param request - DeleteSmartJobRequest
    * @returns DeleteSmartJobResponse
@@ -56356,7 +67020,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteTemplate
+   * Deletes templates.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - DeleteTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56383,7 +67052,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DeleteTemplate
+   * Deletes templates.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - DeleteTemplateRequest
    * @returns DeleteTemplateResponse
@@ -56436,6 +67110,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsEditUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMeterImsEditUsageResponse
@@ -56477,6 +67153,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) editing. The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsEditUsageRequest
    * @returns DescribeMeterImsEditUsageResponse
    */
@@ -56486,6 +67164,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMeterImsMediaConvertUHDUsageResponse
@@ -56527,6 +67207,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on ultra high definition (UHD) transcoding of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsMediaConvertUHDUsageRequest
    * @returns DescribeMeterImsMediaConvertUHDUsageResponse
    */
@@ -56536,7 +67218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 智能媒体服务点播转码用量
+   * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
    * 
    * @param request - DescribeMeterImsMediaConvertUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56579,7 +67261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 智能媒体服务点播转码用量
+   * Queries the usage statistics of Intelligent Media Services (IMS) on video-on-demand (VOD) transcoding. The maximum query range is 31 days. You can query data within the last 90 days.
    * 
    * @param request - DescribeMeterImsMediaConvertUsageRequest
    * @returns DescribeMeterImsMediaConvertUsageResponse
@@ -56590,6 +67272,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsMpsAiUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMeterImsMpsAiUsageResponse
@@ -56631,6 +67315,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS) on AI processing of ApsaraVideo Media Processing (MPS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsMpsAiUsageRequest
    * @returns DescribeMeterImsMpsAiUsageResponse
    */
@@ -56640,6 +67326,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeMeterImsSummaryResponse
@@ -56677,6 +67365,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the usage statistics of Intelligent Media Services (IMS). The maximum query range is 31 days. You can query data within the last 90 days.
+   * 
    * @param request - DescribeMeterImsSummaryRequest
    * @returns DescribeMeterImsSummaryResponse
    */
@@ -56840,7 +67530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+   * Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
    * 
    * @param request - DetectAudioForCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -56879,7 +67569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 本接口用来检测用户的朗读是否有明显的发音错误、嘈杂的环境等
+   * Checks whether the reading of users has issues, such as noticeable pronunciation errors or background noise. After the audio is checked on the cloud, the qualified audio is temporarily stored on the cloud for subsequent training. Do not skip this step.
    * 
    * @param request - DetectAudioForCustomizedVoiceJobRequest
    * @returns DetectAudioForCustomizedVoiceJobResponse
@@ -57005,6 +67695,10 @@ export default class Client extends OpenApi {
       query["TemplateConfig"] = request.templateConfigShrink;
     }
 
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
     if (!Util.isUnset(request.userId)) {
       query["UserId"] = request.userId;
     }
@@ -57038,7 +67732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成KMS密钥DataKey
+   * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
    * 
    * @param request - GenerateKMSDataKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57061,7 +67755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 生成KMS密钥DataKey
+   * Generates a random Key Management Service (KMS) data key used for HTTP Live Streaming (HLS) encryption and transcoding of videos.
    * @returns GenerateKMSDataKeyResponse
    */
   async generateKMSDataKey(): Promise<GenerateKMSDataKeyResponse> {
@@ -57070,7 +67764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个数字人
+   * Queries the information about a trained digital human.
    * 
    * @param request - GetAvatarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57101,7 +67795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个数字人
+   * Queries the information about a trained digital human.
    * 
    * @param request - GetAvatarRequest
    * @returns GetAvatarResponse
@@ -57112,7 +67806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个数字人训练任务
+   * Queries the information about a digital human training job.
    * 
    * @param request - GetAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57143,7 +67837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个数字人训练任务
+   * Queries the information about a digital human training job.
    * 
    * @param request - GetAvatarTrainingJobRequest
    * @returns GetAvatarTrainingJobResponse
@@ -57154,7 +67848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一键成片-批量获取剪辑任务
+   * Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
    * 
    * @param request - GetBatchMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57185,7 +67879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 一键成片-批量获取剪辑任务
+   * Queries the information about a quick video production job, including the input parameters, job state, and the IDs and URLs of the output media assets. You can call this operation to query only quick video production jobs created within the past year.
    * 
    * @param request - GetBatchMediaProducingJobRequest
    * @returns GetBatchMediaProducingJobResponse
@@ -57292,7 +67986,37 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个媒体处理自定义模板
+   * Queries the information about a custom template.
+   * 
+   * @remarks
+   * You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+   * Template types:
+   * 1.  1: transcoding template.
+   * 2.  2: snapshot template.
+   * 3.  3: animated image template.
+   * 4.  4\\. image watermark template.
+   * 5.  5: text watermark template.
+   * 6.  6: subtitle template.
+   * 7.  7: AI-assisted content moderation template.
+   * 8.  8: AI-assisted intelligent thumbnail template.
+   * 9.  9: AI-assisted intelligent erasure template.
+   * Subtypes of transcoding templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (AudioTranscode): audio transcoding template.
+   * 3.  3 (Remux): container format conversion template.
+   * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+   * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * Subtypes of snapshot templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (Sprite): sprite template.
+   * 3.  3 (WebVtt): WebVTT template.
+   * Subtypes of AI-assisted content moderation templates:
+   * 1.  1 (Video): video moderation template.
+   * 2.  2 (Audio): audio moderation template.
+   * 3.  3 (Image): image moderation template.
+   * Subtypes of AI-assisted intelligent erasure templates:
+   * 1.  1 (VideoDelogo): logo erasure template.
+   * 2.  2 (VideoDetext): subtitle erasure template.
    * 
    * @param request - GetCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57331,7 +68055,37 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个媒体处理自定义模板
+   * Queries the information about a custom template.
+   * 
+   * @remarks
+   * You can call this operation to query the information about a template with the ID specified by the TemplateId parameter. You can also query the information about the default template. If TemplateId is specified, other parameters are ignored and the template whose ID is specified is queried. If TemplateId is not specified, the default template is queried based on other parameters. In this case, Type is required.
+   * Template types:
+   * 1.  1: transcoding template.
+   * 2.  2: snapshot template.
+   * 3.  3: animated image template.
+   * 4.  4\\. image watermark template.
+   * 5.  5: text watermark template.
+   * 6.  6: subtitle template.
+   * 7.  7: AI-assisted content moderation template.
+   * 8.  8: AI-assisted intelligent thumbnail template.
+   * 9.  9: AI-assisted intelligent erasure template.
+   * Subtypes of transcoding templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (AudioTranscode): audio transcoding template.
+   * 3.  3 (Remux): container format conversion template.
+   * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+   * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * Subtypes of snapshot templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (Sprite): sprite template.
+   * 3.  3 (WebVtt): WebVTT template.
+   * Subtypes of AI-assisted content moderation templates:
+   * 1.  1 (Video): video moderation template.
+   * 2.  2 (Audio): audio moderation template.
+   * 3.  3 (Image): image moderation template.
+   * Subtypes of AI-assisted intelligent erasure templates:
+   * 1.  1 (VideoDelogo): logo erasure template.
+   * 2.  2 (VideoDetext): subtitle erasure template.
    * 
    * @param request - GetCustomTemplateRequest
    * @returns GetCustomTemplateResponse
@@ -57342,7 +68096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户的专属人声
+   * Queries the information about a personalized human voice.
    * 
    * @param request - GetCustomizedVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57373,7 +68127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户的专属人声
+   * Queries the information about a personalized human voice.
    * 
    * @param request - GetCustomizedVoiceRequest
    * @returns GetCustomizedVoiceResponse
@@ -57384,7 +68138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个人声克隆训练任务
+   * Queries the information about a human voice cloning job.
    * 
    * @param request - GetCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57415,7 +68169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个人声克隆训练任务
+   * Queries the information about a human voice cloning job.
    * 
    * @param request - GetCustomizedVoiceJobRequest
    * @returns GetCustomizedVoiceJobResponse
@@ -57458,7 +68212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过本接口来获取需要给用户朗读的文本及示例音频
+   * Queries the text to be read and sample audio for training a personalized human voice.
    * 
    * @param request - GetDemonstrationForCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57489,7 +68243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 通过本接口来获取需要给用户朗读的文本及示例音频
+   * Queries the text to be read and sample audio for training a personalized human voice.
    * 
    * @param request - GetDemonstrationForCustomizedVoiceJobRequest
    * @returns GetDemonstrationForCustomizedVoiceJobResponse
@@ -57500,7 +68254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询动图任务详情接口
+   * Queries the information about an image animation job.
    * 
    * @param request - GetDynamicImageJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57531,7 +68285,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询动图任务详情接口
+   * Queries the information about an image animation job.
    * 
    * @param request - GetDynamicImageJobRequest
    * @returns GetDynamicImageJobResponse
@@ -57716,7 +68470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播剪辑任务
+   * Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
    * 
    * @param request - GetLiveEditingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -57747,7 +68501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取直播剪辑任务
+   * Queries the information about a live editing job. The requested information includes the state, timeline, and template of the job, the ID and URL of the output file, and the configurations of the job. You can call this operation to query only live editing jobs created within the past year.
    * 
    * @param request - GetLiveEditingJobRequest
    * @returns GetLiveEditingJobResponse
@@ -58054,6 +68808,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a media information analysis job.
+   * 
    * @param request - GetMediaInfoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetMediaInfoJobResponse
@@ -58083,6 +68839,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a media information analysis job.
+   * 
    * @param request - GetMediaInfoJobRequest
    * @returns GetMediaInfoJobResponse
    */
@@ -58138,7 +68896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMediaProducingJob
+   * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
    * 
    * @param request - GetMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58165,7 +68923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetMediaProducingJob
+   * Queries the information about a media editing and production job. The requested information includes the state, timeline, template, and data of the job. You can call this operation to query only media editing and production jobs created within the past year.
    * 
    * @param request - GetMediaProducingJobRequest
    * @returns GetMediaProducingJobResponse
@@ -58176,7 +68934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个打包任务信息
+   * Queries the information about a packaging job.
    * 
    * @param request - GetPackageJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58207,7 +68965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个打包任务信息
+   * Queries the information about a packaging job.
    * 
    * @param request - GetPackageJobRequest
    * @returns GetPackageJobResponse
@@ -58218,7 +68976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个管道配置
+   * Queries the information about an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - GetPipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58249,7 +69007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个管道配置
+   * Queries the information about an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - GetPipelineRequest
    * @returns GetPipelineResponse
@@ -58354,7 +69112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetSmartHandleJob
+   * Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
    * 
    * @param request - GetSmartHandleJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58385,7 +69143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetSmartHandleJob
+   * Queries the information about an intelligent job and the execution results of the job based the job ID. You can call this operation to query only intelligent jobs created within the past year.
    * 
    * @param request - GetSmartHandleJobRequest
    * @returns GetSmartHandleJobResponse
@@ -58396,7 +69154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个截图任务
+   * Queries the information about a snapshot job.
    * 
    * @param request - GetSnapshotJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58427,7 +69185,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个截图任务
+   * Queries the information about a snapshot job.
    * 
    * @param request - GetSnapshotJobRequest
    * @returns GetSnapshotJobResponse
@@ -58438,7 +69196,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取截图文件URL
+   * Queries the accessible URLs of the output images of a snapshot job.
    * 
    * @param request - GetSnapshotUrlsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58485,7 +69243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取截图文件URL
+   * Queries the accessible URLs of the output images of a snapshot job.
    * 
    * @param request - GetSnapshotUrlsRequest
    * @returns GetSnapshotUrlsResponse
@@ -58546,7 +69304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个媒体处理系统模板
+   * Queries the information about a system template.
    * 
    * @param request - GetSystemTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58577,7 +69335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个媒体处理系统模板
+   * Queries the information about a system template.
    * 
    * @param request - GetSystemTemplateRequest
    * @returns GetSystemTemplateResponse
@@ -58588,7 +69346,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetTemplate
+   * Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - GetTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58623,7 +69386,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetTemplate
+   * Queries the information about a template based on the template ID. You can call this operation to query the information about an advanced template if the template is in the Available state.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - GetTemplateRequest
    * @returns GetTemplateResponse
@@ -58634,7 +69402,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板关联素材信息
+   * Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
    * 
    * @param request - GetTemplateMaterialsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58669,7 +69437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板关联素材信息
+   * Queries the URLs of materials associated with an advanced template for use by the advanced template editor. The URLs expire in 30 minutes. FileList is an array of materials that you want to query. If you do not specify this parameter, the URLs of all materials are returned. A maximum of 400 URLs can be returned.
    * 
    * @param request - GetTemplateMaterialsRequest
    * @returns GetTemplateMaterialsResponse
@@ -58680,7 +69448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板参数信息
+   * Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
    * 
    * @param request - GetTemplateParamsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58707,7 +69475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取模板参数信息
+   * Queries the parameters for replaceable materials in a template, including the parameter names, default values, and material thumbnails. Only advanced templates are supported.
    * 
    * @param request - GetTemplateParamsRequest
    * @returns GetTemplateParamsResponse
@@ -58718,6 +69486,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a transcoding job.
+   * 
    * @param request - GetTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTranscodeJobResponse
@@ -58747,6 +69517,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a transcoding job.
+   * 
    * @param request - GetTranscodeJobRequest
    * @returns GetTranscodeJobResponse
    */
@@ -58882,7 +69654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流任务
+   * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
    * 
    * @param request - GetWorkflowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -58913,7 +69685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取工作流任务
+   * Queries the information about a workflow task by task ID, including the workflow ID and the status and result of the task. You can query only the workflow task data of the last year.
    * 
    * @param request - GetWorkflowTaskRequest
    * @returns GetWorkflowTaskResponse
@@ -59086,7 +69858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+   * Queries a list of digital human training jobs.
    * 
    * @param request - ListAvatarTrainingJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59125,7 +69897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字人训练任务列表，列出当前用户的所有数字人训练任务
+   * Queries a list of digital human training jobs.
    * 
    * @param request - ListAvatarTrainingJobsRequest
    * @returns ListAvatarTrainingJobsResponse
@@ -59136,7 +69908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字人列表，列出当前用户的所有数字人
+   * Queries a list of trained digital humans.
    * 
    * @param request - ListAvatarsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59175,7 +69947,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数字人列表，列出当前用户的所有数字人
+   * Queries a list of trained digital humans.
    * 
    * @param request - ListAvatarsRequest
    * @returns ListAvatarsResponse
@@ -59186,7 +69958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一键成片任务列表
+   * Queries a list of quick video production jobs based on conditions such as the job type and state.
    * 
    * @param request - ListBatchMediaProducingJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59245,7 +70017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一键成片任务列表
+   * Queries a list of quick video production jobs based on conditions such as the job type and state.
    * 
    * @param request - ListBatchMediaProducingJobsRequest
    * @returns ListBatchMediaProducingJobsResponse
@@ -59256,7 +70028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体处理自定义模板列表
+   * Queries a list of custom templates.
    * 
    * @param request - ListCustomTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59311,7 +70083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体处理自定义模板列表
+   * Queries a list of custom templates.
    * 
    * @param request - ListCustomTemplatesRequest
    * @returns ListCustomTemplatesResponse
@@ -59322,7 +70094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+   * Queries a list of human voice cloning jobs.
    * 
    * @param request - ListCustomizedVoiceJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59361,7 +70133,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询人声克隆训练任务列表，列出当前用户的所有人声克隆训练任务
+   * Queries a list of human voice cloning jobs.
    * 
    * @param request - ListCustomizedVoiceJobsRequest
    * @returns ListCustomizedVoiceJobsResponse
@@ -59372,7 +70144,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户的专属人声列表
+   * Queries a list of personalized human voices.
    * 
    * @param request - ListCustomizedVoicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59411,7 +70183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户的专属人声列表
+   * Queries a list of personalized human voices.
    * 
    * @param request - ListCustomizedVoicesRequest
    * @returns ListCustomizedVoicesResponse
@@ -59422,7 +70194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA库
+   * Queries a list of media fingerprint libraries.
    * 
    * @param request - ListDNADBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59469,7 +70241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA库
+   * Queries a list of media fingerprint libraries.
    * 
    * @param request - ListDNADBRequest
    * @returns ListDNADBResponse
@@ -59480,7 +70252,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA文件
+   * Queries a list of files in a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
    * 
    * @param request - ListDNAFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59535,7 +70310,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA文件
+   * Queries a list of files in a media fingerprint library.
+   * 
+   * @remarks
+   * You can call this operation to query files in a media fingerprint library based on the library ID. The queried results can be paginated.
    * 
    * @param request - ListDNAFilesRequest
    * @returns ListDNAFilesResponse
@@ -59546,7 +70324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询截图任务列表接口
+   * Queries a list of image animation jobs.
    * 
    * @param request - ListDynamicImageJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -59601,7 +70379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询截图任务列表接口
+   * Queries a list of image animation jobs.
    * 
    * @param request - ListDynamicImageJobsRequest
    * @returns ListDynamicImageJobsResponse
@@ -60138,6 +70916,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of media information analysis jobs.
+   * 
    * @param request - ListMediaInfoJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListMediaInfoJobsResponse
@@ -60191,6 +70971,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of media information analysis jobs.
+   * 
    * @param request - ListMediaInfoJobsRequest
    * @returns ListMediaInfoJobsResponse
    */
@@ -60246,7 +71028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出合成任务列表
+   * Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
    * 
    * @param request - ListMediaProducingJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60313,7 +71095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出合成任务列表
+   * Queries a list of media editing and production jobs that meet the specified conditions. You can query the jobs based on the job state and type.
    * 
    * @param request - ListMediaProducingJobsRequest
    * @returns ListMediaProducingJobsResponse
@@ -60324,7 +71106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取打包任务列表
+   * Queries a list of packaging jobs.
    * 
    * @param request - ListPackageJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60379,7 +71161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取打包任务列表
+   * Queries a list of packaging jobs.
    * 
    * @param request - ListPackageJobsRequest
    * @returns ListPackageJobsResponse
@@ -60390,7 +71172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取管道配置列表
+   * Queries a list of ApsaraVideo Media Processing (MPS) queues.
    * 
    * @param request - ListPipelinesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60421,7 +71203,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取管道配置列表
+   * Queries a list of ApsaraVideo Media Processing (MPS) queues.
    * 
    * @param request - ListPipelinesRequest
    * @returns ListPipelinesResponse
@@ -60544,7 +71326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListSmartJobs
+   * Queries a list of intelligent jobs based on specified parameters.
    * 
    * @param request - ListSmartJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60571,7 +71353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListSmartJobs
+   * Queries a list of intelligent jobs based on specified parameters.
    * 
    * @param request - ListSmartJobsRequest
    * @returns ListSmartJobsResponse
@@ -60582,7 +71364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出虚拟人官方模特配置
+   * Queries a list of system digital humans. This operation supports paged queries.
    * 
    * @param request - ListSmartSysAvatarModelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60621,7 +71403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出虚拟人官方模特配置
+   * Queries a list of system digital humans. This operation supports paged queries.
    * 
    * @param request - ListSmartSysAvatarModelsRequest
    * @returns ListSmartSysAvatarModelsResponse
@@ -60632,7 +71414,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能语音发音人信息
+   * Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
    * 
    * @param request - ListSmartVoiceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60655,7 +71437,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出智能语音发音人信息
+   * Queries a list of speaker groups, including the name, gender, and sample audio of each speaker. The list is grouped by scenario.
    * @returns ListSmartVoiceGroupsResponse
    */
   async listSmartVoiceGroups(): Promise<ListSmartVoiceGroupsResponse> {
@@ -60664,7 +71446,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询截图任务列表接口
+   * Queries a list of snapshot jobs.
    * 
    * @param request - ListSnapshotJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60719,7 +71501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询截图任务列表接口
+   * Queries a list of snapshot jobs.
    * 
    * @param request - ListSnapshotJobsRequest
    * @returns ListSnapshotJobsResponse
@@ -60730,7 +71512,36 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体处理系统模板列表
+   * Queries a list of system templates.
+   * 
+   * @remarks
+   * Template types:
+   * 1.  1: transcoding template.
+   * 2.  2: snapshot template.
+   * 3.  3: animated image template.
+   * 4.  4\\. image watermark template.
+   * 5.  5: text watermark template.
+   * 6.  6: subtitle template.
+   * 7.  7: AI-assisted content moderation template.
+   * 8.  8: AI-assisted intelligent thumbnail template.
+   * 9.  9: AI-assisted intelligent erasure template.
+   * Subtypes of transcoding templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (AudioTranscode): audio transcoding template.
+   * 3.  3 (Remux): container format conversion template.
+   * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+   * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * Subtypes of snapshot templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (Sprite): sprite template.
+   * 3.  3 (WebVtt): WebVTT template.
+   * Subtypes of AI-assisted content moderation templates:
+   * 1.  1 (Video): video moderation template.
+   * 2.  2 (Audio): audio moderation template.
+   * 3.  3 (Image): image moderation template.
+   * Subtypes of AI-assisted intelligent erasure templates:
+   * 1.  1 (VideoDelogo): logo erasure template.
+   * 2.  2 (VideoDetext): subtitle erasure template.
    * 
    * @param request - ListSystemTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60785,7 +71596,36 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取媒体处理系统模板列表
+   * Queries a list of system templates.
+   * 
+   * @remarks
+   * Template types:
+   * 1.  1: transcoding template.
+   * 2.  2: snapshot template.
+   * 3.  3: animated image template.
+   * 4.  4\\. image watermark template.
+   * 5.  5: text watermark template.
+   * 6.  6: subtitle template.
+   * 7.  7: AI-assisted content moderation template.
+   * 8.  8: AI-assisted intelligent thumbnail template.
+   * 9.  9: AI-assisted intelligent erasure template.
+   * Subtypes of transcoding templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (AudioTranscode): audio transcoding template.
+   * 3.  3 (Remux): container format conversion template.
+   * 4.  4 (NarrowBandV1): Narrowband HD 1.0 template.
+   * 5.  5 (NarrowBandV2): Narrowband HD 2.0 template.
+   * Subtypes of snapshot templates:
+   * 1.  1 (Normal): regular template.
+   * 2.  2 (Sprite): sprite template.
+   * 3.  3 (WebVtt): WebVTT template.
+   * Subtypes of AI-assisted content moderation templates:
+   * 1.  1 (Video): video moderation template.
+   * 2.  2 (Audio): audio moderation template.
+   * 3.  3 (Image): image moderation template.
+   * Subtypes of AI-assisted intelligent erasure templates:
+   * 1.  1 (VideoDelogo): logo erasure template.
+   * 2.  2 (VideoDetext): subtitle erasure template.
    * 
    * @param request - ListSystemTemplatesRequest
    * @returns ListSystemTemplatesResponse
@@ -60796,7 +71636,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListTemplates
+   * Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - ListTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60851,7 +71696,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListTemplates
+   * Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
+   * 
+   * @remarks
+   * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -60862,6 +71712,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of transcoding jobs.
+   * 
    * @param request - ListTranscodeJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTranscodeJobsResponse
@@ -60915,6 +71767,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of transcoding jobs.
+   * 
    * @param request - ListTranscodeJobsRequest
    * @returns ListTranscodeJobsResponse
    */
@@ -60924,7 +71778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA作业
+   * Queries a list of media fingerprint analysis jobs.
    * 
    * @param request - QueryDNAJobListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60971,7 +71825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询DNA作业
+   * Queries a list of media fingerprint analysis jobs.
    * 
    * @param request - QueryDNAJobListRequest
    * @returns QueryDNAJobListResponse
@@ -60982,7 +71836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能生产作业
+   * Queries the status and result of an intelligent production job.
    * 
    * @param request - QueryIProductionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61017,7 +71871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能生产作业
+   * Queries the status and result of an intelligent production job.
    * 
    * @param request - QueryIProductionJobRequest
    * @returns QueryIProductionJobResponse
@@ -61028,6 +71882,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a content moderation job.
+   * 
+   * @remarks
+   * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * 
    * @param request - QueryMediaCensorJobDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMediaCensorJobDetailResponse
@@ -61081,6 +71940,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a content moderation job.
+   * 
+   * @remarks
+   * In the content moderation results, the moderation results of the video are sorted in ascending order by time into a timeline. If the video is long, the content moderation results are paginated, and the first page is returned. You can call this operation again to query the remaining moderation results of the video.
+   * 
    * @param request - QueryMediaCensorJobDetailRequest
    * @returns QueryMediaCensorJobDetailResponse
    */
@@ -61090,6 +71954,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of content moderation jobs.
+   * 
+   * @remarks
+   * You can call this operation to query only the content moderation jobs within the most recent three months.
+   * 
    * @param request - QueryMediaCensorJobListRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QueryMediaCensorJobListResponse
@@ -61159,6 +72028,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of content moderation jobs.
+   * 
+   * @remarks
+   * You can call this operation to query only the content moderation jobs within the most recent three months.
+   * 
    * @param request - QueryMediaCensorJobListRequest
    * @returns QueryMediaCensorJobListResponse
    */
@@ -61302,6 +72176,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a smart tagging job.
+   * 
    * @param request - QuerySmarttagJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns QuerySmarttagJobResponse
@@ -61335,6 +72211,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a smart tagging job.
+   * 
    * @param request - QuerySmarttagJobRequest
    * @returns QuerySmarttagJobResponse
    */
@@ -62360,7 +73238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认媒体处理模板
+   * Sets a custom template as the default template.
    * 
    * @param request - SetDefaultCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62391,7 +73269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置默认媒体处理模板
+   * Sets a custom template as the default template.
    * 
    * @param request - SetDefaultCustomTemplateRequest
    * @returns SetDefaultCustomTemplateResponse
@@ -62704,7 +73582,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动工作流
+   * Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+   * 
+   * @remarks
+   *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+   * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
    * 
    * @param request - StartWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62743,7 +73625,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动工作流
+   * Submits a workflow task. You can submit a workflow task to implement automated media processing based on a workflow template.
+   * 
+   * @remarks
+   *   Only media assets from Intelligent Media Services (IMS) or ApsaraVideo VOD can be used as the input of a workflow.
+   * *   When you submit a workflow task, you must specify a workflow template. You can create a workflow template in the [IMS console](https://ims.console.aliyun.com/settings/workflow/list) or use a preset workflow template.
    * 
    * @param request - StartWorkflowRequest
    * @returns StartWorkflowResponse
@@ -62838,7 +73724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitASRJob
+   * Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
    * 
    * @param request - SubmitASRJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62889,7 +73775,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitASRJob
+   * Submits an automatic speech recognition (ASR) job to extract the start and end time and the corresponding text information of a speech in a video.
    * 
    * @param request - SubmitASRJobRequest
    * @returns SubmitASRJobResponse
@@ -62900,7 +73786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitAudioProduceJob
+   * Submits an audio production job that converts text into an audio file.
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62955,7 +73841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitAudioProduceJob
+   * Submits an audio production job that converts text into an audio file.
    * 
    * @param request - SubmitAudioProduceJobRequest
    * @returns SubmitAudioProduceJobResponse
@@ -62966,7 +73852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交数字人训练任务
+   * Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
    * 
    * @param request - SubmitAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -62997,7 +73883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交数字人训练任务
+   * Submits a digital human training job. You can call this operation to submit a job the first time or submit a job again with updated parameters if the training failed.
    * 
    * @param request - SubmitAvatarTrainingJobRequest
    * @returns SubmitAvatarTrainingJobResponse
@@ -63070,7 +73956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitBatchMediaProducingJob
+   * Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
    * 
    * @param request - SubmitBatchMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63119,7 +74005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitBatchMediaProducingJob
+   * Submits a quick video production job that intelligently edits multiple video, audio, and image assets to generate multiple videos at a time.
    * 
    * @param request - SubmitBatchMediaProducingJobRequest
    * @returns SubmitBatchMediaProducingJobResponse
@@ -63130,7 +74016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交人声克隆训练任务
+   * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63165,7 +74051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交人声克隆训练任务
+   * Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
    * 
    * @param request - SubmitCustomizedVoiceJobRequest
    * @returns SubmitCustomizedVoiceJobResponse
@@ -63176,7 +74062,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交DNA作业
+   * Submits a media fingerprint analysis job.
+   * 
+   * @remarks
+   *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+   * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
    * 
    * @param tmpReq - SubmitDNAJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63253,7 +74144,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交DNA作业
+   * Submits a media fingerprint analysis job.
+   * 
+   * @remarks
+   *   SubmitDNAJob is an asynchronous operation. After a request is sent, the system returns a request ID and a job ID and runs the task in the background.
+   * *   You can call this operation only in the China (Beijing), China (Hangzhou), and China (Shanghai) regions.
+   * *   You can submit a text fingerprint analysis job only in the China (Shanghai) region.
    * 
    * @param request - SubmitDNAJobRequest
    * @returns SubmitDNAJobResponse
@@ -63354,7 +74250,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步动图任务接口
+   * Submits an image animation job.
    * 
    * @param tmpReq - SubmitDynamicImageJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63423,7 +74319,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步动图任务接口
+   * Submits an image animation job.
    * 
    * @param request - SubmitDynamicImageJobRequest
    * @returns SubmitDynamicImageJobResponse
@@ -63434,7 +74330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交智能生产作业
+   * Submits an intelligent production job.
    * 
    * @param tmpReq - SubmitIProductionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63511,7 +74407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交智能生产作业
+   * Submits an intelligent production job.
    * 
    * @param request - SubmitIProductionJobRequest
    * @returns SubmitIProductionJobResponse
@@ -63522,7 +74418,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交直播剪辑任务
+   * Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+   * 
+   * @remarks
+   * Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
    * 
    * @param request - SubmitLiveEditingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -63577,7 +74476,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交直播剪辑任务
+   * Submits a live editing job to merge one or more live stream clips into one video. After a live editing job is submitted, the job is queued in the background for asynchronous processing. You can call the GeLiveEditingJob operation to query the state of the job based on the job ID. You can also call the GetMediaInfo operation to query the information about the generated media asset based on the media asset ID.
+   * 
+   * @remarks
+   * Live editing is supported for live streams that are recorded and stored in Object Storage Service (OSS) and ApsaraVideo VOD. If multiple live streams are involved in a single job, only those recorded within the same application are supported for mixed editing. The streams must all be recorded either in OSS or ApsaraVideo VOD.
    * 
    * @param request - SubmitLiveEditingJobRequest
    * @returns SubmitLiveEditingJobResponse
@@ -63846,6 +74748,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a content moderation job.
+   * 
+   * @remarks
+   * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+   * 
    * @param tmpReq - SubmitMediaCensorJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitMediaCensorJobResponse
@@ -63921,6 +74828,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a content moderation job.
+   * 
+   * @remarks
+   * The job that you submit by calling this operation is run in asynchronous mode. The job is added to an ApsaraVideo Media Processing (MPS) queue to be scheduled and run. You can call the [QueryMediaCensorJobDetail](https://help.aliyun.com/document_detail/444847.html) operation or configure an asynchronous notification to obtain the job results.
+   * 
    * @param request - SubmitMediaCensorJobRequest
    * @returns SubmitMediaCensorJobResponse
    */
@@ -63930,6 +74842,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a media information analysis job in asynchronous mode.
+   * 
+   * @remarks
+   * You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+   * 
    * @param tmpReq - SubmitMediaInfoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitMediaInfoJobResponse
@@ -63981,6 +74898,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a media information analysis job in asynchronous mode.
+   * 
+   * @remarks
+   * You can call this operation to analyze an input media file by using a callback mechanism or initiating subsequent queries. This operation is suitable for scenarios in which real-time performance is less critical and high concurrency is expected.
+   * 
    * @param request - SubmitMediaInfoJobRequest
    * @returns SubmitMediaInfoJobResponse
    */
@@ -63990,7 +74912,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitMediaProducingJob
+   * Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+   * 
+   * @remarks
+   *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+   * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+   * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
+   * ## [](#)Limits
+   * *   The throttling threshold of this operation is 30 queries per second (QPS).
+   *     **
+   *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
+   * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+   * *   The total size of material files cannot exceed 1 TB.
+   * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
+   * *   An output video must meet the following requirements:
+   *     *   Both the width and height must be at least 128 pixels.
+   *     *   Both the width and height cannot exceed 4,096 pixels.
+   *     *   The shorter side of the video cannot exceed 2,160 pixels.
    * 
    * @param request - SubmitMediaProducingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64067,7 +75005,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SubmitMediaProducingJob
+   * Submits a media editing and production job. If you need to perform any form of post-production such as editing and production on video or audio materials, you can call this operation to automate the process.
+   * 
+   * @remarks
+   *   This operation returns only the submission result of a media editing and production job. When the submission result is returned, the job may still be in progress. After a media editing and production job is submitted, the job is queued in the background for asynchronous processing.
+   * *   The materials referenced in the timeline of an online editing project can be media assets in the media asset library or Object Storage Service (OSS) objects. External URLs or Alibaba Cloud Content Delivery Network (CDN) URLs are not supported. To use an OSS object as a material, you must set MediaUrl to an OSS URL, such as https://your-bucket.oss-region-name.aliyuncs.com/your-object.ext.
+   * *   After the production is complete, the output file is automatically registered as a media asset. The media asset first needs to be analyzed. After the media asset is analyzed, you can query the duration and resolution information based on the media asset ID.
+   * ## [](#)Limits
+   * *   The throttling threshold of this operation is 30 queries per second (QPS).
+   *     **
+   *     **Note** If the threshold is exceeded, a "Throttling.User" error is returned when you submit an editing job. For more information about how to resolve this issue, see the [FAQ](https://help.aliyun.com/document_detail/453484.html).
+   * *   You can create up to 100 video tracks, 100 image tracks, and 100 subtitle tracks in a project.
+   * *   The total size of material files cannot exceed 1 TB.
+   * *   The OSS buckets in which the materials reside and where the output media assets are stored must be in the same region as the region in which Intelligent Media Services (IMS) is activated.
+   * *   An output video must meet the following requirements:
+   *     *   Both the width and height must be at least 128 pixels.
+   *     *   Both the width and height cannot exceed 4,096 pixels.
+   *     *   The shorter side of the video cannot exceed 2,160 pixels.
    * 
    * @param request - SubmitMediaProducingJobRequest
    * @returns SubmitMediaProducingJobResponse
@@ -64078,7 +75032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交打包任务
+   * Submits a packaging job.
    * 
    * @param tmpReq - SubmitPackageJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64139,7 +75093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交打包任务
+   * Submits a packaging job.
    * 
    * @param request - SubmitPackageJobRequest
    * @returns SubmitPackageJobResponse
@@ -64150,6 +75104,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a smart tagging job.
+   * 
+   * @remarks
+   * Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+   * 
    * @param tmpReq - SubmitSmarttagJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitSmarttagJobResponse
@@ -64225,6 +75184,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a smart tagging job.
+   * 
+   * @remarks
+   * Before you call this operation to submit a smart tagging job, you must add a smart tagging template and specify the analysis types that you want to use in the template. For more information, see CreateCustomTemplate. You can use the smart tagging feature only in the China (Beijing), China (Shanghai), and China (Hangzhou) regions. By default, an ApsaraVideo Media Processing (MPS) queue can process a maximum of two concurrent smart tagging jobs. If you need to process more concurrent smart tagging jobs, submit a ticket to contact Alibaba Cloud Technical Support for evaluation and configuration.
+   * 
    * @param request - SubmitSmarttagJobRequest
    * @returns SubmitSmarttagJobResponse
    */
@@ -64234,7 +75198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步截图任务
+   * Submits a snapshot job.
    * 
    * @param tmpReq - SubmitSnapshotJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64303,7 +75267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交异步截图任务
+   * Submits a snapshot job.
    * 
    * @param request - SubmitSnapshotJobRequest
    * @returns SubmitSnapshotJobResponse
@@ -64314,7 +75278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起体育集锦任务
+   * Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
    * 
    * @param request - SubmitSportsHighlightsJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64359,7 +75323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起体育集锦任务
+   * Submits a sports highlights job to generate a highlights video of an event based on event materials that contain commentary.
    * 
    * @param request - SubmitSportsHighlightsJobRequest
    * @returns SubmitSportsHighlightsJobResponse
@@ -64370,7 +75334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交标准版人声克隆训练任务
+   * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
    * 
    * @param request - SubmitStandardCustomizedVoiceJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64417,7 +75381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交标准版人声克隆训练任务
+   * Submits a standard human voice cloning job. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
    * 
    * @param request - SubmitStandardCustomizedVoiceJobRequest
    * @returns SubmitStandardCustomizedVoiceJobResponse
@@ -64428,6 +75392,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a media file in synchronous mode for media information analysis.
+   * 
+   * @remarks
+   * You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+   * 
    * @param tmpReq - SubmitSyncMediaInfoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitSyncMediaInfoJobResponse
@@ -64479,6 +75448,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a media file in synchronous mode for media information analysis.
+   * 
+   * @remarks
+   * You can call this operation to analyze an input media file in synchronous mode. This operation is suitable for scenarios that require high real-time performance and low concurrency. If it takes an extended period of time to obtain the media information about the input media file, the request may time out or the obtained information may be inaccurate. We recommend that you call the [SubmitMediaInfoJob](https://help.aliyun.com/document_detail/441222.html) operation to obtain media information.
+   * 
    * @param request - SubmitSyncMediaInfoJobRequest
    * @returns SubmitSyncMediaInfoJobResponse
    */
@@ -64488,7 +75462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交文本生成任务
+   * Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
    * 
    * @param request - SubmitTextGenerateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64535,7 +75509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交文本生成任务
+   * Submits a text generation job to generate marketing copies based on keywords and the requirements for the word count and number of output copies. The word count of the output copies may differ from the specified word count. After the job is submitted, you can call the GetSmartHandleJob operation to obtain the job state and result based on the job ID.
    * 
    * @param request - SubmitTextGenerateJobRequest
    * @returns SubmitTextGenerateJobResponse
@@ -64546,6 +75520,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a transcoding job.
+   * 
    * @param tmpReq - SubmitTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SubmitTranscodeJobResponse
@@ -64609,6 +75585,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a transcoding job.
+   * 
    * @param request - SubmitTranscodeJobRequest
    * @returns SubmitTranscodeJobResponse
    */
@@ -64618,7 +75596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+   * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
    * 
    * @remarks
    * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -64676,7 +75654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video translation job. You can call this operation to translate the subtitle that appears in a video into the specified language. In the future, this operation will support voice translation and lip synchronization for spoken content.
+   * Submits a video translation job. You can call this operation to translate subtitles in a video and audio to a specific language. Lip-sync adaptation will be supported in the future.
    * 
    * @remarks
    * After you call this operation to submit a video translation job, the system returns a job ID. You can call the GetSmartHandleJob operation based on the job ID to obtain the status and result information of the job.
@@ -64746,7 +75724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数字人训练任务信息
+   * Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
    * 
    * @param request - UpdateAvatarTrainingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64801,7 +75779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数字人训练任务信息
+   * Modifies a digital human training job. You can modify the basic information or update parameters such as Video and Transparent for retraining if the training failed.
    * 
    * @param request - UpdateAvatarTrainingJobRequest
    * @returns UpdateAvatarTrainingJobResponse
@@ -64864,7 +75842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒体处理自定义模板
+   * Updates a custom template.
    * 
    * @param request - UpdateCustomTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64903,7 +75881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新媒体处理自定义模板
+   * Updates a custom template.
    * 
    * @param request - UpdateCustomTemplateRequest
    * @returns UpdateCustomTemplateResponse
@@ -64914,7 +75892,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户的专属人声
+   * Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
    * 
    * @param request - UpdateCustomizedVoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -64949,7 +75927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新用户的专属人声
+   * Updates a personalized human voice. Only the media asset ID of the sample audio file can be modified.
    * 
    * @param request - UpdateCustomizedVoiceRequest
    * @returns UpdateCustomizedVoiceResponse
@@ -65462,7 +76440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新管道配置
+   * Updates the information about an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - UpdatePipelineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65505,7 +76483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新管道配置
+   * Updates the information about an ApsaraVideo Media Processing (MPS) queue.
    * 
    * @param request - UpdatePipelineRequest
    * @returns UpdatePipelineResponse
@@ -65568,7 +76546,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateTemplate
+   * Modifies an online editing template. You can modify the template title and template configurations.
+   * 
+   * @remarks
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - UpdateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65629,7 +76611,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * UpdateTemplate
+   * Modifies an online editing template. You can modify the template title and template configurations.
+   * 
+   * @remarks
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
    * 
    * @param request - UpdateTemplateRequest
    * @returns UpdateTemplateResponse
