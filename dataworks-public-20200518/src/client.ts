@@ -294,6 +294,52 @@ export class LineageRelationRegisterBulkVO extends $tea.Model {
   }
 }
 
+export class LineageRelationRegisterTaskVO extends $tea.Model {
+  attributes?: { [key: string]: string };
+  /**
+   * @example
+   * 1684327487964
+   */
+  createTimestamp?: number;
+  inputEntities?: LineageEntityVO[];
+  /**
+   * @example
+   * pai-task name
+   */
+  name?: string;
+  outputEntities?: LineageEntityVO[];
+  /**
+   * @example
+   * pai_dlcjob-task.12304
+   */
+  qualifiedName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      attributes: 'Attributes',
+      createTimestamp: 'CreateTimestamp',
+      inputEntities: 'InputEntities',
+      name: 'Name',
+      outputEntities: 'OutputEntities',
+      qualifiedName: 'QualifiedName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attributes: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      createTimestamp: 'number',
+      inputEntities: { 'type': 'array', 'itemType': LineageEntityVO },
+      name: 'string',
+      outputEntities: { 'type': 'array', 'itemType': LineageEntityVO },
+      qualifiedName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class LineageRelationRegisterVO extends $tea.Model {
   /**
    * @example
@@ -28908,6 +28954,118 @@ export class ListCalcEnginesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCalcEnginesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckProcessesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * commit-file
+   */
+  eventCode?: string;
+  /**
+   * @example
+   * 123333232
+   */
+  operator?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 123465
+   */
+  projectId?: number;
+  /**
+   * @example
+   * True
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      operator: 'Operator',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      operator: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckProcessesResponseBody extends $tea.Model {
+  pagingInfo?: ListCheckProcessesResponseBodyPagingInfo;
+  /**
+   * @example
+   * 0000-ABCD-EF****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListCheckProcessesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckProcessesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCheckProcessesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCheckProcessesResponseBody,
     };
   }
 
@@ -69559,6 +69717,125 @@ export class ListCalcEnginesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListCheckProcessesResponseBodyPagingInfoCheckProcesses extends $tea.Model {
+  /**
+   * @example
+   * commit-file
+   */
+  eventCode?: string;
+  /**
+   * @example
+   * DnsEvent
+   */
+  eventName?: string;
+  /**
+   * @example
+   * Pre-event for Node Commit
+   */
+  eventNameEn?: string;
+  /**
+   * @example
+   * b824a5de-4223-4315-af3e-c4449d236db4
+   */
+  messageId?: string;
+  /**
+   * @example
+   * 297635
+   */
+  operator?: string;
+  /**
+   * @example
+   * rdk_generate_d395da25-b0d3-4114-b2a5-d0247444a661_none_3496903_365203
+   */
+  processId?: string;
+  /**
+   * @example
+   * odps_sql_test
+   */
+  processName?: string;
+  /**
+   * @example
+   * 32563
+   */
+  projectId?: number;
+  /**
+   * @example
+   * CHECKING
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      eventCode: 'EventCode',
+      eventName: 'EventName',
+      eventNameEn: 'EventNameEn',
+      messageId: 'MessageId',
+      operator: 'Operator',
+      processId: 'ProcessId',
+      processName: 'ProcessName',
+      projectId: 'ProjectId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCode: 'string',
+      eventName: 'string',
+      eventNameEn: 'string',
+      messageId: 'string',
+      operator: 'string',
+      processId: 'string',
+      processName: 'string',
+      projectId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCheckProcessesResponseBodyPagingInfo extends $tea.Model {
+  checkProcesses?: ListCheckProcessesResponseBodyPagingInfoCheckProcesses[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkProcesses: 'CheckProcesses',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkProcesses: { 'type': 'array', 'itemType': ListCheckProcessesResponseBodyPagingInfoCheckProcesses },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListClustersResponseBodyData extends $tea.Model {
   clusters?: Cluster[];
   /**
@@ -93862,6 +94139,68 @@ export default class Client extends OpenApi {
   async listCalcEngines(request: ListCalcEnginesRequest): Promise<ListCalcEnginesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCalcEnginesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询扩展事件的检查列表
+   * 
+   * @param request - ListCheckProcessesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCheckProcessesResponse
+   */
+  async listCheckProcessesWithOptions(request: ListCheckProcessesRequest, runtime: $Util.RuntimeOptions): Promise<ListCheckProcessesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.eventCode)) {
+      body["EventCode"] = request.eventCode;
+    }
+
+    if (!Util.isUnset(request.operator)) {
+      body["Operator"] = request.operator;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCheckProcesses",
+      version: "2020-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCheckProcessesResponse>(await this.callApi(params, req, runtime), new ListCheckProcessesResponse({}));
+  }
+
+  /**
+   * 查询扩展事件的检查列表
+   * 
+   * @param request - ListCheckProcessesRequest
+   * @returns ListCheckProcessesResponse
+   */
+  async listCheckProcesses(request: ListCheckProcessesRequest): Promise<ListCheckProcessesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCheckProcessesWithOptions(request, runtime);
   }
 
   /**
