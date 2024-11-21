@@ -8405,13 +8405,6 @@ export class CreateNacosConfigRequest extends $tea.Model {
    * 100.117.XX.XX,100.117.XX.XX
    */
   betaIps?: string;
-  /**
-   * @remarks
-   * The content of the configuration.
-   * 
-   * @example
-   * asdf
-   */
   content?: string;
   /**
    * @remarks
@@ -28699,6 +28692,7 @@ export class ListListenersByConfigRequest extends $tea.Model {
    * zeekr-clueboss.yml
    */
   dataId?: string;
+  extGrayRules?: ListListenersByConfigRequestExtGrayRules[];
   /**
    * @remarks
    * The name of the group.
@@ -28739,6 +28733,7 @@ export class ListListenersByConfigRequest extends $tea.Model {
     return {
       acceptLanguage: 'AcceptLanguage',
       dataId: 'DataId',
+      extGrayRules: 'ExtGrayRules',
       group: 'Group',
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
@@ -28750,6 +28745,95 @@ export class ListListenersByConfigRequest extends $tea.Model {
     return {
       acceptLanguage: 'string',
       dataId: 'string',
+      extGrayRules: { 'type': 'array', 'itemType': ListListenersByConfigRequestExtGrayRules },
+      group: 'string',
+      instanceId: 'string',
+      namespaceId: 'string',
+      requestPars: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListListenersByConfigShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   zh: Chinese
+   * *   en: English
+   * 
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @remarks
+   * The ID of the data.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * zeekr-clueboss.yml
+   */
+  dataId?: string;
+  extGrayRulesShrink?: string;
+  /**
+   * @remarks
+   * The name of the group.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * prod
+   */
+  group?: string;
+  /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * mse-cn-m7r1yurp00e
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The ID of the namespace.
+   * 
+   * @example
+   * aaeb4d28-c9eb-4fa2-85f5-d03ce7ee8df1
+   */
+  namespaceId?: string;
+  /**
+   * @remarks
+   * The extended request parameters in the JSON format.
+   * 
+   * @example
+   * {\\\\"appGroup\\\\":\\\\"emas-zfive_prehost\\\\",\\\\"appName\\\\":\\\\"emas-zfive\\\\",\\\\"appStage\\\\":\\\\"PRE_PUBLISH\\\\",\\\\"appUnit\\\\":\\\\"\\\\",\\\\"bucId\\\\":\\\\"225902\\\\",\\\\"bucName\\\\":\\\\"Wireless\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
+   */
+  requestPars?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      dataId: 'DataId',
+      extGrayRulesShrink: 'ExtGrayRules',
+      group: 'Group',
+      instanceId: 'InstanceId',
+      namespaceId: 'NamespaceId',
+      requestPars: 'RequestPars',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      dataId: 'string',
+      extGrayRulesShrink: 'string',
       group: 'string',
       instanceId: 'string',
       namespaceId: 'string',
@@ -42730,6 +42814,249 @@ export class UpdateGatewayRouteWafStatusResponse extends $tea.Model {
   }
 }
 
+export class UpdateGatewayServiceRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * 501
+   */
+  gatewayId?: number;
+  /**
+   * @example
+   * gw-c9bc5afd61014165bd58f621b491*****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @example
+   * 322
+   */
+  id?: string;
+  ipList?: string[];
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * 80
+   */
+  servicePort?: string;
+  /**
+   * @example
+   * HTTP
+   */
+  serviceProtocol?: string;
+  /**
+   * @example
+   * {
+   *       "mode": "MUTUAL",
+   *       "certId": "1*****-cn-hangzhou",
+   *       "caCertContent": "123",
+   *       "sni": "ceshi"
+   * }
+   */
+  tlsSetting?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      ipList: 'IpList',
+      name: 'Name',
+      servicePort: 'ServicePort',
+      serviceProtocol: 'ServiceProtocol',
+      tlsSetting: 'TlsSetting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'string',
+      ipList: { 'type': 'array', 'itemType': 'string' },
+      name: 'string',
+      servicePort: 'string',
+      serviceProtocol: 'string',
+      tlsSetting: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * 501
+   */
+  gatewayId?: number;
+  /**
+   * @example
+   * gw-c9bc5afd61014165bd58f621b491*****
+   */
+  gatewayUniqueId?: string;
+  /**
+   * @example
+   * 322
+   */
+  id?: string;
+  ipListShrink?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @example
+   * 80
+   */
+  servicePort?: string;
+  /**
+   * @example
+   * HTTP
+   */
+  serviceProtocol?: string;
+  /**
+   * @example
+   * {
+   *       "mode": "MUTUAL",
+   *       "certId": "1*****-cn-hangzhou",
+   *       "caCertContent": "123",
+   *       "sni": "ceshi"
+   * }
+   */
+  tlsSetting?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      gatewayId: 'GatewayId',
+      gatewayUniqueId: 'GatewayUniqueId',
+      id: 'Id',
+      ipListShrink: 'IpList',
+      name: 'Name',
+      servicePort: 'ServicePort',
+      serviceProtocol: 'ServiceProtocol',
+      tlsSetting: 'TlsSetting',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      gatewayId: 'number',
+      gatewayUniqueId: 'string',
+      id: 'string',
+      ipListShrink: 'string',
+      name: 'string',
+      servicePort: 'string',
+      serviceProtocol: 'string',
+      tlsSetting: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * 322
+   */
+  data?: number;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @example
+   * AF21683A-29C7-4853-AC0F-B5ADEE4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'number',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateGatewayServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateGatewayServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateGatewayServiceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGatewayServiceCheckRequest extends $tea.Model {
   /**
    * @remarks
@@ -44741,13 +45068,6 @@ export class UpdateNacosConfigRequest extends $tea.Model {
    * 196.168.XX.XX
    */
   betaIps?: string;
-  /**
-   * @remarks
-   * The content of the configuration.
-   * 
-   * @example
-   * attribute1=1221111\\r\\nattribute2=Chinese\\r\\nattribute3=abc11\\r\\nattribute4=1.00111
-   */
   content?: string;
   /**
    * @remarks
@@ -44991,6 +45311,8 @@ export class UpdateNacosGrayConfigRequest extends $tea.Model {
    * key=value1,value2
    */
   grayRule?: string;
+  grayRuleName?: string;
+  grayRulePriority?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -45017,6 +45339,7 @@ export class UpdateNacosGrayConfigRequest extends $tea.Model {
    * 6cf708a5-****-89f2-3ba62c5ee9ba
    */
   namespaceId?: string;
+  opType?: string;
   /**
    * @example
    * cn-hangzhou
@@ -45039,10 +45362,13 @@ export class UpdateNacosGrayConfigRequest extends $tea.Model {
       content: 'Content',
       dataId: 'DataId',
       grayRule: 'GrayRule',
+      grayRuleName: 'GrayRuleName',
+      grayRulePriority: 'GrayRulePriority',
       grayType: 'GrayType',
       group: 'Group',
       instanceId: 'InstanceId',
       namespaceId: 'NamespaceId',
+      opType: 'OpType',
       regionId: 'RegionId',
       requestPars: 'RequestPars',
       stopGray: 'StopGray',
@@ -45056,10 +45382,13 @@ export class UpdateNacosGrayConfigRequest extends $tea.Model {
       content: 'string',
       dataId: 'string',
       grayRule: 'string',
+      grayRuleName: 'string',
+      grayRulePriority: 'number',
       grayType: 'string',
       group: 'string',
       instanceId: 'string',
       namespaceId: 'string',
+      opType: 'string',
       regionId: 'string',
       requestPars: 'string',
       stopGray: 'boolean',
@@ -56468,6 +56797,34 @@ export class GetMseSourceResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetNacosConfigResponseBodyConfigurationGrayVersions extends $tea.Model {
+  name?: string;
+  priority?: number;
+  rule?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      priority: 'Priority',
+      rule: 'Rule',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      priority: 'number',
+      rule: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetNacosConfigResponseBodyConfiguration extends $tea.Model {
   /**
    * @remarks
@@ -56517,6 +56874,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $tea.Model {
    * key
    */
   encryptedDataKey?: string;
+  grayVersions?: GetNacosConfigResponseBodyConfigurationGrayVersions[];
   /**
    * @remarks
    * The name of the configuration group.
@@ -56557,6 +56915,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $tea.Model {
       dataId: 'DataId',
       desc: 'Desc',
       encryptedDataKey: 'EncryptedDataKey',
+      grayVersions: 'GrayVersions',
       group: 'Group',
       md5: 'Md5',
       tags: 'Tags',
@@ -56572,6 +56931,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $tea.Model {
       dataId: 'string',
       desc: 'string',
       encryptedDataKey: 'string',
+      grayVersions: { 'type': 'array', 'itemType': GetNacosConfigResponseBodyConfigurationGrayVersions },
       group: 'string',
       md5: 'string',
       tags: 'string',
@@ -66150,6 +66510,34 @@ export class ListIsolationRulesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListListenersByConfigRequestExtGrayRules extends $tea.Model {
+  grayRule?: string;
+  grayRuleName?: string;
+  grayRulePriority?: number;
+  grayRuleType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grayRule: 'GrayRule',
+      grayRuleName: 'GrayRuleName',
+      grayRulePriority: 'GrayRulePriority',
+      grayRuleType: 'GrayRuleType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grayRule: 'string',
+      grayRuleName: 'string',
+      grayRulePriority: 'number',
+      grayRuleType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
   /**
    * @remarks
@@ -66164,6 +66552,8 @@ export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
    * The label of the listener.
    */
   labels?: { [key: string]: string };
+  matchRuleName?: string;
+  matchRuleType?: string;
   /**
    * @remarks
    * The verification string.
@@ -66192,6 +66582,8 @@ export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
     return {
       ip: 'Ip',
       labels: 'Labels',
+      matchRuleName: 'MatchRuleName',
+      matchRuleType: 'MatchRuleType',
       md5: 'Md5',
       status: 'Status',
       version: 'Version',
@@ -66202,6 +66594,8 @@ export class ListListenersByConfigResponseBodyListeners extends $tea.Model {
     return {
       ip: 'string',
       labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      matchRuleName: 'string',
+      matchRuleType: 'string',
       md5: 'string',
       status: 'string',
       version: 'string',
@@ -76015,10 +76409,6 @@ export default class Client extends OpenApi {
       query["BetaIps"] = request.betaIps;
     }
 
-    if (!Util.isUnset(request.content)) {
-      query["Content"] = request.content;
-    }
-
     if (!Util.isUnset(request.dataId)) {
       query["DataId"] = request.dataId;
     }
@@ -76047,8 +76437,14 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateNacosConfig",
@@ -82606,12 +83002,18 @@ export default class Client extends OpenApi {
    * @remarks
    * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
-   * @param request - ListListenersByConfigRequest
+   * @param tmpReq - ListListenersByConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListListenersByConfigResponse
    */
-  async listListenersByConfigWithOptions(request: ListListenersByConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByConfigResponse> {
-    Util.validateModel(request);
+  async listListenersByConfigWithOptions(tmpReq: ListListenersByConfigRequest, runtime: $Util.RuntimeOptions): Promise<ListListenersByConfigResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListListenersByConfigShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.extGrayRules)) {
+      request.extGrayRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.extGrayRules, "ExtGrayRules", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
@@ -82619,6 +83021,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataId)) {
       query["DataId"] = request.dataId;
+    }
+
+    if (!Util.isUnset(request.extGrayRulesShrink)) {
+      query["ExtGrayRules"] = request.extGrayRulesShrink;
     }
 
     if (!Util.isUnset(request.group)) {
@@ -87093,6 +87499,86 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新服务
+   * 
+   * @param tmpReq - UpdateGatewayServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateGatewayServiceResponse
+   */
+  async updateGatewayServiceWithOptions(tmpReq: UpdateGatewayServiceRequest, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateGatewayServiceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.ipList)) {
+      request.ipListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipList, "IpList", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.gatewayId)) {
+      query["GatewayId"] = request.gatewayId;
+    }
+
+    if (!Util.isUnset(request.gatewayUniqueId)) {
+      query["GatewayUniqueId"] = request.gatewayUniqueId;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.ipListShrink)) {
+      query["IpList"] = request.ipListShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.servicePort)) {
+      query["ServicePort"] = request.servicePort;
+    }
+
+    if (!Util.isUnset(request.serviceProtocol)) {
+      query["ServiceProtocol"] = request.serviceProtocol;
+    }
+
+    if (!Util.isUnset(request.tlsSetting)) {
+      query["TlsSetting"] = request.tlsSetting;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateGatewayService",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateGatewayServiceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceResponse({}));
+  }
+
+  /**
+   * 更新服务
+   * 
+   * @param request - UpdateGatewayServiceRequest
+   * @returns UpdateGatewayServiceResponse
+   */
+  async updateGatewayService(request: UpdateGatewayServiceRequest): Promise<UpdateGatewayServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateGatewayServiceWithOptions(request, runtime);
+  }
+
+  /**
    * Updates the health check policy of a specified service in a cloud-native gateway.
    * 
    * @param tmpReq - UpdateGatewayServiceCheckRequest
@@ -87739,10 +88225,6 @@ export default class Client extends OpenApi {
       query["BetaIps"] = request.betaIps;
     }
 
-    if (!Util.isUnset(request.content)) {
-      query["Content"] = request.content;
-    }
-
     if (!Util.isUnset(request.dataId)) {
       query["DataId"] = request.dataId;
     }
@@ -87779,8 +88261,14 @@ export default class Client extends OpenApi {
       query["Type"] = request.type;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateNacosConfig",
@@ -87840,6 +88328,14 @@ export default class Client extends OpenApi {
       query["GrayRule"] = request.grayRule;
     }
 
+    if (!Util.isUnset(request.grayRuleName)) {
+      query["GrayRuleName"] = request.grayRuleName;
+    }
+
+    if (!Util.isUnset(request.grayRulePriority)) {
+      query["GrayRulePriority"] = request.grayRulePriority;
+    }
+
     if (!Util.isUnset(request.grayType)) {
       query["GrayType"] = request.grayType;
     }
@@ -87854,6 +88350,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.namespaceId)) {
       query["NamespaceId"] = request.namespaceId;
+    }
+
+    if (!Util.isUnset(request.opType)) {
+      query["OpType"] = request.opType;
     }
 
     if (!Util.isUnset(request.regionId)) {
