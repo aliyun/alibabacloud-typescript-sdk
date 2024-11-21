@@ -210,10 +210,7 @@ export class BackupFileRequest extends $tea.Model {
    */
   backupFilePath?: string;
   description?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  sourceAppList?: string[];
   sourceFilePathList?: string[];
   /**
    * @example
@@ -230,6 +227,7 @@ export class BackupFileRequest extends $tea.Model {
       androidInstanceIdList: 'AndroidInstanceIdList',
       backupFilePath: 'BackupFilePath',
       description: 'Description',
+      sourceAppList: 'SourceAppList',
       sourceFilePathList: 'SourceFilePathList',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
@@ -241,6 +239,7 @@ export class BackupFileRequest extends $tea.Model {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
       backupFilePath: 'string',
       description: 'string',
+      sourceAppList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       uploadEndpoint: 'string',
       uploadType: 'string',
@@ -596,10 +595,6 @@ export class CreateAndroidInstanceGroupResponse extends $tea.Model {
 }
 
 export class CreateAppRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   appName?: string;
   bizRegionId?: string;
   description?: string;
@@ -1893,6 +1888,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
    * 2024-05-23 10:00:00
    */
   startTime?: string;
+  statusList?: string[];
   static names(): { [key: string]: string } {
     return {
       androidInstanceId: 'AndroidInstanceId',
@@ -1906,6 +1902,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       startTime: 'StartTime',
+      statusList: 'StatusList',
     };
   }
 
@@ -1922,6 +1919,7 @@ export class DescribeBackupFilesRequest extends $tea.Model {
       maxResults: 'number',
       nextToken: 'string',
       startTime: 'string',
+      statusList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2315,6 +2313,25 @@ export class DescribeKeyPairsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeKeyPairsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsRequest extends $tea.Model {
+  acceptLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
     };
   }
 
@@ -2970,76 +2987,6 @@ export class FetchFileResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: FetchFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAdbSecureRequest extends $tea.Model {
-  instanceIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAdbSecureResponseBody extends $tea.Model {
-  data?: GetAdbSecureResponseBodyData;
-  /**
-   * @example
-   * 1A923337-44D9-5CAD-9A53-95084BD4****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: GetAdbSecureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAdbSecureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetAdbSecureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetAdbSecureResponseBody,
     };
   }
 
@@ -4379,86 +4326,6 @@ export class SendFileResponse extends $tea.Model {
   }
 }
 
-export class SetAdbSecureRequest extends $tea.Model {
-  instanceIds?: string[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceIds: 'InstanceIds',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponseBody extends $tea.Model {
-  data?: SetAdbSecureResponseBodyData;
-  /**
-   * @example
-   * 69BCBBE4-FCF2-59B8-AD9D-531EB422****
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: SetAdbSecureResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SetAdbSecureResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SetAdbSecureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class StartAndroidInstanceRequest extends $tea.Model {
   androidInstanceIds?: string[];
   static names(): { [key: string]: string } {
@@ -5092,16 +4959,34 @@ export class CreateKeyPairResponseBodyData extends $tea.Model {
 }
 
 export class CreatePolicyGroupRequestNetRedirectPolicy extends $tea.Model {
+  customProxy?: string;
+  hostAddr?: string;
   netRedirect?: string;
+  port?: string;
+  proxyPassword?: string;
+  proxyType?: string;
+  proxyUserName?: string;
   static names(): { [key: string]: string } {
     return {
+      customProxy: 'CustomProxy',
+      hostAddr: 'HostAddr',
       netRedirect: 'NetRedirect',
+      port: 'Port',
+      proxyPassword: 'ProxyPassword',
+      proxyType: 'ProxyType',
+      proxyUserName: 'ProxyUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customProxy: 'string',
+      hostAddr: 'string',
       netRedirect: 'string',
+      port: 'string',
+      proxyPassword: 'string',
+      proxyType: 'string',
+      proxyUserName: 'string',
     };
   }
 
@@ -5659,12 +5544,15 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
    * ag-58ftsoo90p0qi****
    */
   instanceGroupId?: string;
+  regionId?: string;
+  sourceAppInfoList?: string[];
   sourceFilePathList?: string[];
   /**
    * @example
    * AVAILABLE
    */
   status?: string;
+  taskId?: string;
   /**
    * @example
    * oss-cn-hangzhou.aliyuncs.com
@@ -5688,8 +5576,11 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
       gmtCreated: 'GmtCreated',
       gmtModified: 'GmtModified',
       instanceGroupId: 'InstanceGroupId',
+      regionId: 'RegionId',
+      sourceAppInfoList: 'SourceAppInfoList',
       sourceFilePathList: 'SourceFilePathList',
       status: 'Status',
+      taskId: 'TaskId',
       uploadEndpoint: 'UploadEndpoint',
       uploadType: 'UploadType',
     };
@@ -5708,8 +5599,11 @@ export class DescribeBackupFilesResponseBodyData extends $tea.Model {
       gmtCreated: 'string',
       gmtModified: 'string',
       instanceGroupId: 'string',
+      regionId: 'string',
+      sourceAppInfoList: { 'type': 'array', 'itemType': 'string' },
       sourceFilePathList: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
+      taskId: 'string',
       uploadEndpoint: 'string',
       uploadType: 'string',
     };
@@ -5919,15 +5813,18 @@ export class DescribeRegionsResponseBodyRegionModels extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  regionName?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      regionName: 'RegionName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      regionName: 'string',
     };
   }
 
@@ -5995,6 +5892,8 @@ export class DescribeSpecResponseBodySpecInfoModel extends $tea.Model {
 }
 
 export class DescribeTasksResponseBodyData extends $tea.Model {
+  errorCode?: string;
+  errorMsg?: string;
   /**
    * @example
    * 2022-10-11T08:53:32Z
@@ -6038,6 +5937,8 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
   taskType?: string;
   static names(): { [key: string]: string } {
     return {
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
       finishTime: 'FinishTime',
       invokeId: 'InvokeId',
       regionId: 'RegionId',
@@ -6052,6 +5953,8 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      errorCode: 'string',
+      errorMsg: 'string',
       finishTime: 'string',
       invokeId: 'string',
       regionId: 'string',
@@ -6131,55 +6034,6 @@ export class FetchFileResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetAdbSecureResponseBodyDataAdbSecureList extends $tea.Model {
-  /**
-   * @example
-   * acp-5hh431emkt6u*****
-   */
-  instanceId?: string;
-  /**
-   * @example
-   * 1
-   */
-  status?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-      status: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetAdbSecureResponseBodyData extends $tea.Model {
-  adbSecureList?: GetAdbSecureResponseBodyDataAdbSecureList[];
-  static names(): { [key: string]: string } {
-    return {
-      adbSecureList: 'AdbSecureList',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      adbSecureList: { 'type': 'array', 'itemType': GetAdbSecureResponseBodyDataAdbSecureList },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ImportKeyPairResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -6218,16 +6072,34 @@ export class ImportKeyPairResponseBodyData extends $tea.Model {
 }
 
 export class ListPolicyGroupsResponseBodyPolicyGroupModelNetRedirectPolicy extends $tea.Model {
+  customProxy?: string;
+  hostAddr?: string;
   netRedirect?: string;
+  port?: string;
+  proxyPassword?: string;
+  proxyType?: string;
+  proxyUserName?: string;
   static names(): { [key: string]: string } {
     return {
+      customProxy: 'CustomProxy',
+      hostAddr: 'HostAddr',
       netRedirect: 'NetRedirect',
+      port: 'Port',
+      proxyPassword: 'ProxyPassword',
+      proxyType: 'ProxyType',
+      proxyUserName: 'ProxyUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customProxy: 'string',
+      hostAddr: 'string',
       netRedirect: 'string',
+      port: 'string',
+      proxyPassword: 'string',
+      proxyType: 'string',
+      proxyUserName: 'string',
     };
   }
 
@@ -6318,16 +6190,34 @@ export class ListPolicyGroupsResponseBodyPolicyGroupModel extends $tea.Model {
 }
 
 export class ModifyPolicyGroupRequestNetRedirectPolicy extends $tea.Model {
+  customProxy?: string;
+  hostAddr?: string;
   netRedirect?: string;
+  port?: string;
+  proxyPassword?: string;
+  proxyType?: string;
+  proxyUserName?: string;
   static names(): { [key: string]: string } {
     return {
+      customProxy: 'CustomProxy',
+      hostAddr: 'HostAddr',
       netRedirect: 'NetRedirect',
+      port: 'Port',
+      proxyPassword: 'ProxyPassword',
+      proxyType: 'ProxyType',
+      proxyUserName: 'ProxyUserName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      customProxy: 'string',
+      hostAddr: 'string',
       netRedirect: 'string',
+      port: 'string',
+      proxyPassword: 'string',
+      proxyType: 'string',
+      proxyUserName: 'string',
     };
   }
 
@@ -6372,39 +6262,6 @@ export class SendFileResponseBodyData extends $tea.Model {
     return {
       androidInstanceId: 'string',
       taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SetAdbSecureResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 0
-   */
-  failCount?: number;
-  instanceIds?: string[];
-  /**
-   * @example
-   * 100
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      failCount: 'FailCount',
-      instanceIds: 'InstanceIds',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      failCount: 'number',
-      instanceIds: { 'type': 'array', 'itemType': 'string' },
-      totalCount: 'number',
     };
   }
 
@@ -6553,6 +6410,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.sourceAppList)) {
+      query["SourceAppList"] = request.sourceAppList;
     }
 
     if (!Util.isUnset(request.sourceFilePathList)) {
@@ -7491,6 +7352,10 @@ export default class Client extends OpenApi {
       query["StartTime"] = request.startTime;
     }
 
+    if (!Util.isUnset(request.statusList)) {
+      query["StatusList"] = request.statusList;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -7682,8 +7547,16 @@ export default class Client extends OpenApi {
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
    */
-  async describeRegionsWithOptions(runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
-    let req = new $OpenApi.OpenApiRequest({ });
+  async describeRegionsWithOptions(request: DescribeRegionsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
     let params = new $OpenApi.Params({
       action: "DescribeRegions",
       version: "2023-09-30",
@@ -7700,11 +7573,13 @@ export default class Client extends OpenApi {
 
   /**
    * 查询地域
+   * 
+   * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
    */
-  async describeRegions(): Promise<DescribeRegionsResponse> {
+  async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeRegionsWithOptions(runtime);
+    return await this.describeRegionsWithOptions(request, runtime);
   }
 
   /**
@@ -8033,44 +7908,6 @@ export default class Client extends OpenApi {
   async fetchFile(request: FetchFileRequest): Promise<FetchFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchFileWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - GetAdbSecureRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetAdbSecureResponse
-   */
-  async getAdbSecureWithOptions(request: GetAdbSecureRequest, runtime: $Util.RuntimeOptions): Promise<GetAdbSecureResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.instanceIds)) {
-      query["InstanceIds"] = request.instanceIds;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetAdbSecure",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetAdbSecureResponse>(await this.callApi(params, req, runtime), new GetAdbSecureResponse({}));
-  }
-
-  /**
-   * @param request - GetAdbSecureRequest
-   * @returns GetAdbSecureResponse
-   */
-  async getAdbSecure(request: GetAdbSecureRequest): Promise<GetAdbSecureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getAdbSecureWithOptions(request, runtime);
   }
 
   /**
@@ -8809,48 +8646,6 @@ export default class Client extends OpenApi {
   async sendFile(request: SendFileRequest): Promise<SendFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendFileWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - SetAdbSecureRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SetAdbSecureResponse
-   */
-  async setAdbSecureWithOptions(request: SetAdbSecureRequest, runtime: $Util.RuntimeOptions): Promise<SetAdbSecureResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.instanceIds)) {
-      query["InstanceIds"] = request.instanceIds;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SetAdbSecure",
-      version: "2023-09-30",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SetAdbSecureResponse>(await this.callApi(params, req, runtime), new SetAdbSecureResponse({}));
-  }
-
-  /**
-   * @param request - SetAdbSecureRequest
-   * @returns SetAdbSecureResponse
-   */
-  async setAdbSecure(request: SetAdbSecureRequest): Promise<SetAdbSecureResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.setAdbSecureWithOptions(request, runtime);
   }
 
   /**
