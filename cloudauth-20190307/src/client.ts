@@ -2772,16 +2772,109 @@ export class DetectFaceAttributesResponse extends $tea.Model {
   }
 }
 
-export class Id2MetaVerifyRequest extends $tea.Model {
+export class Id2MetaStandardVerifyRequest extends $tea.Model {
   /**
    * @example
-   * 412722198610274919
+   * 4****************1
    */
   identifyNum?: string;
   /**
    * @example
    * normal
    */
+  paramType?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identifyNum: 'IdentifyNum',
+      paramType: 'ParamType',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identifyNum: 'string',
+      paramType: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaStandardVerifyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * D6163397-15C5-419C-9ACC-B7C83E0B4C10
+   */
+  requestId?: string;
+  resultObject?: Id2MetaStandardVerifyResponseBodyResultObject;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      resultObject: 'ResultObject',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      resultObject: Id2MetaStandardVerifyResponseBodyResultObject,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaStandardVerifyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: Id2MetaStandardVerifyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: Id2MetaStandardVerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaVerifyRequest extends $tea.Model {
+  identifyNum?: string;
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -3368,20 +3461,8 @@ export class LivenessFaceVerifyResponse extends $tea.Model {
 }
 
 export class Mobile3MetaDetailVerifyRequest extends $tea.Model {
-  /**
-   * @example
-   * 520181199902104631
-   */
   identifyNum?: string;
-  /**
-   * @example
-   * 150000xxxx
-   */
   mobile?: string;
-  /**
-   * @example
-   * normal
-   */
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -3473,20 +3554,8 @@ export class Mobile3MetaDetailVerifyResponse extends $tea.Model {
 }
 
 export class Mobile3MetaSimpleVerifyRequest extends $tea.Model {
-  /**
-   * @example
-   * 429001********8211
-   */
   identifyNum?: string;
-  /**
-   * @example
-   * 150000****
-   */
   mobile?: string;
-  /**
-   * @example
-   * normal
-   */
   paramType?: string;
   userName?: string;
   static names(): { [key: string]: string } {
@@ -3578,15 +3647,7 @@ export class Mobile3MetaSimpleVerifyResponse extends $tea.Model {
 }
 
 export class MobileDetectRequest extends $tea.Model {
-  /**
-   * @example
-   * 138********,156********
-   */
   mobiles?: string;
-  /**
-   * @example
-   * normal
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3673,15 +3734,7 @@ export class MobileDetectResponse extends $tea.Model {
 }
 
 export class MobileOnlineStatusRequest extends $tea.Model {
-  /**
-   * @example
-   * 130********
-   */
   mobile?: string;
-  /**
-   * @example
-   * normal
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3768,15 +3821,7 @@ export class MobileOnlineStatusResponse extends $tea.Model {
 }
 
 export class MobileOnlineTimeRequest extends $tea.Model {
-  /**
-   * @example
-   * 130********
-   */
   mobile?: string;
-  /**
-   * @example
-   * normal
-   */
   paramType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5423,11 +5468,7 @@ export class DescribeDeviceInfoResponseBodyDeviceInfoList extends $tea.Model {
 }
 
 export class DescribeFaceGuardRiskResponseBodyResultObject extends $tea.Model {
-  /**
-   * @example
-   * ROOT,VPN,HOOK
-   */
-  riakTags?: string;
+  certifyId?: string;
   /**
    * @example
    * {
@@ -5442,17 +5483,20 @@ export class DescribeFaceGuardRiskResponseBodyResultObject extends $tea.Model {
    * }
    */
   riskExtends?: string;
+  riskTags?: string;
   static names(): { [key: string]: string } {
     return {
-      riakTags: 'RiakTags',
+      certifyId: 'CertifyId',
       riskExtends: 'RiskExtends',
+      riskTags: 'RiskTags',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      riakTags: 'string',
+      certifyId: 'string',
       riskExtends: 'string',
+      riskTags: 'string',
     };
   }
 
@@ -6137,6 +6181,29 @@ export class DetectFaceAttributesResponseBodyData extends $tea.Model {
       faceInfos: DetectFaceAttributesResponseBodyDataFaceInfos,
       imgHeight: 'number',
       imgWidth: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Id2MetaStandardVerifyResponseBodyResultObject extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  bizCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizCode: 'BizCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizCode: 'string',
     };
   }
 
@@ -8120,6 +8187,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 身份二要素标准版
+   * 
+   * @param request - Id2MetaStandardVerifyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns Id2MetaStandardVerifyResponse
+   */
+  async id2MetaStandardVerifyWithOptions(request: Id2MetaStandardVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaStandardVerifyResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.identifyNum)) {
+      body["IdentifyNum"] = request.identifyNum;
+    }
+
+    if (!Util.isUnset(request.paramType)) {
+      body["ParamType"] = request.paramType;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      body["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Id2MetaStandardVerify",
+      version: "2019-03-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<Id2MetaStandardVerifyResponse>(await this.callApi(params, req, runtime), new Id2MetaStandardVerifyResponse({}));
+  }
+
+  /**
+   * 身份二要素标准版
+   * 
+   * @param request - Id2MetaStandardVerifyRequest
+   * @returns Id2MetaStandardVerifyResponse
+   */
+  async id2MetaStandardVerify(request: Id2MetaStandardVerifyRequest): Promise<Id2MetaStandardVerifyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.id2MetaStandardVerifyWithOptions(request, runtime);
+  }
+
+  /**
    * 身份二要素接口
    * 
    * @param request - Id2MetaVerifyRequest
@@ -8128,21 +8245,21 @@ export default class Client extends OpenApi {
    */
   async id2MetaVerifyWithOptions(request: Id2MetaVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Id2MetaVerifyResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.identifyNum)) {
-      query["IdentifyNum"] = request.identifyNum;
+      body["IdentifyNum"] = request.identifyNum;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
+      body["UserName"] = request.userName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "Id2MetaVerify",
@@ -8512,25 +8629,25 @@ export default class Client extends OpenApi {
    */
   async mobile3MetaDetailVerifyWithOptions(request: Mobile3MetaDetailVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaDetailVerifyResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.identifyNum)) {
-      query["IdentifyNum"] = request.identifyNum;
+      body["IdentifyNum"] = request.identifyNum;
     }
 
     if (!Util.isUnset(request.mobile)) {
-      query["Mobile"] = request.mobile;
+      body["Mobile"] = request.mobile;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
+      body["UserName"] = request.userName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "Mobile3MetaDetailVerify",
@@ -8566,25 +8683,25 @@ export default class Client extends OpenApi {
    */
   async mobile3MetaSimpleVerifyWithOptions(request: Mobile3MetaSimpleVerifyRequest, runtime: $Util.RuntimeOptions): Promise<Mobile3MetaSimpleVerifyResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.identifyNum)) {
-      query["IdentifyNum"] = request.identifyNum;
+      body["IdentifyNum"] = request.identifyNum;
     }
 
     if (!Util.isUnset(request.mobile)) {
-      query["Mobile"] = request.mobile;
+      body["Mobile"] = request.mobile;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     if (!Util.isUnset(request.userName)) {
-      query["UserName"] = request.userName;
+      body["UserName"] = request.userName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "Mobile3MetaSimpleVerify",
@@ -8620,17 +8737,17 @@ export default class Client extends OpenApi {
    */
   async mobileDetectWithOptions(request: MobileDetectRequest, runtime: $Util.RuntimeOptions): Promise<MobileDetectResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.mobiles)) {
-      query["Mobiles"] = request.mobiles;
+      body["Mobiles"] = request.mobiles;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "MobileDetect",
@@ -8666,17 +8783,17 @@ export default class Client extends OpenApi {
    */
   async mobileOnlineStatusWithOptions(request: MobileOnlineStatusRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineStatusResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.mobile)) {
-      query["Mobile"] = request.mobile;
+      body["Mobile"] = request.mobile;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "MobileOnlineStatus",
@@ -8712,17 +8829,17 @@ export default class Client extends OpenApi {
    */
   async mobileOnlineTimeWithOptions(request: MobileOnlineTimeRequest, runtime: $Util.RuntimeOptions): Promise<MobileOnlineTimeResponse> {
     Util.validateModel(request);
-    let query = { };
+    let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.mobile)) {
-      query["Mobile"] = request.mobile;
+      body["Mobile"] = request.mobile;
     }
 
     if (!Util.isUnset(request.paramType)) {
-      query["ParamType"] = request.paramType;
+      body["ParamType"] = request.paramType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "MobileOnlineTime",
