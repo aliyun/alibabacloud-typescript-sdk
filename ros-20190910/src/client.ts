@@ -2071,6 +2071,7 @@ export class CreateStackInstancesRequest extends $tea.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  deploymentOptions?: string[];
   /**
    * @remarks
    * The folders in which ROS deploy stacks in service-managed permission model.
@@ -2207,6 +2208,7 @@ export class CreateStackInstancesRequest extends $tea.Model {
     return {
       accountIds: 'AccountIds',
       clientToken: 'ClientToken',
+      deploymentOptions: 'DeploymentOptions',
       deploymentTargets: 'DeploymentTargets',
       disableRollback: 'DisableRollback',
       operationDescription: 'OperationDescription',
@@ -2223,6 +2225,7 @@ export class CreateStackInstancesRequest extends $tea.Model {
     return {
       accountIds: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      deploymentOptions: { 'type': 'array', 'itemType': 'string' },
       deploymentTargets: CreateStackInstancesRequestDeploymentTargets,
       disableRollback: 'boolean',
       operationDescription: 'string',
@@ -2261,6 +2264,7 @@ export class CreateStackInstancesShrinkRequest extends $tea.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  deploymentOptions?: string[];
   /**
    * @remarks
    * The folders in which ROS deploy stacks in service-managed permission model.
@@ -2397,6 +2401,7 @@ export class CreateStackInstancesShrinkRequest extends $tea.Model {
     return {
       accountIdsShrink: 'AccountIds',
       clientToken: 'ClientToken',
+      deploymentOptions: 'DeploymentOptions',
       deploymentTargetsShrink: 'DeploymentTargets',
       disableRollback: 'DisableRollback',
       operationDescription: 'OperationDescription',
@@ -2413,6 +2418,7 @@ export class CreateStackInstancesShrinkRequest extends $tea.Model {
     return {
       accountIdsShrink: 'string',
       clientToken: 'string',
+      deploymentOptions: { 'type': 'array', 'itemType': 'string' },
       deploymentTargetsShrink: 'string',
       disableRollback: 'boolean',
       operationDescription: 'string',
@@ -14829,6 +14835,7 @@ export class UpdateStackGroupRequest extends $tea.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  deploymentOptions?: string[];
   /**
    * @remarks
    * The ID of the request.
@@ -14975,6 +14982,7 @@ export class UpdateStackGroupRequest extends $tea.Model {
       autoDeployment: 'AutoDeployment',
       capabilities: 'Capabilities',
       clientToken: 'ClientToken',
+      deploymentOptions: 'DeploymentOptions',
       deploymentTargets: 'DeploymentTargets',
       description: 'Description',
       executionRoleName: 'ExecutionRoleName',
@@ -14999,6 +15007,7 @@ export class UpdateStackGroupRequest extends $tea.Model {
       autoDeployment: UpdateStackGroupRequestAutoDeployment,
       capabilities: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      deploymentOptions: { 'type': 'array', 'itemType': 'string' },
       deploymentTargets: UpdateStackGroupRequestDeploymentTargets,
       description: 'string',
       executionRoleName: 'string',
@@ -15071,6 +15080,7 @@ export class UpdateStackGroupShrinkRequest extends $tea.Model {
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  deploymentOptions?: string[];
   /**
    * @remarks
    * The ID of the request.
@@ -15217,6 +15227,7 @@ export class UpdateStackGroupShrinkRequest extends $tea.Model {
       autoDeploymentShrink: 'AutoDeployment',
       capabilities: 'Capabilities',
       clientToken: 'ClientToken',
+      deploymentOptions: 'DeploymentOptions',
       deploymentTargetsShrink: 'DeploymentTargets',
       description: 'Description',
       executionRoleName: 'ExecutionRoleName',
@@ -15241,6 +15252,7 @@ export class UpdateStackGroupShrinkRequest extends $tea.Model {
       autoDeploymentShrink: 'string',
       capabilities: { 'type': 'array', 'itemType': 'string' },
       clientToken: 'string',
+      deploymentOptions: { 'type': 'array', 'itemType': 'string' },
       deploymentTargetsShrink: 'string',
       description: 'string',
       executionRoleName: 'string',
@@ -26487,6 +26499,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.deploymentOptions)) {
+      query["DeploymentOptions"] = request.deploymentOptions;
+    }
+
     if (!Util.isUnset(request.deploymentTargetsShrink)) {
       query["DeploymentTargets"] = request.deploymentTargetsShrink;
     }
@@ -31361,6 +31377,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.deploymentOptions)) {
+      query["DeploymentOptions"] = request.deploymentOptions;
     }
 
     if (!Util.isUnset(request.deploymentTargetsShrink)) {
