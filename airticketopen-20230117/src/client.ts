@@ -2315,16 +2315,16 @@ export class CollectFlightLowestPriceRequest extends $tea.Model {
    * @remarks
    * This parameter is required.
    */
-  lowestPriceFlightList?: CollectFlightLowestPriceRequestLowestPriceFlightList[];
+  lowestPriceFlightInfoList?: CollectFlightLowestPriceRequestLowestPriceFlightInfoList[];
   static names(): { [key: string]: string } {
     return {
-      lowestPriceFlightList: 'lowestPriceFlightList',
+      lowestPriceFlightInfoList: 'lowest_price_flight_info_list',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lowestPriceFlightList: { 'type': 'array', 'itemType': CollectFlightLowestPriceRequestLowestPriceFlightList },
+      lowestPriceFlightInfoList: { 'type': 'array', 'itemType': CollectFlightLowestPriceRequestLowestPriceFlightInfoList },
     };
   }
 
@@ -2338,16 +2338,16 @@ export class CollectFlightLowestPriceShrinkRequest extends $tea.Model {
    * @remarks
    * This parameter is required.
    */
-  lowestPriceFlightListShrink?: string;
+  lowestPriceFlightInfoListShrink?: string;
   static names(): { [key: string]: string } {
     return {
-      lowestPriceFlightListShrink: 'lowestPriceFlightList',
+      lowestPriceFlightInfoListShrink: 'lowest_price_flight_info_list',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      lowestPriceFlightListShrink: 'string',
+      lowestPriceFlightInfoListShrink: 'string',
     };
   }
 
@@ -2362,6 +2362,10 @@ export class CollectFlightLowestPriceResponseBody extends $tea.Model {
    * 51593418-8C73-5E47-8BA8-3F1D4A00CC0B
    */
   requestId?: string;
+  /**
+   * @example
+   * null
+   */
   data?: { [key: string]: any };
   /**
    * @example
@@ -9695,40 +9699,7 @@ export class ChangeDetailListOfOrderNumResponseBodyData extends $tea.Model {
   }
 }
 
-export class CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * CA123,CA456
-   */
-  departureFlightNumber?: string;
-  /**
-   * @example
-   * CA123,CA456
-   */
-  returnFlightNumber?: string;
-  static names(): { [key: string]: string } {
-    return {
-      departureFlightNumber: 'departure_flight_number',
-      returnFlightNumber: 'return_flight_number',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      departureFlightNumber: 'string',
-      returnFlightNumber: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.Model {
+export class CollectFlightLowestPriceRequestLowestPriceFlightInfoList extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
@@ -9756,8 +9727,11 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.M
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * CA123,CA456
    */
-  flightNumberInfo?: CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo;
+  departureFlightNumber?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -9776,6 +9750,19 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.M
    * 2024-11-11
    */
   returnDate?: string;
+  /**
+   * @example
+   * CA123,CA456
+   */
+  returnFlightNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eJwz8DeySEo0NjQ01TU3TU7TNTFINNO1SE5O0jVKM0hKNjEwTElLNYwz0A32cNT1dfPVNTIwMjYwNjRQ8/A3NLI01Q0Ic0cRBwBVFxJJ
+   */
+  solutionId?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -9797,10 +9784,12 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.M
       arrivalCity: 'arrival_city',
       departureCity: 'departure_city',
       departureDate: 'departure_date',
-      flightNumberInfo: 'flight_number_info',
+      departureFlightNumber: 'departure_flight_number',
       marketTotalPrice: 'market_total_price',
       requestId: 'request_id',
       returnDate: 'return_date',
+      returnFlightNumber: 'return_flight_number',
+      solutionId: 'solution_id',
       suezTotalPrice: 'suez_total_price',
       tripType: 'trip_type',
     };
@@ -9811,10 +9800,12 @@ export class CollectFlightLowestPriceRequestLowestPriceFlightList extends $tea.M
       arrivalCity: 'string',
       departureCity: 'string',
       departureDate: 'string',
-      flightNumberInfo: CollectFlightLowestPriceRequestLowestPriceFlightListFlightNumberInfo,
+      departureFlightNumber: 'string',
       marketTotalPrice: 'number',
       requestId: 'string',
       returnDate: 'string',
+      returnFlightNumber: 'string',
+      solutionId: 'string',
       suezTotalPrice: 'number',
       tripType: 'number',
     };
@@ -16269,13 +16260,13 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new CollectFlightLowestPriceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.lowestPriceFlightList)) {
-      request.lowestPriceFlightListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lowestPriceFlightList, "lowestPriceFlightList", "json");
+    if (!Util.isUnset(tmpReq.lowestPriceFlightInfoList)) {
+      request.lowestPriceFlightInfoListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.lowestPriceFlightInfoList, "lowest_price_flight_info_list", "json");
     }
 
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.lowestPriceFlightListShrink)) {
-      body["lowestPriceFlightList"] = request.lowestPriceFlightListShrink;
+    if (!Util.isUnset(request.lowestPriceFlightInfoListShrink)) {
+      body["lowest_price_flight_info_list"] = request.lowestPriceFlightInfoListShrink;
     }
 
     let realHeaders : {[key: string ]: string} = { };
