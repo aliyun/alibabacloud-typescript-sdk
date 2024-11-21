@@ -2700,7 +2700,7 @@ export class Tensorboard extends $tea.Model {
    * tensorboard.pai
    */
   username?: string;
-  workspaceid?: string;
+  workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
       accessibility: 'Accessibility',
@@ -2732,7 +2732,7 @@ export class Tensorboard extends $tea.Model {
       token: 'Token',
       userId: 'UserId',
       username: 'Username',
-      workspaceid: 'Workspaceid',
+      workspaceId: 'WorkspaceId',
     };
   }
 
@@ -2767,7 +2767,7 @@ export class Tensorboard extends $tea.Model {
       token: 'string',
       userId: 'string',
       username: 'string',
-      workspaceid: 'string',
+      workspaceId: 'string',
     };
   }
 
@@ -4865,6 +4865,7 @@ export class ListJobsRequest extends $tea.Model {
    * desc
    */
   order?: string;
+  oversoldInfo?: string;
   /**
    * @example
    * 1
@@ -4925,6 +4926,7 @@ export class ListJobsRequest extends $tea.Model {
       jobId: 'JobId',
       jobType: 'JobType',
       order: 'Order',
+      oversoldInfo: 'OversoldInfo',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       pipelineId: 'PipelineId',
@@ -4952,6 +4954,7 @@ export class ListJobsRequest extends $tea.Model {
       jobId: 'string',
       jobType: 'string',
       order: 'string',
+      oversoldInfo: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       pipelineId: 'string',
@@ -5015,6 +5018,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
    * desc
    */
   order?: string;
+  oversoldInfo?: string;
   /**
    * @example
    * 1
@@ -5075,6 +5079,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       jobId: 'JobId',
       jobType: 'JobType',
       order: 'Order',
+      oversoldInfo: 'OversoldInfo',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       pipelineId: 'PipelineId',
@@ -5102,6 +5107,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
       jobId: 'string',
       jobType: 'string',
       order: 'string',
+      oversoldInfo: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       pipelineId: 'string',
@@ -6292,7 +6298,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "pai-dlc.aliyuncs.com",
@@ -7383,6 +7388,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.order)) {
       query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.oversoldInfo)) {
+      query["OversoldInfo"] = request.oversoldInfo;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
