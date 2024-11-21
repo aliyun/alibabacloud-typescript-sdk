@@ -218,7 +218,7 @@ export class DataQualityRule extends $tea.Model {
   target?: DataQualityRuleTarget;
   /**
    * @example
-   * system::user_defined
+   * SYSTEM:user_defined_sql
    */
   templateCode?: string;
   /**
@@ -575,6 +575,173 @@ export class CloneDataSourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CloneDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xm_create_test
+   */
+  name?: string;
+  notification?: CreateAlertRuleRequestNotification;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 279114181716147735
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerCondition?: CreateAlertRuleRequestTriggerCondition;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      name: 'Name',
+      notification: 'Notification',
+      owner: 'Owner',
+      triggerCondition: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      name: 'string',
+      notification: CreateAlertRuleRequestNotification,
+      owner: 'string',
+      triggerCondition: CreateAlertRuleRequestTriggerCondition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xm_create_test
+   */
+  name?: string;
+  notificationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 279114181716147735
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  triggerConditionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      name: 'Name',
+      notificationShrink: 'Notification',
+      owner: 'Owner',
+      triggerConditionShrink: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      name: 'string',
+      notificationShrink: 'string',
+      owner: 'string',
+      triggerConditionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 123123
+   */
+  id?: number;
+  /**
+   * @example
+   * A6C6B486-E3A2-5D52-9E76-D9380485D946
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAlertRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAlertRuleResponseBody,
     };
   }
 
@@ -2631,6 +2798,84 @@ export class CreateWorkflowDefinitionResponse extends $tea.Model {
   }
 }
 
+export class DeleteAlertRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * 105412
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAlertRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAlertRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAlertRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDIAlarmRuleRequest extends $tea.Model {
   /**
    * @remarks
@@ -3342,6 +3587,8 @@ export class DeleteProjectResponse extends $tea.Model {
 export class DeleteProjectMemberRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3350,6 +3597,8 @@ export class DeleteProjectMemberRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3377,6 +3626,9 @@ export class DeleteProjectMemberRequest extends $tea.Model {
 
 export class DeleteProjectMemberResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 1FF0465F-209C-5964-8F30-FAF21B677CC6
    */
@@ -4105,6 +4357,80 @@ export class ExecDeploymentStageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ExecDeploymentStageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * 28547072
+   */
+  id?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBody extends $tea.Model {
+  alertRule?: GetAlertRuleResponseBodyAlertRule;
+  /**
+   * @example
+   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertRule: 'AlertRule',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertRule: GetAlertRuleResponseBodyAlertRule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAlertRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAlertRuleResponseBody,
     };
   }
 
@@ -4939,6 +5265,10 @@ export class GetProjectResponse extends $tea.Model {
 export class GetProjectMemberRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4947,6 +5277,8 @@ export class GetProjectMemberRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.39e9281f3mhq4J), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4973,8 +5305,15 @@ export class GetProjectMemberRequest extends $tea.Model {
 }
 
 export class GetProjectMemberResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the member in the workspace.
+   */
   projectMember?: GetProjectMemberResponseBodyProjectMember;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1
    */
@@ -5463,6 +5802,8 @@ export class GetTaskResponse extends $tea.Model {
 export class GetTaskInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5488,10 +5829,17 @@ export class GetTaskInstanceRequest extends $tea.Model {
 
 export class GetTaskInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the instance.
+   */
   taskInstance?: GetTaskInstanceResponseBodyTaskInstance;
   static names(): { [key: string]: string } {
     return {
@@ -5726,6 +6074,8 @@ export class GetWorkflowDefinitionResponse extends $tea.Model {
 export class GrantMemberProjectRolesRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5734,11 +6084,17 @@ export class GrantMemberProjectRolesRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to assign to members in the workspace.
+   * 
    * This parameter is required.
    */
   roleCodes?: string[];
   /**
    * @remarks
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5769,6 +6125,8 @@ export class GrantMemberProjectRolesRequest extends $tea.Model {
 export class GrantMemberProjectRolesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5777,11 +6135,17 @@ export class GrantMemberProjectRolesShrinkRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to assign to members in the workspace.
+   * 
    * This parameter is required.
    */
   roleCodesShrink?: string;
   /**
    * @remarks
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5811,6 +6175,9 @@ export class GrantMemberProjectRolesShrinkRequest extends $tea.Model {
 
 export class GrantMemberProjectRolesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 2d9ced66-38ef-4923-baf6-391dd3a7e656
    */
@@ -5933,6 +6300,183 @@ export class ImportWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ImportWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * error_rule
+   */
+  name?: string;
+  /**
+   * @example
+   * 1933790683****
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1933790683****
+   */
+  receiver?: string;
+  taskIds?: number[];
+  types?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      receiver: 'Receiver',
+      taskIds: 'TaskIds',
+      types: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      receiver: 'string',
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      types: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * error_rule
+   */
+  name?: string;
+  /**
+   * @example
+   * 1933790683****
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1933790683****
+   */
+  receiver?: string;
+  taskIdsShrink?: string;
+  typesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      owner: 'Owner',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      receiver: 'Receiver',
+      taskIdsShrink: 'TaskIds',
+      typesShrink: 'Types',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      owner: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      receiver: 'string',
+      taskIdsShrink: 'string',
+      typesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBody extends $tea.Model {
+  pagingInfo?: ListAlertRulesResponseBodyPagingInfo;
+  /**
+   * @example
+   * A6C6B486-E3A2-5D52-9E76-D9380485D946
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListAlertRulesResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAlertRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAlertRulesResponseBody,
     };
   }
 
@@ -6587,56 +7131,89 @@ export class ListDIJobsResponse extends $tea.Model {
 
 export class ListDataQualityEvaluationTaskInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The start time of the data quality monitoring task.
+   * 
    * @example
    * 2024-04-01
    */
   bizdateFrom?: string;
   /**
+   * @remarks
+   * The end time of the data quality monitoring task.
+   * 
    * @example
    * 2024-05-01
    */
   bizdateTo?: string;
   /**
+   * @remarks
+   * The earliest start time at which the instances are generated.
+   * 
    * @example
    * 1710239005403
    */
   createTimeFrom?: number;
   /**
+   * @remarks
+   * The latest start time at which the instances are generated.
+   * 
    * @example
    * 1710239005403
    */
   createTimeTo?: number;
   /**
+   * @remarks
+   * The ID of the data quality monitoring task.
+   * 
    * @example
    * 10000
    */
   dataQualityEvaluationTaskId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The name of the trigger module of the instance.
+   * 
    * @example
    * CWF2
    */
   triggerClient?: string;
   /**
+   * @remarks
+   * The ID of the instance that is generated by the task.
+   * 
    * @example
    * 1001
    */
@@ -6680,21 +7257,20 @@ export class ListDataQualityEvaluationTaskInstancesRequest extends $tea.Model {
 
 export class ListDataQualityEvaluationTaskInstancesResponseBody extends $tea.Model {
   /**
-   * @example
-   * 200
+   * @remarks
+   * The pagination information.
    */
-  code?: string;
-  message?: string;
   pagingInfo?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       pagingInfo: 'PagingInfo',
       requestId: 'RequestId',
     };
@@ -6702,8 +7278,6 @@ export class ListDataQualityEvaluationTaskInstancesResponseBody extends $tea.Mod
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       pagingInfo: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo,
       requestId: 'string',
     };
@@ -6740,23 +7314,39 @@ export class ListDataQualityEvaluationTaskInstancesResponse extends $tea.Model {
 }
 
 export class ListDataQualityEvaluationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the data quality monitoring task. Fuzzy match is supported.
+   */
   name?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
@@ -6788,21 +7378,20 @@ export class ListDataQualityEvaluationTasksRequest extends $tea.Model {
 
 export class ListDataQualityEvaluationTasksResponseBody extends $tea.Model {
   /**
-   * @example
-   * 200
+   * @remarks
+   * The pagination information.
    */
-  code?: string;
-  message?: string;
   pagingInfo?: ListDataQualityEvaluationTasksResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       pagingInfo: 'PagingInfo',
       requestId: 'RequestId',
     };
@@ -6810,8 +7399,6 @@ export class ListDataQualityEvaluationTasksResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       pagingInfo: ListDataQualityEvaluationTasksResponseBodyPagingInfo,
       requestId: 'string',
     };
@@ -6849,11 +7436,17 @@ export class ListDataQualityEvaluationTasksResponse extends $tea.Model {
 
 export class ListDataQualityResultsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
    * @example
    * 2024-05-01
    */
   bizdateFrom?: string;
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
    * @example
    * 2024-05-04
    */
@@ -6935,21 +7528,20 @@ export class ListDataQualityResultsRequest extends $tea.Model {
 
 export class ListDataQualityResultsResponseBody extends $tea.Model {
   /**
-   * @example
-   * 200
+   * @remarks
+   * The pagination information.
    */
-  code?: string;
-  message?: string;
   pagingInfo?: ListDataQualityResultsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       pagingInfo: 'PagingInfo',
       requestId: 'RequestId',
     };
@@ -6957,8 +7549,6 @@ export class ListDataQualityResultsResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       pagingInfo: ListDataQualityResultsResponseBodyPagingInfo,
       requestId: 'string',
     };
@@ -6996,31 +7586,49 @@ export class ListDataQualityResultsResponse extends $tea.Model {
 
 export class ListDataQualityRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the data quality monitoring task that is associated with the rule.
+   * 
    * @example
    * 10000
    */
   dataQualityEvaluationTaskId?: number;
   /**
+   * @remarks
+   * The name of the rule. Fuzzy match is supported.
+   * 
    * @example
    * unit_test
    */
   name?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 200.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10002
    */
   projectId?: number;
   /**
+   * @remarks
+   * The ID of the table that is limited by the rule in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
@@ -7054,21 +7662,20 @@ export class ListDataQualityRulesRequest extends $tea.Model {
 
 export class ListDataQualityRulesResponseBody extends $tea.Model {
   /**
-   * @example
-   * 200
+   * @remarks
+   * The pagination information.
    */
-  code?: string;
-  message?: string;
   pagingInfo?: ListDataQualityRulesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'Code',
-      message: 'Message',
       pagingInfo: 'PagingInfo',
       requestId: 'RequestId',
     };
@@ -7076,8 +7683,6 @@ export class ListDataQualityRulesResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
       pagingInfo: ListDataQualityRulesResponseBodyPagingInfo,
       requestId: 'string',
     };
@@ -8225,24 +8830,42 @@ export class ListNodesResponse extends $tea.Model {
 
 export class ListProjectMembersRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
    * 62136
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   */
   roleCodes?: string[];
+  /**
+   * @remarks
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.7f96340a3HFgqS), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   */
   userIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8271,24 +8894,42 @@ export class ListProjectMembersRequest extends $tea.Model {
 
 export class ListProjectMembersShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
    * 62136
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   */
   roleCodesShrink?: string;
+  /**
+   * @remarks
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.7f96340a3HFgqS), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   */
   userIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8316,8 +8957,15 @@ export class ListProjectMembersShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectMembersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListProjectMembersResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 9FBBBB1F-DD5E-5D8E-8F50-37F77460F056
    */
@@ -9247,7 +9895,9 @@ export class ListTaskInstancesRequest extends $tea.Model {
    * @example
    * ODPS_SQL
    */
-  taskType?: number;
+  taskType?: string;
+  triggerRecurrence?: string;
+  triggerType?: string;
   /**
    * @example
    * 1234
@@ -9279,6 +9929,8 @@ export class ListTaskInstancesRequest extends $tea.Model {
       taskIds: 'TaskIds',
       taskName: 'TaskName',
       taskType: 'TaskType',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerType: 'TriggerType',
       workflowId: 'WorkflowId',
       workflowInstanceId: 'WorkflowInstanceId',
       workflowInstanceType: 'WorkflowInstanceType',
@@ -9300,7 +9952,9 @@ export class ListTaskInstancesRequest extends $tea.Model {
       taskId: 'number',
       taskIds: { 'type': 'array', 'itemType': 'number' },
       taskName: 'string',
-      taskType: 'number',
+      taskType: 'string',
+      triggerRecurrence: 'string',
+      triggerType: 'string',
       workflowId: 'number',
       workflowInstanceId: 'number',
       workflowInstanceType: 'string',
@@ -9376,7 +10030,9 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
    * @example
    * ODPS_SQL
    */
-  taskType?: number;
+  taskType?: string;
+  triggerRecurrence?: string;
+  triggerType?: string;
   /**
    * @example
    * 1234
@@ -9408,6 +10064,8 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
       taskIdsShrink: 'TaskIds',
       taskName: 'TaskName',
       taskType: 'TaskType',
+      triggerRecurrence: 'TriggerRecurrence',
+      triggerType: 'TriggerType',
       workflowId: 'WorkflowId',
       workflowInstanceId: 'WorkflowInstanceId',
       workflowInstanceType: 'WorkflowInstanceType',
@@ -9429,7 +10087,9 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
       taskId: 'number',
       taskIdsShrink: 'string',
       taskName: 'string',
-      taskType: 'number',
+      taskType: 'string',
+      triggerRecurrence: 'string',
+      triggerType: 'string',
       workflowId: 'number',
       workflowInstanceId: 'number',
       workflowInstanceType: 'string',
@@ -11337,6 +11997,8 @@ export class ResumeTaskInstancesResponse extends $tea.Model {
 export class RevokeMemberProjectRolesRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11345,11 +12007,17 @@ export class RevokeMemberProjectRolesRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to revoke from the member in the workspace.
+   * 
    * This parameter is required.
    */
   roleCodes?: string[];
   /**
    * @remarks
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11380,6 +12048,8 @@ export class RevokeMemberProjectRolesRequest extends $tea.Model {
 export class RevokeMemberProjectRolesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11388,11 +12058,17 @@ export class RevokeMemberProjectRolesShrinkRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to revoke from the member in the workspace.
+   * 
    * This parameter is required.
    */
   roleCodesShrink?: string;
   /**
    * @remarks
+   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11422,6 +12098,9 @@ export class RevokeMemberProjectRolesShrinkRequest extends $tea.Model {
 
 export class RevokeMemberProjectRolesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 676271D6-53B4-57BE-89FA-72F7AE1418DF
    */
@@ -12087,6 +12766,161 @@ export class TriggerSchedulerTaskInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TriggerSchedulerTaskInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * 105412
+   */
+  id?: number;
+  /**
+   * @example
+   * collection_name
+   */
+  name?: string;
+  notification?: UpdateAlertRuleRequestNotification;
+  /**
+   * @example
+   * 193379****
+   */
+  owner?: string;
+  triggerCondition?: UpdateAlertRuleRequestTriggerCondition;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      notification: 'Notification',
+      owner: 'Owner',
+      triggerCondition: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      notification: UpdateAlertRuleRequestNotification,
+      owner: 'string',
+      triggerCondition: UpdateAlertRuleRequestTriggerCondition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * 105412
+   */
+  id?: number;
+  /**
+   * @example
+   * collection_name
+   */
+  name?: string;
+  notificationShrink?: string;
+  /**
+   * @example
+   * 193379****
+   */
+  owner?: string;
+  triggerConditionShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      notificationShrink: 'Notification',
+      owner: 'Owner',
+      triggerConditionShrink: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      notificationShrink: 'string',
+      owner: 'string',
+      triggerConditionShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D85FEE2B-6174-5817-AF9E-FDD02FEDA5BC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAlertRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAlertRuleResponseBody,
     };
   }
 
@@ -14208,7 +15042,7 @@ export class DataQualityResultRule extends $tea.Model {
   target?: DataQualityResultRuleTarget;
   /**
    * @example
-   * system::user_defined
+   * SYSTEM:user_defined_sql
    */
   templateCode?: string;
   /**
@@ -14512,6 +15346,389 @@ export class DataQualityRuleTarget extends $tea.Model {
       databaseType: 'string',
       partitionSpec: 'string',
       tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":true}
+   */
+  extension?: string;
+  /**
+   * @example
+   * TaskOwner
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestNotification extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  channels?: string[];
+  /**
+   * @example
+   * 30
+   */
+  intervalInMinutes?: number;
+  /**
+   * @example
+   * 3
+   */
+  maximum?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  receivers?: CreateAlertRuleRequestNotificationReceivers[];
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceEndTime?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      intervalInMinutes: 'IntervalInMinutes',
+      maximum: 'Maximum',
+      receivers: 'Receivers',
+      silenceEndTime: 'SilenceEndTime',
+      silenceStartTime: 'SilenceStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      intervalInMinutes: 'number',
+      maximum: 'number',
+      receivers: { 'type': 'array', 'itemType': CreateAlertRuleRequestNotificationReceivers },
+      silenceEndTime: 'string',
+      silenceStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cycleId?: number;
+  /**
+   * @example
+   * 12:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleId: 'CycleId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleId: 'number',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  cycleAndTime?: CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
+  static names(): { [key: string]: string } {
+    return {
+      cycleAndTime: 'CycleAndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleAndTime: { 'type': 'array', 'itemType': CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionError extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  autoRerunAlert?: boolean;
+  streamTaskIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRerunAlert: 'AutoRerunAlert',
+      streamTaskIds: 'StreamTaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRerunAlert: 'boolean',
+      streamTaskIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  /**
+   * @example
+   * abs
+   */
+  trend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      trend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtensionUnFinished extends $tea.Model {
+  /**
+   * @example
+   * 30:00
+   */
+  unFinishedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      unFinishedTime: 'UnFinishedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      unFinishedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionExtension extends $tea.Model {
+  cycleUnfinished?: CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished;
+  error?: CreateAlertRuleRequestTriggerConditionExtensionError;
+  instanceErrorCount?: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount;
+  instanceErrorPercentage?: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage;
+  instanceTransferFluctuate?: CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate;
+  timeout?: CreateAlertRuleRequestTriggerConditionExtensionTimeout;
+  unFinished?: CreateAlertRuleRequestTriggerConditionExtensionUnFinished;
+  static names(): { [key: string]: string } {
+    return {
+      cycleUnfinished: 'CycleUnfinished',
+      error: 'Error',
+      instanceErrorCount: 'InstanceErrorCount',
+      instanceErrorPercentage: 'InstanceErrorPercentage',
+      instanceTransferFluctuate: 'InstanceTransferFluctuate',
+      timeout: 'Timeout',
+      unFinished: 'UnFinished',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleUnfinished: CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished,
+      error: CreateAlertRuleRequestTriggerConditionExtensionError,
+      instanceErrorCount: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount,
+      instanceErrorPercentage: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage,
+      instanceTransferFluctuate: CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate,
+      timeout: CreateAlertRuleRequestTriggerConditionExtensionTimeout,
+      unFinished: CreateAlertRuleRequestTriggerConditionExtensionUnFinished,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
+  allowTasks?: number[];
+  ids?: number[];
+  /**
+   * @example
+   * Task
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowTasks: 'AllowTasks',
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowTasks: { 'type': 'array', 'itemType': 'number' },
+      ids: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAlertRuleRequestTriggerCondition extends $tea.Model {
+  extension?: CreateAlertRuleRequestTriggerConditionExtension;
+  target?: CreateAlertRuleRequestTriggerConditionTarget;
+  /**
+   * @example
+   * Error
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: CreateAlertRuleRequestTriggerConditionExtension,
+      target: CreateAlertRuleRequestTriggerConditionTarget,
       type: 'string',
     };
   }
@@ -15197,6 +16414,431 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $tea.Mode
       id: 'string',
       orderId: 'number',
       orderInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":true}
+   */
+  extension?: string;
+  /**
+   * @example
+   * WebhookUrl
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleNotification extends $tea.Model {
+  channels?: string[];
+  /**
+   * @example
+   * 30
+   */
+  intervalInMinutes?: number;
+  /**
+   * @example
+   * 3
+   */
+  maximum?: number;
+  receivers?: GetAlertRuleResponseBodyAlertRuleNotificationReceivers[];
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceEndTime?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      intervalInMinutes: 'IntervalInMinutes',
+      maximum: 'Maximum',
+      receivers: 'Receivers',
+      silenceEndTime: 'SilenceEndTime',
+      silenceStartTime: 'SilenceStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      intervalInMinutes: 'number',
+      maximum: 'number',
+      receivers: { 'type': 'array', 'itemType': GetAlertRuleResponseBodyAlertRuleNotificationReceivers },
+      silenceEndTime: 'string',
+      silenceStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cycleId?: number;
+  /**
+   * @example
+   * 12:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleId: 'CycleId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleId: 'number',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  cycleAndTime?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
+  static names(): { [key: string]: string } {
+    return {
+      cycleAndTime: 'CycleAndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleAndTime: { 'type': 'array', 'itemType': GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  autoRerunAlert?: boolean;
+  streamTaskIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRerunAlert: 'AutoRerunAlert',
+      streamTaskIds: 'StreamTaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRerunAlert: 'boolean',
+      streamTaskIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  /**
+   * @example
+   * 10
+   */
+  trend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      trend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished extends $tea.Model {
+  /**
+   * @example
+   * 12:00
+   */
+  unFinishedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      unFinishedTime: 'UnFinishedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      unFinishedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension extends $tea.Model {
+  cycleUnfinished?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished;
+  error?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError;
+  instanceErrorCount?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount;
+  instanceErrorPercentage?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage;
+  instanceTransferFluctuate?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate;
+  timeout?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout;
+  unFinished?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished;
+  static names(): { [key: string]: string } {
+    return {
+      cycleUnfinished: 'CycleUnfinished',
+      error: 'Error',
+      instanceErrorCount: 'InstanceErrorCount',
+      instanceErrorPercentage: 'InstanceErrorPercentage',
+      instanceTransferFluctuate: 'InstanceTransferFluctuate',
+      timeout: 'Timeout',
+      unFinished: 'UnFinished',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleUnfinished: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished,
+      error: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError,
+      instanceErrorCount: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount,
+      instanceErrorPercentage: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage,
+      instanceTransferFluctuate: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate,
+      timeout: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout,
+      unFinished: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget extends $tea.Model {
+  allowTasks?: number[];
+  ids?: number[];
+  /**
+   * @example
+   * Task
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowTasks: 'AllowTasks',
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowTasks: { 'type': 'array', 'itemType': 'number' },
+      ids: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRuleTriggerCondition extends $tea.Model {
+  extension?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension;
+  target?: GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget;
+  /**
+   * @example
+   * Error
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension,
+      target: GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAlertRuleResponseBodyAlertRule extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * 16035
+   */
+  id?: number;
+  /**
+   * @example
+   * error_rule
+   */
+  name?: string;
+  notification?: GetAlertRuleResponseBodyAlertRuleNotification;
+  /**
+   * @example
+   * 279961421580845157
+   */
+  owner?: string;
+  triggerCondition?: GetAlertRuleResponseBodyAlertRuleTriggerCondition;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      notification: 'Notification',
+      owner: 'Owner',
+      triggerCondition: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      notification: GetAlertRuleResponseBodyAlertRuleNotification,
+      owner: 'string',
+      triggerCondition: GetAlertRuleResponseBodyAlertRuleTriggerCondition,
     };
   }
 
@@ -16611,12 +18253,36 @@ export class GetProjectResponseBodyProject extends $tea.Model {
 
 export class GetProjectMemberResponseBodyProjectMemberRoles extends $tea.Model {
   /**
+   * @remarks
+   * The code of the role. Valid values:
+   * 
+   * *   role_project_admin: Workspace Administrator
+   * *   role_project_dev: Develop
+   * *   role_project_dg_admin: Data Governance Administrator
+   * *   role_project_guest: Visitor
+   * *   role_project_security: Security Administrator
+   * *   role_project_deploy: Deploy
+   * *   role_project_owner: Workspace Owner
+   * *   role_project_data_analyst: Data Analyst
+   * *   role_project_pe: O\\&M
+   * *   role_project_erd: Model Designer
+   * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The name of the role.
+   */
   name?: string;
   /**
+   * @remarks
+   * The type of the role. Valid values:
+   * 
+   * *   UserCustom: custom role
+   * *   System: built-in role
+   * 
    * @example
    * System
    */
@@ -16644,17 +18310,33 @@ export class GetProjectMemberResponseBodyProjectMemberRoles extends $tea.Model {
 
 export class GetProjectMemberResponseBodyProjectMember extends $tea.Model {
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 88757
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The roles that are assigned to the member in the workspace.
+   */
   roles?: GetProjectMemberResponseBodyProjectMemberRoles[];
   /**
+   * @remarks
+   * The status of the member.
+   * 
+   * *   Normal
+   * *   Forbidden
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the account used by the member in the workspace.
+   * 
    * @example
    * 123422344899
    */
@@ -17015,22 +18697,21 @@ export class GetTaskResponseBodyTaskDependencies extends $tea.Model {
    * Normal
    */
   type?: string;
-  /**
-   * @example
-   * pre.odps_sql_demo_0
-   */
-  upstream?: string;
+  upstreamOutput?: string;
+  upstreamTaskId?: string;
   static names(): { [key: string]: string } {
     return {
       type: 'Type',
-      upstream: 'Upstream',
+      upstreamOutput: 'UpstreamOutput',
+      upstreamTaskId: 'UpstreamTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       type: 'string',
-      upstream: 'string',
+      upstreamOutput: 'string',
+      upstreamTaskId: 'string',
     };
   }
 
@@ -17047,11 +18728,6 @@ export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
   name?: string;
   /**
    * @example
-   * TaskContext
-   */
-  scope?: string;
-  /**
-   * @example
    * Constant
    */
   type?: string;
@@ -17063,7 +18739,6 @@ export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      scope: 'Scope',
       type: 'Type',
       value: 'Value',
     };
@@ -17072,7 +18747,6 @@ export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      scope: 'string',
       type: 'string',
       value: 'string',
     };
@@ -17133,11 +18807,6 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
   name?: string;
   /**
    * @example
-   * TaskContext
-   */
-  scope?: string;
-  /**
-   * @example
    * Constant
    */
   type?: string;
@@ -17149,7 +18818,6 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      scope: 'Scope',
       type: 'Type',
       value: 'Value',
     };
@@ -17158,7 +18826,6 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      scope: 'string',
       type: 'string',
       value: 'string',
     };
@@ -17655,6 +19322,7 @@ export class GetTaskResponseBodyTask extends $tea.Model {
    */
   id?: number;
   inputs?: GetTaskResponseBodyTaskInputs;
+  instanceMode?: string;
   /**
    * @example
    * 1710239005403
@@ -17737,6 +19405,7 @@ export class GetTaskResponseBodyTask extends $tea.Model {
       description: 'Description',
       id: 'Id',
       inputs: 'Inputs',
+      instanceMode: 'InstanceMode',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
@@ -17770,6 +19439,7 @@ export class GetTaskResponseBodyTask extends $tea.Model {
       description: 'string',
       id: 'number',
       inputs: GetTaskResponseBodyTaskInputs,
+      instanceMode: 'string',
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
@@ -17800,6 +19470,9 @@ export class GetTaskResponseBodyTask extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstanceDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -17823,21 +19496,30 @@ export class GetTaskInstanceResponseBodyTaskInstanceDataSource extends $tea.Mode
 
 export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $tea.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * Key1
    */
   name?: string;
   /**
-   * @example
-   * TaskContext
-   */
-  scope?: string;
-  /**
+   * @remarks
+   * The type. Valid values:
+   * 
+   * *   Constant: constant
+   * *   PassThrough: node output
+   * *   System: variable
+   * *   NodeOutput: script output
+   * 
    * @example
    * Constant
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * Value1
    */
@@ -17845,7 +19527,6 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $tea
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      scope: 'Scope',
       type: 'Type',
       value: 'Value',
     };
@@ -17854,7 +19535,6 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $tea
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      scope: 'string',
       type: 'string',
       value: 'string',
     };
@@ -17866,6 +19546,10 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputsVariables extends $tea
 }
 
 export class GetTaskInstanceResponseBodyTaskInstanceInputs extends $tea.Model {
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: GetTaskInstanceResponseBodyTaskInstanceInputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -17886,6 +19570,9 @@ export class GetTaskInstanceResponseBodyTaskInstanceInputs extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs extends $tea.Model {
   /**
+   * @remarks
+   * The output identifier.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -17909,21 +19596,30 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs extends $
 
 export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $tea.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
-   * @example
-   * TaskContext
-   */
-  scope?: string;
-  /**
+   * @remarks
+   * The type. Valid values:
+   * 
+   * *   Constant: constant
+   * *   PassThrough: node output
+   * *   System: variable
+   * *   NodeOutput: script output
+   * 
    * @example
    * Constant
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -17931,7 +19627,6 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $te
   static names(): { [key: string]: string } {
     return {
       name: 'Name',
-      scope: 'Scope',
       type: 'Type',
       value: 'Value',
     };
@@ -17940,7 +19635,6 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $te
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      scope: 'string',
       type: 'string',
       value: 'string',
     };
@@ -17952,7 +19646,15 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputsVariables extends $te
 }
 
 export class GetTaskInstanceResponseBodyTaskInstanceOutputs extends $tea.Model {
+  /**
+   * @remarks
+   * The task outputs.
+   */
   taskOutputs?: GetTaskInstanceResponseBodyTaskInstanceOutputsTaskOutputs[];
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: GetTaskInstanceResponseBodyTaskInstanceOutputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -17975,11 +19677,17 @@ export class GetTaskInstanceResponseBodyTaskInstanceOutputs extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $tea.Model {
   /**
+   * @remarks
+   * The host for running.
+   * 
    * @example
    * cn-shanghai.1.2
    */
   gateway?: string;
   /**
+   * @remarks
+   * The instance run ID.
+   * 
    * @example
    * T3_123
    */
@@ -18005,16 +19713,25 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntime extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of CUs configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -18042,11 +19759,17 @@ export class GetTaskInstanceResponseBodyTaskInstanceRuntimeResource extends $tea
 
 export class GetTaskInstanceResponseBodyTaskInstanceScript extends $tea.Model {
   /**
+   * @remarks
+   * The script content.
+   * 
    * @example
    * echo "helloWorld"
    */
   content?: string;
   /**
+   * @remarks
+   * The script parameters.
+   * 
    * @example
    * para1=$bizdate
    */
@@ -18072,11 +19795,17 @@ export class GetTaskInstanceResponseBodyTaskInstanceScript extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstanceTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -18102,148 +19831,296 @@ export class GetTaskInstanceResponseBodyTaskInstanceTags extends $tea.Model {
 
 export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The data timestamp.
+   * 
    * @example
    * 1710239005403
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: GetTaskInstanceResponseBodyTaskInstanceDataSource;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The input information.
+   */
   inputs?: GetTaskInstanceResponseBodyTaskInstanceInputs;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: GetTaskInstanceResponseBodyTaskInstanceOutputs;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
+  periodNumber?: number;
   /**
+   * @remarks
+   * The task priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace. Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun mode. Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times the instance is run. By default, the value starts from 1.
+   * 
    * @example
    * 1
    */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: GetTaskInstanceResponseBodyTaskInstanceRuntime;
+  /**
+   * @remarks
+   * The information about the resource group with which the instance is associated.
+   */
   runtimeResource?: GetTaskInstanceResponseBodyTaskInstanceRuntimeResource;
+  /**
+   * @remarks
+   * The script information.
+   */
   script?: GetTaskInstanceResponseBodyTaskInstanceScript;
   /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
    * @example
    * Success
    */
   status?: string;
+  /**
+   * @remarks
+   * The tags of the task.
+   */
   tags?: GetTaskInstanceResponseBodyTaskInstanceTags[];
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 1
    */
   timeout?: number;
   /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The scheduling time.
+   * 
    * @example
    * 1710239005403
    */
   triggerTime?: number;
   /**
+   * @remarks
+   * The method to trigger instance scheduling. The value of the Trigger.Type parameter in the response of the GetTask operation is used. Valid values:
+   * 
+   * *   Scheduler
+   * *   Manual
+   * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance. Valid values:
+   * 
+   * *   SmokeTest
+   * *   SupplementData
+   * *   Manual
+   * *   ManualWorkflow
+   * *   Normal
+   * *   ManualFlow
+   * 
    * @example
    * Normal
    */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18260,6 +20137,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
       modifyUser: 'ModifyUser',
       outputs: 'Outputs',
       owner: 'Owner',
+      periodNumber: 'PeriodNumber',
       priority: 'Priority',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
@@ -18301,6 +20179,7 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
       modifyUser: 'string',
       outputs: GetTaskInstanceResponseBodyTaskInstanceOutputs,
       owner: 'string',
+      periodNumber: 'number',
       priority: 'number',
       projectEnv: 'string',
       projectId: 'number',
@@ -18476,6 +20355,385 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $tea.Model {
       response: 'string',
       status: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cycleId?: number;
+  /**
+   * @example
+   * 01:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleId: 'CycleId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleId: 'number',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  cycleAndTime?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
+  static names(): { [key: string]: string } {
+    return {
+      cycleAndTime: 'CycleAndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleAndTime: { 'type': 'array', 'itemType': ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  autoRerunAlert?: boolean;
+  streamTaskIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRerunAlert: 'AutoRerunAlert',
+      streamTaskIds: 'StreamTaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRerunAlert: 'boolean',
+      streamTaskIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  /**
+   * @example
+   * abs
+   */
+  trend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      trend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished extends $tea.Model {
+  /**
+   * @example
+   * 12:00
+   */
+  unFinishedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      unFinishedTime: 'UnFinishedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      unFinishedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension extends $tea.Model {
+  cycleUnfinished?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished;
+  error?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError;
+  instanceErrorCount?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount;
+  instanceErrorPercentage?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage;
+  instanceTransferFluctuate?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate;
+  timeout?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout;
+  unFinished?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished;
+  static names(): { [key: string]: string } {
+    return {
+      cycleUnfinished: 'CycleUnfinished',
+      error: 'Error',
+      instanceErrorCount: 'InstanceErrorCount',
+      instanceErrorPercentage: 'InstanceErrorPercentage',
+      instanceTransferFluctuate: 'InstanceTransferFluctuate',
+      timeout: 'Timeout',
+      unFinished: 'UnFinished',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleUnfinished: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished,
+      error: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError,
+      instanceErrorCount: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount,
+      instanceErrorPercentage: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage,
+      instanceTransferFluctuate: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate,
+      timeout: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout,
+      unFinished: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget extends $tea.Model {
+  allowTasks?: number[];
+  ids?: number[];
+  /**
+   * @example
+   * Task
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowTasks: 'AllowTasks',
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowTasks: { 'type': 'array', 'itemType': 'number' },
+      ids: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition extends $tea.Model {
+  extension?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension;
+  target?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget;
+  /**
+   * @example
+   * Error
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension,
+      target: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfoAlertRules extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @example
+   * 22125
+   */
+  id?: number;
+  /**
+   * @example
+   * error_test
+   */
+  name?: string;
+  /**
+   * @example
+   * 1933790683****
+   */
+  owner?: string;
+  triggerCondition?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      id: 'Id',
+      name: 'Name',
+      owner: 'Owner',
+      triggerCondition: 'TriggerCondition',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      id: 'number',
+      name: 'string',
+      owner: 'string',
+      triggerCondition: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAlertRulesResponseBodyPagingInfo extends $tea.Model {
+  alertRules?: ListAlertRulesResponseBodyPagingInfoAlertRules[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertRules: 'AlertRules',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertRules: { 'type': 'array', 'itemType': ListAlertRulesResponseBodyPagingInfoAlertRules },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -19259,7 +21517,7 @@ export class ListDIJobsResponseBodyPagingInfo extends $tea.Model {
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks extends $tea.Model {
   /**
    * @remarks
-   * Hook触发条件
+   * The trigger configuration of the callback event.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -19267,7 +21525,9 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   condition?: string;
   /**
    * @remarks
-   * Hook类型
+   * The type of the callback event.
+   * 
+   * *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
    * 
    * @example
    * BlockTaskInstance
@@ -19295,7 +21555,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers extends $tea.Model {
   /**
    * @remarks
-   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
    * 
    * @example
    * {"atAll":"true"}
@@ -19303,7 +21563,13 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   extension?: string;
   /**
    * @remarks
-   * 告警接收人类型
+   * The type of the alert recipient. Valid values:
+   * 
+   * *   AliUid: Alibaba Cloud account ID
+   * *   WebhookUrl: URL of a custom webhook
+   * *   DingdingUrl: DingTalk chatbot URL
+   * *   FeishuUrl: Lark chatbot URL
+   * *   WeixinUrl: WeCom chatbot URL
    * 
    * @example
    * AliUid
@@ -19311,7 +21577,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   receiverType?: string;
   /**
    * @remarks
-   * 告警接收人
+   * The alert recipients.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -19338,7 +21604,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
   /**
    * @remarks
-   * 通知方式
+   * The alert notification methods.
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -19361,12 +21627,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications extends $tea.Model {
   /**
    * @remarks
-   * 告警接收人设置
+   * The alert recipients.
    */
   nofiticationReceivers?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNofiticationReceivers[];
   /**
    * @remarks
-   * 通知方式
+   * The alert notification methods.
    */
   notificationChannels?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotificationsNotificationChannels[];
   static names(): { [key: string]: string } {
@@ -19391,7 +21657,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications extends $tea.Model {
   /**
    * @remarks
-   * 通知触发条件
+   * The trigger condition of the alert notification.
    * 
    * @example
    * ${severity} == "High"
@@ -19399,7 +21665,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   condition?: string;
   /**
    * @remarks
-   * 具体的消息通知设置
+   * The configurations for the alert notification.
    */
   notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -19424,7 +21690,15 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget extends $tea.Model {
   /**
    * @remarks
-   * 表所属的数据库类型
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
    * 
    * @example
    * maxcompute
@@ -19432,7 +21706,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   databaseType?: string;
   /**
    * @remarks
-   * 分区表的分区设置
+   * The configuration of the partitioned table.
    * 
    * @example
    * ds=$[yyyymmdd-1]
@@ -19440,7 +21714,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   partitionSpec?: string;
   /**
    * @remarks
-   * 表在数据地图中的唯一ID
+   * The ID of the table in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -19448,7 +21722,9 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   tableGuid?: string;
   /**
    * @remarks
-   * 监控对象类型
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
    * 
    * @example
    * Table
@@ -19480,12 +21756,14 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger extends $tea.Model {
   /**
    * @remarks
-   * 具体指明哪些调度节点的实例执行成功后可以触发
+   * The IDs of the auto triggered nodes of which the instances are successfully run.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * 何种事件可以触发质量校验任务执行
+   * The trigger condition of the task.
+   * 
+   * *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -19513,7 +21791,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask extends $tea.Model {
   /**
    * @remarks
-   * 质量监控任务描述
+   * The description of the task.
    * 
    * @example
    * This is a daily run data quality evaluation plan.
@@ -19521,12 +21799,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   description?: string;
   /**
    * @remarks
-   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   * The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
    */
   hooks?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskHooks[];
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The task ID.
    * 
    * @example
    * 10001
@@ -19534,19 +21812,19 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   id?: number;
   /**
    * @remarks
-   * 质量监控任务名称
+   * The name of the task.
    * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
-   * 数据质量校验任务通知订阅配置
+   * The configurations for alert notifications.
    */
   notifications?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskNotifications;
   /**
    * @remarks
-   * 项目空间Id
+   * The workspace ID.
    * 
    * @example
    * 100
@@ -19554,7 +21832,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   projectId?: number;
   /**
    * @remarks
-   * 代表region的资源属性字段
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -19562,7 +21840,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   regionId?: string;
   /**
    * @remarks
-   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK-SQL" }
@@ -19570,12 +21848,12 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   runtimeConf?: string;
   /**
    * @remarks
-   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   * The monitored object of the task.
    */
   target?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTarget;
   /**
    * @remarks
-   * 租户Id
+   * The tenant ID.
    * 
    * @example
    * 10
@@ -19583,7 +21861,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   tenantId?: number;
   /**
    * @remarks
-   * 数据质量校验任务的触发配置
+   * The trigger configuration of the task.
    */
   trigger?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTaskTrigger;
   static names(): { [key: string]: string } {
@@ -19625,21 +21903,33 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances extends $tea.Model {
   /**
+   * @remarks
+   * The time at which the instance was generated.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The time at which the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishTime?: number;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * 10001
    */
   id?: number;
   /**
+   * @remarks
+   * The parameters configured for the instance.
+   * 
    * @example
    * {
    *   "bizdate": "20240517",
@@ -19648,17 +21938,36 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
    */
   parameters?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The status of the instance. Valid values:
+   * 
+   * *   Running
+   * *   Error
+   * *   Passed
+   * *   Warned
+   * *   Critical
+   * 
    * @example
    * Critical
    */
   status?: string;
+  /**
+   * @remarks
+   * The snapshot of the configurations for the task when the task starts.
+   */
   task?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstancesTask;
   /**
+   * @remarks
+   * The information about the trigger module of the instance.
+   * 
    * @example
    * {
    *   "TriggerClientId": 10001,
@@ -19698,18 +22007,31 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
 }
 
 export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The instances generated by the task.
+   */
   dataQualityEvaluationTaskInstances?: ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQualityEvaluationTaskInstances[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 294
    */
@@ -19739,11 +22061,19 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfo extend
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks extends $tea.Model {
   /**
+   * @remarks
+   * The trigger configuration of the callback event.
+   * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
    */
   condition?: string;
   /**
+   * @remarks
+   * The type of the callback event.
+   * 
+   * *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+   * 
    * @example
    * BlockTaskInstance
    */
@@ -19768,6 +22098,10 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   channels?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -19788,15 +22122,31 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+   * 
    * @example
    * {"atAll":"true"}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of the alert recipient. Valid values:
+   * 
+   * *   AliUid: Alibaba Cloud account ID
+   * *   WebhookUrl: URL of a custom webhook
+   * *   DingdingUrl: DingTalk chatbot URL
+   * *   FeishuUrl: Lark chatbot URL
+   * *   WeixinUrl: WeCom chatbot URL
+   * 
    * @example
    * AliUid
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -19820,7 +22170,15 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notificationChannels?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   notificationReceivers?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -19843,10 +22201,17 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications extends $tea.Model {
   /**
+   * @remarks
+   * The trigger condition of the alert notification.
+   * 
    * @example
    * ${severity} == "High"
    */
   condition?: string;
+  /**
+   * @remarks
+   * The configurations for the alert notification.
+   */
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotificationsNotifications[];
   static names(): { [key: string]: string } {
     return {
@@ -19869,21 +22234,43 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget extends $tea.Model {
   /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
    * @example
    * ds=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The ID of the table in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
    * @example
    * Table
    */
@@ -19912,8 +22299,17 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+   */
   taskIds?: number[];
   /**
+   * @remarks
+   * The trigger condition of the task.
+   * 
+   * *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+   * 
    * @example
    * ByScheduledTaskInstance
    */
@@ -19939,34 +22335,69 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks extends $tea.Model {
   /**
+   * @remarks
+   * The description of the data quality monitoring task. The description can be up to 65,535 characters in length.
+   * 
    * @example
    * This is a daily run data quality evaluation plan
    */
   description?: string;
+  /**
+   * @remarks
+   * The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+   */
   hooks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksHooks[];
   /**
+   * @remarks
+   * The ID of the data quality monitoring task.
+   * 
    * @example
    * 10001
    */
   id?: number;
+  /**
+   * @remarks
+   * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The configurations for alert notifications.
+   */
   notifications?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksNotifications;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
+   * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK-SQL" }
    */
   runtimeConf?: string;
+  /**
+   * @remarks
+   * The monitored object of the task.
+   */
   target?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTarget;
   /**
+   * @remarks
+   * The DataWorks tenant ID.
+   * 
    * @example
    * 10
    */
   tenantId?: number;
+  /**
+   * @remarks
+   * The trigger configuration of the task.
+   */
   trigger?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasksTrigger;
   static names(): { [key: string]: string } {
     return {
@@ -20004,18 +22435,31 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
 }
 
 export class ListDataQualityEvaluationTasksResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The data quality monitoring tasks.
+   */
   dataQualityEvaluationTasks?: ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEvaluationTasks[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 131
    */
@@ -20056,10 +22500,12 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetai
   referencedValue?: string;
   /**
    * @remarks
-   * *   ERROR
-   * *   PASSED
-   * *   WARNED
-   * *   CRITICAL
+   * The comparison result between the value of CheckedValue and the threshold. Valid values:
+   * 
+   * *   Error
+   * *   Passed
+   * *   Warned
+   * *   Critical
    * 
    * @example
    * PASSED
@@ -20234,12 +22680,14 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleC
   thresholds?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfigThresholds;
   /**
    * @remarks
-   * *   FIXED
-   * *   FLUCTATION
-   * *   AUTO
-   * *   AVERAGE
-   * *   VARIANCE
-   * *   FLUCTATION_DISCREATE
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
    * 
    * @example
    * FIXED
@@ -20274,7 +22722,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleE
   errorDataFilter?: string;
   /**
    * @remarks
-   * *   SAVE_ERROR_DATA
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
    * 
    * @example
    * SAVE_ERROR_DATA
@@ -20302,20 +22752,23 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleE
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig extends $tea.Model {
   /**
    * @remarks
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
    * 
    * @example
    * COUNT
@@ -20362,13 +22815,15 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleS
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget extends $tea.Model {
   /**
    * @remarks
-   * *   MAX_COMPUTE
-   * *   EMR
-   * *   CDH
-   * *   HOLOGRES
-   * *   ANALYTICDB_FOR_POSTGRESQL
-   * *   ANALYTICDB_FOR_MYSQL
-   * *   STAR_ROCKS
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
    * 
    * @example
    * MAX_COMPUTE
@@ -20386,7 +22841,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
   tableGuid?: string;
   /**
    * @remarks
-   * *   TABLE
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
    * 
    * @example
    * TABLE
@@ -20416,6 +22873,10 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleT
 }
 
 export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
   checkingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleCheckingConfig;
   /**
    * @example
@@ -20427,6 +22888,10 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
   errorHandlers?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleErrorHandlers[];
   /**
    * @example
@@ -20439,16 +22904,26 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
    * 100
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
   samplingConfig?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleSamplingConfig;
   /**
    * @remarks
-   * *   HIGH
-   * *   NORMAL
+   * The strength of the rule. Valid values:
+   * 
+   * *   High
+   * *   Normal
    * 
    * @example
    * NORMAL
    */
   severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
   target?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget;
   /**
    * @example
@@ -20505,12 +22980,20 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
    * 1708284916414
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The check details.
+   */
   details?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsDetails[];
   /**
    * @example
    * 16033
    */
   id?: number;
+  /**
+   * @remarks
+   * The snapshot of the rule configuration when the check starts.
+   */
   rule?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule;
   /**
    * @example
@@ -20527,11 +23010,13 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
   sample?: string;
   /**
    * @remarks
-   * *   RUNNING
-   * *   ERROR
-   * *   PASSED
-   * *   WARNED
-   * *   CRITICAL
+   * The status of the check result. Valid values:
+   * 
+   * *   Running
+   * *   Error
+   * *   Passed
+   * *   Warned
+   * *   Critical
    * 
    * @example
    * PASSED
@@ -20572,6 +23057,10 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResults exte
 }
 
 export class ListDataQualityResultsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The data quality check results.
+   */
   dataQualityResults?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResults[];
   /**
    * @example
@@ -20613,11 +23102,24 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical extends $tea.Model {
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -20643,11 +23145,24 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected extends $tea.Model {
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -20673,11 +23188,24 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned extends $tea.Model {
   /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
    * @example
    * >
    */
   operator?: string;
   /**
+   * @remarks
+   * The threshold value.
+   * 
    * @example
    * 100.0
    */
@@ -20702,8 +23230,20 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
   critical?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
   expected?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
   warned?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned;
   static names(): { [key: string]: string } {
     return {
@@ -20728,12 +23268,29 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig extends $tea.Model {
   /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * 
    * @example
    * { "bizdate": [ "-1", "-7", "-1m" ] }
    */
   referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
   thresholds?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholds;
   /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
    * @example
    * Fixed
    */
@@ -20761,11 +23318,19 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers extends $tea.Model {
   /**
+   * @remarks
+   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 
    * @example
    * SELECT * FROM tb_api_log WHERE id IS NULL
    */
   errorDataFilter?: string;
   /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
+   * 
    * @example
    * SaveErrorData
    */
@@ -20791,21 +23356,49 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHand
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig extends $tea.Model {
   /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the percentage of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values in the field.
+   * *   DuplicatedPercent: the percentage of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field is set to null.
+   * *   NullValuePercent: the percentage of the number of rows in which the field is set to null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that the data is sampled by executing custom SQL statements.
+   * 
    * @example
    * Max
    */
   metric?: string;
   /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
    * @example
    * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
    */
   metricParameters?: string;
   /**
+   * @remarks
+   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 
    * @example
    * id IS NULL
    */
   samplingFilter?: string;
   /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
    * @example
    * SET odps.sql.udf.timeout=600s; 
    * SET odps.sql.python.version=cp27;
@@ -20836,21 +23429,43 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingC
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget extends $tea.Model {
   /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
    * @example
    * maxcompute
    */
   databaseType?: string;
   /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
    * @example
    * ds=$[yyyymmdd-1]
    */
   partitionSpec?: string;
   /**
+   * @remarks
+   * The ID of the table that is limited by the rule in Data Map.
+   * 
    * @example
    * odps.unit_test.tb_unit_test
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
    * @example
    * Table
    */
@@ -20879,42 +23494,86 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget ex
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
   checkingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfig;
   /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
    * @example
    * this is a odps _sql task
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
   errorHandlers?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesErrorHandlers[];
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 22130
    */
   id?: number;
+  /**
+   * @remarks
+   * The rule name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100001
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The settings for sampling.
+   */
   samplingConfig?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesSamplingConfig;
   /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
    * @example
    * High
    */
   severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
   target?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesTarget;
   /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
    * @example
    * system::user_defined
    */
   templateCode?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks tenant.
+   * 
    * @example
    * 100001
    */
@@ -20959,18 +23618,31 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRules extends 
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The rules.
+   */
   dataQualityRules?: ListDataQualityRulesResponseBodyPagingInfoDataQualityRules[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 294
    */
@@ -21632,6 +24304,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
    * 100
    */
   owner?: string;
+  periodNumber?: number;
   /**
    * @example
    * 1
@@ -21734,6 +24407,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       owner: 'Owner',
+      periodNumber: 'PeriodNumber',
       priority: 'Priority',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
@@ -21771,6 +24445,7 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
       modifyTime: 'number',
       modifyUser: 'string',
       owner: 'string',
+      periodNumber: 'number',
       priority: 'number',
       projectEnv: 'string',
       projectId: 'number',
@@ -21985,6 +24660,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
    * 1234
    */
   id?: number;
+  instanceMode?: string;
   /**
    * @example
    * 1710239005403
@@ -22032,6 +24708,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
    */
   rerunTimes?: number;
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  stepType?: string;
   /**
    * @example
    * 1
@@ -22061,6 +24738,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: 'DataSource',
       description: 'Description',
       id: 'Id',
+      instanceMode: 'InstanceMode',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
@@ -22072,6 +24750,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       rerunMode: 'RerunMode',
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
+      stepType: 'StepType',
       tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
@@ -22088,6 +24767,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: ListDownstreamTasksResponseBodyPagingInfoTasksDataSource,
       description: 'string',
       id: 'number',
+      instanceMode: 'string',
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
@@ -22099,6 +24779,7 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       rerunMode: 'string',
       rerunTimes: 'number',
       runtimeResource: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
+      stepType: 'string',
       tenantId: 'number',
       timeout: 'number',
       trigger: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger,
@@ -24562,12 +27243,25 @@ export class ListNodesResponseBodyPagingInfo extends $tea.Model {
 
 export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends $tea.Model {
   /**
+   * @remarks
+   * The code of the role.
+   * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The name of the role.
+   */
   name?: string;
   /**
+   * @remarks
+   * The type of the role. Valid values:
+   * 
+   * *   UserCustom: custom role
+   * *   System: built-in role
+   * 
    * @example
    * System
    */
@@ -24595,17 +27289,33 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembersRoles extends
 
 export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 62136
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The roles that are assigned to the member.
+   */
   roles?: ListProjectMembersResponseBodyPagingInfoProjectMembersRoles[];
   /**
+   * @remarks
+   * The status of the member. Valid values:
+   * 
+   * *   Normal
+   * *   Forbidden
+   * 
    * @example
    * Normal
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the account used by the member.
+   * 
    * @example
    * 123422344899
    */
@@ -24635,17 +27345,30 @@ export class ListProjectMembersResponseBodyPagingInfoProjectMembers extends $tea
 
 export class ListProjectMembersResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The members in the workspace.
+   */
   projectMembers?: ListProjectMembersResponseBodyPagingInfoProjectMembers[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
@@ -25663,6 +28386,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.M
    * 1000
    */
   owner?: string;
+  periodNumber?: number;
   /**
    * @example
    * 1
@@ -25765,6 +28489,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.M
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       owner: 'Owner',
+      periodNumber: 'PeriodNumber',
       priority: 'Priority',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
@@ -25802,6 +28527,7 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.M
       modifyTime: 'number',
       modifyUser: 'string',
       owner: 'string',
+      periodNumber: 'number',
       priority: 'number',
       projectEnv: 'string',
       projectId: 'number',
@@ -26096,6 +28822,7 @@ export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
    * 1234
    */
   id?: number;
+  instanceMode?: string;
   /**
    * @example
    * 1710239005403
@@ -26172,6 +28899,7 @@ export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: 'DataSource',
       description: 'Description',
       id: 'Id',
+      instanceMode: 'InstanceMode',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
@@ -26199,6 +28927,7 @@ export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: ListTasksResponseBodyPagingInfoTasksDataSource,
       description: 'string',
       id: 'number',
+      instanceMode: 'string',
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
@@ -26405,6 +29134,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
    * 1000
    */
   owner?: string;
+  periodNumber?: number;
   /**
    * @example
    * 1
@@ -26507,6 +29237,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       owner: 'Owner',
+      periodNumber: 'PeriodNumber',
       priority: 'Priority',
       projectEnv: 'ProjectEnv',
       projectId: 'ProjectId',
@@ -26544,6 +29275,7 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
       modifyTime: 'number',
       modifyUser: 'string',
       owner: 'string',
+      periodNumber: 'number',
       priority: 'number',
       projectEnv: 'string',
       projectId: 'number',
@@ -26758,6 +29490,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
    * 1234
    */
   id?: number;
+  instanceMode?: string;
   /**
    * @example
    * 1710239005403
@@ -26805,6 +29538,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
    */
   rerunTimes?: number;
   runtimeResource?: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  stepType?: string;
   /**
    * @example
    * 1
@@ -26834,6 +29568,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: 'DataSource',
       description: 'Description',
       id: 'Id',
+      instanceMode: 'InstanceMode',
       modifyTime: 'ModifyTime',
       modifyUser: 'ModifyUser',
       name: 'Name',
@@ -26845,6 +29580,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       rerunMode: 'RerunMode',
       rerunTimes: 'RerunTimes',
       runtimeResource: 'RuntimeResource',
+      stepType: 'StepType',
       tenantId: 'TenantId',
       timeout: 'Timeout',
       trigger: 'Trigger',
@@ -26861,6 +29597,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       dataSource: ListUpstreamTasksResponseBodyPagingInfoTasksDataSource,
       description: 'string',
       id: 'number',
+      instanceMode: 'string',
       modifyTime: 'number',
       modifyUser: 'string',
       name: 'string',
@@ -26872,6 +29609,7 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
       rerunMode: 'string',
       rerunTimes: 'number',
       runtimeResource: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource,
+      stepType: 'string',
       tenantId: 'number',
       timeout: 'number',
       trigger: ListUpstreamTasksResponseBodyPagingInfoTasksTrigger,
@@ -27196,6 +29934,381 @@ export class StartDIJobRequestRealtimeStartSettings extends $tea.Model {
     return {
       failoverSettings: StartDIJobRequestRealtimeStartSettingsFailoverSettings,
       startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * {"atAll":true}
+   */
+  extension?: string;
+  /**
+   * @example
+   * TaskOwner
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestNotification extends $tea.Model {
+  channels?: string[];
+  /**
+   * @example
+   * 30
+   */
+  intervalInMinutes?: number;
+  /**
+   * @example
+   * 3
+   */
+  maximum?: number;
+  receivers?: UpdateAlertRuleRequestNotificationReceivers[];
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceEndTime?: string;
+  /**
+   * @example
+   * 00:00:00
+   */
+  silenceStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+      intervalInMinutes: 'IntervalInMinutes',
+      maximum: 'Maximum',
+      receivers: 'Receivers',
+      silenceEndTime: 'SilenceEndTime',
+      silenceStartTime: 'SilenceStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+      intervalInMinutes: 'number',
+      maximum: 'number',
+      receivers: { 'type': 'array', 'itemType': UpdateAlertRuleRequestNotificationReceivers },
+      silenceEndTime: 'string',
+      silenceStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  cycleId?: number;
+  /**
+   * @example
+   * 01:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cycleId: 'CycleId',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleId: 'number',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  cycleAndTime?: UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
+  static names(): { [key: string]: string } {
+    return {
+      cycleAndTime: 'CycleAndTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleAndTime: { 'type': 'array', 'itemType': UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionError extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoRerunAlert?: boolean;
+  streamTaskIds?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      autoRerunAlert: 'AutoRerunAlert',
+      streamTaskIds: 'StreamTaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRerunAlert: 'boolean',
+      streamTaskIds: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  percentage?: number;
+  /**
+   * @example
+   * abs
+   */
+  trend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      percentage: 'Percentage',
+      trend: 'Trend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      percentage: 'number',
+      trend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  timeoutInMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      timeoutInMinutes: 'TimeoutInMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      timeoutInMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtensionUnFinished extends $tea.Model {
+  /**
+   * @example
+   * 12:00
+   */
+  unFinishedTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      unFinishedTime: 'UnFinishedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      unFinishedTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionExtension extends $tea.Model {
+  cycleUnfinished?: UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished;
+  error?: UpdateAlertRuleRequestTriggerConditionExtensionError;
+  instanceErrorCount?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount;
+  instanceErrorPercentage?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage;
+  instanceTransferFluctuate?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate;
+  timeout?: UpdateAlertRuleRequestTriggerConditionExtensionTimeout;
+  unFinished?: UpdateAlertRuleRequestTriggerConditionExtensionUnFinished;
+  static names(): { [key: string]: string } {
+    return {
+      cycleUnfinished: 'CycleUnfinished',
+      error: 'Error',
+      instanceErrorCount: 'InstanceErrorCount',
+      instanceErrorPercentage: 'InstanceErrorPercentage',
+      instanceTransferFluctuate: 'InstanceTransferFluctuate',
+      timeout: 'Timeout',
+      unFinished: 'UnFinished',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleUnfinished: UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished,
+      error: UpdateAlertRuleRequestTriggerConditionExtensionError,
+      instanceErrorCount: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount,
+      instanceErrorPercentage: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage,
+      instanceTransferFluctuate: UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate,
+      timeout: UpdateAlertRuleRequestTriggerConditionExtensionTimeout,
+      unFinished: UpdateAlertRuleRequestTriggerConditionExtensionUnFinished,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
+  allowTasks?: number[];
+  ids?: number[];
+  /**
+   * @example
+   * Task
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowTasks: 'AllowTasks',
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowTasks: { 'type': 'array', 'itemType': 'number' },
+      ids: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAlertRuleRequestTriggerCondition extends $tea.Model {
+  extension?: UpdateAlertRuleRequestTriggerConditionExtension;
+  target?: UpdateAlertRuleRequestTriggerConditionTarget;
+  /**
+   * @example
+   * ERROR
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      target: 'Target',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: UpdateAlertRuleRequestTriggerConditionExtension,
+      target: UpdateAlertRuleRequestTriggerConditionTarget,
+      type: 'string',
     };
   }
 
@@ -27986,6 +31099,74 @@ export default class Client extends OpenApi {
   async cloneDataSource(request: CloneDataSourceRequest): Promise<CloneDataSourceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cloneDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义监控报警规则
+   * 
+   * @param tmpReq - CreateAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAlertRuleResponse
+   */
+  async createAlertRuleWithOptions(tmpReq: CreateAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateAlertRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateAlertRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerCondition)) {
+      request.triggerConditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerCondition, "TriggerCondition", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.triggerConditionShrink)) {
+      query["TriggerCondition"] = request.triggerConditionShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAlertRuleResponse>(await this.callApi(params, req, runtime), new CreateAlertRuleResponse({}));
+  }
+
+  /**
+   * 创建自定义监控报警规则
+   * 
+   * @param request - CreateAlertRuleRequest
+   * @returns CreateAlertRuleResponse
+   */
+  async createAlertRule(request: CreateAlertRuleRequest): Promise<CreateAlertRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAlertRuleWithOptions(request, runtime);
   }
 
   /**
@@ -28809,6 +31990,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除自定义监控报警规则
+   * 
+   * @param request - DeleteAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAlertRuleResponse
+   */
+  async deleteAlertRuleWithOptions(request: DeleteAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAlertRuleResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAlertRuleResponse>(await this.callApi(params, req, runtime), new DeleteAlertRuleResponse({}));
+  }
+
+  /**
+   * 删除自定义监控报警规则
+   * 
+   * @param request - DeleteAlertRuleRequest
+   * @returns DeleteAlertRuleResponse
+   */
+  async deleteAlertRule(request: DeleteAlertRuleRequest): Promise<DeleteAlertRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAlertRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an alert rule configured for a synchronization task.
    * 
    * @param request - DeleteDIAlarmRuleRequest
@@ -29153,7 +32376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除工作空间成员
+   * Removes a member from a workspace.
    * 
    * @param request - DeleteProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29188,7 +32411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 移除工作空间成员
+   * Removes a member from a workspace.
    * 
    * @param request - DeleteProjectMemberRequest
    * @returns DeleteProjectMemberResponse
@@ -29532,6 +32755,44 @@ export default class Client extends OpenApi {
   async execDeploymentStage(request: ExecDeploymentStageRequest): Promise<ExecDeploymentStageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.execDeploymentStageWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取自定义监控报警规则
+   * 
+   * @param request - GetAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAlertRuleResponse
+   */
+  async getAlertRuleWithOptions(request: GetAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetAlertRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAlertRuleResponse>(await this.callApi(params, req, runtime), new GetAlertRuleResponse({}));
+  }
+
+  /**
+   * 获取自定义监控报警规则
+   * 
+   * @param request - GetAlertRuleRequest
+   * @returns GetAlertRuleResponse
+   */
+  async getAlertRule(request: GetAlertRuleRequest): Promise<GetAlertRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAlertRuleWithOptions(request, runtime);
   }
 
   /**
@@ -29885,7 +33146,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间成员详情
+   * Queries the details about a member in a workspace.
    * 
    * @param request - GetProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29920,7 +33181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间成员详情
+   * Queries the details about a member in a workspace.
    * 
    * @param request - GetProjectMemberRequest
    * @returns GetProjectMemberResponse
@@ -30125,6 +33386,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about an instance.
+   * 
    * @param request - GetTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskInstanceResponse
@@ -30150,6 +33413,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about an instance.
+   * 
    * @param request - GetTaskInstanceRequest
    * @returns GetTaskInstanceResponse
    */
@@ -30231,7 +33496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予工作空间成员角色
+   * Assigns roles to members in a workspace.
    * 
    * @param tmpReq - GrantMemberProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30276,7 +33541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授予工作空间成员角色
+   * Assigns roles to members in a workspace.
    * 
    * @param request - GrantMemberProjectRolesRequest
    * @returns GrantMemberProjectRolesResponse
@@ -30330,6 +33595,82 @@ export default class Client extends OpenApi {
   async importWorkflowDefinition(request: ImportWorkflowDefinitionRequest): Promise<ImportWorkflowDefinitionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.importWorkflowDefinitionWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页获取自定义监控报警规则
+   * 
+   * @param tmpReq - ListAlertRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAlertRulesResponse
+   */
+  async listAlertRulesWithOptions(tmpReq: ListAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListAlertRulesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListAlertRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.types)) {
+      request.typesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.types, "Types", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.receiver)) {
+      query["Receiver"] = request.receiver;
+    }
+
+    if (!Util.isUnset(request.taskIdsShrink)) {
+      query["TaskIds"] = request.taskIdsShrink;
+    }
+
+    if (!Util.isUnset(request.typesShrink)) {
+      query["Types"] = request.typesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAlertRules",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAlertRulesResponse>(await this.callApi(params, req, runtime), new ListAlertRulesResponse({}));
+  }
+
+  /**
+   * 分页获取自定义监控报警规则
+   * 
+   * @param request - ListAlertRulesRequest
+   * @returns ListAlertRulesResponse
+   */
+  async listAlertRules(request: ListAlertRulesRequest): Promise<ListAlertRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAlertRulesWithOptions(request, runtime);
   }
 
   /**
@@ -30529,7 +33870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataQualityEvaluationTaskInstances
+   * Queries a list of instances generated by a data quality monitoring task by page.
    * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30556,7 +33897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ListDataQualityEvaluationTaskInstances
+   * Queries a list of instances generated by a data quality monitoring task by page.
    * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @returns ListDataQualityEvaluationTaskInstancesResponse
@@ -30567,6 +33908,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of data quality monitoring tasks by page.
+   * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataQualityEvaluationTasksResponse
@@ -30592,6 +33935,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of data quality monitoring tasks by page.
+   * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @returns ListDataQualityEvaluationTasksResponse
    */
@@ -30635,7 +33980,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 质量监控规则分页查询
+   * Queries a list of data quality monitoring rules by page.
    * 
    * @param request - ListDataQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30662,7 +34007,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 质量监控规则分页查询
+   * Queries a list of data quality monitoring rules by page.
    * 
    * @param request - ListDataQualityRulesRequest
    * @returns ListDataQualityRulesResponse
@@ -31013,7 +34358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间成员详情
+   * Queries details about members in a workspace.
    * 
    * @param tmpReq - ListProjectMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31070,7 +34415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间成员详情
+   * Queries details about members in a workspace.
    * 
    * @param request - ListProjectMembersRequest
    * @returns ListProjectMembersResponse
@@ -31474,6 +34819,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.taskType)) {
       body["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.triggerRecurrence)) {
+      body["TriggerRecurrence"] = request.triggerRecurrence;
+    }
+
+    if (!Util.isUnset(request.triggerType)) {
+      body["TriggerType"] = request.triggerType;
     }
 
     if (!Util.isUnset(request.workflowId)) {
@@ -32287,7 +35640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤销工作空间成员的角色
+   * Revokes roles that are assigned to a member in a workspace.
    * 
    * @param tmpReq - RevokeMemberProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32332,7 +35685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 撤销工作空间成员的角色
+   * Revokes roles that are assigned to a member in a workspace.
    * 
    * @param request - RevokeMemberProjectRolesRequest
    * @returns RevokeMemberProjectRolesResponse
@@ -32608,6 +35961,78 @@ export default class Client extends OpenApi {
   async triggerSchedulerTaskInstance(request: TriggerSchedulerTaskInstanceRequest): Promise<TriggerSchedulerTaskInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.triggerSchedulerTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建自定义监控报警规则
+   * 
+   * @param tmpReq - UpdateAlertRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAlertRuleResponse
+   */
+  async updateAlertRuleWithOptions(tmpReq: UpdateAlertRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAlertRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateAlertRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.notification)) {
+      request.notificationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notification, "Notification", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.triggerCondition)) {
+      request.triggerConditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.triggerCondition, "TriggerCondition", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.enabled)) {
+      query["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.notificationShrink)) {
+      query["Notification"] = request.notificationShrink;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.triggerConditionShrink)) {
+      query["TriggerCondition"] = request.triggerConditionShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAlertRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAlertRuleResponse>(await this.callApi(params, req, runtime), new UpdateAlertRuleResponse({}));
+  }
+
+  /**
+   * 创建自定义监控报警规则
+   * 
+   * @param request - UpdateAlertRuleRequest
+   * @returns UpdateAlertRuleResponse
+   */
+  async updateAlertRule(request: UpdateAlertRuleRequest): Promise<UpdateAlertRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAlertRuleWithOptions(request, runtime);
   }
 
   /**
