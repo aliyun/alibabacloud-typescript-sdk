@@ -297,6 +297,13 @@ export class WafTimer extends $tea.Model {
 }
 
 export class HttpDeliveryHeaderParamValue extends $tea.Model {
+  /**
+   * @remarks
+   * The static variable.
+   * 
+   * @example
+   * alicdn
+   */
   staticValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -316,6 +323,13 @@ export class HttpDeliveryHeaderParamValue extends $tea.Model {
 }
 
 export class HttpDeliveryQueryParamValue extends $tea.Model {
+  /**
+   * @remarks
+   * The static variable.
+   * 
+   * @example
+   * alicdn
+   */
   staticValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -336,10 +350,17 @@ export class HttpDeliveryQueryParamValue extends $tea.Model {
 
 export class FieldContentValue extends $tea.Model {
   /**
+   * @remarks
+   * The sequence number of the fields.
+   * 
    * @example
    * 1
    */
   sortOrder?: number;
+  /**
+   * @remarks
+   * The fields.
+   */
   fieldList?: FieldContentValueFieldList[];
   static names(): { [key: string]: string } {
     return {
@@ -361,7 +382,15 @@ export class FieldContentValue extends $tea.Model {
 }
 
 export class QuotaListItemsValue extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the item type is configured in the custom list.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The format restrictions for the item type in the custom list.
+   */
   value?: WafQuotaString;
   static names(): { [key: string]: string } {
     return {
@@ -383,7 +412,15 @@ export class QuotaListItemsValue extends $tea.Model {
 }
 
 export class QuotaPageContentTypesValue extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the custom error pages of the Content-Type are configured.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The maximum length of the custom error pages of the Content-Type.
+   */
   contentLength?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -407,6 +444,8 @@ export class QuotaPageContentTypesValue extends $tea.Model {
 export class ActivateClientCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The certificate ID, which can be obtained by calling the [ListClientCertificates](https://help.aliyun.com/document_detail/2852848.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -415,6 +454,8 @@ export class ActivateClientCertificateRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -442,21 +483,33 @@ export class ActivateClientCertificateRequest extends $tea.Model {
 
 export class ActivateClientCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * babaded901474b9693acf530e0fb****
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -512,11 +565,15 @@ export class ActivateClientCertificateResponse extends $tea.Model {
 export class BatchCreateRecordsRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of DNS records to be created.
+   * 
    * This parameter is required.
    */
   recordList?: BatchCreateRecordsRequestRecordList[];
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -545,11 +602,15 @@ export class BatchCreateRecordsRequest extends $tea.Model {
 export class BatchCreateRecordsShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of DNS records to be created.
+   * 
    * This parameter is required.
    */
   recordListShrink?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -576,8 +637,15 @@ export class BatchCreateRecordsShrinkRequest extends $tea.Model {
 }
 
 export class BatchCreateRecordsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The records that have been created and failed to be created.
+   */
   recordResultList?: BatchCreateRecordsResponseBodyRecordResultList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2430E05E-1340-5773-B5E1-B743929F46F2
    */
@@ -627,18 +695,39 @@ export class BatchCreateRecordsResponse extends $tea.Model {
 }
 
 export class BatchCreateWafRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the rules.
+   */
   configs?: WafRuleConfig[];
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_custom
    */
   phase?: string;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
   shared?: WafBatchRuleShared;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -666,18 +755,39 @@ export class BatchCreateWafRulesRequest extends $tea.Model {
 }
 
 export class BatchCreateWafRulesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the rules.
+   */
   configsShrink?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_custom
    */
   phase?: string;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
   sharedShrink?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -705,15 +815,26 @@ export class BatchCreateWafRulesShrinkRequest extends $tea.Model {
 }
 
 export class BatchCreateWafRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the WAF rules.[](~~2850237~~)
+   */
   ids?: number[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the WAF ruleset.[](~~2850233~~)
+   * 
+   * @example
+   * 10000001
+   */
   rulesetId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -764,11 +885,15 @@ export class BatchCreateWafRulesResponse extends $tea.Model {
 export class BatchDeleteKvRequest extends $tea.Model {
   /**
    * @remarks
+   * The keys that you want to delete. You can delete a maximum of 10,000 key-value pairs at a time.
+   * 
    * This parameter is required.
    */
   keys?: string[];
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -797,11 +922,15 @@ export class BatchDeleteKvRequest extends $tea.Model {
 export class BatchDeleteKvShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The keys that you want to delete. You can delete a maximum of 10,000 key-value pairs at a time.
+   * 
    * This parameter is required.
    */
   keysShrink?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -828,15 +957,23 @@ export class BatchDeleteKvShrinkRequest extends $tea.Model {
 }
 
 export class BatchDeleteKvResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The keys that failed to be deleted.
+   */
   failKeys?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The keys that are deleted.
+   */
   successKeys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -887,6 +1024,8 @@ export class BatchDeleteKvResponse extends $tea.Model {
 export class BatchDeleteKvWithHighCapacityRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -895,6 +1034,8 @@ export class BatchDeleteKvWithHighCapacityRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pairs that you want to delete. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -923,6 +1064,8 @@ export class BatchDeleteKvWithHighCapacityRequest extends $tea.Model {
 export class BatchDeleteKvWithHighCapacityAdvanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -931,6 +1074,8 @@ export class BatchDeleteKvWithHighCapacityAdvanceRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pairs that you want to delete. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -957,15 +1102,23 @@ export class BatchDeleteKvWithHighCapacityAdvanceRequest extends $tea.Model {
 }
 
 export class BatchDeleteKvWithHighCapacityResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The keys that failed to be deleted.
+   */
   failKeys?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The keys that are deleted.
+   */
   successKeys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1015,16 +1168,25 @@ export class BatchDeleteKvWithHighCapacityResponse extends $tea.Model {
 
 export class BatchGetExpressionFieldsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The regular expressions.
+   * 
    * @example
    * http_bot
    */
   expressions?: BatchGetExpressionFieldsRequestExpressions[];
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1
    */
@@ -1052,16 +1214,25 @@ export class BatchGetExpressionFieldsRequest extends $tea.Model {
 
 export class BatchGetExpressionFieldsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The regular expressions.
+   * 
    * @example
    * http_bot
    */
   expressionsShrink?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1
    */
@@ -1088,10 +1259,14 @@ export class BatchGetExpressionFieldsShrinkRequest extends $tea.Model {
 }
 
 export class BatchGetExpressionFieldsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The fields that match the regular expressions.
+   */
   fields?: BatchGetExpressionFieldsResponseBodyFields[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -1144,11 +1319,15 @@ export class BatchGetExpressionFieldsResponse extends $tea.Model {
 export class BatchPutKvRequest extends $tea.Model {
   /**
    * @remarks
+   * The key-value pairs that you want to configure at a time. The total size can be up to 2 MB (2 × 1000 × 1000).
+   * 
    * This parameter is required.
    */
   kvList?: BatchPutKvRequestKvList[];
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1177,11 +1356,15 @@ export class BatchPutKvRequest extends $tea.Model {
 export class BatchPutKvShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The key-value pairs that you want to configure at a time. The total size can be up to 2 MB (2 × 1000 × 1000).
+   * 
    * This parameter is required.
    */
   kvListShrink?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1208,15 +1391,23 @@ export class BatchPutKvShrinkRequest extends $tea.Model {
 }
 
 export class BatchPutKvResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The keys that failed to be written.
+   */
   failKeys?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The keys that were written.
+   */
   successKeys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1267,6 +1458,8 @@ export class BatchPutKvResponse extends $tea.Model {
 export class BatchPutKvWithHighCapacityRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1275,6 +1468,8 @@ export class BatchPutKvWithHighCapacityRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pairs that you want to configure. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1303,6 +1498,8 @@ export class BatchPutKvWithHighCapacityRequest extends $tea.Model {
 export class BatchPutKvWithHighCapacityAdvanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1311,6 +1508,8 @@ export class BatchPutKvWithHighCapacityAdvanceRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pairs that you want to configure. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1337,15 +1536,23 @@ export class BatchPutKvWithHighCapacityAdvanceRequest extends $tea.Model {
 }
 
 export class BatchPutKvWithHighCapacityResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The keys that failed to be written.
+   */
   failKeys?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The keys that were written.
+   */
   successKeys?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -1394,23 +1601,47 @@ export class BatchPutKvWithHighCapacityResponse extends $tea.Model {
 }
 
 export class BatchUpdateWafRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of rules.
+   */
   configs?: WafRuleConfig[];
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_custom
    */
   phase?: string;
   /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * @example
    * 10000001
    */
   rulesetId?: number;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
   shared?: WafBatchRuleShared;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1440,23 +1671,47 @@ export class BatchUpdateWafRulesRequest extends $tea.Model {
 }
 
 export class BatchUpdateWafRulesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of rules.
+   */
   configsShrink?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_custom
    */
   phase?: string;
   /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * @example
    * 10000001
    */
   rulesetId?: number;
+  /**
+   * @remarks
+   * The configurations shared by multiple rules.
+   */
   sharedShrink?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1488,7 +1743,7 @@ export class BatchUpdateWafRulesShrinkRequest extends $tea.Model {
 export class BatchUpdateWafRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -1539,13 +1794,31 @@ export class BatchUpdateWafRulesResponse extends $tea.Model {
 export class BlockObjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The content to block.
+   * 
    * This parameter is required.
    */
   content?: string[];
+  /**
+   * @remarks
+   * The blocking period that you can extend. Set the value to 2year.
+   * 
+   * @example
+   * 2year
+   */
   extension?: string;
+  /**
+   * @remarks
+   * The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
+   * 
+   * @example
+   * 864000
+   */
   maxage?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1554,7 +1827,15 @@ export class BlockObjectRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The type. Valid values:
+   * 
+   * *   **block**
+   * *   **unblock**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * block
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -1585,13 +1866,31 @@ export class BlockObjectRequest extends $tea.Model {
 export class BlockObjectShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The content to block.
+   * 
    * This parameter is required.
    */
   contentShrink?: string;
+  /**
+   * @remarks
+   * The blocking period that you can extend. Set the value to 2year.
+   * 
+   * @example
+   * 2year
+   */
   extension?: string;
+  /**
+   * @remarks
+   * The period of time during which the URL is blocked. Unit: seconds. Specify this parameter if Type is set to block.
+   * 
+   * @example
+   * 864000
+   */
   maxage?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1600,7 +1899,15 @@ export class BlockObjectShrinkRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The type. Valid values:
+   * 
+   * *   **block**
+   * *   **unblock**
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * block
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -1631,9 +1938,19 @@ export class BlockObjectShrinkRequest extends $tea.Model {
 export class BlockObjectResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The blocking task ID.
+   * 
+   * @example
+   * 15940956620
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1683,6 +2000,8 @@ export class ChangeResourceGroupRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the resource group to which you want to move the website.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1691,6 +2010,9 @@ export class ChangeResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   securityToken?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 123456****
    */
@@ -1721,7 +2043,7 @@ export class ChangeResourceGroupRequest extends $tea.Model {
 export class ChangeResourceGroupResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F8AA0364-0FDB-4AD5-AC74-D69FAB8924ED
@@ -1772,6 +2094,8 @@ export class ChangeResourceGroupResponse extends $tea.Model {
 export class CheckSiteNameRequest extends $tea.Model {
   /**
    * @remarks
+   * The website name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1797,22 +2121,50 @@ export class CheckSiteNameRequest extends $tea.Model {
 
 export class CheckSiteNameResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The description of the verification result. Valid values:
+   * 
+   * *   **success**: The verification is successful.
+   * *   **Site.AlreadyExist**: The website domain name has already been added.
+   * *   **Site.InvalidName**: Invalid website domain name.
+   * *   **Site.SubSiteUnavailable**: Subdomains are not allowed.
+   * *   **Site.InternalError**: An internal error occurs.
+   * 
    * @example
    * success
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether a subdomain is specified. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * false
    */
   isSubSite?: boolean;
+  /**
+   * @remarks
+   * The verification message.
+   */
   messeage?: string;
   /**
+   * @remarks
+   * Indicates whether the verification passed.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   passed?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
    */
@@ -1870,6 +2222,8 @@ export class CheckSiteNameResponse extends $tea.Model {
 export class CheckSiteProjectNameRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the real-time log delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1877,6 +2231,9 @@ export class CheckSiteProjectNameRequest extends $tea.Model {
    */
   projectName?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 12312312213212
    */
@@ -1902,21 +2259,36 @@ export class CheckSiteProjectNameRequest extends $tea.Model {
 
 export class CheckSiteProjectNameResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task name is valid. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   check?: boolean;
   /**
+   * @remarks
+   * The result description.
+   * 
    * @example
    * project name pass the check
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the real-time log delivery task.
+   * 
    * @example
    * dcdn_waf_userAccount_log
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
@@ -1972,6 +2344,8 @@ export class CheckSiteProjectNameResponse extends $tea.Model {
 export class CheckUserProjectNameRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the real-time log delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1997,21 +2371,36 @@ export class CheckUserProjectNameRequest extends $tea.Model {
 
 export class CheckUserProjectNameResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the name is valid. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   check?: boolean;
   /**
+   * @remarks
+   * The reason why the name passed or failed the check.
+   * 
    * @example
    * project name pass the check
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the real-time log delivery task.
+   * 
    * @example
    * ali-dcdn-log-56
    */
   projectName?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
@@ -2065,8 +2454,18 @@ export class CheckUserProjectNameResponse extends $tea.Model {
 }
 
 export class CommitRoutineStagingCodeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the code version.
+   * 
+   * @example
+   * description of this code ver
+   */
   codeDescription?: string;
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * CommitRoutineStagingCode
    */
@@ -2091,10 +2490,20 @@ export class CommitRoutineStagingCodeRequest extends $tea.Model {
 }
 
 export class CommitRoutineStagingCodeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The version number of the newly generated code.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -2144,6 +2553,10 @@ export class CommitRoutineStagingCodeResponse extends $tea.Model {
 export class CreateCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The time when the policy expires.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2152,6 +2565,8 @@ export class CreateCustomScenePolicyRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The policy name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2159,12 +2574,19 @@ export class CreateCustomScenePolicyRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
+   * 
    * @example
    * 7096621098****
    */
   objects?: string;
   /**
    * @remarks
+   * The time when the policy takes effect.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2173,6 +2595,10 @@ export class CreateCustomScenePolicyRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
+   * The name of the policy template. Valid value:
+   * 
+   * *   **promotion**: major events.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2206,35 +2632,58 @@ export class CreateCustomScenePolicyRequest extends $tea.Model {
 
 export class CreateCustomScenePolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the policy expires.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-11-07T18:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The policy name.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of websites associated.
+   */
   objects?: string[];
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 1
    */
   policyId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the policy takes effect.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-11-07T17:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The name of the policy template.
+   * 
    * @example
    * promotion
    */
@@ -2295,57 +2744,102 @@ export class CreateCustomScenePolicyResponse extends $tea.Model {
 
 export class CreateEdgeContainerAppRequest extends $tea.Model {
   /**
+   * @remarks
+   * The number of consecutive failed health checks required for an application to be considered as unhealthy. Valid values: 1 to 10. Default value: 5.
+   * 
    * @example
    * 3
    */
   healthCheckFailTimes?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks. This parameter is empty by default.
+   * 
    * @example
    * www.aliyun.com
    */
   healthCheckHost?: string;
   /**
+   * @remarks
+   * The HTTP status code returned for a successful health check. Valid values:
+   * 
+   * *   **http_2xx** (default)
+   * *   **http_3xx**
+   * 
    * @example
    * http_2xx
    */
   healthCheckHttpCode?: string;
   /**
+   * @remarks
+   * The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**. Default value: **5**.
+   * 
    * @example
    * 5
    */
   healthCheckInterval?: number;
   /**
+   * @remarks
+   * The HTTP request method for health checks. Valid values:
+   * 
+   * *   **HEAD** (default): requests the headers of the resource.
+   * *   **GET**: requests the specified resource and returns both the headers and entity body.
+   * 
    * @example
    * HEAD
    */
   healthCheckMethod?: string;
   /**
+   * @remarks
+   * The port used for health checks. Valid values: 1 to 65535. Default value: 80.
+   * 
    * @example
    * 80
    */
   healthCheckPort?: number;
   /**
+   * @remarks
+   * The number of consecutive successful health checks required for an application to be considered as healthy. Valid values: 1 to 10. Default value: 2.
+   * 
    * @example
    * 2
    */
   healthCheckSuccTimes?: number;
   /**
+   * @remarks
+   * The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds.\\
+   * Valid values: **1** to **100**.\\
+   * Default value: **3**.
+   * 
    * @example
    * 5
    */
   healthCheckTimeout?: number;
   /**
+   * @remarks
+   * The health check type. By default, this parameter is left empty.
+   * 
+   * Valid values:
+   * 
+   * *   **l4**: Layer 4 health check.
+   * *   **l7**: Layer 7 health check.
+   * 
    * @example
    * l7
    */
   healthCheckType?: string;
   /**
+   * @remarks
+   * The URI used for health checks. The URI must be **1** to **80** characters in length. Default value: "/".
+   * 
    * @example
    * /health_check
    */
   healthCheckURI?: string;
   /**
    * @remarks
+   * The name of the application. The name must start with a lowercase letter and can contain lowercase letters, digits, and hyphens (-). The name must be 6 to 128 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2353,12 +2847,17 @@ export class CreateEdgeContainerAppRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The remarks. This parameter is empty by default.
+   * 
    * @example
    * test app
    */
   remarks?: string;
   /**
    * @remarks
+   * The server port. Valid values: 1 to 65535.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2367,6 +2866,8 @@ export class CreateEdgeContainerAppRequest extends $tea.Model {
   servicePort?: number;
   /**
    * @remarks
+   * The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2418,11 +2919,17 @@ export class CreateEdgeContainerAppRequest extends $tea.Model {
 
 export class CreateEdgeContainerAppResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the application that is created.
+   * 
    * @example
    * app-880688675783794688
    */
   appId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
@@ -2474,6 +2981,8 @@ export class CreateEdgeContainerAppResponse extends $tea.Model {
 export class CreateEdgeContainerAppRecordRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2482,6 +2991,8 @@ export class CreateEdgeContainerAppRecordRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The associated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2489,6 +3000,9 @@ export class CreateEdgeContainerAppRecordRequest extends $tea.Model {
    */
   recordName?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 5407498413****
    */
@@ -2516,6 +3030,9 @@ export class CreateEdgeContainerAppRecordRequest extends $tea.Model {
 
 export class CreateEdgeContainerAppRecordResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
@@ -2785,12 +3302,17 @@ export class CreateEdgeContainerAppVersionResponse extends $tea.Model {
 
 export class CreateKvNamespaceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The description of the namespace.
+   * 
    * @example
    * this is a test namespace.
    */
   description?: string;
   /**
    * @remarks
+   * The name of the namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2818,26 +3340,46 @@ export class CreateKvNamespaceRequest extends $tea.Model {
 
 export class CreateKvNamespaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The description of the namespace.
+   * 
    * @example
    * this is a test namespace.
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * test_namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the namespace.
+   * 
    * @example
    * 657717877171818496
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the namespace. Valid values:
+   * 
+   * *   **online**: working as expected.
+   * *   **delete**: pending deletion.
+   * *   **deleting**: being deleted.
+   * *   **deleted**: deleted.
+   * 
    * @example
    * online
    */
@@ -2894,22 +3436,33 @@ export class CreateKvNamespaceResponse extends $tea.Model {
 
 export class CreateListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The description of the list that you want to create.
+   * 
    * @example
    * a custom list
    */
   description?: string;
   /**
+   * @remarks
+   * The items in the list that you want to create.
+   * 
    * @example
    * a custom list
    */
   items?: string[];
   /**
+   * @remarks
+   * The type of the list that you want to create.
+   * 
    * @example
    * ip
    */
   kind?: string;
   /**
    * @remarks
+   * The name of the list that you want to create.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2941,22 +3494,33 @@ export class CreateListRequest extends $tea.Model {
 
 export class CreateListShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The description of the list that you want to create.
+   * 
    * @example
    * a custom list
    */
   description?: string;
   /**
+   * @remarks
+   * The items in the list that you want to create.
+   * 
    * @example
    * a custom list
    */
   itemsShrink?: string;
   /**
+   * @remarks
+   * The type of the list that you want to create.
+   * 
    * @example
    * ip
    */
   kind?: string;
   /**
    * @remarks
+   * The name of the list that you want to create.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2988,13 +3552,16 @@ export class CreateListShrinkRequest extends $tea.Model {
 
 export class CreateListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom list.[](~~2850217~~)
+   * 
    * @example
    * 40000001
    */
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -3044,14 +3611,96 @@ export class CreateListResponse extends $tea.Model {
   }
 }
 
+export class CreateOriginProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginProtectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateOriginProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOriginProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateOriginProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreatePageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The Base64-encoded page content. Example: "PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=", which indicates "hello page".
+   * 
    * @example
    * PGh0bWw+aGVsbG8gcGFnZTwvaHRtbD4=
    */
   content?: string;
   /**
    * @remarks
+   * The Content-Type field in the HTTP header. Valid values:
+   * 
+   * *   text/html
+   * *   application/json
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3059,12 +3708,17 @@ export class CreatePageRequest extends $tea.Model {
    */
   contentType?: string;
   /**
+   * @remarks
+   * The description of the page.
+   * 
    * @example
    * a custom deny page
    */
   description?: string;
   /**
    * @remarks
+   * The name of the custom error page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3096,13 +3750,16 @@ export class CreatePageRequest extends $tea.Model {
 
 export class CreatePageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom error page.[](~~2850223~~)
+   * 
    * @example
    * 50000001
    */
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -3153,22 +3810,35 @@ export class CreatePageResponse extends $tea.Model {
 }
 
 export class CreateRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConf?: CreateRecordRequestAuthConf;
   /**
    * @remarks
-   * 业务场景
+   * The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+   * 
+   * *   **image_video**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
    * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The comment of the record. The maximum length is 100 characters.
+   * 
    * @example
    * This is a remark.
    */
   comment?: string;
   /**
    * @remarks
+   * The DNS record information. The format of this field varies based on the record type. For more information, see [References](https://www.alibabacloud.com/help/doc-detail/2708761.html) .
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3177,10 +3847,23 @@ export class CreateRecordRequest extends $tea.Model {
    * }
    */
   data?: CreateRecordRequestData;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+   * 
+   * *   **follow_hostname**: Follow the host record.
+   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
    * @remarks
-   * 是否代理加速
+   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -3188,7 +3871,7 @@ export class CreateRecordRequest extends $tea.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * 记录名称
+   * The record name.
    * 
    * This parameter is required.
    * 
@@ -3198,6 +3881,8 @@ export class CreateRecordRequest extends $tea.Model {
   recordName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3205,18 +3890,32 @@ export class CreateRecordRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
+   * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 30
    */
   ttl?: number;
   /**
    * @remarks
-   * 记录类型
+   * The type of the DNS record. For example, A/AAAA, TXT, MX, or CNAME.
    * 
    * This parameter is required.
    * 
@@ -3262,22 +3961,35 @@ export class CreateRecordRequest extends $tea.Model {
 }
 
 export class CreateRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConfShrink?: string;
   /**
    * @remarks
-   * 业务场景
+   * The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+   * 
+   * *   **image_video**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
    * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The comment of the record. The maximum length is 100 characters.
+   * 
    * @example
    * This is a remark.
    */
   comment?: string;
   /**
    * @remarks
+   * The DNS record information. The format of this field varies based on the record type. For more information, see [References](https://www.alibabacloud.com/help/doc-detail/2708761.html) .
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3286,10 +3998,23 @@ export class CreateRecordShrinkRequest extends $tea.Model {
    * }
    */
   dataShrink?: string;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+   * 
+   * *   **follow_hostname**: Follow the host record.
+   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
    * @remarks
-   * 是否代理加速
+   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -3297,7 +4022,7 @@ export class CreateRecordShrinkRequest extends $tea.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * 记录名称
+   * The record name.
    * 
    * This parameter is required.
    * 
@@ -3307,6 +4032,8 @@ export class CreateRecordShrinkRequest extends $tea.Model {
   recordName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3314,18 +4041,32 @@ export class CreateRecordShrinkRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
+   * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 30
    */
   ttl?: number;
   /**
    * @remarks
-   * 记录类型
+   * The type of the DNS record. For example, A/AAAA, TXT, MX, or CNAME.
    * 
    * This parameter is required.
    * 
@@ -3372,11 +4113,17 @@ export class CreateRecordShrinkRequest extends $tea.Model {
 
 export class CreateRecordResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */
@@ -3427,16 +4174,25 @@ export class CreateRecordResponse extends $tea.Model {
 
 export class CreateRoutineRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine description.
+   * 
    * @example
    * the description of this routine
    */
   description?: string;
   /**
+   * @remarks
+   * The routine name, which must be unique in the same account.
+   * 
    * @example
    * test-routine1
    */
   name?: string;
   /**
+   * @remarks
+   * The specification of the routine.
+   * 
    * @example
    * 5ms
    */
@@ -3465,13 +4221,16 @@ export class CreateRoutineRequest extends $tea.Model {
 export class CreateRoutineResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * OK
    */
@@ -3522,11 +4281,28 @@ export class CreateRoutineResponse extends $tea.Model {
 
 export class CreateRoutineRelatedRecordRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * CreateRoutineRelatedRecord
    */
   name?: string;
+  /**
+   * @remarks
+   * The record name.
+   * 
+   * @example
+   * test-record-1.example.com
+   */
   recordName?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3552,9 +4328,19 @@ export class CreateRoutineRelatedRecordRequest extends $tea.Model {
 export class CreateRoutineRelatedRecordResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3602,11 +4388,28 @@ export class CreateRoutineRelatedRecordResponse extends $tea.Model {
 
 export class CreateRoutineRelatedRouteRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * CreateRoutineRelatedRoute
    */
   name?: string;
+  /**
+   * @remarks
+   * The route.
+   * 
+   * @example
+   * *.example.com/path1*
+   */
   route?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3632,9 +4435,19 @@ export class CreateRoutineRelatedRouteRequest extends $tea.Model {
 export class CreateRoutineRelatedRouteResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3683,10 +4496,15 @@ export class CreateRoutineRelatedRouteResponse extends $tea.Model {
 export class CreateScheduledPreloadExecutionsRequest extends $tea.Model {
   /**
    * @remarks
+   * The scheduled prefetch plans to create.
+   * 
    * This parameter is required.
    */
   executions?: CreateScheduledPreloadExecutionsRequestExecutions[];
   /**
+   * @remarks
+   * The ID of the prefetch task, which is generated by calling the [CreateScheduledPreloadJob](https://help.aliyun.com/document_detail/2850459.html) operation.
+   * 
    * @example
    * CreateScheduledPreloadExecutions
    */
@@ -3713,10 +4531,15 @@ export class CreateScheduledPreloadExecutionsRequest extends $tea.Model {
 export class CreateScheduledPreloadExecutionsShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The scheduled prefetch plans to create.
+   * 
    * This parameter is required.
    */
   executionsShrink?: string;
   /**
+   * @remarks
+   * The ID of the prefetch task, which is generated by calling the [CreateScheduledPreloadJob](https://help.aliyun.com/document_detail/2850459.html) operation.
+   * 
    * @example
    * CreateScheduledPreloadExecutions
    */
@@ -3741,15 +4564,44 @@ export class CreateScheduledPreloadExecutionsShrinkRequest extends $tea.Model {
 }
 
 export class CreateScheduledPreloadExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about prefetch plans that failed to be created.
+   */
   failedExecutions?: CreateScheduledPreloadExecutionsResponseBodyFailedExecutions[];
+  /**
+   * @remarks
+   * The information about plan failures.
+   */
   failedMessages?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of prefetch plans that are created.
+   * 
+   * @example
+   * 12
+   */
   successCount?: number;
+  /**
+   * @remarks
+   * The information about created prefetch plans.
+   */
   successExecutions?: CreateScheduledPreloadExecutionsResponseBodySuccessExecutions[];
+  /**
+   * @remarks
+   * The total number of new plans requested.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3806,6 +4658,13 @@ export class CreateScheduledPreloadExecutionsResponse extends $tea.Model {
 export class CreateScheduledPreloadJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The method to submit URLs to be prefetched.
+   * 
+   * Valid values:
+   * 
+   * *   **textBox**
+   * *   **oss**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3814,15 +4673,40 @@ export class CreateScheduledPreloadJobRequest extends $tea.Model {
   insertWay?: string;
   /**
    * @remarks
+   * The name of the scheduled prefetch task.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * example
    */
   name?: string;
+  /**
+   * @remarks
+   * The URL of the OSS object that stores the URLs to be prefetched.
+   * 
+   * @example
+   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   */
   ossUrl?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 190007158391808
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The URLs to be prefetched. This parameter is required if you set InsertWay to textBox.
+   * 
+   * @example
+   * http://testurl.com/a.txt
+   * http://testurl.com/b.txt
+   */
   urlList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3850,24 +4734,130 @@ export class CreateScheduledPreloadJobRequest extends $tea.Model {
 }
 
 export class CreateScheduledPreloadJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2023-06-05T10:04:20+0800
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * The domain names to be prefetched.
+   * 
+   * @example
+   * testurl.com
+   */
   domains?: string;
+  /**
+   * @remarks
+   * The error message. Multiple error messages are separated by commas (,). Valid values:
+   * 
+   * *   **InvalidUrl**: The URL format is invalid.
+   * *   **InvalidDomain**: The domain name fails the domain ownership verification.
+   * *   **QuotaExcess**: the quota limit has been reached.
+   * *   **OtherErrors**: other errors.
+   * 
+   * @example
+   * InvalidDomain
+   */
   errorInfo?: string;
+  /**
+   * @remarks
+   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * 
+   * @example
+   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   */
   failedFileOss?: string;
+  /**
+   * @remarks
+   * The ID of the URL list file, which can be used during downloads.
+   * 
+   * @example
+   * 665d3b48621bccf3fe29e1a7
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   id?: string;
+  /**
+   * @remarks
+   * The method to submit the URLs to be prefetched.
+   * 
+   * @example
+   * oss
+   */
   insertWay?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * example
+   */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247B78
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 190007158391808
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The number of submitted prefetch tasks.
+   * 
+   * @example
+   * 1
+   */
   taskSubmitted?: number;
+  /**
+   * @remarks
+   * The task type (refresh or preload).
+   * 
+   * @example
+   * preload
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The total number of URLs.
+   * 
+   * @example
+   * 2
+   */
   urlCount?: number;
+  /**
+   * @remarks
+   * The number of submitted URLs.
+   * 
+   * @example
+   * 1
+   */
   urlSubmitted?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3942,6 +4932,11 @@ export class CreateScheduledPreloadJobResponse extends $tea.Model {
 export class CreateSiteRequest extends $tea.Model {
   /**
    * @remarks
+   * The DNS setup. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3950,6 +4945,12 @@ export class CreateSiteRequest extends $tea.Model {
   accessType?: string;
   /**
    * @remarks
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3958,6 +4959,8 @@ export class CreateSiteRequest extends $tea.Model {
   coverage?: string;
   /**
    * @remarks
+   * The instance ID, which can be obtained by calling the [ListUserRatePlanInstances](https://help.aliyun.com/document_detail/2852398.html) operation. Specify at least one of the instance ID and website ID. If you specify both of them, the instance ID is used.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3965,13 +4968,16 @@ export class CreateSiteRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The ID of the resource group. If you leave this parameter empty, the system uses the default resource group ID.
+   * 
    * @example
    * rg-acfmw4znnok****
    */
   resourceGroupId?: string;
   /**
    * @remarks
-   * 记录名称
+   * The website name.
    * 
    * This parameter is required.
    * 
@@ -4006,21 +5012,33 @@ export class CreateSiteRequest extends $tea.Model {
 
 export class CreateSiteResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The nameservers assigned by ESA. The values are separated by commas (,). This parameter is returned if you set AccessType to NS. In this case, you must change the nameservers of your domain to the assigned ones. Then, you can verify the domain ownership and activate your website.
+   * 
    * @example
    * ns1.example.com,ns2.example.com
    */
   nameServerList?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The verification code for the website. If you set AccessType to CNAME, you need to add a TXT record whose hostname is **_esaauth.[websiteDomainName]** and record value is the value of VerifyCode to the DNS records of your domain. ****Then, you can verify the domain ownership and activate your website.
+   * 
    * @example
    * verify_aah9dioasmov****
    */
@@ -4074,10 +5092,25 @@ export class CreateSiteResponse extends $tea.Model {
 }
 
 export class CreateSiteCustomLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie fields.
+   */
   cookies?: string[];
+  /**
+   * @remarks
+   * The request header fields.
+   */
   requestHeaders?: string[];
+  /**
+   * @remarks
+   * The response header fields.
+   */
   responseHeaders?: string[];
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 11223
    */
@@ -4106,10 +5139,25 @@ export class CreateSiteCustomLogRequest extends $tea.Model {
 }
 
 export class CreateSiteCustomLogShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie fields.
+   */
   cookiesShrink?: string;
+  /**
+   * @remarks
+   * The request header fields.
+   */
   requestHeadersShrink?: string;
+  /**
+   * @remarks
+   * The response header fields.
+   */
   responseHeadersShrink?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 11223
    */
@@ -4140,7 +5188,7 @@ export class CreateSiteCustomLogShrinkRequest extends $tea.Model {
 export class CreateSiteCustomLogResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 073bd613-6e72-4461-b6bc-19326dfc6a9c
@@ -4191,6 +5239,13 @@ export class CreateSiteCustomLogResponse extends $tea.Model {
 export class CreateSiteDeliveryTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   **dcdn_log_access_l1** (default): access logs.
+   * *   **dcdn_log_er**: Edge Routine logs.
+   * *   **dcdn_log_waf**: firewall logs.
+   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4199,6 +5254,11 @@ export class CreateSiteDeliveryTaskRequest extends $tea.Model {
   businessType?: string;
   /**
    * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   oversea: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4207,6 +5267,15 @@ export class CreateSiteDeliveryTaskRequest extends $tea.Model {
   dataCenter?: string;
   /**
    * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * *   sls: Alibaba Cloud Simple Log Service (SLS).
+   * *   http: HTTP server.
+   * *   aws3: Amazon Simple Storage Service (S3).
+   * *   oss: Alibaba Cloud Object Storage Service (OSS).
+   * *   kafka: Kafka.
+   * *   aws3cmpt: S3-compatible storage service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4214,33 +5283,62 @@ export class CreateSiteDeliveryTaskRequest extends $tea.Model {
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log fields, which are separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
    * user_agent,ip_adress,ip_port
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to an HTTP server.
+   */
   httpDelivery?: CreateSiteDeliveryTaskRequestHttpDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Kafka.
+   */
   kafkaDelivery?: CreateSiteDeliveryTaskRequestKafkaDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to OSS.
+   */
   ossDelivery?: CreateSiteDeliveryTaskRequestOssDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   */
   s3Delivery?: CreateSiteDeliveryTaskRequestS3Delivery;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 12312312112***
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The configurations for delivery to SLS.
+   */
   slsDelivery?: CreateSiteDeliveryTaskRequestSlsDelivery;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4289,6 +5387,13 @@ export class CreateSiteDeliveryTaskRequest extends $tea.Model {
 export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   **dcdn_log_access_l1** (default): access logs.
+   * *   **dcdn_log_er**: Edge Routine logs.
+   * *   **dcdn_log_waf**: firewall logs.
+   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4297,6 +5402,11 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
   businessType?: string;
   /**
    * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   oversea: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4305,6 +5415,15 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
   dataCenter?: string;
   /**
    * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * *   sls: Alibaba Cloud Simple Log Service (SLS).
+   * *   http: HTTP server.
+   * *   aws3: Amazon Simple Storage Service (S3).
+   * *   oss: Alibaba Cloud Object Storage Service (OSS).
+   * *   kafka: Kafka.
+   * *   aws3cmpt: S3-compatible storage service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4312,33 +5431,62 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
    * @example
    * 0.0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log fields, which are separated by commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
    * user_agent,ip_adress,ip_port
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to an HTTP server.
+   */
   httpDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to Kafka.
+   */
   kafkaDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to OSS.
+   */
   ossDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   */
   s3DeliveryShrink?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 12312312112***
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The configurations for delivery to SLS.
+   */
   slsDeliveryShrink?: string;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4386,24 +5534,36 @@ export class CreateSiteDeliveryTaskShrinkRequest extends $tea.Model {
 
 export class CreateSiteDeliveryTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   oversea: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9358E852-992D-5BC7-8BD7-975CA02773A8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.[](~~2850189~~)
+   * 
    * @example
    * 123456****
    */
   siteId?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * er-oss
    */
@@ -4456,9 +5616,263 @@ export class CreateSiteDeliveryTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateSiteFunctionRequest extends $tea.Model {
+  cacheReserve?: CreateSiteFunctionRequestCacheReserve[];
+  cacheRules?: CreateSiteFunctionRequestCacheRules[];
+  cacheTags?: CreateSiteFunctionRequestCacheTags[];
+  cnameFlattening?: CreateSiteFunctionRequestCnameFlattening[];
+  compressionRules?: CreateSiteFunctionRequestCompressionRules[];
+  crossBorderOptimization?: CreateSiteFunctionRequestCrossBorderOptimization[];
+  developmentMode?: CreateSiteFunctionRequestDevelopmentMode[];
+  httpRequestHeaderModificationRules?: CreateSiteFunctionRequestHttpRequestHeaderModificationRules[];
+  httpResponseHeaderModificationRules?: CreateSiteFunctionRequestHttpResponseHeaderModificationRules[];
+  httpsApplicationConfiguration?: CreateSiteFunctionRequestHttpsApplicationConfiguration[];
+  httpsBasicConfiguration?: CreateSiteFunctionRequestHttpsBasicConfiguration[];
+  imageTransform?: CreateSiteFunctionRequestImageTransform[];
+  ipv6?: CreateSiteFunctionRequestIpv6[];
+  managedTransforms?: CreateSiteFunctionRequestManagedTransforms[];
+  networkOptimization?: CreateSiteFunctionRequestNetworkOptimization[];
+  originProtection?: CreateSiteFunctionRequestOriginProtection[];
+  originRules?: CreateSiteFunctionRequestOriginRules[];
+  redirectRules?: CreateSiteFunctionRequestRedirectRules[];
+  rewriteUrlRules?: CreateSiteFunctionRequestRewriteUrlRules[];
+  seoBypass?: CreateSiteFunctionRequestSeoBypass[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CreateSiteFunction
+   */
+  siteId?: number;
+  siteNameExclusive?: CreateSiteFunctionRequestSiteNameExclusive[];
+  sitePause?: CreateSiteFunctionRequestSitePause[];
+  siteVersion?: number;
+  tieredCache?: CreateSiteFunctionRequestTieredCache[];
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserve: 'CacheReserve',
+      cacheRules: 'CacheRules',
+      cacheTags: 'CacheTags',
+      cnameFlattening: 'CnameFlattening',
+      compressionRules: 'CompressionRules',
+      crossBorderOptimization: 'CrossBorderOptimization',
+      developmentMode: 'DevelopmentMode',
+      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
+      httpsBasicConfiguration: 'HttpsBasicConfiguration',
+      imageTransform: 'ImageTransform',
+      ipv6: 'Ipv6',
+      managedTransforms: 'ManagedTransforms',
+      networkOptimization: 'NetworkOptimization',
+      originProtection: 'OriginProtection',
+      originRules: 'OriginRules',
+      redirectRules: 'RedirectRules',
+      rewriteUrlRules: 'RewriteUrlRules',
+      seoBypass: 'SeoBypass',
+      siteId: 'SiteId',
+      siteNameExclusive: 'SiteNameExclusive',
+      sitePause: 'SitePause',
+      siteVersion: 'SiteVersion',
+      tieredCache: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserve: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheReserve },
+      cacheRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheRules },
+      cacheTags: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheTags },
+      cnameFlattening: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCnameFlattening },
+      compressionRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCompressionRules },
+      crossBorderOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCrossBorderOptimization },
+      developmentMode: { 'type': 'array', 'itemType': CreateSiteFunctionRequestDevelopmentMode },
+      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpRequestHeaderModificationRules },
+      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpResponseHeaderModificationRules },
+      httpsApplicationConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpsApplicationConfiguration },
+      httpsBasicConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpsBasicConfiguration },
+      imageTransform: { 'type': 'array', 'itemType': CreateSiteFunctionRequestImageTransform },
+      ipv6: { 'type': 'array', 'itemType': CreateSiteFunctionRequestIpv6 },
+      managedTransforms: { 'type': 'array', 'itemType': CreateSiteFunctionRequestManagedTransforms },
+      networkOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionRequestNetworkOptimization },
+      originProtection: { 'type': 'array', 'itemType': CreateSiteFunctionRequestOriginProtection },
+      originRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestOriginRules },
+      redirectRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestRedirectRules },
+      rewriteUrlRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestRewriteUrlRules },
+      seoBypass: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSeoBypass },
+      siteId: 'number',
+      siteNameExclusive: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSiteNameExclusive },
+      sitePause: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSitePause },
+      siteVersion: 'number',
+      tieredCache: { 'type': 'array', 'itemType': CreateSiteFunctionRequestTieredCache },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionShrinkRequest extends $tea.Model {
+  cacheReserveShrink?: string;
+  cacheRulesShrink?: string;
+  cacheTagsShrink?: string;
+  cnameFlatteningShrink?: string;
+  compressionRulesShrink?: string;
+  crossBorderOptimizationShrink?: string;
+  developmentModeShrink?: string;
+  httpRequestHeaderModificationRulesShrink?: string;
+  httpResponseHeaderModificationRulesShrink?: string;
+  httpsApplicationConfigurationShrink?: string;
+  httpsBasicConfigurationShrink?: string;
+  imageTransformShrink?: string;
+  ipv6Shrink?: string;
+  managedTransformsShrink?: string;
+  networkOptimizationShrink?: string;
+  originProtectionShrink?: string;
+  originRulesShrink?: string;
+  redirectRulesShrink?: string;
+  rewriteUrlRulesShrink?: string;
+  seoBypassShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * CreateSiteFunction
+   */
+  siteId?: number;
+  siteNameExclusiveShrink?: string;
+  sitePauseShrink?: string;
+  siteVersion?: number;
+  tieredCacheShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserveShrink: 'CacheReserve',
+      cacheRulesShrink: 'CacheRules',
+      cacheTagsShrink: 'CacheTags',
+      cnameFlatteningShrink: 'CnameFlattening',
+      compressionRulesShrink: 'CompressionRules',
+      crossBorderOptimizationShrink: 'CrossBorderOptimization',
+      developmentModeShrink: 'DevelopmentMode',
+      httpRequestHeaderModificationRulesShrink: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRulesShrink: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfigurationShrink: 'HttpsApplicationConfiguration',
+      httpsBasicConfigurationShrink: 'HttpsBasicConfiguration',
+      imageTransformShrink: 'ImageTransform',
+      ipv6Shrink: 'Ipv6',
+      managedTransformsShrink: 'ManagedTransforms',
+      networkOptimizationShrink: 'NetworkOptimization',
+      originProtectionShrink: 'OriginProtection',
+      originRulesShrink: 'OriginRules',
+      redirectRulesShrink: 'RedirectRules',
+      rewriteUrlRulesShrink: 'RewriteUrlRules',
+      seoBypassShrink: 'SeoBypass',
+      siteId: 'SiteId',
+      siteNameExclusiveShrink: 'SiteNameExclusive',
+      sitePauseShrink: 'SitePause',
+      siteVersion: 'SiteVersion',
+      tieredCacheShrink: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserveShrink: 'string',
+      cacheRulesShrink: 'string',
+      cacheTagsShrink: 'string',
+      cnameFlatteningShrink: 'string',
+      compressionRulesShrink: 'string',
+      crossBorderOptimizationShrink: 'string',
+      developmentModeShrink: 'string',
+      httpRequestHeaderModificationRulesShrink: 'string',
+      httpResponseHeaderModificationRulesShrink: 'string',
+      httpsApplicationConfigurationShrink: 'string',
+      httpsBasicConfigurationShrink: 'string',
+      imageTransformShrink: 'string',
+      ipv6Shrink: 'string',
+      managedTransformsShrink: 'string',
+      networkOptimizationShrink: 'string',
+      originProtectionShrink: 'string',
+      originRulesShrink: 'string',
+      redirectRulesShrink: 'string',
+      rewriteUrlRulesShrink: 'string',
+      seoBypassShrink: 'string',
+      siteId: 'number',
+      siteNameExclusiveShrink: 'string',
+      sitePauseShrink: 'string',
+      siteVersion: 'number',
+      tieredCacheShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBody extends $tea.Model {
+  configs?: CreateSiteFunctionResponseBodyConfigs;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: CreateSiteFunctionResponseBodyConfigs,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSiteFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateSiteFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserDeliveryTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4467,6 +5881,11 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
   businessType?: string;
   /**
    * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   sg: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4475,6 +5894,15 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
   dataCenter?: string;
   /**
    * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * 1.  sls: Alibaba Cloud SLS.
+   * 2.  http: HTTP server.
+   * 3.  aws3: Amazon S3.
+   * 4.  oss: Alibaba Cloud OSS.
+   * 5.  kafka: Kafka.
+   * 6.  aws3cmpt: S3-compatible storage service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4482,25 +5910,52 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
    * @example
    * 0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log field. If you specify multiple fields, separate them with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
    * user_agent,ip_address,ip_port
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to an HTTP server.
+   */
   httpDelivery?: CreateUserDeliveryTaskRequestHttpDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Kafka.
+   */
   kafkaDelivery?: CreateUserDeliveryTaskRequestKafkaDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to OSS.
+   */
   ossDelivery?: CreateUserDeliveryTaskRequestOssDelivery;
+  /**
+   * @remarks
+   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   */
   s3Delivery?: CreateUserDeliveryTaskRequestS3Delivery;
+  /**
+   * @remarks
+   * The configurations for delivery to SLS.
+   */
   slsDelivery?: CreateUserDeliveryTaskRequestSlsDelivery;
   /**
    * @remarks
+   * The task name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4547,6 +6002,13 @@ export class CreateUserDeliveryTaskRequest extends $tea.Model {
 export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4555,6 +6017,11 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
   businessType?: string;
   /**
    * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   sg: outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4563,6 +6030,15 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
   dataCenter?: string;
   /**
    * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * 1.  sls: Alibaba Cloud SLS.
+   * 2.  http: HTTP server.
+   * 3.  aws3: Amazon S3.
+   * 4.  oss: Alibaba Cloud OSS.
+   * 5.  kafka: Kafka.
+   * 6.  aws3cmpt: S3-compatible storage service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4570,25 +6046,52 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
    * @example
    * 0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log field. If you specify multiple fields, separate them with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
    * user_agent,ip_address,ip_port
    */
   fieldName?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to an HTTP server.
+   */
   httpDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to Kafka.
+   */
   kafkaDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to OSS.
+   */
   ossDeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to Amazon S3 or an S3-compatible service.
+   */
   s3DeliveryShrink?: string;
+  /**
+   * @remarks
+   * The configurations for delivery to SLS.
+   */
   slsDeliveryShrink?: string;
   /**
    * @remarks
+   * The task name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4634,24 +6137,36 @@ export class CreateUserDeliveryTaskShrinkRequest extends $tea.Model {
 
 export class CreateUserDeliveryTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   sg: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2CCD40B1-3F20-5FF0-8A67-E3F34B87744F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * er-http
    */
@@ -4705,9 +6220,15 @@ export class CreateUserDeliveryTaskResponse extends $tea.Model {
 }
 
 export class CreateWafRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule that you want to create.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
+   * The WAF rule category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4716,12 +6237,21 @@ export class CreateWafRuleRequest extends $tea.Model {
   phase?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4747,9 +6277,15 @@ export class CreateWafRuleRequest extends $tea.Model {
 }
 
 export class CreateWafRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule that you want to create.
+   */
   configShrink?: string;
   /**
    * @remarks
+   * The WAF rule category.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4758,12 +6294,21 @@ export class CreateWafRuleShrinkRequest extends $tea.Model {
   phase?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4789,15 +6334,29 @@ export class CreateWafRuleShrinkRequest extends $tea.Model {
 }
 
 export class CreateWafRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the WAF rule.[](~~2850237~~)
+   * 
+   * @example
+   * 20000001
+   */
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the WAF ruleset.[](~~2850233~~)
+   * 
+   * @example
+   * 10000001
+   */
   rulesetId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5358,18 +6917,36 @@ export class CreateWaitingRoomResponse extends $tea.Model {
 
 export class CreateWaitingRoomEventRequest extends $tea.Model {
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * Hello%20world!
    */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
+   * Specifies whether to enable the waiting room. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5378,6 +6955,8 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   enable?: string;
   /**
    * @remarks
+   * The end time of the event. This value is a UNIX timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5385,17 +6964,32 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * zhcn
    */
   language?: string;
   /**
    * @remarks
+   * The name of the waiting room event.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5404,6 +6998,8 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The maximum number of new users per minute.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5411,17 +7007,33 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to enable pre-queuing.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   preQueueEnable?: string;
   /**
+   * @remarks
+   * The start time for pre-queuing.
+   * 
    * @example
    * 1719763200
    */
   preQueueStartTime?: string;
   /**
    * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5430,6 +7042,12 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   queuingMethod?: string;
   /**
    * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5437,12 +7055,20 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * Specifies whether to enable random queuing.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   randomPreQueueEnable?: string;
   /**
    * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5451,6 +7077,8 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5459,6 +7087,8 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The start time of the event. This value is a UNIX timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5467,6 +7097,8 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
+   * The maximum number of active users.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5474,12 +7106,20 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
    */
   totalActiveUsers?: string;
   /**
+   * @remarks
+   * The ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4db28b
    */
   waitingRoomId?: string;
   /**
    * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5543,6 +7183,9 @@ export class CreateWaitingRoomEventRequest extends $tea.Model {
 
 export class CreateWaitingRoomEventResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
@@ -5592,6 +7235,8 @@ export class CreateWaitingRoomEventResponse extends $tea.Model {
 export class CreateWaitingRoomRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The rule content, which is a policy or conditional expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5600,6 +7245,11 @@ export class CreateWaitingRoomRuleRequest extends $tea.Model {
   rule?: string;
   /**
    * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5608,6 +7258,8 @@ export class CreateWaitingRoomRuleRequest extends $tea.Model {
   ruleEnable?: string;
   /**
    * @remarks
+   * The rule name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5616,6 +7268,8 @@ export class CreateWaitingRoomRuleRequest extends $tea.Model {
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5624,6 +7278,8 @@ export class CreateWaitingRoomRuleRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The ID of the waiting room to be bypassed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5657,6 +7313,9 @@ export class CreateWaitingRoomRuleRequest extends $tea.Model {
 
 export class CreateWaitingRoomRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
@@ -5706,6 +7365,8 @@ export class CreateWaitingRoomRuleResponse extends $tea.Model {
 export class DeleteCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5731,13 +7392,16 @@ export class DeleteCustomScenePolicyRequest extends $tea.Model {
 
 export class DeleteCustomScenePolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 1
    */
   policyId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 5CC228B4-7A67-4016-9C9F-4A4133494A91
@@ -5789,6 +7453,9 @@ export class DeleteCustomScenePolicyResponse extends $tea.Model {
 
 export class DeleteEdgeContainerAppRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * app-1232321454***
    */
@@ -5813,13 +7480,16 @@ export class DeleteEdgeContainerAppRequest extends $tea.Model {
 export class DeleteEdgeContainerAppResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * Specifies whether the deletion is successful.
+   * 
    * @example
    * ok
    */
@@ -5871,6 +7541,8 @@ export class DeleteEdgeContainerAppResponse extends $tea.Model {
 export class DeleteEdgeContainerAppRecordRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5879,6 +7551,8 @@ export class DeleteEdgeContainerAppRecordRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The associated domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5886,6 +7560,9 @@ export class DeleteEdgeContainerAppRecordRequest extends $tea.Model {
    */
   recordName?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 5407498413****
    */
@@ -5913,6 +7590,9 @@ export class DeleteEdgeContainerAppRecordRequest extends $tea.Model {
 
 export class DeleteEdgeContainerAppRecordResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
@@ -5962,6 +7642,8 @@ export class DeleteEdgeContainerAppRecordResponse extends $tea.Model {
 export class DeleteEdgeContainerAppVersionRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5970,6 +7652,8 @@ export class DeleteEdgeContainerAppVersionRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the version that you want to delete. To obtain the version ID, call the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5998,7 +7682,7 @@ export class DeleteEdgeContainerAppVersionRequest extends $tea.Model {
 export class DeleteEdgeContainerAppVersionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * b021e538-9dde-46ed-a1f2-9469da8f3e77
@@ -6049,6 +7733,8 @@ export class DeleteEdgeContainerAppVersionResponse extends $tea.Model {
 export class DeleteKvRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the key that you want to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6057,6 +7743,8 @@ export class DeleteKvRequest extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6085,7 +7773,7 @@ export class DeleteKvRequest extends $tea.Model {
 export class DeleteKvResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
@@ -6136,6 +7824,8 @@ export class DeleteKvResponse extends $tea.Model {
 export class DeleteKvNamespaceRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6161,6 +7851,9 @@ export class DeleteKvNamespaceRequest extends $tea.Model {
 
 export class DeleteKvNamespaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
@@ -6210,6 +7903,8 @@ export class DeleteKvNamespaceResponse extends $tea.Model {
 export class DeleteListRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6236,7 +7931,7 @@ export class DeleteListRequest extends $tea.Model {
 export class DeleteListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -6284,9 +7979,85 @@ export class DeleteListResponse extends $tea.Model {
   }
 }
 
+export class DeleteOriginProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginProtectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteOriginProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOriginProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteOriginProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeletePageRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6312,13 +8083,16 @@ export class DeletePageRequest extends $tea.Model {
 
 export class DeletePageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom error page.[](~~2850223~~)
+   * 
    * @example
    * 50000001
    */
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -6371,7 +8145,12 @@ export class DeletePageResponse extends $tea.Model {
 export class DeleteRecordRequest extends $tea.Model {
   /**
    * @remarks
+   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   recordId?: number;
   static names(): { [key: string]: string } {
@@ -6394,7 +8173,7 @@ export class DeleteRecordRequest extends $tea.Model {
 export class DeleteRecordResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
@@ -6444,6 +8223,9 @@ export class DeleteRecordResponse extends $tea.Model {
 
 export class DeleteRoutineRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * test-routine1
    */
@@ -6468,13 +8250,16 @@ export class DeleteRoutineRequest extends $tea.Model {
 export class DeleteRoutineResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * OK
    */
@@ -6525,11 +8310,17 @@ export class DeleteRoutineResponse extends $tea.Model {
 
 export class DeleteRoutineCodeVersionRequest extends $tea.Model {
   /**
+   * @remarks
+   * The code version.
+   * 
    * @example
    * 1710120201067203242
    */
   codeVersion?: string;
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * test-routine1
    */
@@ -6556,13 +8347,16 @@ export class DeleteRoutineCodeVersionRequest extends $tea.Model {
 export class DeleteRoutineCodeVersionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * OK
    */
@@ -6613,12 +8407,36 @@ export class DeleteRoutineCodeVersionResponse extends $tea.Model {
 
 export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * DeleteRoutineRelatedRecord
    */
   name?: string;
+  /**
+   * @remarks
+   * The record ID.
+   * 
+   * @example
+   * 12345
+   */
   recordId?: number;
+  /**
+   * @remarks
+   * The record name.
+   * 
+   * @example
+   * test-xxx.example.com
+   */
   recordName?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 12345
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6646,12 +8464,22 @@ export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
 export class DeleteRoutineRelatedRecordResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * *   OK
+   * *   Fail
+   * 
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6699,12 +8527,36 @@ export class DeleteRoutineRelatedRecordResponse extends $tea.Model {
 
 export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * DeleteRoutineRelatedRoute
    */
   name?: string;
+  /**
+   * @remarks
+   * The route URL.
+   * 
+   * @example
+   * *.example.com/path1*
+   */
   route?: string;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * 0c3b82a3d1524e9f750da11d0cc0be0a
+   */
   routeId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6732,9 +8584,19 @@ export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
 export class DeleteRoutineRelatedRouteResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
+   * @example
+   * OK
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6783,6 +8645,8 @@ export class DeleteRoutineRelatedRouteResponse extends $tea.Model {
 export class DeleteScheduledPreloadExecutionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the prefetch plan.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6809,7 +8673,10 @@ export class DeleteScheduledPreloadExecutionRequest extends $tea.Model {
 export class DeleteScheduledPreloadExecutionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -6857,6 +8724,8 @@ export class DeleteScheduledPreloadExecutionResponse extends $tea.Model {
 export class DeleteScheduledPreloadJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6883,7 +8752,10 @@ export class DeleteScheduledPreloadJobRequest extends $tea.Model {
 export class DeleteScheduledPreloadJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -6932,6 +8804,9 @@ export class DeleteSiteRequest extends $tea.Model {
   ownerId?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1234567890123
    */
@@ -6959,6 +8834,9 @@ export class DeleteSiteRequest extends $tea.Model {
 
 export class DeleteSiteResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247B78
    */
@@ -7008,6 +8886,8 @@ export class DeleteSiteResponse extends $tea.Model {
 export class DeleteSiteDeliveryTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7016,6 +8896,8 @@ export class DeleteSiteDeliveryTaskRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7044,7 +8926,7 @@ export class DeleteSiteDeliveryTaskRequest extends $tea.Model {
 export class DeleteSiteDeliveryTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
@@ -7092,9 +8974,98 @@ export class DeleteSiteDeliveryTaskResponse extends $tea.Model {
   }
 }
 
+export class DeleteSiteFunctionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 33793140540****,33793140540****
+   */
+  configIds?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 611133661****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configIds: 'ConfigIds',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configIds: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSiteFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteSiteFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSiteFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteSiteFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteUserDeliveryTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7121,7 +9092,7 @@ export class DeleteUserDeliveryTaskRequest extends $tea.Model {
 export class DeleteUserDeliveryTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 952ea16b-1f05-4a76-bb32-420282d8aeb9
@@ -7172,6 +9143,8 @@ export class DeleteUserDeliveryTaskResponse extends $tea.Model {
 export class DeleteWafRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7180,6 +9153,8 @@ export class DeleteWafRuleRequest extends $tea.Model {
   id?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7187,6 +9162,9 @@ export class DeleteWafRuleRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -7215,7 +9193,7 @@ export class DeleteWafRuleRequest extends $tea.Model {
 export class DeleteWafRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -7266,6 +9244,8 @@ export class DeleteWafRuleResponse extends $tea.Model {
 export class DeleteWafRulesetRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7273,11 +9253,17 @@ export class DeleteWafRulesetRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -7306,7 +9292,7 @@ export class DeleteWafRulesetRequest extends $tea.Model {
 export class DeleteWafRulesetResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -7357,6 +9343,8 @@ export class DeleteWafRulesetResponse extends $tea.Model {
 export class DeleteWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7365,6 +9353,8 @@ export class DeleteWaitingRoomRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The waiting room ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7392,6 +9382,9 @@ export class DeleteWaitingRoomRequest extends $tea.Model {
 
 export class DeleteWaitingRoomResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
@@ -7441,6 +9434,8 @@ export class DeleteWaitingRoomResponse extends $tea.Model {
 export class DeleteWaitingRoomEventRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7448,6 +9443,9 @@ export class DeleteWaitingRoomEventRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room event.
+   * 
    * @example
    * 302909890***
    */
@@ -7473,6 +9471,9 @@ export class DeleteWaitingRoomEventRequest extends $tea.Model {
 
 export class DeleteWaitingRoomEventResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
@@ -7522,6 +9523,8 @@ export class DeleteWaitingRoomEventResponse extends $tea.Model {
 export class DeleteWaitingRoomRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7529,6 +9532,9 @@ export class DeleteWaitingRoomRuleRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room bypass rule.
+   * 
    * @example
    * 3672886****
    */
@@ -7554,6 +9560,9 @@ export class DeleteWaitingRoomRuleRequest extends $tea.Model {
 
 export class DeleteWaitingRoomRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
@@ -7603,6 +9612,8 @@ export class DeleteWaitingRoomRuleResponse extends $tea.Model {
 export class DescribeCustomScenePoliciesRequest extends $tea.Model {
   /**
    * @remarks
+   * The page number. Valid values: 1 to 100000.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7610,11 +9621,17 @@ export class DescribeCustomScenePoliciesRequest extends $tea.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 5, 10, and 20.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the policy, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * @example
    * 1234****
    */
@@ -7641,31 +9658,47 @@ export class DescribeCustomScenePoliciesRequest extends $tea.Model {
 }
 
 export class DescribeCustomScenePoliciesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The scenario-specific policies.
+   */
   dataModule?: DescribeCustomScenePoliciesResponseBodyDataModule[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The policy quota.
+   * 
    * @example
    * 10
    */
   quota?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 85H66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -7724,17 +9757,35 @@ export class DescribeCustomScenePoliciesResponse extends $tea.Model {
 
 export class DescribeDDoSAllEventListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The maximum time range is 31 days.
+   * 
+   * If you do not configure this parameter, the current time is used as the end of the time range to query.
+   * 
    * @example
    * 2023-02-22T15:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The type of DDoS attacks to query. Valid values:
+   * 
+   * *   **web-cc**: web resource exhaustion attacks.
+   * *   **cc**: connection flood attacks.
+   * *   **traffic**: volumetric attacks.
+   * 
+   * Default value: web-cc.
+   * 
    * @example
    * web-cc
    */
   eventType?: string;
   /**
    * @remarks
+   * The page number. Valid values: **1** to **100000**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7742,12 +9793,17 @@ export class DescribeDDoSAllEventListRequest extends $tea.Model {
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **10**. Valid values: 5, 10, and 20.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7756,7 +9812,9 @@ export class DescribeDDoSAllEventListRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
-   * A short description of struct
+   * The beginning of the time range to query.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -7792,31 +9850,47 @@ export class DescribeDDoSAllEventListRequest extends $tea.Model {
 }
 
 export class DescribeDDoSAllEventListResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The DDoS attack events.
+   */
   dataList?: DescribeDDoSAllEventListResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * D73A4243-CFBD-5110-876F-09237E77ECBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 7096621098****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
@@ -7876,6 +9950,8 @@ export class DescribeDDoSAllEventListResponse extends $tea.Model {
 export class DescribeHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7901,24 +9977,41 @@ export class DescribeHttpDDoSAttackIntelligentProtectionRequest extends $tea.Mod
 
 export class DescribeHttpDDoSAttackIntelligentProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The mode of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **observe**: alert.
+   * *   **defense**: block.
+   * 
    * @example
    * defense
    */
   aiMode?: string;
   /**
+   * @remarks
+   * The level of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **level0**: very loose.
+   * *   **level30**: loose.
+   * *   **level60**: normal.
+   * *   **level90**: strict.
+   * 
    * @example
    * level60
    */
   aiTemplate?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -7974,6 +10067,8 @@ export class DescribeHttpDDoSAttackIntelligentProtectionResponse extends $tea.Mo
 export class DescribeHttpDDoSAttackProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7999,19 +10094,30 @@ export class DescribeHttpDDoSAttackProtectionRequest extends $tea.Model {
 
 export class DescribeHttpDDoSAttackProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The level of HTTP DDoS attack protection. Valid values:
+   * 
+   * *   **very weak**: very loose.
+   * *   **weak**: loose.
+   * *   **default**: normal.
+   * *   **hard**: strict.
+   * 
    * @example
    * default
    */
   globalMode?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 35C66C7B-671H-4297-9187-2C4477247A78
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -8064,11 +10170,20 @@ export class DescribeHttpDDoSAttackProtectionResponse extends $tea.Model {
 
 export class DescribeKvAccountStatusResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether Edge KV is activated for the Alibaba Cloud account.
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
    * @example
    * online
    */
@@ -8119,36 +10234,63 @@ export class DescribeKvAccountStatusResponse extends $tea.Model {
 
 export class DescribePreloadTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The content to prefetch. Exact match is supported.
+   * 
    * @example
    * http://a.com/1.jpg?b=2
    */
   content?: string;
   /**
+   * @remarks
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
    * @example
    * 2023-03-23T06:23:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Valid values: **1** to **100000**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 50.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2023-03-22T17:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is running.
+   * *   **Failed**: The task failed.
+   * 
    * @example
    * Complete
    */
@@ -8184,22 +10326,38 @@ export class DescribePreloadTasksRequest extends $tea.Model {
 
 export class DescribePreloadTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: DescribePreloadTasksResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 83
    */
@@ -8256,41 +10414,78 @@ export class DescribePreloadTasksResponse extends $tea.Model {
 
 export class DescribePurgeTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The content to purge. Exact match is supported.
+   * 
    * @example
    * http://a.com/1.jpg?b=1
    */
   content?: string;
   /**
+   * @remarks
+   * The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The end time must be later than the start time.
+   * 
    * @example
    * 2022-11-18T15:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Valid values: 1 to 100000.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 50.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The start time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2022-11-16T05:33:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task status. Valid values:
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
    * @example
    * Complete
    */
   status?: string;
   /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **cachetag**: purges the cache by cache tag.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * *   **hostname**: purges the cache by hostname.
+   * *   **purgeall**: purges all cache.
+   * 
    * @example
    * file
    */
@@ -8328,22 +10523,38 @@ export class DescribePurgeTasksRequest extends $tea.Model {
 
 export class DescribePurgeTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: DescribePurgeTasksResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 15
    */
@@ -8401,6 +10612,8 @@ export class DescribePurgeTasksResponse extends $tea.Model {
 export class DisableCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8426,13 +10639,16 @@ export class DisableCustomScenePolicyRequest extends $tea.Model {
 
 export class DisableCustomScenePolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the disabled policy.
+   * 
    * @example
    * 100001
    */
   policyId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9732E117-8A37-49FD-A36F-ABBB87556CA7
@@ -8483,12 +10699,26 @@ export class DisableCustomScenePolicyResponse extends $tea.Model {
 }
 
 export class EditSiteWafSettingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The WAF configuration of the website in the JSON format.
+   */
   settings?: WafSiteSettings;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8512,12 +10742,26 @@ export class EditSiteWafSettingsRequest extends $tea.Model {
 }
 
 export class EditSiteWafSettingsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The WAF configuration of the website in the JSON format.
+   */
   settingsShrink?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8543,7 +10787,7 @@ export class EditSiteWafSettingsShrinkRequest extends $tea.Model {
 export class EditSiteWafSettingsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -8594,6 +10838,8 @@ export class EditSiteWafSettingsResponse extends $tea.Model {
 export class EnableCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8619,13 +10865,16 @@ export class EnableCustomScenePolicyRequest extends $tea.Model {
 
 export class EnableCustomScenePolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 1
    */
   policyId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 65C66B7B-671A-8297-9187-2R5477247B76
@@ -8677,6 +10926,9 @@ export class EnableCustomScenePolicyResponse extends $tea.Model {
 
 export class ExportRecordsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 1234567890123
    */
@@ -8700,13 +10952,16 @@ export class ExportRecordsRequest extends $tea.Model {
 
 export class ExportRecordsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The exported DNS records.
+   * 
    * @example
    * ;; site:example.com.\\n;; Exported:2024-01-24 15:54:35\\n\\n;; A Records\\na1.example.com. 30 IN A 1.1.1.1 direct\\na2.example.com. 30 IN A 1.1.1.1 direct\\na3.example.com. 30 IN A 1.1.1.1 direct\\n
    */
   content?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C69B5894-D1BA-592C-95D0-DADBE7AEAC63
@@ -8757,11 +11012,22 @@ export class ExportRecordsResponse extends $tea.Model {
 }
 
 export class GetCacheReserveSpecificationResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The capacities of cache reserve instances that can be created.
+   */
   cacheReserveCapacity?: string[];
+  /**
+   * @remarks
+   * The regions in which cache reserve instances can be created.
+   */
   cacheReserveRegion?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -8813,6 +11079,8 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
 export class GetEdgeContainerAppRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8837,8 +11105,15 @@ export class GetEdgeContainerAppRequest extends $tea.Model {
 }
 
 export class GetEdgeContainerAppResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The basic information about the application.
+   */
   app?: GetEdgeContainerAppResponseBodyApp;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 156A6B-677B1A-4297B7-9187B7-2B44792
    */
@@ -8890,6 +11165,8 @@ export class GetEdgeContainerAppResponse extends $tea.Model {
 export class GetEdgeContainerAppStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8897,6 +11174,9 @@ export class GetEdgeContainerAppStatusRequest extends $tea.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The release environment. Valid values: prod and staging.
+   * 
    * @example
    * staging
    */
@@ -8921,8 +11201,15 @@ export class GetEdgeContainerAppStatusRequest extends $tea.Model {
 }
 
 export class GetEdgeContainerAppStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status of the application.
+   */
   appStatus?: GetEdgeContainerAppStatusResponseBodyAppStatus;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247B78
    */
@@ -8974,6 +11261,8 @@ export class GetEdgeContainerAppStatusResponse extends $tea.Model {
 export class GetEdgeContainerAppVersionRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8982,6 +11271,8 @@ export class GetEdgeContainerAppVersionRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The version ID, which can be obtained by calling the [ListEdgeContainerAppVersions](~~ListEdgeContainerAppVersions~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9009,10 +11300,17 @@ export class GetEdgeContainerAppVersionRequest extends $tea.Model {
 
 export class GetEdgeContainerAppVersionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the version.
+   */
   version?: GetEdgeContainerAppVersionResponseBodyVersion;
   static names(): { [key: string]: string } {
     return {
@@ -9060,6 +11358,9 @@ export class GetEdgeContainerAppVersionResponse extends $tea.Model {
 
 export class GetEdgeContainerDeployRegionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * GetEdgeContainerDeployRegions
    */
@@ -9082,10 +11383,17 @@ export class GetEdgeContainerDeployRegionsRequest extends $tea.Model {
 }
 
 export class GetEdgeContainerDeployRegionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The regions.
+   */
   regions?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -9135,6 +11443,8 @@ export class GetEdgeContainerDeployRegionsResponse extends $tea.Model {
 export class GetEdgeContainerLogsRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9143,6 +11453,8 @@ export class GetEdgeContainerLogsRequest extends $tea.Model {
   appId?: string;
   /**
    * @remarks
+   * The number of log entries to output.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9169,10 +11481,14 @@ export class GetEdgeContainerLogsRequest extends $tea.Model {
 }
 
 export class GetEdgeContainerLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The logs.
+   */
   items?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247B78
@@ -9224,6 +11540,9 @@ export class GetEdgeContainerLogsResponse extends $tea.Model {
 
 export class GetEdgeContainerStagingDeployStatusRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * GetEdgeContainerStagingDeployStatus
    */
@@ -9246,14 +11565,87 @@ export class GetEdgeContainerStagingDeployStatusRequest extends $tea.Model {
 }
 
 export class GetEdgeContainerStagingDeployStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the container is ready.
+   * 
+   * *   ok
+   * *   unready
+   * 
+   * @example
+   * ok
+   */
   containersReady?: string;
+  /**
+   * @remarks
+   * The time when the container was created. The value is a timestamp.
+   * 
+   * @example
+   * 2024-09-24T06:46:35Z
+   */
   creationTimestamp?: string;
+  /**
+   * @remarks
+   * The initialization status of the container.
+   * 
+   * *   ok
+   * *   unready
+   * 
+   * @example
+   * ok
+   */
   initialized?: string;
+  /**
+   * @remarks
+   * The status of the container in the staging environment.
+   * 
+   * *   NoContainer: created.
+   * *   Running: running.
+   * *   Failed: abnormal.
+   * 
+   * @example
+   * Running
+   */
   phase?: string;
+  /**
+   * @remarks
+   * The details of container restart.
+   */
   podRestartState?: GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState;
+  /**
+   * @remarks
+   * Indicates whether domain names are associated with the container.
+   * 
+   * *   ok
+   * *   unready
+   * 
+   * @example
+   * ok
+   */
   ready?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2F2C992B-3FE2-5EBB-A61F-F9DD4EB257DA
+   */
   requestId?: string;
+  /**
+   * @remarks
+   * The scheduling status of the container.
+   * 
+   * *   ok
+   * *   unready
+   * 
+   * @example
+   * ok
+   */
   scheduled?: string;
+  /**
+   * @remarks
+   * The virtual IP addresses.
+   */
   VIPs?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9315,6 +11707,9 @@ export class GetEdgeContainerStagingDeployStatusResponse extends $tea.Model {
 
 export class GetEdgeContainerTerminalRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * app-88068867578379****
    */
@@ -9338,39 +11733,57 @@ export class GetEdgeContainerTerminalRequest extends $tea.Model {
 
 export class GetEdgeContainerTerminalResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster name.
+   * 
    * @example
    * c497b44c2a59f4ae0bd2826edc40a2c6e
    */
   cluster?: string;
   /**
+   * @remarks
+   * The container name.
+   * 
    * @example
    * worker0
    */
   container?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * ns1
    */
   namespace?: string;
   /**
+   * @remarks
+   * The name of the container group.
+   * 
    * @example
    * 1775b9e0-8463-457e-89e8-fb7b6d125b2e
    */
   pod?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9732E117-8A37-49FD-A36F-ABBB87556CA7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The session ID.
+   * 
    * @example
    * af22f4xxxxxxxxxxxxxxxxxx
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The information about the shared token.
+   * 
    * @example
    * af22f4-xxxxx-xxxx-xxxx-xxxx
    */
@@ -9453,19 +11866,34 @@ export class GetErServiceRequest extends $tea.Model {
 
 export class GetErServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The billing mode. Valid values:
+   * 
+   * *   er_paymode: billed for customers on the China site.
+   * *   er_freemode: free for customers on the China site.
+   * *   er_paymodeintl: billed for customers on the International site.
+   * *   err_freemodeintl: free for customers on the International site
+   * 
    * @example
    * er_paymode
    */
   planName?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The service status. Valid values:
+   * 
+   * *   Creating
+   * *   Running
+   * *   NotOpened
+   * 
    * @example
    * Running
    */
@@ -9518,12 +11946,17 @@ export class GetErServiceResponse extends $tea.Model {
 
 export class GetKvRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to decode the value by using Base 64. If you call the [PutKv](https://help.aliyun.com/document_detail/2850482.html) operation and set the Base64 parameter to true, set this parameter to true to read the original content.
+   * 
    * @example
    * true
    */
   base64?: boolean;
   /**
    * @remarks
+   * The key name for the query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9532,6 +11965,8 @@ export class GetKvRequest extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9561,11 +11996,17 @@ export class GetKvRequest extends $tea.Model {
 
 export class GetKvResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The value of the key.
+   * 
    * @example
    * test_value
    */
@@ -9616,42 +12057,73 @@ export class GetKvResponse extends $tea.Model {
 
 export class GetKvAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The available capacity of all namespaces in the account. Unit: bytes.
+   * 
    * @example
    * 1073741824
    */
   capacity?: number;
   /**
+   * @remarks
+   * The available capacity of all namespaces in the account.
+   * 
    * @example
    * 1 GB
    */
   capacityString?: string;
   /**
+   * @remarks
+   * The used capacity of all namespaces in the account. Unit: bytes.
+   * 
    * @example
    * 10048576
    */
   capacityUsed?: number;
   /**
+   * @remarks
+   * The used capacity of all namespaces in the account.
+   * 
    * @example
    * 100 MB
    */
   capacityUsedString?: string;
+  /**
+   * @remarks
+   * The namespaces in the account.
+   */
   namespaceList?: GetKvAccountResponseBodyNamespaceList[];
   /**
+   * @remarks
+   * The maximum number of namespaces that can be created in the account.
+   * 
    * @example
    * 10
    */
   namespaceQuota?: number;
   /**
+   * @remarks
+   * The number of created namespaces that store key-value data in the account.
+   * 
    * @example
    * 1
    */
   namespaceUsed?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether Edge KV is activated for the Alibaba Cloud account.
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
    * @example
    * online
    */
@@ -9717,6 +12189,8 @@ export class GetKvAccountResponse extends $tea.Model {
 export class GetKvNamespaceRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9742,46 +12216,78 @@ export class GetKvNamespaceRequest extends $tea.Model {
 
 export class GetKvNamespaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The available capacity of the namespace. Unit: bytes.
+   * 
    * @example
    * 1073741824
    */
   capacity?: number;
   /**
+   * @remarks
+   * The available capacity of the namespace.
+   * 
    * @example
    * 1 GB
    */
   capacityString?: string;
   /**
+   * @remarks
+   * The used capacity of the namespace. Unit: bytes.
+   * 
    * @example
    * 10048576
    */
   capacityUsed?: number;
   /**
+   * @remarks
+   * The used capacity of the namespace.
+   * 
    * @example
    * 100 MB
    */
   capacityUsedString?: string;
   /**
+   * @remarks
+   * The description of the namespace.
+   * 
    * @example
    * this is a test namespace.
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * test_namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the namespace.
+   * 
    * @example
    * 643355322374688768
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the namespace. Valid values:
+   * 
+   * *   **online**: working as expected.
+   * *   **delete**: pending deletion.
+   * *   **deleting**: being deleted.
+   * *   **deleted**: deleted.
+   * 
    * @example
    * online
    */
@@ -9846,6 +12352,9 @@ export class GetKvNamespaceResponse extends $tea.Model {
 
 export class GetListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * @example
    * 40000001
    */
@@ -9870,7 +12379,7 @@ export class GetListRequest extends $tea.Model {
 export class GetListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 自定义响应页面描述
+   * The description of the custom list.
    * 
    * @example
    * a custom list
@@ -9878,21 +12387,28 @@ export class GetListResponseBody extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ID of the custom list.[](~~2850217~~)
    * 
    * @example
    * 40000001
    */
   id?: number;
+  /**
+   * @remarks
+   * The items in the custom list, which are displayed as an array.
+   */
   items?: string[];
   /**
+   * @remarks
+   * The type of the custom list.
+   * 
    * @example
    * ip
    */
   kind?: string;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * The name of the custom list.
    * 
    * This parameter is required.
    * 
@@ -9902,13 +12418,16 @@ export class GetListResponseBody extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the custom list was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -9967,8 +12486,119 @@ export class GetListResponse extends $tea.Model {
   }
 }
 
+export class GetOriginProtectionRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456789****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBody extends $tea.Model {
+  currentIPWhitelist?: GetOriginProtectionResponseBodyCurrentIPWhitelist;
+  diffIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelist;
+  latestIPWhitelist?: GetOriginProtectionResponseBodyLatestIPWhitelist;
+  /**
+   * @example
+   * true
+   */
+  needUpdate?: boolean;
+  /**
+   * @example
+   * on
+   */
+  originConverge?: string;
+  /**
+   * @example
+   * on
+   */
+  originProtection?: string;
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentIPWhitelist: 'CurrentIPWhitelist',
+      diffIPWhitelist: 'DiffIPWhitelist',
+      latestIPWhitelist: 'LatestIPWhitelist',
+      needUpdate: 'NeedUpdate',
+      originConverge: 'OriginConverge',
+      originProtection: 'OriginProtection',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentIPWhitelist: GetOriginProtectionResponseBodyCurrentIPWhitelist,
+      diffIPWhitelist: GetOriginProtectionResponseBodyDiffIPWhitelist,
+      latestIPWhitelist: GetOriginProtectionResponseBodyLatestIPWhitelist,
+      needUpdate: 'boolean',
+      originConverge: 'string',
+      originProtection: 'string',
+      requestId: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOriginProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOriginProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetPageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * 
    * @example
    * 50000001
    */
@@ -9993,7 +12623,7 @@ export class GetPageRequest extends $tea.Model {
 export class GetPageResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 自定义响应页面内容BASE64编码
+   * The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
    * 
    * This parameter is required.
    * 
@@ -10003,7 +12633,7 @@ export class GetPageResponseBody extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * The Content-Type field in the HTTP header.
    * 
    * This parameter is required.
    * 
@@ -10013,7 +12643,7 @@ export class GetPageResponseBody extends $tea.Model {
   contentType?: string;
   /**
    * @remarks
-   * 自定义响应页面描述
+   * The description of the custom error page.
    * 
    * @example
    * a custom deny page
@@ -10021,20 +12651,23 @@ export class GetPageResponseBody extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ID of the custom error page.[](~~2850223~~)
    * 
    * @example
    * 50000001
    */
   id?: number;
   /**
+   * @remarks
+   * The type of the custom response page.
+   * 
    * @example
    * custom
    */
   kind?: string;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * The name of the custom response page.
    * 
    * This parameter is required.
    * 
@@ -10044,13 +12677,16 @@ export class GetPageResponseBody extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the custom error page was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -10113,11 +12749,24 @@ export class GetPageResponse extends $tea.Model {
 
 export class GetPurgeQuotaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The type of the purge task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **cachetag**: purges the cache by cache tag.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specific parameters ignored.
+   * *   **hostname**: purges the cache by hostname.
+   * *   **purgeall**: purges all cache.
+   * 
    * @example
    * file
    */
@@ -10143,19 +12792,25 @@ export class GetPurgeQuotaRequest extends $tea.Model {
 
 export class GetPurgeQuotaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The total quota.
+   * 
    * @example
    * 100000
    */
   quota?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
   /**
+   * @remarks
+   * The quota usage.
+   * 
    * @example
    * 10
    */
@@ -10209,6 +12864,13 @@ export class GetPurgeQuotaResponse extends $tea.Model {
 export class GetRealtimeDeliveryFieldRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   **dcdn_log_access_l1** (default): access logs.
+   * *   **dcdn_log_er**: Edge Routine logs.
+   * *   **dcdn_log_waf**: firewall logs.
+   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10233,10 +12895,14 @@ export class GetRealtimeDeliveryFieldRequest extends $tea.Model {
 }
 
 export class GetRealtimeDeliveryFieldResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The fields returned.
+   */
   fieldContent?: { [key: string]: FieldContentValue };
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247B78
@@ -10368,6 +13034,9 @@ export class GetRecordResponse extends $tea.Model {
 
 export class GetRoutineRequest extends $tea.Model {
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * GetRoutine
    */
@@ -10390,16 +13059,56 @@ export class GetRoutineRequest extends $tea.Model {
 }
 
 export class GetRoutineResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The code versions.
+   */
   codeVersions?: GetRoutineResponseBodyCodeVersions[];
+  /**
+   * @remarks
+   * The time when the routine was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:21Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The default record name to access.
+   * 
+   * @example
+   * routine1.example.com
+   */
   defaultRelatedRecord?: string;
+  /**
+   * @remarks
+   * The description of the routine.
+   * 
+   * @example
+   * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+   */
   description?: string;
+  /**
+   * @remarks
+   * The information about the environments.
+   */
   envs?: GetRoutineResponseBodyEnvs[];
+  /**
+   * @remarks
+   * The records associated with the routine.
+   */
   relatedRecords?: GetRoutineResponseBodyRelatedRecords[];
+  /**
+   * @remarks
+   * The routes associated with the routine.
+   */
   relatedRoutes?: GetRoutineResponseBodyRelatedRoutes[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -10459,8 +13168,18 @@ export class GetRoutineResponse extends $tea.Model {
 }
 
 export class GetRoutineStagingCodeUploadInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code description.
+   * 
+   * @example
+   * the description of code
+   */
   codeDescription?: string;
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * GetRoutineStagingCodeUploadInfo
    */
@@ -10485,11 +13204,36 @@ export class GetRoutineStagingCodeUploadInfoRequest extends $tea.Model {
 }
 
 export class GetRoutineStagingCodeUploadInfoResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The code version.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The configuration information that can be used to upload to OSS.
+   * 
+   * @example
+   * {
+   *             "Url": "http://oss_fake_bucket_url",
+   *             "OSSAccessKeyId": "xxx",
+   *             "key": "site_er_js/hello.1418586423220543.unstable.js",
+   *             "callback": "xxx==",
+   *             "x:codeDescription": "xxx=",
+   *             "policy": "xxx",
+   *             "Signature": "xxx="
+   * }
+   */
   ossPostConfig?: { [key: string]: any };
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -10539,10 +13283,17 @@ export class GetRoutineStagingCodeUploadInfoResponse extends $tea.Model {
 }
 
 export class GetRoutineStagingEnvIpResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IPv4 addresses.
+   */
   IPV4?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -10592,10 +13343,21 @@ export class GetRoutineStagingEnvIpResponse extends $tea.Model {
 export class GetRoutineUserInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The routines.
+   */
   routines?: GetRoutineUserInfoResponseBodyRoutines[];
+  /**
+   * @remarks
+   * The subdomains.
+   */
   subdomains?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10646,6 +13408,8 @@ export class GetRoutineUserInfoResponse extends $tea.Model {
 export class GetScheduledPreloadJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10670,24 +13434,125 @@ export class GetScheduledPreloadJobRequest extends $tea.Model {
 }
 
 export class GetScheduledPreloadJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2024-06-02T02:23:26Z
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * The domain names to be prefetched.
+   * 
+   * @example
+   * testurl.com
+   */
   domains?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * invalid domain:test.com
+   */
   errorInfo?: string;
+  /**
+   * @remarks
+   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * 
+   * @example
+   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   */
   failedFileOss?: string;
+  /**
+   * @remarks
+   * The ID of the URL list file, which can be used during downloads.
+   * 
+   * @example
+   * 665d3b48621bccf3fe29e1a7
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   id?: string;
+  /**
+   * @remarks
+   * The method to submit the URLs to be prefetched.
+   * 
+   * @example
+   * oss
+   */
   insertWay?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * example
+   */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 190007158391808
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The number of submitted prefetch tasks.
+   * 
+   * @example
+   * 1
+   */
   taskSubmitted?: number;
+  /**
+   * @remarks
+   * The task type. Valid values: refresh and preload.
+   * 
+   * @example
+   * preload
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The total number of URLs.
+   * 
+   * @example
+   * 2
+   */
   urlCount?: number;
+  /**
+   * @remarks
+   * The number of submitted URLs.
+   * 
+   * @example
+   * 1
+   */
   urlSubmitted?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10762,6 +13627,8 @@ export class GetScheduledPreloadJobResponse extends $tea.Model {
 export class GetSiteRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10788,12 +13655,16 @@ export class GetSiteRequest extends $tea.Model {
 export class GetSiteResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9732E117-8A37-49FD-A36F-ABBB87556CA7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried website information.
+   */
   siteModel?: GetSiteResponseBodySiteModel;
   static names(): { [key: string]: string } {
     return {
@@ -10842,6 +13713,8 @@ export class GetSiteResponse extends $tea.Model {
 export class GetSiteCurrentNSRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID. It can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10866,8 +13739,15 @@ export class GetSiteCurrentNSRequest extends $tea.Model {
 }
 
 export class GetSiteCurrentNSResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The nameservers of the website.
+   */
   NSList?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2430E05E-1340-5773-B5E1-B743929F46F2
    */
@@ -10919,6 +13799,8 @@ export class GetSiteCurrentNSResponse extends $tea.Model {
 export class GetSiteCustomLogRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10944,25 +13826,38 @@ export class GetSiteCustomLogRequest extends $tea.Model {
 
 export class GetSiteCustomLogResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the custom log field configuration.
+   * 
    * @example
    * 6befa4aa-2a94-4f51-a245-295787192d2c
    */
   configId?: number;
   /**
+   * @remarks
+   * Indicates whether the custom configuration exists.
+   * 
    * @example
    * true
    */
   isExist?: boolean;
+  /**
+   * @remarks
+   * The custom fields.
+   */
   logCustomField?: GetSiteCustomLogResponseBodyLogCustomField;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6befa4aa-2a94-4f51-a245-295787192d2c
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 167026711***
    */
@@ -11019,12 +13914,17 @@ export class GetSiteCustomLogResponse extends $tea.Model {
 
 export class GetSiteDeliveryTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 123456***
    */
   siteId?: number;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11052,64 +13952,115 @@ export class GetSiteDeliveryTaskRequest extends $tea.Model {
 
 export class GetSiteDeliveryTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * 1.  cn: the Chinese mainland.
+   * 2.  sg: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
+   * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * 1.  sls: Alibaba Cloud Simple Log Service (SLS).
+   * 2.  http: HTTP server.
+   * 3.  aws3: Amazon Simple Storage Service (S3).
+   * 4.  oss: Alibaba Cloud Object Storage Service (OSS).
+   * 5.  kafka: Kafka.
+   * 6.  aws3cmpt: S3-compatible storage service.
+   * 
    * @example
    * sls
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate.
+   * 
    * @example
    * 0.0
    */
   discardRate?: number;
   /**
+   * @remarks
+   * The log fields.
+   * 
    * @example
    * Client,UserAgent
    */
   fieldList?: string;
   /**
+   * @remarks
+   * The filtering rules.
+   * 
    * @example
    * []
    */
   filterRules?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The delivery configuration.
+   * 
    * @example
    * {\\"Region\\": \\"cn-hangzhou\\", \\"Endpoint\\": \\"https://***.oss-cn-hangzhou.aliyuncs.com\\", \\"BucketPath\\": \\"hjy-test002/online-logs\\"}
    */
   sinkConfig?: any;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * test.***.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * cdn-test-task
    */
@@ -11181,6 +14132,13 @@ export class GetSiteDeliveryTaskResponse extends $tea.Model {
 export class GetSiteLogDeliveryQuotaRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * 1.  dcdn_log_access_l1 (default): access logs.
+   * 2.  dcdn_log_er: Edge Routine logs.
+   * 3.  dcdn_log_waf: firewall logs.
+   * 4.  dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11189,6 +14147,8 @@ export class GetSiteLogDeliveryQuotaRequest extends $tea.Model {
   businessType?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11216,24 +14176,38 @@ export class GetSiteLogDeliveryQuotaRequest extends $tea.Model {
 
 export class GetSiteLogDeliveryQuotaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * 1.  dcdn_log_access_l1 (default): access logs.
+   * 2.  dcdn_log_er: Edge Routine logs.
+   * 3.  dcdn_log_waf: firewall logs.
+   * 4.  dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The remaining quota.
+   * 
    * @example
    * 3
    */
   freeQuota?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 4C14840EF0EAAB6D97CDE0C5F6554ACE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -11288,10 +14262,20 @@ export class GetSiteLogDeliveryQuotaResponse extends $tea.Model {
 
 export class GetSiteWafSettingsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11315,9 +14299,16 @@ export class GetSiteWafSettingsRequest extends $tea.Model {
 export class GetSiteWafSettingsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The WAF configurations of the website.
+   */
   settings?: WafSiteSettings;
   static names(): { [key: string]: string } {
     return {
@@ -11365,11 +14356,17 @@ export class GetSiteWafSettingsResponse extends $tea.Model {
 
 export class GetUploadTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the file upload task. This field is assigned after you call the [UploadFile](https://help.aliyun.com/document_detail/435925.html) operation.
+   * 
    * @example
    * 159253299357****
    */
@@ -11395,19 +14392,32 @@ export class GetUploadTaskRequest extends $tea.Model {
 
 export class GetUploadTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error message returned when the file upload task failed.
+   * 
    * @example
    * invalid url
    */
   description?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A52****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **INIT**: The task is being initialized.
+   * *   **activacted**: The task is activated.
+   * *   **running**: The task is running.
+   * *   **success**: The task is successful.
+   * *   **partial**: The task is partially successful.
+   * *   **fail**: The task failed.
+   * 
    * @example
    * running
    */
@@ -11461,6 +14471,8 @@ export class GetUploadTaskResponse extends $tea.Model {
 export class GetUserDeliveryTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11486,54 +14498,96 @@ export class GetUserDeliveryTaskRequest extends $tea.Model {
 
 export class GetUserDeliveryTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   **dcdn_log_access_l1** (default): access logs.
+   * *   **dcdn_log_er**: Edge Routine logs.
+   * *   **dcdn_log_waf**: firewall logs.
+   * *   **dcdn_log_ipa**: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_er
    */
   businessType?: string;
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   sg: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
+   * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * *   sls: Alibaba Cloud Simple Log Service (SLS).
+   * *   http: HTTP server.
+   * *   aws3: Amazon Simple Storage Service (S3).
+   * *   oss: Alibaba Cloud Object Storage Service (OSS).
+   * *   kafka: Kafka.
+   * *   aws3cmpt: S3-compatible storage service.
+   * 
    * @example
    * oss
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The discard rate.
+   * 
    * @example
    * 0
    */
   discardRate?: number;
   /**
+   * @remarks
+   * The fields.
+   * 
    * @example
    * ClientRequestID,ClientRequestHost
    */
   fieldList?: string;
   /**
+   * @remarks
+   * The filtering rules.
+   * 
    * @example
    * [{"ClientSSLProtocol": {"equals": ["TLSv1.3"]}}]
    */
   filterRules?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 7072132a-bd3c-46a6-9e81-aba3e0e3f861
    */
   requestId?: string;
   /**
+   * @remarks
+   * The delivery configuration.
+   * 
    * @example
    * {\\"Project\\": \\"er-online-hjy-pro\\", \\"Logstore\\": \\"er-online-hjy-log\\", \\"Region\\": \\"cn-hangzhou\\", \\"Endpoint\\": \\"cn-hangzhou.log.aliyuncs.com\\", \\"Aliuid\\": \\"1077912128805410\\"}
    */
   sinkConfig?: any;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * testoss11
    */
@@ -11601,6 +14655,13 @@ export class GetUserDeliveryTaskResponse extends $tea.Model {
 export class GetUserLogDeliveryQuotaRequest extends $tea.Model {
   /**
    * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11626,18 +14687,29 @@ export class GetUserLogDeliveryQuotaRequest extends $tea.Model {
 
 export class GetUserLogDeliveryQuotaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The remaining quota.
+   * 
    * @example
    * 3
    */
   freeQuota?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
@@ -11692,13 +14764,16 @@ export class GetUserLogDeliveryQuotaResponse extends $tea.Model {
 export class GetWafBotAppKeyResponseBody extends $tea.Model {
   /**
    * @remarks
-   * APP key
+   * The application key.
    * 
    * @example
    * example_appkey
    */
   appKey?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
@@ -11749,21 +14824,33 @@ export class GetWafBotAppKeyResponse extends $tea.Model {
 
 export class GetWafFilterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The WAF rule category to which the filter conditions to query belong.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
   /**
+   * @remarks
+   * The condition for matching incoming requests.
+   * 
    * @example
    * characteristics
    */
   target?: string;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * http_custom_cc
    */
@@ -11792,10 +14879,14 @@ export class GetWafFilterRequest extends $tea.Model {
 }
 
 export class GetWafFilterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned match conditions.
+   */
   filter?: GetWafFilterResponseBodyFilter;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -11847,6 +14938,14 @@ export class GetWafFilterResponse extends $tea.Model {
 
 export class GetWafQuotaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The type of WAF resources. Valid values:
+   * 
+   * *   managed_rules_group: the managed rule group.
+   * *   list: the custom list.
+   * *   page: the custom error page.
+   * *   scene_policy: the scenario-specific policy.
+   * 
    * @example
    * page
    */
@@ -11869,10 +14968,14 @@ export class GetWafQuotaRequest extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The quota information returned.
+   */
   quota?: GetWafQuotaResponseBodyQuota;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -11925,6 +15028,8 @@ export class GetWafQuotaResponse extends $tea.Model {
 export class GetWafRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11933,6 +15038,8 @@ export class GetWafRuleRequest extends $tea.Model {
   id?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11959,10 +15066,14 @@ export class GetWafRuleRequest extends $tea.Model {
 }
 
 export class GetWafRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ID of the WAF rule.[](~~2850237~~)
    * 
    * @example
    * 2000001
@@ -11970,7 +15081,7 @@ export class GetWafRuleResponseBody extends $tea.Model {
   id?: number;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * The rule name.
    * 
    * This parameter is required.
    * 
@@ -11980,7 +15091,7 @@ export class GetWafRuleResponseBody extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * The WAF rule category.
    * 
    * This parameter is required.
    * 
@@ -11989,24 +15100,33 @@ export class GetWafRuleResponseBody extends $tea.Model {
    */
   phase?: string;
   /**
+   * @remarks
+   * The order of the rule in the ruleset.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the rule was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -12069,16 +15189,25 @@ export class GetWafRuleResponse extends $tea.Model {
 
 export class GetWafRulesetRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * @example
    * 10000001
    */
   id?: number;
   /**
+   * @remarks
+   * The WAF rule category of rulesets to query.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
@@ -12107,7 +15236,7 @@ export class GetWafRulesetRequest extends $tea.Model {
 export class GetWafRulesetResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 自定义响应页面ID
+   * The ruleset ID.
    * 
    * @example
    * 10000001
@@ -12115,7 +15244,7 @@ export class GetWafRulesetResponseBody extends $tea.Model {
   id?: number;
   /**
    * @remarks
-   * 自定义响应页面名称
+   * The ruleset name.
    * 
    * This parameter is required.
    * 
@@ -12125,7 +15254,7 @@ export class GetWafRulesetResponseBody extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * The WAF rule category of the ruleset.
    * 
    * This parameter is required.
    * 
@@ -12135,20 +15264,34 @@ export class GetWafRulesetResponseBody extends $tea.Model {
   phase?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The rule configurations in the ruleset.
+   */
   rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * The configurations shared by the rules in the ruleset.
+   */
   shared?: WafBatchRuleShared;
   /**
+   * @remarks
+   * The ruleset status.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the ruleset was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -12210,12 +15353,61 @@ export class GetWafRulesetResponse extends $tea.Model {
 }
 
 export class ListCacheReserveInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cache reserve instance.
+   * 
+   * @example
+   * sp-xcdn-96wblslz****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **500**.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The criterion by which you want to sort the queried instances. Valid values:
+   * 
+   * *   ExpireTime: sorts the instances by the time when the instances expire.
+   * *   CreateTime: sorts the instances by the time when the instances were purchased.
+   * 
+   * @example
+   * ExpireTime
+   */
   sortBy?: string;
+  /**
+   * @remarks
+   * The order by which you want to sort the queried instances. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
+   * @example
+   * desc
+   */
   sortOrder?: string;
   /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   online: The instance is in service.
+   * *   offline: The instance has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The instance is released.
+   * *   overdue: The instance is stopped due to overdue payments.
+   * 
    * @example
    * ListCacheReserveInstances
    * 
@@ -12251,15 +15443,50 @@ export class ListCacheReserveInstancesRequest extends $tea.Model {
 }
 
 export class ListCacheReserveInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The cache reserve instances.
+   */
   instanceInfo?: ListCacheReserveInstancesResponseBodyInstanceInfo[];
+  /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: **500**. Valid values: **1 to 500**.
+   * 
+   * @example
+   * 500
+   */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 65C66B7B-671A-8297-9187-2R5477247B76
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 16
+   */
   totalCount?: number;
+  /**
+   * @remarks
+   * The total number of pages returned.
+   * 
+   * @example
+   * 1
+   */
   totalPage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12472,6 +15699,8 @@ export class ListClientCertificatesResponse extends $tea.Model {
 export class ListEdgeContainerAppRecordsRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12479,26 +15708,47 @@ export class ListEdgeContainerAppRecordsRequest extends $tea.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The sorting field. Valid values:
+   * 
+   * *   CreateTime: the time when the domain name was associated.
+   * *   CreateTime: the time when the domain name was last modified.
+   * 
    * @example
    * CreateTime
    */
   orderKey?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order.
+   * *   DESC: in descending order.
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
+   * @remarks
+   * The page number. Valid values: **1** to **100000**. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 500.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The keyword that is used for the search.
+   * 
    * @example
    * ver-1006157458290860032
    */
@@ -12532,22 +15782,38 @@ export class ListEdgeContainerAppRecordsRequest extends $tea.Model {
 
 export class ListEdgeContainerAppRecordsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The details about the associated domain names.
+   */
   records?: ListEdgeContainerAppRecordsResponseBodyRecords[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of domain names that are associated with the specified application.
+   * 
    * @example
    * 2
    */
@@ -12605,6 +15871,8 @@ export class ListEdgeContainerAppRecordsResponse extends $tea.Model {
 export class ListEdgeContainerAppVersionsRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12612,31 +15880,56 @@ export class ListEdgeContainerAppVersionsRequest extends $tea.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The sorting field. Valid values:
+   * 
+   * *   Name: the version name.
+   * *   CreateTime: the time when the version was created.
+   * *   UpdateTime: the time when the version was last modified.
+   * 
    * @example
    * Name
    */
   orderKey?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the query results. Valid values:
+   * 
+   * *   ASC: in ascending order.
+   * *   DESC: in descending order.
+   * 
    * @example
    * DESC
    */
   orderType?: string;
   /**
+   * @remarks
+   * The page number. Valid values: 1 to 65535.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The keyword used for the search.
+   * 
    * @example
    * ver-100568263967926****
    */
   searchKey?: string;
   /**
+   * @remarks
+   * The parameter used for fuzzy search. Valid values: VersionId and Name.
+   * 
    * @example
    * VersionId
    */
@@ -12672,25 +15965,41 @@ export class ListEdgeContainerAppVersionsRequest extends $tea.Model {
 
 export class ListEdgeContainerAppVersionsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 20
    */
   totalCount?: number;
+  /**
+   * @remarks
+   * The versions.
+   */
   versions?: ListEdgeContainerAppVersionsResponseBodyVersions[];
   static names(): { [key: string]: string } {
     return {
@@ -12744,31 +16053,59 @@ export class ListEdgeContainerAppVersionsResponse extends $tea.Model {
 
 export class ListEdgeContainerAppsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The sorting field. This parameter is left empty by default. Valid values:
+   * 
+   * *   Name: the version name.
+   * *   CreateTime: the time when the version was created.
+   * *   UpdateTime: the time when the version was last modified.
+   * 
    * @example
    * CreateTime
    */
   orderKey?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the query results. This parameter is left empty by default. Valid values:
+   * 
+   * *   ASC: in ascending order.
+   * *   DESC: in descending order.
+   * 
    * @example
    * Asc
    */
   orderType?: string;
   /**
+   * @remarks
+   * The page number. Default value: **1**. Valid values: 1 to 65535.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **20**. Valid values: 1 to 500.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword.
+   * 
    * @example
    * ver-1005682639679266816
    */
   searchKey?: string;
   /**
+   * @remarks
+   * The search criterion based on which you want to perform fuzzy search. Valid values:
+   * 
+   * *   Appid: the application ID.
+   * *   Name: the application name.
+   * 
    * @example
    * Appid
    */
@@ -12801,23 +16138,39 @@ export class ListEdgeContainerAppsRequest extends $tea.Model {
 }
 
 export class ListEdgeContainerAppsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried applications.
+   */
   apps?: ListEdgeContainerAppsResponseBodyApps[];
   /**
+   * @remarks
+   * The page number. Default value: **1**. Valid values: 1 to 65535.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 500.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2430E05E-1340-5773-B5E1-B743929F46F2
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
@@ -12874,27 +16227,46 @@ export class ListEdgeContainerAppsResponse extends $tea.Model {
 
 export class ListEdgeContainerRecordsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The match mode to filter the record names:
+   * 
+   * *   **fuzzy**
+   * *   **prefix**
+   * *   **suffix**
+   * *   **exact** (default)
+   * 
    * @example
    * fuzzy
    */
   recordMatchType?: string;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12928,15 +16300,25 @@ export class ListEdgeContainerRecordsRequest extends $tea.Model {
 
 export class ListEdgeContainerRecordsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The records.
+   */
   records?: ListEdgeContainerRecordsResponseBodyRecords[];
   /**
    * @remarks
@@ -12947,6 +16329,9 @@ export class ListEdgeContainerRecordsResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 50
    */
@@ -13003,30 +16388,46 @@ export class ListEdgeContainerRecordsResponse extends $tea.Model {
 
 export class ListEdgeRoutinePlansResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 500.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The plans.
+   */
   planInfo?: ListEdgeRoutinePlansResponseBodyPlanInfo[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -13085,27 +16486,46 @@ export class ListEdgeRoutinePlansResponse extends $tea.Model {
 
 export class ListEdgeRoutineRecordsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The match mode to filter the record names.
+   * 
+   * *   **fuzzy**: fuzzy match.
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact** (default): exact match .
+   * 
    * @example
    * fuzzy
    */
   recordMatchType?: string;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13139,25 +16559,38 @@ export class ListEdgeRoutineRecordsRequest extends $tea.Model {
 
 export class ListEdgeRoutineRecordsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of records.
+   */
   records?: ListEdgeRoutineRecordsResponseBodyRecords[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 121
    */
@@ -13214,12 +16647,106 @@ export class ListEdgeRoutineRecordsResponse extends $tea.Model {
 
 export class ListInstanceQuotasRequest extends $tea.Model {
   /**
+   * @remarks
+   * The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The quota names in the plan. Separate multiple names with commas (,). Valid values:
+   * 
+   * *   **waf:phase:http_anti_scan:actions**: the actions in WAF scan protection rules.
+   * *   **waf:phase:http_bot:actions**: all actions in WAF bot management rules.
+   * *   **waf:phase:http_bot:http_custom_cc_dev:characteristic:fields**: the statistical objects for the custom device-based throttling in WAF bot management rules.
+   * *   **waf:phase:http_bot:http_custom_cc_ip:characteristic:fields**: the statistical objects for the custom IP address-based throttling in WAF bot management rules.
+   * *   ****waf:phase:http_bot:match:symbols****: the match operators in WAF bot management rules.
+   * *   **waf:phase:http_bot:http_custom_cc:characteristic:fields**: the statistical objects for the custom session-based throttling in WAF bot management rules.
+   * *   **waf:phase:http_bot:match:fields**: the match fields in WAF bot management rules.
+   * *   **waf:phase:http_whitelist:match:symbols**: the match operators in WAF whitelist rules.
+   * *   **waf:phase:http_whitelist:match:fields**: the match fields in WAF whitelist rules.
+   * *   **waf:phase:http_anti_scan:http_directory_traversal:characteristic:fields**: the statistical objects for directory traversal blocking in WAF scan protection rules.
+   * *   **waf:phase:http_anti_scan:http_high_frequency:characteristic:fields**: the statistical objects for high-frequency scanning blocking in WAF scan protection rules.
+   * *   **waf:phase:http_anti_scan:match:symbols**: the match operators in WAF scan protection rules.
+   * *   **waf:phase:http_anti_scan:match:fields**: the match fields in WAF scan protection rules.
+   * *   **waf:phase:http_managed:actions**: the actions in WAF managed rules.
+   * *   **waf:phase:http_managed:group:reference:ids**: the referenced rule groups in WAF managed rules.
+   * *   **waf:phase:http_ratelimit:actions**: the actions in WAF rate limiting rules.
+   * *   **waf:phase:http_ratelimit:ttls**: the action durations in WAF rate limiting rules.
+   * *   **waf:phase:http_ratelimit:intervals**: the statistical durations in WAF rate limiting rules.
+   * *   **waf:phase:http_ratelimit:http_ratelimit:characteristic:fields**: the match characteristics in WAF rate limiting rules.
+   * *   **waf:phase:http_ratelimit:match:symbols**: the match operators in WAF rate limiting rules.
+   * *   **waf:phase:http_ratelimit:match:fields**: the match fields in WAF rate limiting rules.
+   * *   **waf:phase:http_custom:actions**: the actions in custom WAF rules.
+   * *   **waf:phase:http_custom:match:symbols**: the match operators in custom WAF rules.
+   * *   **waf:phase:http_custom:match:fields**: the match fields in custom WAF rules.
+   * *   **waiting_room|queuing_method**: the queuing method in Waiting Room.
+   * *   **origin_rules|origin_scheme**: the origin protocol in origin rules.
+   * *   **origin_rules|origin_sni**: the origin Server Name Indication (SNI) in origin rules.
+   * *   **origin_rules|origin_host**: the origin host in origin rules.
+   * *   **fourlayeracceleration**: TCP/UDP proxy.
+   * *   **rtlog_service**: the availability to collect real-time logs.
+   * *   **dashboard_traffic**: the value-added capability of traffic analytics.
+   * *   **custom_name_server**: the availability to configure custom nameservers.
+   * *   **waf:phase:http_bot:enable**: the availability to enable WAF bot management.
+   * *   **waf:phase:http_whitelist:enable**: the availability to configure WAF whitelist rules.
+   * *   **instantlog**: the availability to collect instant logs.
+   * *   **waf:phase:http_anti_scan:enable**: the availability to enable WAF scan protection.
+   * *   **waf:phase:http_managed:group:reference:enable**: the availability to configure reference rule groups in WAF managed rules.
+   * *   **waf:phase:http_managed:enable**: the availability to configure WAF managed rules.
+   * *   **waf:phase:http_ratelimit:on_hit:enable**: the availability to configure whether to apply rate limiting to all requests that hit the cache.
+   * *   **ddos**: DDoS mitigation.
+   * *   **waf:phase:http_ratelimit:enable**: the availability to configure WAF rate limiting.
+   * *   **waf:phase:http_custom:enable**: the availability to configure custom WAF rules.
+   * *   **waf:phase:all:page:reference:enable**: the availability to configure custom error pages.
+   * *   **rules_support_regex**: the support for regular expressions in rules engine.
+   * *   **waiting_room_event**: scheduled events in Waiting Room.
+   * *   **waiting_room_rule**: the availability to allow requests to bypass the waiting room.
+   * *   **waiting_room|json_response**: the availability to enable JSON response in Waiting Room.
+   * *   **waiting_room|disable_session_renewal**: the availability to disable session renewal in Waiting Room.
+   * *   **origin_rules|dns_record**: DNS records in origin rules.
+   * *   **managed_transforms|add_client_geolocation_headers**: the availability to configure whether to add geolocation headers in transform rules.
+   * *   **tiered_cache|regional_enable**: regional tiered cache.
+   * *   **real_client_ip_header**: the availability to configure whether to add the real IP address of a client to the request header.
+   * *   **data_timerange**: minute-level time range for data query.
+   * *   **cache_rules|edge_cache_ttl**: POP cache TTL.
+   * *   **cache_rules|browser_cache_ttl**: browser cache TTL.
+   * *   **fourLayerRecordCount**: the maximum number of records of websites for which TCP/UDP acceleration is enabled.
+   * *   **waitingroomRuleCount**: the maximum number of rules per waiting room.
+   * *   **waitingroomEventCount**: the maximum number of events per waiting room.
+   * *   **waitingroom_custom_pathhost**: the availability to configure the hostname and path in Waiting Room.
+   * *   **er_routers**: Edge Routine routes.
+   * *   **cache_rules|rule_quota**: the maximum number of cache rules.
+   * *   **configuration_rules|rule_quota**: the maximum number of configuration rules.
+   * *   **redirect_rules|rule_quota**: the redirect rules.
+   * *   **compression_rules|rule_quota**: the maximum number of compression rules.
+   * *   **origin_rules|rule_quota**: the maximum number of origin rules.
+   * *   **waf:phase:http_bot:rulesets_per_instance:less_than_or_equal**: the maximum number of rulesets in WAF bot management per plan.
+   * *   **waf:phase:http_whitelist:rules_per_instance:less_than_or_equal**: the maximum number of WAF whitelist rules per plan.
+   * *   **rtlog_quota**: the maximum number of real-time log delivery tasks.
+   * *   **waf:phase:http_anti_scan:rulesets_per_instance:less_than_or_equal**: the maximum number of rulesets in WAF scan protection per plan.
+   * *   **ddos_instance**: the number of Anti-DDoS Proxy instances.
+   * *   **waf:phase:http_ratelimit:rules_per_instance:less_than_or_equal**: the maximum number of WAF rate limiting rules.
+   * *   **waf:phase:http_custom:rules_per_instance:less_than_or_equal**: the maximum number of custom WAF rules per plan.
+   * *   **ruleNestedConditionalCount**: the number of nested layers in a rule.
+   * *   **waiting_room_rule**: Waiting Room.
+   * *   **transition_rule**: the maximum number of transform rules.
+   * *   **customHttpCert**: the maximum number of custom certificates.
+   * *   **free_cert**: the maximum number of free certificates.
+   * *   **preload**: prefetch.
+   * *   **refresh_cache_tag**: purge by cache tag.
+   * *   **refresh_ignore_param**: purge by URL with specified parameters ignored.
+   * *   **refresh_directory**: purge by directory.
+   * *   **refresh_hostname**: purge by hostname.
+   * *   **refresh_all**: purge all cache.
+   * *   **refresh_file**: purge by URL.
+   * *   **wildcard**: the maximum number of wildcard domains.
+   * *   **recordCount**: the maximum number of Layer 7 records.
+   * *   **siteCount**: the maximum number of websites that can be associated with the plan.
+   * *   **https|rule_quota**: the maximum number of SSL/TLS rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13227,6 +16754,9 @@ export class ListInstanceQuotasRequest extends $tea.Model {
    */
   quotaNames?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 2882900****
    * 
@@ -13257,20 +16787,34 @@ export class ListInstanceQuotasRequest extends $tea.Model {
 
 export class ListInstanceQuotasResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The plan ID.
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quotas in the plan.
+   */
   quotas?: ListInstanceQuotasResponseBodyQuotas[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247B78
    */
   requestId?: string;
   /**
+   * @remarks
+   * The plan status. Valid values:
+   * 
+   * *   online: The plan is in service.
+   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The plan is released.
+   * 
    * @example
    * online
    */
@@ -13325,12 +16869,27 @@ export class ListInstanceQuotasResponse extends $tea.Model {
 
 export class ListInstanceQuotasWithUsageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
   /**
    * @remarks
+   * The quota names in the plan. Separate the quota names with commas (,). You can query up to 10 quota names at a time. Valid values:
+   * 
+   * *   **customHttpCert**: the custom certificates.
+   * *   **transition_rule**: the transform rules.
+   * *   **waiting_room**: the waiting rooms.
+   * *   **https|rule_quota**: the SSL/TLS rules.
+   * *   **cache_rules|rule_quota**: the cache rules.
+   * *   **configuration_rules|rule_quota**: the configuration rules.
+   * *   **redirect_rules|rule_quota**: the redirect rules.
+   * *   **compression_rules|rule_quota**: the compression rules.
+   * *   **origin_rules|rule_quota**: the origin rules.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13338,6 +16897,9 @@ export class ListInstanceQuotasWithUsageRequest extends $tea.Model {
    */
   quotaNames?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1232223****
    * 
@@ -13368,20 +16930,34 @@ export class ListInstanceQuotasWithUsageRequest extends $tea.Model {
 
 export class ListInstanceQuotasWithUsageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The plan ID.[](~~2850189~~)
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The quotas and their actual usage in the plan.
+   */
   quotas?: ListInstanceQuotasWithUsageResponseBodyQuotas[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 85H66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
   /**
+   * @remarks
+   * The plan status. Valid values:
+   * 
+   * *   online: The plan is in service.
+   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The plan is released.
+   * 
    * @example
    * online
    */
@@ -13437,6 +17013,8 @@ export class ListInstanceQuotasWithUsageResponse extends $tea.Model {
 export class ListKvsRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreatevNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13444,16 +17022,25 @@ export class ListKvsRequest extends $tea.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * The page number. The product of PageNumber and PageSize cannot exceed 50,000.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 50. Maximum value: 100.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The prefix to query.
+   * 
    * @example
    * prefix-
    */
@@ -13482,23 +17069,39 @@ export class ListKvsRequest extends $tea.Model {
 }
 
 export class ListKvsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The key-value pairs.
+   */
   keys?: ListKvsResponseBodyKeys[];
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 100
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1024
    */
@@ -13555,16 +17158,25 @@ export class ListKvsResponse extends $tea.Model {
 
 export class ListListsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The query arguments in the JSON format, which contain filter conditions.
+   * 
    * @example
    * ListLists
    */
@@ -13592,16 +17204,25 @@ export class ListListsRequest extends $tea.Model {
 
 export class ListListsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The query arguments in the JSON format, which contain filter conditions.
+   * 
    * @example
    * ListLists
    */
@@ -13628,31 +17249,47 @@ export class ListListsShrinkRequest extends $tea.Model {
 }
 
 export class ListListsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The array that contains list information, including list data after paging.
+   */
   lists?: ListListsResponseBodyLists[];
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of filtered lists.
+   * 
    * @example
    * 5
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The number of created lists.
+   * 
    * @example
    * 10
    */
@@ -13711,11 +17348,17 @@ export class ListListsResponse extends $tea.Model {
 
 export class ListLoadBalancerRegionsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1024
    */
@@ -13741,30 +17384,46 @@ export class ListLoadBalancerRegionsRequest extends $tea.Model {
 
 export class ListLoadBalancerRegionsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1024
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The regions.
+   */
   regions?: ListLoadBalancerRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 81A5E222-24BF-17EF-9E80-A68D9B8F363D
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 12
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -13823,11 +17482,17 @@ export class ListLoadBalancerRegionsResponse extends $tea.Model {
 
 export class ListManagedRulesGroupsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
@@ -13852,26 +17517,39 @@ export class ListManagedRulesGroupsRequest extends $tea.Model {
 }
 
 export class ListManagedRulesGroupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the managed rule groups.
+   */
   managedRulesGroups?: ListManagedRulesGroupsResponseBodyManagedRulesGroups[];
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of managed rule groups returned.
+   * 
    * @example
    * 5
    */
@@ -13928,11 +17606,17 @@ export class ListManagedRulesGroupsResponse extends $tea.Model {
 
 export class ListPagesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Valid values: **1 to 100000**. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -13958,30 +17642,46 @@ export class ListPagesRequest extends $tea.Model {
 
 export class ListPagesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The custom error pages. Each element in the array contains error page-specific information.
+   */
   pages?: ListPagesResponseBodyPages[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of custom error pages after filtering.
+   * 
    * @example
    * 10
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The number of custom error pages that you created.
+   * 
    * @example
    * 10
    */
@@ -14040,37 +17740,69 @@ export class ListPagesResponse extends $tea.Model {
 
 export class ListRecordsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Valid values:
+   * 
+   * *   **image_video**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
+   * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Filters by whether the record is proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxied?: boolean;
   /**
+   * @remarks
+   * The match mode to search for the record name. Default value: exact. Valid values:
+   * 
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact**: exact match.
+   * *   **fuzzy**: fuzzy match.
+   * 
    * @example
    * fuzzy
    */
   recordMatchType?: string;
   /**
+   * @remarks
+   * The record name. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * www.example.com
    */
   recordName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14078,11 +17810,23 @@ export class ListRecordsRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The origin type of the record. Only CNAME records can be filtered by using this field. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The DNS record type.
+   * 
    * @example
    * CNAME
    */
@@ -14122,25 +17866,38 @@ export class ListRecordsRequest extends $tea.Model {
 
 export class ListRecordsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The DNS record information. The format of this field varies based on the record type. For more information, see Add DNS records.
+   */
   records?: ListRecordsResponseBodyRecords[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records returned.
+   * 
    * @example
    * 20
    */
@@ -14196,10 +17953,14 @@ export class ListRecordsResponse extends $tea.Model {
 }
 
 export class ListRoutineCanaryAreasResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The regions for canary release.
+   */
   canaryAreas?: string[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
@@ -14252,9 +18013,16 @@ export class ListRoutineCanaryAreasResponse extends $tea.Model {
 export class ListRoutineOptionalSpecsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 1234567890ABCDEF01234567890ABCDEF
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The available specifications.
+   */
   specs?: ListRoutineOptionalSpecsResponseBodySpecs[];
   static names(): { [key: string]: string } {
     return {
@@ -14303,6 +18071,8 @@ export class ListRoutineOptionalSpecsResponse extends $tea.Model {
 export class ListScheduledPreloadExecutionsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14327,12 +18097,26 @@ export class ListScheduledPreloadExecutionsRequest extends $tea.Model {
 }
 
 export class ListScheduledPreloadExecutionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about prefetch plans returned.
+   */
   executions?: ListScheduledPreloadExecutionsResponseBodyExecutions[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 2
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14381,17 +18165,47 @@ export class ListScheduledPreloadExecutionsResponse extends $tea.Model {
 }
 
 export class ListScheduledPreloadJobsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time for querying the task creation time range. Specify the timestamp in milliseconds.
+   * 
+   * @example
+   * 1717225277000
+   */
   endTime?: number;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ListScheduledPreloadJobs
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The beginning of the task creation time range to query. Specify the timestamp in milliseconds.
+   * 
+   * @example
+   * 1717225276000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14419,12 +18233,26 @@ export class ListScheduledPreloadJobsRequest extends $tea.Model {
 }
 
 export class ListScheduledPreloadJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of the prefetch tasks.
+   */
   jobs?: ListScheduledPreloadJobsResponseBodyJobs[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of tasks returned.
+   * 
+   * @example
+   * 5
+   */
   totalCount?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14474,22 +18302,38 @@ export class ListScheduledPreloadJobsResponse extends $tea.Model {
 
 export class ListSiteDeliveryTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14521,25 +18365,38 @@ export class ListSiteDeliveryTasksRequest extends $tea.Model {
 
 export class ListSiteDeliveryTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 0.
+   * 
    * @example
    * 0
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The delivery tasks.
+   */
   tasks?: ListSiteDeliveryTasksResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of log delivery tasks.
+   * 
    * @example
    * 20
    */
@@ -14594,45 +18451,218 @@ export class ListSiteDeliveryTasksResponse extends $tea.Model {
   }
 }
 
+export class ListSiteFunctionsRequest extends $tea.Model {
+  configId?: number;
+  configType?: string;
+  functionName?: string;
+  pageNumber?: number;
+  pageSize?: number;
+  ruleName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ListSiteFunctions
+   */
+  siteId?: number;
+  siteVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      configType: 'ConfigType',
+      functionName: 'FunctionName',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      ruleName: 'RuleName',
+      siteId: 'SiteId',
+      siteVersion: 'SiteVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      configType: 'string',
+      functionName: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      ruleName: 'string',
+      siteId: 'number',
+      siteVersion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBody extends $tea.Model {
+  configs?: ListSiteFunctionsResponseBodyConfigs;
+  pageNumber?: number;
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  totalCount?: number;
+  totalPage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'Configs',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      totalPage: 'TotalPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: ListSiteFunctionsResponseBodyConfigs,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+      totalPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSiteFunctionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSiteFunctionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSitesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The DNS setup. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
+   * @example
+   * NS
+   */
   accessType?: string;
+  /**
+   * @remarks
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
+   * @example
+   * global
+   */
   coverage?: string;
   /**
+   * @remarks
+   * Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
+   * 
    * @example
    * false
    */
   onlyEnterprise?: boolean;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   **basicplan**: Entrance (coming soon)
+   * *   **standardplan**: Pro
+   * *   **advancedplan**: Premium
+   * *   **enterpriseplan**: Enterprise
+   * 
+   * @example
+   * basicplan
+   */
   planSubscribeType?: string;
   /**
+   * @remarks
+   * The ID of the resource group. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * rg-aekzd3styujvyei
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The website name. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The match mode to search for the website name. Default value: exact. Valid values:
+   * 
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact**: exact match.
+   * *   **fuzzy**: fuzzy match.
+   * 
    * @example
    * fuzzy
    */
   siteSearchType?: string;
   /**
+   * @remarks
+   * The website status. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * pending
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag filtering rule.
+   */
   tagFilter?: ListSitesRequestTagFilter[];
   static names(): { [key: string]: string } {
     return {
@@ -14672,44 +18702,107 @@ export class ListSitesRequest extends $tea.Model {
 }
 
 export class ListSitesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The DNS setup. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
+   * @example
+   * NS
+   */
   accessType?: string;
+  /**
+   * @remarks
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
+   * @example
+   * global
+   */
   coverage?: string;
   /**
+   * @remarks
+   * Specifies whether to query only websites on Enterprise plans. Valid values: **true and false**.
+   * 
    * @example
    * false
    */
   onlyEnterprise?: boolean;
   /**
+   * @remarks
+   * The page number. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: **500**.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   **basicplan**: Entrance (coming soon)
+   * *   **standardplan**: Pro
+   * *   **advancedplan**: Premium
+   * *   **enterpriseplan**: Enterprise
+   * 
+   * @example
+   * basicplan
+   */
   planSubscribeType?: string;
   /**
+   * @remarks
+   * The ID of the resource group. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * rg-aekzd3styujvyei
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The website name. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The match mode to search for the website name. Default value: exact. Valid values:
+   * 
+   * *   **prefix**: match by prefix.
+   * *   **suffix**: match by suffix.
+   * *   **exact**: exact match.
+   * *   **fuzzy**: fuzzy match.
+   * 
    * @example
    * fuzzy
    */
   siteSearchType?: string;
   /**
+   * @remarks
+   * The website status. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * pending
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag filtering rule.
+   */
   tagFilterShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14750,25 +18843,38 @@ export class ListSitesShrinkRequest extends $tea.Model {
 
 export class ListSitesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of websites per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried websites.
+   */
   sites?: ListSitesResponseBodySites[];
   /**
+   * @remarks
+   * The total number of websites.
+   * 
    * @example
    * 40
    */
@@ -14825,11 +18931,19 @@ export class ListSitesResponse extends $tea.Model {
 
 export class ListTagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of tags to return.
+   * 
    * @example
    * 20
    */
   maxItem?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * >  This parameter is not required for the first request. If not all results are returned in one query, you can specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
    * @example
    * AAAAAZjtYxxxxxxxx
    */
@@ -14837,7 +18951,7 @@ export class ListTagResourcesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 要创建并绑定标签的资源所在的地域ID。
+   * The ID of the region where the resources reside.
    * 
    * This parameter is required.
    * 
@@ -14847,11 +18961,13 @@ export class ListTagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源ID,最多 50个子项
+   * The website information. Valid values of he number of website IDs: **1** to **50**.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14859,6 +18975,10 @@ export class ListTagResourcesRequest extends $tea.Model {
    */
   resourceType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * A list of tags. You can enter up to 20 tags.
+   */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -14893,17 +19013,30 @@ export class ListTagResourcesRequest extends $tea.Model {
 
 export class ListTagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * AAAAAYwsxxxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   */
   tagResources?: ListTagResourcesResponseBodyTagResources[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 16
    */
@@ -14958,21 +19091,38 @@ export class ListTagResourcesResponse extends $tea.Model {
 
 export class ListUploadTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The time when the task ends. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+   * 
    * @example
    * 2019-12-06T12:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The time when the task starts. Specify the time in the YYYY-MM-DDThh:mm:ssZ format.
+   * 
    * @example
    * 2018-11-29T00:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * *   **file**: purges the cache by file URL.
+   * *   **preload**: prefetches files.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
+   * 
    * @example
    * file
    */
@@ -15003,12 +19153,16 @@ export class ListUploadTasksRequest extends $tea.Model {
 export class ListUploadTasksResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6D****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The file upload tasks.
+   */
   tasks?: ListUploadTasksResponseBodyTasks[];
   static names(): { [key: string]: string } {
     return {
@@ -15056,16 +19210,30 @@ export class ListUploadTasksResponse extends $tea.Model {
 
 export class ListUserDeliveryTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * 1.  dcdn_log_access_l1 (default): access logs.
+   * 2.  dcdn_log_er: Edge Routine logs.
+   * 3.  dcdn_log_waf: firewall logs.
+   * 4.  dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20.
+   * 
    * @example
    * 20
    */
@@ -15093,25 +19261,38 @@ export class ListUserDeliveryTasksRequest extends $tea.Model {
 
 export class ListUserDeliveryTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 1f94c47f-3a1a-4f69-8d6c-bfeee1b49aab
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The delivery tasks.
+   */
   tasks?: ListUserDeliveryTasksResponseBodyTasks[];
   /**
+   * @remarks
+   * The total number of delivery tasks.
+   * 
    * @example
    * 68
    */
@@ -15168,36 +19349,71 @@ export class ListUserDeliveryTasksResponse extends $tea.Model {
 
 export class ListUserRatePlanInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to query only the plans that have remaining quota for associating websites. Valid values:
+   * 
+   * *   true: queries only the plans that have remaining quota for associating websites.
+   * *   false: queries all plans in your account.
+   * 
    * @example
    * true
    */
   checkRemainingSiteQuota?: string;
   /**
+   * @remarks
+   * The plan ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The page number. Valid values: **1** to **100000**. Default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 500
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
+   * 
+   * *   CreateTime: the time when the plans were purchased.
+   * *   ExpireTime: the time when the plans expire.
+   * 
    * @example
    * CreateTime
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the query results. Default value: desc. Valid values:
+   * 
+   * *   asc: in ascending order.
+   * *   desc: in descending order.
+   * 
    * @example
    * asc
    */
   sortOrder?: string;
   /**
+   * @remarks
+   * The plan status. Valid values:
+   * 
+   * *   online: The plan is in service.
+   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The plan is released.
+   * *   overdue: The plan is stopped due to overdue payments.
+   * 
    * @example
    * online
    * 
@@ -15235,31 +19451,47 @@ export class ListUserRatePlanInstancesRequest extends $tea.Model {
 }
 
 export class ListUserRatePlanInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried plans.
+   */
   instanceInfo?: ListUserRatePlanInstancesResponseBodyInstanceInfo[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 68
    */
   totalCount?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */
@@ -15319,6 +19551,19 @@ export class ListUserRatePlanInstancesResponse extends $tea.Model {
 export class ListWafManagedRulesRequest extends $tea.Model {
   /**
    * @remarks
+   * The attack type. Valid values:
+   * 
+   * *   SQL injection
+   * *   Cross-site scripting
+   * *   Code execution
+   * *   CRLF
+   * *   Local file inclusion
+   * *   Remote file inclusion
+   * *   webshell
+   * *   Cross-site request forgery
+   * *   Others
+   * *   SEMA
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15327,6 +19572,8 @@ export class ListWafManagedRulesRequest extends $tea.Model {
   attackType?: number;
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15334,24 +19581,42 @@ export class ListWafManagedRulesRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **en**: English.
+   * *   **zh**: Chinese.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   protectionLevel?: number;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15392,6 +19657,19 @@ export class ListWafManagedRulesRequest extends $tea.Model {
 export class ListWafManagedRulesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The attack type. Valid values:
+   * 
+   * *   SQL injection
+   * *   Cross-site scripting
+   * *   Code execution
+   * *   CRLF
+   * *   Local file inclusion
+   * *   Remote file inclusion
+   * *   webshell
+   * *   Cross-site request forgery
+   * *   Others
+   * *   SEMA
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15400,6 +19678,8 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
   attackType?: number;
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15407,24 +19687,42 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The language of the response. Valid values:
+   * 
+   * *   **en**: English.
+   * *   **zh**: Chinese.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   protectionLevel?: number;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   queryArgsShrink?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15464,22 +19762,38 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
 
 export class ListWafManagedRulesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The managed rules.
+   */
   rules?: ListWafManagedRulesResponseBodyRules[];
   /**
+   * @remarks
+   * The total number of filtered rules.
+   * 
    * @example
    * 20
    */
@@ -15537,12 +19851,21 @@ export class ListWafManagedRulesResponse extends $tea.Model {
 export class ListWafPhasesRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15564,10 +19887,14 @@ export class ListWafPhasesRequest extends $tea.Model {
 }
 
 export class ListWafPhasesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The WAF rule categories.
+   */
   phases?: ListWafPhasesResponseBodyPhases[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -15619,27 +19946,41 @@ export class ListWafPhasesResponse extends $tea.Model {
 
 export class ListWafRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * http_custom
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The WAF rule category. You can filter rules of a specific category.
+   * 
    * @example
    * 0
    */
   phase?: string;
   /**
+   * @remarks
+   * The filter conditions.
+   * 
    * @example
    * http_custom
    */
   queryArgs?: ListWafRulesRequestQueryArgs;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15647,6 +19988,9 @@ export class ListWafRulesRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -15680,27 +20024,41 @@ export class ListWafRulesRequest extends $tea.Model {
 
 export class ListWafRulesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * http_custom
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The WAF rule category. You can filter rules of a specific category.
+   * 
    * @example
    * 0
    */
   phase?: string;
   /**
+   * @remarks
+   * The filter conditions.
+   * 
    * @example
    * http_custom
    */
   queryArgsShrink?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15708,6 +20066,9 @@ export class ListWafRulesShrinkRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -15741,32 +20102,54 @@ export class ListWafRulesShrinkRequest extends $tea.Model {
 
 export class ListWafRulesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The rule usage of the instance that corresponds to the website in the WAF rule category.
+   * 
    * @example
    * 10
    */
   instanceUsage?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The rules returned.
+   */
   rules?: ListWafRulesResponseBodyRules[];
   /**
+   * @remarks
+   * The rule usage of the website.
+   * 
    * @example
    * 5
    */
   siteUsage?: number;
   /**
+   * @remarks
+   * The total number of filtered rules.
+   * 
    * @example
    * 20
    */
@@ -15827,31 +20210,49 @@ export class ListWafRulesResponse extends $tea.Model {
 
 export class ListWafRulesetsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The WAF rule category of rulesets to query.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The query arguments in the JSON format, which contain filter conditions.
+   * 
    * @example
    * http_bot
    */
   queryArgs?: ListWafRulesetsRequestQueryArgs;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -15885,31 +20286,49 @@ export class ListWafRulesetsRequest extends $tea.Model {
 
 export class ListWafRulesetsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The WAF rule category of rulesets to query.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The query arguments in the JSON format, which contain filter conditions.
+   * 
    * @example
    * http_bot
    */
   queryArgsShrink?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
@@ -15943,35 +20362,54 @@ export class ListWafRulesetsShrinkRequest extends $tea.Model {
 
 export class ListWafRulesetsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of WAF rulesets that are used by the instance in the WAF rule category.
+   * 
    * @example
    * 10
    */
   instanceUsage?: number;
   /**
+   * @remarks
+   * The page number returned.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the rulesets.
+   */
   rulesets?: ListWafRulesetsResponseBodyRulesets[];
   /**
+   * @remarks
+   * The number of WAF rulesets that are used by the website in the WAF rule category.
+   * 
    * @example
    * 5
    */
   siteUsage?: number;
   /**
+   * @remarks
+   * The total number of filtered rulesets.
+   * 
    * @example
    * 5
    */
@@ -16032,11 +20470,28 @@ export class ListWafRulesetsResponse extends $tea.Model {
 
 export class ListWafTemplateRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The WAF rule category, which is used to filter template rules of a specific category.
+   * 
    * @example
    * http_anti_scan
    */
   phase?: string;
+  /**
+   * @remarks
+   * The query parameter, which is used to filter template rules based on criteria such as the rule type.
+   * 
+   * @example
+   * http_anti_scan
+   */
   queryArgs?: ListWafTemplateRulesRequestQueryArgs;
+  /**
+   * @remarks
+   * 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
+   * 
+   * @example
+   * 1
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16061,11 +20516,28 @@ export class ListWafTemplateRulesRequest extends $tea.Model {
 
 export class ListWafTemplateRulesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The WAF rule category, which is used to filter template rules of a specific category.
+   * 
    * @example
    * http_anti_scan
    */
   phase?: string;
+  /**
+   * @remarks
+   * The query parameter, which is used to filter template rules based on criteria such as the rule type.
+   * 
+   * @example
+   * http_anti_scan
+   */
   queryArgsShrink?: string;
+  /**
+   * @remarks
+   * 站点ID，可通过调用[ListSites](https://help.aliyun.com/document_detail/2850189.html)接口获取。
+   * 
+   * @example
+   * 1
+   */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16091,12 +20563,16 @@ export class ListWafTemplateRulesShrinkRequest extends $tea.Model {
 export class ListWafTemplateRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The returned template rules.
+   */
   rules?: ListWafTemplateRulesResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {
@@ -16144,11 +20620,17 @@ export class ListWafTemplateRulesResponse extends $tea.Model {
 
 export class ListWafUsageOfRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_anti_scan
    */
   phase?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * ListWafUsageOfRules
    */
@@ -16175,12 +20657,16 @@ export class ListWafUsageOfRulesRequest extends $tea.Model {
 export class ListWafUsageOfRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The usage details of WAF rules of the website.
+   */
   sites?: ListWafUsageOfRulesResponseBodySites[];
   static names(): { [key: string]: string } {
     return {
@@ -16229,6 +20715,8 @@ export class ListWafUsageOfRulesResponse extends $tea.Model {
 export class ListWaitingRoomEventsRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16236,12 +20724,17 @@ export class ListWaitingRoomEventsRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room event. This parameter is optional. You can specify this parameter to query a specific waiting room event.
+   * 
    * @example
    * 89677721098****
    */
   waitingRoomEventId?: number;
   /**
    * @remarks
+   * The unique ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16272,12 +20765,16 @@ export class ListWaitingRoomEventsRequest extends $tea.Model {
 export class ListWaitingRoomEventsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which is used to trace a call.
    * 
    * @example
    * f3c3700a-4c0f-4a24-b576-fd7dbf9e7c55
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the waiting room events.
+   */
   waitingRoomEvents?: ListWaitingRoomEventsResponseBodyWaitingRoomEvents[];
   static names(): { [key: string]: string } {
     return {
@@ -16325,12 +20822,17 @@ export class ListWaitingRoomEventsResponse extends $tea.Model {
 
 export class ListWaitingRoomRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Optional. The rule name, which can be used to query a specific bypass rule.
+   * 
    * @example
    * test
    */
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16339,6 +20841,8 @@ export class ListWaitingRoomRulesRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The ID of the waiting room to be bypassed, which can be obtained by calling the [ListWatingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16346,6 +20850,9 @@ export class ListWaitingRoomRulesRequest extends $tea.Model {
    */
   waitingRoomId?: string;
   /**
+   * @remarks
+   * Optional. The rule ID, which can be used to query a specific rule.
+   * 
    * @example
    * 37286782688****
    */
@@ -16376,12 +20883,16 @@ export class ListWaitingRoomRulesRequest extends $tea.Model {
 export class ListWaitingRoomRulesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which is used to trace a call.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The waiting room bypass rules.
+   */
   waitingRoomRules?: ListWaitingRoomRulesResponseBodyWaitingRoomRules[];
   static names(): { [key: string]: string } {
     return {
@@ -16430,6 +20941,8 @@ export class ListWaitingRoomRulesResponse extends $tea.Model {
 export class ListWaitingRoomsRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16437,6 +20950,9 @@ export class ListWaitingRoomsRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room. Specify this parameter to query the information about a specific waiting room.
+   * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4d****
    */
@@ -16463,12 +20979,16 @@ export class ListWaitingRoomsRequest extends $tea.Model {
 export class ListWaitingRoomsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID, which is used to trace a call.
    * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The waiting rooms.
+   */
   waitingRooms?: ListWaitingRoomsResponseBodyWaitingRooms[];
   static names(): { [key: string]: string } {
     return {
@@ -16515,9 +21035,20 @@ export class ListWaitingRoomsResponse extends $tea.Model {
 }
 
 export class PreloadCachesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The files to be prefetched.
+   */
   content?: string[];
+  /**
+   * @remarks
+   * By default, prefetch requests include the Accept-Encoding:gzip header. If you want a prefetch request to include other headers or implement multi-replica prefetch, you can specify a custom prefetch header by configuring the Headers parameter.
+   */
   headers?: { [key: string]: string };
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
@@ -16544,9 +21075,20 @@ export class PreloadCachesRequest extends $tea.Model {
 }
 
 export class PreloadCachesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The files to be prefetched.
+   */
   contentShrink?: string;
+  /**
+   * @remarks
+   * By default, prefetch requests include the Accept-Encoding:gzip header. If you want a prefetch request to include other headers or implement multi-replica prefetch, you can specify a custom prefetch header by configuring the Headers parameter.
+   */
   headersShrink?: string;
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
@@ -16575,13 +21117,16 @@ export class PreloadCachesShrinkRequest extends $tea.Model {
 export class PreloadCachesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 9732E117-8A37-49FD-A36F-ABBB87556CA7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The prefetch task ID.
+   * 
    * @example
    * 16401427840
    */
@@ -16633,40 +21178,83 @@ export class PreloadCachesResponse extends $tea.Model {
 export class PublishEdgeContainerAppVersionRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+   * 
+   * @example
+   * true
+   */
   fullRelease?: boolean;
   /**
+   * @remarks
+   * The release percentage. Valid values: 1 to 100. Default value: 100.
+   * 
    * @example
    * 100
    */
   percentage?: number;
   /**
    * @remarks
+   * The environment to which you want to release the version. Valid values:
+   * 
+   * *   prod: the production environment.
+   * *   staging: the staging environment.
+   * 
    * This parameter is required.
    * 
    * @example
    * prod
    */
   publishEnv?: string;
+  /**
+   * @remarks
+   * Specifies how the version is released. Valid values:
+   * 
+   * *   percentage: releases the version by percentage.
+   * *   region: releases the version by region.
+   * 
+   * If you do not specify this parameter, the version is released by percentage by default.
+   * 
+   * @example
+   * percentage
+   */
   publishType?: string;
+  /**
+   * @remarks
+   * The regions to which the version is released.
+   */
   regions?: string[];
   /**
+   * @remarks
+   * The remarks. This parameter is empty by default.
+   * 
    * @example
    * test publish app
    */
   remarks?: string;
   /**
+   * @remarks
+   * The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2023-06-05T16:00:00Z
    */
   startTime?: string;
   /**
    * @remarks
+   * The version ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16709,40 +21297,83 @@ export class PublishEdgeContainerAppVersionRequest extends $tea.Model {
 export class PublishEdgeContainerAppVersionShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+   * 
+   * @example
+   * true
+   */
   fullRelease?: boolean;
   /**
+   * @remarks
+   * The release percentage. Valid values: 1 to 100. Default value: 100.
+   * 
    * @example
    * 100
    */
   percentage?: number;
   /**
    * @remarks
+   * The environment to which you want to release the version. Valid values:
+   * 
+   * *   prod: the production environment.
+   * *   staging: the staging environment.
+   * 
    * This parameter is required.
    * 
    * @example
    * prod
    */
   publishEnv?: string;
+  /**
+   * @remarks
+   * Specifies how the version is released. Valid values:
+   * 
+   * *   percentage: releases the version by percentage.
+   * *   region: releases the version by region.
+   * 
+   * If you do not specify this parameter, the version is released by percentage by default.
+   * 
+   * @example
+   * percentage
+   */
   publishType?: string;
+  /**
+   * @remarks
+   * The regions to which the version is released.
+   */
   regionsShrink?: string;
   /**
+   * @remarks
+   * The remarks. This parameter is empty by default.
+   * 
    * @example
    * test publish app
    */
   remarks?: string;
   /**
+   * @remarks
+   * The time when the application version starts to be released. If you do not specify this parameter, the current time is used by default.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2023-06-05T16:00:00Z
    */
   startTime?: string;
   /**
    * @remarks
+   * The version ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16784,6 +21415,9 @@ export class PublishEdgeContainerAppVersionShrinkRequest extends $tea.Model {
 
 export class PublishEdgeContainerAppVersionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
@@ -16831,11 +21465,39 @@ export class PublishEdgeContainerAppVersionResponse extends $tea.Model {
 }
 
 export class PublishRoutineCodeVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The regions for canary release.
+   */
   canaryAreaList?: string[];
+  /**
+   * @remarks
+   * The version number for canary release.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   canaryCodeVersion?: string;
+  /**
+   * @remarks
+   * The code version to be released.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The environment name.
+   * 
+   * @example
+   * production
+   */
   env?: string;
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * PublishRoutineCodeVersion
    */
@@ -16866,11 +21528,39 @@ export class PublishRoutineCodeVersionRequest extends $tea.Model {
 }
 
 export class PublishRoutineCodeVersionShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The regions for canary release.
+   */
   canaryAreaListShrink?: string;
+  /**
+   * @remarks
+   * The version number for canary release.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   canaryCodeVersion?: string;
+  /**
+   * @remarks
+   * The code version to be released.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The environment name.
+   * 
+   * @example
+   * production
+   */
   env?: string;
   /**
+   * @remarks
+   * The routine name.
+   * 
    * @example
    * PublishRoutineCodeVersion
    */
@@ -16901,10 +21591,20 @@ export class PublishRoutineCodeVersionShrinkRequest extends $tea.Model {
 }
 
 export class PublishRoutineCodeVersionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The code version.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -16952,24 +21652,51 @@ export class PublishRoutineCodeVersionResponse extends $tea.Model {
 }
 
 export class PurgeCachesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content to purge.
+   */
   content?: PurgeCachesRequestContent;
   /**
+   * @remarks
+   * Specifies whether to purge cached resources for edge computing. For example, purge the resources cached by the CacheAPI operation of Edge Routine.
+   * 
    * @example
    * true
    */
   edgeComputePurge?: boolean;
   /**
+   * @remarks
+   * Specifies whether to purge resources in a directory if the resources requested are different from the resources on the origin server. Default value: false.
+   * 
+   * *   **true**: purges all resources in the directory.
+   * *   **false**: purges only changed resources in the directory.
+   * 
+   * >  This configuration takes effect for the following purge task types: directory, cachetag, ignoreParams, hostname, and purgeall.
+   * 
    * @example
    * true
    */
   force?: boolean;
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
    * @remarks
+   * The type of the purge task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **cachetag**: purges the cache by cache tag.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specific parameters ignored. This option ignores the question mark (?) and parameters after the question mark (?) in a request URL and purges the cache. After you call this operation with the request URL submitted, the system compares the submitted URL with the URL of the cached resource without specified parameters. If the URLs match, the POPs purge the cached resources.
+   * *   **hostname**: purges the cache by hostname.
+   * *   **purgeall**: purges all cache.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17002,24 +21729,51 @@ export class PurgeCachesRequest extends $tea.Model {
 }
 
 export class PurgeCachesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The content to purge.
+   */
   contentShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to purge cached resources for edge computing. For example, purge the resources cached by the CacheAPI operation of Edge Routine.
+   * 
    * @example
    * true
    */
   edgeComputePurge?: boolean;
   /**
+   * @remarks
+   * Specifies whether to purge resources in a directory if the resources requested are different from the resources on the origin server. Default value: false.
+   * 
+   * *   **true**: purges all resources in the directory.
+   * *   **false**: purges only changed resources in the directory.
+   * 
+   * >  This configuration takes effect for the following purge task types: directory, cachetag, ignoreParams, hostname, and purgeall.
+   * 
    * @example
    * true
    */
   force?: boolean;
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
    * @remarks
+   * The type of the purge task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **cachetag**: purges the cache by cache tag.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specific parameters ignored. This option ignores the question mark (?) and parameters after the question mark (?) in a request URL and purges the cache. After you call this operation with the request URL submitted, the system compares the submitted URL with the URL of the cached resource without specified parameters. If the URLs match, the POPs purge the cached resources.
+   * *   **hostname**: purges the cache by hostname.
+   * *   **purgeall**: purges all cache.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17054,13 +21808,16 @@ export class PurgeCachesShrinkRequest extends $tea.Model {
 export class PurgeCachesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID, which is generated after you create a task.
+   * 
    * @example
    * 15940956620
    */
@@ -17111,22 +21868,33 @@ export class PurgeCachesResponse extends $tea.Model {
 
 export class PutKvRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether the content of the key is Base64-encoded. Set this parameter to true if you want to store the key content in binary format. When this parameter is set to true, the Value parameter must be Base64-encoded.
+   * 
    * @example
    * true
    */
   base64?: boolean;
   /**
+   * @remarks
+   * The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+   * 
    * @example
    * 1690081381
    */
   expiration?: number;
   /**
+   * @remarks
+   * The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+   * 
    * @example
    * 3600
    */
   expirationTtl?: number;
   /**
    * @remarks
+   * The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17135,6 +21903,8 @@ export class PutKvRequest extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17143,6 +21913,8 @@ export class PutKvRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The content of the key, which can be up to 2 MB (2 × 1000 × 1000). If the content is larger than 2 MB, call [PutKvWithHighCapacity](https://help.aliyun.com/document_detail/2850486.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17178,19 +21950,25 @@ export class PutKvRequest extends $tea.Model {
 
 export class PutKvResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The length of the value in the key-value pair.
+   * 
    * @example
    * 4
    */
   length?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The content of the key. If the content has more than 256 characters in length, the system displays the first 100 and the last 100 characters, and omits the middle part.
+   * 
    * @example
    * test
    */
@@ -17244,6 +22022,8 @@ export class PutKvResponse extends $tea.Model {
 export class PutKvWithHighCapacityRequest extends $tea.Model {
   /**
    * @remarks
+   * The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17252,6 +22032,8 @@ export class PutKvWithHighCapacityRequest extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17260,6 +22042,8 @@ export class PutKvWithHighCapacityRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pair that you want to upload. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17290,6 +22074,8 @@ export class PutKvWithHighCapacityRequest extends $tea.Model {
 export class PutKvWithHighCapacityAdvanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17298,6 +22084,8 @@ export class PutKvWithHighCapacityAdvanceRequest extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17306,6 +22094,8 @@ export class PutKvWithHighCapacityAdvanceRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The download URL of the key-value pair that you want to upload. This parameter is automatically filled in when you use the SDK to call the operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17335,19 +22125,25 @@ export class PutKvWithHighCapacityAdvanceRequest extends $tea.Model {
 
 export class PutKvWithHighCapacityResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The length of the value in the key-value pair.
+   * 
    * @example
    * 4
    */
   length?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The content of the key. If the content has more than 256 characters in length, the system displays the first 100 and the last 100 characters, and omits the middle part.
+   * 
    * @example
    * test
    */
@@ -17400,6 +22196,9 @@ export class PutKvWithHighCapacityResponse extends $tea.Model {
 
 export class RebuildEdgeContainerAppStagingEnvRequest extends $tea.Model {
   /**
+   * @remarks
+   * The application ID, which can be obtained by calling the [ListEdgeContainerApps](~~ListEdgeContainerApps~~) operation.
+   * 
    * @example
    * app-88068867578379****
    */
@@ -17424,7 +22223,7 @@ export class RebuildEdgeContainerAppStagingEnvRequest extends $tea.Model {
 export class RebuildEdgeContainerAppStagingEnvResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-3C82-72F8FD6DA2FE
@@ -17474,6 +22273,9 @@ export class RebuildEdgeContainerAppStagingEnvResponse extends $tea.Model {
 
 export class ResetScheduledPreloadJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the scheduled prefetch task.
+   * 
    * @example
    * ResetScheduledPreloadJob
    */
@@ -17496,24 +22298,125 @@ export class ResetScheduledPreloadJobRequest extends $tea.Model {
 }
 
 export class ResetScheduledPreloadJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The time when the SQL task was created.
+   * 
+   * @example
+   * 2024-06-02T02:23:26Z
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * The domain names to be prefetched.
+   * 
+   * @example
+   * testurl.com
+   */
   domains?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * invalid domain:test.com
+   */
   errorInfo?: string;
+  /**
+   * @remarks
+   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * 
+   * @example
+   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   */
   failedFileOss?: string;
+  /**
+   * @remarks
+   * The ID of the URL list file, which can be used during downloads.
+   * 
+   * @example
+   * 665d3b48621bccf3fe29e1a7
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   id?: string;
+  /**
+   * @remarks
+   * The method to submit the URLs to be prefetched.
+   * 
+   * @example
+   * oss
+   */
   insertWay?: string;
+  /**
+   * @remarks
+   * The delivery project name.
+   * 
+   * @example
+   * example
+   */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 190007158391808
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The number of submitted prefetch tasks.
+   * 
+   * @example
+   * 1
+   */
   taskSubmitted?: number;
+  /**
+   * @remarks
+   * The task type. Valid values: refresh and preload.
+   * 
+   * @example
+   * preload
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The total number of URLs.
+   * 
+   * @example
+   * 2
+   */
   urlCount?: number;
+  /**
+   * @remarks
+   * The number of submitted URLs.
+   * 
+   * @example
+   * 1
+   */
   urlSubmitted?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17588,6 +22491,8 @@ export class ResetScheduledPreloadJobResponse extends $tea.Model {
 export class RollbackEdgeContainerAppVersionRequest extends $tea.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17595,12 +22500,17 @@ export class RollbackEdgeContainerAppVersionRequest extends $tea.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test rollback app
    */
   remarks?: string;
   /**
    * @remarks
+   * The ID of version that you want to roll back.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17630,6 +22540,9 @@ export class RollbackEdgeContainerAppVersionRequest extends $tea.Model {
 
 export class RollbackEdgeContainerAppVersionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D248E
    */
@@ -17678,32 +22591,50 @@ export class RollbackEdgeContainerAppVersionResponse extends $tea.Model {
 
 export class SetCertificateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID on Certificate Management Service.
+   * 
    * @example
    * 30000478
    */
   casId?: number;
   /**
+   * @remarks
+   * The certificate content.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----
    */
   certificate?: string;
   /**
+   * @remarks
+   * The certificate ID on ESA.
+   * 
    * @example
    * 30001303
    */
   id?: string;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * yourCertName
    */
   name?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The private key of the certificate.
+   * 
    * @example
    * -----BEGIN PRIVATE KEY-----
    */
   privateKey?: string;
   /**
+   * @remarks
+   * The region.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -17711,6 +22642,8 @@ export class SetCertificateRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17719,6 +22652,11 @@ export class SetCertificateRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The certificate type. Valid values:
+   * 
+   * *   cas: a certificate purchased by using Certificate Management Service.
+   * *   upload: a custom certificate that you upload.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17726,6 +22664,9 @@ export class SetCertificateRequest extends $tea.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * Specifies whether to update the certificate.
+   * 
    * @example
    * true
    */
@@ -17770,7 +22711,7 @@ export class SetCertificateRequest extends $tea.Model {
 export class SetCertificateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A666D44F-19D6-490E-97CF-1A64AB962C57
@@ -17821,6 +22762,11 @@ export class SetCertificateResponse extends $tea.Model {
 export class SetHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The mode of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **observe**: alert.
+   * *   **defense**: block.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17829,6 +22775,13 @@ export class SetHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   aiMode?: string;
   /**
    * @remarks
+   * The level of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **level0**: very loose.
+   * *   **level30**: loose.
+   * *   **level60**: normal.
+   * *   **level90**: strict.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17837,6 +22790,8 @@ export class SetHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   aiTemplate?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17866,24 +22821,41 @@ export class SetHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
 
 export class SetHttpDDoSAttackIntelligentProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The mode of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **observe**: alert.
+   * *   **defense**: block.
+   * 
    * @example
    * defense
    */
   aiMode?: string;
   /**
+   * @remarks
+   * The level of smart HTTP DDoS protection. Valid values:
+   * 
+   * *   **level0**: very loose.
+   * *   **level30**: loose.
+   * *   **level60**: normal.
+   * *   **level90**: strict.
+   * 
    * @example
    * level60
    */
   aiTemplate?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 156A6B-677B1A-4297B7-9187B7-2B44792
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -17939,6 +22911,13 @@ export class SetHttpDDoSAttackIntelligentProtectionResponse extends $tea.Model {
 export class SetHttpDDoSAttackProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The level of HTTP DDoS attack protection. Valid values:
+   * 
+   * *   **very weak**: very loose.
+   * *   **weak**: loose.
+   * *   **default**: normal.
+   * *   **hard**: strict.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17947,6 +22926,8 @@ export class SetHttpDDoSAttackProtectionRequest extends $tea.Model {
   globalMode?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17974,19 +22955,25 @@ export class SetHttpDDoSAttackProtectionRequest extends $tea.Model {
 
 export class SetHttpDDoSAttackProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The level of HTTP DDoS attack protection.
+   * 
    * @example
    * default
    */
   globalMode?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D248E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -18040,6 +23027,8 @@ export class SetHttpDDoSAttackProtectionResponse extends $tea.Model {
 export class StartScheduledPreloadExecutionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the prefetch plan.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18064,22 +23053,83 @@ export class StartScheduledPreloadExecutionRequest extends $tea.Model {
 }
 
 export class StartScheduledPreloadExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T18:10:48.849+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 665d3b48621bccf3fe29e1a7
+   */
   id?: string;
   /**
+   * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
    * @example
    * 60
    */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 65C66B7B-671A-8297-9187-2R5477247B76
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T17:10:48.849+08:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * waiting
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18142,6 +23192,8 @@ export class StartScheduledPreloadExecutionResponse extends $tea.Model {
 export class StopScheduledPreloadExecutionRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the prefetch plan.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18166,18 +23218,83 @@ export class StopScheduledPreloadExecutionRequest extends $tea.Model {
 }
 
 export class StopScheduledPreloadExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T18:10:48.849+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 66599bd7397885b43804901c
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution in the plan. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T17:10:48.849+08:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * stopped
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18240,7 +23357,12 @@ export class StopScheduledPreloadExecutionResponse extends $tea.Model {
 export class UntagResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * 是否全部删除，只针对TagKey.N为空时有效
+   * Specifies whether to remove all tags. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * Default value: **false**.
    * 
    * @example
    * false
@@ -18249,7 +23371,7 @@ export class UntagResourcesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * 要创建并绑定标签的资源所在的地域ID。
+   * The ID of the region where the resources reside. Set the value to **cn-hangzhou**.
    * 
    * This parameter is required.
    * 
@@ -18259,13 +23381,15 @@ export class UntagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源ID,最多 50个子项
+   * The ID of resource N. Valid values of N: **1** to **50**.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
+   * The resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18273,6 +23397,10 @@ export class UntagResourcesRequest extends $tea.Model {
    */
   resourceType?: string;
   securityToken?: string;
+  /**
+   * @remarks
+   * The key of tag N to remove from the resource. Valid values of N: **1** to **20**.
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -18305,6 +23433,9 @@ export class UntagResourcesRequest extends $tea.Model {
 
 export class UntagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 85H66C7B-671A-4297-9187-2C4477247A74
    */
@@ -18354,6 +23485,10 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
+   * The time when the policy expires.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18362,6 +23497,8 @@ export class UpdateCustomScenePolicyRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The policy name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18369,12 +23506,17 @@ export class UpdateCustomScenePolicyRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The IDs of the websites that you want to associate with the policy. Separate multiple IDs with commas (,).
+   * 
    * @example
    * 123456****
    */
   objects?: string;
   /**
    * @remarks
+   * The policy ID, which can be obtained by calling the [DescribeCustomScenePolicies](https://help.aliyun.com/document_detail/2850508.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18383,6 +23525,10 @@ export class UpdateCustomScenePolicyRequest extends $tea.Model {
   policyId?: number;
   /**
    * @remarks
+   * The time when the policy takes effect.
+   * 
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18391,6 +23537,10 @@ export class UpdateCustomScenePolicyRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
+   * The name of the policy template. Valid value:
+   * 
+   * *   **promotion**: major events.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18426,35 +23576,60 @@ export class UpdateCustomScenePolicyRequest extends $tea.Model {
 
 export class UpdateCustomScenePolicyResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the policy expires.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-04-03T19:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The policy name.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of websites associated.
+   */
   objects?: string[];
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 1
    */
   policyId?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the policy takes effect.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-04-03T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The name of the policy template. Valid value:
+   * 
+   * *   **promotion**: major events.
+   * 
    * @example
    * promotion
    */
@@ -18516,6 +23691,8 @@ export class UpdateCustomScenePolicyResponse extends $tea.Model {
 export class UpdateKvNamespaceRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the namespace that you specify when you call the [CreateKvNamespace](https://help.aliyun.com/document_detail/2850317.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18524,6 +23701,8 @@ export class UpdateKvNamespaceRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * The new name of the namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18551,26 +23730,46 @@ export class UpdateKvNamespaceRequest extends $tea.Model {
 
 export class UpdateKvNamespaceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The description of the namespace.
+   * 
    * @example
    * this is a test ns.
    */
   description?: string;
   /**
+   * @remarks
+   * The updated name of the namespace.
+   * 
    * @example
    * new_ns1
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the namespace.
+   * 
    * @example
    * 643355322374688768
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the namespace. Valid values:
+   * 
+   * *   **online**: normal.
+   * *   **delete**: pending deletion.
+   * *   **deleting**: being deleted.
+   * *   **deleted**: deleted.
+   * 
    * @example
    * online
    */
@@ -18627,12 +23826,17 @@ export class UpdateKvNamespaceResponse extends $tea.Model {
 
 export class UpdateListRequest extends $tea.Model {
   /**
+   * @remarks
+   * The new description of the list.
+   * 
    * @example
    * a custom list
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18640,11 +23844,17 @@ export class UpdateListRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The items in the updated list. The value is a JSON array.
+   * 
    * @example
    * a custom list
    */
   items?: string[];
   /**
+   * @remarks
+   * The new name of the list.
+   * 
    * @example
    * example
    */
@@ -18674,12 +23884,17 @@ export class UpdateListRequest extends $tea.Model {
 
 export class UpdateListShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The new description of the list.
+   * 
    * @example
    * a custom list
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18687,11 +23902,17 @@ export class UpdateListShrinkRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The items in the updated list. The value is a JSON array.
+   * 
    * @example
    * a custom list
    */
   itemsShrink?: string;
   /**
+   * @remarks
+   * The new name of the list.
+   * 
    * @example
    * example
    */
@@ -18721,6 +23942,9 @@ export class UpdateListShrinkRequest extends $tea.Model {
 
 export class UpdateListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
@@ -18767,9 +23991,169 @@ export class UpdateListResponse extends $tea.Model {
   }
 }
 
+export class UpdateOriginProtectionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * on
+   */
+  originConverge?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      originConverge: 'OriginConverge',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originConverge: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginProtectionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4C6B5E5A-42FC-5DF2-986C-4DAAE3C55086
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginProtectionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOriginProtectionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOriginProtectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginProtectionIpWhiteListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456****
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginProtectionIpWhiteListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateOriginProtectionIpWhiteListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOriginProtectionIpWhiteListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateOriginProtectionIpWhiteListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdatePageRequest extends $tea.Model {
   /**
    * @remarks
+   * The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18778,6 +24162,11 @@ export class UpdatePageRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
+   * The Content-Type field in the HTTP header. Valid values:
+   * 
+   * *   text/html
+   * *   application/json
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18785,12 +24174,17 @@ export class UpdatePageRequest extends $tea.Model {
    */
   contentType?: string;
   /**
+   * @remarks
+   * The description of the custom error page.
+   * 
    * @example
    * a custom deny page
    */
   description?: string;
   /**
    * @remarks
+   * The ID of the custom error page, which can be obtained by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18799,6 +24193,8 @@ export class UpdatePageRequest extends $tea.Model {
   id?: number;
   /**
    * @remarks
+   * The name of the custom error page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18833,7 +24229,7 @@ export class UpdatePageRequest extends $tea.Model {
 export class UpdatePageResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
@@ -18882,26 +24278,98 @@ export class UpdatePageResponse extends $tea.Model {
 }
 
 export class UpdateRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConf?: UpdateRecordRequestAuthConf;
+  /**
+   * @remarks
+   * The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+   * 
+   * *   **video_image**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
+   * 
+   * @example
+   * web
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * The comments of the record.
+   * 
+   * @example
+   * This is a remark.
+   */
   comment?: string;
   /**
    * @remarks
+   * The DNS record information. The format of this field varies based on the record type. For more information, see [Add DNS records](https://www.alibabacloud.com/help/doc-detail/2708761.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "value":"2.2.2.2"
+   * }
    */
   data?: UpdateRecordRequestData;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+   * 
+   * *   **follow_hostname**: match the requested domain name.
+   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
    * @remarks
-   * 是否代理加速
+   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
    */
   proxied?: boolean;
   /**
    * @remarks
+   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   recordId?: number;
+  /**
+   * @remarks
+   * The type of the origin for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS** : OSS origin.
+   * *   **S3** : S3 origin.
+   * *   **LB**: Load Balancer origin.
+   * *   **OP**: origin in an origin pool.
+   * *   **Domain**: common domain name.
+   * 
+   * If you leave the parameter empty or set its value as null, the default is Domain, which is common domain name.
+   * 
+   * @example
+   * OSS
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. The range is 30 to 86,400, or 1. If the value is 1, the TTL of the record is determined by the system.
+   * 
+   * @example
+   * 30
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18937,26 +24405,98 @@ export class UpdateRecordRequest extends $tea.Model {
 }
 
 export class UpdateRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConfShrink?: string;
+  /**
+   * @remarks
+   * The business scenario of the record for acceleration. Leave the parameter empty if your record is not proxied. Valid values:
+   * 
+   * *   **video_image**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
+   * 
+   * @example
+   * web
+   */
   bizName?: string;
+  /**
+   * @remarks
+   * The comments of the record.
+   * 
+   * @example
+   * This is a remark.
+   */
   comment?: string;
   /**
    * @remarks
+   * The DNS record information. The format of this field varies based on the record type. For more information, see [Add DNS records](https://www.alibabacloud.com/help/doc-detail/2708761.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * {
+   *     "value":"2.2.2.2"
+   * }
    */
   dataShrink?: string;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. You can set the policy in two modes:
+   * 
+   * *   **follow_hostname**: match the requested domain name.
+   * *   **follow_origin_domain**: match the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
    * @remarks
-   * 是否代理加速
+   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
    */
   proxied?: boolean;
   /**
    * @remarks
+   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
    */
   recordId?: number;
+  /**
+   * @remarks
+   * The type of the origin for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS** : OSS origin.
+   * *   **S3** : S3 origin.
+   * *   **LB**: Load Balancer origin.
+   * *   **OP**: origin in an origin pool.
+   * *   **Domain**: common domain name.
+   * 
+   * If you leave the parameter empty or set its value as null, the default is Domain, which is common domain name.
+   * 
+   * @example
+   * OSS
+   */
   sourceType?: string;
+  /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. The range is 30 to 86,400, or 1. If the value is 1, the TTL of the record is determined by the system.
+   * 
+   * @example
+   * 30
+   */
   ttl?: number;
   static names(): { [key: string]: string } {
     return {
@@ -18992,6 +24532,13 @@ export class UpdateRecordShrinkRequest extends $tea.Model {
 }
 
 export class UpdateRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19036,17 +24583,47 @@ export class UpdateRecordResponse extends $tea.Model {
 }
 
 export class UpdateScheduledPreloadExecutionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T18:10:48.849+08:00
+   */
   endTime?: string;
   /**
    * @remarks
+   * The ID of the prefetch plan.
+   * 
    * This parameter is required.
    * 
    * @example
    * UpdateScheduledPreloadExecution
    */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T17:10:48.849+08:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19074,18 +24651,83 @@ export class UpdateScheduledPreloadExecutionRequest extends $tea.Model {
 }
 
 export class UpdateScheduledPreloadExecutionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T18:10:48.849+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 66599bd7397885b43804901c
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T17:10:48.849+08:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19148,6 +24790,11 @@ export class UpdateScheduledPreloadExecutionResponse extends $tea.Model {
 export class UpdateSiteAccessTypeRequest extends $tea.Model {
   /**
    * @remarks
+   * The new DNS setup of the website. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19156,6 +24803,8 @@ export class UpdateSiteAccessTypeRequest extends $tea.Model {
   accessType?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19184,7 +24833,7 @@ export class UpdateSiteAccessTypeRequest extends $tea.Model {
 export class UpdateSiteAccessTypeResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -19235,6 +24884,12 @@ export class UpdateSiteAccessTypeResponse extends $tea.Model {
 export class UpdateSiteCoverageRequest extends $tea.Model {
   /**
    * @remarks
+   * The desired service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19243,6 +24898,8 @@ export class UpdateSiteCoverageRequest extends $tea.Model {
   coverage?: string;
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19270,6 +24927,9 @@ export class UpdateSiteCoverageRequest extends $tea.Model {
 
 export class UpdateSiteCoverageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 65C66B7B-671A-8297-9187-2R5477247B76
    */
@@ -19317,8 +24977,20 @@ export class UpdateSiteCoverageResponse extends $tea.Model {
 }
 
 export class UpdateSiteCustomLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie fields.
+   */
   cookies?: string[];
+  /**
+   * @remarks
+   * The request header fields.
+   */
   requestHeaders?: string[];
+  /**
+   * @remarks
+   * The response header fields.
+   */
   responseHeaders?: string[];
   /**
    * @remarks
@@ -19352,8 +25024,20 @@ export class UpdateSiteCustomLogRequest extends $tea.Model {
 }
 
 export class UpdateSiteCustomLogShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie fields.
+   */
   cookiesShrink?: string;
+  /**
+   * @remarks
+   * The request header fields.
+   */
   requestHeadersShrink?: string;
+  /**
+   * @remarks
+   * The response header fields.
+   */
   responseHeadersShrink?: string;
   /**
    * @remarks
@@ -19389,7 +25073,7 @@ export class UpdateSiteCustomLogShrinkRequest extends $tea.Model {
 export class UpdateSiteCustomLogResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
@@ -19439,17 +25123,30 @@ export class UpdateSiteCustomLogResponse extends $tea.Model {
 
 export class UpdateSiteDeliveryTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_er
    */
   businessType?: string;
   /**
+   * @remarks
+   * The discard rate.
+   * 
    * @example
    * 0.0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log fields that you want to include in real-time logs to be delivered. Separate the log fields with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19457,12 +25154,17 @@ export class UpdateSiteDeliveryTaskRequest extends $tea.Model {
    */
   fieldName?: string;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19497,7 +25199,7 @@ export class UpdateSiteDeliveryTaskRequest extends $tea.Model {
 export class UpdateSiteDeliveryTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
@@ -19548,6 +25250,8 @@ export class UpdateSiteDeliveryTaskResponse extends $tea.Model {
 export class UpdateSiteDeliveryTaskStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * Specifies whether to enable the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19555,12 +25259,17 @@ export class UpdateSiteDeliveryTaskStatusRequest extends $tea.Model {
    */
   method?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19591,18 +25300,27 @@ export class UpdateSiteDeliveryTaskStatusRequest extends $tea.Model {
 export class UpdateSiteDeliveryTaskStatusResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the delivery task. Valid values:
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * cdn-test-task
    */
@@ -19653,9 +25371,243 @@ export class UpdateSiteDeliveryTaskStatusResponse extends $tea.Model {
   }
 }
 
+export class UpdateSiteFunctionRequest extends $tea.Model {
+  cacheReserve?: UpdateSiteFunctionRequestCacheReserve[];
+  cacheRules?: UpdateSiteFunctionRequestCacheRules[];
+  cacheTags?: UpdateSiteFunctionRequestCacheTags[];
+  cnameFlattening?: UpdateSiteFunctionRequestCnameFlattening[];
+  compressionRules?: UpdateSiteFunctionRequestCompressionRules[];
+  crossBorderOptimization?: UpdateSiteFunctionRequestCrossBorderOptimization[];
+  developmentMode?: UpdateSiteFunctionRequestDevelopmentMode[];
+  httpRequestHeaderModificationRules?: UpdateSiteFunctionRequestHttpRequestHeaderModificationRules[];
+  httpResponseHeaderModificationRules?: UpdateSiteFunctionRequestHttpResponseHeaderModificationRules[];
+  httpsApplicationConfiguration?: UpdateSiteFunctionRequestHttpsApplicationConfiguration[];
+  httpsBasicConfiguration?: UpdateSiteFunctionRequestHttpsBasicConfiguration[];
+  imageTransform?: UpdateSiteFunctionRequestImageTransform[];
+  ipv6?: UpdateSiteFunctionRequestIpv6[];
+  managedTransforms?: UpdateSiteFunctionRequestManagedTransforms[];
+  networkOptimization?: UpdateSiteFunctionRequestNetworkOptimization[];
+  originRules?: UpdateSiteFunctionRequestOriginRules[];
+  redirectRules?: UpdateSiteFunctionRequestRedirectRules[];
+  rewriteUrlRules?: UpdateSiteFunctionRequestRewriteUrlRules[];
+  seoBypass?: UpdateSiteFunctionRequestSeoBypass[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UpdateSiteFunction
+   */
+  siteId?: number;
+  siteNameExclusive?: UpdateSiteFunctionRequestSiteNameExclusive[];
+  sitePause?: UpdateSiteFunctionRequestSitePause[];
+  tieredCache?: UpdateSiteFunctionRequestTieredCache[];
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserve: 'CacheReserve',
+      cacheRules: 'CacheRules',
+      cacheTags: 'CacheTags',
+      cnameFlattening: 'CnameFlattening',
+      compressionRules: 'CompressionRules',
+      crossBorderOptimization: 'CrossBorderOptimization',
+      developmentMode: 'DevelopmentMode',
+      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
+      httpsBasicConfiguration: 'HttpsBasicConfiguration',
+      imageTransform: 'ImageTransform',
+      ipv6: 'Ipv6',
+      managedTransforms: 'ManagedTransforms',
+      networkOptimization: 'NetworkOptimization',
+      originRules: 'OriginRules',
+      redirectRules: 'RedirectRules',
+      rewriteUrlRules: 'RewriteUrlRules',
+      seoBypass: 'SeoBypass',
+      siteId: 'SiteId',
+      siteNameExclusive: 'SiteNameExclusive',
+      sitePause: 'SitePause',
+      tieredCache: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserve: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheReserve },
+      cacheRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheRules },
+      cacheTags: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheTags },
+      cnameFlattening: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCnameFlattening },
+      compressionRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCompressionRules },
+      crossBorderOptimization: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCrossBorderOptimization },
+      developmentMode: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestDevelopmentMode },
+      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpRequestHeaderModificationRules },
+      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpResponseHeaderModificationRules },
+      httpsApplicationConfiguration: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpsApplicationConfiguration },
+      httpsBasicConfiguration: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpsBasicConfiguration },
+      imageTransform: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestImageTransform },
+      ipv6: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestIpv6 },
+      managedTransforms: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestManagedTransforms },
+      networkOptimization: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestNetworkOptimization },
+      originRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestOriginRules },
+      redirectRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestRedirectRules },
+      rewriteUrlRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestRewriteUrlRules },
+      seoBypass: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSeoBypass },
+      siteId: 'number',
+      siteNameExclusive: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSiteNameExclusive },
+      sitePause: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSitePause },
+      tieredCache: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestTieredCache },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionShrinkRequest extends $tea.Model {
+  cacheReserveShrink?: string;
+  cacheRulesShrink?: string;
+  cacheTagsShrink?: string;
+  cnameFlatteningShrink?: string;
+  compressionRulesShrink?: string;
+  crossBorderOptimizationShrink?: string;
+  developmentModeShrink?: string;
+  httpRequestHeaderModificationRulesShrink?: string;
+  httpResponseHeaderModificationRulesShrink?: string;
+  httpsApplicationConfigurationShrink?: string;
+  httpsBasicConfigurationShrink?: string;
+  imageTransformShrink?: string;
+  ipv6Shrink?: string;
+  managedTransformsShrink?: string;
+  networkOptimizationShrink?: string;
+  originRulesShrink?: string;
+  redirectRulesShrink?: string;
+  rewriteUrlRulesShrink?: string;
+  seoBypassShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * UpdateSiteFunction
+   */
+  siteId?: number;
+  siteNameExclusiveShrink?: string;
+  sitePauseShrink?: string;
+  tieredCacheShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserveShrink: 'CacheReserve',
+      cacheRulesShrink: 'CacheRules',
+      cacheTagsShrink: 'CacheTags',
+      cnameFlatteningShrink: 'CnameFlattening',
+      compressionRulesShrink: 'CompressionRules',
+      crossBorderOptimizationShrink: 'CrossBorderOptimization',
+      developmentModeShrink: 'DevelopmentMode',
+      httpRequestHeaderModificationRulesShrink: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRulesShrink: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfigurationShrink: 'HttpsApplicationConfiguration',
+      httpsBasicConfigurationShrink: 'HttpsBasicConfiguration',
+      imageTransformShrink: 'ImageTransform',
+      ipv6Shrink: 'Ipv6',
+      managedTransformsShrink: 'ManagedTransforms',
+      networkOptimizationShrink: 'NetworkOptimization',
+      originRulesShrink: 'OriginRules',
+      redirectRulesShrink: 'RedirectRules',
+      rewriteUrlRulesShrink: 'RewriteUrlRules',
+      seoBypassShrink: 'SeoBypass',
+      siteId: 'SiteId',
+      siteNameExclusiveShrink: 'SiteNameExclusive',
+      sitePauseShrink: 'SitePause',
+      tieredCacheShrink: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserveShrink: 'string',
+      cacheRulesShrink: 'string',
+      cacheTagsShrink: 'string',
+      cnameFlatteningShrink: 'string',
+      compressionRulesShrink: 'string',
+      crossBorderOptimizationShrink: 'string',
+      developmentModeShrink: 'string',
+      httpRequestHeaderModificationRulesShrink: 'string',
+      httpResponseHeaderModificationRulesShrink: 'string',
+      httpsApplicationConfigurationShrink: 'string',
+      httpsBasicConfigurationShrink: 'string',
+      imageTransformShrink: 'string',
+      ipv6Shrink: 'string',
+      managedTransformsShrink: 'string',
+      networkOptimizationShrink: 'string',
+      originRulesShrink: 'string',
+      redirectRulesShrink: 'string',
+      rewriteUrlRulesShrink: 'string',
+      seoBypassShrink: 'string',
+      siteId: 'number',
+      siteNameExclusiveShrink: 'string',
+      sitePauseShrink: 'string',
+      tieredCacheShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSiteFunctionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateSiteFunctionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateSiteVanityNSRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19663,6 +25615,9 @@ export class UpdateSiteVanityNSRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The custom nameserver names. You can specify two to five custom nameserver names. Separate multiple names with commas (,).
+   * 
    * @example
    * ns1.example.com,ns2.example.com
    */
@@ -19689,7 +25644,7 @@ export class UpdateSiteVanityNSRequest extends $tea.Model {
 export class UpdateSiteVanityNSResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
@@ -19739,17 +25694,30 @@ export class UpdateSiteVanityNSResponse extends $tea.Model {
 
 export class UpdateUserDeliveryTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_er
    */
   businessType?: string;
   /**
+   * @remarks
+   * The discard rate. Default value: 0.
+   * 
    * @example
    * 0
    */
   discardRate?: number;
   /**
    * @remarks
+   * The log fields that you want to include in logs to be delivered. Separate the log fields with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19758,6 +25726,8 @@ export class UpdateUserDeliveryTaskRequest extends $tea.Model {
   fieldName?: string;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19790,7 +25760,7 @@ export class UpdateUserDeliveryTaskRequest extends $tea.Model {
 export class UpdateUserDeliveryTaskResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
@@ -19841,6 +25811,8 @@ export class UpdateUserDeliveryTaskResponse extends $tea.Model {
 export class UpdateUserDeliveryTaskStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * Enables or disables the delivery task. Valid values: online and offline.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19849,6 +25821,8 @@ export class UpdateUserDeliveryTaskStatusRequest extends $tea.Model {
   method?: string;
   /**
    * @remarks
+   * The name of the delivery task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19877,18 +25851,24 @@ export class UpdateUserDeliveryTaskStatusRequest extends $tea.Model {
 export class UpdateUserDeliveryTaskStatusResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 34DCBC8A-****-****-****-6DAA11D7DDBD
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * test_project
    */
@@ -19940,9 +25920,15 @@ export class UpdateUserDeliveryTaskStatusResponse extends $tea.Model {
 }
 
 export class UpdateWafRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule.
+   */
   config?: WafRuleConfig;
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19950,20 +25936,35 @@ export class UpdateWafRuleRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The order of the rule in the ruleset.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   /**
+   * @remarks
+   * The status of the rule.
+   * 
    * @example
    * on
    */
@@ -19996,9 +25997,15 @@ export class UpdateWafRuleRequest extends $tea.Model {
 }
 
 export class UpdateWafRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule.
+   */
   configShrink?: string;
   /**
    * @remarks
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20006,20 +26013,35 @@ export class UpdateWafRuleShrinkRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The order of the rule in the ruleset.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The version of the website.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   /**
+   * @remarks
+   * The status of the rule.
+   * 
    * @example
    * on
    */
@@ -20052,8 +26074,18 @@ export class UpdateWafRuleShrinkRequest extends $tea.Model {
 }
 
 export class UpdateWafRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the WAF rule.[](~~2850237~~)
+   * 
+   * @example
+   * 20000001
+   */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
@@ -20105,6 +26137,8 @@ export class UpdateWafRuleResponse extends $tea.Model {
 export class UpdateWafRulesetRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20112,16 +26146,25 @@ export class UpdateWafRulesetRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * @example
    * 1
    */
   siteId?: number;
   /**
+   * @remarks
+   * The version of the website.
+   * 
    * @example
    * 1
    */
   siteVersion?: number;
   /**
+   * @remarks
+   * The status to which you want to change the ruleset.
+   * 
    * @example
    * on
    */
@@ -20151,6 +26194,9 @@ export class UpdateWafRulesetRequest extends $tea.Model {
 
 export class UpdateWafRulesetResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 36af3fcc-43d0-441c-86b1-428951dc8225
    */
@@ -20199,65 +26245,137 @@ export class UpdateWafRulesetResponse extends $tea.Model {
 
 export class UpdateWaitingRoomRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the custom cookie.
+   * 
    * @example
    * __aliwaitingroom_example
    */
   cookieName?: string;
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * Hello%20world!
    */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the waiting room. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   enable?: string;
+  /**
+   * @remarks
+   * The hostname and path.
+   */
   hostNameAndPath?: UpdateWaitingRoomRequestHostNameAndPath[];
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * zhcn
    */
   language?: string;
+  /**
+   * @remarks
+   * The name of the waiting room.
+   */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of new users per minute.
+   * 
    * @example
    * 200
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to queue all requests. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   queueAllEnable?: string;
   /**
+   * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * @example
    * random
    */
   queuingMethod?: string;
   /**
+   * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * @example
    * 200
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * @example
    * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20265,12 +26383,17 @@ export class UpdateWaitingRoomRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The maximum number of active users.
+   * 
    * @example
    * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
+   * The ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20278,6 +26401,12 @@ export class UpdateWaitingRoomRequest extends $tea.Model {
    */
   waitingRoomId?: string;
   /**
+   * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * @example
    * default
    */
@@ -20335,65 +26464,137 @@ export class UpdateWaitingRoomRequest extends $tea.Model {
 
 export class UpdateWaitingRoomShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the custom cookie.
+   * 
    * @example
    * __aliwaitingroom_example
    */
   cookieName?: string;
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * Hello%20world!
    */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the waiting room. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   enable?: string;
+  /**
+   * @remarks
+   * The hostname and path.
+   */
   hostNameAndPathShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. You must specify this parameter if you set WaitingRoomType to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * zhcn
    */
   language?: string;
+  /**
+   * @remarks
+   * The name of the waiting room.
+   */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of new users per minute.
+   * 
    * @example
    * 200
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to queue all requests. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   queueAllEnable?: string;
   /**
+   * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * @example
    * random
    */
   queuingMethod?: string;
   /**
+   * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * @example
    * 200
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * @example
    * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20401,12 +26602,17 @@ export class UpdateWaitingRoomShrinkRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The maximum number of active users.
+   * 
    * @example
    * 300
    */
   totalActiveUsers?: string;
   /**
    * @remarks
+   * The ID of the waiting room, which can be obtained by calling the [ListWaitingRooms](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20414,6 +26620,12 @@ export class UpdateWaitingRoomShrinkRequest extends $tea.Model {
    */
   waitingRoomId?: string;
   /**
+   * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * @example
    * default
    */
@@ -20471,6 +26683,9 @@ export class UpdateWaitingRoomShrinkRequest extends $tea.Model {
 
 export class UpdateWaitingRoomResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0195619f-eab3-4a66-ac00-ed53d913e72e
    */
@@ -20519,78 +26734,154 @@ export class UpdateWaitingRoomResponse extends $tea.Model {
 
 export class UpdateWaitingRoomEventRequest extends $tea.Model {
   /**
+   * @remarks
+   * The content of the custom waiting room page. You must specify this parameter if you set WaitingRoomType to custom. The content must be Base64-encoded.
+   * 
    * @example
    * html-yets-maqi1111
    */
   customPageHtml?: string;
   /**
+   * @remarks
+   * The description of the waiting room.
+   * 
    * @example
    * http://yywyyw.com
    */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to disable session renewal. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * off
    */
   disableSessionRenewalEnable?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the waiting room event. Valid values:
+   * 
+   * *   `on`
+   * *   `off`
+   * 
    * @example
    * on
    */
   enable?: string;
   /**
+   * @remarks
+   * The end time of the event. This value is a UNIX timestamp.
+   * 
    * @example
    * 1719849600
    */
   endTime?: string;
   /**
+   * @remarks
+   * Specifies whether to enable JSON response. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * off
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The default language. Valid values:
+   * 
+   * *   `enus`: English.
+   * *   `zhcn`: Simplified Chinese.
+   * *   `zhhk`: Traditional Chinese.
+   * 
    * @example
    * enus
    */
   language?: string;
+  /**
+   * @remarks
+   * The name of the waiting room event.
+   */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of new users per minute.
+   * 
    * @example
    * 300
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Specifies whether to enable pre-queuing.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   preQueueEnable?: string;
   /**
+   * @remarks
+   * The start time for pre-queuing.
+   * 
    * @example
    * 1719763200
    */
   preQueueStartTime?: string;
   /**
+   * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: All requests are blocked from accessing the origin.
+   * 
    * @example
    * fifo
    */
   queuingMethod?: string;
   /**
+   * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * @example
    * 200
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * Specifies whether to enable random queuing.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   randomPreQueueEnable?: string;
   /**
+   * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * @example
    * 5
    */
   sessionDuration?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20598,21 +26889,36 @@ export class UpdateWaitingRoomEventRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The start time of the event. This value is a UNIX timestamp.
+   * 
    * @example
    * 1719763200
    */
   startTime?: string;
   /**
+   * @remarks
+   * The maximum number of active users.
+   * 
    * @example
    * 200
    */
   totalActiveUsers?: string;
   /**
+   * @remarks
+   * The ID of the waiting room event, which can be obtained by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
+   * 
    * @example
    * 89677721098****
    */
   waitingRoomEventId?: number;
   /**
+   * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -20674,6 +26980,9 @@ export class UpdateWaitingRoomEventRequest extends $tea.Model {
 
 export class UpdateWaitingRoomEventResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0195619f-eab3-4a66-ac00-ed53d913e72e
    */
@@ -20723,6 +27032,8 @@ export class UpdateWaitingRoomEventResponse extends $tea.Model {
 export class UpdateWaitingRoomRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The rule content, which is a policy or conditional expression.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20731,6 +27042,11 @@ export class UpdateWaitingRoomRuleRequest extends $tea.Model {
   rule?: string;
   /**
    * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20739,6 +27055,8 @@ export class UpdateWaitingRoomRuleRequest extends $tea.Model {
   ruleEnable?: string;
   /**
    * @remarks
+   * The rule name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20747,6 +27065,8 @@ export class UpdateWaitingRoomRuleRequest extends $tea.Model {
   ruleName?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20754,6 +27074,9 @@ export class UpdateWaitingRoomRuleRequest extends $tea.Model {
    */
   siteId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room bypass rule that you want to update. You can call [ListWaitingRoomRules](https://help.aliyun.com/document_detail/2850279.html) to obtain the ID.
+   * 
    * @example
    * 8987739839****
    */
@@ -20785,6 +27108,9 @@ export class UpdateWaitingRoomRuleRequest extends $tea.Model {
 
 export class UpdateWaitingRoomRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID, which is used to trace a call.
+   * 
    * @example
    * 9bfe9d95-7bf6-469d-a628-ed7bc9f25073
    */
@@ -20834,6 +27160,8 @@ export class UpdateWaitingRoomRuleResponse extends $tea.Model {
 export class UploadFileRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20842,6 +27170,13 @@ export class UploadFileRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The type of the purge or prefetch task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **preload**: prefetches the file.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20850,6 +27185,8 @@ export class UploadFileRequest extends $tea.Model {
   type?: string;
   /**
    * @remarks
+   * The name of the upload task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20858,6 +27195,8 @@ export class UploadFileRequest extends $tea.Model {
   uploadTaskName?: string;
   /**
    * @remarks
+   * The OSS URL of the file that contains resources to be purged or prefetched.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20890,6 +27229,8 @@ export class UploadFileRequest extends $tea.Model {
 export class UploadFileAdvanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20898,6 +27239,13 @@ export class UploadFileAdvanceRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
+   * The type of the purge or prefetch task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **preload**: prefetches the file.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20906,6 +27254,8 @@ export class UploadFileAdvanceRequest extends $tea.Model {
   type?: string;
   /**
    * @remarks
+   * The name of the upload task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20914,6 +27264,8 @@ export class UploadFileAdvanceRequest extends $tea.Model {
   uploadTaskName?: string;
   /**
    * @remarks
+   * The OSS URL of the file that contains resources to be purged or prefetched.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20946,13 +27298,16 @@ export class UploadFileAdvanceRequest extends $tea.Model {
 export class UploadFileResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the file upload task. You can use this ID for task submission or query subsequently.
+   * 
    * @example
    * 159253299357****
    */
@@ -21004,6 +27359,8 @@ export class UploadFileResponse extends $tea.Model {
 export class VerifySiteRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21029,11 +27386,20 @@ export class VerifySiteRequest extends $tea.Model {
 
 export class VerifySiteResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the verification passed. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   passed?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 65C66B7B-671A-8297-9187-2R5477247B76
    */
@@ -21684,32 +28050,54 @@ export class WafTimerWeeklyPeriods extends $tea.Model {
 
 export class FieldContentValueFieldList extends $tea.Model {
   /**
+   * @remarks
+   * The field name.
+   * 
    * @example
    * ClientIp
    */
   fieldName?: string;
   /**
+   * @remarks
+   * The description of the field in English.
+   * 
    * @example
    * IP address of the client.
    */
   description?: string;
+  /**
+   * @remarks
+   * The description of the field in Chinese.
+   */
   descriptionCn?: string;
   /**
+   * @remarks
+   * The category of the field.
+   * 
    * @example
    * Client
    */
   category?: string;
   /**
+   * @remarks
+   * The data type of the field.
+   * 
    * @example
    * String
    */
   dataType?: string;
   /**
+   * @remarks
+   * The sequence number of the field.
+   * 
    * @example
    * 1
    */
   sortOrder?: number;
   /**
+   * @remarks
+   * Indicates whether the field is available by default.
+   * 
    * @example
    * true
    */
@@ -21776,71 +28164,113 @@ export class BatchCreateRecordsRequestRecordListAuthConf extends $tea.Model {
 
 export class BatchCreateRecordsRequestRecordListData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * 
    * @example
    * 0
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * 
    * @example
    * 0
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA, and TLSA records.
+   * 
    * @example
    * 0
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+   * 
    * @example
    * 0
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * 
    * @example
    * 2
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   selector?: number;
   /**
+   * @remarks
+   * The tag of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   usage?: number;
   /**
+   * @remarks
+   * The record value or part of the record content. A/AAAA: the IP address being pointed to. CNAME: the target domain name being pointed to. MX: valid target mail server domain name. TXT: valid text string. CAA: valid certificate authority domain name. SRV: valid target host domain name. URI: valid URI string.
+   * 
    * @example
    * example.com
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record. Valid values: 0 to 65,535. Applicable to SRV and URI records.
+   * 
    * @example
    * 0
    */
@@ -21891,12 +28321,21 @@ export class BatchCreateRecordsRequestRecordListData extends $tea.Model {
 export class BatchCreateRecordsRequestRecordList extends $tea.Model {
   authConf?: BatchCreateRecordsRequestRecordListAuthConf;
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Valid values:
+   * 
+   * *   **image_video**
+   * *   **api**
+   * *   **web**
+   * 
    * @example
    * web
    */
   bizName?: string;
   /**
    * @remarks
+   * The DNS information of the record. Enter fields based on the record type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21907,6 +28346,11 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
   data?: BatchCreateRecordsRequestRecordListData;
   /**
    * @remarks
+   * Specifies whether to proxy the record. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21915,6 +28359,8 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
   proxied?: boolean;
   /**
    * @remarks
+   * The record name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21922,12 +28368,25 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
    */
   recordName?: string;
   /**
+   * @remarks
+   * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
+   * If you do not pass this parameter or if you leave its value empty, Domain is used by default.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
    * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21936,6 +28395,8 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
   ttl?: number;
   /**
    * @remarks
+   * The DNS type of the record.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21975,71 +28436,122 @@ export class BatchCreateRecordsRequestRecordList extends $tea.Model {
 
 export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * 
    * @example
    * 0
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * 
    * @example
    * 0
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * RSA
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port number of the record, associated with the SRV record. Exclusive to SRV records.
+   * 
    * @example
    * 0
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+   * 
    * @example
    * 10
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   selector?: number;
   /**
+   * @remarks
+   * Indicates its priority and handling method, used in CAA records.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   usage?: number;
   /**
+   * @remarks
+   * The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+   * 
+   * *   **A/AAAA**: the IP addresses. IP addresses are separated by commas (,). There is at least one IPv4 address.
+   * *   **CNAME**: the mapped domain name.
+   * *   **NS**: the nameservers for the domain name.
+   * *   **MX**: a valid domain name of the target mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
    * @example
    * example.com
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record. Applicable to SRV and URI records.
+   * 
    * @example
    * 0
    */
@@ -22089,42 +28601,83 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailedData extends $t
 
 export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $tea.Model {
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Valid values:
+   * 
+   * *   **image_video**
+   * *   **api**
+   * *   **web**
+   * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The DNS information about the record, which contains various types of record values and their related attributes.
+   * 
    * @example
    * {"value":"2.2.2.2"}
    */
   data?: BatchCreateRecordsResponseBodyRecordResultListFailedData;
+  /**
+   * @remarks
+   * The result description.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxied?: boolean;
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+   * 
    * @example
    * A/AAAA
    */
   recordType?: string;
   /**
+   * @remarks
+   * The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 60
    */
@@ -22164,71 +28717,122 @@ export class BatchCreateRecordsResponseBodyRecordResultListFailed extends $tea.M
 
 export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record. Valid values: 0 to 255. Applicable to CERT and SSHFP records.
+   * 
    * @example
    * 0
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. Applicable to CERT, SMIMEA, and TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. Applicable to SSHFP records.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The flag bit of the record. Indicates its priority and handling method, used in CAA records.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record. Valid values: 0 to 65535. Applicable to CERT records.
+   * 
    * @example
    * 0
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+   * 
    * @example
    * 0
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Applicable to MX, SRV, and URI records.
+   * 
    * @example
    * 10
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of certificate or public key. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   selector?: number;
   /**
+   * @remarks
+   * The label of a CAA record, which indicates its specific type and purpose, such as issue, issuewild, and iodef.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record. Valid values: 0 to 255. Applicable to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   usage?: number;
   /**
+   * @remarks
+   * The record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+   * 
+   * *   **A/AAAA**: the IP addresses. Multiple IPs are separated by commas (,). There is at least one IPv4 address.
+   * *   **CNAME**: the mapped domain name.
+   * *   **NS**: the nameservers for the domain name.
+   * *   **MX**: a valid domain name of the target mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
    * @example
    * example.com
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record. Valid values: 0 to 65535. Applicable to SRV and URI records.
+   * 
    * @example
    * 0
    */
@@ -22278,46 +28882,86 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccessData extends $
 
 export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $tea.Model {
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Valid values:
+   * 
+   * *   **image_video**
+   * *   **api**
+   * *   **web**
+   * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The DNS record information.
+   * 
    * @example
    * {"value":"1.1.1.1"}
    */
   data?: BatchCreateRecordsResponseBodyRecordResultListSuccessData;
   /**
+   * @remarks
+   * The result description.
+   * 
    * @example
    * success
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxied?: boolean;
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * www.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+   * 
    * @example
    * A/AAAA
    */
   recordType?: string;
   /**
+   * @remarks
+   * The origin type of the CNAME record. This field is left empty for other types of records. The type of the origin server. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
    * @example
    * OSS
    */
   sourceType?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 60
    */
@@ -22356,9 +29000,20 @@ export class BatchCreateRecordsResponseBodyRecordResultListSuccess extends $tea.
 }
 
 export class BatchCreateRecordsResponseBodyRecordResultList extends $tea.Model {
+  /**
+   * @remarks
+   * The records that failed to be created.
+   */
   failed?: BatchCreateRecordsResponseBodyRecordResultListFailed[];
+  /**
+   * @remarks
+   * The records that have been created.
+   */
   success?: BatchCreateRecordsResponseBodyRecordResultListSuccess[];
   /**
+   * @remarks
+   * The total number of returned records.
+   * 
    * @example
    * 20
    */
@@ -22386,11 +29041,17 @@ export class BatchCreateRecordsResponseBodyRecordResultList extends $tea.Model {
 
 export class BatchGetExpressionFieldsRequestExpressions extends $tea.Model {
   /**
+   * @remarks
+   * The content of the regular expression.
+   * 
    * @example
    * ip.src eq 1.1.1.1
    */
   expression?: string;
   /**
+   * @remarks
+   * The ID of the regular expression.
+   * 
    * @example
    * 1
    */
@@ -22415,8 +29076,15 @@ export class BatchGetExpressionFieldsRequestExpressions extends $tea.Model {
 }
 
 export class BatchGetExpressionFieldsResponseBodyFields extends $tea.Model {
+  /**
+   * @remarks
+   * The fields that match the regular expression.
+   */
   fields?: string[];
   /**
+   * @remarks
+   * The ID of the regular expression, which corresponds to the expression ID in the request parameter.
+   * 
    * @example
    * 1
    */
@@ -22442,17 +29110,25 @@ export class BatchGetExpressionFieldsResponseBodyFields extends $tea.Model {
 
 export class BatchPutKvRequestKvList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the key-value pair expires, which cannot be earlier than the current time. The value is a timestamp in seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+   * 
    * @example
    * 1690081381
    */
   expiration?: number;
   /**
+   * @remarks
+   * The relative expiration time. Unit: seconds. If you specify both Expiration and ExpirationTtl, only ExpirationTtl takes effect.
+   * 
    * @example
    * 3600
    */
   expirationTtl?: number;
   /**
    * @remarks
+   * The key name. The name can be up to 512 characters in length and cannot contain spaces or backslashes (\\\\).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22461,6 +29137,8 @@ export class BatchPutKvRequestKvList extends $tea.Model {
   key?: string;
   /**
    * @remarks
+   * The key content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22879,26 +29557,51 @@ export class CreateEdgeContainerAppVersionRequestContainers extends $tea.Model {
 
 export class CreateRecordRequestAuthConf extends $tea.Model {
   /**
+   * @remarks
+   * The access key of the account to which the origin server belongs. This parameter is required when the SourceType is OSS, and AuthType is private_cross_account, or when the SourceType is S3 and AuthType is private.
+   * 
    * @example
    * u0Nkg5gBK*******QF5wvKMM504JUHt
    */
   accessKey?: string;
   /**
+   * @remarks
+   * The authentication type of the origin server. Different origins support different authentication types. The type of origin refers to the SourceType parameter in this operation. If the type of origin is OSS or S3, you must specify the authentication type of the origin. Valid values:
+   * 
+   * *   **public**: public read. Select this value when the origin type is OSS or S3 and the origin access is public read.
+   * *   **private**: private read. Select this value when the origin type is S3 and the origin access is private read.
+   * *   **private_same_account**: private read under the same account. Select this value when the origin type is OSS, the origins belong to the same Alibaba Cloud account, and the origins have private read access.
+   * *   **private_cross_account**: private read cross accounts. Select this value when the origin type is OSS, the origins belong to different Alibaba Cloud accounts, and the origins have private read access.
+   * 
    * @example
    * private
    */
   authType?: string;
   /**
+   * @remarks
+   * The region of the origin. If the origin type is S3, you must specify this value. You can get the region information from the official website of S3.
+   * 
    * @example
    * us-east-1
    */
   region?: string;
   /**
+   * @remarks
+   * The secret access key of the account to which the origin server belongs. This parameter is required when the SourceType is OSS, and AuthType is private_same_account, or when the SourceType is S3 and AuthType is private.
+   * 
    * @example
    * VIxuvJSA2S03f******kp208dy5w7
    */
   secretKey?: string;
   /**
+   * @remarks
+   * The version of the signature algorithm. This parameter is required when the origin type is S3 and AuthType is private. The following two types are supported:
+   * 
+   * *   **v2**
+   * *   **v4**
+   * 
+   * If you leave this parameter empty, the default value v4 is used.
+   * 
    * @example
    * v4
    */
@@ -22930,71 +29633,126 @@ export class CreateRecordRequestAuthConf extends $tea.Model {
 
 export class CreateRecordRequestData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record, specified within the range from 0 to 255. This parameter is required when you add CERT or SSHFP records.
+   * 
    * @example
    * 1
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. This parameter is required when you add CERT, SMIMEA, or TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. This parameter is required when you add a SSHFP record.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed, specified within the range of 0 to 255. This parameter is required when you add a CAA record.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record, specified within the range of 0 to 65,535. This parameter is required when you add a CAA record.
+   * 
    * @example
    * 0
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate, specified within the range 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 1
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port of the record, specified within the range of 0 to 65,535. This parameter is required when you add an SRV record.
+   * 
    * @example
    * 0
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record, specified within the range of 0 to 65,535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * 
    * @example
    * 10
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of certificate or public key, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 1
    */
   selector?: number;
   /**
+   * @remarks
+   * The label of the record. The Tag of a CAA record indicate its specific type and usage. This parameter is required when you add a CAA record. Valid values:
+   * 
+   * *   **issue**: indicates that a CA is authorized to issue a certificate for the domain name. This is usually followed by the domain name of the CA.
+   * *   **issuewild**: indicates that a CA is authorized to issue a wildcard certificate (such as \\*.example.com) for the domain name.
+   * *   **iodef**: specifies a URI to receive reports about CAA record violations.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records). This parameter is required when you add CERT or SSHFP records.
+   * 
    * @example
    * RSA
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 1
    */
   usage?: number;
   /**
+   * @remarks
+   * Record value or part of the record content. This parameter is required when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. It has different meanings based on types of records:
+   * 
+   * *   **A/AAAA**: the IP address(es). Separate IP addresses with commas (,). You must have at least one IPv4 address.
+   * *   **CNAME**: the target domain name.
+   * *   **NS**: the name servers for the domain name.
+   * *   **MX**: a valid domain name of the target mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
    * @example
    * example.com
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record, specified within the range of 0 to 65,535. This parameter is required when you add SRV or URI records.
+   * 
    * @example
    * 0
    */
@@ -23043,17 +29801,41 @@ export class CreateRecordRequestData extends $tea.Model {
 }
 
 export class CreateScheduledPreloadExecutionsRequestExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The end time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-04T02:02:09Z
+   */
   endTime?: string;
   /**
    * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 30
    */
   interval?: number;
   /**
    * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 10
    */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-03T16:00:00Z
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23079,13 +29861,75 @@ export class CreateScheduledPreloadExecutionsRequestExecutions extends $tea.Mode
 }
 
 export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-03T02:43:35Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 66599bd7397885b43804901c
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-02T02:43:35Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23119,13 +29963,75 @@ export class CreateScheduledPreloadExecutionsResponseBodyFailedExecutions extend
 }
 
 export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-03T02:43:35Z
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 66599bd7397885b43804901c
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plans.
+   * 
+   * @example
+   * 2024-06-02T02:43:35Z
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * failed
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23159,8 +30065,31 @@ export class CreateScheduledPreloadExecutionsResponseBodySuccessExecutions exten
 }
 
 export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the signature.
+   * 
+   * >  The value must be greater than 0. We recommend that you specify a value that is greater than 300.
+   * 
+   * @example
+   * 300
+   */
   expiredTime?: number;
+  /**
+   * @remarks
+   * The private key.
+   * 
+   * @example
+   * ***
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The URI path for server authentication.
+   * 
+   * @example
+   * v1/log/upload
+   */
   urlPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23184,17 +30113,92 @@ export class CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam extends 
 }
 
 export class CreateSiteDeliveryTaskRequestHttpDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The compression method. By default, data is not compressed.
+   * 
+   * @example
+   * gzip
+   */
   compress?: string;
+  /**
+   * @remarks
+   * The address of the HTTP server.
+   * 
+   * @example
+   * http://xxx.aliyun.com/v1/log/upload
+   */
   destUrl?: string;
+  /**
+   * @remarks
+   * The custom headers.
+   */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
+  /**
+   * @remarks
+   * The prefix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodyPrefix?: string;
+  /**
+   * @remarks
+   * The suffix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodySuffix?: string;
+  /**
+   * @remarks
+   * The maximum size of data for each delivery. Unit: MB.
+   * 
+   * @example
+   * 5
+   */
   maxBatchMB?: number;
+  /**
+   * @remarks
+   * The maximum number of entries for each delivery.
+   * 
+   * @example
+   * 1000
+   */
   maxBatchSize?: number;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxRetry?: number;
+  /**
+   * @remarks
+   * The custom query parameters.
+   */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
+  /**
+   * @remarks
+   * Specifies whether to use server authentication.
+   * 
+   * @example
+   * true
+   */
   standardAuthOn?: boolean;
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   standardAuthParam?: CreateSiteDeliveryTaskRequestHttpDeliveryStandardAuthParam;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   transformTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23236,17 +30240,66 @@ export class CreateSiteDeliveryTaskRequestHttpDelivery extends $tea.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The load balancing method.
+   * 
+   * @example
+   * kafka.LeastBytes
+   */
   balancer?: string;
+  /**
+   * @remarks
+   * The brokers.
+   */
   brokers?: string[];
   /**
+   * @remarks
+   * The compression method.
+   * 
    * @example
    * gzip
    */
   compress?: string;
+  /**
+   * @remarks
+   * The encryption method.
+   * 
+   * @example
+   * plain
+   */
   machanismType?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * ***
+   */
   password?: string;
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * dqc_test2
+   */
   topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   * 
+   * @example
+   * true
+   */
   userAuth?: boolean;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xxx
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23280,14 +30333,34 @@ export class CreateSiteDeliveryTaskRequestKafkaDelivery extends $tea.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestOssDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 1234***
+   */
   aliuid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test_rlog
+   */
   bucketName?: string;
   /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
    * @example
    * logriver-test/log
    */
   prefixPath?: string;
   /**
+   * @remarks
+   * The region in which the bucket is located.
+   * 
    * @example
    * cn-beijing
    */
@@ -23316,12 +30389,61 @@ export class CreateSiteDeliveryTaskRequestOssDelivery extends $tea.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestS3Delivery extends $tea.Model {
+  /**
+   * @remarks
+   * The access key ID of your Amazon S3 account.
+   * 
+   * @example
+   * LTAIKh***
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The directory in the bucket.
+   * 
+   * @example
+   * logriver-test/log
+   */
   bucketPath?: string;
+  /**
+   * @remarks
+   * The endpoint. This parameter is required when the S3Cmpt parameter is set to true.
+   * 
+   * @example
+   * https://s3.oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
   prefixPath?: string;
+  /**
+   * @remarks
+   * The region ID of the service.
+   * 
+   * @example
+   * cn-beijing
+   */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether the service is compatible with Amazon S3.
+   * 
+   * @example
+   * true
+   */
   s3Cmpt?: boolean;
+  /**
+   * @remarks
+   * The secret access key of your Amazon S3 account.
+   * 
+   * @example
+   * LDSIKh***
+   */
   secretKey?: string;
   serverSideEncryption?: boolean;
   vertifyType?: string;
@@ -23359,8 +30481,29 @@ export class CreateSiteDeliveryTaskRequestS3Delivery extends $tea.Model {
 }
 
 export class CreateSiteDeliveryTaskRequestSlsDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Logstore.
+   * 
+   * @example
+   * accesslog-test
+   */
   SLSLogStore?: string;
+  /**
+   * @remarks
+   * The name of the SLS project.
+   * 
+   * @example
+   * dcdn-test20240417
+   */
   SLSProject?: string;
+  /**
+   * @remarks
+   * The region in which the SLS project resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   SLSRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23383,9 +30526,1715 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $tea.Model {
   }
 }
 
+export class CreateSiteFunctionRequestCacheReserve extends $tea.Model {
+  enable?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestCacheRules extends $tea.Model {
+  additionalCacheablePorts?: string;
+  browserCacheMode?: string;
+  browserCacheTtl?: string;
+  bypassCache?: string;
+  cacheDeceptionArmor?: string;
+  cacheReserveEligibility?: string;
+  checkPresenceCookie?: string;
+  checkPresenceHeader?: string;
+  edgeCacheMode?: string;
+  edgeCacheTtl?: string;
+  edgeStatusCodeCacheTtl?: string;
+  includeCookie?: string;
+  includeHeader?: string;
+  queryString?: string;
+  queryStringMode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  serveStale?: string;
+  sortQueryStringForCache?: string;
+  userDeviceType?: string;
+  userGeo?: string;
+  userLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalCacheablePorts: 'AdditionalCacheablePorts',
+      browserCacheMode: 'BrowserCacheMode',
+      browserCacheTtl: 'BrowserCacheTtl',
+      bypassCache: 'BypassCache',
+      cacheDeceptionArmor: 'CacheDeceptionArmor',
+      cacheReserveEligibility: 'CacheReserveEligibility',
+      checkPresenceCookie: 'CheckPresenceCookie',
+      checkPresenceHeader: 'CheckPresenceHeader',
+      edgeCacheMode: 'EdgeCacheMode',
+      edgeCacheTtl: 'EdgeCacheTtl',
+      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
+      includeCookie: 'IncludeCookie',
+      includeHeader: 'IncludeHeader',
+      queryString: 'QueryString',
+      queryStringMode: 'QueryStringMode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      serveStale: 'ServeStale',
+      sortQueryStringForCache: 'SortQueryStringForCache',
+      userDeviceType: 'UserDeviceType',
+      userGeo: 'UserGeo',
+      userLanguage: 'UserLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalCacheablePorts: 'string',
+      browserCacheMode: 'string',
+      browserCacheTtl: 'string',
+      bypassCache: 'string',
+      cacheDeceptionArmor: 'string',
+      cacheReserveEligibility: 'string',
+      checkPresenceCookie: 'string',
+      checkPresenceHeader: 'string',
+      edgeCacheMode: 'string',
+      edgeCacheTtl: 'string',
+      edgeStatusCodeCacheTtl: 'string',
+      includeCookie: 'string',
+      includeHeader: 'string',
+      queryString: 'string',
+      queryStringMode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      serveStale: 'string',
+      sortQueryStringForCache: 'string',
+      userDeviceType: 'string',
+      userGeo: 'string',
+      userLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestCacheTags extends $tea.Model {
+  caseInsensitive?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseInsensitive: 'CaseInsensitive',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseInsensitive: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestCnameFlattening extends $tea.Model {
+  flattenMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      flattenMode: 'FlattenMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      flattenMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestCompressionRules extends $tea.Model {
+  brotli?: string;
+  gzip?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brotli: 'Brotli',
+      gzip: 'Gzip',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brotli: 'string',
+      gzip: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestCrossBorderOptimization extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestDevelopmentMode extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpRequestHeaderModificationRules extends $tea.Model {
+  requestHeaderModification?: CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestHeaderModification: 'RequestHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpResponseHeaderModificationRules extends $tea.Model {
+  responseHeaderModification?: CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      responseHeaderModification: 'ResponseHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      responseHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpsApplicationConfiguration extends $tea.Model {
+  altSvc?: string;
+  altSvcClear?: string;
+  altSvcMa?: string;
+  altSvcPersist?: string;
+  hsts?: string;
+  hstsIncludeSubdomains?: string;
+  hstsMaxAge?: string;
+  hstsPreload?: string;
+  httpsForce?: string;
+  httpsForceCode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      altSvc: 'AltSvc',
+      altSvcClear: 'AltSvcClear',
+      altSvcMa: 'AltSvcMa',
+      altSvcPersist: 'AltSvcPersist',
+      hsts: 'Hsts',
+      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
+      httpsForce: 'HttpsForce',
+      httpsForceCode: 'HttpsForceCode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      altSvc: 'string',
+      altSvcClear: 'string',
+      altSvcMa: 'string',
+      altSvcPersist: 'string',
+      hsts: 'string',
+      hstsIncludeSubdomains: 'string',
+      hstsMaxAge: 'string',
+      hstsPreload: 'string',
+      httpsForce: 'string',
+      httpsForceCode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model {
+  ciphersuite?: string;
+  ciphersuiteGroup?: string;
+  http2?: string;
+  http3?: string;
+  https?: string;
+  ocspStapling?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  tls10?: string;
+  tls11?: string;
+  tls12?: string;
+  tls13?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersuite: 'Ciphersuite',
+      ciphersuiteGroup: 'CiphersuiteGroup',
+      http2: 'Http2',
+      http3: 'Http3',
+      https: 'Https',
+      ocspStapling: 'OcspStapling',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      tls10: 'Tls10',
+      tls11: 'Tls11',
+      tls12: 'Tls12',
+      tls13: 'Tls13',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersuite: 'string',
+      ciphersuiteGroup: 'string',
+      http2: 'string',
+      http3: 'string',
+      https: 'string',
+      ocspStapling: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      tls10: 'string',
+      tls11: 'string',
+      tls12: 'string',
+      tls13: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestImageTransform extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestIpv6 extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestManagedTransforms extends $tea.Model {
+  addClientGeolocationHeaders?: string;
+  addRealClientIpHeader?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
+      addRealClientIpHeader: 'AddRealClientIpHeader',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addClientGeolocationHeaders: 'string',
+      addRealClientIpHeader: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestNetworkOptimization extends $tea.Model {
+  grpc?: string;
+  http2Origin?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  smartRouting?: string;
+  uploadMaxFilesize?: string;
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestOriginProtection extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestOriginRules extends $tea.Model {
+  dnsRecord?: string;
+  originHost?: string;
+  originHttpPort?: string;
+  originHttpsPort?: string;
+  originScheme?: string;
+  originSni?: string;
+  range?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dnsRecord: 'DnsRecord',
+      originHost: 'OriginHost',
+      originHttpPort: 'OriginHttpPort',
+      originHttpsPort: 'OriginHttpsPort',
+      originScheme: 'OriginScheme',
+      originSni: 'OriginSni',
+      range: 'Range',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dnsRecord: 'string',
+      originHost: 'string',
+      originHttpPort: 'string',
+      originHttpsPort: 'string',
+      originScheme: 'string',
+      originSni: 'string',
+      range: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestRedirectRules extends $tea.Model {
+  reserveQueryString?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  statusCode?: string;
+  targetUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      reserveQueryString: 'ReserveQueryString',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      statusCode: 'StatusCode',
+      targetUrl: 'TargetUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      reserveQueryString: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      statusCode: 'string',
+      targetUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
+  queryString?: string;
+  rewriteQueryStringType?: string;
+  rewriteUriType?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      queryString: 'QueryString',
+      rewriteQueryStringType: 'RewriteQueryStringType',
+      rewriteUriType: 'RewriteUriType',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      queryString: 'string',
+      rewriteQueryStringType: 'string',
+      rewriteUriType: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestSeoBypass extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestSitePause extends $tea.Model {
+  paused?: string;
+  static names(): { [key: string]: string } {
+    return {
+      paused: 'Paused',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      paused: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionRequestTieredCache extends $tea.Model {
+  cacheArchitectureMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheArchitectureMode: 'CacheArchitectureMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheArchitectureMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCacheReserve extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCacheRules extends $tea.Model {
+  additionalCacheablePorts?: string;
+  browserCacheMode?: string;
+  browserCacheTtl?: string;
+  bypassCache?: string;
+  cacheDeceptionArmor?: string;
+  cacheReserveEligibility?: string;
+  checkPresenceCookie?: string;
+  checkPresenceHeader?: string;
+  configId?: number;
+  edgeCacheMode?: string;
+  edgeCacheTtl?: string;
+  edgeStatusCodeCacheTtl?: string;
+  includeCookie?: string;
+  includeHeader?: string;
+  queryString?: string;
+  queryStringMode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  serveStale?: string;
+  sortQueryStringForCache?: string;
+  userDeviceType?: string;
+  userGeo?: string;
+  userLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalCacheablePorts: 'AdditionalCacheablePorts',
+      browserCacheMode: 'BrowserCacheMode',
+      browserCacheTtl: 'BrowserCacheTtl',
+      bypassCache: 'BypassCache',
+      cacheDeceptionArmor: 'CacheDeceptionArmor',
+      cacheReserveEligibility: 'CacheReserveEligibility',
+      checkPresenceCookie: 'CheckPresenceCookie',
+      checkPresenceHeader: 'CheckPresenceHeader',
+      configId: 'ConfigId',
+      edgeCacheMode: 'EdgeCacheMode',
+      edgeCacheTtl: 'EdgeCacheTtl',
+      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
+      includeCookie: 'IncludeCookie',
+      includeHeader: 'IncludeHeader',
+      queryString: 'QueryString',
+      queryStringMode: 'QueryStringMode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      serveStale: 'ServeStale',
+      sortQueryStringForCache: 'SortQueryStringForCache',
+      userDeviceType: 'UserDeviceType',
+      userGeo: 'UserGeo',
+      userLanguage: 'UserLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalCacheablePorts: 'string',
+      browserCacheMode: 'string',
+      browserCacheTtl: 'string',
+      bypassCache: 'string',
+      cacheDeceptionArmor: 'string',
+      cacheReserveEligibility: 'string',
+      checkPresenceCookie: 'string',
+      checkPresenceHeader: 'string',
+      configId: 'number',
+      edgeCacheMode: 'string',
+      edgeCacheTtl: 'string',
+      edgeStatusCodeCacheTtl: 'string',
+      includeCookie: 'string',
+      includeHeader: 'string',
+      queryString: 'string',
+      queryStringMode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      serveStale: 'string',
+      sortQueryStringForCache: 'string',
+      userDeviceType: 'string',
+      userGeo: 'string',
+      userLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCacheTags extends $tea.Model {
+  caseInsensitive?: string;
+  configId?: number;
+  sequence?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseInsensitive: 'CaseInsensitive',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseInsensitive: 'string',
+      configId: 'number',
+      sequence: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCnameFlattening extends $tea.Model {
+  configId?: number;
+  flattenMode?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      flattenMode: 'FlattenMode',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      flattenMode: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCompressionRules extends $tea.Model {
+  brotli?: string;
+  configId?: number;
+  gzip?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brotli: 'Brotli',
+      configId: 'ConfigId',
+      gzip: 'Gzip',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brotli: 'string',
+      configId: 'number',
+      gzip: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsDevelopmentMode extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  requestHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestHeaderModification: 'RequestHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  responseHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      responseHeaderModification: 'ResponseHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      responseHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration extends $tea.Model {
+  altSvc?: string;
+  altSvcClear?: string;
+  altSvcMa?: string;
+  altSvcPersist?: string;
+  configId?: number;
+  hsts?: string;
+  hstsIncludeSubdomains?: string;
+  hstsMaxAge?: string;
+  hstsPreload?: string;
+  httpsForce?: string;
+  httpsForceCode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      altSvc: 'AltSvc',
+      altSvcClear: 'AltSvcClear',
+      altSvcMa: 'AltSvcMa',
+      altSvcPersist: 'AltSvcPersist',
+      configId: 'ConfigId',
+      hsts: 'Hsts',
+      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
+      httpsForce: 'HttpsForce',
+      httpsForceCode: 'HttpsForceCode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      altSvc: 'string',
+      altSvcClear: 'string',
+      altSvcMa: 'string',
+      altSvcPersist: 'string',
+      configId: 'number',
+      hsts: 'string',
+      hstsIncludeSubdomains: 'string',
+      hstsMaxAge: 'string',
+      hstsPreload: 'string',
+      httpsForce: 'string',
+      httpsForceCode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration extends $tea.Model {
+  ciphersuite?: string;
+  ciphersuiteGroup?: string;
+  configId?: number;
+  http2?: string;
+  http3?: string;
+  https?: string;
+  ocspStapling?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  tls10?: string;
+  tls11?: string;
+  tls12?: string;
+  tls13?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersuite: 'Ciphersuite',
+      ciphersuiteGroup: 'CiphersuiteGroup',
+      configId: 'ConfigId',
+      http2: 'Http2',
+      http3: 'Http3',
+      https: 'Https',
+      ocspStapling: 'OcspStapling',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      tls10: 'Tls10',
+      tls11: 'Tls11',
+      tls12: 'Tls12',
+      tls13: 'Tls13',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersuite: 'string',
+      ciphersuiteGroup: 'string',
+      configId: 'number',
+      http2: 'string',
+      http3: 'string',
+      https: 'string',
+      ocspStapling: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      tls10: 'string',
+      tls11: 'string',
+      tls12: 'string',
+      tls13: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsImageTransform extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsIpv6 extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsManagedTransforms extends $tea.Model {
+  addClientGeolocationHeaders?: string;
+  addRealClientIpHeader?: string;
+  configId?: number;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
+      addRealClientIpHeader: 'AddRealClientIpHeader',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addClientGeolocationHeaders: 'string',
+      addRealClientIpHeader: 'string',
+      configId: 'number',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsNetworkOptimization extends $tea.Model {
+  configId?: number;
+  grpc?: string;
+  http2Origin?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  smartRouting?: string;
+  uploadMaxFilesize?: string;
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsOriginRules extends $tea.Model {
+  configId?: number;
+  dnsRecord?: string;
+  originHost?: string;
+  originHttpPort?: string;
+  originHttpsPort?: string;
+  originScheme?: string;
+  originSni?: string;
+  range?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      dnsRecord: 'DnsRecord',
+      originHost: 'OriginHost',
+      originHttpPort: 'OriginHttpPort',
+      originHttpsPort: 'OriginHttpsPort',
+      originScheme: 'OriginScheme',
+      originSni: 'OriginSni',
+      range: 'Range',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      dnsRecord: 'string',
+      originHost: 'string',
+      originHttpPort: 'string',
+      originHttpsPort: 'string',
+      originScheme: 'string',
+      originSni: 'string',
+      range: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsRedirectRules extends $tea.Model {
+  configId?: number;
+  reserveQueryString?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  statusCode?: string;
+  targetUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      reserveQueryString: 'ReserveQueryString',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      statusCode: 'StatusCode',
+      targetUrl: 'TargetUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      reserveQueryString: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      statusCode: 'string',
+      targetUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsRewriteUrlRules extends $tea.Model {
+  configId?: number;
+  queryString?: string;
+  rewriteQueryStringType?: string;
+  rewriteUriType?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      queryString: 'QueryString',
+      rewriteQueryStringType: 'RewriteQueryStringType',
+      rewriteUriType: 'RewriteUriType',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      queryString: 'string',
+      rewriteQueryStringType: 'string',
+      rewriteUriType: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsSeoBypass extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsSiteNameExclusive extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsSitePause extends $tea.Model {
+  configId?: number;
+  paused?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      paused: 'Paused',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      paused: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigsTieredCache extends $tea.Model {
+  cacheArchitectureMode?: string;
+  configId?: number;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheArchitectureMode: 'CacheArchitectureMode',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheArchitectureMode: 'string',
+      configId: 'number',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateSiteFunctionResponseBodyConfigs extends $tea.Model {
+  cacheReserve?: CreateSiteFunctionResponseBodyConfigsCacheReserve[];
+  cacheRules?: CreateSiteFunctionResponseBodyConfigsCacheRules[];
+  cacheTags?: CreateSiteFunctionResponseBodyConfigsCacheTags[];
+  cnameFlattening?: CreateSiteFunctionResponseBodyConfigsCnameFlattening[];
+  compressionRules?: CreateSiteFunctionResponseBodyConfigsCompressionRules[];
+  crossBorderOptimization?: CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization[];
+  developmentMode?: CreateSiteFunctionResponseBodyConfigsDevelopmentMode[];
+  httpRequestHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules[];
+  httpResponseHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules[];
+  httpsApplicationConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration[];
+  httpsBasicConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration[];
+  imageTransform?: CreateSiteFunctionResponseBodyConfigsImageTransform[];
+  ipv6?: CreateSiteFunctionResponseBodyConfigsIpv6[];
+  managedTransforms?: CreateSiteFunctionResponseBodyConfigsManagedTransforms[];
+  networkOptimization?: CreateSiteFunctionResponseBodyConfigsNetworkOptimization[];
+  originRules?: CreateSiteFunctionResponseBodyConfigsOriginRules[];
+  redirectRules?: CreateSiteFunctionResponseBodyConfigsRedirectRules[];
+  rewriteUrlRules?: CreateSiteFunctionResponseBodyConfigsRewriteUrlRules[];
+  seoBypass?: CreateSiteFunctionResponseBodyConfigsSeoBypass[];
+  siteNameExclusive?: CreateSiteFunctionResponseBodyConfigsSiteNameExclusive[];
+  sitePause?: CreateSiteFunctionResponseBodyConfigsSitePause[];
+  tieredCache?: CreateSiteFunctionResponseBodyConfigsTieredCache[];
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserve: 'CacheReserve',
+      cacheRules: 'CacheRules',
+      cacheTags: 'CacheTags',
+      cnameFlattening: 'CnameFlattening',
+      compressionRules: 'CompressionRules',
+      crossBorderOptimization: 'CrossBorderOptimization',
+      developmentMode: 'DevelopmentMode',
+      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
+      httpsBasicConfiguration: 'HttpsBasicConfiguration',
+      imageTransform: 'ImageTransform',
+      ipv6: 'Ipv6',
+      managedTransforms: 'ManagedTransforms',
+      networkOptimization: 'NetworkOptimization',
+      originRules: 'OriginRules',
+      redirectRules: 'RedirectRules',
+      rewriteUrlRules: 'RewriteUrlRules',
+      seoBypass: 'SeoBypass',
+      siteNameExclusive: 'SiteNameExclusive',
+      sitePause: 'SitePause',
+      tieredCache: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserve: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheReserve },
+      cacheRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheRules },
+      cacheTags: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheTags },
+      cnameFlattening: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCnameFlattening },
+      compressionRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCompressionRules },
+      crossBorderOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization },
+      developmentMode: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsDevelopmentMode },
+      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules },
+      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules },
+      httpsApplicationConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration },
+      httpsBasicConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration },
+      imageTransform: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsImageTransform },
+      ipv6: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsIpv6 },
+      managedTransforms: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsManagedTransforms },
+      networkOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsNetworkOptimization },
+      originRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsOriginRules },
+      redirectRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsRedirectRules },
+      rewriteUrlRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsRewriteUrlRules },
+      seoBypass: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSeoBypass },
+      siteNameExclusive: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSiteNameExclusive },
+      sitePause: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSitePause },
+      tieredCache: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsTieredCache },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $tea.Model {
+  /**
+   * @remarks
+   * The validity period of the signature.
+   * 
+   * @example
+   * 300
+   */
   expiredTime?: number;
+  /**
+   * @remarks
+   * The private key.
+   * 
+   * @example
+   * xxxx
+   */
   privateKey?: string;
+  /**
+   * @remarks
+   * The URL path.
+   * 
+   * @example
+   * v1/log/upload
+   */
   urlPath?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23409,24 +32258,148 @@ export class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam extends 
 }
 
 export class CreateUserDeliveryTaskRequestHttpDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The compression method.
+   * 
+   * @example
+   * gzip
+   */
   compress?: string;
+  /**
+   * @remarks
+   * The address of the HTTP server.
+   * 
+   * @example
+   * http://xxx.aliyun.com/v1/log/upload
+   */
   destUrl?: string;
+  /**
+   * @remarks
+   * The custom headers.
+   */
   headerParam?: { [key: string]: HttpDeliveryHeaderParamValue };
+  /**
+   * @remarks
+   * The ending separator.
+   * 
+   * @example
+   * \\n
+   */
   lastLogSplit?: string;
+  /**
+   * @remarks
+   * The prefix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodyPrefix?: string;
+  /**
+   * @remarks
+   * The suffix of the log delivery package.
+   * 
+   * @example
+   * cdnVersion:1.0
+   */
   logBodySuffix?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable log splitting. Default value: true.
+   * 
+   * @example
+   * true
+   */
   logSplit?: string;
+  /**
+   * @remarks
+   * The log separator.
+   * 
+   * @example
+   * \\n
+   */
   logSplitWords?: string;
+  /**
+   * @remarks
+   * The maximum backoff time. Unit: milliseconds.
+   * 
+   * @example
+   * 1000
+   */
   maxBackoffMS?: number;
+  /**
+   * @remarks
+   * The maximum size of data for each delivery. Unit: MB.
+   * 
+   * @example
+   * 5
+   */
   maxBatchMB?: number;
+  /**
+   * @remarks
+   * The maximum number of entries for each delivery.
+   * 
+   * @example
+   * 1000
+   */
   maxBatchSize?: number;
+  /**
+   * @remarks
+   * The maximum number of retries.
+   * 
+   * @example
+   * 3
+   */
   maxRetry?: number;
+  /**
+   * @remarks
+   * The minimum backoff time. Unit: milliseconds.
+   * 
+   * @example
+   * 100
+   */
   minBackoffMS?: number;
+  /**
+   * @remarks
+   * The custom query parameters.
+   */
   queryParam?: { [key: string]: HttpDeliveryQueryParamValue };
+  /**
+   * @remarks
+   * The response field key used for success check.
+   * 
+   * @example
+   * err_code
+   */
   responseBodyKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to use server authentication.
+   * 
+   * @example
+   * true
+   */
   standardAuthOn?: boolean;
+  /**
+   * @remarks
+   * The authentication configurations.
+   */
   standardAuthParam?: CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam;
+  /**
+   * @remarks
+   * The custom code for a success.
+   * 
+   * @example
+   * 200
+   */
   successCode?: number;
+  /**
+   * @remarks
+   * The timeout period. Unit: seconds.
+   * 
+   * @example
+   * 10
+   */
   transformTimeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -23482,17 +32455,66 @@ export class CreateUserDeliveryTaskRequestHttpDelivery extends $tea.Model {
 }
 
 export class CreateUserDeliveryTaskRequestKafkaDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The load balancing method.
+   * 
+   * @example
+   * kafka.LeastBytes
+   */
   balancer?: string;
+  /**
+   * @remarks
+   * The brokers.
+   */
   brokers?: string[];
   /**
+   * @remarks
+   * The compression method. By default, data is not compressed.
+   * 
    * @example
    * gzip
    */
   compress?: string;
+  /**
+   * @remarks
+   * The encryption method.
+   * 
+   * @example
+   * plain
+   */
   machanismType?: string;
+  /**
+   * @remarks
+   * The password.
+   * 
+   * @example
+   * xxx
+   */
   password?: string;
+  /**
+   * @remarks
+   * The topic.
+   * 
+   * @example
+   * dqc_test2
+   */
   topic?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication.
+   * 
+   * @example
+   * true
+   */
   userAuth?: boolean;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * xxx
+   */
   userName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23526,14 +32548,34 @@ export class CreateUserDeliveryTaskRequestKafkaDelivery extends $tea.Model {
 }
 
 export class CreateUserDeliveryTaskRequestOssDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of your Alibaba Cloud account.
+   * 
+   * @example
+   * 1234***
+   */
   aliuid?: string;
+  /**
+   * @remarks
+   * The name of the OSS bucket.
+   * 
+   * @example
+   * test_rlog
+   */
   bucketName?: string;
   /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
    * @example
    * logriver-test/log
    */
   prefixPath?: string;
   /**
+   * @remarks
+   * The region in which the bucket is located.
+   * 
    * @example
    * cn-shanghai
    */
@@ -23562,12 +32604,61 @@ export class CreateUserDeliveryTaskRequestOssDelivery extends $tea.Model {
 }
 
 export class CreateUserDeliveryTaskRequestS3Delivery extends $tea.Model {
+  /**
+   * @remarks
+   * The access key ID of your Amazon S3 account.
+   * 
+   * @example
+   * g0f46623ll0g0
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The directory in the bucket.
+   * 
+   * @example
+   * logriver-test/log
+   */
   bucketPath?: string;
+  /**
+   * @remarks
+   * The endpoint.
+   * 
+   * @example
+   * https://s3.oss-cn-hangzhou.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The prefix of the path in which you want to store logs.
+   * 
+   * @example
+   * logriver-test/log
+   */
   prefixPath?: string;
+  /**
+   * @remarks
+   * The region ID of the service.
+   * 
+   * @example
+   * cn-shanghai
+   */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether the service is compatible with Amazon S3.
+   * 
+   * @example
+   * true
+   */
   s3Cmpt?: boolean;
+  /**
+   * @remarks
+   * The secret access key of your Amazon S3 account.
+   * 
+   * @example
+   * ***
+   */
   secretKey?: string;
   serverSideEncryption?: boolean;
   vertifyType?: string;
@@ -23605,8 +32696,29 @@ export class CreateUserDeliveryTaskRequestS3Delivery extends $tea.Model {
 }
 
 export class CreateUserDeliveryTaskRequestSlsDelivery extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the SLS Logstore.
+   * 
+   * @example
+   * accesslog-test
+   */
   SLSLogStore?: string;
+  /**
+   * @remarks
+   * The name of the SLS project.
+   * 
+   * @example
+   * dcdn-test20240417
+   */
   SLSProject?: string;
+  /**
+   * @remarks
+   * The region in which the SLS project resides.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   SLSRegion?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23683,32 +32795,65 @@ export class CreateWaitingRoomRequestHostNameAndPath extends $tea.Model {
 
 export class DescribeCustomScenePoliciesResponseBodyDataModule extends $tea.Model {
   /**
+   * @remarks
+   * The time when the policy expires.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-03-06T16:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The name of the scenario-specific policy.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The IDs of websites that are associated with the policy.
+   */
   objects?: string[];
   /**
+   * @remarks
+   * The policy ID.
+   * 
    * @example
    * 1234****
    */
   policyId?: number;
   /**
+   * @remarks
+   * The time when the policy takes effect.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-03-04T16:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the policy. Valid values:
+   * 
+   * *   **Disabled**
+   * *   **Pending**
+   * *   **Running**
+   * *   **Expired**
+   * 
    * @example
    * Expired
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the policy template. Valid value:
+   * 
+   * *   **promotion**: major events.
+   * 
    * @example
    * promotion
    */
@@ -23744,53 +32889,91 @@ export class DescribeCustomScenePoliciesResponseBodyDataModule extends $tea.Mode
 
 export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * The peak of volumetric attacks. Unit: bit/s.
+   * 
    * @example
    * 800
    */
   bps?: number;
   coverage?: string;
   /**
+   * @remarks
+   * The peak of connection flood attacks. Unit: connections per seconds (CPS).
+   * 
    * @example
    * 50
    */
   cps?: number;
   /**
+   * @remarks
+   * The time when the DDoS attack ends.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-02-12T15:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The attack event ID.
+   * 
    * @example
    * web-cc_1
    */
   eventId?: string;
   eventResult?: string;
   /**
+   * @remarks
+   * The type of DDoS attacks that was queried. Valid values:
+   * 
+   * *   **web-cc**: web resource exhaustion attacks.
+   * *   **cc**: connection flood attacks.
+   * *   **traffic**: volumetric attacks.
+   * 
    * @example
    * web-cc
    */
   eventType?: string;
   /**
+   * @remarks
+   * The peak of volumetric attacks. Unit: packets per second (PPS).
+   * 
    * @example
    * 12000
    */
   pps?: number;
   /**
+   * @remarks
+   * The peak QPS of web resource exhaustion attacks.
+   * 
    * @example
    * 7692
    */
   qps?: number;
   /**
+   * @remarks
+   * The time when the DDoS attack starts.
+   * 
+   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-02-12T15:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The attack target.
+   * 
    * @example
    * example.com
    */
   target?: string;
   /**
+   * @remarks
+   * The ID of the web resource exhaustion attack target.
+   * 
    * @example
    * 000000000155****
    */
@@ -23836,31 +33019,57 @@ export class DescribeDDoSAllEventListResponseBodyDataList extends $tea.Model {
 
 export class DescribePreloadTasksResponseBodyTasks extends $tea.Model {
   /**
+   * @remarks
+   * The prefetched content.
+   * 
    * @example
    * http://a.com/1.jpg?b=2
    */
   content?: string;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2023-03-28 14:28:57
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned upon a prefetch task failure. Valid values:
+   * 
+   * *   **Internal Error**
+   * *   **Origin Timeout**
+   * *   **Origin Return StatusCode 5XX**
+   * 
    * @example
    * Internal Error
    */
   description?: string;
   /**
+   * @remarks
+   * The progress of the task, in percentage.
+   * 
    * @example
    * 100%
    */
   process?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
    * @example
    * Complete
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the queried task.
+   * 
    * @example
    * 1597854579687428
    */
@@ -23894,36 +33103,68 @@ export class DescribePreloadTasksResponseBodyTasks extends $tea.Model {
 
 export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
   /**
+   * @remarks
+   * The purged content.
+   * 
    * @example
    * http://a.com/1.jpg?b=1
    */
   content?: string;
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2023-07-26T01:56:15Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error description returned when the purge task failed.
+   * 
    * @example
    * Internal Error
    */
   description?: string;
   /**
+   * @remarks
+   * The progress of the task, in percentage.
+   * 
    * @example
    * 100%
    */
   process?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
    * @example
    * Complete
    */
   status?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 16346513304
    */
   taskId?: string;
   /**
+   * @remarks
+   * The type of the purge task. Valid values:
+   * 
+   * *   **file** (default): purges the cache by file.
+   * *   **cachetag**: purges the cache by cache tag.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreParams**: purges the cache by URL with specified parameters ignored.
+   * *   **hostname**: purges the cache by hostname.
+   * *   **purgeall**: purges all cache.
+   * 
    * @example
    * file
    */
@@ -23959,51 +33200,84 @@ export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
 
 export class GetEdgeContainerAppResponseBodyAppHealthCheck extends $tea.Model {
   /**
+   * @remarks
+   * The number of consecutive failed health checks required for an application to be considered as unhealthy.
+   * 
    * @example
    * 5
    */
   failTimes?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
    * @example
    * test.com
    */
   host?: string;
   /**
+   * @remarks
+   * The range of health check status codes that indicate successful health checks.
+   * 
    * @example
    * http_2xx
    */
   httpCode?: string;
   /**
+   * @remarks
+   * The interval between health checks. Unit: seconds.
+   * 
    * @example
    * 5
    */
   interval?: number;
   /**
+   * @remarks
+   * The HTTP method that the health check request uses.
+   * 
    * @example
    * HEAD
    */
   method?: string;
   /**
+   * @remarks
+   * The health check port.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The number of consecutive successful health checks required for an application to be considered as healthy.
+   * 
    * @example
    * 3
    */
   succTimes?: number;
   /**
+   * @remarks
+   * The timeout period of the health check. Unit: seconds.
+   * 
    * @example
    * 60
    */
   timeout?: number;
   /**
+   * @remarks
+   * The health check type. Valid values:
+   * 
+   * *   l7
+   * *   l4
+   * 
    * @example
    * l7
    */
   type?: string;
   /**
+   * @remarks
+   * The health check URL.
+   * 
    * @example
    * /health_check
    */
@@ -24045,62 +33319,109 @@ export class GetEdgeContainerAppResponseBodyAppHealthCheck extends $tea.Model {
 
 export class GetEdgeContainerAppResponseBodyApp extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
   /**
+   * @remarks
+   * The time when the application was created.
+   * 
    * @example
    * 2023-07-25T05:58:05Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The domain name that is associated with the application. If no domain name is associated with the application, the value is an empty string.
+   * 
    * @example
    * www.1feel.cn
    */
   domainName?: string;
   /**
+   * @remarks
+   * The type of the gateway. Valid values:
+   * 
+   * *   l7: Layer 7 gateway.
+   * *   l4: Layer 4 gateway.
+   * 
    * @example
    * l7
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The information about health checks.
+   */
   healthCheck?: GetEdgeContainerAppResponseBodyAppHealthCheck;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * test-app1
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether QUIC is enabled.
+   * 
    * @example
    * false
    */
   quicCid?: string;
   /**
+   * @remarks
+   * The remarks about the application.
+   * 
    * @example
    * test app
    */
   remarks?: string;
   /**
+   * @remarks
+   * The server port. Valid values: 1 to 65535.
+   * 
    * @example
    * 80
    */
   servicePort?: number;
   /**
+   * @remarks
+   * The status of the application. Valid values:
+   * 
+   * *   creating: The application is being created.
+   * *   failed: The application failed to be created.
+   * *   created: The application is created.
+   * 
    * @example
    * created
    */
   status?: string;
   /**
+   * @remarks
+   * The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+   * 
    * @example
    * 80
    */
   targetPort?: number;
   /**
+   * @remarks
+   * The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-03-26T02:35:58Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The number of versions of the application.
+   * 
    * @example
    * 1
    */
@@ -24167,64 +33488,136 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatusRegions extends $tea.
 
 export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $tea.Model {
   /**
+   * @remarks
+   * The base version of the application.
+   * 
    * @example
    * ver-123123123123****
    */
   baseLineVersion?: string;
   /**
+   * @remarks
+   * The deployment status of the application.
+   * 
+   * *   **undeploy**: The application is not deployed.
+   * *   **deploying**: The application is being deployed.
+   * *   **deployed**: The application is deployed.
+   * *   **undeploying**: The deployment is being canceled.
+   * 
    * @example
    * undeploy
    */
   deployStatus?: string;
   /**
+   * @remarks
+   * The time when the application was deployed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-07-25T05:58:05Z
    */
   deployTime?: string;
   /**
+   * @remarks
+   * The release version of the application.
+   * 
    * @example
    * ver-123123123123****
    */
   deployedVersion?: string;
   /**
+   * @remarks
+   * The expected release percentage of the application.
+   * 
    * @example
    * 50%
    */
   expectPercentage?: number;
+  /**
+   * @remarks
+   * Specifies whether to fully release the version. This parameter takes effect only when PublishType is set to region.
+   * 
+   * @example
+   * true
+   */
   fullRelease?: boolean;
   /**
+   * @remarks
+   * The environment to which the application was released. Valid values:
+   * 
+   * *   **prod**: the production environment.
+   * *   **staging**: the staging environment.
+   * 
    * @example
    * prod
    */
   publishEnv?: string;
   /**
+   * @remarks
+   * The release percentage of the application.
+   * 
    * @example
    * 50%
    */
   publishPercentage?: number;
   /**
+   * @remarks
+   * The release status of the application. Valid values:
+   * 
+   * *   **publishing**
+   * *   **published**
+   * *   **rollbacking**
+   * *   **rollbacked**
+   * 
    * @example
    * pubishing
    */
   publishStatus?: string;
   /**
+   * @remarks
+   * The time when the application was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-07-25T05:58:05Z
    */
   publishTime?: string;
+  /**
+   * @remarks
+   * Specifies how the version is released. Valid values:
+   * 
+   * *   percentage: releases the version by percentage.
+   * *   region: releases the version by region.
+   * 
+   * If you do not specify this parameter, the version is released by percentage by default.
+   * 
+   * @example
+   * percentage
+   */
   publishType?: string;
   /**
+   * @remarks
+   * The release version of the application.
+   * 
    * @example
    * ver-123123123123****
    */
   publishingVersion?: string;
+  /**
+   * @remarks
+   * The regions to which the version is released.
+   */
   regions?: GetEdgeContainerAppStatusResponseBodyAppStatusRegions;
   /**
+   * @remarks
+   * The time when the last rollback was performed.
+   * 
    * @example
    * 2024-07-25T05:58:05Z
    */
   rollbackTime?: string;
   /**
+   * @remarks
+   * The time when the application deployment was canceled. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2024-07-25T05:58:05Z
    */
@@ -24276,46 +33669,73 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $tea.Model {
 
 export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo extends $tea.Model {
   /**
+   * @remarks
+   * The domain name of the Container Registry image.
+   * 
    * @example
    * *.mooc.seewo.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The ID of the Container Registry instance.
+   * 
    * @example
    * xcdn-9ak2thl14z5s
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Indicates whether the image is an enterprise-level image.
+   * 
    * @example
    * false
    */
   isEnterpriseRegistry?: boolean;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the image repository.
+   * 
    * @example
    * crr-zeu0xyk28alyxozh
    */
   repoId?: string;
   /**
+   * @remarks
+   * The name of the image repository.
+   * 
    * @example
    * test_1
    */
   repoName?: string;
   /**
+   * @remarks
+   * The namespace to which the image repository belongs.
+   * 
    * @example
    * wpy1
    */
   repoNamespace?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * test-healthy-100-soa-1710987653
    */
   tag?: string;
   /**
+   * @remarks
+   * The URL of the Container Registry image tag.
+   * 
    * @example
    * registry-vpc.cn-shenzhen.aliyuncs.com/lihetech/easywits_server_exam:3.40.2
    */
@@ -24355,56 +33775,89 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo
 
 export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent extends $tea.Model {
   /**
+   * @remarks
+   * The probe command.
+   * 
    * @example
    * sh test.sh
    */
   command?: string;
   /**
+   * @remarks
+   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * 
    * @example
    * 3
    */
   failureThreshold?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
    * @example
    * test.com
    */
   host?: string;
   /**
+   * @remarks
+   * The request headers that are included in the container health check request.
+   * 
    * @example
    * [{\\"Content-Type\\":\\"application/json
    */
   httpHeaders?: string;
   /**
+   * @remarks
+   * The latency for container probe initialization.
+   * 
    * @example
    * 20
    */
   initialDelaySeconds?: number;
   /**
+   * @remarks
+   * The path of the container health check.
+   * 
    * @example
    * /health_check
    */
   path?: string;
   /**
+   * @remarks
+   * The interval between container health checks.
+   * 
    * @example
    * 5
    */
   periodSeconds?: number;
   /**
+   * @remarks
+   * The port of the container health check. Valid values: **1** to **65535**.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The protocol that the container health check request uses.
+   * 
    * @example
    * http
    */
   scheme?: string;
   /**
+   * @remarks
+   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * 
    * @example
    * 1
    */
   successThreshold?: number;
   /**
+   * @remarks
+   * The timeout period of the container health check.
+   * 
    * @example
    * 5
    */
@@ -24447,58 +33900,100 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent
 }
 
 export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the Container Registry image.
+   */
   ACRImageInfo?: GetEdgeContainerAppVersionResponseBodyVersionContainersACRImageInfo;
   /**
+   * @remarks
+   * The arguments that are passed to the container startup command.
+   * 
    * @example
    * -c /path/config.toml
    */
   args?: string;
   /**
+   * @remarks
+   * The command that is used to start the container.
+   * 
    * @example
    * sh abc.sh 1 2 3
    */
   command?: string;
   /**
+   * @remarks
+   * The environment variables.
+   * 
    * @example
    * ENV=prod
    */
   envVariables?: string;
   /**
+   * @remarks
+   * The image address.
+   * 
    * @example
    * nginx:1.14.0
    */
   image?: string;
   /**
+   * @remarks
+   * Indicates whether the image is a Container Registry image.
+   * 
    * @example
    * false
    */
   isACRImage?: boolean;
   /**
+   * @remarks
+   * The version name.
+   * 
    * @example
    * version01
    */
   name?: string;
   /**
+   * @remarks
+   * The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`. If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+   * 
    * @example
    * {\\"exec\\":{\\"command\\":[\\"touch\\",\\"/home/admin/checkpoststartV1\\"]}}
    */
   postStart?: string;
   /**
+   * @remarks
+   * The command that is run before the container is stopped.
+   * 
    * @example
    * sh prestop.sh "echo hello world"
    */
   preStop?: string;
+  /**
+   * @remarks
+   * The probe content.
+   */
   probeContent?: GetEdgeContainerAppVersionResponseBodyVersionContainersProbeContent;
   /**
+   * @remarks
+   * The probe type.
+   * 
    * @example
    * httpGet
    */
   probeType?: string;
   /**
+   * @remarks
+   * The compute specification.
+   * 
    * @example
    * 1C2G
    */
   spec?: string;
+  /**
+   * @remarks
+   * The storage capacity of the container. Valid values: 0.5G, 10G, 20G, and 30G.
+   */
   storage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24543,47 +34038,82 @@ export class GetEdgeContainerAppVersionResponseBodyVersionContainers extends $te
 
 export class GetEdgeContainerAppVersionResponseBodyVersion extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The container images deployed for this version.
+   */
   containers?: GetEdgeContainerAppVersionResponseBodyVersionContainers[];
   /**
+   * @remarks
+   * The time when the version was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-07-01T09:32:33Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-07-25T04:58:05Z
    */
   lastPublishTime?: string;
   /**
+   * @remarks
+   * The version name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-11-14T02:04:03Z
    */
   publishTime?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * aaa
    */
   remarks?: string;
   /**
+   * @remarks
+   * The status of the current version. Valid values:
+   * 
+   * *   created: The version is created.
+   * *   failed: The version failed to be created.
+   * *   creating: The version is being created.
+   * 
    * @example
    * created
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-12-03T10:52:52Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The ID of the created version.
+   * 
    * @example
    * ver-87962637161651****
    */
@@ -24624,7 +34154,21 @@ export class GetEdgeContainerAppVersionResponseBodyVersion extends $tea.Model {
 }
 
 export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState extends $tea.Model {
+  /**
+   * @remarks
+   * The reason for the last restart.
+   * 
+   * @example
+   * OOMKilled
+   */
   lastTerminatedReason?: string;
+  /**
+   * @remarks
+   * The number of times that the container restarted.
+   * 
+   * @example
+   * 1
+   */
   restartCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24647,41 +34191,70 @@ export class GetEdgeContainerStagingDeployStatusResponseBodyPodRestartState exte
 
 export class GetKvAccountResponseBodyNamespaceList extends $tea.Model {
   /**
+   * @remarks
+   * The available capacity of the namespace. Unit: bytes.
+   * 
    * @example
    * 1073741824
    */
   capacity?: number;
   /**
+   * @remarks
+   * The available capacity of the namespace.
+   * 
    * @example
    * 1 GB
    */
   capacityString?: string;
   /**
+   * @remarks
+   * The used capacity of the namespace. Unit: bytes.
+   * 
    * @example
    * 100048576
    */
   capacityUsed?: number;
   /**
+   * @remarks
+   * The used capacity of the namespace.
+   * 
    * @example
    * 100 MB
    */
   capacityUsedString?: string;
   /**
+   * @remarks
+   * The description of the namespace.
+   * 
    * @example
    * the first namespace
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * test_namespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The ID of the namespace.
+   * 
    * @example
    * 643355322374688768
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The status of the namespace. Valid values:
+   * 
+   * *   **online**: normal.
+   * *   **delete**: pending deletion.
+   * *   **deleting**: being deleted.
+   * *   **deleted**: deleted.
+   * 
    * @example
    * online
    */
@@ -24709,6 +34282,141 @@ export class GetKvAccountResponseBodyNamespaceList extends $tea.Model {
       namespace: 'string',
       namespaceId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $tea.Model {
+  IPv4?: string[];
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist extends $tea.Model {
+  IPv4?: string[];
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist extends $tea.Model {
+  IPv4?: string[];
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist extends $tea.Model {
+  IPv4?: string[];
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $tea.Model {
+  addedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist;
+  noChangeIpWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist;
+  removedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist;
+  static names(): { [key: string]: string } {
+    return {
+      addedIPWhitelist: 'AddedIPWhitelist',
+      noChangeIpWhitelist: 'NoChangeIpWhitelist',
+      removedIPWhitelist: 'RemovedIPWhitelist',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addedIPWhitelist: GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist,
+      noChangeIpWhitelist: GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist,
+      removedIPWhitelist: GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $tea.Model {
+  IPv4?: string[];
+  IPv6?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      IPv4: 'IPv4',
+      IPv6: 'IPv6',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      IPv4: { 'type': 'array', 'itemType': 'string' },
+      IPv6: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -24999,8 +34707,29 @@ export class GetRecordResponseBodyRecordModel extends $tea.Model {
 }
 
 export class GetRoutineResponseBodyCodeVersions extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the code version.
+   * 
+   * @example
+   * test ver code desc
+   */
   codeDescription?: string;
+  /**
+   * @remarks
+   * The code version.
+   * 
+   * @example
+   * 1710120201067203242
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The time when the code version was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:21Z
+   */
   createTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25024,10 +34753,42 @@ export class GetRoutineResponseBodyCodeVersions extends $tea.Model {
 }
 
 export class GetRoutineResponseBodyEnvs extends $tea.Model {
+  /**
+   * @remarks
+   * The regions for canary release.
+   */
   canaryAreaList?: string[];
+  /**
+   * @remarks
+   * The version number for canary release.
+   * 
+   * @example
+   * 1710120201067577628
+   */
   canaryCodeVersion?: string;
+  /**
+   * @remarks
+   * The version number of the code in the environment.
+   * 
+   * @example
+   * 1710120201067577628
+   */
   codeVersion?: string;
+  /**
+   * @remarks
+   * The environment type.
+   * 
+   * @example
+   * production
+   */
   env?: string;
+  /**
+   * @remarks
+   * The specification.
+   * 
+   * @example
+   * 5ms
+   */
   specName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25055,9 +34816,37 @@ export class GetRoutineResponseBodyEnvs extends $tea.Model {
 }
 
 export class GetRoutineResponseBodyRelatedRecords extends $tea.Model {
+  /**
+   * @remarks
+   * The record ID.
+   * 
+   * @example
+   * 509348423011904
+   */
   recordId?: number;
+  /**
+   * @remarks
+   * The record name.
+   * 
+   * @example
+   * test-record-1.example.com
+   */
   recordName?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
   siteName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25083,9 +34872,37 @@ export class GetRoutineResponseBodyRelatedRecords extends $tea.Model {
 }
 
 export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
+  /**
+   * @remarks
+   * The route.
+   * 
+   * @example
+   * *.example.com/path1*
+   */
   route?: string;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * d501cb8a2c951f32922d260040780c06
+   */
   routeId?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 54362329990032
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The website name.
+   * 
+   * @example
+   * example.com
+   */
   siteName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25111,8 +34928,29 @@ export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
 }
 
 export class GetRoutineUserInfoResponseBodyRoutines extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the routine was created.
+   * 
+   * @example
+   * 2024-03-11T01:23:02.883361712Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The routine description, which is Base64-encoded.
+   * 
+   * @example
+   * ZWRpdCByb3V0aW5lIGNvbmZpZyBkZXNjcmlwdGlvbg
+   */
   description?: string;
+  /**
+   * @remarks
+   * The routine name.
+   * 
+   * @example
+   * test-routine1
+   */
   routineName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25137,82 +34975,146 @@ export class GetRoutineUserInfoResponseBodyRoutines extends $tea.Model {
 
 export class GetSiteResponseBodySiteModel extends $tea.Model {
   /**
+   * @remarks
+   * The DNS setup option for the website. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
    * @example
    * NS
    */
   accessType?: string;
   /**
+   * @remarks
+   * The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * 
    * @example
    * example.cname.com
    */
   cnameZone?: string;
   /**
+   * @remarks
+   * The service location. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland.
+   * *   **global**: global.
+   * *   **overseas**: outside the Chinese mainland.
+   * 
    * @example
    * domestic
    */
   coverage?: string;
   /**
+   * @remarks
+   * The time when the WEBsite was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The plan ID.
+   * 
    * @example
    * cas-merge-q6h0bv
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The nameservers assigned to the website domain. They are separated by commas (,).
+   * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
   /**
+   * @remarks
+   * The plan name.
+   * 
    * @example
    * plan-168777532****
    */
   planName?: string;
   /**
+   * @remarks
+   * The specification of the plan associated with the website.
+   * 
    * @example
    * normal
    */
   planSpecName?: string;
   /**
+   * @remarks
+   * The ID of your Alibaba Cloud resource group.
+   * 
    * @example
    * rg-aek26g6i6se****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The website status. Valid values:
+   * 
+   * *   **pending**: The website is to be configured.
+   * *   **active**: The website is active.
+   * *   **offline**: The website is suspended.
+   * *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+   * 
    * @example
    * pending
    */
   status?: string;
   /**
+   * @remarks
+   * The tags of the website.
+   * 
    * @example
    * {"tag1":"value1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the WEBsite was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The information about custom nameservers of the website domain. The key is a custom nameserver name, and the value is the IP address of the custom nameserver. Multiple IP addresses are separated by commas (,).
+   */
   vanityNSList?: { [key: string]: string };
   /**
+   * @remarks
+   * The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+   * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
    */
   verifyCode?: string;
   /**
+   * @remarks
+   * The status of version management. If true is returned, version management is enabled for the website.
+   * 
    * @example
    * true
    */
@@ -25267,8 +35169,20 @@ export class GetSiteResponseBodySiteModel extends $tea.Model {
 }
 
 export class GetSiteCustomLogResponseBodyLogCustomField extends $tea.Model {
+  /**
+   * @remarks
+   * The cookie fields.
+   */
   cookies?: string[];
+  /**
+   * @remarks
+   * The request header fields.
+   */
   requestHeaders?: string[];
+  /**
+   * @remarks
+   * The response header fields.
+   */
   responseHeaders?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25293,16 +35207,30 @@ export class GetSiteCustomLogResponseBodyLogCustomField extends $tea.Model {
 
 export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $tea.Model {
   /**
+   * @remarks
+   * The error message when the validation fails.
+   * 
    * @example
    * Enter a valid expression
    */
   errMsg?: string;
+  /**
+   * @remarks
+   * The length of the value.
+   */
   length?: WafQuotaInteger;
   /**
+   * @remarks
+   * The regular expression pattern of the value, which is used to validate strings.
+   * 
    * @example
    * ^example$
    */
   pattern?: string;
+  /**
+   * @remarks
+   * The range of the value, which is used to validate numbers.
+   */
   range?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -25329,36 +35257,72 @@ export class GetWafFilterResponseBodyFilterFieldsLogicsValidator extends $tea.Mo
 
 export class GetWafFilterResponseBodyFilterFieldsLogics extends $tea.Model {
   /**
+   * @remarks
+   * A custom attribute. For example, this parameter can specify whether the value is case-sensitive.
+   * 
    * @example
    * 1
    */
   attributes?: number;
   /**
+   * @remarks
+   * The type of the value input box. Valid values:
+   * 
+   * *   select:single
+   * *   select:multi
+   * *   input:single
+   * *   input:multi
+   * 
    * @example
    * input:single
    */
   kind?: string;
+  /**
+   * @remarks
+   * Indicates whether the match result is inverted.
+   */
   negative?: boolean;
   /**
+   * @remarks
+   * The displayed matching characters.
+   * 
    * @example
    * Does not equal
    */
   operator?: string;
   /**
+   * @remarks
+   * The matching characters in the system.
+   * 
    * @example
    * eq
    */
   symbol?: string;
   /**
+   * @remarks
+   * The tip on how to enter a valid value that is required by the rules.
+   * 
    * @example
    * e.g. image/jpeg
    */
   tip?: string;
   /**
+   * @remarks
+   * The type of the value. Valid values:
+   * 
+   * *   integer
+   * *   integer_slice
+   * *   string
+   * *   string_slice
+   * 
    * @example
    * string
    */
   type?: string;
+  /**
+   * @remarks
+   * The validator, which defines the validation rules for a value.
+   */
   validator?: GetWafFilterResponseBodyFilterFieldsLogicsValidator;
   static names(): { [key: string]: string } {
     return {
@@ -25393,11 +35357,17 @@ export class GetWafFilterResponseBodyFilterFieldsLogics extends $tea.Model {
 
 export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $tea.Model {
   /**
+   * @remarks
+   * The label of the data.
+   * 
    * @example
    * China
    */
   label?: string;
   /**
+   * @remarks
+   * The value of the data.
+   * 
    * @example
    * CN
    */
@@ -25422,8 +35392,15 @@ export class GetWafFilterResponseBodyFilterFieldsSelectorData extends $tea.Model
 }
 
 export class GetWafFilterResponseBodyFilterFieldsSelector extends $tea.Model {
+  /**
+   * @remarks
+   * The data. This parameter is available only when the value of the Kind parameter is data.
+   */
   data?: GetWafFilterResponseBodyFilterFieldsSelectorData[];
   /**
+   * @remarks
+   * The type of selector. Valid values: data and others.
+   * 
    * @example
    * data
    */
@@ -25449,19 +35426,43 @@ export class GetWafFilterResponseBodyFilterFieldsSelector extends $tea.Model {
 
 export class GetWafFilterResponseBodyFilterFields extends $tea.Model {
   /**
+   * @remarks
+   * The field for matched objects in the system.
+   * 
    * @example
    * http.request.headers
    */
   key?: string;
   /**
+   * @remarks
+   * The label of the matched object.
+   * 
    * @example
    * Header
    */
   label?: string;
+  /**
+   * @remarks
+   * The logical conditions.
+   */
   logics?: GetWafFilterResponseBodyFilterFieldsLogics[];
+  /**
+   * @remarks
+   * The selector, which defines how to select a matched object.
+   */
   selector?: GetWafFilterResponseBodyFilterFieldsSelector;
+  /**
+   * @remarks
+   * Indicates whether the matched object contains a subfield.
+   * 
+   * @example
+   * true
+   */
   sub?: boolean;
   /**
+   * @remarks
+   * The tip on how to enter a subfield.
+   * 
    * @example
    * e.g. Content-Type
    */
@@ -25494,18 +35495,31 @@ export class GetWafFilterResponseBodyFilterFields extends $tea.Model {
 }
 
 export class GetWafFilterResponseBodyFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The matched objects and related properties.
+   */
   fields?: GetWafFilterResponseBodyFilterFields[];
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The condition for matching incoming requests.
+   * 
    * @example
    * characteristics
    */
   target?: string;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * http_custom_cc
    */
@@ -25534,10 +35548,30 @@ export class GetWafFilterResponseBodyFilter extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaList extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether custom lists are enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The quota information about all item types in the custom lists.
+   */
   items?: { [key: string]: QuotaListItemsValue };
+  /**
+   * @remarks
+   * The maximum number of items in each custom list.
+   */
   numberItemsPerList?: WafQuotaInteger;
+  /**
+   * @remarks
+   * The maximum number of items in all custom lists.
+   */
   numberItemsTotal?: WafQuotaInteger;
+  /**
+   * @remarks
+   * The maximum number of custom lists.
+   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -25565,7 +35599,15 @@ export class GetWafQuotaResponseBodyQuotaList extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the WAF managed rule group is enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The maximum number of WAF managed rule groups.
+   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -25587,8 +35629,20 @@ export class GetWafQuotaResponseBodyQuotaManagedRulesGroup extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaPage extends $tea.Model {
+  /**
+   * @remarks
+   * The quota information about custom error pages of all Content-Types.
+   */
   contentTypes?: { [key: string]: QuotaPageContentTypesValue };
+  /**
+   * @remarks
+   * Indicates whether custom error pages are enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The maximum number of custom error pages.
+   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -25612,7 +35666,15 @@ export class GetWafQuotaResponseBodyQuotaPage extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBodyQuotaScenePolicy extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether scenario-specific policies are enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The maximum number of scenario-specific policies.
+   */
   numberTotal?: WafQuotaInteger;
   static names(): { [key: string]: string } {
     return {
@@ -25634,9 +35696,25 @@ export class GetWafQuotaResponseBodyQuotaScenePolicy extends $tea.Model {
 }
 
 export class GetWafQuotaResponseBodyQuota extends $tea.Model {
+  /**
+   * @remarks
+   * The quota information about custom lists.
+   */
   list?: GetWafQuotaResponseBodyQuotaList;
+  /**
+   * @remarks
+   * The quota information about WAF managed rule groups.
+   */
   managedRulesGroup?: GetWafQuotaResponseBodyQuotaManagedRulesGroup;
+  /**
+   * @remarks
+   * The quota information about custom error pages.
+   */
   page?: GetWafQuotaResponseBodyQuotaPage;
+  /**
+   * @remarks
+   * The quota information about scenario-specific policies.
+   */
   scenePolicy?: GetWafQuotaResponseBodyQuotaScenePolicy;
   static names(): { [key: string]: string } {
     return {
@@ -25662,12 +35740,66 @@ export class GetWafQuotaResponseBodyQuota extends $tea.Model {
 }
 
 export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The capacity of the cache reserve instance. Unit: GB.
+   * 
+   * @example
+   * 512000
+   */
   cacheReserveCapacity?: string;
+  /**
+   * @remarks
+   * The region in which the cache reserve instance resides.
+   * 
+   * @example
+   * HK
+   */
   cacheReserveRegion?: string;
+  /**
+   * @remarks
+   * The time when the cache reserve instance was purchased.
+   * 
+   * @example
+   * 2024-04-12T05:41:51Z
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The subscription period of the cache reserve instance. Unit: months.
+   * 
+   * @example
+   * 3
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The time when the cache reserve instance expires.
+   * 
+   * @example
+   * 2024-10-05T16:00:00Z
+   */
   expireTime?: string;
+  /**
+   * @remarks
+   * The ID of the cache reserve instance.
+   * 
+   * @example
+   * sp-xcdn-96wblslz****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The status of the cache reserve instance. Valid values:
+   * 
+   * *   online: The instance is in service.
+   * *   offline: The instance has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The instance is released.
+   * *   overdue: The service was stopped due to overdue payments.
+   * 
+   * @example
+   * online
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25856,46 +35988,73 @@ export class ListClientCertificatesResponseBodyResult extends $tea.Model {
 
 export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
   /**
+   * @remarks
+   * The CNAME of the associated domain name.
+   * 
    * @example
    * kdxceo****.yun****.com
    */
   cname?: string;
   /**
+   * @remarks
+   * The configuration ID of the associated domain name.
+   * 
    * @example
    * 27522948436****
    */
   configId?: number;
   /**
+   * @remarks
+   * The time when the domain name was added. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The record ID of the associated domain name.
+   * 
    * @example
    * 266****
    */
   recordId?: number;
   /**
+   * @remarks
+   * The associated domain name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The scheduling domain ID of the associated domain name.
+   * 
    * @example
    * 123456
    */
   schemdId?: number;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 5407498413****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The time when the scheduling domain ID or CNAME was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-12-22T08:32:02Z
    */
@@ -25935,56 +36094,89 @@ export class ListEdgeContainerAppRecordsResponseBodyRecords extends $tea.Model {
 
 export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent extends $tea.Model {
   /**
+   * @remarks
+   * The probe command.
+   * 
    * @example
    * openresty -g  "daemon off;
    */
   command?: string;
   /**
+   * @remarks
+   * The number of consecutive failed health checks required for a container to be considered as unhealthy.
+   * 
    * @example
    * 3
    */
   failureThreshold?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
    * @example
    * test.com
    */
   host?: string;
   /**
+   * @remarks
+   * The request headers that are included in the container health check request.
+   * 
    * @example
    * {\\"Content-Type\\":\\"application/json\\"}
    */
   httpHeaders?: string;
   /**
+   * @remarks
+   * The latency for container probe initialization.
+   * 
    * @example
    * 10
    */
   initialDelaySeconds?: number;
   /**
+   * @remarks
+   * The path of the container health check.
+   * 
    * @example
    * /health_check
    */
   path?: string;
   /**
+   * @remarks
+   * The interval between container health checks.
+   * 
    * @example
    * 5
    */
   periodSeconds?: number;
   /**
+   * @remarks
+   * The port of the container health check.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The protocol that the container health check request uses.
+   * 
    * @example
    * http
    */
   scheme?: string;
   /**
+   * @remarks
+   * The number of consecutive successful health checks required for a container to be considered as healthy.
+   * 
    * @example
    * 1
    */
   successThreshold?: number;
   /**
+   * @remarks
+   * The timeout period of the container health check.
+   * 
    * @example
    * 30
    */
@@ -26028,47 +36220,80 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeCont
 
 export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends $tea.Model {
   /**
+   * @remarks
+   * The arguments that are passed to the container startup command.
+   * 
    * @example
    * -c a=1
    */
   args?: string;
   /**
+   * @remarks
+   * The command that is used to start the container.
+   * 
    * @example
    * openresty -g \\"daemon off;\\"
    */
   command?: string;
   /**
+   * @remarks
+   * The environment variables of the container.
+   * 
    * @example
    * ENV=prod
    */
   envVariables?: string;
   /**
+   * @remarks
+   * The address of the container image.
+   * 
    * @example
    * nginx
    */
   image?: string;
   /**
+   * @remarks
+   * The container name.
+   * 
    * @example
    * container1
    */
   name?: string;
   /**
+   * @remarks
+   * The command that is run before the container is started. Format: `{"exec":{"command":["cat","/etc/group"\\]}}`.
+   * 
+   * If you want to cancel this configuration, set the parameter value to `""` or `{}`. If you do not specify this parameter, this configuration is ignored.
+   * 
    * @example
    * {\\"exec\\":{\\"command\\":[\\"bash\\",\\"-c\\",\\"cd /home/admin/
    */
   postStart?: string;
   /**
+   * @remarks
+   * The command that is run before the container is stopped.
+   * 
    * @example
    * sh stop.sh
    */
   preStop?: string;
+  /**
+   * @remarks
+   * The container probe content.
+   */
   probeContent?: ListEdgeContainerAppVersionsResponseBodyVersionsContainersProbeContent;
   /**
+   * @remarks
+   * The probe type of the container.
+   * 
    * @example
    * httpGet
    */
   probeType?: string;
   /**
+   * @remarks
+   * The compute specification of the container.
+   * 
    * @example
    * 1C2G
    */
@@ -26110,47 +36335,82 @@ export class ListEdgeContainerAppVersionsResponseBodyVersionsContainers extends 
 
 export class ListEdgeContainerAppVersionsResponseBodyVersions extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The containers in the version.
+   */
   containers?: ListEdgeContainerAppVersionsResponseBodyVersionsContainers[];
   /**
+   * @remarks
+   * The time when the version was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2022-11-10T02:53:16Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the version was last released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-02-10T02:48:36Z
    */
   lastPublishTime?: string;
   /**
+   * @remarks
+   * The version name.
+   * 
    * @example
    * version01
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the version was released. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-02-10T02:48:36Z
    */
   publishTime?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test version
    */
   remarks?: string;
   /**
+   * @remarks
+   * The status of the current version. Valid values:
+   * 
+   * *   **created**
+   * *   **failed**
+   * *   **creating**
+   * 
    * @example
    * created
    */
   status?: string;
   /**
+   * @remarks
+   * The time when the version was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-04-16 10:51:00
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The version ID.
+   * 
    * @example
    * ver-87962637161651****
    */
@@ -26192,51 +36452,84 @@ export class ListEdgeContainerAppVersionsResponseBodyVersions extends $tea.Model
 
 export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $tea.Model {
   /**
+   * @remarks
+   * The number of consecutive failed health checks for an application to be considered unhealthy.
+   * 
    * @example
    * 5
    */
   failTimes?: number;
   /**
+   * @remarks
+   * The domain name that is used for health checks.
+   * 
    * @example
    * test.com
    */
   host?: string;
   /**
+   * @remarks
+   * The range of health check status codes that indicate successful health checks.
+   * 
    * @example
    * http_2XX
    */
   httpCode?: string;
   /**
+   * @remarks
+   * The interval between health checks. Unit: seconds.
+   * 
    * @example
    * 5
    */
   interval?: number;
   /**
+   * @remarks
+   * The HTTP method used for health checks.
+   * 
    * @example
    * GET
    */
   method?: string;
   /**
+   * @remarks
+   * The health check port.
+   * 
    * @example
    * 8080
    */
   port?: number;
   /**
+   * @remarks
+   * The number of consecutive successful health checks for an application to be considered healthy.
+   * 
    * @example
    * 1
    */
   succTimes?: number;
   /**
+   * @remarks
+   * The timeout period of health checks. Unit: seconds.
+   * 
    * @example
    * 60
    */
   timeout?: number;
   /**
+   * @remarks
+   * The type of health checks. Valid values:
+   * 
+   * *   l7
+   * *   l4
+   * 
    * @example
    * l7
    */
   type?: string;
   /**
+   * @remarks
+   * The health check URL.
+   * 
    * @example
    * /health_check
    */
@@ -26278,63 +36571,117 @@ export class ListEdgeContainerAppsResponseBodyAppsHealthCheck extends $tea.Model
 
 export class ListEdgeContainerAppsResponseBodyApps extends $tea.Model {
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * app-88068867578379****
    */
   appId?: string;
   /**
+   * @remarks
+   * The time when the version was created.
+   * 
    * @example
    * 2022-12-01T16:16:27.418298794+08:00
    */
   createTime?: string;
   /**
+   * @remarks
+   * The domain name associated with the application.
+   * 
    * @example
    * test.com
    */
   domainName?: string;
   /**
+   * @remarks
+   * The type of the gateway. Valid values:
+   * 
+   * *   l7: Layer 7 gateway.
+   * *   l4: Layer 4 gateway.
+   * 
    * @example
    * l7
    */
   gatewayType?: string;
+  /**
+   * @remarks
+   * The information about health checks.
+   */
   healthCheck?: ListEdgeContainerAppsResponseBodyAppsHealthCheck;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * app-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The progress of the application creation task in percentage.
+   * 
+   * @example
+   * 100
+   */
   percentage?: number;
   /**
+   * @remarks
+   * Indicates whether QUIC is enabled.
+   * 
    * @example
    * false
    */
   quicCid?: string;
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * test app
    */
   remarks?: string;
   /**
+   * @remarks
+   * The server port. Valid values: 1 to 65535.
+   * 
    * @example
    * 80
    */
   servicePort?: number;
   /**
+   * @remarks
+   * The status of the application. Valid values:
+   * 
+   * *   creating: The application is being created.
+   * *   failed: The application failed to be created.
+   * *   created: The application is created.
+   * 
    * @example
    * created
    */
   status?: string;
   /**
+   * @remarks
+   * The backend port, which is also the service port of the application. Valid values: 1 to 65535.
+   * 
    * @example
    * 80
    */
   targetPort?: number;
   /**
+   * @remarks
+   * The time when the application was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-11-15T12:11:02Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The number of versions of the application.
+   * 
    * @example
    * 10
    */
@@ -26384,31 +36731,49 @@ export class ListEdgeContainerAppsResponseBodyApps extends $tea.Model {
 
 export class ListEdgeContainerRecordsResponseBodyRecords extends $tea.Model {
   /**
+   * @remarks
+   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured.
+   * 
    * @example
    * a.example.com.cnamezone.com
    */
   recordCname?: string;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2021-12-22T08:32:02Z
    */
@@ -26442,31 +36807,55 @@ export class ListEdgeContainerRecordsResponseBodyRecords extends $tea.Model {
 
 export class ListEdgeRoutinePlansResponseBodyPlanInfo extends $tea.Model {
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PREPAY: subscription.
+   * *   POSTPAY: pay-as-you-go.
+   * 
    * @example
    * POSTPAY
    */
   billingMode?: string;
   /**
+   * @remarks
+   * The maximum number of versions that each routine supports.
+   * 
    * @example
    * 20
    */
   erRoutineCodeVersionQuota?: string;
   /**
+   * @remarks
+   * The maximum of routines that can be created.
+   * 
    * @example
    * 100
    */
   erRoutineQuota?: string;
   /**
+   * @remarks
+   * The maximum number of websites with which each routine can be associated.
+   * 
    * @example
    * 100
    */
   erRoutineRouteSiteCountQuota?: string;
   /**
+   * @remarks
+   * The payment method. Valid values:
+   * 
+   * *   er_free
+   * *   er_pay
+   * 
    * @example
    * er_free
    */
   paymentMethod?: string;
   /**
+   * @remarks
+   * The plan name.
+   * 
    * @example
    * test_plan
    */
@@ -26500,31 +36889,49 @@ export class ListEdgeRoutinePlansResponseBodyPlanInfo extends $tea.Model {
 
 export class ListEdgeRoutineRecordsResponseBodyRecords extends $tea.Model {
   /**
+   * @remarks
+   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * 
    * @example
    * a.example.com.cnamezone.com
    */
   recordCname?: string;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 5407498413****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-22T08:32:02Z
    */
@@ -26558,16 +36965,31 @@ export class ListEdgeRoutineRecordsResponseBodyRecords extends $tea.Model {
 
 export class ListInstanceQuotasResponseBodyQuotas extends $tea.Model {
   /**
+   * @remarks
+   * The quota name.
+   * 
    * @example
    * customHttpCert
    */
   quotaName?: string;
   /**
+   * @remarks
+   * The quota value.
+   * 
    * @example
    * 10
    */
   quotaValue?: string;
   /**
+   * @remarks
+   * The threshold type of the quota. Valid values:
+   * 
+   * *   value: enumerates the values of the quota.
+   * *   bool: specifies whether the quota is available.
+   * *   num: the upper limit of the quota.
+   * *   range: the value range for the quota.
+   * *   custom: other types than the preceding four quota threshold types.
+   * 
    * @example
    * bool
    */
@@ -26595,16 +37017,25 @@ export class ListInstanceQuotasResponseBodyQuotas extends $tea.Model {
 
 export class ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage extends $tea.Model {
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 34818329392****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * test.top
    */
   siteName?: string;
   /**
+   * @remarks
+   * The quota usage of the website.
+   * 
    * @example
    * 1
    */
@@ -26632,17 +37063,30 @@ export class ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage extends $tea
 
 export class ListInstanceQuotasWithUsageResponseBodyQuotas extends $tea.Model {
   /**
+   * @remarks
+   * The quota name.
+   * 
    * @example
    * redirect_rules|rule_quota
    */
   quotaName?: string;
   /**
+   * @remarks
+   * The quota value.
+   * 
    * @example
    * 10
    */
   quotaValue?: string;
+  /**
+   * @remarks
+   * The usage of the quota in each website associated with the plan.
+   */
   siteUsage?: ListInstanceQuotasWithUsageResponseBodyQuotasSiteUsage[];
   /**
+   * @remarks
+   * The quota usage.
+   * 
    * @example
    * 3
    */
@@ -26672,11 +37116,17 @@ export class ListInstanceQuotasWithUsageResponseBodyQuotas extends $tea.Model {
 
 export class ListKvsResponseBodyKeys extends $tea.Model {
   /**
+   * @remarks
+   * The key name.
+   * 
    * @example
    * Key1
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the key was last updated.
+   * 
    * @example
    * 2021-12-13T07:46:03Z
    */
@@ -26701,18 +37151,34 @@ export class ListKvsResponseBodyKeys extends $tea.Model {
 }
 
 export class ListListsRequestQueryArgs extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to sort the returned data in descending order.
+   * 
+   * @example
+   * true
+   */
   desc?: boolean;
   /**
+   * @remarks
+   * The list description for fuzzy search.
+   * 
    * @example
    * a custom list
    */
   descriptionLike?: string;
   /**
+   * @remarks
+   * The list ID for fuzzy search.
+   * 
    * @example
    * 40000001
    */
   idLike?: string;
   /**
+   * @remarks
+   * The list content for fuzzy search.
+   * 
    * @example
    * 10.1.1.1
    */
@@ -26723,16 +37189,25 @@ export class ListListsRequestQueryArgs extends $tea.Model {
    */
   kind?: string;
   /**
+   * @remarks
+   * The list name and content for fuzzy search.
+   * 
    * @example
    * 10.1.1.1
    */
   nameItemLike?: string;
   /**
+   * @remarks
+   * The list name for fuzzy search.
+   * 
    * @example
    * example
    */
   nameLike?: string;
   /**
+   * @remarks
+   * The column by which you want to sort the returned data.
+   * 
    * @example
    * id
    */
@@ -26771,33 +37246,48 @@ export class ListListsRequestQueryArgs extends $tea.Model {
 export class ListListsResponseBodyLists extends $tea.Model {
   /**
    * @remarks
-   * 自定义响应页面描述
+   * The list description.
    * 
    * @example
    * a custom list
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the custom list.[](~~2850217~~)
+   * 
    * @example
    * 40000001
    */
   id?: number;
   /**
+   * @remarks
+   * The list type.
+   * 
    * @example
    * ip
    */
   kind?: string;
   /**
+   * @remarks
+   * The length of the list information array, which indicates how many items the list contains.
+   * 
    * @example
    * 100
    */
   length?: number;
   /**
+   * @remarks
+   * The list name.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the list was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -26830,13 +37320,23 @@ export class ListListsResponseBodyLists extends $tea.Model {
 }
 
 export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The Chinese name of the region.
+   */
   subRegionCnName?: string;
   /**
+   * @remarks
+   * The code of the subregion.
+   * 
    * @example
    * ID
    */
   subRegionCode?: string;
   /**
+   * @remarks
+   * The English name of the subregion.
+   * 
    * @example
    * Indonesia
    */
@@ -26863,17 +37363,31 @@ export class ListLoadBalancerRegionsResponseBodyRegionsSubRegions extends $tea.M
 }
 
 export class ListLoadBalancerRegionsResponseBodyRegions extends $tea.Model {
+  /**
+   * @remarks
+   * The Chinese name of the region.
+   */
   regionCnName?: string;
   /**
+   * @remarks
+   * The code of the region.
+   * 
    * @example
    * SEAS
    */
   regionCode?: string;
   /**
+   * @remarks
+   * The English name of the region.
+   * 
    * @example
    * South East Asia
    */
   regionEnName?: string;
+  /**
+   * @remarks
+   * The subregions of the region.
+   */
   subRegions?: ListLoadBalancerRegionsResponseBodyRegionsSubRegions[];
   static names(): { [key: string]: string } {
     return {
@@ -26900,11 +37414,17 @@ export class ListLoadBalancerRegionsResponseBodyRegions extends $tea.Model {
 
 export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $tea.Model {
   /**
+   * @remarks
+   * The name of the managed rule group.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The number of rules in the managed rule group.
+   * 
    * @example
    * 1000
    */
@@ -26931,7 +37451,7 @@ export class ListManagedRulesGroupsResponseBodyManagedRulesGroups extends $tea.M
 export class ListPagesResponseBodyPages extends $tea.Model {
   /**
    * @remarks
-   * 自定义响应页面内容BASE64编码
+   * The Base64-encoded content of the error page. The content type is specified by the Content-Type field.
    * 
    * This parameter is required.
    * 
@@ -26941,7 +37461,7 @@ export class ListPagesResponseBodyPages extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * 自定义响应页面内容类型
+   * The Content-Type field in the HTTP header.
    * 
    * This parameter is required.
    * 
@@ -26951,28 +37471,40 @@ export class ListPagesResponseBodyPages extends $tea.Model {
   contentType?: string;
   /**
    * @remarks
-   * 自定义响应页面描述
+   * The description of the custom error page.
    * 
    * @example
    * a custom deny page
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the custom error page.[](~~2850223~~)
+   * 
    * @example
    * 50000001
    */
   id?: number;
   /**
+   * @remarks
+   * The type of the custom error page.
+   * 
    * @example
    * custom
    */
   kind?: string;
   /**
+   * @remarks
+   * The name of the custom error page.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the custom error page was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -27008,26 +37540,51 @@ export class ListPagesResponseBodyPages extends $tea.Model {
 
 export class ListRecordsResponseBodyRecordsAuthConf extends $tea.Model {
   /**
+   * @remarks
+   * The access key of the account to which the origin server belongs. This value is returned when the SourceType is OSS, and AuthType is private_cross_account, or when the SourceType is S3 and AuthType is private.
+   * 
    * @example
    * u0Nkg5gBK***QF5wvKMM504JUHt
    */
   accessKey?: string;
   /**
+   * @remarks
+   * The authentication type of the origin server. Different origins support different authentication types. The type of origin refers to the SourceType parameter in this operation. If the type of origin is OSS or S3, the authentication type of the origin must be specified. Valid values:
+   * 
+   * *   **public**: public read. This value is returned when the origin is a public OSS or S3 bucket.
+   * *   **private**: private read. This value is returned when the origin is a private S3 bucket.
+   * *   **private_same_account**: private read under the same account. This value is returned when the origin is a private OSS bucket in your Alibaba Cloud account.
+   * *   **private_cross_account**: private read across accounts. This value is returned when the origin is a private OSS bucket in a different Alibaba Cloud account.
+   * 
    * @example
    * private
    */
   authType?: string;
   /**
+   * @remarks
+   * The region of the origin. This parameter is returned if the origin type is S3. You can get the region information from the official website of Amazon S3.
+   * 
    * @example
    * us-east-1
    */
   region?: string;
   /**
+   * @remarks
+   * The secret access key of the account to which the origin server belongs. This value is returned when the SourceType is OSS, and AuthType is private_same_account, or when the SourceType is S3 and AuthType is private.
+   * 
    * @example
    * VIxuvJSA2S03f***kp208dy5w7
    */
   secretKey?: string;
   /**
+   * @remarks
+   * The version of the signature algorithm. This value is returned when the origin type is S3 and AuthType is private. Valid values:
+   * 
+   * *   **v2**
+   * *   **v4**
+   * 
+   * If this parameter is left empty, the default value v4 is used.
+   * 
    * @example
    * v4
    */
@@ -27059,71 +37616,122 @@ export class ListRecordsResponseBodyRecordsAuthConf extends $tea.Model {
 
 export class ListRecordsResponseBodyRecordsData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record. Valid values: 0 to 255. Exclusive to CERT and SSHFP records.
+   * 
    * @example
    * 0
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. Exclusive to CERT, SMIMEA, and TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. Exclusive to SSHFP records.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed. Valid values: 0 to 255. Exclusive to CAA records.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record. Valid values: 0 to 65535. Exclusive to CERT records.
+   * 
    * @example
    * 0
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate. Valid values: 0 to 255. Exclusive to SMIMEA and TLSA records.
+   * 
    * @example
    * 0
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port of the record. Valid values: 0 to 65535. Exclusive to SRV records.
+   * 
    * @example
    * 80
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. Exclusive to MX, SRV, and URI records.
+   * 
    * @example
    * 0
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of certificate or public key. Valid values: 0 to 255. Exclusive to SMIMEA, and TLSA records.
+   * 
    * @example
    * 0
    */
   selector?: number;
   /**
+   * @remarks
+   * The tag of the record. The Tag of a CAA record indicate its specific type and usage. Exclusive to CAA records.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records).
+   * 
    * @example
    * 0
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record. Valid values: 0 to 255. Exclusive to SMIMEA, and TLSA records.
+   * 
    * @example
    * 0
    */
   usage?: number;
   /**
+   * @remarks
+   * Record value or part of the record content. This value is returned when the record is A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI. It has different meanings based on types of records:
+   * 
+   * *   **A/AAAA**: the IP addresses. IP addresses are separated by commas (,). There is at least one IPv4 address.
+   * *   **CNAME**: the pointed/mapped domain name.
+   * *   **NS**: the nameservers for the domain name.
+   * *   **MX**: a valid domain name of the mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
    * @example
    * CNAME
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record. Valid values: 0 to 65535. Exclusive to SRV and URI records.
+   * 
    * @example
    * 0
    */
@@ -27172,74 +37780,145 @@ export class ListRecordsResponseBodyRecordsData extends $tea.Model {
 }
 
 export class ListRecordsResponseBodyRecords extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConf?: ListRecordsResponseBodyRecordsAuthConf;
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Valid values:
+   * 
+   * *   **image_video**: video and image.
+   * *   **api**: API.
+   * *   **web**: web page.
+   * 
    * @example
    * web
    */
   bizName?: string;
   /**
+   * @remarks
+   * The comments of the record.
+   * 
    * @example
    * this is a remark.
    */
   comment?: string;
   /**
+   * @remarks
+   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The DNS record information. Different types of records contain different information.
+   * 
    * @example
    * {"value":"1.1.1.1"}
    */
   data?: ListRecordsResponseBodyRecordsData;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. Valid values:
+   * 
+   * *   follow_hostname: matches the requested domain name.
+   * *   follow_origin_domain: matches the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
+   * @remarks
+   * Indicates whether the record is proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxied?: boolean;
   /**
+   * @remarks
+   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * 
    * @example
    * a.example.com.cnamezone.com
    */
   recordCname?: string;
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The origin type for the CNAME record. This parameter is returned when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
+   * If you do not pass this parameter or if you leave its value empty, Domain is returned by default.
+   * 
    * @example
    * OSS
    */
   recordSourceType?: string;
   /**
+   * @remarks
+   * The DNS type of the record, such as **A/AAAA, CNAME, and TXT**.
+   * 
    * @example
    * A/AAAA
    */
   recordType?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 30
    */
   ttl?: number;
   /**
+   * @remarks
+   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-06-07T10:02:59Z
    */
@@ -27292,7 +37971,24 @@ export class ListRecordsResponseBodyRecords extends $tea.Model {
 }
 
 export class ListRoutineOptionalSpecsResponseBodySpecs extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the specification is available. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   isAvailable?: boolean;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * 5ms
+   */
   specName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27314,13 +38010,75 @@ export class ListRoutineOptionalSpecsResponseBodySpecs extends $tea.Model {
 }
 
 export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The end time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T18:10:48.849+08:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch plan.
+   * 
+   * @example
+   * 66599bd7397885b43804901c
+   */
   id?: string;
+  /**
+   * @remarks
+   * The time interval between each batch execution in the plan. Unit: seconds.
+   * 
+   * @example
+   * 60
+   */
   interval?: number;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * The number of URLs prefetched in each batch.
+   * 
+   * @example
+   * 10
+   */
   sliceLen?: number;
+  /**
+   * @remarks
+   * The start time of the prefetch plan.
+   * 
+   * @example
+   * 2024-05-31T17:10:48.849+08:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The status of the prefetch plan. Valid values:
+   * 
+   * *   **waiting**
+   * *   **running**
+   * *   **finished**
+   * *   **failed**
+   * *   **stopped**
+   * 
+   * @example
+   * running
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -27354,19 +38112,117 @@ export class ListScheduledPreloadExecutionsResponseBodyExecutions extends $tea.M
 }
 
 export class ListScheduledPreloadJobsResponseBodyJobs extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
+   * 
+   * @example
+   * 15685865xxx14622
+   */
   aliUid?: string;
+  /**
+   * @remarks
+   * The time when the task was created.
+   * 
+   * @example
+   * 2024-06-01T08:53:13Z
+   */
   createdAt?: string;
+  /**
+   * @remarks
+   * The domain names to be prefetched.
+   * 
+   * @example
+   * testurl.com
+   */
   domains?: string;
+  /**
+   * @remarks
+   * The error message that is returned.
+   * 
+   * @example
+   * invalid domain:test.com
+   */
   errorInfo?: string;
+  /**
+   * @remarks
+   * The URL of the OSS object that stores a list of URLs that failed the conditional check for prefetching.
+   * 
+   * @example
+   * https://xxxobject.oss-cn-reginon.aliyuncs.com/9d91_xxxxxxxxxxx_158bb6e0f97c477791209bb46bd599f7
+   */
   failedFileOss?: string;
+  /**
+   * @remarks
+   * The ID of the URL list file, which can be used during downloads.
+   * 
+   * @example
+   * 665d3b48621bccf3fe29e1a7
+   */
   fileId?: string;
+  /**
+   * @remarks
+   * The ID of the prefetch task.
+   * 
+   * @example
+   * 665d3af3621bccf3fe29e1a4
+   */
   id?: string;
+  /**
+   * @remarks
+   * The method to submit the URLs to be prefetched.
+   * 
+   * @example
+   * oss
+   */
   insertWay?: string;
+  /**
+   * @remarks
+   * The task name.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The website ID.
+   * 
+   * @example
+   * 190007158391808
+   */
   siteId?: number;
+  /**
+   * @remarks
+   * The number of submitted prefetch tasks.
+   * 
+   * @example
+   * 1
+   */
   taskSubmitted?: number;
+  /**
+   * @remarks
+   * The task type. Valid values: refresh and preload.
+   * 
+   * @example
+   * preload
+   */
   taskType?: string;
+  /**
+   * @remarks
+   * The total number of URLs.
+   * 
+   * @example
+   * 2
+   */
   urlCount?: number;
+  /**
+   * @remarks
+   * The number of submitted URLs.
+   * 
+   * @example
+   * 1
+   */
   urlSubmitted?: number;
   static names(): { [key: string]: string } {
     return {
@@ -27413,26 +38269,59 @@ export class ListScheduledPreloadJobsResponseBodyJobs extends $tea.Model {
 
 export class ListSiteDeliveryTasksResponseBodyTasks extends $tea.Model {
   /**
+   * @remarks
+   * The log category. Valid values:
+   * 
+   * *   dcdn_log_access_l1 (default): access logs.
+   * *   dcdn_log_er: Edge Routine logs.
+   * *   dcdn_log_waf: firewall logs.
+   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * 
    * @example
    * dcdn_log_access_l1
    */
   businessType?: string;
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * *   cn: the Chinese mainland.
+   * *   sg: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
+   * @remarks
+   * The destination of the delivery. Valid values:
+   * 
+   * 1.  sls: Alibaba Cloud Simple Log Service (SLS).
+   * 2.  http: HTTP server.
+   * 3.  aws3: Amazon Simple Storage Service (S3).
+   * 4.  oss: Alibaba Cloud Object Storage Service (OSS).
+   * 5.  kafka: Kafka.
+   * 6.  aws3cmpt: S3-compatible storage service.
+   * 
    * @example
    * sls
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
+   * *   **online**
+   * *   **offline**
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * cdn-test-task
    */
@@ -27462,13 +38351,959 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $tea.Model {
   }
 }
 
+export class ListSiteFunctionsResponseBodyConfigsCacheReserve extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $tea.Model {
+  additionalCacheablePorts?: string;
+  browserCacheMode?: string;
+  browserCacheTtl?: string;
+  bypassCache?: string;
+  cacheDeceptionArmor?: string;
+  cacheReserveEligibility?: string;
+  checkPresenceCookie?: string;
+  checkPresenceHeader?: string;
+  configId?: number;
+  edgeCacheMode?: string;
+  edgeCacheTtl?: string;
+  edgeStatusCodeCacheTtl?: string;
+  includeCookie?: string;
+  includeHeader?: string;
+  queryString?: string;
+  queryStringMode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  serveStale?: string;
+  sortQueryStringForCache?: string;
+  userDeviceType?: string;
+  userGeo?: string;
+  userLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalCacheablePorts: 'AdditionalCacheablePorts',
+      browserCacheMode: 'BrowserCacheMode',
+      browserCacheTtl: 'BrowserCacheTtl',
+      bypassCache: 'BypassCache',
+      cacheDeceptionArmor: 'CacheDeceptionArmor',
+      cacheReserveEligibility: 'CacheReserveEligibility',
+      checkPresenceCookie: 'CheckPresenceCookie',
+      checkPresenceHeader: 'CheckPresenceHeader',
+      configId: 'ConfigId',
+      edgeCacheMode: 'EdgeCacheMode',
+      edgeCacheTtl: 'EdgeCacheTtl',
+      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
+      includeCookie: 'IncludeCookie',
+      includeHeader: 'IncludeHeader',
+      queryString: 'QueryString',
+      queryStringMode: 'QueryStringMode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      serveStale: 'ServeStale',
+      sortQueryStringForCache: 'SortQueryStringForCache',
+      userDeviceType: 'UserDeviceType',
+      userGeo: 'UserGeo',
+      userLanguage: 'UserLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalCacheablePorts: 'string',
+      browserCacheMode: 'string',
+      browserCacheTtl: 'string',
+      bypassCache: 'string',
+      cacheDeceptionArmor: 'string',
+      cacheReserveEligibility: 'string',
+      checkPresenceCookie: 'string',
+      checkPresenceHeader: 'string',
+      configId: 'number',
+      edgeCacheMode: 'string',
+      edgeCacheTtl: 'string',
+      edgeStatusCodeCacheTtl: 'string',
+      includeCookie: 'string',
+      includeHeader: 'string',
+      queryString: 'string',
+      queryStringMode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      serveStale: 'string',
+      sortQueryStringForCache: 'string',
+      userDeviceType: 'string',
+      userGeo: 'string',
+      userLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsCacheTags extends $tea.Model {
+  caseInsensitive?: string;
+  configId?: number;
+  sequence?: string;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseInsensitive: 'CaseInsensitive',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseInsensitive: 'string',
+      configId: 'number',
+      sequence: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsCnameFlattening extends $tea.Model {
+  configId?: number;
+  flattenMode?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      flattenMode: 'FlattenMode',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      flattenMode: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $tea.Model {
+  brotli?: string;
+  configId?: number;
+  gzip?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brotli: 'Brotli',
+      configId: 'ConfigId',
+      gzip: 'Gzip',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brotli: 'string',
+      configId: 'number',
+      gzip: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  requestHeaderModification?: ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestHeaderModification: 'RequestHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestHeaderModification: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  responseHeaderModification?: ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      responseHeaderModification: 'ResponseHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      responseHeaderModification: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration extends $tea.Model {
+  altSvc?: string;
+  altSvcClear?: string;
+  altSvcMa?: string;
+  altSvcPersist?: string;
+  configId?: number;
+  hsts?: string;
+  hstsIncludeSubdomains?: string;
+  hstsMaxAge?: string;
+  hstsPreload?: string;
+  httpsForce?: string;
+  httpsForceCode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      altSvc: 'AltSvc',
+      altSvcClear: 'AltSvcClear',
+      altSvcMa: 'AltSvcMa',
+      altSvcPersist: 'AltSvcPersist',
+      configId: 'ConfigId',
+      hsts: 'Hsts',
+      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
+      httpsForce: 'HttpsForce',
+      httpsForceCode: 'HttpsForceCode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      altSvc: 'string',
+      altSvcClear: 'string',
+      altSvcMa: 'string',
+      altSvcPersist: 'string',
+      configId: 'number',
+      hsts: 'string',
+      hstsIncludeSubdomains: 'string',
+      hstsMaxAge: 'string',
+      hstsPreload: 'string',
+      httpsForce: 'string',
+      httpsForceCode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends $tea.Model {
+  ciphersuite?: string;
+  ciphersuiteGroup?: string;
+  configId?: number;
+  http2?: string;
+  http3?: string;
+  https?: string;
+  ocspStapling?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  tls10?: string;
+  tls11?: string;
+  tls12?: string;
+  tls13?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersuite: 'Ciphersuite',
+      ciphersuiteGroup: 'CiphersuiteGroup',
+      configId: 'ConfigId',
+      http2: 'Http2',
+      http3: 'Http3',
+      https: 'Https',
+      ocspStapling: 'OcspStapling',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      tls10: 'Tls10',
+      tls11: 'Tls11',
+      tls12: 'Tls12',
+      tls13: 'Tls13',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersuite: 'string',
+      ciphersuiteGroup: 'string',
+      configId: 'number',
+      http2: 'string',
+      http3: 'string',
+      https: 'string',
+      ocspStapling: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      tls10: 'string',
+      tls11: 'string',
+      tls12: 'string',
+      tls13: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsImageTransform extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsIpv6 extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $tea.Model {
+  addClientGeolocationHeaders?: string;
+  addRealClientIpHeader?: string;
+  configId?: number;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
+      addRealClientIpHeader: 'AddRealClientIpHeader',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addClientGeolocationHeaders: 'string',
+      addRealClientIpHeader: 'string',
+      configId: 'number',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $tea.Model {
+  configId?: number;
+  grpc?: string;
+  http2Origin?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  smartRouting?: string;
+  uploadMaxFilesize?: string;
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $tea.Model {
+  configId?: number;
+  dnsRecord?: string;
+  originHost?: string;
+  originHttpPort?: string;
+  originHttpsPort?: string;
+  originScheme?: string;
+  originSni?: string;
+  range?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      dnsRecord: 'DnsRecord',
+      originHost: 'OriginHost',
+      originHttpPort: 'OriginHttpPort',
+      originHttpsPort: 'OriginHttpsPort',
+      originScheme: 'OriginScheme',
+      originSni: 'OriginSni',
+      range: 'Range',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      dnsRecord: 'string',
+      originHost: 'string',
+      originHttpPort: 'string',
+      originHttpsPort: 'string',
+      originScheme: 'string',
+      originSni: 'string',
+      range: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $tea.Model {
+  configId?: number;
+  reserveQueryString?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  statusCode?: string;
+  targetUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      reserveQueryString: 'ReserveQueryString',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      statusCode: 'StatusCode',
+      targetUrl: 'TargetUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      reserveQueryString: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      statusCode: 'string',
+      targetUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $tea.Model {
+  configId?: number;
+  queryString?: string;
+  rewriteQueryStringType?: string;
+  rewriteUriType?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  sequence?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      queryString: 'QueryString',
+      rewriteQueryStringType: 'RewriteQueryStringType',
+      rewriteUriType: 'RewriteUriType',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      sequence: 'Sequence',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      queryString: 'string',
+      rewriteQueryStringType: 'string',
+      rewriteUriType: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      sequence: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsSeoBypass extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsSiteNameExclusive extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsSitePause extends $tea.Model {
+  configId?: number;
+  paused?: string;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      paused: 'Paused',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      paused: 'string',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigsTieredCache extends $tea.Model {
+  cacheArchitectureMode?: string;
+  configId?: number;
+  sequence?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cacheArchitectureMode: 'CacheArchitectureMode',
+      configId: 'ConfigId',
+      sequence: 'Sequence',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheArchitectureMode: 'string',
+      configId: 'number',
+      sequence: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSiteFunctionsResponseBodyConfigs extends $tea.Model {
+  cacheReserve?: ListSiteFunctionsResponseBodyConfigsCacheReserve[];
+  cacheRules?: ListSiteFunctionsResponseBodyConfigsCacheRules[];
+  cacheTags?: ListSiteFunctionsResponseBodyConfigsCacheTags[];
+  cnameFlattening?: ListSiteFunctionsResponseBodyConfigsCnameFlattening[];
+  compressionRules?: ListSiteFunctionsResponseBodyConfigsCompressionRules[];
+  crossBorderOptimization?: ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization[];
+  developmentMode?: ListSiteFunctionsResponseBodyConfigsDevelopmentMode[];
+  httpRequestHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules[];
+  httpResponseHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules[];
+  httpsApplicationConfiguration?: ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration[];
+  httpsBasicConfiguration?: ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration[];
+  imageTransform?: ListSiteFunctionsResponseBodyConfigsImageTransform[];
+  ipv6?: ListSiteFunctionsResponseBodyConfigsIpv6[];
+  managedTransforms?: ListSiteFunctionsResponseBodyConfigsManagedTransforms[];
+  networkOptimization?: ListSiteFunctionsResponseBodyConfigsNetworkOptimization[];
+  originRules?: ListSiteFunctionsResponseBodyConfigsOriginRules[];
+  redirectRules?: ListSiteFunctionsResponseBodyConfigsRedirectRules[];
+  rewriteUrlRules?: ListSiteFunctionsResponseBodyConfigsRewriteUrlRules[];
+  seoBypass?: ListSiteFunctionsResponseBodyConfigsSeoBypass[];
+  siteNameExclusive?: ListSiteFunctionsResponseBodyConfigsSiteNameExclusive[];
+  sitePause?: ListSiteFunctionsResponseBodyConfigsSitePause[];
+  tieredCache?: ListSiteFunctionsResponseBodyConfigsTieredCache[];
+  static names(): { [key: string]: string } {
+    return {
+      cacheReserve: 'CacheReserve',
+      cacheRules: 'CacheRules',
+      cacheTags: 'CacheTags',
+      cnameFlattening: 'CnameFlattening',
+      compressionRules: 'CompressionRules',
+      crossBorderOptimization: 'CrossBorderOptimization',
+      developmentMode: 'DevelopmentMode',
+      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
+      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
+      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
+      httpsBasicConfiguration: 'HttpsBasicConfiguration',
+      imageTransform: 'ImageTransform',
+      ipv6: 'Ipv6',
+      managedTransforms: 'ManagedTransforms',
+      networkOptimization: 'NetworkOptimization',
+      originRules: 'OriginRules',
+      redirectRules: 'RedirectRules',
+      rewriteUrlRules: 'RewriteUrlRules',
+      seoBypass: 'SeoBypass',
+      siteNameExclusive: 'SiteNameExclusive',
+      sitePause: 'SitePause',
+      tieredCache: 'TieredCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheReserve: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheReserve },
+      cacheRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheRules },
+      cacheTags: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheTags },
+      cnameFlattening: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCnameFlattening },
+      compressionRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCompressionRules },
+      crossBorderOptimization: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization },
+      developmentMode: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsDevelopmentMode },
+      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules },
+      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules },
+      httpsApplicationConfiguration: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration },
+      httpsBasicConfiguration: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration },
+      imageTransform: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsImageTransform },
+      ipv6: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsIpv6 },
+      managedTransforms: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsManagedTransforms },
+      networkOptimization: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsNetworkOptimization },
+      originRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsOriginRules },
+      redirectRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsRedirectRules },
+      rewriteUrlRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsRewriteUrlRules },
+      seoBypass: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSeoBypass },
+      siteNameExclusive: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSiteNameExclusive },
+      sitePause: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSitePause },
+      tieredCache: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsTieredCache },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSitesRequestTagFilter extends $tea.Model {
   /**
+   * @remarks
+   * The tag key. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * tag1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value. This parameter specifies a filter condition for the query.
+   * 
    * @example
    * aaa
    */
@@ -27494,76 +39329,133 @@ export class ListSitesRequestTagFilter extends $tea.Model {
 
 export class ListSitesResponseBodySites extends $tea.Model {
   /**
+   * @remarks
+   * The DNS setup for the website. Valid values:
+   * 
+   * *   **NS**
+   * *   **CNAME**
+   * 
    * @example
    * NS
    */
   accessType?: string;
   /**
+   * @remarks
+   * The CNAME of the website domain. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * 
    * @example
    * example.cname.com
    */
   cnameZone?: string;
   /**
+   * @remarks
+   * The service location for the website. Valid values:
+   * 
+   * *   **domestic**: the Chinese mainland
+   * *   **global**: global
+   * *   **overseas**: outside the Chinese mainland
+   * 
    * @example
    * domestic
    */
   coverage?: string;
   /**
+   * @remarks
+   * The time when the website was added. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the plan associated with the website.
+   * 
    * @example
    * onBvtlmIyeXLbiDw81F9
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The nameservers assigned to the website domain, which are separated by commas (,).
+   * 
    * @example
    * male1-1.ialicdn.com,female1-1.ialicdn.com
    */
   nameServerList?: string;
   /**
+   * @remarks
+   * The plan name.
+   * 
    * @example
    * plan-168656498****
    */
   planName?: string;
   /**
+   * @remarks
+   * The plan associated with the website.
+   * 
    * @example
    * normal
    */
   planSpecName?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-aek26g6i6se6pna
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456789****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The website status. Valid values:
+   * 
+   * *   **pending**: The website is to be configured.
+   * *   **active**: The website is active.
+   * *   **offline**: The website is suspended.
+   * *   **moved**: The website has been added and verified by another Alibaba Cloud account.
+   * 
    * @example
    * pending
    */
   status?: string;
   /**
+   * @remarks
+   * The tags of the website.
+   * 
    * @example
    * {"tag1":"value1"}
    */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * The time when the website was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-12-24T02:01:11Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The code that is used to verify the website domain ownership. As part of the verification TXT record, this parameter is returned for websites that use CNAME setup.
+   * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****
    */
@@ -27616,7 +39508,7 @@ export class ListSitesResponseBodySites extends $tea.Model {
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
-   * 标签键
+   * The tag key.
    * 
    * @example
    * env
@@ -27624,7 +39516,7 @@ export class ListTagResourcesRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * 标签值
+   * The tag value.
    * 
    * @example
    * value
@@ -27651,21 +39543,33 @@ export class ListTagResourcesRequestTag extends $tea.Model {
 
 export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
   /**
+   * @remarks
+   * The resource ID.
+   * 
    * @example
    * example.com
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
    * @example
    * site
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value
    */
@@ -27695,36 +39599,71 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
 
 export class ListUploadTasksResponseBodyTasks extends $tea.Model {
   /**
+   * @remarks
+   * The time when the task was created.
+   * 
    * @example
    * 2023-07-26T01:56:15Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned when the file upload task failed.
+   * 
    * @example
    * invalid url
    */
   description?: string;
   /**
+   * @remarks
+   * The error code. Multiple error codes are separated by commas (,).
+   * 
+   * *   **InvalidUrl**: The URL format is incorrect.
+   * *   **InvalidDomain**: The domain ownership fails to be verified.
+   * *   **QuotaExcess**: The quota limit has been reached.
+   * *   **OtherErrors**: Other errors.
+   * 
    * @example
    * InvalidUrl,InvalidDomain
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
+   * *   **Complete**: The task is complete.
+   * *   **Refreshing**: The task is in progress.
+   * *   **Failed**: The task failed.
+   * 
    * @example
    * Complete
    */
   status?: string;
   /**
+   * @remarks
+   * The task type. Valid values:
+   * 
+   * *   **file**: purges the cache by file URL.
+   * *   **preload**: prefetches files.
+   * *   **directory**: purges the cache by directory.
+   * *   **ignoreparams**: purges the cache by URL with specified parameters ignored.
+   * 
    * @example
    * file
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the file upload task.
+   * 
    * @example
    * 159253299357****
    */
   uploadId?: string;
   /**
+   * @remarks
+   * The name of the file upload task.
+   * 
    * @example
    * purge_file_task
    */
@@ -27760,26 +39699,44 @@ export class ListUploadTasksResponseBodyTasks extends $tea.Model {
 
 export class ListUserDeliveryTasksResponseBodyTasks extends $tea.Model {
   /**
+   * @remarks
+   * The log category.
+   * 
    * @example
    * dcdn_log_er
    */
   businessType?: string;
   /**
+   * @remarks
+   * The data center. Valid values:
+   * 
+   * 1.  cn: the Chinese mainland.
+   * 2.  sg: outside the Chinese mainland.
+   * 
    * @example
    * cn
    */
   dataCenter?: string;
   /**
+   * @remarks
+   * The delivery destination.
+   * 
    * @example
    * oss
    */
   deliveryType?: string;
   /**
+   * @remarks
+   * The status of the delivery task.
+   * 
    * @example
    * online
    */
   status?: string;
   /**
+   * @remarks
+   * The name of the delivery task.
+   * 
    * @example
    * testoss11
    */
@@ -27811,16 +39768,30 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $tea.Model {
 
 export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $tea.Model {
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The website status. Valid values:
+   * 
+   * *   pending: The website is to be configured.
+   * *   active: The website is active.
+   * *   offline: The website is suspended.
+   * *   moved: The website has been added and verified by another Alibaba Cloud account.
+   * 
    * @example
    * pending
    */
@@ -27848,17 +39819,33 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfoSites extends $tea
 
 export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Model {
   /**
+   * @remarks
+   * The billing method. Valid values:
+   * 
+   * *   PREPAY: subscription.
+   * *   POSTPAY: pay-as-you-go.
+   * 
    * @example
    * PREPAY
    */
   billingMode?: string;
   botInstanceLevel?: string;
   /**
+   * @remarks
+   * The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
+   * 
+   * *   domestic: the Chinese mainland.
+   * *   overseas: outside the Chinese mainland.
+   * *   global: global.
+   * 
    * @example
    * domestic,overseas
    */
   coverages?: string;
   /**
+   * @remarks
+   * The time when the plan was purchased.
+   * 
    * @example
    * YYYY-MM-DDThh:mm:ssZ
    */
@@ -27868,6 +39855,9 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
   ddosBurstableOverseasProtection?: string;
   ddosInstanceLevel?: string;
   /**
+   * @remarks
+   * The subscription duration of the plan. Unit: month.
+   * 
    * @example
    * 3
    */
@@ -27875,11 +39865,17 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
   edgeRoutineRquest?: string;
   edgeWafRequest?: string;
   /**
+   * @remarks
+   * The time when the plan expires.
+   * 
    * @example
    * YYYY-MM-DDThh:mm:ssZ
    */
   expireTime?: string;
   /**
+   * @remarks
+   * The plan ID.
+   * 
    * @example
    * sp-xcdn-96wblslz****
    */
@@ -27887,25 +39883,48 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
   layer4Traffic?: string;
   layer4TrafficIntl?: string;
   /**
+   * @remarks
+   * The plan name.
+   * 
    * @example
    * basic
    */
   planName?: string;
   planTraffic?: string;
   /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   normal
+   * *   enterprise
+   * 
    * @example
    * normal
    */
   planType?: string;
   /**
+   * @remarks
+   * The maximum number of websites that can be associated with the plan.
+   * 
    * @example
    * 1
    */
   siteQuota?: string;
+  /**
+   * @remarks
+   * The websites that have been associated with the plan.
+   */
   sites?: ListUserRatePlanInstancesResponseBodyInstanceInfoSites[];
   smartRoutingRequest?: string;
   staticRequest?: string;
   /**
+   * @remarks
+   * The plan status. Valid values:
+   * 
+   * *   online: The plan is in service.
+   * *   offline: The plan has expired within an allowable period. In this state, the plan is unavailable.
+   * *   disable: The plan is released.
+   * 
    * @example
    * online
    */
@@ -27973,17 +39992,30 @@ export class ListUserRatePlanInstancesResponseBodyInstanceInfo extends $tea.Mode
 
 export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
   /**
+   * @remarks
+   * The action that you want WAF to perform on requests that match the rule.
+   * 
    * @example
    * deny
    */
   action?: string;
   /**
+   * @remarks
+   * The rule ID or name for fuzzy search.
+   * 
    * @example
    * example
    */
   idNameLike?: string;
+  /**
+   * @remarks
+   * The protection levels of the rules.
+   */
   protectionLevels?: number[];
   /**
+   * @remarks
+   * The status.
+   * 
    * @example
    * on
    */
@@ -28013,22 +40045,38 @@ export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
 
 export class ListWafManagedRulesResponseBodyRules extends $tea.Model {
   /**
+   * @remarks
+   * The action that WAF performs on requests that match the managed rule.
+   * 
    * @example
    * deny
    */
   action?: string;
   /**
+   * @remarks
+   * The ID of the managed rule.
+   * 
    * @example
    * 100001
    */
   id?: number;
+  /**
+   * @remarks
+   * The name of the managed rule.
+   */
   name?: string;
   /**
+   * @remarks
+   * The protection level of the managed rule.
+   * 
    * @example
    * 1
    */
   protectionLevel?: number;
   /**
+   * @remarks
+   * The status of the protection rule.
+   * 
    * @example
    * on
    */
@@ -28059,9 +40107,31 @@ export class ListWafManagedRulesResponseBodyRules extends $tea.Model {
 }
 
 export class ListWafPhasesResponseBodyPhasesRulesets extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the WAF ruleset.[](~~2850233~~)
+   * 
+   * @example
+   * 10000001
+   */
   id?: number;
+  /**
+   * @remarks
+   * The name of the WAF ruleset.
+   * 
+   * @example
+   * example
+   */
   name?: string;
+  /**
+   * @remarks
+   * The rule configurations in the WAF ruleset.
+   */
   rules?: WafRuleConfig[];
+  /**
+   * @remarks
+   * The configurations shared by the rules in the WAF ruleset.
+   */
   shared?: WafBatchRuleShared;
   static names(): { [key: string]: string } {
     return {
@@ -28087,7 +40157,18 @@ export class ListWafPhasesResponseBodyPhasesRulesets extends $tea.Model {
 }
 
 export class ListWafPhasesResponseBodyPhases extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the WAF rule category.
+   * 
+   * @example
+   * http_custom
+   */
   phase?: string;
+  /**
+   * @remarks
+   * The WAF rulesets.
+   */
   rulesets?: ListWafPhasesResponseBodyPhasesRulesets[];
   static names(): { [key: string]: string } {
     return {
@@ -28109,33 +40190,58 @@ export class ListWafPhasesResponseBodyPhases extends $tea.Model {
 }
 
 export class ListWafRulesRequestQueryArgs extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to sort the returned data in descending order.
+   * 
+   * @example
+   * true
+   */
   desc?: boolean;
   /**
+   * @remarks
+   * The ID of a WAF rule for exact search.
+   * 
    * @example
    * 20000001
    */
   id?: number;
   /**
+   * @remarks
+   * The ID or name of a WAF rule for fuzzy search.
+   * 
    * @example
    * example
    */
   idNameLike?: string;
   /**
+   * @remarks
+   * The name of a WAF rule for fuzzy search.
+   * 
    * @example
    * example
    */
   nameLike?: string;
   /**
+   * @remarks
+   * The column by which you want to sort the returned data.
+   * 
    * @example
    * position
    */
   orderBy?: string;
   /**
+   * @remarks
+   * The ID of a WAF ruleset for exact search.
+   * 
    * @example
    * 10000001
    */
   rulesetId?: number;
   /**
+   * @remarks
+   * The status of a WAF rule for exact search.
+   * 
    * @example
    * on
    */
@@ -28171,56 +40277,106 @@ export class ListWafRulesRequestQueryArgs extends $tea.Model {
 
 export class ListWafRulesResponseBodyRules extends $tea.Model {
   /**
+   * @remarks
+   * The action triggered when requests match conditions defined in the rule.
+   * 
    * @example
    * deny
    */
   action?: string;
+  /**
+   * @remarks
+   * The fields in rate limiting rules.
+   */
   characteristicsFields?: string[];
+  /**
+   * @remarks
+   * The configuration of the rule.
+   */
   config?: WafRuleConfig;
+  /**
+   * @remarks
+   * The fields in the rule.
+   */
   fields?: string[];
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 20000001
    */
   id?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_custom
    */
   phase?: string;
   /**
+   * @remarks
+   * The position of the rule in the ruleset.
+   * 
    * @example
    * 1
    */
   position?: number;
   /**
+   * @remarks
+   * The ruleset ID.
+   * 
    * @example
    * 10000001
    */
   rulesetId?: number;
   /**
+   * @remarks
+   * The skip scope applied when requests match conditions defined in the whitelist rule.
+   * 
    * @example
    * part
    */
   skip?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * on
    */
   status?: string;
+  /**
+   * @remarks
+   * The skipped WAF rule categories when requests match conditions defined in the whitelist rule.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * The time when the rule takes effect.
+   */
   timer?: WafTimer;
   /**
+   * @remarks
+   * The WAF rule type.
+   * 
    * @example
    * http_custom
    */
   type?: string;
   /**
+   * @remarks
+   * The time when the rule was modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -28272,17 +40428,30 @@ export class ListWafRulesResponseBodyRules extends $tea.Model {
 
 export class ListWafRulesetsRequestQueryArgs extends $tea.Model {
   /**
+   * @remarks
+   * The ruleset ID, ruleset name, rule ID, or rule name for fuzzy search.
+   * 
    * @example
    * example
    */
   anyLike?: string;
+  /**
+   * @remarks
+   * Specifies whether to sort the returned data in descending order.
+   */
   desc?: boolean;
   /**
+   * @remarks
+   * The ruleset name for fuzzy search.
+   * 
    * @example
    * example
    */
   nameLike?: string;
   /**
+   * @remarks
+   * The column by which you want to sort the returned data.
+   * 
    * @example
    * id
    */
@@ -28311,34 +40480,60 @@ export class ListWafRulesetsRequestQueryArgs extends $tea.Model {
 }
 
 export class ListWafRulesetsResponseBodyRulesets extends $tea.Model {
+  /**
+   * @remarks
+   * The matched objects.
+   */
   fields?: string[];
   /**
+   * @remarks
+   * The ID of the WAF ruleset.[](~~2850233~~)
+   * 
    * @example
    * 10000001
    */
   id?: number;
   /**
+   * @remarks
+   * The ruleset name.
+   * 
    * @example
    * example
    */
   name?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_bot
    */
   phase?: string;
   /**
+   * @remarks
+   * The ruleset status.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the protection target in the http_bot rule category.
+   * 
    * @example
    * web
    */
   target?: string;
+  /**
+   * @remarks
+   * The types of rules.
+   */
   types?: string[];
   /**
+   * @remarks
+   * The time when the ruleset was last modified.
+   * 
    * @example
    * 2024-01-01T00:00:00Z
    */
@@ -28376,6 +40571,9 @@ export class ListWafRulesetsResponseBodyRulesets extends $tea.Model {
 
 export class ListWafTemplateRulesRequestQueryArgs extends $tea.Model {
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * http_directory_traversal
    */
@@ -28398,23 +40596,39 @@ export class ListWafTemplateRulesRequestQueryArgs extends $tea.Model {
 }
 
 export class ListWafTemplateRulesResponseBodyRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration of the rule.
+   */
   config?: WafRuleConfig;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * HTTP Directory Traversal Rule [Template]
    */
   name?: string;
   /**
+   * @remarks
+   * The WAF rule category.
+   * 
    * @example
    * http_anti_scan
    */
   phase?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * on
    */
   status?: string;
   /**
+   * @remarks
+   * The rule type.
+   * 
    * @example
    * http_directory_traversal
    */
@@ -28446,16 +40660,25 @@ export class ListWafTemplateRulesResponseBodyRules extends $tea.Model {
 
 export class ListWafUsageOfRulesResponseBodySites extends $tea.Model {
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   name?: string;
   /**
+   * @remarks
+   * The usage of WAF rules or WAF rulesets.
+   * 
    * @example
    * 1
    */
@@ -28483,97 +40706,189 @@ export class ListWafUsageOfRulesResponseBodySites extends $tea.Model {
 
 export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $tea.Model {
   /**
+   * @remarks
+   * The content of the custom waiting room page. This parameter is returned when the waiting room type is set to custom. The content is URL-encoded.
+   * 
    * @example
    * html-yets-maqi1111
    */
   customPageHtml?: string;
   /**
+   * @remarks
+   * The event description.
+   * 
    * @example
    * terraform-example
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether session renewal is disabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * off
    */
   disableSessionRenewalEnable?: string;
   /**
+   * @remarks
+   * The event status. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   enable?: string;
   /**
+   * @remarks
+   * The end time of the event. This value is a UNIX timestamp.
+   * 
    * @example
    * 1719814497
    */
   endTime?: string;
   /**
+   * @remarks
+   * Indicates whether JOSN response is enabled. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * off
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * zhcn
    */
   language?: string;
+  /**
+   * @remarks
+   * The custom event name.
+   */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of new users per minute.
+   * 
    * @example
    * 11
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Indicates whether pre-queuing is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   preQueueEnable?: string;
   /**
+   * @remarks
+   * The start time for pre-queuing. This value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
+   * 
    * @example
    * 1719814097
    */
   preQueueStartTime?: string;
   /**
+   * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * @example
    * fifo
    */
   queuingMethod?: string;
   /**
+   * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * @example
    * 200
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * Indicates whether random queuing is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   randomPreQueueEnable?: string;
   /**
+   * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * @example
    * 3
    */
   sessionDuration?: string;
   /**
+   * @remarks
+   * The start time of the event. This value is a UNIX timestamp.
+   * 
    * @example
    * 1719814398
    */
   startTime?: string;
   /**
+   * @remarks
+   * The maximum number of active users.
+   * 
    * @example
    * 22
    */
   totalActiveUsers?: string;
   /**
+   * @remarks
+   * The unique ID of the waiting room event.
+   * 
    * @example
    * 89677721098****
    */
   waitingRoomEventId?: number;
   /**
+   * @remarks
+   * The ID of the waiting room associated with the event.
+   * 
    * @example
    * 5c938a045c9ca46607163d34966****
    */
   waitingRoomId?: string;
   /**
+   * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -28635,21 +40950,36 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $tea.Mod
 
 export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $tea.Model {
   /**
+   * @remarks
+   * The rule content, which is a policy or conditional expression.
+   * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
    */
   rule?: string;
   /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   ruleEnable?: string;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * ip
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 37286782688****
    */
@@ -28679,16 +41009,25 @@ export class ListWaitingRoomRulesResponseBodyWaitingRoomRules extends $tea.Model
 
 export class ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath extends $tea.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The path.
+   * 
    * @example
    * /test
    */
   path?: string;
   /**
+   * @remarks
+   * The subdomain.
+   * 
    * @example
    * test.
    */
@@ -28716,70 +41055,153 @@ export class ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath extends $te
 
 export class ListWaitingRoomsResponseBodyWaitingRooms extends $tea.Model {
   /**
+   * @remarks
+   * The name of the custom cookie.
+   * 
    * @example
    * __aliwaitingroom_example
    */
   cookieName?: string;
+  /**
+   * @remarks
+   * The HTML content or identifier of the custom queuing page. This parameter is valid only when `WaitingRoomType` is set to `custom`. The content must be URL-encoded.
+   */
   customPageHtml?: string;
+  /**
+   * @remarks
+   * The description of the waiting room.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether session renewal is disabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   disableSessionRenewalEnable?: string;
   /**
+   * @remarks
+   * Indicates whether the waiting room is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   enable?: string;
+  /**
+   * @remarks
+   * The hostname and path.
+   */
   hostNameAndPath?: ListWaitingRoomsResponseBodyWaitingRoomsHostNameAndPath[];
   /**
+   * @remarks
+   * Indicates whether JSON response is enabled. If you set this parameter to on, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   jsonResponseEnable?: string;
   /**
+   * @remarks
+   * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+   * 
+   * *   enus: English.
+   * *   zhcn: Simplified Chinese.
+   * *   zhhk: Traditional Chinese.
+   * 
    * @example
    * zhcn
    */
   language?: string;
+  /**
+   * @remarks
+   * The name of the waiting room.
+   */
   name?: string;
   /**
+   * @remarks
+   * The maximum number of new users per minute.
+   * 
    * @example
    * 200
    */
   newUsersPerMinute?: string;
   /**
+   * @remarks
+   * Indicates whether all requests must be queued. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   queueAllEnable?: string;
   /**
+   * @remarks
+   * The queuing method. Valid values:
+   * 
+   * *   random: Users gain access to the origin randomly, regardless of the arrival time.
+   * *   fifo: Users gain access to the origin in order of arrival.
+   * *   passthrough: Users pass through the waiting room and go straight to the origin.
+   * *   reject-all: Users are blocked from reaching the origin.
+   * 
    * @example
    * random
    */
   queuingMethod?: string;
   /**
+   * @remarks
+   * The HTTP status code to return while a user is in the queue. Valid values:
+   * 
+   * *   200
+   * *   202
+   * *   429
+   * 
    * @example
    * 200
    */
   queuingStatusCode?: string;
   /**
+   * @remarks
+   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * 
    * @example
    * 3600
    */
   sessionDuration?: string;
   /**
+   * @remarks
+   * The maximum number of active users.
+   * 
    * @example
    * 300
    */
   totalActiveUsers?: string;
   /**
+   * @remarks
+   * The unique ID of the waiting room.
+   * 
    * @example
    * 6a51d5bc6460887abd1291dc7d4d****
    */
   waitingRoomId?: string;
   /**
+   * @remarks
+   * The type of the waiting room. Valid values:
+   * 
+   * *   default
+   * *   custom
+   * 
    * @example
    * default
    */
@@ -28834,12 +41256,35 @@ export class ListWaitingRoomsResponseBodyWaitingRooms extends $tea.Model {
 }
 
 export class PurgeCachesRequestContent extends $tea.Model {
+  /**
+   * @remarks
+   * The cache tags that are used to purge the cache. This parameter is required if Type is set to cachetag.
+   */
   cacheTags?: string[];
+  /**
+   * @remarks
+   * The directories that are used to purge the cache. This parameter is required if Type is set to directory.
+   */
   directories?: string[];
+  /**
+   * @remarks
+   * The files to purge. This parameter is required if Type is set to file.
+   */
   files?: any[];
+  /**
+   * @remarks
+   * The hostnames that are used to purge the cache. This parameter is required if Type is set to hostname.
+   */
   hostnames?: string[];
+  /**
+   * @remarks
+   * The file URLs with parameters ignored that are used to purge the cache. This parameter is required if Type is set to ignoreParams.
+   */
   ignoreParams?: string[];
   /**
+   * @remarks
+   * Specifies whether to purge all cache of the website. Default value: false. The value is true when Type is set to purgeall.
+   * 
    * @example
    * true
    */
@@ -28872,10 +41317,54 @@ export class PurgeCachesRequestContent extends $tea.Model {
 }
 
 export class UpdateRecordRequestAuthConf extends $tea.Model {
+  /**
+   * @remarks
+   * The access key of the account to which the origin server belongs. This parameter is required when the SourceType is OSS, and AuthType is private_same_account, or when the SourceType is S3 and AuthType is private.
+   * 
+   * @example
+   * VIxuvJSA2S03f******kp208dy5w7
+   */
   accessKey?: string;
+  /**
+   * @remarks
+   * The authentication type of the origin server. Different origins support different authentication types. The type of origin refers to the SourceType parameter in this operation. If the type of origin is OSS or S3, you must specify the authentication type of the origin. Valid values:
+   * 
+   * *   **public**: public read. Select this value when the origin type is OSS or S3 and the origin access is public read.
+   * *   **private**: private read. Select this value when the origin type is S3 and the origin access is private read.
+   * *   **private_same_account**: private read under the same account. Select this value when the origin type is OSS, the origins belong to the same Alibaba Cloud account, and the origins have private read access.
+   * 
+   * @example
+   * private
+   */
   authType?: string;
+  /**
+   * @remarks
+   * The version of the signature algorithm. This parameter is required when the origin type is S3 and AuthType is private. The following two types are supported:
+   * 
+   * *   **v2**
+   * *   **v4**
+   * 
+   * If you leave this parameter empty, the default value v4 is used.
+   * 
+   * @example
+   * v2
+   */
   region?: string;
+  /**
+   * @remarks
+   * The secret access key of the account to which the origin server belongs. This parameter is required when the SourceType is OSS, and AuthType is private_same_account, or when the SourceType is S3 and AuthType is private.
+   * 
+   * @example
+   * u0Nkg5gBK*******QF5wvKMM504JUHt
+   */
   secretKey?: string;
+  /**
+   * @remarks
+   * The region of the origin. If the origin type is S3, you must specify this value. You can get the region information from the official website of S3.
+   * 
+   * @example
+   * us-east-1
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28903,19 +41392,126 @@ export class UpdateRecordRequestAuthConf extends $tea.Model {
 }
 
 export class UpdateRecordRequestData extends $tea.Model {
+  /**
+   * @remarks
+   * The encryption algorithm used for the record, specified within the range from 0 to 255. This parameter is required when you add CERT or SSHFP records.
+   * 
+   * @example
+   * 0
+   */
   algorithm?: number;
+  /**
+   * @remarks
+   * The public key of the certificate. This parameter is required when you add CERT, SMIMEA, or TLSA records.
+   * 
+   * @example
+   * dGVzdGFkYWxrcw==
+   */
   certificate?: string;
+  /**
+   * @remarks
+   * The public key fingerprint of the record. This parameter is required when you add a SSHFP record.
+   * 
+   * @example
+   * abcdef1234567890
+   */
   fingerprint?: string;
+  /**
+   * @remarks
+   * The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed, specified within the range of 0 to 255. This parameter is required when you add a CAA record.
+   * 
+   * @example
+   * 128
+   */
   flag?: number;
+  /**
+   * @remarks
+   * The public key identification for the record, specified within the range of 0 to 65,535. This parameter is required when you add a CAA record.
+   * 
+   * @example
+   * 0
+   */
   keyTag?: number;
+  /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate, specified within the range 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
+   * @example
+   * 0
+   */
   matchingType?: number;
+  /**
+   * @remarks
+   * The port of the record, specified within the range of 0 to 65,535. This parameter is required when you add an SRV record.
+   * 
+   * @example
+   * 0
+   */
   port?: number;
+  /**
+   * @remarks
+   * The priority of the record, specified within the range of 0 to 65,535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * 
+   * @example
+   * 10
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The type of certificate or public key, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
+   * @example
+   * 0
+   */
   selector?: number;
+  /**
+   * @remarks
+   * The label of the record. The Tag of a CAA record indicate its specific type and usage. This parameter is required when you add a CAA record.
+   * 
+   * @example
+   * issue
+   */
   tag?: string;
+  /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records). This parameter is required when you add CERT or SSHFP records.
+   * 
+   * @example
+   * 0
+   */
   type?: number;
+  /**
+   * @remarks
+   * The usage identifier of the record, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
+   * @example
+   * 0
+   */
   usage?: number;
+  /**
+   * @remarks
+   * The record value or part of the record content. This parameter is required when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. It has different meanings based on different types of records:
+   * 
+   * *   **A/AAAA**: the IP address(es). Separate multiple IPs with commas (,). You must have at least one IPv4 address.
+   * *   **CNAME**: the target domain name.
+   * *   **NS**: the name servers for the domain name.
+   * *   **MX**: a valid domain name of the target mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
+   * @example
+   * example.com
+   */
   value?: string;
+  /**
+   * @remarks
+   * The weight of the record, specified within the range of 0 to 65,535. This parameter is required when you add SRV or URI records.
+   * 
+   * @example
+   * 0
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -28960,18 +41556,822 @@ export class UpdateRecordRequestData extends $tea.Model {
   }
 }
 
+export class UpdateSiteFunctionRequestCacheReserve extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestCacheRules extends $tea.Model {
+  additionalCacheablePorts?: string;
+  browserCacheMode?: string;
+  browserCacheTtl?: string;
+  bypassCache?: string;
+  cacheDeceptionArmor?: string;
+  cacheReserveEligibility?: string;
+  checkPresenceCookie?: string;
+  checkPresenceHeader?: string;
+  configId?: number;
+  edgeCacheMode?: string;
+  edgeCacheTtl?: string;
+  edgeStatusCodeCacheTtl?: string;
+  includeCookie?: string;
+  includeHeader?: string;
+  queryString?: string;
+  queryStringMode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  serveStale?: string;
+  sortQueryStringForCache?: string;
+  userDeviceType?: string;
+  userGeo?: string;
+  userLanguage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      additionalCacheablePorts: 'AdditionalCacheablePorts',
+      browserCacheMode: 'BrowserCacheMode',
+      browserCacheTtl: 'BrowserCacheTtl',
+      bypassCache: 'BypassCache',
+      cacheDeceptionArmor: 'CacheDeceptionArmor',
+      cacheReserveEligibility: 'CacheReserveEligibility',
+      checkPresenceCookie: 'CheckPresenceCookie',
+      checkPresenceHeader: 'CheckPresenceHeader',
+      configId: 'ConfigId',
+      edgeCacheMode: 'EdgeCacheMode',
+      edgeCacheTtl: 'EdgeCacheTtl',
+      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
+      includeCookie: 'IncludeCookie',
+      includeHeader: 'IncludeHeader',
+      queryString: 'QueryString',
+      queryStringMode: 'QueryStringMode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      serveStale: 'ServeStale',
+      sortQueryStringForCache: 'SortQueryStringForCache',
+      userDeviceType: 'UserDeviceType',
+      userGeo: 'UserGeo',
+      userLanguage: 'UserLanguage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      additionalCacheablePorts: 'string',
+      browserCacheMode: 'string',
+      browserCacheTtl: 'string',
+      bypassCache: 'string',
+      cacheDeceptionArmor: 'string',
+      cacheReserveEligibility: 'string',
+      checkPresenceCookie: 'string',
+      checkPresenceHeader: 'string',
+      configId: 'number',
+      edgeCacheMode: 'string',
+      edgeCacheTtl: 'string',
+      edgeStatusCodeCacheTtl: 'string',
+      includeCookie: 'string',
+      includeHeader: 'string',
+      queryString: 'string',
+      queryStringMode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      serveStale: 'string',
+      sortQueryStringForCache: 'string',
+      userDeviceType: 'string',
+      userGeo: 'string',
+      userLanguage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestCacheTags extends $tea.Model {
+  caseInsensitive?: string;
+  configId?: number;
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseInsensitive: 'CaseInsensitive',
+      configId: 'ConfigId',
+      tagName: 'TagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseInsensitive: 'string',
+      configId: 'number',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestCnameFlattening extends $tea.Model {
+  configId?: number;
+  flattenMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      flattenMode: 'FlattenMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      flattenMode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestCompressionRules extends $tea.Model {
+  brotli?: string;
+  configId?: number;
+  gzip?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      brotli: 'Brotli',
+      configId: 'ConfigId',
+      gzip: 'Gzip',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      brotli: 'string',
+      configId: 'number',
+      gzip: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestCrossBorderOptimization extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestDevelopmentMode extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpRequestHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  requestHeaderModification?: UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      requestHeaderModification: 'RequestHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      requestHeaderModification: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  name?: string;
+  operation?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      operation: 'Operation',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operation: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpResponseHeaderModificationRules extends $tea.Model {
+  configId?: number;
+  responseHeaderModification?: UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      responseHeaderModification: 'ResponseHeaderModification',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      responseHeaderModification: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification },
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpsApplicationConfiguration extends $tea.Model {
+  altSvc?: string;
+  altSvcClear?: string;
+  altSvcMa?: string;
+  altSvcPersist?: string;
+  configId?: number;
+  hsts?: string;
+  hstsIncludeSubdomains?: string;
+  hstsMaxAge?: string;
+  hstsPreload?: string;
+  httpsForce?: string;
+  httpsForceCode?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      altSvc: 'AltSvc',
+      altSvcClear: 'AltSvcClear',
+      altSvcMa: 'AltSvcMa',
+      altSvcPersist: 'AltSvcPersist',
+      configId: 'ConfigId',
+      hsts: 'Hsts',
+      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
+      hstsMaxAge: 'HstsMaxAge',
+      hstsPreload: 'HstsPreload',
+      httpsForce: 'HttpsForce',
+      httpsForceCode: 'HttpsForceCode',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      altSvc: 'string',
+      altSvcClear: 'string',
+      altSvcMa: 'string',
+      altSvcPersist: 'string',
+      configId: 'number',
+      hsts: 'string',
+      hstsIncludeSubdomains: 'string',
+      hstsMaxAge: 'string',
+      hstsPreload: 'string',
+      httpsForce: 'string',
+      httpsForceCode: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model {
+  ciphersuite?: string;
+  ciphersuiteGroup?: string;
+  configId?: number;
+  http2?: string;
+  http3?: string;
+  https?: string;
+  ocspStapling?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  tls10?: string;
+  tls11?: string;
+  tls12?: string;
+  tls13?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersuite: 'Ciphersuite',
+      ciphersuiteGroup: 'CiphersuiteGroup',
+      configId: 'ConfigId',
+      http2: 'Http2',
+      http3: 'Http3',
+      https: 'Https',
+      ocspStapling: 'OcspStapling',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      tls10: 'Tls10',
+      tls11: 'Tls11',
+      tls12: 'Tls12',
+      tls13: 'Tls13',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersuite: 'string',
+      ciphersuiteGroup: 'string',
+      configId: 'number',
+      http2: 'string',
+      http3: 'string',
+      https: 'string',
+      ocspStapling: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      tls10: 'string',
+      tls11: 'string',
+      tls12: 'string',
+      tls13: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestImageTransform extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestIpv6 extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestManagedTransforms extends $tea.Model {
+  addClientGeolocationHeaders?: string;
+  addRealClientIpHeader?: string;
+  configId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
+      addRealClientIpHeader: 'AddRealClientIpHeader',
+      configId: 'ConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addClientGeolocationHeaders: 'string',
+      addRealClientIpHeader: 'string',
+      configId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestNetworkOptimization extends $tea.Model {
+  configId?: number;
+  grpc?: string;
+  http2Origin?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  smartRouting?: string;
+  uploadMaxFilesize?: string;
+  websocket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      grpc: 'Grpc',
+      http2Origin: 'Http2Origin',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      smartRouting: 'SmartRouting',
+      uploadMaxFilesize: 'UploadMaxFilesize',
+      websocket: 'Websocket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      grpc: 'string',
+      http2Origin: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      smartRouting: 'string',
+      uploadMaxFilesize: 'string',
+      websocket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestOriginRules extends $tea.Model {
+  configId?: number;
+  dnsRecord?: string;
+  originHost?: string;
+  originHttpPort?: string;
+  originHttpsPort?: string;
+  originScheme?: string;
+  originSni?: string;
+  range?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      dnsRecord: 'DnsRecord',
+      originHost: 'OriginHost',
+      originHttpPort: 'OriginHttpPort',
+      originHttpsPort: 'OriginHttpsPort',
+      originScheme: 'OriginScheme',
+      originSni: 'OriginSni',
+      range: 'Range',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      dnsRecord: 'string',
+      originHost: 'string',
+      originHttpPort: 'string',
+      originHttpsPort: 'string',
+      originScheme: 'string',
+      originSni: 'string',
+      range: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestRedirectRules extends $tea.Model {
+  configId?: number;
+  reserveQueryString?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  statusCode?: string;
+  targetUrl?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      reserveQueryString: 'ReserveQueryString',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      statusCode: 'StatusCode',
+      targetUrl: 'TargetUrl',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      reserveQueryString: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      statusCode: 'string',
+      targetUrl: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
+  configId?: number;
+  queryString?: string;
+  rewriteQueryStringType?: string;
+  rewriteUriType?: string;
+  rule?: string;
+  ruleEnable?: string;
+  ruleName?: string;
+  uri?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      queryString: 'QueryString',
+      rewriteQueryStringType: 'RewriteQueryStringType',
+      rewriteUriType: 'RewriteUriType',
+      rule: 'Rule',
+      ruleEnable: 'RuleEnable',
+      ruleName: 'RuleName',
+      uri: 'Uri',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      queryString: 'string',
+      rewriteQueryStringType: 'string',
+      rewriteUriType: 'string',
+      rule: 'string',
+      ruleEnable: 'string',
+      ruleName: 'string',
+      uri: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestSeoBypass extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
+  configId?: number;
+  enable?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      enable: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestSitePause extends $tea.Model {
+  configId?: number;
+  paused?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configId: 'ConfigId',
+      paused: 'Paused',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configId: 'number',
+      paused: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateSiteFunctionRequestTieredCache extends $tea.Model {
+  cacheArchitectureMode?: string;
+  configId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cacheArchitectureMode: 'CacheArchitectureMode',
+      configId: 'ConfigId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cacheArchitectureMode: 'string',
+      configId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   /**
+   * @remarks
+   * The domain name.
+   * 
    * @example
    * example.com
    */
   domain?: string;
   /**
+   * @remarks
+   * The probe path.
+   * 
    * @example
    * /test
    */
   path?: string;
   /**
+   * @remarks
+   * The subdomain.
+   * 
    * @example
    * test.
    */
@@ -29021,7 +42421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活客户端证书
+   * Activates a client certificate.
    * 
    * @param request - ActivateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29048,7 +42448,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活客户端证书
+   * Activates a client certificate.
    * 
    * @param request - ActivateClientCertificateRequest
    * @returns ActivateClientCertificateResponse
@@ -29059,7 +42459,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建记录
+   * Adds DNS records of different record types at a time..
+   * 
+   * @remarks
+   * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+   * Successful and failed records along with error messages are listed in the response.
    * 
    * @param tmpReq - BatchCreateRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29100,7 +42504,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建记录
+   * Adds DNS records of different record types at a time..
+   * 
+   * @remarks
+   * This operation allows you to create or update multiple DNS records at a time. It is suitable for managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. The operation allows you to configure the priority, flag, tag, and weight for DNS records. In addition, for specific types of records, such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are also supported.
+   * Successful and failed records along with error messages are listed in the response.
    * 
    * @param request - BatchCreateRecordsRequest
    * @returns BatchCreateRecordsResponse
@@ -29111,7 +42519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建WAF规则
+   * Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
    * 
    * @param tmpReq - BatchCreateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29170,7 +42578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量创建WAF规则
+   * Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
    * 
    * @param request - BatchCreateWafRulesRequest
    * @returns BatchCreateWafRulesResponse
@@ -29181,7 +42589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除Namespace的key-value对
+   * Deletes key-value pairs from a namespace at a time based on keys.
    * 
    * @param tmpReq - BatchDeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29224,7 +42632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除Namespace的key-value对
+   * Deletes key-value pairs from a namespace at a time based on keys.
    * 
    * @param request - BatchDeleteKvRequest
    * @returns BatchDeleteKvResponse
@@ -29235,7 +42643,44 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除Namespace下的KV队，支持大body的上传，上限100M
+   * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+   *     func TestBatchDeleteWithHighCapacity() error {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for deleting key-value pairs at a time.
+   *     	namespace := "test_batch_put"
+   *     	rawReq := BatchDeleteKvRequest{
+   *     		Namespace: &namespace,
+   *     	}
+   *     	for i := 0; i < 10000; i++ {
+   *     		key := fmt.Sprintf("test_key_%d", i)
+   *     		rawReq.Keys = append(rawReq.Keys, &key)
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+   *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		UrlObject: bytes.NewReader(payload),
+   *     	}
+   *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29270,7 +42715,44 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除Namespace下的KV队，支持大body的上传，上限100M
+   * Deletes multiple key-value pairs from a namespace at a time based on specified keys. The request body can be up to 100 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html). For small request bodies, we recommend that you use [BatchDeleteKv](https://help.aliyun.com/document_detail/2850204.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchDeleteKvWithHighCapacityAdvance to call the operation.
+   *     func TestBatchDeleteWithHighCapacity() error {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for deleting key-value pairs at a time.
+   *     	namespace := "test_batch_put"
+   *     	rawReq := BatchDeleteKvRequest{
+   *     		Namespace: &namespace,
+   *     	}
+   *     	for i := 0; i < 10000; i++ {
+   *     		key := fmt.Sprintf("test_key_%d", i)
+   *     		rawReq.Keys = append(rawReq.Keys, &key)
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the BatchDeleteKvWithHighCapacity operation for deletion.
+   *     	reqHighCapacity := BatchDeleteKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		UrlObject: bytes.NewReader(payload),
+   *     	}
+   *     	resp, err := cli.BatchDeleteKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - BatchDeleteKvWithHighCapacityRequest
    * @returns BatchDeleteKvWithHighCapacityResponse
@@ -29356,7 +42838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取表达式的匹配项
+   * Batch queries the objects that match specific expressions.
    * 
    * @param tmpReq - BatchGetExpressionFieldsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29403,7 +42885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量获取表达式的匹配项
+   * Batch queries the objects that match specific expressions.
    * 
    * @param request - BatchGetExpressionFieldsRequest
    * @returns BatchGetExpressionFieldsResponse
@@ -29414,7 +42896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置Namespace的key-value对
+   * Configures key-value pairs for a namespace at a time based on specified keys.
    * 
    * @param tmpReq - BatchPutKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29457,7 +42939,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置Namespace的key-value对
+   * Configures key-value pairs for a namespace at a time based on specified keys.
    * 
    * @param request - BatchPutKvRequest
    * @returns BatchPutKvResponse
@@ -29468,7 +42950,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置Namespace的key-value对，支持最大100M的请求体
+   * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+   *     func TestBatchPutKvWithHighCapacity() error {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for uploading key-value pairs at a time.
+   *     	namespace := "test_batch_put"
+   *     	numKv := 10000
+   *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+   *     	test_value := strings.Repeat("a", 10*1024)
+   *     	for i := 0; i < numKv; i++ {
+   *     		key := fmt.Sprintf("test_key_%d", i)
+   *     		value := test_value
+   *     		kvList[i] = &BatchPutKvRequestKvList{
+   *     			Key:   &key,
+   *     			Value: &value,
+   *     		}
+   *     	}
+   *     	rawReq := BatchPutKvRequest{
+   *     		Namespace: &namespace,
+   *     		KvList:    kvList,
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+   *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		UrlObject: bytes.NewReader(payload),
+   *     	}
+   *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29503,7 +43030,52 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量设置Namespace的key-value对，支持最大100M的请求体
+   * Configures key-value pairs for a namespace at a time based on specified keys. The request body can be up to 100 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html). For small request bodies, we recommend that you use [BatchPutKv](https://help.aliyun.com/document_detail/2850203.html) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and BatchPutKvWithHighCapacityAdvance to call the operation.
+   *     func TestBatchPutKvWithHighCapacity() error {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for uploading key-value pairs at a time.
+   *     	namespace := "test_batch_put"
+   *     	numKv := 10000
+   *     	kvList := make([]*BatchPutKvRequestKvList, numKv)
+   *     	test_value := strings.Repeat("a", 10*1024)
+   *     	for i := 0; i < numKv; i++ {
+   *     		key := fmt.Sprintf("test_key_%d", i)
+   *     		value := test_value
+   *     		kvList[i] = &BatchPutKvRequestKvList{
+   *     			Key:   &key,
+   *     			Value: &value,
+   *     		}
+   *     	}
+   *     	rawReq := BatchPutKvRequest{
+   *     		Namespace: &namespace,
+   *     		KvList:    kvList,
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the BatchPutKvWithHighCapacity operation for upload.
+   *     	reqHighCapacity := BatchPutKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		UrlObject: bytes.NewReader(payload),
+   *     	}
+   *     	resp, err := cli.BatchPutKvWithHighCapacityAdvance(&reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - BatchPutKvWithHighCapacityRequest
    * @returns BatchPutKvWithHighCapacityResponse
@@ -29589,7 +43161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改WAF规则
+   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
    * 
    * @param tmpReq - BatchUpdateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29652,7 +43224,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量修改WAF规则
+   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
    * 
    * @param request - BatchUpdateWafRulesRequest
    * @returns BatchUpdateWafRulesResponse
@@ -29663,7 +43235,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL封禁
+   * Blocks URLs.
    * 
    * @param tmpReq - BlockObjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29716,7 +43288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * URL封禁
+   * Blocks URLs.
    * 
    * @param request - BlockObjectRequest
    * @returns BlockObjectResponse
@@ -29727,7 +43299,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点的企业资源组
+   * Moves a website from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29770,7 +43342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点的企业资源组
+   * Moves a website from one resource group to another.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -29781,7 +43353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验站点名称是否可用
+   * Checks whether a specified website name is available.
    * 
    * @param request - CheckSiteNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29812,7 +43384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验站点名称是否可用
+   * Checks whether a specified website name is available.
    * 
    * @param request - CheckSiteNameRequest
    * @returns CheckSiteNameResponse
@@ -29823,7 +43395,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时日志任务投递名检查
+   * Checks the name of a real-time log delivery task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29850,7 +43422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时日志任务投递名检查
+   * Checks the name of a real-time log delivery task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @returns CheckSiteProjectNameResponse
@@ -29861,7 +43433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时日志用户任务投递名检查
+   * Checks the name of a real-time log delivery task by account.
    * 
    * @param request - CheckUserProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29888,7 +43460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时日志用户任务投递名检查
+   * Checks the name of a real-time log delivery task by account.
    * 
    * @param request - CheckUserProjectNameRequest
    * @returns CheckUserProjectNameResponse
@@ -29899,7 +43471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交Routine测试版本代码
+   * Commits the unstable code in the staging environment to generate an official code version.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29934,7 +43506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交Routine测试版本代码
+   * Commits the unstable code in the staging environment to generate an official code version.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @returns CommitRoutineStagingCodeResponse
@@ -29945,7 +43517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定制场景策略
+   * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29992,7 +43564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建定制场景策略
+   * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
    * 
    * @param request - CreateCustomScenePolicyRequest
    * @returns CreateCustomScenePolicyResponse
@@ -30003,7 +43575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器的应用
+   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30086,7 +43658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建边缘容器的应用
+   * Creates a containerized application. You can deploy and release a version of the application across points of presence (POPs).
    * 
    * @param request - CreateEdgeContainerAppRequest
    * @returns CreateEdgeContainerAppResponse
@@ -30097,7 +43669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个边缘容器应用的域名记录
+   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30136,7 +43708,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个边缘容器应用的域名记录
+   * Associates a domain name with a containerized application. This way, requests destined for the associated domain name are forwarded to the application.
    * 
    * @param request - CreateEdgeContainerAppRecordRequest
    * @returns CreateEdgeContainerAppRecordResponse
@@ -30207,7 +43779,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Namespace
+   * Create a namespace in your Alibaba Cloud account.
    * 
    * @param request - CreateKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30242,7 +43814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Namespace
+   * Create a namespace in your Alibaba Cloud account.
    * 
    * @param request - CreateKvNamespaceRequest
    * @returns CreateKvNamespaceResponse
@@ -30253,7 +43825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义列表
+   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
    * 
    * @param tmpReq - CreateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30302,7 +43874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义列表
+   * Creates a list. Lists are used for the referencing of values in the rules engine to implement complex logic and control in security policies.
    * 
    * @param request - CreateListRequest
    * @returns CreateListResponse
@@ -30313,7 +43885,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用CreatePage创建自定义响应页面
+   * 开启源站防护
+   * 
+   * @param request - CreateOriginProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOriginProtectionResponse
+   */
+  async createOriginProtectionWithOptions(request: CreateOriginProtectionRequest, runtime: $Util.RuntimeOptions): Promise<CreateOriginProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateOriginProtection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateOriginProtectionResponse>(await this.callApi(params, req, runtime), new CreateOriginProtectionResponse({}));
+  }
+
+  /**
+   * 开启源站防护
+   * 
+   * @param request - CreateOriginProtectionRequest
+   * @returns CreateOriginProtectionResponse
+   */
+  async createOriginProtection(request: CreateOriginProtectionRequest): Promise<CreateOriginProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createOriginProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
    * 
    * @param request - CreatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30356,7 +43970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用CreatePage创建自定义响应页面
+   * Creates a custom error page, which is displayed when a request is blocked by Web Application Firewall (WAF). You can configure the HTML content, page type, and description, and submit the Base64-encoded page content.
    * 
    * @param request - CreatePageRequest
    * @returns CreatePageResponse
@@ -30367,7 +43981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建记录
+   * Creates a DNS record for a specific website.
    * 
    * @param tmpReq - CreateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30448,7 +44062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建记录
+   * Creates a DNS record for a specific website.
    * 
    * @param request - CreateRecordRequest
    * @returns CreateRecordResponse
@@ -30459,7 +44073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建routine
+   * Creates a routine.
    * 
    * @param request - CreateRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30498,7 +44112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建routine
+   * Creates a routine.
    * 
    * @param request - CreateRoutineRequest
    * @returns CreateRoutineResponse
@@ -30509,7 +44123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Routine关联域名
+   * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30548,7 +44162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Routine关联域名
+   * Adds a record to map a domain that is associated with a routine. This record is used to trigger the associated routine code.
    * 
    * @param request - CreateRoutineRelatedRecordRequest
    * @returns CreateRoutineRelatedRecordResponse
@@ -30559,7 +44173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Routine关联路由
+   * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
    * 
    * @param request - CreateRoutineRelatedRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30598,7 +44212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加Routine关联路由
+   * Adds a route to map a URL to a routine so that the routine can be triggered to respond to requests destined for the URL.
    * 
    * @param request - CreateRoutineRelatedRouteRequest
    * @returns CreateRoutineRelatedRouteResponse
@@ -30609,7 +44223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新增定时预热任务的计划
+   * Creates scheduled prefetch plans.
    * 
    * @param tmpReq - CreateScheduledPreloadExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30652,7 +44266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量新增定时预热任务的计划
+   * Creates scheduled prefetch plans.
    * 
    * @param request - CreateScheduledPreloadExecutionsRequest
    * @returns CreateScheduledPreloadExecutionsResponse
@@ -30663,7 +44277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增定时预热任务
+   * Adds a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30710,7 +44324,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增定时预热任务
+   * Adds a scheduled prefetch task.
    * 
    * @param request - CreateScheduledPreloadJobRequest
    * @returns CreateScheduledPreloadJobResponse
@@ -30721,7 +44335,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建站点
+   * Adds a website.
+   * 
+   * @remarks
+   *   Make sure that you have an available plan before you add a website.
+   * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
    * 
    * @param request - CreateSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30768,7 +44386,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建站点
+   * Adds a website.
+   * 
+   * @remarks
+   *   Make sure that you have an available plan before you add a website.
+   * *   Make sure that your website domain name has an ICP filing if the location you want to specify covers the Chinese mainland.
    * 
    * @param request - CreateSiteRequest
    * @returns CreateSiteResponse
@@ -30779,7 +44401,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建自定义字段
+   * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+   * 
+   * @remarks
+   *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+   * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+   * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
    * 
    * @param tmpReq - CreateSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30836,7 +44463,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建自定义字段
+   * Adds the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
+   * 
+   * @remarks
+   *   **Custom field limits**: The key name of a custom field can contain only letters, digits, underscores (_), and spaces. The key name cannot contain other characters. Otherwise, errors may occur.
+   * *   **Parameter passing**: Submit `SiteId`, `RequestHeaders`, `ResponseHeaders`, and `Cookies` by using `formData`. Each array element matches a custom field name.
+   * *   **(Required) SiteId**: Although `SiteId` is not marked as required in the Required column, you must specify a website ID by using this parameter when you can call this API operation.
    * 
    * @param request - CreateSiteCustomLogRequest
    * @returns CreateSiteCustomLogResponse
@@ -30847,7 +44479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建一个任务投递
+   * Creates a real-time log delivery task.
    * 
    * @param tmpReq - CreateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30944,7 +44576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建一个任务投递
+   * Creates a real-time log delivery task.
    * 
    * @param request - CreateSiteDeliveryTaskRequest
    * @returns CreateSiteDeliveryTaskResponse
@@ -30955,7 +44587,250 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建一个用户粒度任务投递
+   * 新增站点功能配置
+   * 
+   * @param tmpReq - CreateSiteFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSiteFunctionResponse
+   */
+  async createSiteFunctionWithOptions(tmpReq: CreateSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSiteFunctionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateSiteFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.cacheReserve)) {
+      request.cacheReserveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheReserve, "CacheReserve", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cacheRules)) {
+      request.cacheRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRules, "CacheRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cacheTags)) {
+      request.cacheTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheTags, "CacheTags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cnameFlattening)) {
+      request.cnameFlatteningShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cnameFlattening, "CnameFlattening", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.compressionRules)) {
+      request.compressionRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.compressionRules, "CompressionRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.crossBorderOptimization)) {
+      request.crossBorderOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossBorderOptimization, "CrossBorderOptimization", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.developmentMode)) {
+      request.developmentModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.developmentMode, "DevelopmentMode", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpRequestHeaderModificationRules)) {
+      request.httpRequestHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpRequestHeaderModificationRules, "HttpRequestHeaderModificationRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpResponseHeaderModificationRules)) {
+      request.httpResponseHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpResponseHeaderModificationRules, "HttpResponseHeaderModificationRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpsApplicationConfiguration)) {
+      request.httpsApplicationConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsApplicationConfiguration, "HttpsApplicationConfiguration", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpsBasicConfiguration)) {
+      request.httpsBasicConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsBasicConfiguration, "HttpsBasicConfiguration", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.imageTransform)) {
+      request.imageTransformShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageTransform, "ImageTransform", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ipv6)) {
+      request.ipv6Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipv6, "Ipv6", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.managedTransforms)) {
+      request.managedTransformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managedTransforms, "ManagedTransforms", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.networkOptimization)) {
+      request.networkOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkOptimization, "NetworkOptimization", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.originProtection)) {
+      request.originProtectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originProtection, "OriginProtection", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.originRules)) {
+      request.originRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originRules, "OriginRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.redirectRules)) {
+      request.redirectRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectRules, "RedirectRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rewriteUrlRules)) {
+      request.rewriteUrlRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewriteUrlRules, "RewriteUrlRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.seoBypass)) {
+      request.seoBypassShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.seoBypass, "SeoBypass", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.siteNameExclusive)) {
+      request.siteNameExclusiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteNameExclusive, "SiteNameExclusive", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sitePause)) {
+      request.sitePauseShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sitePause, "SitePause", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tieredCache)) {
+      request.tieredCacheShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tieredCache, "TieredCache", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.cacheReserveShrink)) {
+      query["CacheReserve"] = request.cacheReserveShrink;
+    }
+
+    if (!Util.isUnset(request.cacheRulesShrink)) {
+      query["CacheRules"] = request.cacheRulesShrink;
+    }
+
+    if (!Util.isUnset(request.cacheTagsShrink)) {
+      query["CacheTags"] = request.cacheTagsShrink;
+    }
+
+    if (!Util.isUnset(request.cnameFlatteningShrink)) {
+      query["CnameFlattening"] = request.cnameFlatteningShrink;
+    }
+
+    if (!Util.isUnset(request.compressionRulesShrink)) {
+      query["CompressionRules"] = request.compressionRulesShrink;
+    }
+
+    if (!Util.isUnset(request.crossBorderOptimizationShrink)) {
+      query["CrossBorderOptimization"] = request.crossBorderOptimizationShrink;
+    }
+
+    if (!Util.isUnset(request.developmentModeShrink)) {
+      query["DevelopmentMode"] = request.developmentModeShrink;
+    }
+
+    if (!Util.isUnset(request.httpRequestHeaderModificationRulesShrink)) {
+      query["HttpRequestHeaderModificationRules"] = request.httpRequestHeaderModificationRulesShrink;
+    }
+
+    if (!Util.isUnset(request.httpResponseHeaderModificationRulesShrink)) {
+      query["HttpResponseHeaderModificationRules"] = request.httpResponseHeaderModificationRulesShrink;
+    }
+
+    if (!Util.isUnset(request.httpsApplicationConfigurationShrink)) {
+      query["HttpsApplicationConfiguration"] = request.httpsApplicationConfigurationShrink;
+    }
+
+    if (!Util.isUnset(request.httpsBasicConfigurationShrink)) {
+      query["HttpsBasicConfiguration"] = request.httpsBasicConfigurationShrink;
+    }
+
+    if (!Util.isUnset(request.imageTransformShrink)) {
+      query["ImageTransform"] = request.imageTransformShrink;
+    }
+
+    if (!Util.isUnset(request.ipv6Shrink)) {
+      query["Ipv6"] = request.ipv6Shrink;
+    }
+
+    if (!Util.isUnset(request.managedTransformsShrink)) {
+      query["ManagedTransforms"] = request.managedTransformsShrink;
+    }
+
+    if (!Util.isUnset(request.networkOptimizationShrink)) {
+      query["NetworkOptimization"] = request.networkOptimizationShrink;
+    }
+
+    if (!Util.isUnset(request.originProtectionShrink)) {
+      query["OriginProtection"] = request.originProtectionShrink;
+    }
+
+    if (!Util.isUnset(request.originRulesShrink)) {
+      query["OriginRules"] = request.originRulesShrink;
+    }
+
+    if (!Util.isUnset(request.redirectRulesShrink)) {
+      query["RedirectRules"] = request.redirectRulesShrink;
+    }
+
+    if (!Util.isUnset(request.rewriteUrlRulesShrink)) {
+      query["RewriteUrlRules"] = request.rewriteUrlRulesShrink;
+    }
+
+    if (!Util.isUnset(request.seoBypassShrink)) {
+      query["SeoBypass"] = request.seoBypassShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!Util.isUnset(request.siteNameExclusiveShrink)) {
+      query["SiteNameExclusive"] = request.siteNameExclusiveShrink;
+    }
+
+    if (!Util.isUnset(request.sitePauseShrink)) {
+      query["SitePause"] = request.sitePauseShrink;
+    }
+
+    if (!Util.isUnset(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    if (!Util.isUnset(request.tieredCacheShrink)) {
+      query["TieredCache"] = request.tieredCacheShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateSiteFunction",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateSiteFunctionResponse>(await this.callApi(params, req, runtime), new CreateSiteFunctionResponse({}));
+  }
+
+  /**
+   * 新增站点功能配置
+   * 
+   * @param request - CreateSiteFunctionRequest
+   * @returns CreateSiteFunctionResponse
+   */
+  async createSiteFunction(request: CreateSiteFunctionRequest): Promise<CreateSiteFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createSiteFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a log delivery task to ship logs to the specified destination.
+   * 
+   * @remarks
+   * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+   * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+   * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+   * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+   * ## [](#)Precautions
+   * *   Make sure that you have sufficient permissions to perform delivery tasks.
+   * *   If you enable encryption or authentication, properly configure corresponding parameters.
+   * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+   * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
    * 
    * @param tmpReq - CreateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31048,7 +44923,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新建一个用户粒度任务投递
+   * Creates a log delivery task to ship logs to the specified destination.
+   * 
+   * @remarks
+   * This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
+   * *   **Field filtering**: Use the `FieldName` parameter to specify log fields to deliver.
+   * *   **Filtering rules**: Use the `FilterRules` parameter to pre-process and filter log data.
+   * *   **Diverse delivery destinations**: Logs can be delivered to different destinations. Configuration parameters vary with delivery destinations.
+   * ## [](#)Precautions
+   * *   Make sure that you have sufficient permissions to perform delivery tasks.
+   * *   If you enable encryption or authentication, properly configure corresponding parameters.
+   * *   Verify the syntax of `FilterRules` to make sure that filtering logic works as expected.
+   * *   Specify advanced settings such as the number of retries and timeout period based on your needs to have optimal delivery efficiency and stability.
    * 
    * @param request - CreateUserDeliveryTaskRequest
    * @returns CreateUserDeliveryTaskResponse
@@ -31059,7 +44945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WAF规则
+   * Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
    * 
    * @param tmpReq - CreateWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31110,7 +44996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建WAF规则
+   * Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
    * 
    * @param request - CreateWafRuleRequest
    * @returns CreateWafRuleResponse
@@ -31233,7 +45119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室事件
+   * Creates a waiting room event.
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31340,7 +45226,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室事件
+   * Creates a waiting room event.
    * 
    * @param request - CreateWaitingRoomEventRequest
    * @returns CreateWaitingRoomEventResponse
@@ -31351,7 +45237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室规则
+   * Creates a waiting room bypass rule.
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31398,7 +45284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建等候室规则
+   * Creates a waiting room bypass rule.
    * 
    * @param request - CreateWaitingRoomRuleRequest
    * @returns CreateWaitingRoomRuleResponse
@@ -31409,7 +45295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定制场景策略
+   * Deletes a scenario-specific custom policy.
    * 
    * @param request - DeleteCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31440,7 +45326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除定制场景策略
+   * Deletes a scenario-specific custom policy.
    * 
    * @param request - DeleteCustomScenePolicyRequest
    * @returns DeleteCustomScenePolicyResponse
@@ -31451,7 +45337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除边缘容器的应用
+   * Deletes a containerized application.
    * 
    * @param request - DeleteEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31482,7 +45368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除边缘容器的应用
+   * Deletes a containerized application.
    * 
    * @param request - DeleteEdgeContainerAppRequest
    * @returns DeleteEdgeContainerAppResponse
@@ -31493,7 +45379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个边缘容器应用的域名记录
+   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31532,7 +45418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个边缘容器应用的域名记录
+   * Disassociates a domain name from a containerized application. After the dissociation, you can no longer use the domain name to access the containerized application.
    * 
    * @param request - DeleteEdgeContainerAppRecordRequest
    * @returns DeleteEdgeContainerAppRecordResponse
@@ -31543,7 +45429,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除边缘容器应用的版本
+   * Deletes a version of a containerized application.
    * 
    * @param request - DeleteEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31578,7 +45464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除边缘容器应用的版本
+   * Deletes a version of a containerized application.
    * 
    * @param request - DeleteEdgeContainerAppVersionRequest
    * @returns DeleteEdgeContainerAppVersionResponse
@@ -31589,7 +45475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Namespace的Key-Value对
+   * Deletes a key-value pair from a namespace.
    * 
    * @param request - DeleteKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31616,7 +45502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Namespace的Key-Value对
+   * Deletes a key-value pair from a namespace.
    * 
    * @param request - DeleteKvRequest
    * @returns DeleteKvResponse
@@ -31627,7 +45513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Namespace
+   * Deletes a namespace from an Alibaba Cloud account.
    * 
    * @param request - DeleteKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31658,7 +45544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Namespace
+   * Deletes a namespace from an Alibaba Cloud account.
    * 
    * @param request - DeleteKvNamespaceRequest
    * @returns DeleteKvNamespaceResponse
@@ -31669,7 +45555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义列表
+   * Deletes a custom list that is no longer needed.
    * 
    * @param request - DeleteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31700,7 +45586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义列表
+   * Deletes a custom list that is no longer needed.
    * 
    * @param request - DeleteListRequest
    * @returns DeleteListResponse
@@ -31711,7 +45597,49 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义响应页面
+   * 关闭源站防护功能
+   * 
+   * @param request - DeleteOriginProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOriginProtectionResponse
+   */
+  async deleteOriginProtectionWithOptions(request: DeleteOriginProtectionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOriginProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteOriginProtection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteOriginProtectionResponse>(await this.callApi(params, req, runtime), new DeleteOriginProtectionResponse({}));
+  }
+
+  /**
+   * 关闭源站防护功能
+   * 
+   * @param request - DeleteOriginProtectionRequest
+   * @returns DeleteOriginProtectionResponse
+   */
+  async deleteOriginProtection(request: DeleteOriginProtectionRequest): Promise<DeleteOriginProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteOriginProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a custom error page that is no longer needed.
    * 
    * @param request - DeletePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31742,7 +45670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义响应页面
+   * Deletes a custom error page that is no longer needed.
    * 
    * @param request - DeletePageRequest
    * @returns DeletePageResponse
@@ -31753,7 +45681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除记录
+   * Deletes a DNS record of a website based on the specified RecordId.
    * 
    * @param request - DeleteRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31784,7 +45712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除记录
+   * Deletes a DNS record of a website based on the specified RecordId.
    * 
    * @param request - DeleteRecordRequest
    * @returns DeleteRecordResponse
@@ -31795,7 +45723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine
+   * Deletes a routine in Edge Routine.
    * 
    * @param request - DeleteRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31826,7 +45754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine
+   * Deletes a routine in Edge Routine.
    * 
    * @param request - DeleteRoutineRequest
    * @returns DeleteRoutineResponse
@@ -31837,7 +45765,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine某版本代码
+   * Deletes a code version of a routine.
    * 
    * @param request - DeleteRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31872,7 +45800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine某版本代码
+   * Deletes a code version of a routine.
    * 
    * @param request - DeleteRoutineCodeVersionRequest
    * @returns DeleteRoutineCodeVersionResponse
@@ -31883,7 +45811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine关联域名
+   * Deletes a record that is associated with a routine.
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31928,7 +45856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine关联域名
+   * Deletes a record that is associated with a routine.
    * 
    * @param request - DeleteRoutineRelatedRecordRequest
    * @returns DeleteRoutineRelatedRecordResponse
@@ -31939,7 +45867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine关联路由
+   * Deletes a route that is associated with a routine.
    * 
    * @param request - DeleteRoutineRelatedRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31982,7 +45910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Routine关联路由
+   * Deletes a route that is associated with a routine.
    * 
    * @param request - DeleteRoutineRelatedRouteRequest
    * @returns DeleteRoutineRelatedRouteResponse
@@ -31993,7 +45921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个定时预热计划
+   * Deletes a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32024,7 +45952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除单个定时预热计划
+   * Deletes a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - DeleteScheduledPreloadExecutionRequest
    * @returns DeleteScheduledPreloadExecutionResponse
@@ -32035,7 +45963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定定时预热任务
+   * Deletes a specified scheduled prefetch task based on the task ID.
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32066,7 +45994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定定时预热任务
+   * Deletes a specified scheduled prefetch task based on the task ID.
    * 
    * @param request - DeleteScheduledPreloadJobRequest
    * @returns DeleteScheduledPreloadJobResponse
@@ -32077,7 +46005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除站点
+   * Deletes a website based on the specified website ID.
    * 
    * @param request - DeleteSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32116,7 +46044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除站点
+   * Deletes a website based on the specified website ID.
    * 
    * @param request - DeleteSiteRequest
    * @returns DeleteSiteResponse
@@ -32127,7 +46055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个任务投递
+   * Deletes a real-time log delivery task.
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32162,7 +46090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个任务投递
+   * Deletes a real-time log delivery task.
    * 
    * @param request - DeleteSiteDeliveryTaskRequest
    * @returns DeleteSiteDeliveryTaskResponse
@@ -32173,7 +46101,59 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个用户任务投递
+   * 删除站点配置
+   * 
+   * @param request - DeleteSiteFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSiteFunctionResponse
+   */
+  async deleteSiteFunctionWithOptions(request: DeleteSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSiteFunctionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.configIds)) {
+      query["ConfigIds"] = request.configIds;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteSiteFunction",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteSiteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteSiteFunctionResponse({}));
+  }
+
+  /**
+   * 删除站点配置
+   * 
+   * @param request - DeleteSiteFunctionRequest
+   * @returns DeleteSiteFunctionResponse
+   */
+  async deleteSiteFunction(request: DeleteSiteFunctionRequest): Promise<DeleteSiteFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteSiteFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a log delivery task from your Alibaba Cloud account.
+   * 
+   * @remarks
+   * *****> 
+   * *   Deleted tasks cannot be restored. Proceed with caution.
+   * *   To call this operation, you must have an account that has the required permissions.
+   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32204,7 +46184,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个用户任务投递
+   * Deletes a log delivery task from your Alibaba Cloud account.
+   * 
+   * @remarks
+   * *****> 
+   * *   Deleted tasks cannot be restored. Proceed with caution.
+   * *   To call this operation, you must have an account that has the required permissions.
+   * *   The returned `RequestId` value can be used to track the request processing progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @returns DeleteUserDeliveryTaskResponse
@@ -32215,7 +46201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除WAF规则
+   * Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
    * 
    * @param request - DeleteWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32256,7 +46242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除WAF规则
+   * Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
    * 
    * @param request - DeleteWafRuleRequest
    * @returns DeleteWafRuleResponse
@@ -32267,7 +46253,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除WAF规则集
+   * Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
    * 
    * @param request - DeleteWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32308,7 +46294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除WAF规则集
+   * Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
    * 
    * @param request - DeleteWafRulesetRequest
    * @returns DeleteWafRulesetResponse
@@ -32319,7 +46305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室
+   * Deletes a waiting room.
    * 
    * @param request - DeleteWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32354,7 +46340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室
+   * Deletes a waiting room.
    * 
    * @param request - DeleteWaitingRoomRequest
    * @returns DeleteWaitingRoomResponse
@@ -32365,7 +46351,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室事件
+   * Deletes a waiting room event.
    * 
    * @param request - DeleteWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32400,7 +46386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室事件
+   * Deletes a waiting room event.
    * 
    * @param request - DeleteWaitingRoomEventRequest
    * @returns DeleteWaitingRoomEventResponse
@@ -32411,7 +46397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室规则
+   * Deletes a waiting room bypass rule.
    * 
    * @param request - DeleteWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32446,7 +46432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除等候室规则
+   * Deletes a waiting room bypass rule.
    * 
    * @param request - DeleteWaitingRoomRuleRequest
    * @returns DeleteWaitingRoomRuleResponse
@@ -32457,7 +46443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询定制场景策略配置
+   * Queries the configurations of a scenario-specific policy.
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32496,7 +46482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询定制场景策略配置
+   * Queries the configurations of a scenario-specific policy.
    * 
    * @param request - DescribeCustomScenePoliciesRequest
    * @returns DescribeCustomScenePoliciesResponse
@@ -32507,7 +46493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 攻击分析-查询攻击事件列表
+   * Queries DDoS attack events.
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32558,7 +46544,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 攻击分析-查询攻击事件列表
+   * Queries DDoS attack events.
    * 
    * @param request - DescribeDDoSAllEventListRequest
    * @returns DescribeDDoSAllEventListResponse
@@ -32569,7 +46555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP DDoS智能防护配置信息
+   * Queries the configuration of smart HTTP DDoS protection for a website.
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32600,7 +46586,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP DDoS智能防护配置信息
+   * Queries the configuration of smart HTTP DDoS protection for a website.
    * 
    * @param request - DescribeHttpDDoSAttackIntelligentProtectionRequest
    * @returns DescribeHttpDDoSAttackIntelligentProtectionResponse
@@ -32611,7 +46597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP DDoS攻击防护配置信息
+   * Queries the configurations of HTTP DDoS attack protection.
    * 
    * @param request - DescribeHttpDDoSAttackProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32642,7 +46628,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询HTTP DDoS攻击防护配置信息
+   * Queries the configurations of HTTP DDoS attack protection.
    * 
    * @param request - DescribeHttpDDoSAttackProtectionRequest
    * @returns DescribeHttpDDoSAttackProtectionResponse
@@ -32653,7 +46639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账户的KV状态信
+   * Queries whether Edge KV is activated in your Alibaba Cloud account.
    * 
    * @param request - DescribeKvAccountStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32676,7 +46662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询账户的KV状态信
+   * Queries whether Edge KV is activated in your Alibaba Cloud account.
    * @returns DescribeKvAccountStatusResponse
    */
   async describeKvAccountStatus(): Promise<DescribeKvAccountStatusResponse> {
@@ -32685,7 +46671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预热任务查询接口
+   * Queries the details of prefetch tasks by time, task status, or prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32712,7 +46698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 预热任务查询接口
+   * Queries the details of prefetch tasks by time, task status, or prefetch URL.
    * 
    * @param request - DescribePreloadTasksRequest
    * @returns DescribePreloadTasksResponse
@@ -32723,7 +46709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新任务查询接口
+   * Queries the details of purge tasks.
    * 
    * @param request - DescribePurgeTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32750,7 +46736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 刷新任务查询接口
+   * Queries the details of purge tasks.
    * 
    * @param request - DescribePurgeTasksRequest
    * @returns DescribePurgeTasksResponse
@@ -32761,7 +46747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用定制场景策略
+   * Disables a scenario-specific policy.
    * 
    * @param request - DisableCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32792,7 +46778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 禁用定制场景策略
+   * Disables a scenario-specific policy.
    * 
    * @param request - DisableCustomScenePolicyRequest
    * @returns DisableCustomScenePolicyResponse
@@ -32803,7 +46789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑站点WAF配置
+   * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
    * 
    * @param tmpReq - EditSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32850,7 +46836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 编辑站点WAF配置
+   * Modifies the Web Application Firewall (WAF) configuration of a website, such as the client IP address that is identified by WAF.
    * 
    * @param request - EditSiteWafSettingsRequest
    * @returns EditSiteWafSettingsResponse
@@ -32861,7 +46847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动定制场景策略
+   * Enables a scenario-specific policy.
    * 
    * @param request - EnableCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32892,7 +46878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动定制场景策略
+   * Enables a scenario-specific policy.
    * 
    * @param request - EnableCustomScenePolicyRequest
    * @returns EnableCustomScenePolicyResponse
@@ -32903,7 +46889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出记录
+   * Exports all DNS records of a website domain as a TXT file.
    * 
    * @param request - ExportRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32930,7 +46916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导出记录
+   * Exports all DNS records of a website domain as a TXT file.
    * 
    * @param request - ExportRecordsRequest
    * @returns ExportRecordsResponse
@@ -32941,7 +46927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询缓存保持实例规格
+   * Queries the available specifications of cache reserve instances.
    * 
    * @param request - GetCacheReserveSpecificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32964,7 +46950,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询缓存保持实例规格
+   * Queries the available specifications of cache reserve instances.
    * @returns GetCacheReserveSpecificationResponse
    */
   async getCacheReserveSpecification(): Promise<GetCacheReserveSpecificationResponse> {
@@ -32973,7 +46959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用信息
+   * Queries the information about a containerized application, including basic application configurations and health check configurations.
    * 
    * @param request - GetEdgeContainerAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33004,7 +46990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用信息
+   * Queries the information about a containerized application, including basic application configurations and health check configurations.
    * 
    * @param request - GetEdgeContainerAppRequest
    * @returns GetEdgeContainerAppResponse
@@ -33015,7 +47001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的状态信息
+   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33050,7 +47036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的状态信息
+   * Queries the status information about a containerized application, including the deployment, release, and rollback of the application.
    * 
    * @param request - GetEdgeContainerAppStatusRequest
    * @returns GetEdgeContainerAppStatusResponse
@@ -33061,7 +47047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的某个版本信息
+   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33088,7 +47074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的某个版本信息
+   * Queries the information about a version of a containerized application. You can select an application version to release based on the version information.
    * 
    * @param request - GetEdgeContainerAppVersionRequest
    * @returns GetEdgeContainerAppVersionResponse
@@ -33099,7 +47085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用部署区域
+   * Queries regions where a containerized application is deployed based on the application ID.
    * 
    * @param request - GetEdgeContainerDeployRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33126,7 +47112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用部署区域
+   * Queries regions where a containerized application is deployed based on the application ID.
    * 
    * @param request - GetEdgeContainerDeployRegionsRequest
    * @returns GetEdgeContainerDeployRegionsResponse
@@ -33137,7 +47123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器日志信息
+   * Queries Edge Container logs.
    * 
    * @param request - GetEdgeContainerLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33164,7 +47150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器日志信息
+   * Queries Edge Container logs.
    * 
    * @param request - GetEdgeContainerLogsRequest
    * @returns GetEdgeContainerLogsResponse
@@ -33175,7 +47161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用测试环境部署状态
+   * Queries the deployment status of an application in the staging environment by using the application ID.
    * 
    * @param request - GetEdgeContainerStagingDeployStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33202,7 +47188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用测试环境部署状态
+   * Queries the deployment status of an application in the staging environment by using the application ID.
    * 
    * @param request - GetEdgeContainerStagingDeployStatusRequest
    * @returns GetEdgeContainerStagingDeployStatusResponse
@@ -33213,7 +47199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用终端信息
+   * Queries the terminal information of a containerized application.
    * 
    * @param request - GetEdgeContainerTerminalRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33244,7 +47230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用终端信息
+   * Queries the terminal information of a containerized application.
    * 
    * @param request - GetEdgeContainerTerminalRequest
    * @returns GetEdgeContainerTerminalResponse
@@ -33255,7 +47241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetErService
+   * Checks the status of Edge Routine.
    * 
    * @param request - GetErServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33282,7 +47268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * GetErService
+   * Checks the status of Edge Routine.
    * 
    * @param request - GetErServiceRequest
    * @returns GetErServiceResponse
@@ -33293,7 +47279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Key-Value对的某个Key值
+   * Queries the value of a key in a key-value pair.
    * 
    * @param request - GetKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33320,7 +47306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Key-Value对的某个Key值
+   * Queries the value of a key in a key-value pair.
    * 
    * @param request - GetKvRequest
    * @returns GetKvResponse
@@ -33331,7 +47317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出账号下的NS
+   * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
    * 
    * @param request - GetKvAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33354,7 +47340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出账号下的NS
+   * Queries the Edge KV usage in your Alibaba Cloud account, including the information about all namespaces.
    * @returns GetKvAccountResponse
    */
   async getKvAccount(): Promise<GetKvAccountResponse> {
@@ -33363,7 +47349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Namespace信息
+   * Queries the information about a namespace in your Alibaba Cloud account.
    * 
    * @param request - GetKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33390,7 +47376,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Namespace信息
+   * Queries the information about a namespace in your Alibaba Cloud account.
    * 
    * @param request - GetKvNamespaceRequest
    * @returns GetKvNamespaceResponse
@@ -33401,7 +47387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个自定义列表
+   * Queries the details of a custom list, such as the name, description, type, and content.
    * 
    * @param request - GetListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33432,7 +47418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个自定义列表
+   * Queries the details of a custom list, such as the name, description, type, and content.
    * 
    * @param request - GetListRequest
    * @returns GetListResponse
@@ -33443,7 +47429,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个自定义响应页面详情
+   * 查询站点源站防护相关配置，查看回源IP白名单信息
+   * 
+   * @param request - GetOriginProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOriginProtectionResponse
+   */
+  async getOriginProtectionWithOptions(request: GetOriginProtectionRequest, runtime: $Util.RuntimeOptions): Promise<GetOriginProtectionResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOriginProtection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOriginProtectionResponse>(await this.callApi(params, req, runtime), new GetOriginProtectionResponse({}));
+  }
+
+  /**
+   * 查询站点源站防护相关配置，查看回源IP白名单信息
+   * 
+   * @param request - GetOriginProtectionRequest
+   * @returns GetOriginProtectionResponse
+   */
+  async getOriginProtection(request: GetOriginProtectionRequest): Promise<GetOriginProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getOriginProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of a custom error page based on the error page ID.
    * 
    * @param request - GetPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33474,7 +47498,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个自定义响应页面详情
+   * Queries the details of a custom error page based on the error page ID.
    * 
    * @param request - GetPageRequest
    * @returns GetPageResponse
@@ -33485,7 +47509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取刷新Quota
+   * Queries the quotas and quota usage for different cache purge options.
    * 
    * @param request - GetPurgeQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33512,7 +47536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取刷新Quota
+   * Queries the quotas and quota usage for different cache purge options.
    * 
    * @param request - GetPurgeQuotaRequest
    * @returns GetPurgeQuotaResponse
@@ -33523,7 +47547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ub日志字段列表接口
+   * Queries the fields in real-time logs based on the log category.
    * 
    * @param request - GetRealtimeDeliveryFieldRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33550,7 +47574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ub日志字段列表接口
+   * Queries the fields in real-time logs based on the log category.
    * 
    * @param request - GetRealtimeDeliveryFieldRequest
    * @returns GetRealtimeDeliveryFieldResponse
@@ -33599,7 +47623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine配置信息
+   * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
    * 
    * @param request - GetRoutineRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33630,7 +47654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine配置信息
+   * Queries the configurations of a routine, including the code versions and the configurations of the environments, associated domain names, and associated routes.
    * 
    * @param request - GetRoutineRequest
    * @returns GetRoutineResponse
@@ -33641,7 +47665,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33676,7 +47704,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传Routine的测试版本代码, 返回上传代码到OSS的参数
+   * Obtains the release information about the routine code that is released to the staging environment. This information can be used to upload the test code to Object Storage Service (OSS).
+   * 
+   * @remarks
+   *   Every time the code of a routine is released to the staging environment, a version number is generated. Such code is for tests only.
+   * *   A routine can retain a maximum of 10 code versions. If the number of versions reaches the limit, you must call the DeleteRoutineCodeRevision operation to delete unwanted versions.
    * 
    * @param request - GetRoutineStagingCodeUploadInfoRequest
    * @returns GetRoutineStagingCodeUploadInfoResponse
@@ -33687,7 +47719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘函数测试环境IP
+   * Queries the IP addresses of staging environments for Edge Routine.
    * 
    * @param request - GetRoutineStagingEnvIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33710,7 +47742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询边缘函数测试环境IP
+   * Queries the IP addresses of staging environments for Edge Routine.
    * @returns GetRoutineStagingEnvIpResponse
    */
   async getRoutineStagingEnvIp(): Promise<GetRoutineStagingEnvIpResponse> {
@@ -33719,7 +47751,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的Routine列表
+   * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
    * 
    * @param request - GetRoutineUserInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33742,7 +47774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户的Routine列表
+   * Queries the Edge Routine information in your Alibaba Cloud account, including the associated subdomain and created routines.
    * @returns GetRoutineUserInfoResponse
    */
   async getRoutineUserInfo(): Promise<GetRoutineUserInfoResponse> {
@@ -33751,7 +47783,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个定时预热任务
+   * Queries a specified scheduled prefetch task based on the task ID.
    * 
    * @param request - GetScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33778,7 +47810,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个定时预热任务
+   * Queries a specified scheduled prefetch task based on the task ID.
    * 
    * @param request - GetScheduledPreloadJobRequest
    * @returns GetScheduledPreloadJobResponse
@@ -33789,7 +47821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个站点信息
+   * Queries information about a website based on the website ID.
    * 
    * @param request - GetSiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33816,7 +47848,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个站点信息
+   * Queries information about a website based on the website ID.
    * 
    * @param request - GetSiteRequest
    * @returns GetSiteResponse
@@ -33827,7 +47859,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前NS列表
+   * Queries the nameservers configured for a website.
    * 
    * @param request - GetSiteCurrentNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33854,7 +47886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询当前NS列表
+   * Queries the nameservers configured for a website.
    * 
    * @param request - GetSiteCurrentNSRequest
    * @returns GetSiteCurrentNSResponse
@@ -33865,7 +47897,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义字段
+   * Queries the configuration of custom log fields for a website.
+   * 
+   * @remarks
+   *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+   * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+   * *   ****
    * 
    * @param request - GetSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33892,7 +47929,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义字段
+   * Queries the configuration of custom log fields for a website.
+   * 
+   * @remarks
+   *   **Description**: You can call this operation to query the configuration of custom log fields for a website, including custom fields in request headers, response headers, and cookies.
+   * *   **Scenarios**: You can call this operation in scenarios where you need to obtain specific HTTP headers or cookie information for log analysis.
+   * *   ****
    * 
    * @param request - GetSiteCustomLogRequest
    * @returns GetSiteCustomLogResponse
@@ -33903,7 +47945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个实时日志任务投递
+   * Queries a real-time log delivery task.
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33930,7 +47972,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个实时日志任务投递
+   * Queries a real-time log delivery task.
    * 
    * @param request - GetSiteDeliveryTaskRequest
    * @returns GetSiteDeliveryTaskResponse
@@ -33941,7 +47983,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志投递任务quota数
+   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+   * 
+   * @remarks
+   * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+   * **Take note of the following parameters:**
+   * *   ``
+   * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+   * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+   * **Response:**
+   * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33968,7 +48019,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志投递任务quota数
+   * Queries the remaining quota for delivering a specific category of real-time logs in a website.
+   * 
+   * @remarks
+   * You can call this operation to query the remaining quota for delivering a specific category of real-time logs in a website within an Alibaba Cloud account. This is essential for monitoring and managing your log delivery capacity to ensure that logs can be delivered to the destination and prevent data loss or latency caused by insufficient quota.
+   * **Take note of the following parameters:**
+   * *   ``
+   * *   `BusinessType` is required. You must specify a log category to obtain the corresponding quota information.
+   * *   `SiteId` specifies the ID of a website, which must be a valid integer that corresponds to a website that you configured on Alibaba Cloud.
+   * **Response:**
+   * *   If a request is successful, the system returns the remaining log delivery quota (`FreeQuota`), request ID (`RequestId`), website ID (`SiteId`), and log category (`BusinessType`). You can confirm and record the returned data.
    * 
    * @param request - GetSiteLogDeliveryQuotaRequest
    * @returns GetSiteLogDeliveryQuotaResponse
@@ -33979,7 +48039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取站点WAF配置
+   * Queries the Web Application Firewall (WAF) configurations of a website.
    * 
    * @param request - GetSiteWafSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34014,7 +48074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取站点WAF配置
+   * Queries the Web Application Firewall (WAF) configurations of a website.
    * 
    * @param request - GetSiteWafSettingsRequest
    * @returns GetSiteWafSettingsResponse
@@ -34025,7 +48085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件上传任务查询接口
+   * Queries the execution status and running information of a file upload task based on the task ID.
    * 
    * @param request - GetUploadTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34052,7 +48112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 文件上传任务查询接口
+   * Queries the execution status and running information of a file upload task based on the task ID.
    * 
    * @param request - GetUploadTaskRequest
    * @returns GetUploadTaskResponse
@@ -34063,7 +48123,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个用户粒度任务投递
+   * Queries the information about a log delivery task by account.
+   * 
+   * @remarks
+   *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+   * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+   * *   ****````
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34090,7 +48155,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个用户粒度任务投递
+   * Queries the information about a log delivery task by account.
+   * 
+   * @remarks
+   *   This API operation queries the details of a delivery task, including the task name, discard rate, region, log category, status, delivery destination, configuration, and filtering rules.****
+   * *   You can call this operation to query detailed information about a log delivery task to analyze log processing efficiency or troubleshoot delivery problems.****
+   * *   ****````
    * 
    * @param request - GetUserDeliveryTaskRequest
    * @returns GetUserDeliveryTaskResponse
@@ -34101,7 +48171,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志投递任务用户quota数
+   * Queries the remaining log delivery quota of each log category in your account.
+   * 
+   * @remarks
+   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34128,7 +48201,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志投递任务用户quota数
+   * Queries the remaining log delivery quota of each log category in your account.
+   * 
+   * @remarks
+   * This operation allows you to query the remaining real-time log delivery quota of each log category in your Alibaba Cloud account. You must provide your Alibaba Cloud account ID (aliUid) and log category (BusinessType). The system then returns the remaining quota of the log category to help you track the usage.
    * 
    * @param request - GetUserLogDeliveryQuotaRequest
    * @returns GetUserLogDeliveryQuotaResponse
@@ -34139,6 +48215,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
+   * 
    * @param request - GetWafBotAppKeyRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetWafBotAppKeyResponse
@@ -34160,6 +48238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the application key (AppKey) that is used for authentication and data exchange in bot behavior detection in Web Application Firewall (WAF).
    * @returns GetWafBotAppKeyResponse
    */
   async getWafBotAppKey(): Promise<GetWafBotAppKeyResponse> {
@@ -34168,7 +48247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将匹配项转换为表达式
+   * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
    * 
    * @param request - GetWafFilterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34211,7 +48290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 将匹配项转换为表达式
+   * Queries the conditions for matching incoming requests that are configured in a WAF rule category for a website. These conditions define how WAF detects and processes different types of requests.
    * 
    * @param request - GetWafFilterRequest
    * @returns GetWafFilterResponse
@@ -34222,7 +48301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取WAF配额详情
+   * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
    * 
    * @param request - GetWafQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34253,7 +48332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取WAF配额详情
+   * Queries the quotas of Web Application Firewall (WAF) resources, such as managed rule groups, custom lists, custom error pages, and scenario-specific policies.
    * 
    * @param request - GetWafQuotaRequest
    * @returns GetWafQuotaResponse
@@ -34264,7 +48343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个WAF规则详情
+   * Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
    * 
    * @param request - GetWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34299,7 +48378,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取单个WAF规则详情
+   * Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
    * 
    * @param request - GetWafRuleRequest
    * @returns GetWafRuleResponse
@@ -34310,7 +48389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取WAF规则集详情
+   * Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
    * 
    * @param request - GetWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34349,7 +48428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取WAF规则集详情
+   * Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
    * 
    * @param request - GetWafRulesetRequest
    * @returns GetWafRulesetResponse
@@ -34360,7 +48439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询缓存保持实例列表
+   * Queries the cache reserve instances in your Alibaba Cloud account.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34387,7 +48466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询缓存保持实例列表
+   * Queries the cache reserve instances in your Alibaba Cloud account.
    * 
    * @param request - ListCacheReserveInstancesRequest
    * @returns ListCacheReserveInstancesResponse
@@ -34436,7 +48515,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个边缘容器应用的全部域名记录
+   * Lists domain names that are associated with a containerized application.
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34463,7 +48542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取一个边缘容器应用的全部域名记录
+   * Lists domain names that are associated with a containerized application.
    * 
    * @param request - ListEdgeContainerAppRecordsRequest
    * @returns ListEdgeContainerAppRecordsResponse
@@ -34474,7 +48553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的全部版本信息
+   * Lists versions of all containerized applications.
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34501,7 +48580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取边缘容器应用的全部版本信息
+   * Lists versions of all containerized applications.
    * 
    * @param request - ListEdgeContainerAppVersionsRequest
    * @returns ListEdgeContainerAppVersionsResponse
@@ -34512,7 +48591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户全部边缘容器应用
+   * Queries all containerized applications in your Alibaba Cloud account.
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34563,7 +48642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取用户全部边缘容器应用
+   * Queries all containerized applications in your Alibaba Cloud account.
    * 
    * @param request - ListEdgeContainerAppsRequest
    * @returns ListEdgeContainerAppsResponse
@@ -34574,7 +48653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点的边缘容器记录
+   * Queries the records that are associated with Edge Container for a website.
    * 
    * @param request - ListEdgeContainerRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34601,7 +48680,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点的边缘容器记录
+   * Queries the records that are associated with Edge Container for a website.
    * 
    * @param request - ListEdgeContainerRecordsRequest
    * @returns ListEdgeContainerRecordsResponse
@@ -34612,7 +48691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可购买的边缘函数的套餐
+   * Queries Edge Routine plans.
    * 
    * @param request - ListEdgeRoutinePlansRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34635,7 +48714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询用户可购买的边缘函数的套餐
+   * Queries Edge Routine plans.
    * @returns ListEdgeRoutinePlansResponse
    */
   async listEdgeRoutinePlans(): Promise<ListEdgeRoutinePlansResponse> {
@@ -34644,7 +48723,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点的边缘路由记录
+   * Queries the records that are associated with Edge Routine routes for a website.
+   * 
+   * @remarks
+   * >  You can call this operation 100 times per second.
    * 
    * @param request - ListEdgeRoutineRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34671,7 +48753,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点的边缘路由记录
+   * Queries the records that are associated with Edge Routine routes for a website.
+   * 
+   * @remarks
+   * >  You can call this operation 100 times per second.
    * 
    * @param request - ListEdgeRoutineRecordsRequest
    * @returns ListEdgeRoutineRecordsResponse
@@ -34682,7 +48767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例或者站点的quota值
+   * Queries the quota details in a subscription plan.
    * 
    * @param request - ListInstanceQuotasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34709,7 +48794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询实例或者站点的quota值
+   * Queries the quota details in a subscription plan.
    * 
    * @param request - ListInstanceQuotasRequest
    * @returns ListInstanceQuotasResponse
@@ -34720,7 +48805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询功能quota和用量
+   * Queries quotas and the actual usage in a plan based on the website or plan ID.
    * 
    * @param request - ListInstanceQuotasWithUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34747,7 +48832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询功能quota和用量
+   * Queries quotas and the actual usage in a plan based on the website or plan ID.
    * 
    * @param request - ListInstanceQuotasWithUsageRequest
    * @returns ListInstanceQuotasWithUsageResponse
@@ -34758,7 +48843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 遍历Namespace的Key值
+   * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
    * 
    * @param request - ListKvsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34785,7 +48870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 遍历Namespace的Key值
+   * Lists all key-value pairs in a namespace in your Alibaba Cloud account.
    * 
    * @param request - ListKvsRequest
    * @returns ListKvsResponse
@@ -34796,7 +48881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义列表
+   * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
    * 
    * @param tmpReq - ListListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34841,7 +48926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义列表
+   * Queries all custom lists and their details in an Alibaba Cloud account. You can specify query arguments to filter the results and display the returned lists by page.
    * 
    * @param request - ListListsRequest
    * @returns ListListsResponse
@@ -34852,7 +48937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询负载均衡区域列表
+   * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+   * 
+   * @remarks
+   * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34879,7 +48967,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询负载均衡区域列表
+   * Queries the information that can be used to configure a traffic steering policy based on the originating country or region for a load balancer, such as the code and code descriptions of the regions and subregions of the load balancer.
+   * 
+   * @remarks
+   * When you call an operation to create a traffic steering policy based on the originating country or region for a load balancer, you can use the code of a region or subregion to specify traffic that is sent from the region or subregion.
    * 
    * @param request - ListLoadBalancerRegionsRequest
    * @returns ListLoadBalancerRegionsResponse
@@ -34890,7 +48981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义托管规则组
+   * Queries all WAF managed rule groups in your Alibaba Cloud account.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34925,7 +49016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义托管规则组
+   * Queries all WAF managed rule groups in your Alibaba Cloud account.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @returns ListManagedRulesGroupsResponse
@@ -34936,7 +49027,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义响应页面
+   * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
    * 
    * @param request - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34971,7 +49062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举自定义响应页面
+   * Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -34982,7 +49073,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下的记录列表
+   * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+   * 
+   * @remarks
+   * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
    * 
    * @param request - ListRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35009,7 +49103,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下的记录列表
+   * Queries a list of Domain Name System (DNS) records of a website, including the record value, priority, and authentication configurations. Supports filtering by specifying parameters such as RecordName and RecordMatchType.
+   * 
+   * @remarks
+   * The DNS records related to Edge Container, Edge Routine, and TCP/UDP proxy are not returned in this operation.
    * 
    * @param request - ListRecordsRequest
    * @returns ListRecordsResponse
@@ -35020,7 +49117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine灰度环境列表
+   * Lists the regions to which Edge Routine code can be released for canary deployment.
    * 
    * @param request - ListRoutineCanaryAreasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35043,7 +49140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine灰度环境列表
+   * Lists the regions to which Edge Routine code can be released for canary deployment.
    * @returns ListRoutineCanaryAreasResponse
    */
   async listRoutineCanaryAreas(): Promise<ListRoutineCanaryAreasResponse> {
@@ -35052,7 +49149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine可选择规格列表
+   * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+   * 
+   * @remarks
+   * You can call this operation to query the specifications that you can select for a routine.
    * 
    * @param request - ListRoutineOptionalSpecsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35075,7 +49175,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Routine可选择规格列表
+   * Queries the specifications that you can select for a routine based on the plan type. The response contains all specifications that you can select for a routine. The IsAvailable parameter indicates whether a specification is available.
+   * 
+   * @remarks
+   * You can call this operation to query the specifications that you can select for a routine.
    * @returns ListRoutineOptionalSpecsResponse
    */
   async listRoutineOptionalSpecs(): Promise<ListRoutineOptionalSpecsResponse> {
@@ -35084,7 +49187,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出指定任务下的执行计划
+   * Lists the plans in a scheduled prefetch task by task ID.
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35111,7 +49214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出指定任务下的执行计划
+   * Lists the plans in a scheduled prefetch task by task ID.
    * 
    * @param request - ListScheduledPreloadExecutionsRequest
    * @returns ListScheduledPreloadExecutionsResponse
@@ -35122,7 +49225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出定时预热任务列表
+   * Queries the scheduled prefetch tasks for a website.
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35149,7 +49252,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出定时预热任务列表
+   * Queries the scheduled prefetch tasks for a website.
    * 
    * @param request - ListScheduledPreloadJobsRequest
    * @returns ListScheduledPreloadJobsResponse
@@ -35160,7 +49263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出全部任务投递
+   * Lists all log delivery tasks that are in progress.
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35187,7 +49290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出全部任务投递
+   * Lists all log delivery tasks that are in progress.
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @returns ListSiteDeliveryTasksResponse
@@ -35198,7 +49301,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点列表
+   * 查询站点配置
+   * 
+   * @param request - ListSiteFunctionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSiteFunctionsResponse
+   */
+  async listSiteFunctionsWithOptions(request: ListSiteFunctionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSiteFunctionsResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSiteFunctions",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSiteFunctionsResponse>(await this.callApi(params, req, runtime), new ListSiteFunctionsResponse({}));
+  }
+
+  /**
+   * 查询站点配置
+   * 
+   * @param request - ListSiteFunctionsRequest
+   * @returns ListSiteFunctionsResponse
+   */
+  async listSiteFunctions(request: ListSiteFunctionsRequest): Promise<ListSiteFunctionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSiteFunctionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
    * 
    * @param tmpReq - ListSitesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35231,7 +49372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点列表
+   * Queries the information about websites in your account, such as the name, status, and configuration of each website.
    * 
    * @param request - ListSitesRequest
    * @returns ListSitesResponse
@@ -35242,7 +49383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源已经绑定的标签列表
+   * Queries tags based on the region ID and resource type.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35301,7 +49442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询云资源已经绑定的标签列表
+   * Queries tags based on the region ID and resource type.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -35312,7 +49453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件上传任务
+   * Queries the execution status and running information of file upload tasks based on the task time and type.
    * 
    * @param request - ListUploadTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35339,7 +49480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取文件上传任务
+   * Queries the execution status and running information of file upload tasks based on the task time and type.
    * 
    * @param request - ListUploadTasksRequest
    * @returns ListUploadTasksResponse
@@ -35350,7 +49491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出用户全部任务投递
+   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35377,7 +49518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出用户全部任务投递
+   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @returns ListUserDeliveryTasksResponse
@@ -35388,7 +49529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询该用户下可用的已购套餐实例
+   * Queries the plans that you purchased and the details of the plans.
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35415,7 +49556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询该用户下可用的已购套餐实例
+   * Queries the plans that you purchased and the details of the plans.
    * 
    * @param request - ListUserRatePlanInstancesRequest
    * @returns ListUserRatePlanInstancesResponse
@@ -35426,7 +49567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF托管规则
+   * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
    * 
    * @param tmpReq - ListWafManagedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35491,7 +49632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF托管规则
+   * Lists all Web Application Firewall (WAF) managed rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
    * 
    * @param request - ListWafManagedRulesRequest
    * @returns ListWafManagedRulesResponse
@@ -35502,7 +49643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF阶段
+   * Queries the WAF rule categories that are applied to a website and related rulesets.
    * 
    * @param request - ListWafPhasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35537,7 +49678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF阶段
+   * Queries the WAF rule categories that are applied to a website and related rulesets.
    * 
    * @param request - ListWafPhasesRequest
    * @returns ListWafPhasesResponse
@@ -35548,7 +49689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则
+   * Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
    * 
    * @param tmpReq - ListWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35605,7 +49746,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则
+   * Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
    * 
    * @param request - ListWafRulesRequest
    * @returns ListWafRulesResponse
@@ -35616,7 +49757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则集
+   * Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
    * 
    * @param tmpReq - ListWafRulesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35673,7 +49814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则集
+   * Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
    * 
    * @param request - ListWafRulesetsRequest
    * @returns ListWafRulesetsResponse
@@ -35684,7 +49825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF模板规则
+   * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
    * 
    * @param tmpReq - ListWafTemplateRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35729,7 +49870,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF模板规则
+   * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
    * 
    * @param request - ListWafTemplateRulesRequest
    * @returns ListWafTemplateRulesResponse
@@ -35740,7 +49881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则使用情况
+   * Queries the usage details of WAF rules.
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35775,7 +49916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举WAF规则使用情况
+   * Queries the usage details of WAF rules.
    * 
    * @param request - ListWafUsageOfRulesRequest
    * @returns ListWafUsageOfRulesResponse
@@ -35786,7 +49927,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室事件
+   * Queries the information about waiting room events for a waiting room.
+   * 
+   * @remarks
+   * You can call this operation to query details of all waiting room events related to a waiting room in a website.
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35813,7 +49957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室事件
+   * Queries the information about waiting room events for a waiting room.
+   * 
+   * @remarks
+   * You can call this operation to query details of all waiting room events related to a waiting room in a website.
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @returns ListWaitingRoomEventsResponse
@@ -35824,7 +49971,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室绕过规则
+   * Queries the waiting room bypass rules configured for a waiting room.
+   * 
+   * @remarks
+   * You can call this operation to query the waiting room bypass rules that are associated with a website.
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35851,7 +50001,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室绕过规则
+   * Queries the waiting room bypass rules configured for a waiting room.
+   * 
+   * @remarks
+   * You can call this operation to query the waiting room bypass rules that are associated with a website.
    * 
    * @param request - ListWaitingRoomRulesRequest
    * @returns ListWaitingRoomRulesResponse
@@ -35862,7 +50015,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室
+   * Queries the information about all waiting rooms in a website.
+   * 
+   * @remarks
+   * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
    * 
    * @param request - ListWaitingRoomsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35889,7 +50045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询等候室
+   * Queries the information about all waiting rooms in a website.
+   * 
+   * @remarks
+   * You can call this operation to query detailed configurations about all waiting rooms in a website, including the status, name, and queuing rules of each waiting room.
    * 
    * @param request - ListWaitingRoomsRequest
    * @returns ListWaitingRoomsResponse
@@ -35900,7 +50059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存预热
+   * Prefetches cache.
    * 
    * @param tmpReq - PreloadCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35949,7 +50108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存预热
+   * Prefetches cache.
    * 
    * @param request - PreloadCachesRequest
    * @returns PreloadCachesResponse
@@ -35960,7 +50119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布边缘容器应用的某个版本
+   * Releases a specific version of a containerized application. You can call this operation to iterate an application.
    * 
    * @param tmpReq - PublishEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36031,7 +50190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布边缘容器应用的某个版本
+   * Releases a specific version of a containerized application. You can call this operation to iterate an application.
    * 
    * @param request - PublishEdgeContainerAppVersionRequest
    * @returns PublishEdgeContainerAppVersionResponse
@@ -36042,7 +50201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布Routine某版本代码
+   * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
    * 
    * @param tmpReq - PublishRoutineCodeVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36095,7 +50254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发布Routine某版本代码
+   * Releases a code version of a routine to the staging, canary, or production environment. You can specify the regions where the canary environment is deployed to release your code.
    * 
    * @param request - PublishRoutineCodeVersionRequest
    * @returns PublishRoutineCodeVersionResponse
@@ -36106,7 +50265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存刷新
+   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
    * 
    * @param tmpReq - PurgeCachesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36159,7 +50318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存刷新
+   * Purges resources cached on points of presence (POPs). You can purge the cache by file URL, directory, cache tag, hostname, or URL with specified parameters ignored, or purge all the cache.
    * 
    * @param request - PurgeCachesRequest
    * @returns PurgeCachesResponse
@@ -36170,7 +50329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置Namespace的Key-Value对
+   * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
    * 
    * @param request - PutKvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36223,7 +50382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置Namespace的Key-Value对
+   * Configures a key-value pair for a namespace. The request body can be up to 2 MB.
    * 
    * @param request - PutKvRequest
    * @returns PutKvResponse
@@ -36234,7 +50393,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置Namespace的Key-Value对，支持最大25M的Body
+   * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+   *     func TestPutKvWithHighCapacity() {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for uploading key-value pairs.
+   *     	namespace := "test-put-kv"
+   *     	key := "test_PutKvWithHighCapacity_0"
+   *     	value := strings.Repeat("t", 10*1024*1024)
+   *     	rawReq := &PutKvRequest{
+   *     		Namespace: &namespace,
+   *     		Key:       &key,
+   *     		Value:     &value,
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+   *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		Key:       &key,
+   *     		UrlObject: bytes.NewReader([]byte(payload)),
+   *     	}
+   *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - PutKvWithHighCapacityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36273,7 +50470,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置Namespace的Key-Value对，支持最大25M的Body
+   * Configures a large key-value pair for a namespace. The request body can be up to 25 MB.
+   * 
+   * @remarks
+   * This operation allows you to upload a larger request body than by using [PutKv](~~PutKv~~). For small request bodies, we recommend that you use [PutKv](~~PutKv~~) to minimize the server processing time. This operation must be called by using SDKs. The following sample code uses the Golang SDK and PutKvWithHighCapacityAdvance to call the operation.
+   *     func TestPutKvWithHighCapacity() {
+   *     	// Initialize the configurations.
+   *     	cfg := new(openapi.Config)
+   *     	cfg.SetAccessKeyId("xxxxxxxxx")
+   *     	cfg.SetAccessKeySecret("xxxxxxxxxx")
+   *     	cli, err := NewClient(cfg)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	runtime := &util.RuntimeOptions{}
+   *     	// Construct a request for uploading key-value pairs.
+   *     	namespace := "test-put-kv"
+   *     	key := "test_PutKvWithHighCapacity_0"
+   *     	value := strings.Repeat("t", 10*1024*1024)
+   *     	rawReq := &PutKvRequest{
+   *     		Namespace: &namespace,
+   *     		Key:       &key,
+   *     		Value:     &value,
+   *     	}
+   *     	payload, err := json.Marshal(rawReq)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	// If the payload is greater than 2 MB, call the PutKvWithHighCapacity operation for upload.
+   *     	reqHighCapacity := &PutKvWithHighCapacityAdvanceRequest{
+   *     		Namespace: &namespace,
+   *     		Key:       &key,
+   *     		UrlObject: bytes.NewReader([]byte(payload)),
+   *     	}
+   *     	resp, err := cli.PutKvWithHighCapacityAdvance(reqHighCapacity, runtime)
+   *     	if err != nil {
+   *     		return err
+   *     	}
+   *     	return nil
+   *     }
    * 
    * @param request - PutKvWithHighCapacityRequest
    * @returns PutKvWithHighCapacityResponse
@@ -36359,7 +50594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重建边缘容器应用的测试环境
+   * Rebuilds the staging environment for containerized applications.
    * 
    * @param request - RebuildEdgeContainerAppStagingEnvRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36390,7 +50625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重建边缘容器应用的测试环境
+   * Rebuilds the staging environment for containerized applications.
    * 
    * @param request - RebuildEdgeContainerAppStagingEnvRequest
    * @returns RebuildEdgeContainerAppStagingEnvResponse
@@ -36401,7 +50636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置定时预热任务的进度，从头开始预热
+   * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36432,7 +50667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重置定时预热任务的进度，从头开始预热
+   * Resets the progress of a scheduled prefetch task and starts the prefetch from the beginning.
    * 
    * @param request - ResetScheduledPreloadJobRequest
    * @returns ResetScheduledPreloadJobResponse
@@ -36443,7 +50678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚边缘容器应用的某个版本
+   * Rolls back a version of a containerized application.
    * 
    * @param request - RollbackEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36484,7 +50719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 回滚边缘容器应用的某个版本
+   * Rolls back a version of a containerized application.
    * 
    * @param request - RollbackEdgeContainerAppVersionRequest
    * @returns RollbackEdgeContainerAppVersionResponse
@@ -36495,7 +50730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置证书
+   * Configures whether to enable certificates and update certificate information for a website.
    * 
    * @param request - SetCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36568,7 +50803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置证书
+   * Configures whether to enable certificates and update certificate information for a website.
    * 
    * @param request - SetCertificateRequest
    * @returns SetCertificateResponse
@@ -36579,7 +50814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置HTTP DDoS智能防护配置信息
+   * Configures smart HTTP DDoS protection.
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36618,7 +50853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置HTTP DDoS智能防护配置信息
+   * Configures smart HTTP DDoS protection.
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
    * @returns SetHttpDDoSAttackIntelligentProtectionResponse
@@ -36629,7 +50864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置HTTP DDoS攻击防护配置信息
+   * Configures HTTP DDoS attack protection for a website.
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36664,7 +50899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置HTTP DDoS攻击防护配置信息
+   * Configures HTTP DDoS attack protection for a website.
    * 
    * @param request - SetHttpDDoSAttackProtectionRequest
    * @returns SetHttpDDoSAttackProtectionResponse
@@ -36675,7 +50910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始单个定时预热计划
+   * Starts a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - StartScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36706,7 +50941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开始单个定时预热计划
+   * Starts a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - StartScheduledPreloadExecutionRequest
    * @returns StartScheduledPreloadExecutionResponse
@@ -36717,7 +50952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止单个定时预热计划
+   * Stops a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36748,7 +50983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 停止单个定时预热计划
+   * Stops a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - StopScheduledPreloadExecutionRequest
    * @returns StopScheduledPreloadExecutionResponse
@@ -36759,7 +50994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资源列表统一解绑标签
+   * Deletes a resource tag based on a specified resource ID.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36814,7 +51049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为资源列表统一解绑标签
+   * Deletes a resource tag based on a specified resource ID.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -36825,7 +51060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改定制场景策略
+   * Modifies the configurations of a custom scenario-specific policy.
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36876,7 +51111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改定制场景策略
+   * Modifies the configurations of a custom scenario-specific policy.
    * 
    * @param request - UpdateCustomScenePolicyRequest
    * @returns UpdateCustomScenePolicyResponse
@@ -36887,7 +51122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名账号下的Namespace
+   * Updates the name of a namespace in Edge KV.
    * 
    * @param request - UpdateKvNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36922,7 +51157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 重命名账号下的Namespace
+   * Updates the name of a namespace in Edge KV.
    * 
    * @param request - UpdateKvNamespaceRequest
    * @returns UpdateKvNamespaceResponse
@@ -36933,7 +51168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义列表
+   * Updates a custom list.
    * 
    * @param tmpReq - UpdateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36982,7 +51217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义列表
+   * Updates a custom list.
    * 
    * @param request - UpdateListRequest
    * @returns UpdateListResponse
@@ -36993,7 +51228,95 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义响应页面
+   * 修改源站防护
+   * 
+   * @param request - UpdateOriginProtectionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOriginProtectionResponse
+   */
+  async updateOriginProtectionWithOptions(request: UpdateOriginProtectionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOriginProtectionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.originConverge)) {
+      query["OriginConverge"] = request.originConverge;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOriginProtection",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOriginProtectionResponse>(await this.callApi(params, req, runtime), new UpdateOriginProtectionResponse({}));
+  }
+
+  /**
+   * 修改源站防护
+   * 
+   * @param request - UpdateOriginProtectionRequest
+   * @returns UpdateOriginProtectionResponse
+   */
+  async updateOriginProtection(request: UpdateOriginProtectionRequest): Promise<UpdateOriginProtectionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOriginProtectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 确认更新站点回源IP白名单到最新版本
+   * 
+   * @param request - UpdateOriginProtectionIpWhiteListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOriginProtectionIpWhiteListResponse
+   */
+  async updateOriginProtectionIpWhiteListWithOptions(request: UpdateOriginProtectionIpWhiteListRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOriginProtectionIpWhiteListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateOriginProtectionIpWhiteList",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateOriginProtectionIpWhiteListResponse>(await this.callApi(params, req, runtime), new UpdateOriginProtectionIpWhiteListResponse({}));
+  }
+
+  /**
+   * 确认更新站点回源IP白名单到最新版本
+   * 
+   * @param request - UpdateOriginProtectionIpWhiteListRequest
+   * @returns UpdateOriginProtectionIpWhiteListResponse
+   */
+  async updateOriginProtectionIpWhiteList(request: UpdateOriginProtectionIpWhiteListRequest): Promise<UpdateOriginProtectionIpWhiteListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateOriginProtectionIpWhiteListWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
    * 
    * @param request - UpdatePageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37040,7 +51363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义响应页面
+   * Modifies the configurations of a custom error page, such as the name, description, content type, and content of the page.
    * 
    * @param request - UpdatePageRequest
    * @returns UpdatePageResponse
@@ -37051,7 +51374,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新记录
+   * Updates multiple types of DNS records and origin authentication configurations.
+   * 
+   * @remarks
+   * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+   * ### [](#)Usage notes
+   * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+   * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+   * *   You must specify specific fields such as Flag and Tag for CAA records.
+   * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+   * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
    * 
    * @param tmpReq - UpdateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37124,7 +51456,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新记录
+   * Updates multiple types of DNS records and origin authentication configurations.
+   * 
+   * @remarks
+   * This operation allows you to update multiple types of DNS records, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. You can modify the record content by providing the necessary fields such as Value, Priority, and Flag. For origins added in CNAME records such as OSS and S3, the API enables you to configure authentication details to ensure secure access.
+   * ### [](#)Usage notes
+   * *   The record value (Value) must match the record type. For example, the CNAME record should correspond to the target domain name.
+   * *   You must specify a priority (Priority) for some record types, such as MX and SRV.
+   * *   You must specify specific fields such as Flag and Tag for CAA records.
+   * *   When you update security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+   * *   If your origin type is OSS or S3, configure the authentication details in AuthConf based on the permissions.
    * 
    * @param request - UpdateRecordRequest
    * @returns UpdateRecordResponse
@@ -37135,7 +51476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新单个定时预热计划
+   * Updates a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37184,7 +51525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新单个定时预热计划
+   * Updates a scheduled prefetch plan based on the plan ID.
    * 
    * @param request - UpdateScheduledPreloadExecutionRequest
    * @returns UpdateScheduledPreloadExecutionResponse
@@ -37195,7 +51536,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点接入方式
+   * Converts the DNS setup option of a website.
+   * 
+   * @remarks
+   * When you change the DNS setup of a website from NS to CNAME, take note of the following items:
+   * *   Make sure that the website has only proxied A/AAAA and CNAME records.
+   * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37230,7 +51576,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点接入方式
+   * Converts the DNS setup option of a website.
+   * 
+   * @remarks
+   * When you change the DNS setup of a website from NS to CNAME, take note of the following items:
+   * *   Make sure that the website has only proxied A/AAAA and CNAME records.
+   * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
    * 
    * @param request - UpdateSiteAccessTypeRequest
    * @returns UpdateSiteAccessTypeResponse
@@ -37241,7 +51592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新站点加速区域
+   * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37276,7 +51627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新站点加速区域
+   * Modifies the service location for a single website. This updates the acceleration configuration of the website to adapt to changes in traffic distribution, and improve user experience in specific regions.
    * 
    * @param request - UpdateSiteCoverageRequest
    * @returns UpdateSiteCoverageResponse
@@ -37287,7 +51638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改自定义字段
+   * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
    * 
    * @param tmpReq - UpdateSiteCustomLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37344,7 +51695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改自定义字段
+   * Modifies the configuration of custom request header, response header, and cookie fields that are used to capture logs of a website.
    * 
    * @param request - UpdateSiteCustomLogRequest
    * @returns UpdateSiteCustomLogResponse
@@ -37355,7 +51706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改一个任务投递
+   * Modifies a real-time log delivery task.
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37402,7 +51753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改一个任务投递
+   * Modifies a real-time log delivery task.
    * 
    * @param request - UpdateSiteDeliveryTaskRequest
    * @returns UpdateSiteDeliveryTaskResponse
@@ -37413,7 +51764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上下线一个任务投递
+   * Changes the status of a real-time log delivery task.
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37440,7 +51791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上下线一个任务投递
+   * Changes the status of a real-time log delivery task.
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @returns UpdateSiteDeliveryTaskStatusResponse
@@ -37451,7 +51802,227 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点自定义NS
+   * 修改站点配置
+   * 
+   * @param tmpReq - UpdateSiteFunctionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSiteFunctionResponse
+   */
+  async updateSiteFunctionWithOptions(tmpReq: UpdateSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSiteFunctionResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateSiteFunctionShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.cacheReserve)) {
+      request.cacheReserveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheReserve, "CacheReserve", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cacheRules)) {
+      request.cacheRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRules, "CacheRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cacheTags)) {
+      request.cacheTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheTags, "CacheTags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.cnameFlattening)) {
+      request.cnameFlatteningShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cnameFlattening, "CnameFlattening", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.compressionRules)) {
+      request.compressionRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.compressionRules, "CompressionRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.crossBorderOptimization)) {
+      request.crossBorderOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossBorderOptimization, "CrossBorderOptimization", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.developmentMode)) {
+      request.developmentModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.developmentMode, "DevelopmentMode", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpRequestHeaderModificationRules)) {
+      request.httpRequestHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpRequestHeaderModificationRules, "HttpRequestHeaderModificationRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpResponseHeaderModificationRules)) {
+      request.httpResponseHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpResponseHeaderModificationRules, "HttpResponseHeaderModificationRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpsApplicationConfiguration)) {
+      request.httpsApplicationConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsApplicationConfiguration, "HttpsApplicationConfiguration", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.httpsBasicConfiguration)) {
+      request.httpsBasicConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsBasicConfiguration, "HttpsBasicConfiguration", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.imageTransform)) {
+      request.imageTransformShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageTransform, "ImageTransform", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.ipv6)) {
+      request.ipv6Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipv6, "Ipv6", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.managedTransforms)) {
+      request.managedTransformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managedTransforms, "ManagedTransforms", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.networkOptimization)) {
+      request.networkOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkOptimization, "NetworkOptimization", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.originRules)) {
+      request.originRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originRules, "OriginRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.redirectRules)) {
+      request.redirectRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectRules, "RedirectRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.rewriteUrlRules)) {
+      request.rewriteUrlRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewriteUrlRules, "RewriteUrlRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.seoBypass)) {
+      request.seoBypassShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.seoBypass, "SeoBypass", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.siteNameExclusive)) {
+      request.siteNameExclusiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteNameExclusive, "SiteNameExclusive", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sitePause)) {
+      request.sitePauseShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sitePause, "SitePause", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tieredCache)) {
+      request.tieredCacheShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tieredCache, "TieredCache", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.cacheReserveShrink)) {
+      query["CacheReserve"] = request.cacheReserveShrink;
+    }
+
+    if (!Util.isUnset(request.cacheRulesShrink)) {
+      query["CacheRules"] = request.cacheRulesShrink;
+    }
+
+    if (!Util.isUnset(request.cacheTagsShrink)) {
+      query["CacheTags"] = request.cacheTagsShrink;
+    }
+
+    if (!Util.isUnset(request.cnameFlatteningShrink)) {
+      query["CnameFlattening"] = request.cnameFlatteningShrink;
+    }
+
+    if (!Util.isUnset(request.compressionRulesShrink)) {
+      query["CompressionRules"] = request.compressionRulesShrink;
+    }
+
+    if (!Util.isUnset(request.crossBorderOptimizationShrink)) {
+      query["CrossBorderOptimization"] = request.crossBorderOptimizationShrink;
+    }
+
+    if (!Util.isUnset(request.developmentModeShrink)) {
+      query["DevelopmentMode"] = request.developmentModeShrink;
+    }
+
+    if (!Util.isUnset(request.httpRequestHeaderModificationRulesShrink)) {
+      query["HttpRequestHeaderModificationRules"] = request.httpRequestHeaderModificationRulesShrink;
+    }
+
+    if (!Util.isUnset(request.httpResponseHeaderModificationRulesShrink)) {
+      query["HttpResponseHeaderModificationRules"] = request.httpResponseHeaderModificationRulesShrink;
+    }
+
+    if (!Util.isUnset(request.httpsApplicationConfigurationShrink)) {
+      query["HttpsApplicationConfiguration"] = request.httpsApplicationConfigurationShrink;
+    }
+
+    if (!Util.isUnset(request.httpsBasicConfigurationShrink)) {
+      query["HttpsBasicConfiguration"] = request.httpsBasicConfigurationShrink;
+    }
+
+    if (!Util.isUnset(request.imageTransformShrink)) {
+      query["ImageTransform"] = request.imageTransformShrink;
+    }
+
+    if (!Util.isUnset(request.ipv6Shrink)) {
+      query["Ipv6"] = request.ipv6Shrink;
+    }
+
+    if (!Util.isUnset(request.managedTransformsShrink)) {
+      query["ManagedTransforms"] = request.managedTransformsShrink;
+    }
+
+    if (!Util.isUnset(request.networkOptimizationShrink)) {
+      query["NetworkOptimization"] = request.networkOptimizationShrink;
+    }
+
+    if (!Util.isUnset(request.originRulesShrink)) {
+      query["OriginRules"] = request.originRulesShrink;
+    }
+
+    if (!Util.isUnset(request.redirectRulesShrink)) {
+      query["RedirectRules"] = request.redirectRulesShrink;
+    }
+
+    if (!Util.isUnset(request.rewriteUrlRulesShrink)) {
+      query["RewriteUrlRules"] = request.rewriteUrlRulesShrink;
+    }
+
+    if (!Util.isUnset(request.seoBypassShrink)) {
+      query["SeoBypass"] = request.seoBypassShrink;
+    }
+
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!Util.isUnset(request.siteNameExclusiveShrink)) {
+      query["SiteNameExclusive"] = request.siteNameExclusiveShrink;
+    }
+
+    if (!Util.isUnset(request.sitePauseShrink)) {
+      query["SitePause"] = request.sitePauseShrink;
+    }
+
+    if (!Util.isUnset(request.tieredCacheShrink)) {
+      query["TieredCache"] = request.tieredCacheShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateSiteFunction",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateSiteFunctionResponse>(await this.callApi(params, req, runtime), new UpdateSiteFunctionResponse({}));
+  }
+
+  /**
+   * 修改站点配置
+   * 
+   * @param request - UpdateSiteFunctionRequest
+   * @returns UpdateSiteFunctionResponse
+   */
+  async updateSiteFunction(request: UpdateSiteFunctionRequest): Promise<UpdateSiteFunctionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateSiteFunctionWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the custom nameserver names for a single website.
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37486,7 +52057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改站点自定义NS
+   * Updates the custom nameserver names for a single website.
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @returns UpdateSiteVanityNSResponse
@@ -37497,7 +52068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改一个用户粒度任务投递
+   * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37540,7 +52111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改一个用户粒度任务投递
+   * Modifies the configurations of a delivery task, including the task name, log field, log category, and discard rate.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @returns UpdateUserDeliveryTaskResponse
@@ -37551,7 +52122,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上下线一个用户任务投递
+   * Changes the status of a delivery task in your Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## [](#)
+   * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37578,7 +52153,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上下线一个用户任务投递
+   * Changes the status of a delivery task in your Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## [](#)
+   * You can call this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @returns UpdateUserDeliveryTaskStatusResponse
@@ -37589,7 +52168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新WAF规则页面
+   * Modifies the configuration or status of a Web Application Firewall (WAF) rule.
    * 
    * @param tmpReq - UpdateWafRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37648,7 +52227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新WAF规则页面
+   * Modifies the configuration or status of a Web Application Firewall (WAF) rule.
    * 
    * @param request - UpdateWafRuleRequest
    * @returns UpdateWafRuleResponse
@@ -37659,7 +52238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新WAF规则集
+   * Updates a WAF ruleset based on its ID.
    * 
    * @param request - UpdateWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37704,7 +52283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新WAF规则集
+   * Updates a WAF ruleset based on its ID.
    * 
    * @param request - UpdateWafRulesetRequest
    * @returns UpdateWafRulesetResponse
@@ -37715,7 +52294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室
+   * Modifies the configurations of a waiting room.
    * 
    * @param tmpReq - UpdateWaitingRoomRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37820,7 +52399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室
+   * Modifies the configurations of a waiting room.
    * 
    * @param request - UpdateWaitingRoomRequest
    * @returns UpdateWaitingRoomResponse
@@ -37831,7 +52410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室事件
+   * Modifies the configurations of a waiting room event.
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37938,7 +52517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室事件
+   * Modifies the configurations of a waiting room event.
    * 
    * @param request - UpdateWaitingRoomEventRequest
    * @returns UpdateWaitingRoomEventResponse
@@ -37949,7 +52528,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室规则
+   * Updates the configurations of a waiting room bypass rule for a website.
+   * 
+   * @remarks
+   * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37996,7 +52578,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改等候室规则
+   * Updates the configurations of a waiting room bypass rule for a website.
+   * 
+   * @remarks
+   * You can call this API operation to modify the configurations of a waiting room bypass rule for your website, including the rule name, status, and rule content.
    * 
    * @param request - UpdateWaitingRoomRuleRequest
    * @returns UpdateWaitingRoomRuleResponse
@@ -38007,7 +52592,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存刷新文件上传
+   * Uploads the file that contains resources to be purged or prefetched.
+   * 
+   * @remarks
+   * > 
+   * *   The file can be up to 10 MB in size.
+   * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
    * 
    * @param request - UploadFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38050,7 +52640,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 缓存刷新文件上传
+   * Uploads the file that contains resources to be purged or prefetched.
+   * 
+   * @remarks
+   * > 
+   * *   The file can be up to 10 MB in size.
+   * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
    * 
    * @param request - UploadFileRequest
    * @returns UploadFileResponse
@@ -38136,7 +52731,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验站点的归属
+   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+   * 
+   * @remarks
+   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
    * 
    * @param request - VerifySiteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38167,7 +52766,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验站点的归属
+   * Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+   * 
+   * @remarks
+   * 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
+   * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
    * 
    * @param request - VerifySiteRequest
    * @returns VerifySiteResponse
