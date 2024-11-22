@@ -604,6 +604,7 @@ export class UpdateTranscriptionPhrasesResponse extends $tea.Model {
 }
 
 export class CreateTaskRequestInput extends $tea.Model {
+  audioChannelMode?: string;
   /**
    * @example
    * http://xxx.com/zzz/1.wav
@@ -639,6 +640,7 @@ export class CreateTaskRequestInput extends $tea.Model {
   taskKey?: string;
   static names(): { [key: string]: string } {
     return {
+      audioChannelMode: 'AudioChannelMode',
       fileUrl: 'FileUrl',
       format: 'Format',
       languageHints: 'LanguageHints',
@@ -654,6 +656,7 @@ export class CreateTaskRequestInput extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      audioChannelMode: 'string',
       fileUrl: 'string',
       format: 'string',
       languageHints: { 'type': 'array', 'itemType': 'string' },
