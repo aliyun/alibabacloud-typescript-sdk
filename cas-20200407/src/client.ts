@@ -3010,6 +3010,11 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   cert?: string;
   /**
    * @remarks
+   * The certificate chain.
+   */
+  certChain?: GetUserCertificateDetailResponseBodyCertChain[];
+  /**
+   * @remarks
    * The unique identifier of the certificate. The value of this parameter must be in the {Certificate ID}-cn-hangzhou format.
    * 
    * @example
@@ -3097,7 +3102,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   id?: number;
   /**
    * @remarks
-   * The instance ID.
+   * The instance ID of the resource.
    * 
    * @example
    * cas-upload-50yf1q
@@ -3177,7 +3182,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   sans?: string;
   /**
    * @remarks
-   * The certificate serial No.
+   * The serial number of the certificate.
    * 
    * @example
    * 06ea4879591ddf84e6c8b6ba43607ccf
@@ -3185,7 +3190,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
   serialNo?: string;
   /**
    * @remarks
-   * The certificate sha2 value.
+   * The SHA-2 value of the certificate.
    * 
    * @example
    * 840707695D5EE41323102DDC2CB4924AA561012FBDC4E1A6324147119ED3C339
@@ -3224,6 +3229,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       algorithm: 'Algorithm',
       buyInAliyun: 'BuyInAliyun',
       cert: 'Cert',
+      certChain: 'CertChain',
       certIdentifier: 'CertIdentifier',
       city: 'City',
       common: 'Common',
@@ -3257,6 +3263,7 @@ export class GetUserCertificateDetailResponseBody extends $tea.Model {
       algorithm: 'string',
       buyInAliyun: 'boolean',
       cert: 'string',
+      certChain: { 'type': 'array', 'itemType': GetUserCertificateDetailResponseBodyCertChain },
       certIdentifier: 'string',
       city: 'string',
       common: 'string',
@@ -3803,6 +3810,10 @@ export class ListCloudAccessResponse extends $tea.Model {
 }
 
 export class ListCloudResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate IDs.
+   */
   certIds?: number[];
   /**
    * @remarks
@@ -3810,8 +3821,10 @@ export class ListCloudResourcesRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   Tencent: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
+   * *   Tencent
+   * *   Huawei
+   * *   Aws
+   * *   aliyun
    * 
    * @example
    * Tencent
@@ -3819,7 +3832,44 @@ export class ListCloudResourcesRequest extends $tea.Model {
   cloudName?: string;
   /**
    * @remarks
-   * The cloud service. Only Content Delivery Network (CDN) is supported for Tencent Cloud.
+   * The cloud service.
+   * 
+   * Valid values when CloudName is set to aliyun:
+   * 
+   * *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
+   * *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
+   * *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
+   * *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
+   * *   CR: Container Registry. This value is available only on the China site (aliyun.com).
+   * *   DCDN: Dynamic Content Delivery Network (DCDN).
+   * *   DDOS: Anti-DDoS.
+   * *   CDN: Alibaba Cloud CDN (CDN).
+   * *   ALB: Application Load Balancer (ALB).
+   * *   APIGateway: API Gateway.
+   * *   FC: Function Compute.
+   * *   GA: Global Accelerator (GA).
+   * *   MSE: Microservices Engine (MSE).
+   * *   NLB: Network Load Balancer (NLB).
+   * *   OSS: Object Storage Service (OSS).
+   * *   SAE: Serverless App Engine (SAE).
+   * *   WAF: Web Application Firewall (WAF).
+   * 
+   * Valid values when CloudName is set to Tencent:
+   * 
+   * *   TencentCDN: Content Delivery Network (CDN).
+   * *   TencentCLB: CLB.
+   * *   TencentWAF: WAF.
+   * 
+   * Valid value when CloudName is set to Huawei:
+   * 
+   * *   HuaweiCDN: CDN.
+   * 
+   * Valid values when CloudName is set to Aws:
+   * 
+   * *   AwsCloudFront: Amazon CloudFront.
+   * *   AwsCLB: CLB.
+   * *   AwsALB: ALB.
+   * *   AwsNLB: NLB.
    * 
    * @example
    * SLB
@@ -3835,7 +3885,7 @@ export class ListCloudResourcesRequest extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The domain name bound to the cloud resource.
+   * The keyword of the domain name or instance ID bound to the cloud resource.
    * 
    * @example
    * cert-instanceId
@@ -3843,7 +3893,7 @@ export class ListCloudResourcesRequest extends $tea.Model {
   keyword?: string;
   /**
    * @remarks
-   * The AccessKey ID used to access cloud resources.
+   * The AccessKey ID that is used to access cloud resources.
    * 
    * @example
    * 21
@@ -3851,7 +3901,7 @@ export class ListCloudResourcesRequest extends $tea.Model {
   secretId?: string;
   /**
    * @remarks
-   * The number of revoked certificates per page. Default value: **20**.
+   * The number of entries per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -3887,6 +3937,10 @@ export class ListCloudResourcesRequest extends $tea.Model {
 }
 
 export class ListCloudResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The certificate IDs.
+   */
   certIdsShrink?: string;
   /**
    * @remarks
@@ -3894,8 +3948,10 @@ export class ListCloudResourcesShrinkRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   Tencent: Tencent Cloud
-   * *   aliyun: Alibaba Cloud
+   * *   Tencent
+   * *   Huawei
+   * *   Aws
+   * *   aliyun
    * 
    * @example
    * Tencent
@@ -3903,7 +3959,44 @@ export class ListCloudResourcesShrinkRequest extends $tea.Model {
   cloudName?: string;
   /**
    * @remarks
-   * The cloud service. Only Content Delivery Network (CDN) is supported for Tencent Cloud.
+   * The cloud service.
+   * 
+   * Valid values when CloudName is set to aliyun:
+   * 
+   * *   SLB: Classic Load Balancer (CLB). This value is available only on the China site (aliyun.com).
+   * *   LIVE: ApsaraVideo Live. This value is available only on the China site (aliyun.com).
+   * *   webHosting: Cloud Web Hosting. This value is available only on the China site (aliyun.com).
+   * *   VOD: ApsaraVideo VOD. This value is available only on the China site (aliyun.com).
+   * *   CR: Container Registry. This value is available only on the China site (aliyun.com).
+   * *   DCDN: Dynamic Content Delivery Network (DCDN).
+   * *   DDOS: Anti-DDoS.
+   * *   CDN: Alibaba Cloud CDN (CDN).
+   * *   ALB: Application Load Balancer (ALB).
+   * *   APIGateway: API Gateway.
+   * *   FC: Function Compute.
+   * *   GA: Global Accelerator (GA).
+   * *   MSE: Microservices Engine (MSE).
+   * *   NLB: Network Load Balancer (NLB).
+   * *   OSS: Object Storage Service (OSS).
+   * *   SAE: Serverless App Engine (SAE).
+   * *   WAF: Web Application Firewall (WAF).
+   * 
+   * Valid values when CloudName is set to Tencent:
+   * 
+   * *   TencentCDN: Content Delivery Network (CDN).
+   * *   TencentCLB: CLB.
+   * *   TencentWAF: WAF.
+   * 
+   * Valid value when CloudName is set to Huawei:
+   * 
+   * *   HuaweiCDN: CDN.
+   * 
+   * Valid values when CloudName is set to Aws:
+   * 
+   * *   AwsCloudFront: Amazon CloudFront.
+   * *   AwsCLB: CLB.
+   * *   AwsALB: ALB.
+   * *   AwsNLB: NLB.
    * 
    * @example
    * SLB
@@ -3919,7 +4012,7 @@ export class ListCloudResourcesShrinkRequest extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The domain name bound to the cloud resource.
+   * The keyword of the domain name or instance ID bound to the cloud resource.
    * 
    * @example
    * cert-instanceId
@@ -3927,7 +4020,7 @@ export class ListCloudResourcesShrinkRequest extends $tea.Model {
   keyword?: string;
   /**
    * @remarks
-   * The AccessKey ID used to access cloud resources.
+   * The AccessKey ID that is used to access cloud resources.
    * 
    * @example
    * 21
@@ -3935,7 +4028,7 @@ export class ListCloudResourcesShrinkRequest extends $tea.Model {
   secretId?: string;
   /**
    * @remarks
-   * The number of revoked certificates per page. Default value: **20**.
+   * The number of entries per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -3981,7 +4074,7 @@ export class ListCloudResourcesResponseBody extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The response parameters.
+   * The data returned for the request.
    */
   data?: ListCloudResourcesResponseBodyData[];
   /**
@@ -3994,7 +4087,7 @@ export class ListCloudResourcesResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of certificate authority (CA) certificates per page. Default value: **20**.
+   * The number of entries per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -6426,6 +6519,72 @@ export class DescribeDeploymentJobStatusResponseBodyProductWorkerCount extends $
   }
 }
 
+export class GetUserCertificateDetailResponseBodyCertChain extends $tea.Model {
+  /**
+   * @remarks
+   * The common name of the certificate.
+   * 
+   * @example
+   * test
+   */
+  commonName?: string;
+  /**
+   * @remarks
+   * The common name of the issuer.
+   * 
+   * @example
+   * Encryption Everywhere DV TLS CA - G2
+   */
+  issuerCommonName?: string;
+  /**
+   * @remarks
+   * The end of the validity period of the certificate.
+   * 
+   * @example
+   * 17322613180000
+   */
+  notAfter?: number;
+  /**
+   * @remarks
+   * The beginning of the validity period of the certificate.
+   * 
+   * @example
+   * 17322633180000
+   */
+  notBefore?: number;
+  /**
+   * @remarks
+   * The remaining days of the certificate validity period.
+   * 
+   * @example
+   * 1000
+   */
+  remainDay?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      issuerCommonName: 'IssuerCommonName',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      remainDay: 'RemainDay',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      issuerCommonName: 'string',
+      notAfter: 'number',
+      notBefore: 'number',
+      remainDay: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListCertResponseBodyCertList extends $tea.Model {
   /**
    * @remarks
@@ -6770,9 +6929,9 @@ export class ListCloudResourcesResponseBodyData extends $tea.Model {
   certStartTime?: string;
   /**
    * @remarks
-   * The AccessKey ID used to access cloud resources.
+   * The AccessKey ID that is used to access cloud resources.
    * 
-   * >  This parameter is required only when you deploy certificates to services of multiple clouds.
+   * >  This parameter is returned only when you deploy certificates to cloud services of third-party clouds.
    * 
    * @example
    * 1234
@@ -6780,10 +6939,14 @@ export class ListCloudResourcesResponseBodyData extends $tea.Model {
   cloudAccessId?: string;
   /**
    * @remarks
-   * The cloud service provider of the cloud resource. Valid values:
+   * The cloud service provider.
    * 
-   * *   **aliyun**: Alibaba Cloud
-   * *   **Tencent**: Tencent Cloud
+   * Valid values:
+   * 
+   * *   Tencent
+   * *   Huawei
+   * *   Aws
+   * *   aliyun
    * 
    * @example
    * aliyun
@@ -6830,8 +6993,8 @@ export class ListCloudResourcesResponseBodyData extends $tea.Model {
    * @remarks
    * Indicates whether HTTPS is enabled for the cloud resource. Valid values:
    * 
-   * *   **1**: yes
-   * *   **0**: no
+   * *   **1**: yes.
+   * *   **0**: no.
    * 
    * @example
    * 1
