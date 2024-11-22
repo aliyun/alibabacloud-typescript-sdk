@@ -4277,7 +4277,7 @@ export class SetRunningPlanResponse extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
-  dataType?: string;
+  analysisType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -4303,7 +4303,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataType: 'dataType',
+      analysisType: 'analysisType',
       fileName: 'fileName',
       fileUrl: 'fileUrl',
       folderId: 'folderId',
@@ -4313,7 +4313,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      dataType: 'string',
+      analysisType: 'string',
       fileName: 'string',
       fileUrl: 'string',
       folderId: 'string',
@@ -4327,7 +4327,7 @@ export class SubmitDocumentAnalyzeJobRequest extends $tea.Model {
 }
 
 export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
-  dataType?: string;
+  analysisType?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -4353,7 +4353,7 @@ export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
   templateId?: string;
   static names(): { [key: string]: string } {
     return {
-      dataType: 'dataType',
+      analysisType: 'analysisType',
       fileName: 'fileName',
       fileUrlObject: 'fileUrl',
       folderId: 'folderId',
@@ -4363,7 +4363,7 @@ export class SubmitDocumentAnalyzeJobAdvanceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      dataType: 'string',
+      analysisType: 'string',
       fileName: 'string',
       fileUrlObject: 'Readable',
       folderId: 'string',
@@ -10590,8 +10590,8 @@ export default class Client extends OpenApi {
   async submitDocumentAnalyzeJobWithOptions(request: SubmitDocumentAnalyzeJobRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitDocumentAnalyzeJobResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.dataType)) {
-      query["dataType"] = request.dataType;
+    if (!Util.isUnset(request.analysisType)) {
+      query["analysisType"] = request.analysisType;
     }
 
     if (!Util.isUnset(request.fileName)) {
