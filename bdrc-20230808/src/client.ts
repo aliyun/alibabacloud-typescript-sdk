@@ -291,6 +291,11 @@ export class DescribeProductsResponse extends $tea.Model {
 export class DescribeResourcesRequest extends $tea.Model {
   /**
    * @example
+   * LRS
+   */
+  dataRedundancyType?: string;
+  /**
+   * @example
    * rule-000c***yc9
    */
   failedRuleTemplate?: string;
@@ -324,8 +329,14 @@ export class DescribeResourcesRequest extends $tea.Model {
    * ASC
    */
   sortOrder?: string;
+  /**
+   * @example
+   * ARCHIVE
+   */
+  storageClass?: string;
   static names(): { [key: string]: string } {
     return {
+      dataRedundancyType: 'DataRedundancyType',
       failedRuleTemplate: 'FailedRuleTemplate',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
@@ -333,11 +344,13 @@ export class DescribeResourcesRequest extends $tea.Model {
       resourceType: 'ResourceType',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
+      storageClass: 'StorageClass',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataRedundancyType: 'string',
       failedRuleTemplate: 'string',
       maxResults: 'number',
       nextToken: 'string',
@@ -345,6 +358,7 @@ export class DescribeResourcesRequest extends $tea.Model {
       resourceType: 'string',
       sortBy: 'string',
       sortOrder: 'string',
+      storageClass: 'string',
     };
   }
 
@@ -1529,6 +1543,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
    * 1697798340
    */
   createTime?: number;
+  dataRedundancyType?: string;
   /**
    * @example
    * 0
@@ -1594,6 +1609,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
    * Running
    */
   status?: string;
+  storageClass?: string;
   /**
    * @example
    * 0
@@ -1626,6 +1642,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
       checkFailedCount: 'CheckFailedCount',
       coldArchiveDataSize: 'ColdArchiveDataSize',
       createTime: 'CreateTime',
+      dataRedundancyType: 'DataRedundancyType',
       enableCheck: 'EnableCheck',
       iaDataSize: 'IaDataSize',
       productType: 'ProductType',
@@ -1639,6 +1656,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
       riskCount: 'RiskCount',
       standardDataSize: 'StandardDataSize',
       status: 'Status',
+      storageClass: 'StorageClass',
       totalDataSize: 'TotalDataSize',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -1652,6 +1670,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
       checkFailedCount: 'number',
       coldArchiveDataSize: 'number',
       createTime: 'number',
+      dataRedundancyType: 'string',
       enableCheck: 'boolean',
       iaDataSize: 'number',
       productType: 'string',
@@ -1665,6 +1684,7 @@ export class DescribeResourcesResponseBodyDataContent extends $tea.Model {
       riskCount: 'number',
       standardDataSize: 'number',
       status: 'string',
+      storageClass: 'string',
       totalDataSize: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2113,6 +2133,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
    * 1697798340
    */
   createTime?: number;
+  dataRedundancyType?: string;
   /**
    * @example
    * true
@@ -2178,6 +2199,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
    * Running
    */
   status?: string;
+  storageClass?: string;
   /**
    * @example
    * 0
@@ -2210,6 +2232,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
       checkFailedCount: 'CheckFailedCount',
       coldArchiveDataSize: 'ColdArchiveDataSize',
       createTime: 'CreateTime',
+      dataRedundancyType: 'DataRedundancyType',
       enableCheck: 'EnableCheck',
       iaDataSize: 'IaDataSize',
       productType: 'ProductType',
@@ -2223,6 +2246,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
       riskCount: 'RiskCount',
       standardDataSize: 'StandardDataSize',
       status: 'Status',
+      storageClass: 'StorageClass',
       totalDataSize: 'TotalDataSize',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -2236,6 +2260,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
       checkFailedCount: 'number',
       coldArchiveDataSize: 'number',
       createTime: 'number',
+      dataRedundancyType: 'string',
       enableCheck: 'boolean',
       iaDataSize: 'number',
       productType: 'string',
@@ -2249,6 +2274,7 @@ export class DescribeTopRiskyResourcesResponseBodyDataContent extends $tea.Model
       riskCount: 'number',
       standardDataSize: 'number',
       status: 'string',
+      storageClass: 'string',
       totalDataSize: 'number',
       vSwitchId: 'string',
       vpcId: 'string',
@@ -2562,6 +2588,10 @@ export default class Client extends OpenApi {
   async describeResourcesWithOptions(request: DescribeResourcesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeResourcesResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataRedundancyType)) {
+      query["DataRedundancyType"] = request.dataRedundancyType;
+    }
+
     if (!Util.isUnset(request.failedRuleTemplate)) {
       query["FailedRuleTemplate"] = request.failedRuleTemplate;
     }
@@ -2588,6 +2618,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sortOrder)) {
       query["SortOrder"] = request.sortOrder;
+    }
+
+    if (!Util.isUnset(request.storageClass)) {
+      query["StorageClass"] = request.storageClass;
     }
 
     let req = new $OpenApi.OpenApiRequest({
