@@ -1447,6 +1447,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
    * cd45e873-650d-4d70-acb9-f996187a****
    */
   sessionId?: string;
+  tag?: GetConnectionTicketRequestTag[];
   /**
    * @example
    * 2afbad19-778a-4fc5-9674-1f19c638****
@@ -1467,6 +1468,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sessionId: 'SessionId',
+      tag: 'Tag',
       taskId: 'TaskId',
       uuid: 'Uuid',
     };
@@ -1486,6 +1488,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sessionId: 'string',
+      tag: { 'type': 'array', 'itemType': GetConnectionTicketRequestTag },
       taskId: 'string',
       uuid: 'string',
     };
@@ -4993,6 +4996,28 @@ export class GetCloudDriveServiceMountTokenResponseBodyToken extends $tea.Model 
   }
 }
 
+export class GetConnectionTicketRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetLoginTokenResponseBodyPasswordStrategy extends $tea.Model {
   /**
    * @remarks
@@ -5857,6 +5882,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.sessionId)) {
       query["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.taskId)) {
