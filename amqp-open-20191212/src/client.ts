@@ -642,6 +642,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * c2c5d1274axxxxxxxx
    */
   clientToken?: string;
+  encryptedInstance?: boolean;
   /**
    * @remarks
    * The instance name. We recommend that you specify a name that does not exceed 64 characters in length.
@@ -662,6 +663,11 @@ export class CreateInstanceRequest extends $tea.Model {
    * professional
    */
   instanceType?: string;
+  /**
+   * @example
+   * key-xxx
+   */
+  kmsKeyId?: string;
   /**
    * @remarks
    * The maximum number of connections that can be established to the instance. Configure this parameter based on the values provided on the [ApsaraMQ for RocketMQ buy page](https://common-buy.aliyun.com/?commodityCode=ons_onsproxy_pre).
@@ -827,8 +833,10 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'AutoRenew',
       autoRenewPeriod: 'AutoRenewPeriod',
       clientToken: 'ClientToken',
+      encryptedInstance: 'EncryptedInstance',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
+      kmsKeyId: 'KmsKeyId',
       maxConnections: 'MaxConnections',
       maxEipTps: 'MaxEipTps',
       maxPrivateTps: 'MaxPrivateTps',
@@ -852,8 +860,10 @@ export class CreateInstanceRequest extends $tea.Model {
       autoRenew: 'boolean',
       autoRenewPeriod: 'number',
       clientToken: 'string',
+      encryptedInstance: 'boolean',
       instanceName: 'string',
       instanceType: 'string',
+      kmsKeyId: 'string',
       maxConnections: 'number',
       maxEipTps: 'number',
       maxPrivateTps: 'number',
@@ -1828,6 +1838,83 @@ export class DeleteVirtualHostResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteVirtualHostResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amqp-cn-v0h1kb9nu***
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBody extends $tea.Model {
+  data?: GetInstanceResponseBodyData;
+  /**
+   * @example
+   * 92385FD2-624A-48C9-8FB5-753F2AFA***
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetInstanceResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetInstanceResponseBody,
     };
   }
 
@@ -3192,6 +3279,7 @@ export class UpdateInstanceRequest extends $tea.Model {
    * c2c5d1274axxxxxxxx
    */
   clientToken?: string;
+  encryptedInstance?: boolean;
   /**
    * @remarks
    * This parameter is required.
@@ -3205,6 +3293,11 @@ export class UpdateInstanceRequest extends $tea.Model {
    * professional
    */
   instanceType?: string;
+  /**
+   * @example
+   * key-xxx
+   */
+  kmsKeyId?: string;
   /**
    * @example
    * 1000
@@ -3261,8 +3354,10 @@ export class UpdateInstanceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      encryptedInstance: 'EncryptedInstance',
       instanceId: 'InstanceId',
       instanceType: 'InstanceType',
+      kmsKeyId: 'KmsKeyId',
       maxConnections: 'MaxConnections',
       maxEipTps: 'MaxEipTps',
       maxPrivateTps: 'MaxPrivateTps',
@@ -3279,8 +3374,10 @@ export class UpdateInstanceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      encryptedInstance: 'boolean',
       instanceId: 'string',
       instanceType: 'string',
+      kmsKeyId: 'string',
       maxConnections: 'number',
       maxEipTps: 'number',
       maxPrivateTps: 'number',
@@ -3581,6 +3678,196 @@ export class CreateAccountResponseBodyData extends $tea.Model {
       masterUId: 'number',
       password: 'string',
       userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyDataTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetInstanceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  autoRenewInstance?: boolean;
+  /**
+   * @example
+   * amqp-cn-st21x7kv****.not-support
+   */
+  classicEndpoint?: string;
+  encryptedInstance?: boolean;
+  /**
+   * @example
+   * 1651507200000
+   */
+  expireTime?: number;
+  /**
+   * @example
+   * amqp-cn-*********
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * yunQi-instance
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * enterprise
+   */
+  instanceType?: string;
+  kmsKeyId?: string;
+  /**
+   * @example
+   * 1500
+   */
+  maxConnections?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxEipTps?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxQueue?: number;
+  /**
+   * @example
+   * 1000
+   */
+  maxTps?: number;
+  /**
+   * @example
+   * 50
+   */
+  maxVhost?: number;
+  /**
+   * @example
+   * 1651507200000
+   */
+  orderCreateTime?: number;
+  /**
+   * @example
+   * PRE_PAID
+   */
+  orderType?: string;
+  /**
+   * @example
+   * amqp-cn-st21x7kv****.mq-amqp.cn-hangzhou-a.aliyuncs.com
+   */
+  privateEndpoint?: string;
+  /**
+   * @example
+   * xxx.cn-hangzhou.xxx.net.mq.amqp.aliyuncs.com
+   */
+  publicEndpoint?: string;
+  resourceGroupId?: string;
+  /**
+   * @example
+   * SERVING
+   */
+  status?: string;
+  /**
+   * @example
+   * 200
+   */
+  storageSize?: number;
+  /**
+   * @example
+   * true
+   */
+  supportEIP?: boolean;
+  /**
+   * @example
+   * True
+   */
+  supportTracing?: boolean;
+  tags?: GetInstanceResponseBodyDataTags[];
+  /**
+   * @example
+   * 15
+   */
+  tracingStorageTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenewInstance: 'AutoRenewInstance',
+      classicEndpoint: 'ClassicEndpoint',
+      encryptedInstance: 'EncryptedInstance',
+      expireTime: 'ExpireTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      kmsKeyId: 'KmsKeyId',
+      maxConnections: 'MaxConnections',
+      maxEipTps: 'MaxEipTps',
+      maxQueue: 'MaxQueue',
+      maxTps: 'MaxTps',
+      maxVhost: 'MaxVhost',
+      orderCreateTime: 'OrderCreateTime',
+      orderType: 'OrderType',
+      privateEndpoint: 'PrivateEndpoint',
+      publicEndpoint: 'PublicEndpoint',
+      resourceGroupId: 'ResourceGroupId',
+      status: 'Status',
+      storageSize: 'StorageSize',
+      supportEIP: 'SupportEIP',
+      supportTracing: 'SupportTracing',
+      tags: 'Tags',
+      tracingStorageTime: 'TracingStorageTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenewInstance: 'boolean',
+      classicEndpoint: 'string',
+      encryptedInstance: 'boolean',
+      expireTime: 'number',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      kmsKeyId: 'string',
+      maxConnections: 'number',
+      maxEipTps: 'number',
+      maxQueue: 'number',
+      maxTps: 'number',
+      maxVhost: 'number',
+      orderCreateTime: 'number',
+      orderType: 'string',
+      privateEndpoint: 'string',
+      publicEndpoint: 'string',
+      resourceGroupId: 'string',
+      status: 'string',
+      storageSize: 'number',
+      supportEIP: 'boolean',
+      supportTracing: 'boolean',
+      tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyDataTags },
+      tracingStorageTime: 'number',
     };
   }
 
@@ -4224,6 +4511,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
    * amqp-cn-st21x7kv****.not-support
    */
   classicEndpoint?: string;
+  encryptedInstance?: boolean;
   /**
    * @remarks
    * The timestamp that indicates when the instance expires. Unit: milliseconds.
@@ -4260,6 +4548,7 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
    * professional
    */
   instanceType?: string;
+  kmsKeyId?: string;
   /**
    * @remarks
    * The maximum number of Internet-based transactions per second (TPS) for the instance.
@@ -4368,10 +4657,12 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
     return {
       autoRenewInstance: 'AutoRenewInstance',
       classicEndpoint: 'ClassicEndpoint',
+      encryptedInstance: 'EncryptedInstance',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceName: 'InstanceName',
       instanceType: 'InstanceType',
+      kmsKeyId: 'KmsKeyId',
       maxEipTps: 'MaxEipTps',
       maxQueue: 'MaxQueue',
       maxTps: 'MaxTps',
@@ -4392,10 +4683,12 @@ export class ListInstancesResponseBodyDataInstances extends $tea.Model {
     return {
       autoRenewInstance: 'boolean',
       classicEndpoint: 'string',
+      encryptedInstance: 'boolean',
       expireTime: 'number',
       instanceId: 'string',
       instanceName: 'string',
       instanceType: 'string',
+      kmsKeyId: 'string',
       maxEipTps: 'number',
       maxQueue: 'number',
       maxTps: 'number',
@@ -5111,12 +5404,20 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.encryptedInstance)) {
+      query["EncryptedInstance"] = request.encryptedInstance;
+    }
+
     if (!Util.isUnset(request.instanceName)) {
       query["InstanceName"] = request.instanceName;
     }
 
     if (!Util.isUnset(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
     }
 
     if (!Util.isUnset(request.maxConnections)) {
@@ -5609,6 +5910,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取实例详情
+   * 
+   * @param request - GetInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceResponse
+   */
+  async getInstanceWithOptions(request: GetInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetInstance",
+      version: "2019-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetInstanceResponse>(await this.callApi(params, req, runtime), new GetInstanceResponse({}));
+  }
+
+  /**
+   * 获取实例详情
+   * 
+   * @param request - GetInstanceRequest
+   * @returns GetInstanceResponse
+   */
+  async getInstance(request: GetInstanceRequest): Promise<GetInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the maximum number of vhosts, exchanges, and queues that you can create and the number of created vhosts, exchanges, and queues on an ApsaraMQ for RabbitMQ instance.
    * 
    * @param request - GetMetadataAmountRequest
@@ -6050,12 +6389,20 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.encryptedInstance)) {
+      query["EncryptedInstance"] = request.encryptedInstance;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.instanceType)) {
       query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.kmsKeyId)) {
+      query["KmsKeyId"] = request.kmsKeyId;
     }
 
     if (!Util.isUnset(request.maxConnections)) {
