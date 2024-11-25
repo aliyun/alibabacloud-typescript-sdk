@@ -52,16 +52,25 @@ export class RunDataAnalysisRequest extends $tea.Model {
 }
 
 export class RunDataAnalysisResponseBody extends $tea.Model {
+  code?: string;
   data?: RunDataAnalysisResponseBodyData;
+  httpStatusCode?: number;
+  message?: string;
   static names(): { [key: string]: string } {
     return {
+      code: 'code',
       data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      code: 'string',
       data: RunDataAnalysisResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
     };
   }
 
@@ -180,6 +189,7 @@ export class RunDataAnalysisResponseBodyData extends $tea.Model {
    */
   event?: string;
   evidence?: string;
+  httpStatusCode?: number;
   /**
    * @example
    * DA2578F7-88A5-5D6E-9305-33E724E97D60
@@ -209,6 +219,7 @@ export class RunDataAnalysisResponseBodyData extends $tea.Model {
       errorMessage: 'errorMessage',
       event: 'event',
       evidence: 'evidence',
+      httpStatusCode: 'httpStatusCode',
       requestId: 'requestId',
       rewrite: 'rewrite',
       selector: 'selector',
@@ -225,6 +236,7 @@ export class RunDataAnalysisResponseBodyData extends $tea.Model {
       errorMessage: 'string',
       event: 'string',
       evidence: 'string',
+      httpStatusCode: 'number',
       requestId: 'string',
       rewrite: 'string',
       selector: { 'type': 'array', 'itemType': 'string' },
