@@ -123,6 +123,7 @@ export class BicyclingDirectionNovaResponseBody extends $tea.Model {
    * <title>502 Bad Gateway</title>
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * True
@@ -133,6 +134,7 @@ export class BicyclingDirectionNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -142,6 +144,7 @@ export class BicyclingDirectionNovaResponseBody extends $tea.Model {
       data: BicyclingDirectionNovaResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -282,6 +285,7 @@ export class DrivingDirectionNovaResponseBody extends $tea.Model {
    * Access was denied, message: No such namespace namespaces/general-perf-cn-shenzhen-e-default.
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * true
@@ -292,6 +296,7 @@ export class DrivingDirectionNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -301,6 +306,7 @@ export class DrivingDirectionNovaResponseBody extends $tea.Model {
       data: DrivingDirectionNovaResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -510,6 +516,7 @@ export class ElectrobikeDirectionNovaResponseBody extends $tea.Model {
    * <title>502 Bad Gateway</title>
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * True
@@ -520,6 +527,7 @@ export class ElectrobikeDirectionNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -529,6 +537,7 @@ export class ElectrobikeDirectionNovaResponseBody extends $tea.Model {
       data: ElectrobikeDirectionNovaResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -597,6 +606,7 @@ export class GeoCodeResponseBody extends $tea.Model {
    * Pop sign mismatch, please check log.
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * True
@@ -607,6 +617,7 @@ export class GeoCodeResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -616,6 +627,7 @@ export class GeoCodeResponseBody extends $tea.Model {
       data: { 'type': 'array', 'itemType': GeoCodeResponseBodyData },
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -723,6 +735,7 @@ export class NearbySearchNovaResponseBody extends $tea.Model {
    * <title>502 Bad Gateway</title>
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * True
@@ -733,6 +746,7 @@ export class NearbySearchNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -742,6 +756,7 @@ export class NearbySearchNovaResponseBody extends $tea.Model {
       data: { 'type': 'array', 'itemType': NearbySearchNovaResponseBodyData },
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -831,6 +846,7 @@ export class PlaceSearchNovaResponseBody extends $tea.Model {
    * Access was denied, message: Unauthorized.
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * true
@@ -841,6 +857,7 @@ export class PlaceSearchNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -850,6 +867,7 @@ export class PlaceSearchNovaResponseBody extends $tea.Model {
       data: { 'type': 'array', 'itemType': PlaceSearchNovaResponseBodyData },
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -922,6 +940,7 @@ export class RgeoCodeResponseBody extends $tea.Model {
    */
   errorCode?: number;
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * True
@@ -932,6 +951,7 @@ export class RgeoCodeResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -941,6 +961,7 @@ export class RgeoCodeResponseBody extends $tea.Model {
       data: RgeoCodeResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -1037,6 +1058,7 @@ export class TransitIntegratedDirectionResponseBody extends $tea.Model {
    * <title>502 Bad Gateway</title>
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * true
@@ -1047,6 +1069,7 @@ export class TransitIntegratedDirectionResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -1056,6 +1079,7 @@ export class TransitIntegratedDirectionResponseBody extends $tea.Model {
       data: TransitIntegratedDirectionResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
@@ -1146,6 +1170,7 @@ export class WalkingDirectionNovaResponseBody extends $tea.Model {
    * Access was denied
    */
   errorMessage?: string;
+  requestId?: string;
   /**
    * @example
    * true
@@ -1156,6 +1181,7 @@ export class WalkingDirectionNovaResponseBody extends $tea.Model {
       data: 'data',
       errorCode: 'errorCode',
       errorMessage: 'errorMessage',
+      requestId: 'requestId',
       success: 'success',
     };
   }
@@ -1165,6 +1191,7 @@ export class WalkingDirectionNovaResponseBody extends $tea.Model {
       data: WalkingDirectionNovaResponseBodyData,
       errorCode: 'number',
       errorMessage: 'string',
+      requestId: 'string',
       success: 'boolean',
     };
   }
