@@ -2032,14 +2032,14 @@ export class CreateEditingProjectResponse extends $tea.Model {
 export class CreateLiveRecordTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the template.
    * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    * 
    * This parameter is required.
    */
@@ -2066,14 +2066,14 @@ export class CreateLiveRecordTemplateRequest extends $tea.Model {
 export class CreateLiveRecordTemplateShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the template.
    * 
    * This parameter is required.
    */
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    * 
    * This parameter is required.
    */
@@ -2099,13 +2099,16 @@ export class CreateLiveRecordTemplateShrinkRequest extends $tea.Model {
 
 export class CreateLiveRecordTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0622C702-41BE-467E-AF2E-883D4517962E
    */
   requestId?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The template ID.
    * 
    * @example
    * ****96e8864746a0b6f3****
@@ -2157,22 +2160,47 @@ export class CreateLiveRecordTemplateResponse extends $tea.Model {
 
 export class CreateLiveSnapshotTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The naming format of the snapshot captured in overwrite mode.
+   * 
+   * *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+   * *   It cannot exceed 255 characters in length.
+   * *   The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
+   * *   Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+   * *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * 
    * @example
    * snapshot/{JobId}.jpg
    */
   overwriteFormat?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in time series mode.
+   * 
+   * *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+   * *   It cannot exceed 255 characters in length.
+   * *   The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
+   * *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
    */
   sequenceFormat?: string;
   /**
    * @remarks
+   * The name of the template.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * This parameter is required.
    */
   templateName?: string;
   /**
    * @remarks
+   * The interval between two adjacent snapshots. Unit: seconds.
+   * 
+   * *   Valid values: [5,3600].
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2204,11 +2232,17 @@ export class CreateLiveSnapshotTemplateRequest extends $tea.Model {
 
 export class CreateLiveSnapshotTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
@@ -2260,15 +2294,28 @@ export class CreateLiveSnapshotTemplateResponse extends $tea.Model {
 export class CreateLiveTranscodeTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
    * my template
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfig?: CreateLiveTranscodeTemplateRequestTemplateConfig;
   /**
    * @remarks
+   * The type of the template. Valid values:
+   * 
+   * *   normal
+   * *   narrow-band
+   * *   audio-only
+   * *   origin
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2299,15 +2346,28 @@ export class CreateLiveTranscodeTemplateRequest extends $tea.Model {
 export class CreateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
    * my template
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfigShrink?: string;
   /**
    * @remarks
+   * The type of the template. Valid values:
+   * 
+   * *   normal
+   * *   narrow-band
+   * *   audio-only
+   * *   origin
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2337,11 +2397,17 @@ export class CreateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
 
 export class CreateLiveTranscodeTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the template.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
@@ -3980,10 +4046,15 @@ export class DeleteEditingProjectsResponse extends $tea.Model {
 export class DeleteLiveRecordFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The collection of IDs of recording files.
+   * 
    * This parameter is required.
    */
   recordIds?: string[];
   /**
+   * @remarks
+   * Specifies whether to delete the original files in OSS.
+   * 
    * @example
    * true
    */
@@ -4008,8 +4079,15 @@ export class DeleteLiveRecordFilesRequest extends $tea.Model {
 }
 
 export class DeleteLiveRecordFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of files deleted.
+   */
   deleteFileInfoList?: DeleteLiveRecordFilesResponseBodyDeleteFileInfoList[];
   /**
+   * @remarks
+   * The description of the state returned.
+   * 
    * @example
    * OK
    */
@@ -4071,7 +4149,7 @@ export class DeleteLiveRecordFilesResponse extends $tea.Model {
 export class DeleteLiveRecordTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The ID of the template to be deleted. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ice.console.aliyun.com/live-processing/template/list/record), choose Real-time Media Processing > Template Management, and then click the Recording tab. Alternatively, find the ID from the response parameters of the [CreateLiveRecordTemplate](https://help.aliyun.com/document_detail/448213.html) operation.
    * 
    * This parameter is required.
    * 
@@ -4098,6 +4176,9 @@ export class DeleteLiveRecordTemplateRequest extends $tea.Model {
 
 export class DeleteLiveRecordTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3E5330CF-B4C8-5BEF-AA6B-8E70BD20FAEE
    */
@@ -4147,16 +4228,23 @@ export class DeleteLiveRecordTemplateResponse extends $tea.Model {
 export class DeleteLiveSnapshotFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of timestamps when the jobs were created. The values are UNIX timestamps representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A maximum of 200 jobs can be deleted at a time.
+   * 
    * This parameter is required.
    */
   createTimestampList?: number[];
   /**
+   * @remarks
+   * Specifies whether to delete the original files at the same time. Default value: false.
+   * 
    * @example
    * true
    */
   deleteOriginalFile?: boolean;
   /**
    * @remarks
+   * The ID of the snapshot job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4187,16 +4275,23 @@ export class DeleteLiveSnapshotFilesRequest extends $tea.Model {
 export class DeleteLiveSnapshotFilesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The list of timestamps when the jobs were created. The values are UNIX timestamps representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. A maximum of 200 jobs can be deleted at a time.
+   * 
    * This parameter is required.
    */
   createTimestampListShrink?: string;
   /**
+   * @remarks
+   * Specifies whether to delete the original files at the same time. Default value: false.
+   * 
    * @example
    * true
    */
   deleteOriginalFile?: boolean;
   /**
    * @remarks
+   * The ID of the snapshot job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4225,8 +4320,15 @@ export class DeleteLiveSnapshotFilesShrinkRequest extends $tea.Model {
 }
 
 export class DeleteLiveSnapshotFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of deleted files.
+   */
   deleteFileResultList?: DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****2876-6263-4B75-8F2C-CD0F7FCF****
    */
@@ -4278,6 +4380,8 @@ export class DeleteLiveSnapshotFilesResponse extends $tea.Model {
 export class DeleteLiveSnapshotTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4303,6 +4407,9 @@ export class DeleteLiveSnapshotTemplateRequest extends $tea.Model {
 
 export class DeleteLiveSnapshotTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -4352,6 +4459,8 @@ export class DeleteLiveSnapshotTemplateResponse extends $tea.Model {
 export class DeleteLiveTranscodeJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4377,6 +4486,9 @@ export class DeleteLiveTranscodeJobRequest extends $tea.Model {
 
 export class DeleteLiveTranscodeJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -4426,6 +4538,8 @@ export class DeleteLiveTranscodeJobResponse extends $tea.Model {
 export class DeleteLiveTranscodeTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ice.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4451,6 +4565,9 @@ export class DeleteLiveTranscodeTemplateRequest extends $tea.Model {
 
 export class DeleteLiveTranscodeTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -8096,36 +8213,63 @@ export class GetEditingProjectMaterialsResponse extends $tea.Model {
 
 export class GetEventCallbackResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The authentication key. This parameter is returned only for HTTP callbacks.
+   * 
    * @example
    * TestKey001
    */
   authKey?: string;
   /**
+   * @remarks
+   * Specifies whether callback authentication is enabled. This parameter is returned only for **HTTP** callbacks. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
    * @example
    * on
    */
   authSwitch?: string;
   /**
+   * @remarks
+   * The name of the Simple Message Queue (SMQ) queue to which callback messages are sent.
+   * 
    * @example
    * ice-callback-queue
    */
   callbackQueueName?: string;
   /**
+   * @remarks
+   * The callback method. Valid values:
+   * 
+   * *   **HTTP**
+   * *   **MNS**
+   * 
    * @example
    * HTTP
    */
   callbackType?: string;
   /**
+   * @remarks
+   * The callback URL to which event notifications are sent.
+   * 
    * @example
    * http://xxx.yyy/callback
    */
   callbackURL?: string;
   /**
+   * @remarks
+   * The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/441362.html).
+   * 
    * @example
    * ProduceMediaComplete,TranscodeComplete
    */
   eventTypeList?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -8385,6 +8529,8 @@ export class GetLiveEditingJobResponse extends $tea.Model {
 export class GetLiveRecordJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the recording job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8411,10 +8557,13 @@ export class GetLiveRecordJobRequest extends $tea.Model {
 export class GetLiveRecordJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 录制任务
+   * The details of the recording job.
    */
   recordJob?: GetLiveRecordJobResponseBodyRecordJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B57A046C-CE33-5FBB-B57A-D2B89ACF6907
    */
@@ -8465,12 +8614,17 @@ export class GetLiveRecordJobResponse extends $tea.Model {
 
 export class GetLiveRecordTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the recording job. You can specify the JobId parameter to retrieve the snapshot of the template used by the job.
+   * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
    */
   jobId?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8499,10 +8653,13 @@ export class GetLiveRecordTemplateRequest extends $tea.Model {
 export class GetLiveRecordTemplateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 录制模板
+   * The recording template.
    */
   recordTemplate?: GetLiveRecordTemplateResponseBodyRecordTemplate;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C892855F-95DF-50D6-A28C-279ABDB76810
    */
@@ -8554,6 +8711,8 @@ export class GetLiveRecordTemplateResponse extends $tea.Model {
 export class GetLiveSnapshotJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8579,55 +8738,107 @@ export class GetLiveSnapshotJobRequest extends $tea.Model {
 
 export class GetLiveSnapshotJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The snapshot callback URL.
+   * 
    * @example
    * http://www.aliyun.com/snapshot/callback
    */
   callbackUrl?: string;
   /**
+   * @remarks
+   * The time when the file was created.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   */
   jobName?: string;
   /**
+   * @remarks
+   * The time when the file was last modified.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   lastModified?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in overwrite mode.
+   * 
    * @example
    * snapshot/{JobId}.jpg
    */
   overwriteFormat?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in time series mode.
+   * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
    */
   sequenceFormat?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   snapshotOutput?: GetLiveSnapshotJobResponseBodySnapshotOutput;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   init: The job is not started.
+   * *   paused: The job is paused.
+   * *   started: The job is in progress.
+   * 
    * @example
    * started
    */
   status?: string;
+  /**
+   * @remarks
+   * The input information.
+   */
   streamInput?: GetLiveSnapshotJobResponseBodyStreamInput;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287666****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The name of the template.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The interval between two adjacent snapshots.
+   * 
    * @example
    * 5
    */
@@ -8703,6 +8914,8 @@ export class GetLiveSnapshotJobResponse extends $tea.Model {
 export class GetLiveSnapshotTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8728,42 +8941,75 @@ export class GetLiveSnapshotTemplateRequest extends $tea.Model {
 
 export class GetLiveSnapshotTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the configuration was modified.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   lastModified?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in overwrite mode.
+   * 
    * @example
    * snapshot/{JobId}.jpg
    */
   overwriteFormat?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in time series mode.
+   * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
    */
   sequenceFormat?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The interval between two adjacent snapshots.
+   * 
    * @example
    * 5
    */
   timeInterval?: number;
   /**
+   * @remarks
+   * The type of the template.
+   * 
+   * Valid values:
+   * 
+   * *   system
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -8829,6 +9075,8 @@ export class GetLiveSnapshotTemplateResponse extends $tea.Model {
 export class GetLiveTranscodeJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8853,8 +9101,15 @@ export class GetLiveTranscodeJobRequest extends $tea.Model {
 }
 
 export class GetLiveTranscodeJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the transcoding job.
+   */
   job?: GetLiveTranscodeJobResponseBodyJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -8906,6 +9161,8 @@ export class GetLiveTranscodeJobResponse extends $tea.Model {
 export class GetLiveTranscodeTemplateRequest extends $tea.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8931,10 +9188,17 @@ export class GetLiveTranscodeTemplateRequest extends $tea.Model {
 
 export class GetLiveTranscodeTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The content of the template.
+   */
   templateContent?: GetLiveTranscodeTemplateResponseBodyTemplateContent;
   static names(): { [key: string]: string } {
     return {
@@ -12885,32 +13149,60 @@ export class ListEditingProjectsResponse extends $tea.Model {
 
 export class ListLiveRecordFilesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. The maximum time range to query is four days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-12-22T08:00:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The list of job IDs.
+   */
   jobIds?: string[];
   /**
+   * @remarks
+   * The page number of the page to return. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 5 to 30. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The format of the recording file. Valid values:
+   * 
+   * M3U8, FLV, and MP4
+   * 
    * @example
    * m3u8
    */
   recordFormat?: string;
   /**
+   * @remarks
+   * The sorting order of the index files by creation time. Valid values:
+   * 
+   * asc: The query results are displayed in ascending order. This is the default value.
+   * 
+   * desc: The query results are displayed in descending order.
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * @example
    * 2017-12-21T08:00:01Z
    */
@@ -12945,28 +13237,47 @@ export class ListLiveRecordFilesRequest extends $tea.Model {
 }
 
 export class ListLiveRecordFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of index files.
+   */
   files?: ListLiveRecordFilesResponseBodyFiles[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DE24625C-7C0F-4020-8448-****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the index files by creation time.
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of files that meet the specified conditions.
+   * 
    * @example
    * 100
    */
@@ -13026,6 +13337,8 @@ export class ListLiveRecordFilesResponse extends $tea.Model {
 export class ListLiveRecordJobsRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. The maximum time range between EndTime and StartTime cannot exceed 30 days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -13033,27 +13346,46 @@ export class ListLiveRecordJobsRequest extends $tea.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The search keyword. You can use the job ID or name as the keyword to search for jobs.
+   * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results in ascending order.
+   * *   desc: sorts the query results in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
    * @example
@@ -13061,6 +13393,15 @@ export class ListLiveRecordJobsRequest extends $tea.Model {
    */
   startTime?: string;
   /**
+   * @remarks
+   * The state of the job. By default, the state is not filtered.
+   * 
+   * Valid values:
+   * 
+   * *   paused: The job is paused.
+   * *   initial: The job is not started.
+   * *   started: The job is in progress.
+   * 
    * @example
    * started
    */
@@ -13095,28 +13436,47 @@ export class ListLiveRecordJobsRequest extends $tea.Model {
 }
 
 export class ListLiveRecordJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of live stream recording jobs.
+   */
   liveRecordJobs?: ListLiveRecordJobsResponseBodyLiveRecordJobs[];
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A27DFFA4-F272-5563-8363-CB0BC42740BA
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 180
    */
@@ -13175,27 +13535,52 @@ export class ListLiveRecordJobsResponse extends $tea.Model {
 
 export class ListLiveRecordTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+   * 
    * @example
    * test template
    */
   keyword?: string;
   /**
+   * @remarks
+   * The page number. Minimum value: 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results in ascending order.
+   * *   desc: sorts the query results in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   templateIds?: string[];
   /**
+   * @remarks
+   * The type of the template.
+   * 
+   * Valid values:
+   * 
+   * *   system
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -13229,27 +13614,51 @@ export class ListLiveRecordTemplatesRequest extends $tea.Model {
 
 export class ListLiveRecordTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of recording templates.
+   */
   recordTemplateList?: ListLiveRecordTemplatesResponseBodyRecordTemplateList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA98A0C-7870-15FE-B96F-8880BB600A2C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results in ascending order.
+   * *   desc: sorts the query results in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -13309,6 +13718,10 @@ export class ListLiveRecordTemplatesResponse extends $tea.Model {
 export class ListLiveSnapshotFilesRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * *   The maximum time range that can be specified is one day.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13317,6 +13730,8 @@ export class ListLiveSnapshotFilesRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
+   * The ID of the snapshot job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13324,17 +13739,30 @@ export class ListLiveSnapshotFilesRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The number of results to return each time. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   limit?: number;
   /**
+   * @remarks
+   * The sorting order. Default value: asc.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results by creation time in ascending order.
+   * *   desc: sorts the query results by creation time in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
    * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13367,13 +13795,23 @@ export class ListLiveSnapshotFilesRequest extends $tea.Model {
 }
 
 export class ListLiveSnapshotFilesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of files.
+   */
   fileList?: ListLiveSnapshotFilesResponseBodyFileList[];
   /**
+   * @remarks
+   * The start time of the next page. If no value is returned, the pagination ends.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   nextStartTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -13426,35 +13864,76 @@ export class ListLiveSnapshotFilesResponse extends $tea.Model {
 
 export class ListLiveSnapshotJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * *   By default, EndTime is seven days later than StartTime.
+   * *   The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+   * 
    * @example
    * 2022-02-02T23:59:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Valid values: [1,n). Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword. You can use the job ID or name as the keyword to search for jobs. If you search for jobs by name, fuzzy match is supported.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   searchKeyWord?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results by creation time in ascending order.
+   * *   desc: sorts the query results by creation time in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * *   The default value is seven days ago.
+   * *   The time range specified by the StartTime and EndTime parameters cannot exceed 30 days.
+   * 
    * @example
    * 2022-02-02T00:00:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The job state filter. By default, all jobs are queried.
+   * 
+   * Valid values:
+   * 
+   * *   init: The job is not started.
+   * *   paused: The job is paused.
+   * *   started: The job is in progress.
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13486,28 +13965,47 @@ export class ListLiveSnapshotJobsRequest extends $tea.Model {
 }
 
 export class ListLiveSnapshotJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of jobs.
+   */
   jobList?: ListLiveSnapshotJobsResponseBodyJobList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the jobs by creation time.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -13566,27 +14064,61 @@ export class ListLiveSnapshotJobsResponse extends $tea.Model {
 
 export class ListLiveSnapshotTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Valid values: [1,n). Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   searchKeyWord?: string;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order.
+   * 
+   * Valid values:
+   * 
+   * *   asc: sorts the query results by creation time in ascending order.
+   * *   desc: sorts the query results by creation time in descending order.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The template IDs.
+   * 
+   * *   If you specify the SearchKeyWord parameter, this condition does not take effect.
+   * *   The maximum length of the array is 200.
+   */
   templateIds?: string[];
   /**
+   * @remarks
+   * The type of the template. By default, all types are queried.
+   * 
+   * Valid values:
+   * 
+   * *   system
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -13620,27 +14152,46 @@ export class ListLiveSnapshotTemplatesRequest extends $tea.Model {
 
 export class ListLiveSnapshotTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The sorting order of the results by creation time.
+   * 
    * @example
    * desc
    */
   sortBy?: string;
+  /**
+   * @remarks
+   * The list of the templates.
+   */
   templateList?: ListLiveSnapshotTemplatesResponseBodyTemplateList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -13699,36 +14250,70 @@ export class ListLiveSnapshotTemplatesResponse extends $tea.Model {
 
 export class ListLiveTranscodeJobsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The search keyword. You can use the job ID or name as the keyword to search for jobs. If you search for jobs by name, fuzzy match is supported.
+   * 
    * @example
    * 24ecbb5c-4f98-4194-9400-f17102e27fc5
    */
   keyWord?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+   * 
+   * *   asc
+   * *   desc
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The start mode of the transcoding job.
+   * 
+   * *   0: The transcoding job immediately starts.
+   * *   1: The transcoding job starts at the scheduled time.
+   * 
    * @example
    * 0
    */
   startMode?: number;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * 0: The job is not started. 1: The job is in progress. 2: The job is stopped.
+   * 
    * @example
    * 1
    */
   status?: number;
   /**
+   * @remarks
+   * The type of the template used by the transcoding job.
+   * 
+   * *   normal
+   * *   narrow-band
+   * *   audio-only
+   * *   origin
+   * 
    * @example
    * normal
    */
@@ -13763,13 +14348,23 @@ export class ListLiveTranscodeJobsRequest extends $tea.Model {
 }
 
 export class ListLiveTranscodeJobsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of transcoding jobs.
+   */
   jobList?: ListLiveTranscodeJobsResponseBodyJobList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -13822,36 +14417,71 @@ export class ListLiveTranscodeJobsResponse extends $tea.Model {
 
 export class ListLiveTranscodeTemplatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The category of the template. Valid values:
+   * 
+   * *   system
+   * *   customized
+   * 
    * @example
    * customized
    */
   category?: string;
   /**
+   * @remarks
+   * The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+   * 
    * @example
    * my_template
    */
   keyWord?: string;
   /**
+   * @remarks
+   * The page number of the page to return. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+   * 
+   * *   asc
+   * *   desc
+   * 
    * @example
    * asc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The type of the template. Valid values:
+   * 
+   * *   normal
+   * *   narrow-band
+   * *   audio-only
+   * *   origin
+   * 
    * @example
    * normal
    */
   type?: string;
   /**
+   * @remarks
+   * The video codec. Valid values:
+   * 
+   * *   H.264
+   * *   H.265
+   * 
    * @example
    * H.264
    */
@@ -13887,12 +14517,22 @@ export class ListLiveTranscodeTemplatesRequest extends $tea.Model {
 
 export class ListLiveTranscodeTemplatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of transcoding templates.
+   */
   templateContentList?: ListLiveTranscodeTemplatesResponseBodyTemplateContentList[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -19423,6 +20063,14 @@ export class SendAIAgentSpeechResponse extends $tea.Model {
 export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
   /**
    * @remarks
+   * The operation command.
+   * 
+   * Valid values:
+   * 
+   * *   stop
+   * *   restart
+   * *   start
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19431,6 +20079,8 @@ export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
   command?: string;
   /**
    * @remarks
+   * The ID of the snapshot job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19458,6 +20108,9 @@ export class SendLiveSnapshotJobCommandRequest extends $tea.Model {
 
 export class SendLiveSnapshotJobCommandResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -19507,6 +20160,8 @@ export class SendLiveSnapshotJobCommandResponse extends $tea.Model {
 export class SendLiveTranscodeJobCommandRequest extends $tea.Model {
   /**
    * @remarks
+   * The operation command. Only the stop command is supported. This command is used to stop a transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19515,6 +20170,8 @@ export class SendLiveTranscodeJobCommandRequest extends $tea.Model {
   command?: string;
   /**
    * @remarks
+   * The ID of the transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -19542,6 +20199,9 @@ export class SendLiveTranscodeJobCommandRequest extends $tea.Model {
 
 export class SendLiveTranscodeJobCommandResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -19863,31 +20523,55 @@ export class SetDefaultStorageLocationResponse extends $tea.Model {
 
 export class SetEventCallbackRequest extends $tea.Model {
   /**
+   * @remarks
+   * The authentication key. The key can be up to 32 characters in length and must contain uppercase letters, lowercase letters, and digits. This parameter takes effect only if you set CallbackType to **HTTP**.
+   * 
    * @example
    * TestKey001
    */
   authKey?: string;
   /**
+   * @remarks
+   * Specifies whether to enable callback authentication. This parameter takes effect only if you set CallbackType to **HTTP**. Valid values:
+   * 
+   * *   **on**
+   * *   **off**
+   * 
    * @example
    * on
    */
   authSwitch?: string;
   /**
+   * @remarks
+   * The name of the Simple Message Queue (SMQ) queue in the region. The name must start with ice-callback-.
+   * 
    * @example
    * ice-callback-queue
    */
   callbackQueueName?: string;
   /**
+   * @remarks
+   * The callback method. Valid values:
+   * 
+   * *   **HTTP**
+   * *   **MNS**
+   * 
    * @example
    * HTTP
    */
   callbackType?: string;
   /**
+   * @remarks
+   * The callback URL. This parameter is required if you set CallbackType to **HTTP**. The callback URL cannot exceed 256 bytes in length. You can specify only one callback URL.
+   * 
    * @example
    * http://xxx.yyy/callback
    */
   callbackURL?: string;
   /**
+   * @remarks
+   * The type of the callback event. You can specify multiple values separated with commas (,). ProduceMediaComplete: indicates that the editing and production task is complete.
+   * 
    * @example
    * ProduceMediaComplete
    */
@@ -19921,11 +20605,17 @@ export class SetEventCallbackRequest extends $tea.Model {
 
 export class SetEventCallbackResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the configuration was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -22578,7 +23268,7 @@ export class SubmitLiveEditingJobResponse extends $tea.Model {
 export class SubmitLiveRecordJobRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the recording job.
    * 
    * This parameter is required.
    * 
@@ -22588,7 +23278,7 @@ export class SubmitLiveRecordJobRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 回调地址
+   * The callback URL.
    * 
    * @example
    * https://example.com/imsnotify
@@ -22596,17 +23286,21 @@ export class SubmitLiveRecordJobRequest extends $tea.Model {
   notifyUrl?: string;
   /**
    * @remarks
+   * The storage address of the recording.
+   * 
    * This parameter is required.
    */
   recordOutput?: SubmitLiveRecordJobRequestRecordOutput;
   /**
    * @remarks
+   * The URL of the live stream.
+   * 
    * This parameter is required.
    */
   streamInput?: SubmitLiveRecordJobRequestStreamInput;
   /**
    * @remarks
-   * 录制模板ID
+   * The ID of the recording template.
    * 
    * This parameter is required.
    * 
@@ -22642,7 +23336,7 @@ export class SubmitLiveRecordJobRequest extends $tea.Model {
 export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the recording job.
    * 
    * This parameter is required.
    * 
@@ -22652,7 +23346,7 @@ export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 回调地址
+   * The callback URL.
    * 
    * @example
    * https://example.com/imsnotify
@@ -22660,17 +23354,21 @@ export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
   notifyUrl?: string;
   /**
    * @remarks
+   * The storage address of the recording.
+   * 
    * This parameter is required.
    */
   recordOutputShrink?: string;
   /**
    * @remarks
+   * The URL of the live stream.
+   * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
-   * 录制模板ID
+   * The ID of the recording template.
    * 
    * This parameter is required.
    * 
@@ -22705,11 +23403,17 @@ export class SubmitLiveRecordJobShrinkRequest extends $tea.Model {
 
 export class SubmitLiveRecordJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the recording job.
+   * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * BEA98A0C-7870-15FE-B96F-8880BB600A2C
    */
@@ -22760,27 +23464,43 @@ export class SubmitLiveRecordJobResponse extends $tea.Model {
 
 export class SubmitLiveSnapshotJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The snapshot callback URL.
+   * 
+   * *   It cannot exceed 255 characters in length.
+   * *   Both HTTP and HTTPS URLs are supported.
+   * 
    * @example
    * http://www.aliyun.com/snapshot/callback
    */
   callbackUrl?: string;
   /**
    * @remarks
+   * The name of the job.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * This parameter is required.
    */
   jobName?: string;
   /**
    * @remarks
+   * The information about the output snapshot.
+   * 
    * This parameter is required.
    */
   snapshotOutput?: SubmitLiveSnapshotJobRequestSnapshotOutput;
   /**
    * @remarks
+   * The information about the input stream.
+   * 
    * This parameter is required.
    */
   streamInput?: SubmitLiveSnapshotJobRequestStreamInput;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22814,27 +23534,43 @@ export class SubmitLiveSnapshotJobRequest extends $tea.Model {
 
 export class SubmitLiveSnapshotJobShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The snapshot callback URL.
+   * 
+   * *   It cannot exceed 255 characters in length.
+   * *   Both HTTP and HTTPS URLs are supported.
+   * 
    * @example
    * http://www.aliyun.com/snapshot/callback
    */
   callbackUrl?: string;
   /**
    * @remarks
+   * The name of the job.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * This parameter is required.
    */
   jobName?: string;
   /**
    * @remarks
+   * The information about the output snapshot.
+   * 
    * This parameter is required.
    */
   snapshotOutputShrink?: string;
   /**
    * @remarks
+   * The information about the input stream.
+   * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22868,11 +23604,17 @@ export class SubmitLiveSnapshotJobShrinkRequest extends $tea.Model {
 
 export class SubmitLiveSnapshotJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287666****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -22924,6 +23666,8 @@ export class SubmitLiveSnapshotJobResponse extends $tea.Model {
 export class SubmitLiveTranscodeJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22932,6 +23676,11 @@ export class SubmitLiveTranscodeJobRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The start mode of the transcoding job.
+   * 
+   * *   0: The transcoding job immediately starts.
+   * *   1: The transcoding job starts at the scheduled time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22940,20 +23689,30 @@ export class SubmitLiveTranscodeJobRequest extends $tea.Model {
   startMode?: number;
   /**
    * @remarks
+   * The information about the input stream.
+   * 
    * This parameter is required.
    */
   streamInput?: SubmitLiveTranscodeJobRequestStreamInput;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The configuration of a timed transcoding job. This parameter is required if you set StartMode to 1.
+   */
   timedConfig?: SubmitLiveTranscodeJobRequestTimedConfig;
   /**
    * @remarks
+   * The information about the transcoding output.
+   * 
    * This parameter is required.
    */
   transcodeOutput?: SubmitLiveTranscodeJobRequestTranscodeOutput;
@@ -22987,6 +23746,8 @@ export class SubmitLiveTranscodeJobRequest extends $tea.Model {
 export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the transcoding job.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22995,6 +23756,11 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The start mode of the transcoding job.
+   * 
+   * *   0: The transcoding job immediately starts.
+   * *   1: The transcoding job starts at the scheduled time.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23003,20 +23769,30 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
   startMode?: number;
   /**
    * @remarks
+   * The information about the input stream.
+   * 
    * This parameter is required.
    */
   streamInputShrink?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ****96e8864746a0b6f3****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The configuration of a timed transcoding job. This parameter is required if you set StartMode to 1.
+   */
   timedConfigShrink?: string;
   /**
    * @remarks
+   * The information about the transcoding output.
+   * 
    * This parameter is required.
    */
   transcodeOutputShrink?: string;
@@ -23049,11 +23825,17 @@ export class SubmitLiveTranscodeJobShrinkRequest extends $tea.Model {
 
 export class SubmitLiveTranscodeJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the transcoding job.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -26245,7 +27027,7 @@ export class UpdateEditingProjectResponse extends $tea.Model {
 export class UpdateLiveRecordTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The template name.
    * 
    * This parameter is required.
    * 
@@ -26255,14 +27037,14 @@ export class UpdateLiveRecordTemplateRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    * 
    * This parameter is required.
    */
   recordFormat?: UpdateLiveRecordTemplateRequestRecordFormat[];
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -26294,7 +27076,7 @@ export class UpdateLiveRecordTemplateRequest extends $tea.Model {
 export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The template name.
    * 
    * This parameter is required.
    * 
@@ -26304,14 +27086,14 @@ export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    * 
    * This parameter is required.
    */
   recordFormatShrink?: string;
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -26343,7 +27125,7 @@ export class UpdateLiveRecordTemplateShrinkRequest extends $tea.Model {
 export class UpdateLiveRecordTemplateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The request ID.
    * 
    * @example
    * 0F3D5C03-4B6E-5F40-B7F6-B1956776E7D3
@@ -26393,17 +27175,36 @@ export class UpdateLiveRecordTemplateResponse extends $tea.Model {
 
 export class UpdateLiveSnapshotTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The naming format of the snapshot captured in overwrite mode.
+   * 
+   * *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+   * *   The value cannot exceed 255 characters in length.
+   * *   The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
+   * *   Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+   * *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * 
    * @example
    * snapshot/{JobId}.jpg
    */
   overwriteFormat?: string;
   /**
+   * @remarks
+   * The naming format of the snapshot captured in time series mode.
+   * 
+   * *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+   * *   The value cannot exceed 255 characters in length.
+   * *   The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
+   * *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+   * 
    * @example
    * snapshot/{JobId}/{UnixTimestamp}.jpg
    */
   sequenceFormat?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26412,11 +27213,19 @@ export class UpdateLiveSnapshotTemplateRequest extends $tea.Model {
   templateId?: string;
   /**
    * @remarks
+   * The name of the template.
+   * 
+   * *   It cannot exceed 128 characters in length.
+   * 
    * This parameter is required.
    */
   templateName?: string;
   /**
    * @remarks
+   * The interval between two adjacent snapshots. Unit: seconds.
+   * 
+   * *   Valid values: [5,3600].
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26450,6 +27259,9 @@ export class UpdateLiveSnapshotTemplateRequest extends $tea.Model {
 
 export class UpdateLiveSnapshotTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
@@ -26499,6 +27311,8 @@ export class UpdateLiveSnapshotTemplateResponse extends $tea.Model {
 export class UpdateLiveTranscodeJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26506,12 +27320,27 @@ export class UpdateLiveTranscodeJobRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * mytest3
    */
   name?: string;
+  /**
+   * @remarks
+   * The information about the input stream.
+   */
   streamInput?: UpdateLiveTranscodeJobRequestStreamInput;
+  /**
+   * @remarks
+   * The configuration of a timed transcoding job.
+   */
   timedConfig?: UpdateLiveTranscodeJobRequestTimedConfig;
+  /**
+   * @remarks
+   * The information about the transcoding output.
+   */
   transcodeOutput?: UpdateLiveTranscodeJobRequestTranscodeOutput;
   static names(): { [key: string]: string } {
     return {
@@ -26541,6 +27370,8 @@ export class UpdateLiveTranscodeJobRequest extends $tea.Model {
 export class UpdateLiveTranscodeJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26548,12 +27379,27 @@ export class UpdateLiveTranscodeJobShrinkRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the job.
+   * 
    * @example
    * mytest3
    */
   name?: string;
+  /**
+   * @remarks
+   * The information about the input stream.
+   */
   streamInputShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a timed transcoding job.
+   */
   timedConfigShrink?: string;
+  /**
+   * @remarks
+   * The information about the transcoding output.
+   */
   transcodeOutputShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26582,6 +27428,9 @@ export class UpdateLiveTranscodeJobShrinkRequest extends $tea.Model {
 
 export class UpdateLiveTranscodeJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -26629,10 +27478,20 @@ export class UpdateLiveTranscodeJobResponse extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The template name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfig?: UpdateLiveTranscodeTemplateRequestTemplateConfig;
   /**
    * @remarks
+   * The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26661,10 +27520,20 @@ export class UpdateLiveTranscodeTemplateRequest extends $tea.Model {
 }
 
 export class UpdateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The template name.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfigShrink?: string;
   /**
    * @remarks
+   * The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26694,6 +27563,9 @@ export class UpdateLiveTranscodeTemplateShrinkRequest extends $tea.Model {
 
 export class UpdateLiveTranscodeTemplateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
@@ -29814,13 +30686,24 @@ export class CreateEditingProjectResponseBodyProject extends $tea.Model {
 
 export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the recording cycle. Unit: seconds. If you do not specify this parameter, the default value 6 hours is used.
+   * 
+   * > 
+   * 
+   * *   If a live stream is interrupted during a recording cycle but is resumed within 3 minutes, the stream is recorded in the same recording before and after the interruption.
+   * 
+   * *   If a live stream is interrupted for more than 3 minutes, a new recording is generated. To change the default stream interruption time, submit a ticket.
+   * 
    * @example
    * 3600
    */
   cycleDuration?: number;
   /**
    * @remarks
-   * 格式
+   * The format.
+   * 
+   * >  If you set this parameter to m3u8, you must also specify the SliceOssObjectPrefix and SliceDuration parameters.
    * 
    * This parameter is required.
    * 
@@ -29830,7 +30713,10 @@ export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   format?: string;
   /**
    * @remarks
-   * Oss对象名，不包含后缀
+   * The name of the recording file that is stored in Object Storage Service (OSS).
+   * 
+   * *   The name must be less than 256 bytes in length and can contain the {JobId}, {Sequence}, {StartTime}, {EndTime}, {EscapedStartTime}, and {EscapedEndTime} variables.
+   * *   The name must contain the {StartTime} and {EndTime} variables or the {EscapedStartTime} and {EscapedEndTime} variables.
    * 
    * @example
    * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
@@ -29838,7 +30724,11 @@ export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   ossObjectPrefix?: string;
   /**
    * @remarks
-   * 切片时长
+   * The duration of a single segment. Unit: seconds.
+   * 
+   * >  This parameter takes effect only if you set Format to m3u8.
+   * 
+   * If you do not specify this parameter, the default value 30 seconds is used. Valid values: 5 to 30.
    * 
    * @example
    * 30
@@ -29846,7 +30736,12 @@ export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   sliceDuration?: number;
   /**
    * @remarks
-   * 切片Oss对象名，不包含后缀
+   * The name of the TS segment.
+   * 
+   * >  This parameter is required only if you set Format to m3u8.
+   * 
+   * *   By default, the duration of a segment is 30 seconds. The segment name must be less than 256 bytes in length and can contain the {JobId}, {UnixTimestamp}, and {Sequence} variables.
+   * *   The segment name must contain the {UnixTimestamp} and {Sequence} variables.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -29879,26 +30774,51 @@ export class CreateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
 
 export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output audio. Unit: Kbit/s. Valid values: 1 to 1000.
+   * 
    * @example
    * 100
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Valid values: 1: mono 2: binaural
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values:
+   * 
+   * *   AAC
+   * *   MP3
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. Valid values when the Codec parameter is set to AAC:
+   * 
+   * *   aac_low
+   * *   aac_he
+   * *   aac_he_v2
+   * *   aac_ld
+   * 
    * @example
    * aaclow
    */
   profile?: string;
   /**
+   * @remarks
+   * The audio sampling rate. Valid values: 22050 to 96000.
+   * 
+   * Note: If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44,100.
+   * 
    * @example
    * 44100
    */
@@ -29930,36 +30850,64 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
 
 export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output video. Unit: Kbit/s. Valid values: 1 to 6000.
+   * 
    * @example
    * 2500
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The encoding type. Valid values:
+   * 
+   * *   H.264
+   * *   H.265
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to 60.
+   * 
    * @example
    * 25
    */
   fps?: string;
   /**
+   * @remarks
+   * The group of pictures (GOP) of the output video. Unit: frame. Valid values: 1 to 3000.
+   * 
    * @example
    * 1000
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video. Valid values: Height ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
+   * 
+   * Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+   * 
    * @example
    * 720
    */
   height?: string;
   /**
+   * @remarks
+   * The encoding profile. The profile determines how a video is encoded. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values: 1: baseline. This value is suitable for mobile devices. 2: main. This value is suitable for standard-definition devices. 3: high. This value is suitable for high-definition devices.
+   * 
    * @example
    * 2
    */
   profile?: string;
   /**
+   * @remarks
+   * The width of the output video. Valid values: Width ≥ 128 max (Height,Width) ≤ 2560 min (Height,Width) ≤ 1440
+   * 
+   * Note: The resolution of the output video that is transcoded by using the H.265 Narrowband HD transcoding template cannot exceed 1280 × 720 pixels.
+   * 
    * @example
    * 1280
    */
@@ -29994,7 +30942,15 @@ export class CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
 }
 
 export class CreateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The audio parameters.
+   */
   audioParams?: CreateLiveTranscodeTemplateRequestTemplateConfigAudioParams;
+  /**
+   * @remarks
+   * The video parameters.
+   */
   videoParams?: CreateLiveTranscodeTemplateRequestTemplateConfigVideoParams;
   static names(): { [key: string]: string } {
     return {
@@ -30176,16 +31132,25 @@ export class DeleteAvatarTrainingJobResponseBodyData extends $tea.Model {
 
 export class DeleteLiveRecordFilesResponseBodyDeleteFileInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The code that identifies the result of the deletion.
+   * 
    * @example
    * OK
    */
   code?: string;
   /**
+   * @remarks
+   * The result of deletion.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the deleted recording file.
+   * 
    * @example
    * 13cbb83e-043c-4728-ac35-*****
    */
@@ -30213,11 +31178,22 @@ export class DeleteLiveRecordFilesResponseBodyDeleteFileInfoList extends $tea.Mo
 
 export class DeleteLiveSnapshotFilesResponseBodyDeleteFileResultList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the file was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * 
    * @example
    * 1660638613798
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * The result of deletion. A value of OK indicates that the file is deleted. Other values indicate that the file failed to be deleted.
+   * 
+   * Valid values:
+   * 
+   * *   OK: The file was deleted.
+   * *   NotFound: The file was not found.
+   * 
    * @example
    * OK
    */
@@ -33400,16 +34376,30 @@ export class GetLiveEditingJobResponseBodyLiveEditingJob extends $tea.Model {
 
 export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $tea.Model {
   /**
+   * @remarks
+   * The bucket name.
+   * 
    * @example
    * imsbucket1
    */
   bucket?: string;
   /**
+   * @remarks
+   * The endpoint of the storage service.
+   * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The type of the storage address.
+   * 
+   * Valid values:
+   * 
+   * *   vod
+   * *   oss
+   * 
    * @example
    * oss
    */
@@ -33437,11 +34427,17 @@ export class GetLiveRecordJobResponseBodyRecordJobRecordOutput extends $tea.Mode
 
 export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $tea.Model {
   /**
+   * @remarks
+   * The type of the live stream. The value can only be rtmp.
+   * 
    * @example
    * rtmp
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the live stream.
+   * 
    * @example
    * rtmp://example.com/app/stream
    */
@@ -33468,7 +34464,7 @@ export class GetLiveRecordJobResponseBodyRecordJobStreamInput extends $tea.Model
 export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the job was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -33478,7 +34474,7 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The ID of the recording job.
    * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
@@ -33486,30 +34482,44 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
   jobId?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the recording job.
    */
   name?: string;
   /**
    * @remarks
-   * 回调地址
+   * The callback URL.
    * 
    * @example
    * https://example.com/imsnotify
    */
   notifyUrl?: string;
+  /**
+   * @remarks
+   * The storage address of the recording.
+   */
   recordOutput?: GetLiveRecordJobResponseBodyRecordJobRecordOutput;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The state of the recording job.
+   * 
+   * Valid values:
+   * 
+   * *   paused: The job is paused.
+   * *   initial: The job is not started.
+   * *   started: The job is in progress.
    * 
    * @example
    * paused
    */
   status?: string;
+  /**
+   * @remarks
+   * The URL of the live stream.
+   */
   streamInput?: GetLiveRecordJobResponseBodyRecordJobStreamInput;
   /**
    * @remarks
-   * 录制模板ID
+   * The ID of the recording template.
    * 
    * @example
    * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
@@ -33517,7 +34527,7 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
   templateId?: string;
   /**
    * @remarks
-   * 录制模板ID
+   * The name of the recording template.
    * 
    * @example
    * test template
@@ -33558,13 +34568,16 @@ export class GetLiveRecordJobResponseBodyRecordJob extends $tea.Model {
 
 export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the recording cycle. Unit: seconds. If you do not specify this parameter, the default value 6 hours is used.
+   * 
    * @example
    * 7200
    */
   cycleDuration?: number;
   /**
    * @remarks
-   * 格式
+   * The output file format.
    * 
    * @example
    * m3u8
@@ -33572,20 +34585,23 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
   format?: string;
   /**
    * @remarks
-   * Oss对象名，不包含后缀
+   * The name of the recording file that is stored in Object Storage Service (OSS).
    * 
    * @example
    * record/{JobId}/{Sequence}{EscapedStartTime}{EscapedEndTime}
    */
   ossObjectPrefix?: string;
   /**
+   * @remarks
+   * The duration of a single segment. Unit: seconds.
+   * 
    * @example
    * 30
    */
   sliceDuration?: number;
   /**
    * @remarks
-   * 切片Oss对象名，不包含后缀
+   * The name of the TS segment.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -33619,7 +34635,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList ext
 export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model {
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the job was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -33629,7 +34645,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
   createTime?: string;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the template was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -33639,7 +34655,7 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
   lastModified?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The template name.
    * 
    * @example
    * test template
@@ -33647,12 +34663,12 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    */
   recordFormatList?: GetLiveRecordTemplateResponseBodyRecordTemplateRecordFormatList[];
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The template ID.
    * 
    * @example
    * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
@@ -33660,7 +34676,12 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
   templateId?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The type of the template.
+   * 
+   * Valid values:
+   * 
+   * *   system
+   * *   custom
    * 
    * @example
    * custom
@@ -33695,16 +34716,25 @@ export class GetLiveRecordTemplateResponseBodyRecordTemplate extends $tea.Model 
 
 export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $tea.Model {
   /**
+   * @remarks
+   * The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+   * 
    * @example
    * testbucket
    */
   bucket?: string;
   /**
+   * @remarks
+   * The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+   * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The storage type. The value can only be oss.
+   * 
    * @example
    * oss
    */
@@ -33732,11 +34762,17 @@ export class GetLiveSnapshotJobResponseBodySnapshotOutput extends $tea.Model {
 
 export class GetLiveSnapshotJobResponseBodyStreamInput extends $tea.Model {
   /**
+   * @remarks
+   * The type of the input stream. The value can only be rtmp.
+   * 
    * @example
    * rtmp
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the input stream.
+   * 
    * @example
    * rtmp://www.aliyun.com/stream
    */
@@ -33762,11 +34798,17 @@ export class GetLiveSnapshotJobResponseBodyStreamInput extends $tea.Model {
 
 export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the output stream.
+   * 
    * @example
    * rtmp://mydomain/app/mytranscode1
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the output stream protocol. Only the RTMP protocol is supported.
+   * 
    * @example
    * rtmp
    */
@@ -33791,6 +34833,10 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos extends $
 }
 
 export class GetLiveTranscodeJobResponseBodyJobOutputStream extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the output stream.
+   */
   streamInfos?: GetLiveTranscodeJobResponseBodyJobOutputStreamStreamInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -33811,11 +34857,17 @@ export class GetLiveTranscodeJobResponseBodyJobOutputStream extends $tea.Model {
 
 export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the input stream.
+   * 
    * @example
    * rtmp://mydomain/app/stream1
    */
   inputUrl?: string;
   /**
+   * @remarks
+   * The type of the input stream.
+   * 
    * @example
    * rtmp
    */
@@ -33841,43 +34893,79 @@ export class GetLiveTranscodeJobResponseBodyJobStreamInput extends $tea.Model {
 
 export class GetLiveTranscodeJobResponseBodyJob extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-20T02:48:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the transcoding job.
+   * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the transcoding job.
+   * 
    * @example
    * task1
    */
   name?: string;
+  /**
+   * @remarks
+   * The information about the output stream.
+   */
   outputStream?: GetLiveTranscodeJobResponseBodyJobOutputStream;
   /**
+   * @remarks
+   * The start mode of the job.
+   * 
    * @example
    * 0
    */
   startMode?: number;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * *   0: The job is not started.
+   * *   1: The job is in progress.
+   * *   2: The job is stopped.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The information about the input stream.
+   */
   streamInput?: GetLiveTranscodeJobResponseBodyJobStreamInput;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * b6491d5b3e514b7d895d14b5453ea119
    */
   templateId?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * basic
    */
   templateName?: string;
   /**
+   * @remarks
+   * The type of the template.
+   * 
    * @example
    * normal
    */
@@ -33919,26 +35007,41 @@ export class GetLiveTranscodeJobResponseBodyJob extends $tea.Model {
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigAudioParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output audio.
+   * 
    * @example
    * 1000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile.
+   * 
    * @example
    * 1
    */
   profile?: string;
   /**
+   * @remarks
+   * The audio sampling rate.
+   * 
    * @example
    * 44100
    */
@@ -33970,36 +35073,57 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigAu
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigVideoParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output video.
+   * 
    * @example
    * 2500
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The encoding type.
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The frame rate of the output video.
+   * 
    * @example
    * 30
    */
   fps?: string;
   /**
+   * @remarks
+   * The group of pictures (GOP) of the output video.
+   * 
    * @example
    * 1000
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video.
+   * 
    * @example
    * 720
    */
   height?: string;
   /**
+   * @remarks
+   * The encoding profile.
+   * 
    * @example
    * 2
    */
   profile?: string;
   /**
+   * @remarks
+   * The width of the output video.
+   * 
    * @example
    * 1280
    */
@@ -34034,7 +35158,15 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigVi
 }
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The audio parameters.
+   */
   audioParams?: GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigAudioParams;
+  /**
+   * @remarks
+   * The video parameters.
+   */
   videoParams?: GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfigVideoParams;
   static names(): { [key: string]: string } {
     return {
@@ -34057,27 +35189,49 @@ export class GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfig e
 
 export class GetLiveTranscodeTemplateResponseBodyTemplateContent extends $tea.Model {
   /**
+   * @remarks
+   * The category of the template. Valid values:
+   * 
+   * *   system
+   * *   customized
+   * 
    * @example
    * customized
    */
   category?: string;
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-25T06:15:14Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The name of the template.
+   * 
    * @example
    * my-template
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfig?: GetLiveTranscodeTemplateResponseBodyTemplateContentTemplateConfig;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * bcfa57950bc649b2abfb476ecd36ea4f
    */
   templateId?: string;
   /**
+   * @remarks
+   * The type of the template.
+   * 
    * @example
    * normal
    */
@@ -36218,6 +37372,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
    * 2020-12-23T13:33:49Z
    */
   modifiedTime?: string;
+  progress?: number;
   /**
    * @remarks
    * The ID of the online editing project.
@@ -36296,6 +37451,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       mediaURL: 'MediaURL',
       message: 'Message',
       modifiedTime: 'ModifiedTime',
+      progress: 'Progress',
       projectId: 'ProjectId',
       status: 'Status',
       subJobMaterials: 'SubJobMaterials',
@@ -36318,6 +37474,7 @@ export class GetMediaProducingJobResponseBodyMediaProducingJob extends $tea.Mode
       mediaURL: 'string',
       message: 'string',
       modifiedTime: 'string',
+      progress: 'number',
       projectId: 'string',
       status: 'string',
       subJobMaterials: 'string',
@@ -44816,62 +45973,102 @@ export class ListEditingProjectsResponseBodyProjectList extends $tea.Model {
 
 export class ListLiveRecordFilesResponseBodyFiles extends $tea.Model {
   /**
+   * @remarks
+   * The time when the file was created in UTC.
+   * 
    * @example
    * 2016-05-27T09:40:56Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The recording length. Unit: seconds.
+   * 
    * @example
    * 100.0
    */
   duration?: number;
   /**
+   * @remarks
+   * The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2015-12-01T07:36:10Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The format of the recording file.
+   * 
    * @example
    * m3u8
    */
   format?: string;
   /**
+   * @remarks
+   * The height of the video.
+   * 
    * @example
    * 640
    */
   height?: number;
   /**
+   * @remarks
+   * The ID of the recording job.
+   * 
    * @example
    * c4d7f0a4-b506-43f9-8de3-07732c3f****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the recording job.
+   * 
    * @example
    * LiveRecordJob***
    */
   jobName?: string;
   /**
+   * @remarks
+   * The ID of the index file.
+   * 
    * @example
    * c4d7f0a4-b506-43f9-8de3-07732c3f****
    */
   recordId?: string;
   /**
+   * @remarks
+   * The storage information about the recording file.
+   * 
    * @example
    * { "Type": "oss", "Endpoint":"oss-cn-shanghai.aliyuncs.com", "Bucket": "test-bucket" }
    */
   recordOutput?: string;
+  /**
+   * @remarks
+   * The URL of the index file.
+   */
   recordUrl?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2015-12-01T07:36:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The name of the live stream.
+   * 
    * @example
    * LiveStream***
    */
   streamUrl?: string;
   /**
+   * @remarks
+   * The width of the video.
+   * 
    * @example
    * 480
    */
@@ -44919,16 +46116,30 @@ export class ListLiveRecordFilesResponseBodyFiles extends $tea.Model {
 
 export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $tea.Model {
   /**
+   * @remarks
+   * The bucket name.
+   * 
    * @example
    * imsbucket1
    */
   bucket?: string;
   /**
+   * @remarks
+   * The endpoint of the storage service.
+   * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The type of the storage address.
+   * 
+   * Valid values:
+   * 
+   * *   vod
+   * *   oss
+   * 
    * @example
    * oss
    */
@@ -44956,11 +46167,17 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput extends $t
 
 export class ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput extends $tea.Model {
   /**
+   * @remarks
+   * The type of the live stream URL.
+   * 
    * @example
    * rtmp
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the live stream.
+   * 
    * @example
    * rtmp://example-live.com/live/stream1
    */
@@ -44987,7 +46204,7 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput extends $te
 export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $tea.Model {
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the job was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -44996,39 +46213,56 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $tea.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the recording job.
+   * 
    * @example
    * ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
    */
   jobId?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The name of the recording job.
    */
   name?: string;
   /**
    * @remarks
-   * 回调地址
+   * The callback URL.
    * 
    * @example
    * https://example.com/imsnotify
    */
   notifyUrl?: string;
+  /**
+   * @remarks
+   * The storage address of the recording.
+   */
   recordOutput?: ListLiveRecordJobsResponseBodyLiveRecordJobsRecordOutput;
   /**
+   * @remarks
+   * The state of the recording job.
+   * 
    * @example
    * paused
    */
   status?: string;
+  /**
+   * @remarks
+   * The URL of the live stream.
+   */
   streamInput?: ListLiveRecordJobsResponseBodyLiveRecordJobsStreamInput;
   /**
    * @remarks
-   * 录制模板ID
+   * The ID of the recording template.
    * 
    * @example
    * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
    */
   templateId?: string;
   /**
+   * @remarks
+   * The name of the recording template.
+   * 
    * @example
    * test template
    */
@@ -45068,13 +46302,16 @@ export class ListLiveRecordJobsResponseBodyLiveRecordJobs extends $tea.Model {
 
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatList extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the recording cycle. Unit: seconds.
+   * 
    * @example
    * 21600
    */
   cycleDuration?: number;
   /**
    * @remarks
-   * 格式
+   * The output file format.
    * 
    * @example
    * m3u8
@@ -45082,7 +46319,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   format?: string;
   /**
    * @remarks
-   * Oss对象名，不包含后缀
+   * The name of the recording file that is stored in Object Storage Service (OSS).
    * 
    * @example
    * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
@@ -45090,7 +46327,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   ossObjectPrefix?: string;
   /**
    * @remarks
-   * 切片时长
+   * The duration of a single segment. Unit: seconds.
    * 
    * @example
    * 30
@@ -45098,7 +46335,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
   sliceDuration?: number;
   /**
    * @remarks
-   * 切片Oss对象名，不包含后缀
+   * The name of the TS segment.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -45132,7 +46369,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatLi
 export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.Model {
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The time when the job was created.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -45142,7 +46379,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
   createTime?: string;
   /**
    * @remarks
-   * 最后修改时间
+   * The time when the template was last modified.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -45152,7 +46389,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
   lastModified?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The template name.
    * 
    * @example
    * test template
@@ -45160,12 +46397,12 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
   name?: string;
   /**
    * @remarks
-   * 录制格式
+   * The list of recording formats.
    */
   recordFormatList?: ListLiveRecordTemplatesResponseBodyRecordTemplateListRecordFormatList[];
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The template ID.
    * 
    * @example
    * 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
@@ -45173,7 +46410,7 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
   templateId?: string;
   /**
    * @remarks
-   * 代表资源名称的资源属性字段
+   * The type of the template.
    * 
    * @example
    * custom
@@ -45208,33 +46445,49 @@ export class ListLiveRecordTemplatesResponseBodyRecordTemplateList extends $tea.
 
 export class ListLiveSnapshotFilesResponseBodyFileList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-02-02T22:22:22Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The creation timestamp that is used as an input parameter for a delete API operation.
+   * 
    * @example
    * 1619503516000
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Specifies whether to overlay snapshots.
+   * 
    * @example
    * true
    */
   isOverlay?: boolean;
   /**
    * @remarks
-   * OSS bucket。
+   * The OSS bucket.
    * 
    * @example
    * testbucket
    */
   ossBucket?: string;
   /**
+   * @remarks
+   * The Object Storage Service (OSS) domain name.
+   * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
    */
   ossEndpoint?: string;
+  /**
+   * @remarks
+   * The location in which the OSS object is stored.
+   */
   ossObject?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45265,16 +46518,25 @@ export class ListLiveSnapshotFilesResponseBodyFileList extends $tea.Model {
 
 export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $tea.Model {
   /**
+   * @remarks
+   * The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+   * 
    * @example
    * testbucket
    */
   bucket?: string;
   /**
+   * @remarks
+   * The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+   * 
    * @example
    * oss-cn-shanghai.aliyuncs.com
    */
   endpoint?: string;
   /**
+   * @remarks
+   * The storage type. The value can only be oss.
+   * 
    * @example
    * oss
    */
@@ -45302,29 +46564,62 @@ export class ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput extends $tea.
 
 export class ListLiveSnapshotJobsResponseBodyJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the template was created.
+   * 
    * @example
    * 2022-07-20T02:48:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   jobId?: string;
+  /**
+   * @remarks
+   * The name of the job.
+   */
   jobName?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   snapshotOutput?: ListLiveSnapshotJobsResponseBodyJobListSnapshotOutput;
   /**
+   * @remarks
+   * The state of the job.
+   * 
+   * Valid values:
+   * 
+   * *   init: The job is not started.
+   * *   paused: The job is paused.
+   * *   started: The job is in progress.
+   * 
    * @example
    * started
    */
   status?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287666****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The interval between two adjacent snapshots. Unit: seconds.
+   * 
    * @example
    * 5
    */
@@ -45362,22 +46657,43 @@ export class ListLiveSnapshotJobsResponseBodyJobList extends $tea.Model {
 
 export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-20T02:48:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The interval between two adjacent snapshots. Unit: seconds.
+   * 
    * @example
    * 10
    */
   timeInterval?: number;
   /**
+   * @remarks
+   * The type of the template.
+   * 
+   * Valid values:
+   * 
+   * *   system
+   * *   custom
+   * 
    * @example
    * custom
    */
@@ -45409,11 +46725,17 @@ export class ListLiveSnapshotTemplatesResponseBodyTemplateList extends $tea.Mode
 
 export class ListLiveTranscodeJobsResponseBodyJobListOutputStreamStreamInfos extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the output stream.
+   * 
    * @example
    * rtmp://mydomain/app/mytranscode1
    */
   outputUrl?: string;
   /**
+   * @remarks
+   * The type of the output stream protocol. Only the RTMP protocol is supported.
+   * 
    * @example
    * rtmp
    */
@@ -45438,6 +46760,10 @@ export class ListLiveTranscodeJobsResponseBodyJobListOutputStreamStreamInfos ext
 }
 
 export class ListLiveTranscodeJobsResponseBodyJobListOutputStream extends $tea.Model {
+  /**
+   * @remarks
+   * The list of stream URLs.
+   */
   streamInfos?: ListLiveTranscodeJobsResponseBodyJobListOutputStreamStreamInfos[];
   static names(): { [key: string]: string } {
     return {
@@ -45458,11 +46784,17 @@ export class ListLiveTranscodeJobsResponseBodyJobListOutputStream extends $tea.M
 
 export class ListLiveTranscodeJobsResponseBodyJobListStreamInput extends $tea.Model {
   /**
+   * @remarks
+   * The URL of the input stream.
+   * 
    * @example
    * rtmp://mydomain/app/stream1
    */
   inputUrl?: string;
   /**
+   * @remarks
+   * The type of the input stream.
+   * 
    * @example
    * rtmp
    */
@@ -45488,39 +46820,72 @@ export class ListLiveTranscodeJobsResponseBodyJobListStreamInput extends $tea.Mo
 
 export class ListLiveTranscodeJobsResponseBodyJobList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-20T02:48:58Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287782****
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the transcoding job.
+   * 
    * @example
    * mytask
    */
   name?: string;
+  /**
+   * @remarks
+   * The information about the output stream.
+   */
   outputStream?: ListLiveTranscodeJobsResponseBodyJobListOutputStream;
   /**
+   * @remarks
+   * The start mode of the job.
+   * 
    * @example
    * 0
    */
   startMode?: number;
   /**
+   * @remarks
+   * The state of the job.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The information about the input stream.
+   */
   streamInput?: ListLiveTranscodeJobsResponseBodyJobListStreamInput;
   /**
+   * @remarks
+   * The ID of the transcoding template used by the transcoding job.
+   * 
    * @example
    * ****a046-263c-3560-978a-fb287666****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The template name.
+   */
   templateName?: string;
   /**
+   * @remarks
+   * The type of the transcoding template used by the transcoding job.
+   * 
    * @example
    * normal
    */
@@ -45562,26 +46927,41 @@ export class ListLiveTranscodeJobsResponseBodyJobList extends $tea.Model {
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigAudioParams extends $tea.Model {
   /**
+   * @remarks
+   * The audio bitrate.
+   * 
    * @example
    * 1000
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels.
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec.
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The encoding profile.
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * The audio sampling rate.
+   * 
    * @example
    * 44100
    */
@@ -45613,36 +46993,57 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigVideoParams extends $tea.Model {
   /**
+   * @remarks
+   * The video bitrate.
+   * 
    * @example
    * 2500
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The encoding format.
+   * 
    * @example
    * 264
    */
   codec?: string;
   /**
+   * @remarks
+   * The video frame rate.
+   * 
    * @example
    * 30
    */
   fps?: string;
   /**
+   * @remarks
+   * The group of pictures (GOP) of the output video. Unit: frame.
+   * 
    * @example
    * 1000
    */
   gop?: string;
   /**
+   * @remarks
+   * The vertical resolution of the video.
+   * 
    * @example
    * 1280
    */
   height?: string;
   /**
+   * @remarks
+   * The encoding profile.
+   * 
    * @example
    * 3
    */
   profile?: string;
   /**
+   * @remarks
+   * The horizontal resolution of the video.
+   * 
    * @example
    * 720
    */
@@ -45677,7 +47078,15 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 }
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The audio parameters.
+   */
   audioParams?: ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigAudioParams;
+  /**
+   * @remarks
+   * The video parameters.
+   */
   videoParams?: ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfigVideoParams;
   static names(): { [key: string]: string } {
     return {
@@ -45700,27 +47109,46 @@ export class ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateCo
 
 export class ListLiveTranscodeTemplatesResponseBodyTemplateContentList extends $tea.Model {
   /**
+   * @remarks
+   * The category of the template. Valid values:
+   * 
    * @example
    * system
    */
   category?: string;
   /**
+   * @remarks
+   * The time when the job was created.
+   * 
    * @example
    * 2022-07-20T03:26:36Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
    * my_template
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration of the template.
+   */
   templateConfig?: ListLiveTranscodeTemplatesResponseBodyTemplateContentListTemplateConfig;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 9b1571b513cb44f7a1ba6ae561ff46f7
    */
   templateId?: string;
   /**
+   * @remarks
+   * The type of the template.
+   * 
    * @example
    * normal
    */
@@ -55907,17 +57335,25 @@ export class SubmitIProductionJobRequestScheduleConfig extends $tea.Model {
 
 export class SubmitLiveRecordJobRequestRecordOutput extends $tea.Model {
   /**
+   * @remarks
+   * The bucket name.
+   * 
    * @example
    * imsbucket1
    */
   bucket?: string;
   /**
+   * @remarks
+   * The endpoint of the storage service.
+   * 
    * @example
    * oss-cn-hangzhou.aliyuncs.com
    */
   endpoint?: string;
   /**
    * @remarks
+   * The type of the storage address.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55948,6 +57384,8 @@ export class SubmitLiveRecordJobRequestRecordOutput extends $tea.Model {
 export class SubmitLiveRecordJobRequestStreamInput extends $tea.Model {
   /**
    * @remarks
+   * The type of the live stream URL. The value can only be rtmp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55955,6 +57393,9 @@ export class SubmitLiveRecordJobRequestStreamInput extends $tea.Model {
    */
   type?: string;
   /**
+   * @remarks
+   * The URL of the live stream.
+   * 
    * @example
    * rtmp://example.com/live/stream1
    */
@@ -55981,6 +57422,8 @@ export class SubmitLiveRecordJobRequestStreamInput extends $tea.Model {
 export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
   /**
    * @remarks
+   * The bucket of the snapshot output endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55989,6 +57432,8 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
   bucket?: string;
   /**
    * @remarks
+   * The output endpoint of the snapshot.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55997,6 +57442,8 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
   endpoint?: string;
   /**
    * @remarks
+   * The storage type of the snapshot. The value can only be oss.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56027,6 +57474,8 @@ export class SubmitLiveSnapshotJobRequestSnapshotOutput extends $tea.Model {
 export class SubmitLiveSnapshotJobRequestStreamInput extends $tea.Model {
   /**
    * @remarks
+   * The type of the input stream. The value can only be rtmp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56035,6 +57484,10 @@ export class SubmitLiveSnapshotJobRequestStreamInput extends $tea.Model {
   type?: string;
   /**
    * @remarks
+   * The URL of the input stream.
+   * 
+   * *   It cannot exceed 255 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56063,6 +57516,8 @@ export class SubmitLiveSnapshotJobRequestStreamInput extends $tea.Model {
 export class SubmitLiveTranscodeJobRequestStreamInput extends $tea.Model {
   /**
    * @remarks
+   * The URL of the input stream.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56071,6 +57526,8 @@ export class SubmitLiveTranscodeJobRequestStreamInput extends $tea.Model {
   inputUrl?: string;
   /**
    * @remarks
+   * The type of the input stream. The value can only be rtmp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56098,11 +57555,17 @@ export class SubmitLiveTranscodeJobRequestStreamInput extends $tea.Model {
 
 export class SubmitLiveTranscodeJobRequestTimedConfig extends $tea.Model {
   /**
+   * @remarks
+   * The stop time of the transcoding job. Note: The time span between the stop time and the current time cannot exceed seven days.
+   * 
    * @example
    * 2022-07-20T08:20:32Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time of the transcoding job. Note: The time span between the start time and the current time cannot exceed seven days.
+   * 
    * @example
    * 2022-02-21T00:00:00Z
    */
@@ -56128,12 +57591,17 @@ export class SubmitLiveTranscodeJobRequestTimedConfig extends $tea.Model {
 
 export class SubmitLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
   /**
+   * @remarks
+   * The streaming domain name of ApsaraVideo Live.
+   * 
    * @example
    * mydomain
    */
   domainName?: string;
   /**
    * @remarks
+   * The type of the output stream. A value of LiveCenter indicates that the URL of the output stream is generated based on the domain name of ApsaraVideo Live. The value can only be LiveCenter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64253,13 +65721,24 @@ export class UpdateAvatarTrainingJobResponseBodyData extends $tea.Model {
 
 export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the recording cycle. Unit: seconds If you do not specify this parameter, the default value 6 hours is used.
+   * 
+   * > 
+   * 
+   * *   If a live stream is interrupted during a recording cycle but is resumed within 3 minutes, the stream is recorded in the same recording before and after the interruption.
+   * 
+   * *   If a live stream is interrupted for more than 3 minutes, a new recording is generated. To change the default stream interruption time, submit a ticket.
+   * 
    * @example
    * 3600
    */
   cycleDuration?: number;
   /**
    * @remarks
-   * 格式
+   * The format of recording files.
+   * 
+   * >  If you set this parameter to m3u8, you must also specify the SliceOssObjectPrefix and SliceDuration parameters.
    * 
    * This parameter is required.
    * 
@@ -64269,7 +65748,10 @@ export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   format?: string;
   /**
    * @remarks
-   * Oss对象名，不包含后缀
+   * The name of the recording that is stored in Object Storage Service (OSS).
+   * 
+   * *   The name must be less than 256 bytes in length and can contain the {JobId}, {Sequence}, {StartTime}, {EndTime}, {EscapedStartTime}, and {EscapedEndTime} variables.
+   * *   The name must contain the {StartTime} and {EndTime} variables or the {EscapedStartTime} and {EscapedEndTime} variables.
    * 
    * @example
    * record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
@@ -64277,7 +65759,11 @@ export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   ossObjectPrefix?: string;
   /**
    * @remarks
-   * 切片时长
+   * The duration of a single segment. Unit: seconds
+   * 
+   * >  This parameter takes effect only if you set Format to m3u8.
+   * 
+   * If you do not specify this parameter, the default value 30 seconds is used. Valid values: 5 to 30.
    * 
    * @example
    * 30
@@ -64285,7 +65771,11 @@ export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
   sliceDuration?: number;
   /**
    * @remarks
-   * 切片Oss对象名，不包含后缀
+   * The name of the TS segment.
+   * 
+   * >  This parameter is required only if you set Format to m3u8. By default, the duration of a segment is 30 seconds. The segment name must be less than 256 bytes in length and can contain the {JobId}, {UnixTimestamp}, and {Sequence} variables.
+   * 
+   * The segment name must contain the {UnixTimestamp} and {Sequence} variables.
    * 
    * @example
    * record/{JobId}/{UnixTimestamp}_{Sequence}
@@ -64319,6 +65809,8 @@ export class UpdateLiveRecordTemplateRequestRecordFormat extends $tea.Model {
 export class UpdateLiveTranscodeJobRequestStreamInput extends $tea.Model {
   /**
    * @remarks
+   * The URL of the input stream.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64327,6 +65819,8 @@ export class UpdateLiveTranscodeJobRequestStreamInput extends $tea.Model {
   inputUrl?: string;
   /**
    * @remarks
+   * The type of the input stream. The value can only be rtmp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64354,11 +65848,17 @@ export class UpdateLiveTranscodeJobRequestStreamInput extends $tea.Model {
 
 export class UpdateLiveTranscodeJobRequestTimedConfig extends $tea.Model {
   /**
+   * @remarks
+   * The stop time of the transcoding job. Note: The time span between the stop time and the current time cannot exceed seven days.
+   * 
    * @example
    * 2022-08-05T06:08:31Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time of the transcoding job. Note: The time span between the start time and the current time cannot exceed seven days.
+   * 
    * @example
    * 2022-06-19T02:16:41Z
    */
@@ -64385,6 +65885,8 @@ export class UpdateLiveTranscodeJobRequestTimedConfig extends $tea.Model {
 export class UpdateLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
   /**
    * @remarks
+   * The streaming domain name of ApsaraVideo Live.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64393,6 +65895,8 @@ export class UpdateLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
   domainName?: string;
   /**
    * @remarks
+   * The type of the output stream. A value of LiveCenter indicates that the URL of the output stream is generated based on the domain name of ApsaraVideo Live. The value can only be LiveCenter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64420,26 +65924,48 @@ export class UpdateLiveTranscodeJobRequestTranscodeOutput extends $tea.Model {
 
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output audio. Unit: Kbit/s. Valid values: 1 to 1000.
+   * 
    * @example
    * 100
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The number of sound channels. Valid values: 1: mono 2: binaural
+   * 
    * @example
    * 2
    */
   channels?: string;
   /**
+   * @remarks
+   * The audio codec. Valid values: AAC MP3
+   * 
    * @example
    * AAC
    */
   codec?: string;
   /**
+   * @remarks
+   * The audio codec profile. Valid values when the Codec parameter is set to AAC:
+   * 
+   * *   aac_low
+   * *   aac_he
+   * *   aac_he_v2
+   * *   aac_ld
+   * 
    * @example
    * aac_low
    */
   profile?: string;
   /**
+   * @remarks
+   * The audio sampling rate. Valid values: 22050 to 96000.
+   * 
+   * Note If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44100.
+   * 
    * @example
    * 44100
    */
@@ -64471,36 +65997,76 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams extends
 
 export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends $tea.Model {
   /**
+   * @remarks
+   * The bitrate of the output video. Unit: Kbit/s. Valid values: 1 to 6000.
+   * 
    * @example
    * 2500
    */
   bitrate?: string;
   /**
+   * @remarks
+   * The encoding type. Valid values:
+   * 
+   * *   H.264
+   * *   H.265
+   * 
    * @example
    * H.264
    */
   codec?: string;
   /**
+   * @remarks
+   * The frame rate of the output video. Unit: frames per second (FPS). Valid values: 1 to 60.
+   * 
    * @example
    * 30
    */
   fps?: string;
   /**
+   * @remarks
+   * The group of pictures (GOP) of the output video. Unit: frame. Valid values: 1 to 3000.
+   * 
    * @example
    * 1000
    */
   gop?: string;
   /**
+   * @remarks
+   * The height of the output video. Valid values:
+   * 
+   * *   Height ≥ 128
+   * *   max (Height,Width) ≤ 2560
+   * *   min（Height,Width）≤ 1440
+   * 
+   * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * 
    * @example
    * 720
    */
   height?: string;
   /**
+   * @remarks
+   * The video encoding profile. The profile determines how a video is encoded. In most cases, a greater value indicates better image quality and higher resource consumption. Valid values:
+   * 
+   * *   1: baseline. This value is suitable for mobile devices.
+   * *   2: main. This value is suitable for standard-definition devices.
+   * *   3: high. This value is suitable for high-definition devices.
+   * 
    * @example
    * 2
    */
   profile?: string;
   /**
+   * @remarks
+   * The width of the output video. Valid values:
+   * 
+   * *   Width ≥ 128
+   * *   max (Height,Width) ≤ 2560
+   * *   min（Height,Width）≤ 1440
+   * 
+   * >  The resolution of a video transcoded by using the H.265 Narrowband HD template cannot exceed 1,280 × 720 pixels.
+   * 
    * @example
    * 1280
    */
@@ -64535,7 +66101,15 @@ export class UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams extends
 }
 
 export class UpdateLiveTranscodeTemplateRequestTemplateConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The audio parameters.
+   */
   audioParams?: UpdateLiveTranscodeTemplateRequestTemplateConfigAudioParams;
+  /**
+   * @remarks
+   * The video parameters.
+   */
   videoParams?: UpdateLiveTranscodeTemplateRequestTemplateConfigVideoParams;
   static names(): { [key: string]: string } {
     return {
@@ -65570,7 +67144,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播录制模板
+   * Creates a live stream recording template to submit live stream recording jobs.
+   * 
+   * @remarks
+   * You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
    * 
    * @param tmpReq - CreateLiveRecordTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65611,7 +67188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播录制模板
+   * Creates a live stream recording template to submit live stream recording jobs.
+   * 
+   * @remarks
+   * You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
    * 
    * @param request - CreateLiveRecordTemplateRequest
    * @returns CreateLiveRecordTemplateResponse
@@ -65622,7 +67202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播截图模板
+   * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
    * 
    * @param request - CreateLiveSnapshotTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65665,7 +67245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播截图模板
+   * Create a live stream snapshot template to facilitate the creation of snapshot jobs.
    * 
    * @param request - CreateLiveSnapshotTemplateRequest
    * @returns CreateLiveSnapshotTemplateResponse
@@ -65676,7 +67256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建转码模版
+   * Creates a live stream transcoding template to submit live stream transcoding jobs.
    * 
    * @param tmpReq - CreateLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -65721,7 +67301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建转码模版
+   * Creates a live stream transcoding template to submit live stream transcoding jobs.
    * 
    * @param request - CreateLiveTranscodeTemplateRequest
    * @returns CreateLiveTranscodeTemplateResponse
@@ -66464,7 +68044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时媒体服务-删除录制文件
+   * Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
    * 
    * @param request - DeleteLiveRecordFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66499,7 +68079,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 实时媒体服务-删除录制文件
+   * Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
    * 
    * @param request - DeleteLiveRecordFilesRequest
    * @returns DeleteLiveRecordFilesResponse
@@ -66510,7 +68090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播录制模板
+   * Deletes a live stream recording template without affecting existing jobs.
    * 
    * @param request - DeleteLiveRecordTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66541,7 +68121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播录制模板
+   * Deletes a live stream recording template without affecting existing jobs.
    * 
    * @param request - DeleteLiveRecordTemplateRequest
    * @returns DeleteLiveRecordTemplateResponse
@@ -66552,7 +68132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除直播截图文件
+   * Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
    * 
    * @param tmpReq - DeleteLiveSnapshotFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66597,7 +68177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 批量删除直播截图文件
+   * Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
    * 
    * @param request - DeleteLiveSnapshotFilesRequest
    * @returns DeleteLiveSnapshotFilesResponse
@@ -66608,7 +68188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播截图模板
+   * Deletes a live stream snapshot template.
    * 
    * @param request - DeleteLiveSnapshotTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66639,7 +68219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除直播截图模板
+   * Deletes a live stream snapshot template.
    * 
    * @param request - DeleteLiveSnapshotTemplateRequest
    * @returns DeleteLiveSnapshotTemplateResponse
@@ -66692,7 +68272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定转码模版
+   * Deletes a live stream transcoding template.
    * 
    * @param request - DeleteLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -66723,7 +68303,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除指定转码模版
+   * Deletes a live stream transcoding template.
    * 
    * @param request - DeleteLiveTranscodeTemplateRequest
    * @returns DeleteLiveTranscodeTemplateResponse
@@ -68384,7 +69964,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件回调地址
+   * Queries event callback configurations.
    * 
    * @param request - GetEventCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68407,7 +69987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取事件回调地址
+   * Queries event callback configurations.
    * @returns GetEventCallbackResponse
    */
   async getEventCallback(): Promise<GetEventCallbackResponse> {
@@ -68512,7 +70092,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制任务明细
+   * Queries the information about a live stream recording job.
    * 
    * @param request - GetLiveRecordJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68539,7 +70119,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制任务明细
+   * Queries the information about a live stream recording job.
    * 
    * @param request - GetLiveRecordJobRequest
    * @returns GetLiveRecordJobResponse
@@ -68550,7 +70130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播录制模板详情
+   * Queries the information about a live stream recording template or a snapshot of the template.
    * 
    * @param request - GetLiveRecordTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68577,7 +70157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播录制模板详情
+   * Queries the information about a live stream recording template or a snapshot of the template.
    * 
    * @param request - GetLiveRecordTemplateRequest
    * @returns GetLiveRecordTemplateResponse
@@ -68588,7 +70168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图任务
+   * Queries the information a live stream snapshot job.
    * 
    * @param request - GetLiveSnapshotJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68615,7 +70195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图任务
+   * Queries the information a live stream snapshot job.
    * 
    * @param request - GetLiveSnapshotJobRequest
    * @returns GetLiveSnapshotJobResponse
@@ -68626,7 +70206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图模板
+   * Queries the information about a live stream snapshot template.
    * 
    * @param request - GetLiveSnapshotTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68653,7 +70233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图模板
+   * Queries the information about a live stream snapshot template.
    * 
    * @param request - GetLiveSnapshotTemplateRequest
    * @returns GetLiveSnapshotTemplateResponse
@@ -68664,7 +70244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码任务详情
+   * Queries the information about a live stream transcoding job.
    * 
    * @param request - GetLiveTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68695,7 +70275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码任务详情
+   * Queries the information about a live stream transcoding job.
    * 
    * @param request - GetLiveTranscodeJobRequest
    * @returns GetLiveTranscodeJobResponse
@@ -68706,7 +70286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码模版详情
+   * Queries the information a live stream transcoding template.
    * 
    * @param request - GetLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -68737,7 +70317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码模版详情
+   * Queries the information a live stream transcoding template.
    * 
    * @param request - GetLiveTranscodeTemplateRequest
    * @returns GetLiveTranscodeTemplateResponse
@@ -70468,7 +72048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制文件
+   * Queries all recording index files in the specified period of time.
    * 
    * @param request - ListLiveRecordFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70495,7 +72075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制文件
+   * Queries all recording index files in the specified period of time.
    * 
    * @param request - ListLiveRecordFilesRequest
    * @returns ListLiveRecordFilesResponse
@@ -70506,7 +72086,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制任务
+   * Queries a list of live stream recording jobs by page.
    * 
    * @param request - ListLiveRecordJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70533,7 +72113,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询录制任务
+   * Queries a list of live stream recording jobs by page.
    * 
    * @param request - ListLiveRecordJobsRequest
    * @returns ListLiveRecordJobsResponse
@@ -70544,7 +72124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播录制模板
+   * Queries a list of live stream recording templates.
    * 
    * @param request - ListLiveRecordTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70571,7 +72151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播录制模板
+   * Queries a list of live stream recording templates.
    * 
    * @param request - ListLiveRecordTemplatesRequest
    * @returns ListLiveRecordTemplatesResponse
@@ -70582,7 +72162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图文件列表
+   * Queries a list of live stream snapshot files by page.
    * 
    * @param request - ListLiveSnapshotFilesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70609,7 +72189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图文件列表
+   * Queries a list of live stream snapshot files by page.
    * 
    * @param request - ListLiveSnapshotFilesRequest
    * @returns ListLiveSnapshotFilesResponse
@@ -70620,7 +72200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图任务列表
+   * Queries a list of live stream snapshot jobs by page.
    * 
    * @param request - ListLiveSnapshotJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70647,7 +72227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图任务列表
+   * Queries a list of live stream snapshot jobs by page.
    * 
    * @param request - ListLiveSnapshotJobsRequest
    * @returns ListLiveSnapshotJobsResponse
@@ -70658,7 +72238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图模板列表
+   * Queries a list of live stream snapshot templates by page.
    * 
    * @param request - ListLiveSnapshotTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70685,7 +72265,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询直播截图模板列表
+   * Queries a list of live stream snapshot templates by page.
    * 
    * @param request - ListLiveSnapshotTemplatesRequest
    * @returns ListLiveSnapshotTemplatesResponse
@@ -70696,7 +72276,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码任务列表
+   * Queries a list of live stream transcoding jobs.
    * 
    * @param request - ListLiveTranscodeJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70751,7 +72331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码任务列表
+   * Queries a list of live stream transcoding jobs.
    * 
    * @param request - ListLiveTranscodeJobsRequest
    * @returns ListLiveTranscodeJobsResponse
@@ -70762,7 +72342,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码模版列表
+   * Queries a list of live stream transcoding templates.
    * 
    * @param request - ListLiveTranscodeTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70817,7 +72397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询转码模版列表
+   * Queries a list of live stream transcoding templates.
    * 
    * @param request - ListLiveTranscodeTemplatesRequest
    * @returns ListLiveTranscodeTemplatesResponse
@@ -73096,7 +74676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送实时截图任务指令
+   * Sends a command to process a live stream snapshot job.
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73131,7 +74711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送实时截图任务指令
+   * Sends a command to process a live stream snapshot job.
    * 
    * @param request - SendLiveSnapshotJobCommandRequest
    * @returns SendLiveSnapshotJobCommandResponse
@@ -73142,7 +74722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给指定转码任务发实时命令
+   * Sends a command to process a live stream transcoding job.
    * 
    * @param request - SendLiveTranscodeJobCommandRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73177,7 +74757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 给指定转码任务发实时命令
+   * Sends a command to process a live stream transcoding job.
    * 
    * @param request - SendLiveTranscodeJobCommandRequest
    * @returns SendLiveTranscodeJobCommandResponse
@@ -73330,7 +74910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置事件回调地址
+   * Configures a callback method for one or more events.
    * 
    * @param request - SetEventCallbackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73381,7 +74961,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 配置事件回调地址
+   * Configures a callback method for one or more events.
    * 
    * @param request - SetEventCallbackRequest
    * @returns SetEventCallbackResponse
@@ -73894,7 +75474,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交虚拟人视频合成任务
+   * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
    * 
    * @param request - SubmitAvatarVideoJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73945,7 +75525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交虚拟人视频合成任务
+   * Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
    * 
    * @param request - SubmitAvatarVideoJobRequest
    * @returns SubmitAvatarVideoJobResponse
@@ -74490,7 +76070,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交录制任务
+   * Submits a live stream recording job.
+   * 
+   * @remarks
+   * You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+   * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
+   * If the preset recording template does not meet your requirements, you can create a custom recording template.
    * 
    * @param tmpReq - SubmitLiveRecordJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74547,7 +76132,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交录制任务
+   * Submits a live stream recording job.
+   * 
+   * @remarks
+   * You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+   * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
+   * If the preset recording template does not meet your requirements, you can create a custom recording template.
    * 
    * @param request - SubmitLiveRecordJobRequest
    * @returns SubmitLiveRecordJobResponse
@@ -74558,7 +76148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播截图任务
+   * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
    * 
    * @param tmpReq - SubmitLiveSnapshotJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74615,7 +76205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建直播截图任务
+   * Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
    * 
    * @param request - SubmitLiveSnapshotJobRequest
    * @returns SubmitLiveSnapshotJobResponse
@@ -74626,7 +76216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交转码任务
+   * Submits a live stream transcoding job.
+   * 
+   * @remarks
+   *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+   * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
    * 
    * @param tmpReq - SubmitLiveTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74691,7 +76285,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 提交转码任务
+   * Submits a live stream transcoding job.
+   * 
+   * @remarks
+   *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+   * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
    * 
    * @param request - SubmitLiveTranscodeJobRequest
    * @returns SubmitLiveTranscodeJobResponse
@@ -76010,7 +77608,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改直播录制模板
+   * Updates the information about a live stream recording template.
+   * 
+   * @remarks
+   * Only user-created templates can be updated. The preset template cannot be updated.
    * 
    * @param tmpReq - UpdateLiveRecordTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76055,7 +77656,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改直播录制模板
+   * Updates the information about a live stream recording template.
+   * 
+   * @remarks
+   * Only user-created templates can be updated. The preset template cannot be updated.
    * 
    * @param request - UpdateLiveRecordTemplateRequest
    * @returns UpdateLiveRecordTemplateResponse
@@ -76066,7 +77670,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新直播截图模板
+   * Updates the information about a live stream snapshot template.
    * 
    * @param request - UpdateLiveSnapshotTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76113,7 +77717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新直播截图模板
+   * Updates the information about a live stream snapshot template.
    * 
    * @param request - UpdateLiveSnapshotTemplateRequest
    * @returns UpdateLiveSnapshotTemplateResponse
@@ -76124,7 +77728,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新转码任务配置
+   * Updates the information about a live stream transcoding job.
+   * 
+   * @remarks
+   *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+   * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
    * 
    * @param tmpReq - UpdateLiveTranscodeJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76185,7 +77793,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新转码任务配置
+   * Updates the information about a live stream transcoding job.
+   * 
+   * @remarks
+   *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+   * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
    * 
    * @param request - UpdateLiveTranscodeJobRequest
    * @returns UpdateLiveTranscodeJobResponse
@@ -76196,7 +77808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新转码模版
+   * Updates the information about a live stream transcoding template.
    * 
    * @param tmpReq - UpdateLiveTranscodeTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -76241,7 +77853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新转码模版
+   * Updates the information about a live stream transcoding template.
    * 
    * @param request - UpdateLiveTranscodeTemplateRequest
    * @returns UpdateLiveTranscodeTemplateResponse
