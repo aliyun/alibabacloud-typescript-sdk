@@ -11388,6 +11388,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
   allConfig?: string;
   autoCreateGroupEnable?: boolean;
   autoCreateTopicEnable?: boolean;
+  backupZoneId?: string;
   /**
    * @remarks
    * The parameters that are returned for the ApsaraMQ for Confluent instance.
@@ -11778,6 +11779,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       allConfig: 'AllConfig',
       autoCreateGroupEnable: 'AutoCreateGroupEnable',
       autoCreateTopicEnable: 'AutoCreateTopicEnable',
+      backupZoneId: 'BackupZoneId',
       confluentConfig: 'ConfluentConfig',
       createTime: 'CreateTime',
       defaultPartitionNum: 'DefaultPartitionNum',
@@ -11828,6 +11830,7 @@ export class GetInstanceListResponseBodyInstanceListInstanceVO extends $tea.Mode
       allConfig: 'string',
       autoCreateGroupEnable: 'boolean',
       autoCreateTopicEnable: 'boolean',
+      backupZoneId: 'string',
       confluentConfig: GetInstanceListResponseBodyInstanceListInstanceVOConfluentConfig,
       createTime: 'number',
       defaultPartitionNum: 'number',
