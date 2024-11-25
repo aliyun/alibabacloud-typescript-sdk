@@ -654,6 +654,309 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
   }
 }
 
+export class AttachRCDiskRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rcd-wz98hnpj2sjo85zc7t2w
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteWithInstance: 'DeleteWithInstance',
+      diskId: 'DiskId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteWithInstance: 'boolean',
+      diskId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCDiskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * C19D1668-70CB-5421-AA91-D6D8EE3AB664
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachRCDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachRCDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCInstancesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The node IDs.
+   * 
+   * This parameter is required.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * The key pair of the node.
+   * 
+   * @example
+   * Custom_test
+   */
+  keyPair?: string;
+  /**
+   * @remarks
+   * The logon password of the node.
+   * 
+   * @example
+   * testPassword
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * > This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      keyPair: 'KeyPair',
+      password: 'Password',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      keyPair: 'string',
+      password: 'string',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCInstancesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The node IDs.
+   * 
+   * This parameter is required.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The key pair of the node.
+   * 
+   * @example
+   * Custom_test
+   */
+  keyPair?: string;
+  /**
+   * @remarks
+   * The logon password of the node.
+   * 
+   * @example
+   * testPassword
+   */
+  password?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * > This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      keyPair: 'KeyPair',
+      password: 'Password',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      keyPair: 'string',
+      password: 'string',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 847BA085-B377-4BFA-8267-F82345ECE1D2
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The response parameters.
+   */
+  responses?: AttachRCInstancesResponseBodyResponses[];
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 178968983
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      responses: 'Responses',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      responses: { 'type': 'array', 'itemType': AttachRCInstancesResponseBodyResponses },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachRCInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachRCInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachWhitelistTemplateToInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -923,7 +1226,7 @@ export class CalculateDBInstanceWeightResponse extends $tea.Model {
 export class CancelActiveOperationTasksRequest extends $tea.Model {
   /**
    * @remarks
-   * List of IDs for batch cancellation, separated by English commas (,). It is recommended to not exceed 25 at a time.
+   * The IDs of tasks that you want to cancel at a time. Separate multiple IDs with commas (,). We recommend that you configure up to 25 IDs at a time.
    * 
    * This parameter is required.
    * 
@@ -966,7 +1269,7 @@ export class CancelActiveOperationTasksRequest extends $tea.Model {
 export class CancelActiveOperationTasksResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Batch cancellation task IDs, separated by English commas (,).
+   * The IDs of the tasks that are canceled. Multiple task IDs are separated with commas (,).
    * 
    * @example
    * 188****,188****,188****
@@ -974,7 +1277,7 @@ export class CancelActiveOperationTasksResponseBody extends $tea.Model {
   ids?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * A807C95D-410C-5BB5-96C0-C6E09F2C3D36
@@ -1109,15 +1412,25 @@ export class CheckAccountNameAvailableResponseBody extends $tea.Model {
    * 5E4AA101-1EE5-41C0-AE6D-0F066331AC1C
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmy****
+   */
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -4055,7 +4368,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: enables the feature. You must make sure that your account balance is sufficient.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
    * *   **false**: disables the feature. An unpaid order is generated.
    * 
    * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
@@ -4078,6 +4391,17 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false** (default): does not use a coupon.
+   * 
+   * @example
+   * true
+   */
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The configuration of the Babelfish feature for the instance that runs PostgreSQL.
@@ -4144,9 +4468,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
    *     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
    *     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
    * 
-   *     **
    * 
-   *     **Note** This parameter is required when you create a serverless instance.
+   * 
+   * > This parameter is required when you create a serverless instance.
    * 
    * @example
    * HighAvailability
@@ -4402,15 +4726,10 @@ export class CreateDBInstanceRequest extends $tea.Model {
    *     *   Valid values when you set Engine to SQLServer: **2016_std_sl**, **2017_std_sl**, and **2019_std_sl**
    *     *   Valid values when you set Engine to PostgreSQL: **14.0**, **15.0**, and **16.0**
    * 
-   * > 
-   * 
-   * *   ApsaraDB RDS for MariaDB does not support serverless instances.
-   * 
-   * *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
-   * 
-   * *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
-   * 
-   * *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
+   * > *   ApsaraDB RDS for MariaDB does not support serverless instances.
+   * > *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+   * > *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
+   * > *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
    * 
    * This parameter is required.
    * 
@@ -4422,7 +4741,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
+   * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
    * > 
@@ -4498,6 +4817,14 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 172.16.XX.XX
    */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * aliwood-1688-mobile-promotion
+   */
+  promotionCode?: string;
   /**
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
@@ -4700,10 +5027,11 @@ export class CreateDBInstanceRequest extends $tea.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
    * 
    * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-   * *   If you specify the ZoneSlaveId1 parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * *   If you set the **ZoneSlaveId1** parameter to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,). The ZoneSlaveId1 parameter specifies the zone ID of the secondary node.
+   * *   The value cannot contain `spaces`, exclamation points `(!)`, or special characters such as number signs `(#)`, dollar signs `($)`, ampersands `(&)`, and percent signs `(%)`.
    * 
    * @example
    * vsw-*****
@@ -4744,7 +5072,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   zoneIdSlave1?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The zone ID of the other secondary node. When you create an ApsaraDB RDS for MySQL cluster, you can create one to two secondary nodes for the cluster. This parameter applies if you create a cluster that contains two secondary nodes.
    * 
    * @example
    * cn-hangzhou-d
@@ -4756,6 +5084,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       babelfishConfig: 'BabelfishConfig',
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
@@ -4786,6 +5115,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       period: 'Period',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
@@ -4818,6 +5148,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
+      autoUseCoupon: 'boolean',
       babelfishConfig: 'string',
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
@@ -4848,6 +5179,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       period: 'string',
       port: 'string',
       privateIpAddress: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
@@ -4909,7 +5241,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable the automatic payment feature. Valid values:
    * 
-   * *   **true**: enables the feature. You must make sure that your account balance is sufficient.
+   * *   **true**: enables the feature. Make sure that your account balance is sufficient.
    * *   **false**: disables the feature. An unpaid order is generated.
    * 
    * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
@@ -4932,6 +5264,17 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false** (default): does not use a coupon.
+   * 
+   * @example
+   * true
+   */
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The configuration of the Babelfish feature for the instance that runs PostgreSQL.
@@ -4998,9 +5341,9 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    *     *   **serverless_standard**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run MySQL and PostgreSQL.
    *     *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
    * 
-   *     **
    * 
-   *     **Note** This parameter is required when you create a serverless instance.
+   * 
+   * > This parameter is required when you create a serverless instance.
    * 
    * @example
    * HighAvailability
@@ -5256,15 +5599,10 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    *     *   Valid values when you set Engine to SQLServer: **2016_std_sl**, **2017_std_sl**, and **2019_std_sl**
    *     *   Valid values when you set Engine to PostgreSQL: **14.0**, **15.0**, and **16.0**
    * 
-   * > 
-   * 
-   * *   ApsaraDB RDS for MariaDB does not support serverless instances.
-   * 
-   * *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
-   * 
-   * *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
-   * 
-   * *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
+   * > *   ApsaraDB RDS for MariaDB does not support serverless instances.
+   * > *   RDS instances that run SQL Server: `_ent` specifies SQL Server EE (Always On), `_ent_ha` specifies SQL Server EE, `_std_ha` specifies SQL Server SE, and `_web` specifies SQL Server Web.
+   * > *   RDS instances that run SQL Server 2014 are not available for purchase on the international site (alibabacloud.com).
+   * > *   Babelfish is supported only for RDS instances that run PostgreSQL 15.
    * 
    * This parameter is required.
    * 
@@ -5276,7 +5614,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * @remarks
    * The network type of the instance. Valid values:
    * 
-   * *   **VPC**: virtual private cloud (VPC)
+   * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
    * > 
@@ -5352,6 +5690,14 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * 172.16.XX.XX
    */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * aliwood-1688-mobile-promotion
+   */
+  promotionCode?: string;
   /**
    * @remarks
    * The region ID. You can call the DescribeRegions operation to query the most recent region list.
@@ -5554,10 +5900,11 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch. The vSwitch must belong to the zone that is specified by **ZoneId**.
+   * The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
    * 
    * *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-   * *   If you specify the ZoneSlaveId1 parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+   * *   If you set the **ZoneSlaveId1** parameter to a value that is not **Auto**, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,). The ZoneSlaveId1 parameter specifies the zone ID of the secondary node.
+   * *   The value cannot contain `spaces`, exclamation points `(!)`, or special characters such as number signs `(#)`, dollar signs `($)`, ampersands `(&)`, and percent signs `(%)`.
    * 
    * @example
    * vsw-*****
@@ -5598,7 +5945,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
   zoneIdSlave1?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The zone ID of the other secondary node. When you create an ApsaraDB RDS for MySQL cluster, you can create one to two secondary nodes for the cluster. This parameter applies if you create a cluster that contains two secondary nodes.
    * 
    * @example
    * cn-hangzhou-d
@@ -5610,6 +5957,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       babelfishConfig: 'BabelfishConfig',
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
@@ -5640,6 +5988,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       period: 'Period',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerId: 'ResourceOwnerId',
@@ -5672,6 +6021,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
+      autoUseCoupon: 'boolean',
       babelfishConfig: 'string',
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
@@ -5702,6 +6052,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       period: 'string',
       port: 'string',
       privateIpAddress: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerId: 'number',
@@ -7950,119 +8301,6 @@ export class CreateDdrInstanceResponse extends $tea.Model {
   }
 }
 
-export class CreateDiagnosticReportRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-uf6wjk521****
-   */
-  DBInstanceId?: string;
-  /**
-   * @remarks
-   * The end time of the monitored data that is used to generate the diagnostic report. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2018-06-12T15:00Z
-   */
-  endTime?: string;
-  /**
-   * @remarks
-   * The start time of the monitored data that is used to generate the diagnostic report. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2018-06-11T15:00Z
-   */
-  startTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBInstanceId: 'DBInstanceId',
-      endTime: 'EndTime',
-      startTime: 'StartTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBInstanceId: 'string',
-      endTime: 'string',
-      startTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticReportResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the diagnostic report.
-   * 
-   * @example
-   * 10166270
-   */
-  reportId?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * 8DA8956A-53DA-423E-9540-387428ED37FF-5711
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reportId: 'ReportId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reportId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateDiagnosticReportResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateDiagnosticReportResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateDiagnosticReportResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateGADInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -9799,6 +10037,7 @@ export class CreateRCDeploymentSetRequest extends $tea.Model {
    * Availability
    */
   strategy?: string;
+  tag?: CreateRCDeploymentSetRequestTag[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -9808,6 +10047,7 @@ export class CreateRCDeploymentSetRequest extends $tea.Model {
       onUnableToRedeployFailedInstance: 'OnUnableToRedeployFailedInstance',
       regionId: 'RegionId',
       strategy: 'Strategy',
+      tag: 'Tag',
     };
   }
 
@@ -9820,6 +10060,7 @@ export class CreateRCDeploymentSetRequest extends $tea.Model {
       onUnableToRedeployFailedInstance: 'string',
       regionId: 'string',
       strategy: 'string',
+      tag: { 'type': 'array', 'itemType': CreateRCDeploymentSetRequestTag },
     };
   }
 
@@ -9889,13 +10130,443 @@ export class CreateRCDeploymentSetResponse extends $tea.Model {
   }
 }
 
+export class CreateRCDiskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment. Valid values:
+   * 
+   * *   **true**: enables the feature. You must make sure that your account balance is sufficient.
+   * *   **false**: disables the feature. An unpaid order is generated.
+   * 
+   * >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * 
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. You must specify this parameter only when the data disk uses the subscription billing method. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * >  The auto-renewal cycle is one month for a monthly subscription. The auto-renewal cycle is one year for a yearly subscription.
+   * 
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The disk description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`. By default, this parameter is left empty.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The category of the data disk. Valid values:
+   * 
+   * *   **cloud** (default): basic disk
+   * *   **cloud_efficiency**: ultra disk
+   * *   **cloud_ssd**: standard SSD
+   * *   **cloud_essd**: Enterprise SSD (ESSD)
+   * *   **cloud_auto**: ESSD AutoPL disk
+   * *   **cloud_essd_entry**: ESSD Entry disk
+   * *   **elastic_ephemeral_disk_standard**: standard elastic ephemeral disk
+   * *   **elastic_ephemeral_disk_premium**: premium elastic ephemeral disk
+   * 
+   * @example
+   * cloud_ssd
+   */
+  diskCategory?: string;
+  /**
+   * @remarks
+   * The disk name. The name must be 2 to 128 characters in length and can contain letters and digits. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * ZStack-Hybrid-Test-ECS-Instance
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * The billing method. Set the value to **Postpaid**, which specifies the pay-as-you-go billing method.
+   * 
+   * @example
+   * Postpaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @remarks
+   * The performance level (PL) of the disk if the disk is an ESSD. Valid values:
+   * 
+   * *   **PL0**: A single ESSD delivers up to 10,000 random read/write IOPS.
+   * *   **PL1** (default): A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * *   **PL2**: A single ESSD delivers up to 100,000 random read/write IOPS.
+   * *   **PL3**: A single ESSD delivers up to 1,000,000 random read/write IOPS.
+   * 
+   * For information about ESSD PLs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+   * 
+   * @example
+   * PL1
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * none
+   */
+  period?: number;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * none
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The disk size. Unit: GiB. This parameter is required. Valid values:
+   * 
+   * *   Valid values if you set DiskCategory to **cloud**: 5 to 2000.
+   * 
+   * *   Valid values if you set DiskCategory to **cloud_efficiency**: 20 to 32768.
+   * 
+   * *   Valid values if you set DiskCategory to **cloud_ssd**: 20 to 32768.
+   * 
+   * *   Valid values if you set DiskCategory to **cloud_essd**: depend on the value of PerformanceLevel.
+   * 
+   *     *   Valid values if PerformanceLevel is set to PL0: 1 to 65536
+   *     *   Valid values if PerformanceLevel is set to PL1: 20 to 65536
+   *     *   Valid values if PerformanceLevel is set to PL2: 461 to 65536
+   *     *   Valid values if PerformanceLevel is set to PL3: 1261 to 65536
+   * 
+   * *   Valid values if you set DiskCategory to **cloud_auto**: 1 to 65536.
+   * 
+   * *   Valid values if you set DiskCategory to **cloud_essd_entry**: 10 to 32768.
+   * 
+   * *   Valid values if you set DiskCategory to **elastic_ephemeral_disk_standard**: 64 to 8192.
+   * 
+   * *   Valid values if you set DiskCategory to **elastic_ephemeral_disk_premium**: 64 to 8192.
+   * 
+   * If `SnapshotId` is specified, the following limits apply to `SnapshotId` and `Size`:
+   * 
+   * *   If the size of the snapshot specified by `SnapshotId` is larger than the value of `Size`, the size of the created disk is equal to the size of the snapshot.
+   * *   If the size of the snapshot specified by `SnapshotId` is smaller than the value of `Size`, the size of the created disk is equal to the value of `Size`.
+   * 
+   * @example
+   * 2000
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The snapshot that you want to use to create the disk. Snapshots that were created on or before July 15, 2013 cannot be used to create disks. The following limits apply to `SnapshotId` and `Size`:
+   * 
+   * *   If the size of the snapshot specified by `SnapshotId` is larger than the value of `Size`, the size of the created disk is equal to the specified snapshot size.
+   * *   If the size of the snapshot specified by `SnapshotId` is smaller than the value of `Size`, the size of the created disk is equal to the value of `Size`.
+   * *   You cannot create elastic ephemeral disks from snapshots.
+   * 
+   * @example
+   * rcds-umtnkvevqbu****
+   */
+  snapshotId?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-a
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      description: 'Description',
+      diskCategory: 'DiskCategory',
+      diskName: 'DiskName',
+      instanceChargeType: 'InstanceChargeType',
+      performanceLevel: 'PerformanceLevel',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      size: 'Size',
+      snapshotId: 'SnapshotId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      description: 'string',
+      diskCategory: 'string',
+      diskName: 'string',
+      instanceChargeType: 'string',
+      performanceLevel: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      size: 'number',
+      snapshotId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCDiskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The disk ID.
+   * 
+   * @example
+   * rcd-2zegrjtnkp6dqbe1egca
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 100789370230206
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRCDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRCDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCSnapshotRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The snapshot description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
+   * By default, this parameter is left empty.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The cloud disk ID.
+   * 
+   * @example
+   * rcd-wz9f3peueu5npsl****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * none
+   */
+  instantAccess?: boolean;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * none
+   */
+  instantAccessRetentionDays?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
+   * 
+   * By default, this parameter is left empty, which specifies that the snapshot is not automatically released.
+   * 
+   * @example
+   * 2
+   */
+  retentionDays?: number;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      diskId: 'DiskId',
+      instantAccess: 'InstantAccess',
+      instantAccessRetentionDays: 'InstantAccessRetentionDays',
+      regionId: 'RegionId',
+      retentionDays: 'RetentionDays',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      diskId: 'string',
+      instantAccess: 'boolean',
+      instantAccessRetentionDays: 'number',
+      regionId: 'string',
+      retentionDays: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCSnapshotResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CE93CC0D-B65D-5723-AAB1-08CB8BBABAB9
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The snapshot ID.
+   * 
+   * @example
+   * rcds-7mbefjzkqccvdev****
+   */
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCSnapshotResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRCSnapshotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRCSnapshotResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to automatically create database proxies. Valid values:
    * 
-   * *   **true**: enables the feature. By default, general-purpose database proxies are created.
-   * *   **false**: disables the feature. No database proxies are created.
+   * *   **true**: automatically creates database proxies. By default, general-purpose database proxies are created.
+   * *   **false**: does not automatically create database proxies.
    * 
    * @example
    * false
@@ -9903,12 +10574,12 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
   autoCreateProxy?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the automatic payment feature. Valid values:
+   * Specifies whether to automatically complete the payment. Valid values:
    * 
-   * 1.  **true**: enables the feature. Make sure that your account balance is sufficient.
-   * 2.  **false**: disables the feature. An unpaid order is generated.
+   * 1.  **true**: automatically completes the payment. Make sure that your account balance is sufficient.
+   * 2.  **false**: does not automatically complete the payment. An unpaid order is generated.
    * 
-   * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+   * >  Default value: true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
    * 
    * @example
    * false
@@ -9928,6 +10599,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * A reserved parameter. You do not need to specify this parameter.
@@ -10075,7 +10747,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * 
    * Default value: VPC. If you set this parameter to VPC, you must also specify the **VPCId** and **VSwitchId** parameters.
    * 
-   * > The network type of the read-only instance can be different from the network type of the primary instance.
+   * >  The network type of the read-only instance can be different from the network type of the primary instance.
    * 
    * @example
    * Classic
@@ -10141,6 +10813,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * 172.16.XX.XX
    */
   privateIpAddress?: string;
+  promotionCode?: string;
   /**
    * @remarks
    * The region ID. The read-only instance and the primary instance must reside in the same region. You can call the DescribeRegions operation to query the most recent region list.
@@ -10221,6 +10894,10 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * @remarks
    * The zone ID. You can call the DescribeRegions operation to query the zone ID.
    * 
+   * *   If you use the single-zone deployment method, set this parameter to the ID of one zone. Example: `cn-hangzhou-b`.
+   * *   If you use the multi-zone deployment method, set this parameter to the IDs of multiple zones and separate the IDs with colons (:). Example: `cn-hangzhou-b:cn-hangzhou-c`.
+   * *   The number of zone IDs that you specify must be less than or equal to the number of nodes created for the read-only instance. If you create a read-only instance that runs RDS Basic Edition, only one node is provisioned. If you create a read-only instance that runs RDS High-availability Edition, one primary node and one secondary node are provisioned.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10232,6 +10909,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       autoCreateProxy: 'AutoCreateProxy',
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       bpeEnabled: 'BpeEnabled',
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
@@ -10254,6 +10932,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       period: 'Period',
       port: 'Port',
       privateIpAddress: 'PrivateIpAddress',
+      promotionCode: 'PromotionCode',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -10273,6 +10952,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       autoCreateProxy: 'boolean',
       autoPay: 'boolean',
       autoRenew: 'string',
+      autoUseCoupon: 'boolean',
       bpeEnabled: 'string',
       burstingEnabled: 'boolean',
       category: 'string',
@@ -10295,6 +10975,7 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
       period: 'string',
       port: 'string',
       privateIpAddress: 'string',
+      promotionCode: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -13059,6 +13740,171 @@ export class DeletePostgresExtensionsResponse extends $tea.Model {
   }
 }
 
+export class DeleteRCClusterNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance IDs.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * The node information.
+   */
+  nodes?: string[];
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * >  This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      nodes: 'Nodes',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      nodes: { 'type': 'array', 'itemType': 'string' },
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCClusterNodesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance IDs.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * The node information.
+   */
+  nodesShrink?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * >  This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      nodesShrink: 'Nodes',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      nodesShrink: 'string',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCClusterNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7E0970A1-0434-5C83-B560-613EBA11B525
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * 238028563
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCClusterNodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCClusterNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCClusterNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteRCDeploymentSetRequest extends $tea.Model {
   /**
    * @remarks
@@ -13142,6 +13988,97 @@ export class DeleteRCDeploymentSetResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRCDeploymentSetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDiskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the cloud disk that you want to release.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rcd-wz9c8isqly8637zw****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDiskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8BE834C8-3C25-5AF8-BE3E-C8A690602A7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCDiskResponseBody,
     };
   }
 
@@ -13418,6 +14355,110 @@ export class DeleteRCInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCSnapshotRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to forcefully delete the snapshot that is used to create cloud disks. Valid values:
+   * 
+   * *   **true**: forcefully deletes the snapshot After the snapshot is forcefully deleted, the cloud disks created from the snapshot cannot be re-initialized.
+   * *   **false**(default): does not forcefully delete the snapshot.
+   * 
+   * @example
+   * false
+   */
+  force?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The snapshot ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rcds-7mbefjzkqccvdev****
+   */
+  snapshotId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      force: 'Force',
+      regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      force: 'boolean',
+      regionId: 'string',
+      snapshotId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCSnapshotResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8BE834C8-3C25-5AF8-BE3E-C8A690602A7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCSnapshotResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCSnapshotResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCSnapshotResponseBody,
     };
   }
 
@@ -14576,6 +15617,14 @@ export class DescribeAccountsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The first time when the system admin account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
    * 
    * >  This parameter is returned only for instances that run SQL Server.
@@ -14610,6 +15659,7 @@ export class DescribeAccountsResponseBody extends $tea.Model {
       accounts: 'Accounts',
       pageNumber: 'PageNumber',
       requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
       systemAdminAccountFirstActivationTime: 'SystemAdminAccountFirstActivationTime',
       systemAdminAccountStatus: 'SystemAdminAccountStatus',
       totalRecordCount: 'TotalRecordCount',
@@ -14621,6 +15671,7 @@ export class DescribeAccountsResponseBody extends $tea.Model {
       accounts: DescribeAccountsResponseBodyAccounts,
       pageNumber: 'number',
       requestId: 'string',
+      resourceGroupId: 'string',
       systemAdminAccountFirstActivationTime: 'string',
       systemAdminAccountStatus: 'string',
       totalRecordCount: 'number',
@@ -22193,6 +23244,14 @@ export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
   databases?: DescribeDBInstanceTDEResponseBodyDatabases;
   /**
    * @remarks
+   * The ID of the custom key.
+   * 
+   * @example
+   * 749c1df7-****-****-****-****
+   */
+  encryptionKey?: string;
+  /**
+   * @remarks
    * The ID of the request.
    * 
    * @example
@@ -22225,6 +23284,7 @@ export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       databases: 'Databases',
+      encryptionKey: 'EncryptionKey',
       requestId: 'RequestId',
       TDEMode: 'TDEMode',
       TDEStatus: 'TDEStatus',
@@ -22234,6 +23294,7 @@ export class DescribeDBInstanceTDEResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       databases: DescribeDBInstanceTDEResponseBodyDatabases,
+      encryptionKey: 'string',
       requestId: 'string',
       TDEMode: 'string',
       TDEStatus: 'string',
@@ -23900,7 +24961,7 @@ export class DescribeDBProxyRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to specify this parameter.
    * 
    * @example
    * normal
@@ -24032,27 +25093,38 @@ export class DescribeDBProxyResponseBody extends $tea.Model {
   DBProxyInstanceStatus?: string;
   /**
    * @remarks
-   * The type of the database proxy that is enabled on the instance.
+   * The type of the database proxy that is enabled on the instance. Valid values:
    * 
-   * *   1: shared proxy
-   * *   2: dedicated proxy
+   * *   1: shared database proxy
+   * *   2: dedicated database proxy
+   * *   3: general-purpose database proxy
    * 
-   * >  ApsaraDB RDS for PostgreSQL instances support only dedicated proxies.
+   * >  ApsaraDB RDS for PostgreSQL does not support shared database proxies.
    * 
    * @example
    * 2
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * Internal parameters, no need to pay attention.
+   * 
+   * @example
+   * 18
+   */
   DBProxyKindCode?: string;
+  /**
+   * @remarks
+   * The proxy node list.
+   */
   DBProxyNodes?: DescribeDBProxyResponseBodyDBProxyNodes;
   /**
    * @remarks
-   * Connection Persistence State. 
+   * The status of persistence connections. Valid values:
    * 
-   * Valid values:
-   * - Enabled: Enabled
-   * - Disabled: Disabled
-   * - Unsupported: The instance does not support connection persistence
+   * *   **Enabled**
+   * *   **Disabled**
+   * *   **Unsupported**
    * 
    * @example
    * Disabled
@@ -24287,12 +25359,13 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The configuration of the proxy terminal. The value of this parameter is a JSON string that consists of the following fields:
+   * The configuration of the proxy terminal. The value of this parameter is a JSON string that consists of the following parameters:
    * 
    * *   **TransactionReadSqlRouteOptimizeStatus**: the status of the transaction splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-   * *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session connection pooling feature is enabled. The value 2 indicates that the transaction connection pooling feature is enabled.
+   * *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session-level connection pooling feature is enabled. The value 2 indicates that the transaction-level connection pooling feature is enabled.
    * *   **ReadWriteSpliting**: the status of the read/write splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-   * *   **PinPreparedStmt**: an internal field that is available only for ApsaraDB RDS for PostgreSQL instances.
+   * *   **AZProximityAccess**: the status of the nearest access feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
+   * *   **PinPreparedStmt**: an internal parameter that is available only for ApsaraDB RDS for PostgrSQL instances.
    * 
    * >  If the instance runs PostgreSQL, you can change only the value of the **ReadWriteSpliting** field. The **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** fields are set to their default values 1.
    * 
@@ -24300,6 +25373,10 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * TransactionReadSqlRouteOptimizeStatus:1;ConnectionPersist:0;ReadWriteSpliting:1
    */
   DBProxyFeatures?: string;
+  /**
+   * @remarks
+   * The proxy nodes that are associated with the proxy terminal.
+   */
   DBProxyNodes?: DescribeDBProxyEndpointResponseBodyDBProxyNodes;
   /**
    * @remarks
@@ -24320,7 +25397,21 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * ReadWrite
    */
   dbProxyEndpointReadWriteMode?: string;
+  /**
+   * @remarks
+   * The vSwitch ID of the proxy terminal.
+   * 
+   * @example
+   * vsw-****
+   */
   dbProxyEndpointVswitchId?: string;
+  /**
+   * @remarks
+   * The zone ID of the proxy terminal.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
   dbProxyEndpointZoneId?: string;
   /**
    * @remarks
@@ -24470,6 +25561,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
    * DedicatedProxy
    */
   DBProxyInstanceType?: string;
+  dimension?: string;
   /**
    * @remarks
    * The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
@@ -24532,6 +25624,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyInstanceType: 'DBProxyInstanceType',
+      dimension: 'Dimension',
       endTime: 'EndTime',
       metricsName: 'MetricsName',
       ownerId: 'OwnerId',
@@ -24547,6 +25640,7 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
       DBInstanceId: 'string',
       DBProxyEngineType: 'string',
       DBProxyInstanceType: 'string',
+      dimension: 'string',
       endTime: 'string',
       metricsName: 'string',
       ownerId: 'number',
@@ -31122,7 +32216,7 @@ export class DescribePriceRequest extends $tea.Model {
   instanceUsedType?: number;
   /**
    * @remarks
-   * The order type. Valid values:
+   * The type of the order. Valid values:
    * 
    * *   **BUY**: purchase order
    * *   **UPGRADE**: specification change order
@@ -31185,7 +32279,7 @@ export class DescribePriceRequest extends $tea.Model {
   timeType?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
+   * The subscription duration of the instance. Valid values:
    * 
    * *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter ranges from **1 to 100**.
    * *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter ranges from **1 to 999**.
@@ -31393,7 +32487,7 @@ export class DescribePriceShrinkRequest extends $tea.Model {
   instanceUsedType?: number;
   /**
    * @remarks
-   * The order type. Valid values:
+   * The type of the order. Valid values:
    * 
    * *   **BUY**: purchase order
    * *   **UPGRADE**: specification change order
@@ -31456,7 +32550,7 @@ export class DescribePriceShrinkRequest extends $tea.Model {
   timeType?: string;
   /**
    * @remarks
-   * The subscription duration of the instance.
+   * The subscription duration of the instance. Valid values:
    * 
    * *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter ranges from **1 to 100**.
    * *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter ranges from **1 to 999**.
@@ -31775,6 +32869,336 @@ export class DescribeQuickSaleConfigResponse extends $tea.Model {
   }
 }
 
+export class DescribeRCClusterConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The validity period of the temporary kubeconfig file. Unit: minutes. Valid values: 15 to 4320.
+   * 
+   * >  If you do not specify this parameter, the system specifies a longer validity period. The validity period is returned in the `expiration` parameter.
+   * 
+   * @example
+   * 20
+   */
+  temporaryDurationMinutes?: number;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * >  This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      temporaryDurationMinutes: 'TemporaryDurationMinutes',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      temporaryDurationMinutes: 'number',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterConfigResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The kubeconfig file of the cluster.
+   * 
+   * @example
+   * apiVersion: v1****
+   */
+  config?: string;
+  /**
+   * @remarks
+   * The expiration time of the kubeconfig file. Format: the UTC time in the RFC3339 format.
+   * 
+   * @example
+   * 2024-03-10T09:56:17Z
+   */
+  expiration?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      expiration: 'Expiration',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      expiration: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCClusterConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCClusterConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**.
+   * 
+   * Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID.
+   * 
+   * >  This is a reserved parameter.
+   * 
+   * @example
+   * None
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterNodesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the nodes.
+   */
+  nodes?: DescribeRCClusterNodesResponseBodyNodes[];
+  /**
+   * @remarks
+   * The pagination information.
+   */
+  page?: DescribeRCClusterNodesResponseBodyPage;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 16C62438-491B-5C02-9B49-BA924A1372A2
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodes: 'Nodes',
+      page: 'Page',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodes: { 'type': 'array', 'itemType': DescribeRCClusterNodesResponseBodyNodes },
+      page: DescribeRCClusterNodesResponseBodyPage,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterNodesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCClusterNodesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCClusterNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClustersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClustersResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the clusters.
+   */
+  clusters?: DescribeRCClustersResponseBodyClusters[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2875D608-A228-53D7-B8C9-35F13EDCF36D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusters: 'Clusters',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusters: { 'type': 'array', 'itemType': DescribeRCClustersResponseBodyClusters },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClustersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCClustersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCClustersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCDeploymentSetsRequest extends $tea.Model {
   /**
    * @remarks
@@ -31839,6 +33263,7 @@ export class DescribeRCDeploymentSetsRequest extends $tea.Model {
    * Availability
    */
   strategy?: string;
+  tag?: string;
   static names(): { [key: string]: string } {
     return {
       deploymentSetIds: 'DeploymentSetIds',
@@ -31847,6 +33272,7 @@ export class DescribeRCDeploymentSetsRequest extends $tea.Model {
       pageSize: 'PageSize',
       regionId: 'RegionId',
       strategy: 'Strategy',
+      tag: 'Tag',
     };
   }
 
@@ -31858,6 +33284,7 @@ export class DescribeRCDeploymentSetsRequest extends $tea.Model {
       pageSize: 'number',
       regionId: 'string',
       strategy: 'string',
+      tag: 'string',
     };
   }
 
@@ -31964,6 +33391,162 @@ export class DescribeRCDeploymentSetsResponse extends $tea.Model {
   }
 }
 
+export class DescribeRCDisksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of cloud disks, local disks, or elastic ephemeral disks. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+   * 
+   * @example
+   * ["rcd-bp67acfmxazb4p****", "rcd-bp67acfmxazb4g****", … "rcd-bp67acfmxazb4d****"]
+   */
+  diskIds?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
+   * 
+   * @example
+   * 50
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskIds: 'DiskIds',
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskIds: 'string',
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDisksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the disks.
+   */
+  disks?: DescribeRCDisksResponseBodyDisks[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 12
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      disks: 'Disks',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disks: { 'type': 'array', 'itemType': DescribeRCDisksResponseBodyDisks },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDisksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCDisksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCDisksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCImageListRequest extends $tea.Model {
   /**
    * @remarks
@@ -31976,6 +33559,8 @@ export class DescribeRCImageListRequest extends $tea.Model {
    * x86_64
    */
   architecture?: string;
+  imageId?: string;
+  imageName?: string;
   /**
    * @remarks
    * The page number.
@@ -32013,6 +33598,8 @@ export class DescribeRCImageListRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       architecture: 'Architecture',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       regionId: 'RegionId',
@@ -32023,6 +33610,8 @@ export class DescribeRCImageListRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       architecture: 'string',
+      imageId: 'string',
+      imageName: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       regionId: 'string',
@@ -32211,6 +33800,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * The details of the data disk.
    */
   dataDisks?: DescribeRCInstanceAttributeResponseBodyDataDisks;
+  dbType?: string;
   /**
    * @remarks
    * The attributes of the dedicated hosts.
@@ -32498,6 +34088,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       creationTime: 'CreationTime',
       creditSpecification: 'CreditSpecification',
       dataDisks: 'DataDisks',
+      dbType: 'DbType',
       dedicatedHostAttribute: 'DedicatedHostAttribute',
       deploymentSetId: 'DeploymentSetId',
       description: 'Description',
@@ -32543,6 +34134,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       creationTime: 'string',
       creditSpecification: 'string',
       dataDisks: DescribeRCInstanceAttributeResponseBodyDataDisks,
+      dbType: 'string',
       dedicatedHostAttribute: DescribeRCInstanceAttributeResponseBodyDedicatedHostAttribute,
       deploymentSetId: 'string',
       description: 'string',
@@ -32603,6 +34195,118 @@ export class DescribeRCInstanceAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceVncUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The database engine. Valid values:
+   * 
+   * *   **mssql**: SQL Server
+   * *   **mysql**: MySQL
+   * 
+   * @example
+   * mysql
+   */
+  dbType?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-e6e3757b8px27oa5****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-chengdu
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceVncUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The VNC logon address.
+   * 
+   * >  The address returned is valid only for 15 seconds. If you do not use the returned address to establish a connection within 15 seconds, the address expires and you must call the operation again to obtain a new address.
+   * 
+   * @example
+   * https://g.alicdn.com/aliyun/ecs-console-vnc2/0.0.8/index.html?vncUrl=****&instanceId=i-2vcb1qjj8z5dl8iw****&isWindows=false
+   */
+  loginUrl?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F2911788-25E8-42E5-A3A3-1B38D263F01E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loginUrl: 'LoginUrl',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loginUrl: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceVncUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCInstanceVncUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCInstanceVncUrlResponseBody,
     };
   }
 
@@ -33002,6 +34706,164 @@ export class DescribeRCMetricListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCMetricListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSnapshotsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cloud disk ID.
+   * 
+   * @example
+   * rcd-wz9c8isqly8637zw****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The snapshot IDs.
+   * 
+   * You can specify a maximum of 100 IDs. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * ["rcds-bp67acfmxazb4p****", "rcds-bp67acfmxazb5p****", … "rcds-bp67acfmxazb6p****"]
+   */
+  snapshotIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      snapshotIds: 'SnapshotIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      snapshotIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSnapshotsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 9DAC759A-F4F0-5D02-8335-BC458C0CCB94
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The details of snapshots.
+   */
+  snapshots?: DescribeRCSnapshotsResponseBodySnapshots[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 7
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      snapshots: 'Snapshots',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      snapshots: { 'type': 'array', 'itemType': DescribeRCSnapshotsResponseBodySnapshots },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSnapshotsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCSnapshotsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCSnapshotsResponseBody,
     };
   }
 
@@ -36349,7 +38211,7 @@ export class DescribeTasksRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Valid values: any non-zero positive integer. Default value: **1**.
+   * The page number. Valid values: any non-zero positive integer. Default value: **1**.
    * 
    * @example
    * 1
@@ -36357,7 +38219,7 @@ export class DescribeTasksRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **30 to 100**. Default value: **30**.
+   * The number of entries to return per page. Valid values: **30 to 100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -37610,6 +39472,119 @@ export class DetachGadInstanceMemberResponse extends $tea.Model {
   }
 }
 
+export class DetachRCDiskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * The ID of the disk that you want to detach.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rcd-f8zh55g5gbk1byjr****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * rc-dh2jf9n6j4s14926****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deleteWithInstance: 'DeleteWithInstance',
+      diskId: 'DiskId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deleteWithInstance: 'boolean',
+      diskId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachRCDiskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * C8E88DED-533F-4B3C-9207-731FBF394CCA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachRCDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachRCDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachRCDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachWhitelistTemplateToInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -38451,6 +40426,14 @@ export class ImportUserBackupFileRequest extends $tea.Model {
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf6wjk5****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
    * The version of the database engine that is run on the self-managed MySQL database and ApsaraDB RDS for MySQL instance. Set the value to **5.7**.
    * 
    * @example
@@ -38516,6 +40499,7 @@ export class ImportUserBackupFileRequest extends $tea.Model {
       backupFile: 'BackupFile',
       bucketRegion: 'BucketRegion',
       comment: 'Comment',
+      DBInstanceId: 'DBInstanceId',
       engineVersion: 'EngineVersion',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -38533,6 +40517,7 @@ export class ImportUserBackupFileRequest extends $tea.Model {
       backupFile: 'string',
       bucketRegion: 'string',
       comment: 'string',
+      DBInstanceId: 'string',
       engineVersion: 'string',
       ownerId: 'number',
       regionId: 'string',
@@ -44468,6 +46453,14 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  promotionCode?: string;
+  /**
+   * @remarks
+   * Target specifications for read-only instances when changing a MySQL high-availability local disk instance to a cloud disk.
+   * 
+   * @example
+   * mysqlro.n2.large.c
+   */
   readOnlyDBInstanceClass?: string;
   /**
    * @remarks
@@ -44579,6 +46572,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
+      promotionCode: 'PromotionCode',
       readOnlyDBInstanceClass: 'ReadOnlyDBInstanceClass',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -44613,6 +46607,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
+      promotionCode: 'string',
       readOnlyDBInstanceClass: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -44829,6 +46824,14 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  promotionCode?: string;
+  /**
+   * @remarks
+   * Target specifications for read-only instances when changing a MySQL high-availability local disk instance to a cloud disk.
+   * 
+   * @example
+   * mysqlro.n2.large.c
+   */
   readOnlyDBInstanceClass?: string;
   /**
    * @remarks
@@ -44940,6 +46943,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
+      promotionCode: 'PromotionCode',
       readOnlyDBInstanceClass: 'ReadOnlyDBInstanceClass',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
@@ -44974,6 +46978,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
+      promotionCode: 'string',
       readOnlyDBInstanceClass: 'string',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
@@ -45635,8 +47640,9 @@ export class ModifyDBProxyRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable or disable the database proxy feature. Valid values:
    * 
-   * *   **Startup**: enables the database proxy feature.
-   * *   **Shutdown**: disables the database proxy feature.
+   * *   **Startup**: enables the feature.
+   * *   **Shutdown**: disables the feature.
+   * *   **Modify**: modifies the configuration of the feature.
    * 
    * This parameter is required.
    * 
@@ -45656,7 +47662,7 @@ export class ModifyDBProxyRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to specify this parameter.
    * 
    * @example
    * normal
@@ -45674,12 +47680,19 @@ export class ModifyDBProxyRequest extends $tea.Model {
   DBProxyInstanceNum?: string;
   /**
    * @remarks
-   * This parameter is reserved. You do not need to specify this parameter.
+   * The database proxy type. Valid values:
+   * 
+   * *   **common**: general-purpose database proxy
+   * *   **exclusive** (default): dedicated database proxy
    * 
    * @example
    * common
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * The proxy nodes.
+   */
   DBProxyNodes?: ModifyDBProxyRequestDBProxyNodes[];
   /**
    * @remarks
@@ -45694,13 +47707,16 @@ export class ModifyDBProxyRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Whether to enable connection keep. Valid values:
+   * Specifies whether to enable persistent connections. Valid values:
    * 
-   * - Enabled: enables connection keeping
-   * - Disabled: disables connection hold
+   * *   **Enabled**
+   * *   **Disabled**
    * 
-   * > - This parameter is supported only for an ApsaraDB RDS for MySQL.
-   * > - When you modify the connection persistence state, the value of **ConfigDBProxyService** is modify.
+   * > 
+   * 
+   * *   This parameter is available only for instances that run MySQL.
+   * 
+   * *   If you want to modify persistent connections, you must set the **ConfigDBProxyService** parameter to **Modify**.
    * 
    * @example
    * Enabled
@@ -45794,8 +47810,9 @@ export class ModifyDBProxyShrinkRequest extends $tea.Model {
    * @remarks
    * Specifies whether to enable or disable the database proxy feature. Valid values:
    * 
-   * *   **Startup**: enables the database proxy feature.
-   * *   **Shutdown**: disables the database proxy feature.
+   * *   **Startup**: enables the feature.
+   * *   **Shutdown**: disables the feature.
+   * *   **Modify**: modifies the configuration of the feature.
    * 
    * This parameter is required.
    * 
@@ -45815,7 +47832,7 @@ export class ModifyDBProxyShrinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to specify this parameter.
    * 
    * @example
    * normal
@@ -45833,12 +47850,19 @@ export class ModifyDBProxyShrinkRequest extends $tea.Model {
   DBProxyInstanceNum?: string;
   /**
    * @remarks
-   * This parameter is reserved. You do not need to specify this parameter.
+   * The database proxy type. Valid values:
+   * 
+   * *   **common**: general-purpose database proxy
+   * *   **exclusive** (default): dedicated database proxy
    * 
    * @example
    * common
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * The proxy nodes.
+   */
   DBProxyNodesShrink?: string;
   /**
    * @remarks
@@ -45853,13 +47877,16 @@ export class ModifyDBProxyShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Whether to enable connection keep. Valid values:
+   * Specifies whether to enable persistent connections. Valid values:
    * 
-   * - Enabled: enables connection keeping
-   * - Disabled: disables connection hold
+   * *   **Enabled**
+   * *   **Disabled**
    * 
-   * > - This parameter is supported only for an ApsaraDB RDS for MySQL.
-   * > - When you modify the connection persistence state, the value of **ConfigDBProxyService** is modify.
+   * > 
+   * 
+   * *   This parameter is available only for instances that run MySQL.
+   * 
+   * *   If you want to modify persistent connections, you must set the **ConfigDBProxyService** parameter to **Modify**.
    * 
    * @example
    * Enabled
@@ -46092,7 +48119,31 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
    * RWSplit
    */
   dbEndpointType?: string;
+  /**
+   * @remarks
+   * The specified time takes effect. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+   * 
+   * > This parameter must be passed when EffectiveTime is SpecificTime.
+   * 
+   * @example
+   * 2023-05-06T07:08:09Z
+   */
   effectiveSpecificTime?: string;
+  /**
+   * @remarks
+   * Effective time, value:
+   * 
+   * - **Immediate**: effective immediately.
+   * 
+   * - **MaintainTime**: effective during the operational and maintainable time period, see ModifyDBInstanceMaintainTime.
+   * 
+   * - **SpecificTime**: effective at a specified time.
+   * 
+   * Default value: MaintainTime.
+   * 
+   * @example
+   * MaintainTime
+   */
   effectiveTime?: string;
   ownerId?: number;
   /**
@@ -46147,6 +48198,9 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * Specifies the switch ID corresponding to the availability zone of the proxy connection address. By default, it is the switch ID corresponding to the default terminal of the proxy instance. You can query the created switch by calling the DescribeVSwitches interface.
+   * 
    * @example
    * vsw-uf6adz52c2p****
    */
@@ -46266,15 +48320,15 @@ export class ModifyDBProxyEndpointAddressRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The network type of the proxy endpoint. Valid values:
+   * The network type of the database proxy endpoint. Valid values:
    * 
    * *   **Public**: Internet
    * *   **VPC**: virtual private cloud (VPC)
    * *   **Classic**: classic network
    * 
-   * If the instance runs MySQL, the default value of this parameter is **Classic**.
+   * If the instance runs MySQL, the default value is **Classic**.
    * 
-   * > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+   * >  If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
    * 
    * @example
    * Public
@@ -46282,7 +48336,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $tea.Model {
   DBProxyConnectStringNetType?: string;
   /**
    * @remarks
-   * The ID of the dedicated proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
+   * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the database proxy endpoint.
    * 
    * This parameter is required.
    * 
@@ -46292,7 +48346,7 @@ export class ModifyDBProxyEndpointAddressRequest extends $tea.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * A reserved parameter. You do not need to specify this parameter.
+   * A deprecated parameter. You do not need to specify this parameter.
    * 
    * @example
    * normal
@@ -46300,9 +48354,9 @@ export class ModifyDBProxyEndpointAddressRequest extends $tea.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The new prefix of the proxy endpoint. Enter a prefix.
+   * The prefix of the new database proxy endpoint. A custom value is supported.
    * 
-   * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+   * >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
    * 
    * @example
    * test123456
@@ -46310,9 +48364,9 @@ export class ModifyDBProxyEndpointAddressRequest extends $tea.Model {
   DBProxyNewConnectString?: string;
   /**
    * @remarks
-   * The port number that is associated with the proxy endpoint. Enter a port number.
+   * The port number that is associated with the database proxy endpoint. A custom value is supported.
    * 
-   * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+   * >  You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
    * 
    * @example
    * 3307
@@ -46449,6 +48503,12 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
    * DedicatedProxy
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * List of proxy nodes.
+   * 
+   * > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
+   */
   DBProxyNodes?: ModifyDBProxyInstanceRequestDBProxyNodes[];
   /**
    * @remarks
@@ -46474,6 +48534,12 @@ export class ModifyDBProxyInstanceRequest extends $tea.Model {
    * MaintainTime
    */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The list of available zones for migration agents.
+   * 
+   * > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
+   */
   migrateAZ?: ModifyDBProxyInstanceRequestMigrateAZ[];
   ownerId?: number;
   /**
@@ -46581,6 +48647,12 @@ export class ModifyDBProxyInstanceShrinkRequest extends $tea.Model {
    * DedicatedProxy
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * List of proxy nodes.
+   * 
+   * > This parameter must be passed when the current proxy instance is deployed in multiple availability zones.
+   */
   DBProxyNodesShrink?: string;
   /**
    * @remarks
@@ -46606,6 +48678,12 @@ export class ModifyDBProxyInstanceShrinkRequest extends $tea.Model {
    * MaintainTime
    */
   effectiveTime?: string;
+  /**
+   * @remarks
+   * The list of available zones for migration agents.
+   * 
+   * > Currently, only RDS MySQL cloud disk version agent instance migration is supported.
+   */
   migrateAZShrink?: string;
   ownerId?: number;
   /**
@@ -48908,6 +50986,129 @@ export class ModifyRCInstanceResponse extends $tea.Model {
   }
 }
 
+export class ModifyRCInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname of the instance.
+   * 
+   * @example
+   * testHost1
+   */
+  hostName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rm-uf62br2491p5l****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The new password of the instance.
+   * 
+   * *   The value must be 8 to 30 characters in length.
+   * *   The value must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `()` ~ ! @ # $ % ^ & \\* - _ + = \\`
+   * 
+   * @example
+   * 2F9e9@a69c!e18b569c8
+   */
+  password?: string;
+  /**
+   * @remarks
+   * Specifies whether to restart the instance. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
+  reboot?: boolean;
+  /**
+   * @remarks
+   * The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostName: 'HostName',
+      instanceId: 'InstanceId',
+      password: 'Password',
+      reboot: 'Reboot',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostName: 'string',
+      instanceId: 'string',
+      password: 'string',
+      reboot: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 776C5EC4-7714-5E40-AD5C-51F7C472A68E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyRCInstanceChargeTypeRequest extends $tea.Model {
   autoPay?: boolean;
   dryRun?: boolean;
@@ -48992,6 +51193,185 @@ export class ModifyRCInstanceChargeTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyRCInstanceChargeTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceDescriptionRequest extends $tea.Model {
+  instanceDescription?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceDescription: 'InstanceDescription',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceDescription: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceDescriptionResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceDescriptionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCInstanceDescriptionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCInstanceDescriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceKeyPairRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-m5sc1271fv344a1r****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The name of the key pair.
+   * 
+   * @example
+   * customer_keypairs
+   */
+  keyPairName?: string;
+  /**
+   * @remarks
+   * Specifies whether to restart the instance.
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * ture
+   */
+  reboot?: boolean;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      keyPairName: 'KeyPairName',
+      reboot: 'Reboot',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      keyPairName: 'string',
+      reboot: 'boolean',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceKeyPairResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 6C36770E-21AE-5689-BAA6-313DA58D5467
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRCInstanceKeyPairResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRCInstanceKeyPairResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRCInstanceKeyPairResponseBody,
     };
   }
 
@@ -52354,6 +54734,7 @@ export class RenewInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -52390,16 +54771,19 @@ export class RenewInstanceRequest extends $tea.Model {
    * 12
    */
   period?: number;
+  promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       clientToken: 'ClientToken',
       DBInstanceId: 'DBInstanceId',
       ownerId: 'OwnerId',
       period: 'Period',
+      promotionCode: 'PromotionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
     };
@@ -52409,10 +54793,12 @@ export class RenewInstanceRequest extends $tea.Model {
     return {
       autoPay: 'string',
       autoRenew: 'string',
+      autoUseCoupon: 'boolean',
       clientToken: 'string',
       DBInstanceId: 'string',
       ownerId: 'number',
       period: 'number',
+      promotionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
     };
@@ -52476,6 +54862,84 @@ export class RenewInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RenewInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceRCInstanceSystemDiskRequest extends $tea.Model {
+  imageId?: string;
+  instanceId?: string;
+  isLocalDisk?: boolean;
+  keyPairName?: string;
+  password?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      isLocalDisk: 'IsLocalDisk',
+      keyPairName: 'KeyPairName',
+      password: 'Password',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      instanceId: 'string',
+      isLocalDisk: 'boolean',
+      keyPairName: 'string',
+      password: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceRCInstanceSystemDiskResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReplaceRCInstanceSystemDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReplaceRCInstanceSystemDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReplaceRCInstanceSystemDiskResponseBody,
     };
   }
 
@@ -52740,6 +55204,7 @@ export class ResizeRCInstanceDiskRequest extends $tea.Model {
    * false
    */
   autoPay?: boolean;
+  diskId?: string;
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -52789,6 +55254,7 @@ export class ResizeRCInstanceDiskRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      diskId: 'DiskId',
       dryRun: 'DryRun',
       instanceId: 'InstanceId',
       newSize: 'NewSize',
@@ -52800,6 +55266,7 @@ export class ResizeRCInstanceDiskRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      diskId: 'string',
       dryRun: 'boolean',
       instanceId: 'string',
       newSize: 'number',
@@ -55512,6 +57979,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  autoUseCoupon?: boolean;
   /**
    * @remarks
    * The additional business information about the instance.
@@ -55566,6 +58034,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
    * Month
    */
   period?: string;
+  promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -55584,6 +58053,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
+      autoUseCoupon: 'AutoUseCoupon',
       businessInfo: 'BusinessInfo',
       clientToken: 'ClientToken',
       DBInstanceId: 'DBInstanceId',
@@ -55591,6 +58061,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
       ownerId: 'OwnerId',
       payType: 'PayType',
       period: 'Period',
+      promotionCode: 'PromotionCode',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       usedTime: 'UsedTime',
@@ -55600,6 +58071,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoRenew: 'string',
+      autoUseCoupon: 'boolean',
       businessInfo: 'string',
       clientToken: 'string',
       DBInstanceId: 'string',
@@ -55607,6 +58079,7 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
       ownerId: 'number',
       payType: 'string',
       period: 'string',
+      promotionCode: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       usedTime: 'number',
@@ -57227,6 +59700,54 @@ export class AddTagsToResourceRequestTag extends $tea.Model {
   }
 }
 
+export class AttachRCInstancesResponseBodyResponses extends $tea.Model {
+  /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * rc-e2g521l55k038cr8****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The message returned.
+   * 
+   * >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+   * 
+   * @example
+   * Successful
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      instanceId: 'InstanceId',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      instanceId: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachWhitelistTemplateToInstanceResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -57453,7 +59974,7 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
    * 
    * *   Serverless ApsaraDB RDS for MySQL instances: **0.5 to 32**.
    * *   Serverless ApsaraDB RDS for SQL Server instances: **2 to 8**. Only integers are supported.
-   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**.
+   * *   Serverless ApsaraDB RDS for PostgreSQL instances: **0.5 to 14**
    * 
    * >  The value of this parameter must be less than or equal to the value of the **MaxCapacity** parameter.
    * 
@@ -58358,6 +60879,28 @@ export class CreateMaskingRulesRequestRuleConfig extends $tea.Model {
       columns: { 'type': 'array', 'itemType': 'string' },
       databases: { 'type': 'array', 'itemType': 'string' },
       tables: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCDeploymentSetRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -62697,6 +65240,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * 150
    */
   maxIOPS?: number;
+  /**
+   * @remarks
+   * Indicates whether auto scaling is being performed on the instance. If the value **true** is returned, auto scaling is being performed on the instance. If no value is returned, auto scaling is not being performed on the instance.
+   * 
+   * @example
+   * true
+   */
   multipleTempUpgrade?: boolean;
   /**
    * @remarks
@@ -66932,12 +69482,29 @@ export class DescribeDBProxyResponseBodyDBProxyConnectStringItems extends $tea.M
 }
 
 export class DescribeDBProxyResponseBodyDBProxyNodesDBProxyNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The number of cpu cores for the node.
+   * 
+   * @example
+   * 2
+   */
   cpuCores?: string;
   /**
+   * @remarks
+   * The proxy node id.
+   * 
    * @example
    * pn-xxxxxxx01
    */
   nodeId?: string;
+  /**
+   * @remarks
+   * The id of the availability zone where the node is located.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67061,8 +69628,29 @@ export class DescribeDBProxyResponseBodyDbProxyEndpointItems extends $tea.Model 
 }
 
 export class DescribeDBProxyEndpointResponseBodyDBProxyNodesDBProxyNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The number of CPU cores of the node.
+   * 
+   * @example
+   * 2
+   */
   cpuCores?: string;
+  /**
+   * @remarks
+   * The ID of the node in the zone.
+   * 
+   * @example
+   * pn-xxxxxxx01
+   */
   nodeId?: string;
+  /**
+   * @remarks
+   * The zone ID of the node.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67237,6 +69825,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
    * cpu_ratio
    */
   key?: string;
+  service?: string;
   /**
    * @remarks
    * The format in which the value of the performance metric is returned.
@@ -67253,6 +69842,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
   static names(): { [key: string]: string } {
     return {
       key: 'Key',
+      service: 'Service',
       valueFormat: 'ValueFormat',
       values: 'Values',
     };
@@ -67261,6 +69851,7 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
   static types(): { [key: string]: any } {
     return {
       key: 'string',
+      service: 'string',
       valueFormat: 'string',
       values: DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKeyValues,
     };
@@ -72924,6 +75515,254 @@ export class DescribePriceResponseBodyServerlessPrice extends $tea.Model {
   }
 }
 
+export class DescribeRCClusterNodesResponseBodyNodes extends $tea.Model {
+  /**
+   * @remarks
+   * The time when the node was created.
+   * 
+   * @example
+   * 2024-10-21T07:20:09Z
+   */
+  creationTime?: string;
+  /**
+   * @remarks
+   * The container version.
+   * 
+   * @example
+   * 1.0
+   */
+  dockerVersion?: string;
+  /**
+   * @remarks
+   * The image ID of the node.
+   * 
+   * @example
+   * m-2oqiu973jwcxe****
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The node ID.
+   * 
+   * @example
+   * rc-u79597n5f54s5bnz****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The node role. Valid values:
+   * 
+   * *   **Master**: master node
+   * *   **Worker**: worker node
+   * 
+   * @example
+   * Master
+   */
+  instanceRole?: string;
+  /**
+   * @remarks
+   * The IP address.
+   */
+  ipAddresses?: string[];
+  /**
+   * @remarks
+   * Indicates whether the node is provided by Alibaba Cloud. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
+   */
+  isAliyunNode?: boolean;
+  /**
+   * @remarks
+   * The node name, which is the identifier of the RDS Custom node in the cluster.
+   * 
+   * @example
+   * cn-hangzhou.192.168.XXX.XXX
+   */
+  nodeName?: string;
+  /**
+   * @remarks
+   * The node pool ID.
+   * 
+   * @example
+   * None
+   */
+  nodePoolId?: string;
+  /**
+   * @remarks
+   * Indicates whether the node is ready. Valid values:
+   * 
+   * *   **Ready**: The node is ready.
+   * *   **NotReady**: The node is not ready.
+   * *   **Unknown**: The status of the node is unknown.
+   * *   **Offline**: The node is offline.
+   * 
+   * @example
+   * Ready
+   */
+  nodeStatus?: string;
+  /**
+   * @remarks
+   * The runtime of the ACK cluster.
+   * 
+   * @example
+   * 2024-10-21T07:20:09Z
+   */
+  runtimeVersion?: string;
+  /**
+   * @remarks
+   * The node status. Valid values:
+   * 
+   * *   **pending**
+   * *   **running**
+   * *   **starting**
+   * *   **stopping**
+   * *   **stopped**
+   * 
+   * @example
+   * running
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creationTime: 'CreationTime',
+      dockerVersion: 'DockerVersion',
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      instanceRole: 'InstanceRole',
+      ipAddresses: 'IpAddresses',
+      isAliyunNode: 'IsAliyunNode',
+      nodeName: 'NodeName',
+      nodePoolId: 'NodePoolId',
+      nodeStatus: 'NodeStatus',
+      runtimeVersion: 'RuntimeVersion',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationTime: 'string',
+      dockerVersion: 'string',
+      imageId: 'string',
+      instanceId: 'string',
+      instanceRole: 'string',
+      ipAddresses: { 'type': 'array', 'itemType': 'string' },
+      isAliyunNode: 'boolean',
+      nodeName: 'string',
+      nodePoolId: 'string',
+      nodeStatus: 'string',
+      runtimeVersion: 'string',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClusterNodesResponseBodyPage extends $tea.Model {
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 2
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The maximum number of entries returned per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 4
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
+  /**
+   * @remarks
+   * The cluster name.
+   * 
+   * @example
+   * test01
+   */
+  clusterName?: string;
+  /**
+   * @remarks
+   * The time when the cluster was created.
+   * 
+   * @example
+   * 2024-10-30T02:16:04Z
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * The cluster status. Valid values:
+   * 
+   * *   **Pending**
+   * *   **Running**
+   * *   **Starting**
+   * *   **Stopping**
+   * *   **Stopped**
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterName: 'ClusterName',
+      createTime: 'CreateTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterName: 'string',
+      createTime: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetCapacitiesCapacity extends $tea.Model {
   /**
    * @remarks
@@ -73000,6 +75839,53 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInst
   static types(): { [key: string]: any } {
     return {
       instanceId: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources extends $tea.Model {
+  tagResources?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResources: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources },
     };
   }
 
@@ -73101,6 +75987,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
    * LooseDispersion
    */
   strategy?: string;
+  tagResources?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources;
   static names(): { [key: string]: string } {
     return {
       capacities: 'Capacities',
@@ -73115,6 +76002,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
       instanceAmount: 'InstanceAmount',
       instanceIds: 'InstanceIds',
       strategy: 'Strategy',
+      tagResources: 'TagResources',
     };
   }
 
@@ -73132,6 +76020,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
       instanceAmount: 'number',
       instanceIds: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds,
       strategy: 'string',
+      tagResources: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources,
     };
   }
 
@@ -73151,6 +76040,315 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSets extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       deploymentSet: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCDisksResponseBodyDisks extends $tea.Model {
+  /**
+   * @remarks
+   * The disk category. Valid values:
+   * 
+   * *   cloud: basic disk
+   * *   cloud_efficiency: utra disk
+   * *   cloud_ssd: standard SSD
+   * *   cloud_essd: Enterprise SSD (ESSD)
+   * *   cloud_auto: ESSD AutoPL disk
+   * *   local_ssd_pro: I/O-intensive local disk
+   * *   local_hdd_pro: throughput-intensive local disk
+   * *   cloud_essd_entry: ESSD Entry disk
+   * *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
+   * *   elastic_ephemeral_disk_premium: premium static ephemeral disk
+   * *   ephemeral: retired local disk
+   * *   ephemeral_ssd: retired local SSD
+   * 
+   * @example
+   * cloud_ssd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-10-22T02:41:37Z
+   */
+  creationTime?: string;
+  /**
+   * @remarks
+   * Indicates whether the automatic snapshots of the cloud disk are deleted after the disk is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  deleteAutoSnapshot?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the cloud disk is released when its associated instance is released. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  deleteWithInstance?: boolean;
+  /**
+   * @remarks
+   * The disk description.
+   * 
+   * @example
+   * zd_test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The mount point of the disk.
+   * 
+   * @example
+   * /dev/xvda
+   */
+  device?: string;
+  /**
+   * @remarks
+   * The billing method of the disk.
+   * 
+   * PostPaid: pay-as-you-go
+   * 
+   * @example
+   * PostPaid
+   */
+  diskChargeType?: string;
+  /**
+   * @remarks
+   * The disk ID.
+   * 
+   * @example
+   * rcd-wz9f3peueu5npsl****
+   */
+  diskId?: string;
+  /**
+   * @remarks
+   * The disk name.
+   * 
+   * @example
+   * fvt-ecs-bcfb3627
+   */
+  diskName?: string;
+  /**
+   * @remarks
+   * Indicates whether only encrypted cloud disks are queried. Valid values:
+   * 
+   * *   true
+   * *   false (default)
+   * 
+   * @example
+   * true
+   */
+  encrypted?: boolean;
+  /**
+   * @remarks
+   * A reserved parameter. You do not need to specify this parameter.
+   * 
+   * @example
+   * none
+   */
+  expiredTime?: string;
+  /**
+   * @remarks
+   * The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Storage capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Storage capacity, 50,000}.
+   * 
+   * This parameter is available only when the `Category` parameter is set to `cloud_auto`.
+   * 
+   * @example
+   * 4000
+   */
+  IOPS?: number;
+  /**
+   * @remarks
+   * The ID of the image that is used to create the instance. This parameter is returned only if the cloud disk is created from an image. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+   * 
+   * @example
+   * m-2zeb24dw6wripjn2****
+   */
+  imageId?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-e8w1cn7634kiam****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The performance level (PL) of the ESSD. Valid values:
+   * 
+   * *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+   * *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+   * *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+   * *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the disk belongs.
+   * 
+   * @example
+   * rg-aekzescnje5khnq
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The serial number of the disk.
+   * 
+   * @example
+   * bp18um4r4f2fve2****
+   */
+  serialNumber?: string;
+  /**
+   * @remarks
+   * The size of the disk. Unit: GiB.
+   * 
+   * @example
+   * 60
+   */
+  size?: number;
+  /**
+   * @remarks
+   * The ID of the snapshot that was used to create the cloud disk.
+   * 
+   * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+   * 
+   * @example
+   * rcds-bp67acfmxazb4p****
+   */
+  sourceSnapshotId?: string;
+  /**
+   * @remarks
+   * The status of the disk. Valid values:
+   * 
+   * *   In_use: The disk is in use.
+   * *   Available: The disk can be attached.
+   * *   Attaching: The disk is being attached.
+   * *   Detaching: The cloud disk is being detached.
+   * *   Creating: The disk is being created.
+   * *   ReIniting: The disk is being initialized.
+   * 
+   * @example
+   * In_use
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
+   * 
+   * @example
+   * dbsc-cn-zvp2rl601****
+   */
+  storageClusterId?: string;
+  /**
+   * @remarks
+   * The storage set ID.
+   * 
+   * @example
+   * ss-i-bp1j4i2jdf3owlhe****
+   */
+  storageSetId?: string;
+  /**
+   * @remarks
+   * The disk type. Valid values:
+   * 
+   * *   system: system disk
+   * *   data: data disk
+   * 
+   * @example
+   * data
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      creationTime: 'CreationTime',
+      deleteAutoSnapshot: 'DeleteAutoSnapshot',
+      deleteWithInstance: 'DeleteWithInstance',
+      description: 'Description',
+      device: 'Device',
+      diskChargeType: 'DiskChargeType',
+      diskId: 'DiskId',
+      diskName: 'DiskName',
+      encrypted: 'Encrypted',
+      expiredTime: 'ExpiredTime',
+      IOPS: 'IOPS',
+      imageId: 'ImageId',
+      instanceId: 'InstanceId',
+      performanceLevel: 'PerformanceLevel',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      serialNumber: 'SerialNumber',
+      size: 'Size',
+      sourceSnapshotId: 'SourceSnapshotId',
+      status: 'Status',
+      storageClusterId: 'StorageClusterId',
+      storageSetId: 'StorageSetId',
+      type: 'Type',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      creationTime: 'string',
+      deleteAutoSnapshot: 'boolean',
+      deleteWithInstance: 'boolean',
+      description: 'string',
+      device: 'string',
+      diskChargeType: 'string',
+      diskId: 'string',
+      diskName: 'string',
+      encrypted: 'boolean',
+      expiredTime: 'string',
+      IOPS: 'number',
+      imageId: 'string',
+      instanceId: 'string',
+      performanceLevel: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      serialNumber: 'string',
+      size: 'number',
+      sourceSnapshotId: 'string',
+      status: 'string',
+      storageClusterId: 'string',
+      storageSetId: 'string',
+      type: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -73222,6 +76420,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
    * false
    */
   isPublic?: boolean;
+  isSupportRdsCustom?: boolean;
   /**
    * @remarks
    * The display name of the operating system in Chinese.
@@ -73287,6 +76486,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
       imageName: 'ImageName',
       imageVersion: 'ImageVersion',
       isPublic: 'IsPublic',
+      isSupportRdsCustom: 'IsSupportRdsCustom',
       OSName: 'OSName',
       OSNameEn: 'OSNameEn',
       OSType: 'OSType',
@@ -73305,6 +76505,7 @@ export class DescribeRCImageListResponseBodyImages extends $tea.Model {
       imageName: 'string',
       imageVersion: 'string',
       isPublic: 'boolean',
+      isSupportRdsCustom: 'boolean',
       OSName: 'string',
       OSNameEn: 'string',
       OSType: 'string',
@@ -73687,6 +76888,34 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $tea.M
   }
 }
 
+export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
   /**
    * @remarks
@@ -73770,6 +76999,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    * Running
    */
   status?: string;
+  tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
   /**
    * @remarks
    * The VPC ID.
@@ -73778,6 +77008,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    * vpc-uf6f7l4fg90****
    */
   vpcId?: string;
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
       clusterName: 'ClusterName',
@@ -73791,7 +77022,9 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       instanceId: 'InstanceId',
       regionId: 'RegionId',
       status: 'Status',
+      tagResources: 'TagResources',
       vpcId: 'VpcId',
+      zoneId: 'ZoneId',
     };
   }
 
@@ -73808,7 +77041,220 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       instanceId: 'string',
       regionId: 'string',
       status: 'string',
+      tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
       vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCSnapshotsResponseBodySnapshots extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the snapshot can be shared and used to create or roll back a cloud disk. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  available?: boolean;
+  /**
+   * @remarks
+   * The snapshot type. Valid values:
+   * 
+   * *   Standard: standard snapshot
+   * *   Flash: local snapshot This value will be deprecated. The local snapshot feature is replaced with the instant access feature.
+   * *   archive: archived snapshot
+   * 
+   * @example
+   * Standard
+   */
+  category?: string;
+  /**
+   * @remarks
+   * The creation time. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
+   * @example
+   * 2024-10-18T09:37:14Z
+   */
+  creationTime?: string;
+  /**
+   * @remarks
+   * The snapshot description.
+   * 
+   * @example
+   * zd_test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Indicates whether the snapshot was encrypted. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  encrypted?: boolean;
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   * 
+   * @example
+   * none
+   */
+  instantAccess?: boolean;
+  /**
+   * @remarks
+   * The progress of the snapshot creation task in percentage.
+   * 
+   * @example
+   * 100
+   */
+  progress?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The snapshot ID.
+   * 
+   * @example
+   * rcds-hc1zg51xobdg4****
+   */
+  snapshotId?: string;
+  /**
+   * @remarks
+   * The snapshot name.
+   */
+  snapshotName?: string;
+  /**
+   * @remarks
+   * The snapshot type. Valid values:
+   * 
+   * *   auto or timer: automatically created snapshot
+   * *   user: manually created snapshot
+   * *   all: all snapshot types
+   * 
+   * @example
+   * auto
+   */
+  snapshotType?: string;
+  /**
+   * @remarks
+   * The ID of the original disk. This parameter is retained even after the original disk for which the snapshot was created is released.
+   * 
+   * @example
+   * rcd-bp67acfmxazb4ph****
+   */
+  sourceDiskId?: string;
+  /**
+   * @remarks
+   * The storage capacity of the original disk. Unit: GiB.
+   * 
+   * @example
+   * 60
+   */
+  sourceDiskSize?: number;
+  /**
+   * @remarks
+   * The type of the original disk. Valid values:
+   * 
+   * *   SYSTEM: system disk
+   * *   DATA: data disk
+   * 
+   * @example
+   * data
+   */
+  sourceDiskType?: string;
+  /**
+   * @remarks
+   * The type of the original disk.
+   * 
+   * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
+   * 
+   * @example
+   * disk
+   */
+  sourceStorageType?: string;
+  /**
+   * @remarks
+   * The snapshot status. Valid values:
+   * 
+   * *   progressing: The snapshot is being created.
+   * *   accomplished: The snapshot is created.
+   * *   failed: The snapshot fails to be created.
+   * 
+   * @example
+   * progressing
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Indicates whether the snapshot is used to create custom images or disks. Valid values:
+   * 
+   * *   image: The snapshot is used to create custom images.
+   * *   disk: The snapshot is used to create disks.
+   * *   image_disk: The snapshot is used to create custom images and data disks.
+   * *   none: The snapshot is not used to create custom images or disks.
+   * 
+   * @example
+   * none
+   */
+  usage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      available: 'Available',
+      category: 'Category',
+      creationTime: 'CreationTime',
+      description: 'Description',
+      encrypted: 'Encrypted',
+      instantAccess: 'InstantAccess',
+      progress: 'Progress',
+      regionId: 'RegionId',
+      snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
+      snapshotType: 'SnapshotType',
+      sourceDiskId: 'SourceDiskId',
+      sourceDiskSize: 'SourceDiskSize',
+      sourceDiskType: 'SourceDiskType',
+      sourceStorageType: 'SourceStorageType',
+      status: 'Status',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      available: 'boolean',
+      category: 'string',
+      creationTime: 'string',
+      description: 'string',
+      encrypted: 'boolean',
+      instantAccess: 'boolean',
+      progress: 'string',
+      regionId: 'string',
+      snapshotId: 'string',
+      snapshotName: 'string',
+      snapshotType: 'string',
+      sourceDiskId: 'string',
+      sourceDiskSize: 'number',
+      sourceDiskType: 'string',
+      sourceStorageType: 'string',
+      status: 'string',
+      usage: 'string',
     };
   }
 
@@ -76498,6 +79944,38 @@ export class DescribeUpgradeMajorVersionPrecheckTaskResponseBodyItems extends $t
   effectiveTime?: string;
   /**
    * @remarks
+   * The minimum recommended disk capacity for upgrading. Unit: GB.
+   * 
+   * > This parameter is returned only for RDS PostgreSQL instances.
+   * 
+   * @example
+   * 100
+   */
+  recommendDiskSize?: number;
+  /**
+   * @remarks
+   * The minimum recommended memory for upgrading. Unit: GB.
+   * 
+   * > This parameter is returned only for RDS PostgreSQL instances.
+   * 
+   * @example
+   * 8
+   */
+  recommendLeastMemSize?: number;
+  /**
+   * @remarks
+   * Recommended memory when upgrading. Unit: GB.
+   * 
+   * When the memory of the instance is greater than or equal to the recommended memory, it will be upgraded at the fastest speed to minimize the read-only time of the instance.
+   * 
+   * > This parameter is returned only for RDS PostgreSQL instances.
+   * 
+   * @example
+   * 32
+   */
+  recommendMemSize?: number;
+  /**
+   * @remarks
    * The result of the upgrade check.
    * 
    * Valid values:
@@ -76540,6 +80018,9 @@ export class DescribeUpgradeMajorVersionPrecheckTaskResponseBodyItems extends $t
       checkTime: 'CheckTime',
       detail: 'Detail',
       effectiveTime: 'EffectiveTime',
+      recommendDiskSize: 'RecommendDiskSize',
+      recommendLeastMemSize: 'RecommendLeastMemSize',
+      recommendMemSize: 'RecommendMemSize',
       result: 'Result',
       sourceMajorVersion: 'SourceMajorVersion',
       targetMajorVersion: 'TargetMajorVersion',
@@ -76552,6 +80033,9 @@ export class DescribeUpgradeMajorVersionPrecheckTaskResponseBodyItems extends $t
       checkTime: 'string',
       detail: 'string',
       effectiveTime: 'string',
+      recommendDiskSize: 'number',
+      recommendLeastMemSize: 'number',
+      recommendMemSize: 'number',
       result: 'string',
       sourceMajorVersion: 'string',
       targetMajorVersion: 'string',
@@ -76636,6 +80120,16 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $tea.Mode
   startTime?: string;
   /**
    * @remarks
+   * The end time of the switching from the original instance to the new instance.
+   * 
+   * Expressed in Unix timestamp. Unit: milliseconds.
+   * 
+   * @example
+   * 1714237539000
+   */
+  switchEndTime?: string;
+  /**
+   * @remarks
    * The time at which your workloads are switched over from the original instance to the new instance.
    * 
    * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
@@ -76697,6 +80191,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $tea.Mode
       sourceInsName: 'SourceInsName',
       sourceMajorVersion: 'SourceMajorVersion',
       startTime: 'StartTime',
+      switchEndTime: 'SwitchEndTime',
       switchTime: 'SwitchTime',
       targetInsName: 'TargetInsName',
       targetMajorVersion: 'TargetMajorVersion',
@@ -76714,6 +80209,7 @@ export class DescribeUpgradeMajorVersionTasksResponseBodyItems extends $tea.Mode
       sourceInsName: 'string',
       sourceMajorVersion: 'string',
       startTime: 'string',
+      switchEndTime: 'string',
       switchTime: 'string',
       targetInsName: 'string',
       targetMajorVersion: 'string',
@@ -77983,16 +81479,31 @@ export class ModifyDBNodeRequestDBNode extends $tea.Model {
 
 export class ModifyDBProxyRequestDBProxyNodes extends $tea.Model {
   /**
+   * @remarks
+   * The number of CPU cores of the node. Valid values: **1** to **16**.
+   * 
+   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * 
    * @example
    * 1
    */
   cpuCores?: string;
   /**
+   * @remarks
+   * The number of proxy nodes in the zone. Valid values: **1** and **2**.
+   * 
+   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * 
    * @example
    * 2
    */
   nodeCounts?: string;
   /**
+   * @remarks
+   * The ID of the zone in which the node resides.
+   * 
+   * >  This parameter is required when you configure the **DBProxyNodes** parameter.
+   * 
    * @example
    * cn-hagnzhou-c
    */
@@ -78020,16 +81531,28 @@ export class ModifyDBProxyRequestDBProxyNodes extends $tea.Model {
 
 export class ModifyDBProxyInstanceRequestDBProxyNodes extends $tea.Model {
   /**
+   * @remarks
+   * The number of cpu cores for the node, valid values: **1** to **16**.
+   * >This parameter is required when selecting **DBProxyNodes**.
+   * 
    * @example
    * 1
    */
   cpuCores?: string;
   /**
+   * @remarks
+   * The number of proxy nodes in the availability zone, valid values: **1** to **16**.
+   * >This parameter is required when selecting **DBProxyNodes**.
+   * 
    * @example
    * 2
    */
   nodeCounts?: string;
   /**
+   * @remarks
+   * The id of the availability zone where the node is located.
+   * >This parameter is required when selecting **DBProxyNodes**.
+   * 
    * @example
    * cn-hagnzhou-c
    */
@@ -78056,7 +81579,25 @@ export class ModifyDBProxyInstanceRequestDBProxyNodes extends $tea.Model {
 }
 
 export class ModifyDBProxyInstanceRequestMigrateAZ extends $tea.Model {
+  /**
+   * @remarks
+   * The proxy connection address ID. You can obtain it through the DescribeDBProxyEndpoint interface.
+   * 
+   * > This parameter is required when MigrateAZ is selected.
+   * 
+   * @example
+   * yhw429********
+   */
   dbProxyEndpointId?: string;
+  /**
+   * @remarks
+   * The target VSwitchId corresponding to the proxy instance migration.
+   * 
+   * > This parameter is required when MigrateAZ is selected.
+   * 
+   * @example
+   * vsw-sw0qq49d1m****
+   */
   destVSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78775,7 +82316,7 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
    * @example
    * 20
    */
-  size?: string;
+  size?: number;
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
@@ -78786,7 +82327,7 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
-      size: 'string',
+      size: 'number',
     };
   }
 
@@ -79396,6 +82937,124 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 挂载RC云盘
+   * 
+   * @param request - AttachRCDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachRCDiskResponse
+   */
+  async attachRCDiskWithOptions(request: AttachRCDiskRequest, runtime: $Util.RuntimeOptions): Promise<AttachRCDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteWithInstance)) {
+      query["DeleteWithInstance"] = request.deleteWithInstance;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachRCDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachRCDiskResponse>(await this.callApi(params, req, runtime), new AttachRCDiskResponse({}));
+  }
+
+  /**
+   * 挂载RC云盘
+   * 
+   * @param request - AttachRCDiskRequest
+   * @returns AttachRCDiskResponse
+   */
+  async attachRCDisk(request: AttachRCDiskRequest): Promise<AttachRCDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachRCDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds RDS Custom nodes to a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param tmpReq - AttachRCInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachRCInstancesResponse
+   */
+  async attachRCInstancesWithOptions(tmpReq: AttachRCInstancesRequest, runtime: $Util.RuntimeOptions): Promise<AttachRCInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachRCInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.keyPair)) {
+      query["KeyPair"] = request.keyPair;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachRCInstances",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachRCInstancesResponse>(await this.callApi(params, req, runtime), new AttachRCInstancesResponse({}));
+  }
+
+  /**
+   * Adds RDS Custom nodes to a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param request - AttachRCInstancesRequest
+   * @returns AttachRCInstancesResponse
+   */
+  async attachRCInstances(request: AttachRCInstancesRequest): Promise<AttachRCInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Associates a whitelist template with an instance.
    * 
    * @remarks
@@ -79544,25 +83203,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface is used to cancel maintenance tasks that have not yet started.
+   * Cancels O\\&M tasks that are not started.
    * 
    * @remarks
-   * ### Supported Engines
-   * - RDS MySQL
-   * - RDS PostgreSQL
-   * - RDS SQL Server
-   * - RDS MariaDB
-   * ### Related Function Documentation
-   * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
-   * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
-   * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
-   * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
-   * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
-   * ### Usage Restrictions
-   * The task cannot be canceled under the following conditions:
-   * - `allowCancel` is 0.
-   * - The current time is later than the task start time.
-   * - The task status is not 3 (waiting for execution).
+   * ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+   * ### [](#)Usage notes
+   * Tasks cannot be canceled in the following situations:
+   * *   The allowCancel parameter is set to 0.
+   * *   The current time is later than the task start time.
+   * *   The status of the task is not set to 3. The value 3 specifies that the task is waiting to be executed.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -79613,25 +83272,25 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface is used to cancel maintenance tasks that have not yet started.
+   * Cancels O\\&M tasks that are not started.
    * 
    * @remarks
-   * ### Supported Engines
-   * - RDS MySQL
-   * - RDS PostgreSQL
-   * - RDS SQL Server
-   * - RDS MariaDB
-   * ### Related Function Documentation
-   * >Notice: Before using this interface, please carefully read the function documentation to ensure you fully understand the prerequisites and the impact of using the interface before proceeding with the operation.
-   * - [RDS MySQL Scheduled Events](https://help.aliyun.com/document_detail/104183.html)
-   * - [RDS PostgreSQL Scheduled Events](https://help.aliyun.com/document_detail/104452.html)
-   * - [RDS SQL Server Scheduled Events](https://help.aliyun.com/document_detail/104451.html)
-   * - [RDS MariaDB Scheduled Events](https://help.aliyun.com/document_detail/104454.html)
-   * ### Usage Restrictions
-   * The task cannot be canceled under the following conditions:
-   * - `allowCancel` is 0.
-   * - The current time is later than the task start time.
-   * - The task status is not 3 (waiting for execution).
+   * ### [](#)Supported database engines
+   * *   MySQL
+   * *   PostgreSQL
+   * *   SQL Server
+   * *   MariaDB
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Scheduled events for ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/104183.html)
+   * *   [Scheduled events for ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/104452.html)
+   * *   [Scheduled events for ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/104451.html)
+   * *   [Scheduled events for ApsaraDB RDS for MariaDB instances](https://help.aliyun.com/document_detail/104454.html)
+   * ### [](#)Usage notes
+   * Tasks cannot be canceled in the following situations:
+   * *   The allowCancel parameter is set to 0.
+   * *   The current time is later than the task start time.
+   * *   The status of the task is not set to 3. The value 3 specifies that the task is waiting to be executed.
    * 
    * @param request - CancelActiveOperationTasksRequest
    * @returns CancelActiveOperationTasksResponse
@@ -81064,6 +84723,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!Util.isUnset(request.babelfishConfig)) {
       query["BabelfishConfig"] = request.babelfishConfig;
     }
@@ -81182,6 +84845,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -82222,64 +85889,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a diagnostic report.
-   * 
-   * @remarks
-   * >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-   * 
-   * @param request - CreateDiagnosticReportRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateDiagnosticReportResponse
-   */
-  async createDiagnosticReportWithOptions(request: CreateDiagnosticReportRequest, runtime: $Util.RuntimeOptions): Promise<CreateDiagnosticReportResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBInstanceId)) {
-      query["DBInstanceId"] = request.DBInstanceId;
-    }
-
-    if (!Util.isUnset(request.endTime)) {
-      query["EndTime"] = request.endTime;
-    }
-
-    if (!Util.isUnset(request.startTime)) {
-      query["StartTime"] = request.startTime;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateDiagnosticReport",
-      version: "2014-08-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateDiagnosticReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnosticReportResponse({}));
-  }
-
-  /**
-   * Creates a diagnostic report.
-   * 
-   * @remarks
-   * >  This operation is no longer maintained. You can call the CreateDiagnosticReport operation of Database Autonomy Service (DAS) to create a diagnostic report.
-   * After you call this operation to create a diagnostic report, you can call the DescribeDiagnosticReportList operation to download the diagnostic report.
-   * 
-   * @param request - CreateDiagnosticReportRequest
-   * @returns CreateDiagnosticReportResponse
-   */
-  async createDiagnosticReport(request: CreateDiagnosticReportRequest): Promise<CreateDiagnosticReportResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createDiagnosticReportWithOptions(request, runtime);
-  }
-
-  /**
    * Creates an ApsaraDB RDS global active database cluster.
    * 
    * @remarks
@@ -82946,14 +86555,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * RDS PostgreSQL
+   * PostgreSQL
    * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
-   * ### [](#)Precautions
-   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
-   * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+   * ### [](#)Usage notes
+   * Install only the extensions that are supported by the major engine version of the instance. Otherwise, the installation fails.
+   * *   For more information, see [Supported extensions](https://help.aliyun.com/document_detail/142340.html).
+   * *   You can call an API operation to query the major engine version of the instance. For more information, see [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html).
    * 
    * @param request - CreatePostgresExtensionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -83032,14 +86641,14 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### [](#)Supported database engines
-   * RDS PostgreSQL
+   * PostgreSQL
    * ### [](#)References
-   * > : Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * [Manage extensions](https://help.aliyun.com/document_detail/2402409.html)
-   * ### [](#)Precautions
-   * Install only the plug-ins that are supported by the major engine version of the instance. Otherwise, the installation fails.
-   * *   For more information, see [Extensions supported by ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/142340.html).
-   * *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the major engine version of an instance.
+   * ### [](#)Usage notes
+   * Install only the extensions that are supported by the major engine version of the instance. Otherwise, the installation fails.
+   * *   For more information, see [Supported extensions](https://help.aliyun.com/document_detail/142340.html).
+   * *   You can call an API operation to query the major engine version of the instance. For more information, see [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html).
    * 
    * @param request - CreatePostgresExtensionsRequest
    * @returns CreatePostgresExtensionsResponse
@@ -83087,6 +86696,10 @@ export default class Client extends OpenApi {
       query["Strategy"] = request.strategy;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -83113,6 +86726,184 @@ export default class Client extends OpenApi {
   async createRCDeploymentSet(request: CreateRCDeploymentSetRequest): Promise<CreateRCDeploymentSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createRCDeploymentSetWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a data disk for an RDS Custom instance.
+   * 
+   * @param request - CreateRCDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRCDiskResponse
+   */
+  async createRCDiskWithOptions(request: CreateRCDiskRequest, runtime: $Util.RuntimeOptions): Promise<CreateRCDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.diskCategory)) {
+      query["DiskCategory"] = request.diskCategory;
+    }
+
+    if (!Util.isUnset(request.diskName)) {
+      query["DiskName"] = request.diskName;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.performanceLevel)) {
+      query["PerformanceLevel"] = request.performanceLevel;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRCDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRCDiskResponse>(await this.callApi(params, req, runtime), new CreateRCDiskResponse({}));
+  }
+
+  /**
+   * Creates a data disk for an RDS Custom instance.
+   * 
+   * @param request - CreateRCDiskRequest
+   * @returns CreateRCDiskResponse
+   */
+  async createRCDisk(request: CreateRCDiskRequest): Promise<CreateRCDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRCDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a snapshot for a cloud disk.
+   * 
+   * @remarks
+   * In the following scenarios, you cannot create snapshots for a specific disk:
+   * *   The number of manual snapshots of the disk has reached 256.
+   * *   A snapshot is being created for the disk.
+   * *   The instance to which the disk is attached has never been started.
+   * *   The instance to which the disk is attached is not in the **Stopped** or **Running** state.
+   * When you create a snapshot, take note of the following items:
+   * *   If a snapshot is being created, the snapshot cannot be used to create a custom image by calling the CreateImage operation.
+   * *   When a snapshot is being created for a disk that is attached to an RDS Custom instance, do not change the instance state.
+   * *   You can create snapshots for a disk that is in the **Expired** state. If the release time scheduled for a disk arrives when a snapshot is being created for the disk, the snapshot in the Creating state is deleted when the disk is released.
+   * 
+   * @param request - CreateRCSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRCSnapshotResponse
+   */
+  async createRCSnapshotWithOptions(request: CreateRCSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<CreateRCSnapshotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.instantAccess)) {
+      query["InstantAccess"] = request.instantAccess;
+    }
+
+    if (!Util.isUnset(request.instantAccessRetentionDays)) {
+      query["InstantAccessRetentionDays"] = request.instantAccessRetentionDays;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.retentionDays)) {
+      query["RetentionDays"] = request.retentionDays;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRCSnapshot",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRCSnapshotResponse>(await this.callApi(params, req, runtime), new CreateRCSnapshotResponse({}));
+  }
+
+  /**
+   * Creates a snapshot for a cloud disk.
+   * 
+   * @remarks
+   * In the following scenarios, you cannot create snapshots for a specific disk:
+   * *   The number of manual snapshots of the disk has reached 256.
+   * *   A snapshot is being created for the disk.
+   * *   The instance to which the disk is attached has never been started.
+   * *   The instance to which the disk is attached is not in the **Stopped** or **Running** state.
+   * When you create a snapshot, take note of the following items:
+   * *   If a snapshot is being created, the snapshot cannot be used to create a custom image by calling the CreateImage operation.
+   * *   When a snapshot is being created for a disk that is attached to an RDS Custom instance, do not change the instance state.
+   * *   You can create snapshots for a disk that is in the **Expired** state. If the release time scheduled for a disk arrives when a snapshot is being created for the disk, the snapshot in the Creating state is deleted when the disk is released.
+   * 
+   * @param request - CreateRCSnapshotRequest
+   * @returns CreateRCSnapshotResponse
+   */
+  async createRCSnapshot(request: CreateRCSnapshotRequest): Promise<CreateRCSnapshotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRCSnapshotWithOptions(request, runtime);
   }
 
   /**
@@ -83146,6 +86937,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.autoRenew)) {
       query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
     }
 
     if (!Util.isUnset(request.bpeEnabled)) {
@@ -83234,6 +87029,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.privateIpAddress)) {
       query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -84902,6 +88701,70 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a RDS Custom node from a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param tmpReq - DeleteRCClusterNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCClusterNodesResponse
+   */
+  async deleteRCClusterNodesWithOptions(tmpReq: DeleteRCClusterNodesRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCClusterNodesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteRCClusterNodesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "simple");
+    }
+
+    if (!Util.isUnset(tmpReq.nodes)) {
+      request.nodesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.nodes, "Nodes", "simple");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.nodesShrink)) {
+      query["Nodes"] = request.nodesShrink;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCClusterNodes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCClusterNodesResponse>(await this.callApi(params, req, runtime), new DeleteRCClusterNodesResponse({}));
+  }
+
+  /**
+   * Deletes a RDS Custom node from a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param request - DeleteRCClusterNodesRequest
+   * @returns DeleteRCClusterNodesResponse
+   */
+  async deleteRCClusterNodes(request: DeleteRCClusterNodesRequest): Promise<DeleteRCClusterNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCClusterNodesWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a deployment set for an RDS Custom instance. Before you call this operation, you must specify parameters such as RegionId and DeploymentSetId.
    * 
    * @param request - DeleteRCDeploymentSetRequest
@@ -84945,6 +88808,64 @@ export default class Client extends OpenApi {
   async deleteRCDeploymentSet(request: DeleteRCDeploymentSetRequest): Promise<DeleteRCDeploymentSetResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRCDeploymentSetWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases a pay-as-you-go data disk. The data disk can be a basic disk, an ultra disk, a standard SSD, or an Enterprise SSD (ESSD).
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   Manual snapshots of the disk are retained.
+   * *   The disk must be in the Unattached (Available) state.
+   * *   If no disk with the specified disk ID exists, the request will be ignored.
+   * 
+   * @param request - DeleteRCDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCDiskResponse
+   */
+  async deleteRCDiskWithOptions(request: DeleteRCDiskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCDiskResponse>(await this.callApi(params, req, runtime), new DeleteRCDiskResponse({}));
+  }
+
+  /**
+   * Releases a pay-as-you-go data disk. The data disk can be a basic disk, an ultra disk, a standard SSD, or an Enterprise SSD (ESSD).
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   Manual snapshots of the disk are retained.
+   * *   The disk must be in the Unattached (Available) state.
+   * *   If no disk with the specified disk ID exists, the request will be ignored.
+   * 
+   * @param request - DeleteRCDiskRequest
+   * @returns DeleteRCDiskResponse
+   */
+  async deleteRCDisk(request: DeleteRCDiskRequest): Promise<DeleteRCDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCDiskWithOptions(request, runtime);
   }
 
   /**
@@ -85065,6 +88986,68 @@ export default class Client extends OpenApi {
   async deleteRCInstances(request: DeleteRCInstancesRequest): Promise<DeleteRCInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a cloud disk snapshot.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   If the specified snapshot ID does not exist, the request will be ignored.
+   * *   If the snapshot is used to create custom images, the snapshot cannot be deleted. You must delete the created custom images before you can delete the snapshot.
+   * *   If the snapshot is used to create cloud disks and `Force` is not specified or is set to `false`, the snapshot cannot be directly deleted. If you want to delete the snapshot, set `Force` to true to forcefully delete the snapshot. The cloud disks created from the snapshot cannot be re-initialized after the snapshot is forcefully deleted.
+   * 
+   * @param request - DeleteRCSnapshotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCSnapshotResponse
+   */
+  async deleteRCSnapshotWithOptions(request: DeleteRCSnapshotRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCSnapshotResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.force)) {
+      query["Force"] = request.force;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotId)) {
+      query["SnapshotId"] = request.snapshotId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCSnapshot",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCSnapshotResponse>(await this.callApi(params, req, runtime), new DeleteRCSnapshotResponse({}));
+  }
+
+  /**
+   * Deletes a cloud disk snapshot.
+   * 
+   * @remarks
+   * Before you call this operation, take note of the following items:
+   * *   If the specified snapshot ID does not exist, the request will be ignored.
+   * *   If the snapshot is used to create custom images, the snapshot cannot be deleted. You must delete the created custom images before you can delete the snapshot.
+   * *   If the snapshot is used to create cloud disks and `Force` is not specified or is set to `false`, the snapshot cannot be directly deleted. If you want to delete the snapshot, set `Force` to true to forcefully delete the snapshot. The cloud disks created from the snapshot cannot be re-initialized after the snapshot is forcefully deleted.
+   * 
+   * @param request - DeleteRCSnapshotRequest
+   * @returns DeleteRCSnapshotResponse
+   */
+  async deleteRCSnapshot(request: DeleteRCSnapshotRequest): Promise<DeleteRCSnapshotResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCSnapshotWithOptions(request, runtime);
   }
 
   /**
@@ -87696,6 +91679,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例资源使用情况
+   * 
    * @param request - DescribeCustinsResourceInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCustinsResourceInfoResponse
@@ -87741,6 +91726,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询实例资源使用情况
+   * 
    * @param request - DescribeCustinsResourceInfoRequest
    * @returns DescribeCustinsResourceInfoResponse
    */
@@ -89836,7 +93823,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the settings of the dedicated proxy for an instance.
+   * Queries the settings of the database proxy feature for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -89900,7 +93887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the settings of the dedicated proxy for an instance.
+   * Queries the settings of the database proxy feature for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
@@ -90033,6 +94020,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBProxyInstanceType)) {
       query["DBProxyInstanceType"] = request.DBProxyInstanceType;
+    }
+
+    if (!Util.isUnset(request.dimension)) {
+      query["Dimension"] = request.dimension;
     }
 
     if (!Util.isUnset(request.endTime)) {
@@ -91358,6 +95349,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询主机组弹性策略参数
+   * 
    * @param request - DescribeHostGroupElasticStrategyParametersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeHostGroupElasticStrategyParametersResponse
@@ -91399,6 +95392,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询主机组弹性策略参数
+   * 
    * @param request - DescribeHostGroupElasticStrategyParametersRequest
    * @returns DescribeHostGroupElasticStrategyParametersResponse
    */
@@ -93402,6 +97397,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the kubeconfig file of a Container Service for Kubernetes (ACK) cluster in which an RDS Custom instance resides.
+   * 
+   * @remarks
+   * Kubeconfig files store identity and authentication information that is used by clients to access ACK clusters. To use kubectl to manage an ACK cluster, you must use the kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+   * 
+   * @param request - DescribeRCClusterConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCClusterConfigResponse
+   */
+  async describeRCClusterConfigWithOptions(request: DescribeRCClusterConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCClusterConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.temporaryDurationMinutes)) {
+      query["TemporaryDurationMinutes"] = request.temporaryDurationMinutes;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCClusterConfig",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCClusterConfigResponse>(await this.callApi(params, req, runtime), new DescribeRCClusterConfigResponse({}));
+  }
+
+  /**
+   * Queries the kubeconfig file of a Container Service for Kubernetes (ACK) cluster in which an RDS Custom instance resides.
+   * 
+   * @remarks
+   * Kubeconfig files store identity and authentication information that is used by clients to access ACK clusters. To use kubectl to manage an ACK cluster, you must use the kubeconfig file to connect to the ACK cluster. We recommend that you keep kubeconfig files confidential and revoke kubeconfig files that are not in use. This helps prevent data leaks caused by the disclosure of kubeconfig files.
+   * 
+   * @param request - DescribeRCClusterConfigRequest
+   * @returns DescribeRCClusterConfigResponse
+   */
+  async describeRCClusterConfig(request: DescribeRCClusterConfigRequest): Promise<DescribeRCClusterConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCClusterConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the RDS custom nodes in a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param request - DescribeRCClusterNodesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCClusterNodesResponse
+   */
+  async describeRCClusterNodesWithOptions(request: DescribeRCClusterNodesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCClusterNodesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCClusterNodes",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCClusterNodesResponse>(await this.callApi(params, req, runtime), new DescribeRCClusterNodesResponse({}));
+  }
+
+  /**
+   * Queries the RDS custom nodes in a Container Service for Kubernetes (ACK) cluster.
+   * 
+   * @param request - DescribeRCClusterNodesRequest
+   * @returns DescribeRCClusterNodesResponse
+   */
+  async describeRCClusterNodes(request: DescribeRCClusterNodesRequest): Promise<DescribeRCClusterNodesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCClusterNodesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries Container Service for Kubernetes (ACK) clusters to which RDS Custom nodes reside in a specific region.
+   * 
+   * @param request - DescribeRCClustersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCClustersResponse
+   */
+  async describeRCClustersWithOptions(request: DescribeRCClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCClustersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCClusters",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCClustersResponse>(await this.callApi(params, req, runtime), new DescribeRCClustersResponse({}));
+  }
+
+  /**
+   * Queries Container Service for Kubernetes (ACK) clusters to which RDS Custom nodes reside in a specific region.
+   * 
+   * @param request - DescribeRCClustersRequest
+   * @returns DescribeRCClustersResponse
+   */
+  async describeRCClusters(request: DescribeRCClustersRequest): Promise<DescribeRCClustersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCClustersWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of one or more deployment sets for RDS Custom instances. Before you call this operation, you must specify parameters such as DeploymentSetIds, Strategy, and DeploymentSetName.
    * 
    * @param request - DescribeRCDeploymentSetsRequest
@@ -93437,6 +97584,44 @@ export default class Client extends OpenApi {
   async describeRCDeploymentSets(request: DescribeRCDeploymentSetsRequest): Promise<DescribeRCDeploymentSetsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRCDeploymentSetsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the disk information about an RDS Custom instance.
+   * 
+   * @param request - DescribeRCDisksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCDisksResponse
+   */
+  async describeRCDisksWithOptions(request: DescribeRCDisksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCDisksResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCDisks",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCDisksResponse>(await this.callApi(params, req, runtime), new DescribeRCDisksResponse({}));
+  }
+
+  /**
+   * Queries the disk information about an RDS Custom instance.
+   * 
+   * @param request - DescribeRCDisksRequest
+   * @returns DescribeRCDisksResponse
+   */
+  async describeRCDisks(request: DescribeRCDisksRequest): Promise<DescribeRCDisksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCDisksWithOptions(request, runtime);
   }
 
   /**
@@ -93486,7 +97671,15 @@ export default class Client extends OpenApi {
    */
   async describeRCInstanceAttributeWithOptions(request: DescribeRCInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCInstanceAttributeResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -93495,7 +97688,7 @@ export default class Client extends OpenApi {
       version: "2014-08-15",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -93513,6 +97706,62 @@ export default class Client extends OpenApi {
   async describeRCInstanceAttribute(request: DescribeRCInstanceAttributeRequest): Promise<DescribeRCInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRCInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the Virtual Network Computing (VNC) logon address of an RDS Custom instance.
+   * 
+   * @remarks
+   * The address returned is valid only for 15 seconds. If you do not use the returned address to establish a connection within 15 seconds, the address expires and you must call the operation again to obtain a new address.
+   * 
+   * @param request - DescribeRCInstanceVncUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCInstanceVncUrlResponse
+   */
+  async describeRCInstanceVncUrlWithOptions(request: DescribeRCInstanceVncUrlRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCInstanceVncUrlResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCInstanceVncUrl",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCInstanceVncUrlResponse>(await this.callApi(params, req, runtime), new DescribeRCInstanceVncUrlResponse({}));
+  }
+
+  /**
+   * Queries the Virtual Network Computing (VNC) logon address of an RDS Custom instance.
+   * 
+   * @remarks
+   * The address returned is valid only for 15 seconds. If you do not use the returned address to establish a connection within 15 seconds, the address expires and you must call the operation again to obtain a new address.
+   * 
+   * @param request - DescribeRCInstanceVncUrlRequest
+   * @returns DescribeRCInstanceVncUrlResponse
+   */
+  async describeRCInstanceVncUrl(request: DescribeRCInstanceVncUrlRequest): Promise<DescribeRCInstanceVncUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCInstanceVncUrlWithOptions(request, runtime);
   }
 
   /**
@@ -93613,6 +97862,64 @@ export default class Client extends OpenApi {
   async describeRCMetricList(request: DescribeRCMetricListRequest): Promise<DescribeRCMetricListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRCMetricListWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of snapshots. The details include the status of the snapshots, the amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
+   * 
+   * @param request - DescribeRCSnapshotsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCSnapshotsResponse
+   */
+  async describeRCSnapshotsWithOptions(request: DescribeRCSnapshotsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCSnapshotsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.snapshotIds)) {
+      query["SnapshotIds"] = request.snapshotIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCSnapshots",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCSnapshotsResponse>(await this.callApi(params, req, runtime), new DescribeRCSnapshotsResponse({}));
+  }
+
+  /**
+   * Queries the details of snapshots. The details include the status of the snapshots, the amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
+   * 
+   * @param request - DescribeRCSnapshotsRequest
+   * @returns DescribeRCSnapshotsResponse
+   */
+  async describeRCSnapshots(request: DescribeRCSnapshotsRequest): Promise<DescribeRCSnapshotsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCSnapshotsWithOptions(request, runtime);
   }
 
   /**
@@ -95922,6 +100229,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Detaches a pay-as-you-go data disk or a system disk from an RDS Custom instance.
+   * 
+   * @param request - DetachRCDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachRCDiskResponse
+   */
+  async detachRCDiskWithOptions(request: DetachRCDiskRequest, runtime: $Util.RuntimeOptions): Promise<DetachRCDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deleteWithInstance)) {
+      query["DeleteWithInstance"] = request.deleteWithInstance;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachRCDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachRCDiskResponse>(await this.callApi(params, req, runtime), new DetachRCDiskResponse({}));
+  }
+
+  /**
+   * Detaches a pay-as-you-go data disk or a system disk from an RDS Custom instance.
+   * 
+   * @param request - DetachRCDiskRequest
+   * @returns DetachRCDiskResponse
+   */
+  async detachRCDisk(request: DetachRCDiskRequest): Promise<DetachRCDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachRCDiskWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates a whitelist template from an instance.
    * 
    * @remarks
@@ -96066,10 +100427,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Supported database engines
-   * *   RDS MySQL
-   * *   RDS PostgreSQL
-   * *   RDS SQL Server
-   * *   RDS MariaDB
+   * RDS MySQL
    * 
    * @param request - GetDBInstanceTopologyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -96112,10 +100470,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ### Supported database engines
-   * *   RDS MySQL
-   * *   RDS PostgreSQL
-   * *   RDS SQL Server
-   * *   RDS MariaDB
+   * RDS MySQL
    * 
    * @param request - GetDBInstanceTopologyRequest
    * @returns GetDBInstanceTopologyResponse
@@ -96368,6 +100723,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.comment)) {
       query["Comment"] = request.comment;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
     }
 
     if (!Util.isUnset(request.engineVersion)) {
@@ -99724,6 +104083,10 @@ export default class Client extends OpenApi {
       query["PayType"] = request.payType;
     }
 
+    if (!Util.isUnset(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
+    }
+
     if (!Util.isUnset(request.readOnlyDBInstanceClass)) {
       query["ReadOnlyDBInstanceClass"] = request.readOnlyDBInstanceClass;
     }
@@ -100036,17 +104399,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the dedicated proxy feature for an instance.
+   * Enables or modifies the database proxy feature for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
-   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
    * ### [](#)References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
-   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Enable the database proxy feature of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
+   * *   [Enable the database proxy feature of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
    * 
    * @param tmpReq - ModifyDBProxyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100143,17 +104506,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the dedicated proxy feature for an instance.
+   * Enables or modifies the database proxy feature for an instance.
    * 
    * @remarks
    * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
-   * >  Starting October 17, 2023, ApsaraDB RDS provides a dedicated proxy free of charge for each ApsaraDB RDS for MySQL instance on RDS Cluster Edition. For more information, see [[Special offers/Price changes\\] One proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
+   * >  Starting October 17, 2023, ApsaraDB RDS for MySQL instances that run RDS Cluster Edition offer one free-of-charge dedicated database proxy for each unit in phases. For more information, see [[Special offers/Price changes\\] One dedicated proxy is provided free of charge for ApsaraDB RDS for MySQL instances on RDS Cluster Edition](~~2555466~~).
    * ### [](#)References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/197456.html)
-   * *   [Enable and configure the dedicated proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html)
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Enable the database proxy feature of ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
+   * *   [Enable the database proxy feature of ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
    * 
    * @param request - ModifyDBProxyRequest
    * @returns ModifyDBProxyResponse
@@ -100296,16 +104659,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+   * Modifies the database proxy endpoint of an instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
-   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
    * 
    * @param request - ModifyDBProxyEndpointAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100372,16 +104735,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes an endpoint that is used to connect to the dedicated proxy of an ApsaraDB RDS instance.
+   * Modifies the database proxy endpoint of an instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
-   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * *   [Configure the database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
+   * *   [Configure the database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
    * 
    * @param request - ModifyDBProxyEndpointAddressRequest
    * @returns ModifyDBProxyEndpointAddressResponse
@@ -100687,12 +105050,11 @@ export default class Client extends OpenApi {
    * Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
+   * ### [](#)Supported database engine
    * *   SQL Server
    * ### [](#)References
-   * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
-   * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
-   * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses cloud disks to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * 
    * @param request - ModifyDatabaseConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -100754,12 +105116,11 @@ export default class Client extends OpenApi {
    * Modifies the property settings of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
-   * ### [](#)Supported database engines
+   * ### [](#)Supported database engine
    * *   SQL Server
    * ### [](#)References
-   * <props="china">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
-   * <props="intl">You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses general Enterprise SSDs (ESSDs) to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html).
-   * > : Before you call this operation, read the preceding topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * You can call this operation to modify the database properties of an ApsaraDB RDS for SQL Server instance and archive data from an instance that uses cloud disks to an Object Storage Service (OSS) bucket. Before you call this operation to archive data to an OSS bucket, you must enable the data archiving feature in the ApsaraDB RDS console. For more information, see [Modify database properties](https://help.aliyun.com/document_detail/2401398.html) and [Archive cloud disk data to an OSS bucket](https://help.aliyun.com/document_detail/2767189.html).
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
    * 
    * @param request - ModifyDatabaseConfigRequest
    * @returns ModifyDatabaseConfigResponse
@@ -101740,6 +106101,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies specific attributes of an RDS Custom instance, such as the password or hostname.
+   * 
+   * @param request - ModifyRCInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCInstanceAttributeResponse
+   */
+  async modifyRCInstanceAttributeWithOptions(request: ModifyRCInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRCInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.reboot)) {
+      query["Reboot"] = request.reboot;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRCInstanceAttribute",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRCInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyRCInstanceAttributeResponse({}));
+  }
+
+  /**
+   * Modifies specific attributes of an RDS Custom instance, such as the password or hostname.
+   * 
+   * @param request - ModifyRCInstanceAttributeRequest
+   * @returns ModifyRCInstanceAttributeResponse
+   */
+  async modifyRCInstanceAttribute(request: ModifyRCInstanceAttributeRequest): Promise<ModifyRCInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRCInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
    * 修改RDS用户专属主机实例付费类型
    * 
    * @param request - ModifyRCInstanceChargeTypeRequest
@@ -101799,6 +106218,110 @@ export default class Client extends OpenApi {
   async modifyRCInstanceChargeType(request: ModifyRCInstanceChargeTypeRequest): Promise<ModifyRCInstanceChargeTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRCInstanceChargeTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改RC实例描述
+   * 
+   * @param request - ModifyRCInstanceDescriptionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCInstanceDescriptionResponse
+   */
+  async modifyRCInstanceDescriptionWithOptions(request: ModifyRCInstanceDescriptionRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRCInstanceDescriptionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceDescription)) {
+      query["InstanceDescription"] = request.instanceDescription;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRCInstanceDescription",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRCInstanceDescriptionResponse>(await this.callApi(params, req, runtime), new ModifyRCInstanceDescriptionResponse({}));
+  }
+
+  /**
+   * 修改RC实例描述
+   * 
+   * @param request - ModifyRCInstanceDescriptionRequest
+   * @returns ModifyRCInstanceDescriptionResponse
+   */
+  async modifyRCInstanceDescription(request: ModifyRCInstanceDescriptionRequest): Promise<ModifyRCInstanceDescriptionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRCInstanceDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the key pair of an RDS Custom instance.
+   * 
+   * @param request - ModifyRCInstanceKeyPairRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRCInstanceKeyPairResponse
+   */
+  async modifyRCInstanceKeyPairWithOptions(request: ModifyRCInstanceKeyPairRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRCInstanceKeyPairResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.reboot)) {
+      query["Reboot"] = request.reboot;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRCInstanceKeyPair",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRCInstanceKeyPairResponse>(await this.callApi(params, req, runtime), new ModifyRCInstanceKeyPairResponse({}));
+  }
+
+  /**
+   * Modifies the key pair of an RDS Custom instance.
+   * 
+   * @param request - ModifyRCInstanceKeyPairRequest
+   * @returns ModifyRCInstanceKeyPairResponse
+   */
+  async modifyRCInstanceKeyPair(request: ModifyRCInstanceKeyPairRequest): Promise<ModifyRCInstanceKeyPairResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRCInstanceKeyPairWithOptions(request, runtime);
   }
 
   /**
@@ -102574,6 +107097,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除节点创建订单预检查
+   * 
    * @param tmpReq - PreCheckCreateOrderForDeleteDBNodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns PreCheckCreateOrderForDeleteDBNodesResponse
@@ -102665,6 +107190,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除节点创建订单预检查
+   * 
    * @param request - PreCheckCreateOrderForDeleteDBNodesRequest
    * @returns PreCheckCreateOrderForDeleteDBNodesResponse
    */
@@ -103656,6 +108183,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -103670,6 +108201,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -103719,6 +108254,68 @@ export default class Client extends OpenApi {
   async renewInstance(request: RenewInstanceRequest): Promise<RenewInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.renewInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 更换rds custom实例系统盘
+   * 
+   * @param request - ReplaceRCInstanceSystemDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReplaceRCInstanceSystemDiskResponse
+   */
+  async replaceRCInstanceSystemDiskWithOptions(request: ReplaceRCInstanceSystemDiskRequest, runtime: $Util.RuntimeOptions): Promise<ReplaceRCInstanceSystemDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.isLocalDisk)) {
+      query["IsLocalDisk"] = request.isLocalDisk;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReplaceRCInstanceSystemDisk",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReplaceRCInstanceSystemDiskResponse>(await this.callApi(params, req, runtime), new ReplaceRCInstanceSystemDiskResponse({}));
+  }
+
+  /**
+   * 更换rds custom实例系统盘
+   * 
+   * @param request - ReplaceRCInstanceSystemDiskRequest
+   * @returns ReplaceRCInstanceSystemDiskResponse
+   */
+  async replaceRCInstanceSystemDisk(request: ReplaceRCInstanceSystemDiskRequest): Promise<ReplaceRCInstanceSystemDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.replaceRCInstanceSystemDiskWithOptions(request, runtime);
   }
 
   /**
@@ -103909,6 +108506,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
     }
 
     if (!Util.isUnset(request.dryRun)) {
@@ -104599,15 +109200,13 @@ export default class Client extends OpenApi {
    * Resumes an instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-   * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
-   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
-   * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Start an ApsaraDB RDS for SQL instance](https://help.aliyun.com/document_detail/462504.html)
    * 
    * @param request - StartDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104705,15 +109304,13 @@ export default class Client extends OpenApi {
    * Resumes an instance.
    * 
    * @remarks
-   * ### Supported database engines
+   * ### [](#)Supported database engines
    * *   MySQL
    * *   PostgreSQL
    * *   SQL Server
-   * ### References
-   * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation:
-   * *   [Resume an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
-   * *   [Resume an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
-   * *   [Resume an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   * ### [](#)References
+   * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
+   * [Start an ApsaraDB RDS for SQL instance](https://help.aliyun.com/document_detail/462504.html)
    * 
    * @param request - StartDBInstanceRequest
    * @returns StartDBInstanceResponse
@@ -104779,9 +109376,7 @@ export default class Client extends OpenApi {
    * *   SQL Server
    * ### References
    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
-   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
-   * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
    * 
    * @param request - StopDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -104837,9 +109432,7 @@ export default class Client extends OpenApi {
    * *   SQL Server
    * ### References
    * > Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
-   * *   [Suspend an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/427093.html)
-   * *   [Suspend an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/452314.html)
-   * *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
+   *   [Suspend an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/462504.html)
    * 
    * @param request - StopDBInstanceRequest
    * @returns StopDBInstanceResponse
@@ -105408,6 +110001,10 @@ export default class Client extends OpenApi {
       query["AutoRenew"] = request.autoRenew;
     }
 
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
     if (!Util.isUnset(request.businessInfo)) {
       query["BusinessInfo"] = request.businessInfo;
     }
@@ -105434,6 +110031,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.promotionCode)) {
+      query["PromotionCode"] = request.promotionCode;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
