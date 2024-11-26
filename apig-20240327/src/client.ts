@@ -7,6 +7,123 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AiServiceConfig extends $tea.Model {
+  /**
+   * @example
+   * https://dashscope.aliyun.com
+   */
+  address?: string;
+  apiKeys?: string[];
+  enableHealthCheck?: boolean;
+  protocols?: string[];
+  /**
+   * @example
+   * qwen
+   */
+  provider?: string;
+  static names(): { [key: string]: string } {
+    return {
+      address: 'address',
+      apiKeys: 'apiKeys',
+      enableHealthCheck: 'enableHealthCheck',
+      protocols: 'protocols',
+      provider: 'provider',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      address: 'string',
+      apiKeys: { 'type': 'array', 'itemType': 'string' },
+      enableHealthCheck: 'boolean',
+      protocols: { 'type': 'array', 'itemType': 'string' },
+      provider: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AkSkIdentityConfig extends $tea.Model {
+  ak?: string;
+  generateMode?: string;
+  sk?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ak: 'ak',
+      generateMode: 'generateMode',
+      sk: 'sk',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ak: 'string',
+      generateMode: 'string',
+      sk: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiKeyIdentityConfig extends $tea.Model {
+  apikey?: string;
+  apikeySource?: ApiKeyIdentityConfigApikeySource;
+  generateMode?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apikey: 'apikey',
+      apikeySource: 'apikeySource',
+      generateMode: 'generateMode',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apikey: 'string',
+      apikeySource: ApiKeyIdentityConfigApikeySource,
+      generateMode: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfo extends $tea.Model {
+  conflicts?: ApiRouteConflictInfoConflicts[];
+  domainInfo?: ApiRouteConflictInfoDomainInfo;
+  static names(): { [key: string]: string } {
+    return {
+      conflicts: 'conflicts',
+      domainInfo: 'domainInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflicts: { 'type': 'array', 'itemType': ApiRouteConflictInfoConflicts },
+      domainInfo: ApiRouteConflictInfoDomainInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class Attachment extends $tea.Model {
   attachResourceIds?: string[];
   attachResourceType?: string;
@@ -30,6 +147,57 @@ export class Attachment extends $tea.Model {
       environmentId: 'string',
       gatewayId: 'string',
       policyAttachmentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AuthorizationResourceInfo extends $tea.Model {
+  environmentId?: string;
+  parentResourceId?: string;
+  resourceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'environmentId',
+      parentResourceId: 'parentResourceId',
+      resourceId: 'resourceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      parentResourceId: 'string',
+      resourceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Backend extends $tea.Model {
+  /**
+   * @example
+   * Single
+   */
+  scene?: string;
+  services?: BackendServices[];
+  static names(): { [key: string]: string } {
+    return {
+      scene: 'scene',
+      services: 'services',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      scene: 'string',
+      services: { 'type': 'array', 'itemType': BackendServices },
     };
   }
 
@@ -88,6 +256,11 @@ export class DomainInfo extends $tea.Model {
   forceHttps?: boolean;
   name?: string;
   protocol?: string;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
   status?: string;
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
@@ -99,6 +272,7 @@ export class DomainInfo extends $tea.Model {
       forceHttps: 'forceHttps',
       name: 'name',
       protocol: 'protocol',
+      resourceGroupId: 'resourceGroupId',
       status: 'status',
       updateTimestamp: 'updateTimestamp',
     };
@@ -113,6 +287,7 @@ export class DomainInfo extends $tea.Model {
       forceHttps: 'boolean',
       name: 'string',
       protocol: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       updateTimestamp: 'number',
     };
@@ -131,6 +306,11 @@ export class EnvironmentInfo extends $tea.Model {
   environmentId?: string;
   gatewayInfo?: GatewayInfo;
   name?: string;
+  /**
+   * @example
+   * rg-xxxx
+   */
+  resourceGroupId?: string;
   subDomainInfos?: SubDomainInfo[];
   updateTimestamp?: number;
   static names(): { [key: string]: string } {
@@ -142,6 +322,7 @@ export class EnvironmentInfo extends $tea.Model {
       environmentId: 'environmentId',
       gatewayInfo: 'gatewayInfo',
       name: 'name',
+      resourceGroupId: 'resourceGroupId',
       subDomainInfos: 'subDomainInfos',
       updateTimestamp: 'updateTimestamp',
     };
@@ -156,6 +337,7 @@ export class EnvironmentInfo extends $tea.Model {
       environmentId: 'string',
       gatewayInfo: GatewayInfo,
       name: 'string',
+      resourceGroupId: 'string',
       subDomainInfos: { 'type': 'array', 'itemType': SubDomainInfo },
       updateTimestamp: 'number',
     };
@@ -167,19 +349,25 @@ export class EnvironmentInfo extends $tea.Model {
 }
 
 export class GatewayInfo extends $tea.Model {
+  engineVersion?: string;
   gatewayId?: string;
   name?: string;
+  vpcInfo?: GatewayInfoVpcInfo;
   static names(): { [key: string]: string } {
     return {
+      engineVersion: 'engineVersion',
       gatewayId: 'gatewayId',
       name: 'name',
+      vpcInfo: 'vpcInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      engineVersion: 'string',
       gatewayId: 'string',
       name: 'string',
+      vpcInfo: GatewayInfoVpcInfo,
     };
   }
 
@@ -207,198 +395,14 @@ export class GatewayLogConfig extends $tea.Model {
   }
 }
 
-export class GatewayRouteBackend extends $tea.Model {
-  services?: GatewayRouteBackendServices[];
-  /**
-   * @example
-   * Single
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      services: 'services',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      services: { 'type': 'array', 'itemType': GatewayRouteBackendServices },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteBackendConfig extends $tea.Model {
-  services?: GatewayRouteBackendConfigServices[];
-  /**
-   * @example
-   * Single
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      services: 'services',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      services: { 'type': 'array', 'itemType': GatewayRouteBackendConfigServices },
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteDomainConfig extends $tea.Model {
-  domainIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      domainIds: 'domainIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteDomainInfo extends $tea.Model {
-  domains?: GatewayRouteDomainInfoDomains[];
-  static names(): { [key: string]: string } {
-    return {
-      domains: 'domains',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domains: { 'type': 'array', 'itemType': GatewayRouteDomainInfoDomains },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayService extends $tea.Model {
-  addresses?: string[];
-  createTimestamp?: number;
-  gatewayServiceId?: string;
-  healthCheck?: ServiceHealthCheck;
-  healthStatus?: string;
-  name?: string;
-  namespace?: string;
-  ports?: GatewayServicePorts[];
-  /**
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
-  sourceType?: string;
-  unhealthyEndpoints?: string[];
-  updateTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'addresses',
-      createTimestamp: 'createTimestamp',
-      gatewayServiceId: 'gatewayServiceId',
-      healthCheck: 'healthCheck',
-      healthStatus: 'healthStatus',
-      name: 'name',
-      namespace: 'namespace',
-      ports: 'ports',
-      qualifier: 'qualifier',
-      sourceType: 'sourceType',
-      unhealthyEndpoints: 'unhealthyEndpoints',
-      updateTimestamp: 'updateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      createTimestamp: 'number',
-      gatewayServiceId: 'string',
-      healthCheck: ServiceHealthCheck,
-      healthStatus: 'string',
-      name: 'string',
-      namespace: 'string',
-      ports: { 'type': 'array', 'itemType': GatewayServicePorts },
-      qualifier: 'string',
-      sourceType: 'string',
-      unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
-      updateTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayServiceSource extends $tea.Model {
-  bound?: boolean;
-  createTimestamp?: number;
-  k8sServiceSourceInfo?: GatewayServiceSourceK8sServiceSourceInfo;
-  nacosServiceSourceInfo?: GatewayServiceSourceNacosServiceSourceInfo;
-  name?: string;
-  serviceSourceId?: string;
-  type?: string;
-  updateTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      bound: 'bound',
-      createTimestamp: 'createTimestamp',
-      k8sServiceSourceInfo: 'k8sServiceSourceInfo',
-      nacosServiceSourceInfo: 'nacosServiceSourceInfo',
-      name: 'name',
-      serviceSourceId: 'serviceSourceId',
-      type: 'type',
-      updateTimestamp: 'updateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      bound: 'boolean',
-      createTimestamp: 'number',
-      k8sServiceSourceInfo: GatewayServiceSourceK8sServiceSourceInfo,
-      nacosServiceSourceInfo: GatewayServiceSourceNacosServiceSourceInfo,
-      name: 'string',
-      serviceSourceId: 'string',
-      type: 'string',
-      updateTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class HttpApiApiInfo extends $tea.Model {
+  aiProtocols?: string[];
   /**
    * @example
    * /v1
    */
   basePath?: string;
+  deployConfigs?: HttpApiDeployConfig[];
   description?: string;
   environments?: HttpApiApiInfoEnvironments[];
   /**
@@ -406,33 +410,54 @@ export class HttpApiApiInfo extends $tea.Model {
    * api-xxx
    */
   httpApiId?: string;
+  ingressInfo?: HttpApiApiInfoIngressInfo;
   /**
    * @example
    * test
    */
   name?: string;
   protocols?: string[];
+  /**
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * Rest
+   */
+  type?: string;
   versionInfo?: HttpApiVersionInfo;
   static names(): { [key: string]: string } {
     return {
+      aiProtocols: 'aiProtocols',
       basePath: 'basePath',
+      deployConfigs: 'deployConfigs',
       description: 'description',
       environments: 'environments',
       httpApiId: 'httpApiId',
+      ingressInfo: 'ingressInfo',
       name: 'name',
       protocols: 'protocols',
+      resourceGroupId: 'resourceGroupId',
+      type: 'type',
       versionInfo: 'versionInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aiProtocols: { 'type': 'array', 'itemType': 'string' },
       basePath: 'string',
+      deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
       environments: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironments },
       httpApiId: 'string',
+      ingressInfo: HttpApiApiInfoIngressInfo,
       name: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      type: 'string',
       versionInfo: HttpApiVersionInfo,
     };
   }
@@ -512,6 +537,52 @@ export class HttpApiBackendMatchConditions extends $tea.Model {
   }
 }
 
+export class HttpApiDeployConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoDeploy?: boolean;
+  /**
+   * @example
+   * SingleService
+   */
+  backendScene?: string;
+  customDomainIds?: string[];
+  /**
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  policyConfigs?: HttpApiDeployConfigPolicyConfigs[];
+  serviceConfigs?: HttpApiDeployConfigServiceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      autoDeploy: 'autoDeploy',
+      backendScene: 'backendScene',
+      customDomainIds: 'customDomainIds',
+      environmentId: 'environmentId',
+      policyConfigs: 'policyConfigs',
+      serviceConfigs: 'serviceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoDeploy: 'boolean',
+      backendScene: 'string',
+      customDomainIds: { 'type': 'array', 'itemType': 'string' },
+      environmentId: 'string',
+      policyConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigPolicyConfigs },
+      serviceConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfigServiceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpApiDomainInfo extends $tea.Model {
   /**
    * @example
@@ -557,6 +628,11 @@ export class HttpApiInfoByName extends $tea.Model {
   name?: string;
   /**
    * @example
+   * Http
+   */
+  type?: string;
+  /**
+   * @example
    * true
    */
   versionEnabled?: boolean;
@@ -564,6 +640,7 @@ export class HttpApiInfoByName extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       name: 'name',
+      type: 'type',
       versionEnabled: 'versionEnabled',
       versionedHttpApis: 'versionedHttpApis',
     };
@@ -572,6 +649,7 @@ export class HttpApiInfoByName extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       name: 'string',
+      type: 'string',
       versionEnabled: 'boolean',
       versionedHttpApis: { 'type': 'array', 'itemType': HttpApiApiInfo },
     };
@@ -1063,6 +1141,52 @@ export class HttpDubboTranscoder extends $tea.Model {
   }
 }
 
+export class HttpRoute extends $tea.Model {
+  backend?: Backend;
+  createTimestamp?: number;
+  deployStatus?: string;
+  description?: string;
+  domainInfos?: HttpRouteDomainInfos[];
+  environmentInfo?: HttpRouteEnvironmentInfo;
+  match?: HttpRouteMatch;
+  name?: string;
+  routeId?: string;
+  updateTimestamp?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'backend',
+      createTimestamp: 'createTimestamp',
+      deployStatus: 'deployStatus',
+      description: 'description',
+      domainInfos: 'domainInfos',
+      environmentInfo: 'environmentInfo',
+      match: 'match',
+      name: 'name',
+      routeId: 'routeId',
+      updateTimestamp: 'updateTimestamp',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: Backend,
+      createTimestamp: 'number',
+      deployStatus: 'string',
+      description: 'string',
+      domainInfos: { 'type': 'array', 'itemType': HttpRouteDomainInfos },
+      environmentInfo: HttpRouteEnvironmentInfo,
+      match: HttpRouteMatch,
+      name: 'string',
+      routeId: 'string',
+      updateTimestamp: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpRouteMatch extends $tea.Model {
   headers?: HttpRouteMatchHeaders[];
   /**
@@ -1090,6 +1214,37 @@ export class HttpRouteMatch extends $tea.Model {
       methods: { 'type': 'array', 'itemType': 'string' },
       path: HttpRouteMatchPath,
       queryParams: { 'type': 'array', 'itemType': HttpRouteMatchQueryParams },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JwtIdentityConfig extends $tea.Model {
+  jwks?: string;
+  jwtPayloadConfig?: JwtIdentityConfigJwtPayloadConfig;
+  jwtTokenConfig?: JwtIdentityConfigJwtTokenConfig;
+  secretType?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jwks: 'jwks',
+      jwtPayloadConfig: 'jwtPayloadConfig',
+      jwtTokenConfig: 'jwtTokenConfig',
+      secretType: 'secretType',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jwks: 'string',
+      jwtPayloadConfig: JwtIdentityConfigJwtPayloadConfig,
+      jwtTokenConfig: JwtIdentityConfigJwtTokenConfig,
+      secretType: 'string',
+      type: 'string',
     };
   }
 
@@ -1255,20 +1410,85 @@ export class ResourceStatistic extends $tea.Model {
   }
 }
 
-export class RouteRulesConflictInfo extends $tea.Model {
-  conflicts?: RouteRulesConflictInfoConflicts[];
-  domainInfo?: RouteRulesConflictInfoDomainInfo;
+export class Service extends $tea.Model {
+  addresses?: string[];
+  aiServiceConfig?: AiServiceConfig;
+  createTimestamp?: number;
+  /**
+   * @example
+   * gw-xxxx
+   */
+  gatewayId?: string;
+  /**
+   * @example
+   * publich
+   */
+  groupName?: string;
+  healthCheck?: ServiceHealthCheck;
+  healthStatus?: string;
+  name?: string;
+  namespace?: string;
+  ports?: ServicePorts[];
+  /**
+   * @example
+   * HTTP
+   */
+  protocol?: string;
+  /**
+   * @example
+   * LATEST
+   */
+  qualifier?: string;
+  /**
+   * @example
+   * rg-xxx
+   */
+  resourceGroupId?: string;
+  serviceId?: string;
+  sourceType?: string;
+  unhealthyEndpoints?: string[];
+  updateTimestamp?: number;
   static names(): { [key: string]: string } {
     return {
-      conflicts: 'conflicts',
-      domainInfo: 'domainInfo',
+      addresses: 'addresses',
+      aiServiceConfig: 'aiServiceConfig',
+      createTimestamp: 'createTimestamp',
+      gatewayId: 'gatewayId',
+      groupName: 'groupName',
+      healthCheck: 'healthCheck',
+      healthStatus: 'healthStatus',
+      name: 'name',
+      namespace: 'namespace',
+      ports: 'ports',
+      protocol: 'protocol',
+      qualifier: 'qualifier',
+      resourceGroupId: 'resourceGroupId',
+      serviceId: 'serviceId',
+      sourceType: 'sourceType',
+      unhealthyEndpoints: 'unhealthyEndpoints',
+      updateTimestamp: 'updateTimestamp',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      conflicts: { 'type': 'array', 'itemType': RouteRulesConflictInfoConflicts },
-      domainInfo: RouteRulesConflictInfoDomainInfo,
+      addresses: { 'type': 'array', 'itemType': 'string' },
+      aiServiceConfig: AiServiceConfig,
+      createTimestamp: 'number',
+      gatewayId: 'string',
+      groupName: 'string',
+      healthCheck: ServiceHealthCheck,
+      healthStatus: 'string',
+      name: 'string',
+      namespace: 'string',
+      ports: { 'type': 'array', 'itemType': ServicePorts },
+      protocol: 'string',
+      qualifier: 'string',
+      resourceGroupId: 'string',
+      serviceId: 'string',
+      sourceType: 'string',
+      unhealthyEndpoints: { 'type': 'array', 'itemType': 'string' },
+      updateTimestamp: 'number',
     };
   }
 
@@ -1467,9 +1687,23 @@ export class SubDomainInfo extends $tea.Model {
 }
 
 export class AddGatewaySecurityGroupRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Description of the security group rule.
+   * 
+   * @example
+   * 商品中心访问安全组
+   */
   description?: string;
+  /**
+   * @remarks
+   * Port ranges.
+   */
   portRanges?: string[];
   /**
+   * @remarks
+   * Security group ID.
+   * 
    * @example
    * sg-wz929kxhcdp****
    */
@@ -1497,16 +1731,25 @@ export class AddGatewaySecurityGroupRuleRequest extends $tea.Model {
 
 export class AddGatewaySecurityGroupRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2A6E90D5-A711-54F4-A489-E33C2021EDDF
    */
@@ -1559,27 +1802,41 @@ export class AddGatewaySecurityGroupRuleResponse extends $tea.Model {
 
 export class CreateDomainRequest extends $tea.Model {
   /**
+   * @remarks
+   * CA Certificate Identifier.
+   * 
    * @example
-   * 194445-cn-hangzhou
+   * 1ef1da5f-38ed-69b3-****-037781890265
    */
-  caCertIndentifier?: string;
+  caCertIdentifier?: string;
   /**
+   * @remarks
+   * Certificate Unique Identifier.
+   * 
    * @example
-   * 194445-cn-hangzhou
+   * 1ef1da5f-38ed-69b3-****-037781890265
    */
-  certIndentifier?: string;
+  certIdentifier?: string;
   /**
+   * @remarks
+   * Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * 
    * @example
    * false
    */
   forceHttps?: boolean;
   /**
+   * @remarks
+   * HTTP/2 settings.
+   * 
    * @example
    * Open
    */
   http2Option?: string;
   /**
    * @remarks
+   * Domain name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1588,30 +1845,43 @@ export class CreateDomainRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The protocol type supported by the domain.
+   * 
+   * - HTTP: Supports only HTTP protocol.
+   * - HTTPS: Supports only HTTPS protocol.
+   * 
    * This parameter is required.
    * 
    * @example
    * HTTP
    */
   protocol?: string;
+  resourceGroupId?: string;
   /**
+   * @remarks
+   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * 
    * @example
    * TLS1.3
    */
   tlsMax?: string;
   /**
+   * @remarks
+   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * 
    * @example
    * TLS1.0
    */
   tlsMin?: string;
   static names(): { [key: string]: string } {
     return {
-      caCertIndentifier: 'caCertIndentifier',
-      certIndentifier: 'certIndentifier',
+      caCertIdentifier: 'caCertIdentifier',
+      certIdentifier: 'certIdentifier',
       forceHttps: 'forceHttps',
       http2Option: 'http2Option',
       name: 'name',
       protocol: 'protocol',
+      resourceGroupId: 'resourceGroupId',
       tlsMax: 'tlsMax',
       tlsMin: 'tlsMin',
     };
@@ -1619,12 +1889,13 @@ export class CreateDomainRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
-      caCertIndentifier: 'string',
-      certIndentifier: 'string',
+      caCertIdentifier: 'string',
+      certIdentifier: 'string',
       forceHttps: 'boolean',
       http2Option: 'string',
       name: 'string',
       protocol: 'string',
+      resourceGroupId: 'string',
       tlsMax: 'string',
       tlsMin: 'string',
     };
@@ -1637,17 +1908,30 @@ export class CreateDomainRequest extends $tea.Model {
 
 export class CreateDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: CreateDomainResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 0C2D1C68-0D93-5561-8EE6-FDB7BF067A30
    */
@@ -1703,12 +1987,26 @@ export class CreateDomainResponse extends $tea.Model {
 export class CreateEnvironmentRequest extends $tea.Model {
   /**
    * @remarks
+   * Environment alias.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试环境
    */
   alias?: string;
+  /**
+   * @remarks
+   * Description of the environment, which can include information such as the purpose of the environment and its owner.
+   * 
+   * @example
+   * 这是xxx的xx项目测试环境
+   */
   description?: string;
   /**
    * @remarks
+   * Gateway ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1717,18 +2015,22 @@ export class CreateEnvironmentRequest extends $tea.Model {
   gatewayId?: string;
   /**
    * @remarks
+   * Environment name.
+   * 
    * This parameter is required.
    * 
    * @example
    * test
    */
   name?: string;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       alias: 'alias',
       description: 'description',
       gatewayId: 'gatewayId',
       name: 'name',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -1738,6 +2040,7 @@ export class CreateEnvironmentRequest extends $tea.Model {
       description: 'string',
       gatewayId: 'string',
       name: 'string',
+      resourceGroupId: 'string',
     };
   }
 
@@ -1748,17 +2051,30 @@ export class CreateEnvironmentRequest extends $tea.Model {
 
 export class CreateEnvironmentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: CreateEnvironmentResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 3C3B9A12-3868-5EB9-8BEA-F99E03DD125C
    */
@@ -1811,318 +2127,89 @@ export class CreateEnvironmentResponse extends $tea.Model {
   }
 }
 
-export class CreateGatewayRouteRequest extends $tea.Model {
-  backendConfig?: GatewayRouteBackendConfig;
-  description?: string;
-  domainConfig?: GatewayRouteDomainConfig;
-  match?: HttpRouteMatch;
-  /**
-   * @example
-   * itemcenter-route
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      backendConfig: 'backendConfig',
-      description: 'description',
-      domainConfig: 'domainConfig',
-      match: 'match',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendConfig: GatewayRouteBackendConfig,
-      description: 'string',
-      domainConfig: GatewayRouteDomainConfig,
-      match: HttpRouteMatch,
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: CreateGatewayRouteResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 0F138FFC-6E2B-56C1-9BAB-A67462E339D1
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateGatewayRouteResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceRequest extends $tea.Model {
-  gatewayServiceConfigs?: CreateGatewayServiceRequestGatewayServiceConfigs[];
-  /**
-   * @example
-   * MSE_NACOS
-   */
-  sourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceConfigs: 'gatewayServiceConfigs',
-      sourceType: 'sourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceConfigs: { 'type': 'array', 'itemType': CreateGatewayServiceRequestGatewayServiceConfigs },
-      sourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: CreateGatewayServiceResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 9BA5586D-0EAE-5F78-B704-1A8DBADE46DA
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateGatewayServiceResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateGatewayServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateGatewayServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceVersionRequest extends $tea.Model {
-  labels?: CreateGatewayServiceVersionRequestLabels[];
-  /**
-   * @example
-   * v1
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      labels: 'labels',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labels: { 'type': 'array', 'itemType': CreateGatewayServiceVersionRequestLabels },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateGatewayServiceVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateGatewayServiceVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateHttpApiRequest extends $tea.Model {
+  aiProtocols?: string[];
   /**
    * @remarks
-   * This parameter is required.
+   * Base path of the API, which must start with a \\"/\\".
    * 
    * @example
    * /v1
    */
   basePath?: string;
+  deployConfigs?: HttpApiDeployConfig[];
+  /**
+   * @remarks
+   * Description of the API.
+   * 
+   * @example
+   * 测试专用API。
+   */
   description?: string;
   /**
    * @remarks
+   * Configuration information for the HTTP Ingress API.
+   */
+  ingressConfig?: CreateHttpApiRequestIngressConfig;
+  /**
+   * @remarks
+   * Name of the API.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * test-api
    */
   name?: string;
+  /**
+   * @remarks
+   * List of API access protocols.
+   */
   protocols?: string[];
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Type of the HTTP API.
+   * - Http
+   * - Rest
+   * - WebSocket
+   * - HttpIngress
+   * 
+   * @example
+   * Http
+   */
+  type?: string;
+  /**
+   * @remarks
+   * Versioning configuration for the API.
+   */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
     return {
+      aiProtocols: 'aiProtocols',
       basePath: 'basePath',
+      deployConfigs: 'deployConfigs',
       description: 'description',
+      ingressConfig: 'ingressConfig',
       name: 'name',
       protocols: 'protocols',
+      resourceGroupId: 'resourceGroupId',
+      type: 'type',
       versionConfig: 'versionConfig',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      aiProtocols: { 'type': 'array', 'itemType': 'string' },
       basePath: 'string',
+      deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
+      ingressConfig: CreateHttpApiRequestIngressConfig,
       name: 'string',
       protocols: { 'type': 'array', 'itemType': 'string' },
+      resourceGroupId: 'string',
+      type: 'string',
       versionConfig: HttpApiVersionConfig,
     };
   }
@@ -2134,17 +2221,30 @@ export class CreateHttpApiRequest extends $tea.Model {
 
 export class CreateHttpApiResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * API information.
+   */
   data?: CreateHttpApiResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
    */
@@ -2198,6 +2298,10 @@ export class CreateHttpApiResponse extends $tea.Model {
 }
 
 export class CreateHttpApiOperationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * List of operation definitions.
+   */
   operations?: HttpApiOperation[];
   static names(): { [key: string]: string } {
     return {
@@ -2218,17 +2322,30 @@ export class CreateHttpApiOperationRequest extends $tea.Model {
 
 export class CreateHttpApiOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Operation information.
+   */
   data?: CreateHttpApiOperationResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A
    */
@@ -2281,108 +2398,27 @@ export class CreateHttpApiOperationResponse extends $tea.Model {
   }
 }
 
-export class CreateServiceSourceRequest extends $tea.Model {
-  k8sServiceSourceConfig?: CreateServiceSourceRequestK8sServiceSourceConfig;
-  nacosServiceSourceConfig?: CreateServiceSourceRequestNacosServiceSourceConfig;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      k8sServiceSourceConfig: 'k8sServiceSourceConfig',
-      nacosServiceSourceConfig: 'nacosServiceSourceConfig',
-      type: 'type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      k8sServiceSourceConfig: CreateServiceSourceRequestK8sServiceSourceConfig,
-      nacosServiceSourceConfig: CreateServiceSourceRequestNacosServiceSourceConfig,
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: CreateServiceSourceResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * C67DED2B-F19B-5BEC-88C1-D6EB854CD0D4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: CreateServiceSourceResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateServiceSourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateServiceSourceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * A60EE5CA-1294-532A-9775-8D2FD1C6EFBF
    */
@@ -2435,16 +2471,25 @@ export class DeleteDomainResponse extends $tea.Model {
 
 export class DeleteEnvironmentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the request chain.
+   * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129
    */
@@ -2497,16 +2542,25 @@ export class DeleteEnvironmentResponse extends $tea.Model {
 
 export class DeleteGatewayResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * DE97DFDB-7DF0-5AB9-941C-10D27D769E4B
    */
@@ -2557,204 +2611,27 @@ export class DeleteGatewayResponse extends $tea.Model {
   }
 }
 
-export class DeleteGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 5B626361-070A-56A7-B127-ADAC8F3655DB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteGatewayServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteGatewayServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayServiceVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteGatewayServiceVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteGatewayServiceVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteGatewayServiceVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteHttpApiResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 5B626361-070A-56A7-B127-ADAC8F3655DB
    */
@@ -2807,16 +2684,25 @@ export class DeleteHttpApiResponse extends $tea.Model {
 
 export class DeleteHttpApiOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message,
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
    */
@@ -2867,60 +2753,17 @@ export class DeleteHttpApiOperationResponse extends $tea.Model {
   }
 }
 
-export class DeleteServiceSourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
+export class GetDomainRequest extends $tea.Model {
+  withStatistics?: boolean;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
+      withStatistics: 'withStatistics',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteServiceSourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteServiceSourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteServiceSourceResponseBody,
+      withStatistics: 'boolean',
     };
   }
 
@@ -2931,17 +2774,30 @@ export class DeleteServiceSourceResponse extends $tea.Model {
 
 export class GetDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: GetDomainResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
    */
@@ -2994,19 +2850,58 @@ export class GetDomainResponse extends $tea.Model {
   }
 }
 
+export class GetEnvironmentRequest extends $tea.Model {
+  withStatistics?: boolean;
+  /**
+   * @remarks
+   * Option for vpc info.
+   */
+  withVpcInfo?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      withStatistics: 'withStatistics',
+      withVpcInfo: 'withVpcInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      withStatistics: 'boolean',
+      withVpcInfo: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEnvironmentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: GetEnvironmentResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 3F8EE674-BB08-5E92-BE6F-E4756A748B0F
    */
@@ -3061,17 +2956,30 @@ export class GetEnvironmentResponse extends $tea.Model {
 
 export class GetGatewayResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: GetGatewayResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 0F138FFC-6E2B-56C1-9BAB-A67462E339D1
    */
@@ -3124,149 +3032,32 @@ export class GetGatewayResponse extends $tea.Model {
   }
 }
 
-export class GetGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: GetGatewayRouteResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GetGatewayRouteResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGatewayServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: GatewayService;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: GatewayService,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetGatewayServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetGatewayServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetGatewayServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetHttpApiResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * API information.
+   */
   data?: HttpApiApiInfo;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 8FA9BB94-915B-5299-A694-49FCC7F5DD00
    */
@@ -3321,17 +3112,30 @@ export class GetHttpApiResponse extends $tea.Model {
 
 export class GetHttpApiOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Operation information.
+   */
   data?: HttpApiOperationInfo;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B725275B-50C6-5A49-A9FD-F0332FCB3351
    */
@@ -3384,29 +3188,112 @@ export class GetHttpApiOperationResponse extends $tea.Model {
   }
 }
 
+export class GetHttpApiRouteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: HttpRoute;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 3ACFC7A7-45A9-58CF-B2D5-765B60254695
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      message: 'message',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: HttpRoute,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetHttpApiRouteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHttpApiRouteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetHttpApiRouteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDomainsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Gateway Id.
+   * 
+   * @example
+   * gw-xxx
+   */
   gatewayId?: string;
   /**
+   * @remarks
+   * Domain name, fuzzy search.
+   * 
    * @example
    * test
    */
   nameLike?: string;
   /**
+   * @remarks
+   * Page number, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page, default is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
       nameLike: 'nameLike',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -3416,6 +3303,7 @@ export class ListDomainsRequest extends $tea.Model {
       nameLike: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3426,17 +3314,30 @@ export class ListDomainsRequest extends $tea.Model {
 
 export class ListDomainsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Response data.
+   */
   data?: ListDomainsResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * C61E30D3-579A-5B43-994E-31E02EDC9129
    */
@@ -3490,32 +3391,55 @@ export class ListDomainsResponse extends $tea.Model {
 }
 
 export class ListEnvironmentsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Environment alias, fuzzy search.
+   * 
+   * @example
+   * 测试
+   */
   aliasLike?: string;
   /**
+   * @remarks
+   * Gateway ID, exact search.
+   * 
    * @example
    * gw-cptv6ktlhtgnqr73h8d1
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * Gateway name, fuzzy search.
+   * 
    * @example
    * test-gw
    */
   gatewayNameLike?: string;
   /**
+   * @remarks
+   * Environment name, fuzzy search.
+   * 
    * @example
    * test
    */
   nameLike?: string;
   /**
+   * @remarks
+   * Page number, default is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, default is 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       aliasLike: 'aliasLike',
@@ -3524,6 +3448,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
       nameLike: 'nameLike',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
     };
   }
 
@@ -3535,6 +3460,7 @@ export class ListEnvironmentsRequest extends $tea.Model {
       nameLike: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
     };
   }
 
@@ -3545,17 +3471,30 @@ export class ListEnvironmentsRequest extends $tea.Model {
 
 export class ListEnvironmentsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Paged query environment list response.
+   */
   data?: ListEnvironmentsResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the call chain.
+   * 
    * @example
    * CE857A85-251D-5018-8103-A38957D71E20
    */
@@ -3608,264 +3547,49 @@ export class ListEnvironmentsResponse extends $tea.Model {
   }
 }
 
-export class ListGatewayRoutesRequest extends $tea.Model {
-  /**
-   * @example
-   * itemcenter
-   */
-  keyword?: string;
-  /**
-   * @example
-   * pre-itemcenter-router
-   */
-  name?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * /user
-   */
-  path?: string;
-  /**
-   * @example
-   * Published
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      keyword: 'keyword',
-      name: 'name',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      path: 'path',
-      status: 'status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      keyword: 'string',
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      path: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayRoutesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: ListGatewayRoutesResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 585657D2-1C20-5B8A-AF17-D727C6490BE4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListGatewayRoutesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayRoutesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListGatewayRoutesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListGatewayRoutesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayServicesRequest extends $tea.Model {
-  /**
-   * @example
-   * itemcenter-provider
-   */
-  name?: string;
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * MSE_NACOS
-   */
-  sourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      sourceType: 'sourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      sourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayServicesResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  data?: ListGatewayServicesResponseBodyData;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 8FA9BB94-915B-5299-A694-49FCC7F5DD00
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      data: 'data',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: ListGatewayServicesResponseBodyData,
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayServicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListGatewayServicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListGatewayServicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListGatewaysRequest extends $tea.Model {
   /**
+   * @remarks
+   * Query exactly by gateway ID.
+   * 
    * @example
    * gw-cpv4sqdl****
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * Keyword, search with full match, case-insensitive.
+   * 
    * @example
    * dev
    */
   keyword?: string;
   /**
+   * @remarks
+   * Query exactly by gateway name.
+   * 
    * @example
    * itemcenter-gateway
    */
   name?: string;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  resourceGroupId?: string;
+  tags?: ListGatewaysRequestTags[];
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
@@ -3873,6 +3597,8 @@ export class ListGatewaysRequest extends $tea.Model {
       name: 'name',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
+      tags: 'tags',
     };
   }
 
@@ -3883,6 +3609,80 @@ export class ListGatewaysRequest extends $tea.Model {
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListGatewaysRequestTags },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewaysShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Query exactly by gateway ID.
+   * 
+   * @example
+   * gw-cpv4sqdl****
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * Keyword, search with full match, case-insensitive.
+   * 
+   * @example
+   * dev
+   */
+  keyword?: string;
+  /**
+   * @remarks
+   * Query exactly by gateway name.
+   * 
+   * @example
+   * itemcenter-gateway
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * Page size.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  resourceGroupId?: string;
+  tagsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      keyword: 'keyword',
+      name: 'name',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+      resourceGroupId: 'resourceGroupId',
+      tagsShrink: 'tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      keyword: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      resourceGroupId: 'string',
+      tagsShrink: 'string',
     };
   }
 
@@ -3893,17 +3693,30 @@ export class ListGatewaysRequest extends $tea.Model {
 
 export class ListGatewaysResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * Result of the gateway list query.
+   */
   data?: ListGatewaysResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 5B626361-070A-56A7-B127-ADAC8F3655DB
    */
@@ -3958,50 +3771,102 @@ export class ListGatewaysResponse extends $tea.Model {
 
 export class ListHttpApiOperationsRequest extends $tea.Model {
   /**
+   * @remarks
+   * Filter the operation list based on a specific consumer authorization rule ID, and the interface list in the response only contains authorized operations.
+   * 
+   * @example
+   * cas-xxx
+   */
+  consumerAuthorizationRuleId?: string;
+  /**
+   * @remarks
+   * List interfaces by Method.
+   * 
    * @example
    * GET
    */
   method?: string;
+  /**
+   * @remarks
+   * Search operations by exact name.
+   * 
+   * @example
+   * getUserInfo
+   */
   name?: string;
   /**
+   * @remarks
+   * Search operations by name prefix.
+   * 
    * @example
    * GetUser
    */
   nameLike?: string;
   /**
+   * @remarks
+   * Page number, starting from 1, default is 1 if not specified.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, valid range [1, 100], default is 10 if not specified.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Search operations by path prefix.
+   * 
    * @example
    * /v1
    */
   pathLike?: string;
+  /**
+   * @remarks
+   * Each operation information in the response carries a list of authorization rules for the specified consumer under the specified environment ID. The withConsumerInEnvironmentId field needs to be additionally specified.
+   * 
+   * @example
+   * env-xxx
+   */
+  withConsumerInEnvironmentId?: string;
+  /**
+   * @remarks
+   * Each operation information in the response carries a list of authorization rules for the specified consumer under the specified environment ID. The withConsumerInEnvironmentId field needs to be additionally specified.
+   * 
+   * @example
+   * cs-xxx
+   */
+  withConsumerInfoById?: string;
   static names(): { [key: string]: string } {
     return {
+      consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
       method: 'method',
       name: 'name',
       nameLike: 'nameLike',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       pathLike: 'pathLike',
+      withConsumerInEnvironmentId: 'withConsumerInEnvironmentId',
+      withConsumerInfoById: 'withConsumerInfoById',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      consumerAuthorizationRuleId: 'string',
       method: 'string',
       name: 'string',
       nameLike: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       pathLike: 'string',
+      withConsumerInEnvironmentId: 'string',
+      withConsumerInfoById: 'string',
     };
   }
 
@@ -4012,17 +3877,30 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
 
 export class ListHttpApiOperationsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * List of operations.
+   */
   data?: ListHttpApiOperationsResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
    */
@@ -4077,39 +3955,102 @@ export class ListHttpApiOperationsResponse extends $tea.Model {
 
 export class ListHttpApisRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cloud-native API Gateway ID.
+   * 
+   * @example
+   * gw-cq2avtllh****
+   */
+  gatewayId?: string;
+  /**
+   * @remarks
+   * Search keyword, supports fuzzy search by API name or exact search by API ID.
+   * 
    * @example
    * test-
    */
   keyword?: string;
+  /**
+   * @remarks
+   * Exact search by name.
+   * 
+   * @example
+   * login
+   */
   name?: string;
   /**
+   * @remarks
+   * Page number, starting from 1, default is 1 if not provided.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, valid range [1, 100], default is 10 if not provided.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
-  publishedOnly?: boolean;
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * Type of HTTP API. Supports multiple types, separated by ",".
+   * - Http
+   * - Rest
+   * - WebSocket
+   * - HttpIngress
+   * 
+   * @example
+   * Http,Rest
+   */
+  types?: string;
+  /**
+   * @remarks
+   * Each API information in the response carries consumer authentication policy information under the specified environment ID.
+   * 
+   * @example
+   * env-xxx
+   */
+  withAuthPolicyInEnvironmentId?: string;
+  /**
+   * @remarks
+   * Each API information in the response carries a list of authorization rules for the specified consumer ID.
+   * 
+   * @example
+   * cs-xxx
+   */
+  withConsumerInfoById?: string;
+  withEnvironmentInfo?: boolean;
   static names(): { [key: string]: string } {
     return {
+      gatewayId: 'gatewayId',
       keyword: 'keyword',
       name: 'name',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
-      publishedOnly: 'publishedOnly',
+      resourceGroupId: 'resourceGroupId',
+      types: 'types',
+      withAuthPolicyInEnvironmentId: 'withAuthPolicyInEnvironmentId',
+      withConsumerInfoById: 'withConsumerInfoById',
+      withEnvironmentInfo: 'withEnvironmentInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      gatewayId: 'string',
       keyword: 'string',
       name: 'string',
       pageNumber: 'number',
       pageSize: 'number',
-      publishedOnly: 'boolean',
+      resourceGroupId: 'string',
+      types: 'string',
+      withAuthPolicyInEnvironmentId: 'string',
+      withConsumerInfoById: 'string',
+      withEnvironmentInfo: 'boolean',
     };
   }
 
@@ -4120,17 +4061,30 @@ export class ListHttpApisRequest extends $tea.Model {
 
 export class ListHttpApisResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * API list.
+   */
   data?: ListHttpApisResponseBodyData;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4
    */
@@ -4183,339 +4137,46 @@ export class ListHttpApisResponse extends $tea.Model {
   }
 }
 
-export class OfflineGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 585657D2-1C20-5B8A-AF17-D727C6490BE4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OfflineGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OfflineGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OfflineGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OfflineHttpApiRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * env-xxx
-   */
-  environmentId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      environmentId: 'environmentId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      environmentId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OfflineHttpApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 53DE779E-422D-56EB-B84C-62D75CA5E8DD
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class OfflineHttpApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: OfflineHttpApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: OfflineHttpApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 043360DA-ED3B-5386-9B7A-D94DECF99A30
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PublishGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PublishGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequest extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  allowOverwrite?: boolean;
-  description?: string;
-  environment?: PublishHttpApiRequestEnvironment;
-  /**
-   * @example
-   * apr-xxx
-   */
-  revisionId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      allowOverwrite: 'allowOverwrite',
-      description: 'description',
-      environment: 'environment',
-      revisionId: 'revisionId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      allowOverwrite: 'boolean',
-      description: 'string',
-      environment: PublishHttpApiRequestEnvironment,
-      revisionId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 4BACB05C-3FE2-588F-9148-700C5C026B74
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: PublishHttpApiResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: PublishHttpApiResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateDomainRequest extends $tea.Model {
   /**
+   * @remarks
+   * Cloud Shield CA certificate identifier.
+   * 
    * @example
    * 123455-cn-hangzhou
    */
   caCertIndentifier?: string;
   /**
+   * @remarks
+   * Cloud Shield certificate identifier.
+   * 
    * @example
    * 123458-cn-hangzhou
    */
   certIndentifier?: string;
   /**
+   * @remarks
+   * Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * 
    * @example
    * false
    */
   forceHttps?: boolean;
   /**
+   * @remarks
+   * HTTP/2 settings.
+   * 
    * @example
    * Open
    */
   http2Option?: string;
   /**
    * @remarks
+   * The protocol type supported by the domain.
+   * 
+   * - HTTP: Supports only HTTP protocol.
+   * - HTTPS: Supports only HTTPS protocol.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4523,11 +4184,17 @@ export class UpdateDomainRequest extends $tea.Model {
    */
   protocol?: string;
   /**
+   * @remarks
+   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * 
    * @example
    * TLS 1.3
    */
   tlsMax?: string;
   /**
+   * @remarks
+   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * 
    * @example
    * TLS 1.0
    */
@@ -4563,16 +4230,30 @@ export class UpdateDomainRequest extends $tea.Model {
 
 export class UpdateDomainResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   */
+  data?: UpdateDomainResponseBodyData;
+  /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 4BACB05C-3FE2-588F-9148-700C5C026B74
    */
@@ -4580,6 +4261,7 @@ export class UpdateDomainResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       code: 'code',
+      data: 'data',
       message: 'message',
       requestId: 'requestId',
     };
@@ -4588,6 +4270,7 @@ export class UpdateDomainResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       code: 'string',
+      data: UpdateDomainResponseBodyData,
       message: 'string',
       requestId: 'string',
     };
@@ -4626,9 +4309,21 @@ export class UpdateDomainResponse extends $tea.Model {
 export class UpdateEnvironmentRequest extends $tea.Model {
   /**
    * @remarks
+   * Environment alias.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 测试环境
    */
   alias?: string;
+  /**
+   * @remarks
+   * Description of the environment, which can include information such as the purpose of the environment and its users.
+   * 
+   * @example
+   * 这是xx的xx项目测试环境
+   */
   description?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4651,16 +4346,25 @@ export class UpdateEnvironmentRequest extends $tea.Model {
 
 export class UpdateEnvironmentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, used for tracing the API call chain.
+   * 
    * @example
    * 52FB803B-3CD8-5FF8-AAE9-C2B841F6A483
    */
@@ -4711,281 +4415,49 @@ export class UpdateEnvironmentResponse extends $tea.Model {
   }
 }
 
-export class UpdateGatewayRouteRequest extends $tea.Model {
-  backendConfig?: GatewayRouteBackendConfig;
-  description?: string;
-  domainConfig?: GatewayRouteDomainConfig;
-  match?: HttpRouteMatch;
-  static names(): { [key: string]: string } {
-    return {
-      backendConfig: 'backendConfig',
-      description: 'description',
-      domainConfig: 'domainConfig',
-      match: 'match',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendConfig: GatewayRouteBackendConfig,
-      description: 'string',
-      domainConfig: GatewayRouteDomainConfig,
-      match: HttpRouteMatch,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayRouteResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * B725275B-50C6-5A49-A9FD-F0332FCB3351
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayRouteResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateGatewayRouteResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateGatewayRouteResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceRequest extends $tea.Model {
-  addresses?: string[];
-  /**
-   * @example
-   * 8080
-   */
-  port?: number;
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'addresses',
-      port: 'port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      port: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 585657D2-1C20-5B8A-AF17-D727C6490BE4
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateGatewayServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateGatewayServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceVersionRequest extends $tea.Model {
-  labels?: UpdateGatewayServiceVersionRequestLabels[];
-  static names(): { [key: string]: string } {
-    return {
-      labels: 'labels',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      labels: { 'type': 'array', 'itemType': UpdateGatewayServiceVersionRequestLabels },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceVersionResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * A1994B10-C6A8-58FA-8347-6A08B0D4EFDE
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceVersionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateGatewayServiceVersionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateGatewayServiceVersionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateHttpApiRequest extends $tea.Model {
+  aiProtocols?: string[];
   /**
    * @remarks
+   * Base path of the API, which must start with a \\"/\\".
+   * 
    * This parameter is required.
    * 
    * @example
    * /v1
    */
   basePath?: string;
+  deployConfigs?: HttpApiDeployConfig[];
+  /**
+   * @remarks
+   * API description.
+   * 
+   * @example
+   * 更新API描述
+   */
   description?: string;
+  /**
+   * @remarks
+   * Configuration information for the HTTP Ingress API.
+   */
+  ingressConfig?: UpdateHttpApiRequestIngressConfig;
+  /**
+   * @remarks
+   * List of API access protocols.
+   */
   protocols?: string[];
+  /**
+   * @remarks
+   * API versioning configuration.
+   */
   versionConfig?: HttpApiVersionConfig;
   static names(): { [key: string]: string } {
     return {
+      aiProtocols: 'aiProtocols',
       basePath: 'basePath',
+      deployConfigs: 'deployConfigs',
       description: 'description',
+      ingressConfig: 'ingressConfig',
       protocols: 'protocols',
       versionConfig: 'versionConfig',
     };
@@ -4993,8 +4465,11 @@ export class UpdateHttpApiRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aiProtocols: { 'type': 'array', 'itemType': 'string' },
       basePath: 'string',
+      deployConfigs: { 'type': 'array', 'itemType': HttpApiDeployConfig },
       description: 'string',
+      ingressConfig: UpdateHttpApiRequestIngressConfig,
       protocols: { 'type': 'array', 'itemType': 'string' },
       versionConfig: HttpApiVersionConfig,
     };
@@ -5007,16 +4482,25 @@ export class UpdateHttpApiRequest extends $tea.Model {
 
 export class UpdateHttpApiResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A
    */
@@ -5068,6 +4552,10 @@ export class UpdateHttpApiResponse extends $tea.Model {
 }
 
 export class UpdateHttpApiOperationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * operation definition.
+   */
   operation?: HttpApiOperation;
   static names(): { [key: string]: string } {
     return {
@@ -5088,16 +4576,25 @@ export class UpdateHttpApiOperationRequest extends $tea.Model {
 
 export class UpdateHttpApiOperationResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
   /**
+   * @remarks
+   * Response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 043360DA-ED3B-5386-9B7A-D94DECF99A30
    */
@@ -5148,17 +4645,20 @@ export class UpdateHttpApiOperationResponse extends $tea.Model {
   }
 }
 
-export class UpdateServiceSourceRequest extends $tea.Model {
-  k8sServiceSourceConfig?: UpdateServiceSourceRequestK8sServiceSourceConfig;
+export class ApiKeyIdentityConfigApikeySource extends $tea.Model {
+  source?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      k8sServiceSourceConfig: 'k8sServiceSourceConfig',
+      source: 'source',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      k8sServiceSourceConfig: UpdateServiceSourceRequestK8sServiceSourceConfig,
+      source: 'string',
+      value: 'string',
     };
   }
 
@@ -5167,35 +4667,20 @@ export class UpdateServiceSourceRequest extends $tea.Model {
   }
 }
 
-export class UpdateServiceSourceResponseBody extends $tea.Model {
-  /**
-   * @example
-   * Ok
-   */
-  code?: string;
-  /**
-   * @example
-   * success
-   */
-  message?: string;
-  /**
-   * @example
-   * 393E2630-DBE7-5221-AB35-9E740675491A
-   */
-  requestId?: string;
+export class ApiRouteConflictInfoConflictsDetailsConflictingMatchOperationInfo extends $tea.Model {
+  name?: string;
+  operationId?: string;
   static names(): { [key: string]: string } {
     return {
-      code: 'code',
-      message: 'message',
-      requestId: 'requestId',
+      name: 'name',
+      operationId: 'operationId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      code: 'string',
-      message: 'string',
-      requestId: 'string',
+      name: 'string',
+      operationId: 'string',
     };
   }
 
@@ -5204,23 +4689,269 @@ export class UpdateServiceSourceResponseBody extends $tea.Model {
   }
 }
 
-export class UpdateServiceSourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateServiceSourceResponseBody;
+export class ApiRouteConflictInfoConflictsDetailsConflictingMatch extends $tea.Model {
+  match?: HttpRouteMatch;
+  operationInfo?: ApiRouteConflictInfoConflictsDetailsConflictingMatchOperationInfo;
   static names(): { [key: string]: string } {
     return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
+      match: 'match',
+      operationInfo: 'operationInfo',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateServiceSourceResponseBody,
+      match: HttpRouteMatch,
+      operationInfo: ApiRouteConflictInfoConflictsDetailsConflictingMatchOperationInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo extends $tea.Model {
+  name?: string;
+  operationId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      operationId: 'operationId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      operationId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflictsDetailsDetectedMatch extends $tea.Model {
+  match?: HttpRouteMatch;
+  operationInfo?: ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo;
+  static names(): { [key: string]: string } {
+    return {
+      match: 'match',
+      operationInfo: 'operationInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      match: HttpRouteMatch,
+      operationInfo: ApiRouteConflictInfoConflictsDetailsDetectedMatchOperationInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflictsDetails extends $tea.Model {
+  conflictingMatch?: ApiRouteConflictInfoConflictsDetailsConflictingMatch;
+  detectedMatch?: ApiRouteConflictInfoConflictsDetailsDetectedMatch;
+  level?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conflictingMatch: 'conflictingMatch',
+      detectedMatch: 'detectedMatch',
+      level: 'level',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conflictingMatch: ApiRouteConflictInfoConflictsDetailsConflictingMatch,
+      detectedMatch: ApiRouteConflictInfoConflictsDetailsDetectedMatch,
+      level: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflictsEnvironmentInfo extends $tea.Model {
+  environmentId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'environmentId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflictsRouteInfo extends $tea.Model {
+  name?: string;
+  routeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      routeId: 'routeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      routeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoConflicts extends $tea.Model {
+  details?: ApiRouteConflictInfoConflictsDetails[];
+  environmentInfo?: ApiRouteConflictInfoConflictsEnvironmentInfo;
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
+  routeInfo?: ApiRouteConflictInfoConflictsRouteInfo;
+  static names(): { [key: string]: string } {
+    return {
+      details: 'details',
+      environmentInfo: 'environmentInfo',
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+      routeInfo: 'routeInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      details: { 'type': 'array', 'itemType': ApiRouteConflictInfoConflictsDetails },
+      environmentInfo: ApiRouteConflictInfoConflictsEnvironmentInfo,
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      routeInfo: ApiRouteConflictInfoConflictsRouteInfo,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ApiRouteConflictInfoDomainInfo extends $tea.Model {
+  domainId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BackendServices extends $tea.Model {
+  /**
+   * @example
+   * item-service
+   */
+  name?: string;
+  /**
+   * @example
+   * port
+   */
+  port?: number;
+  /**
+   * @example
+   * HTTP
+   */
+  protocol?: string;
+  /**
+   * @example
+   * service-cq2bmmdlhtgj***
+   */
+  serviceId?: string;
+  /**
+   * @example
+   * v1
+   */
+  version?: string;
+  /**
+   * @example
+   * 49
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      port: 'port',
+      protocol: 'protocol',
+      serviceId: 'serviceId',
+      version: 'version',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      port: 'number',
+      protocol: 'string',
+      serviceId: 'string',
+      version: 'string',
+      weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GatewayInfoVpcInfo extends $tea.Model {
+  name?: string;
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      vpcId: 'vpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -5240,491 +4971,6 @@ export class GatewayLogConfigSlsConfig extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       enable: 'boolean',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteBackendServices extends $tea.Model {
-  /**
-   * @example
-   * gs-cq2bmmdlhtgj***
-   */
-  gatewayServiceId?: string;
-  /**
-   * @example
-   * item-service
-   */
-  name?: string;
-  /**
-   * @example
-   * port
-   */
-  port?: number;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  /**
-   * @example
-   * v1
-   */
-  version?: string;
-  /**
-   * @example
-   * 49
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      name: 'name',
-      port: 'port',
-      protocol: 'protocol',
-      version: 'version',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      name: 'string',
-      port: 'number',
-      protocol: 'string',
-      version: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteBackendConfigServices extends $tea.Model {
-  /**
-   * @example
-   * gs-cq2bmmdlhtgj***
-   */
-  gatewayServiceId?: string;
-  /**
-   * @example
-   * port
-   */
-  port?: number;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  /**
-   * @example
-   * K8S
-   */
-  sourceType?: string;
-  /**
-   * @example
-   * 49
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      port: 'port',
-      protocol: 'protocol',
-      sourceType: 'sourceType',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      port: 'number',
-      protocol: 'string',
-      sourceType: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayRouteDomainInfoDomains extends $tea.Model {
-  /**
-   * @example
-   * d-cp82or5l***
-   */
-  domainId?: string;
-  /**
-   * @example
-   * item.dev
-   */
-  name?: string;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainId: 'domainId',
-      name: 'name',
-      protocol: 'protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainId: 'string',
-      name: 'string',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayServicePorts extends $tea.Model {
-  name?: string;
-  port?: number;
-  protocol?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      port: 'port',
-      protocol: 'protocol',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      port: 'number',
-      protocol: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayServiceSourceK8sServiceSourceInfoIngressConfig extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @example
-   * mse
-   */
-  ingressClass?: string;
-  /**
-   * @example
-   * false
-   */
-  overrideIngressIp?: boolean;
-  /**
-   * @example
-   * default
-   */
-  watchNamespace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'enable',
-      ingressClass: 'ingressClass',
-      overrideIngressIp: 'overrideIngressIp',
-      watchNamespace: 'watchNamespace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      ingressClass: 'string',
-      overrideIngressIp: 'boolean',
-      watchNamespace: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayServiceSourceK8sServiceSourceInfo extends $tea.Model {
-  clusterId?: string;
-  ingressConfig?: GatewayServiceSourceK8sServiceSourceInfoIngressConfig;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'clusterId',
-      ingressConfig: 'ingressConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ingressConfig: GatewayServiceSourceK8sServiceSourceInfoIngressConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GatewayServiceSourceNacosServiceSourceInfo extends $tea.Model {
-  address?: string;
-  clusterId?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      address: 'address',
-      clusterId: 'clusterId',
-      instanceId: 'instanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      address: 'string',
-      clusterId: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HttpApiApiInfoEnvironmentsCloudProductConfigContainerServiceConfigs extends $tea.Model {
-  /**
-   * @example
-   * gs-xxx
-   */
-  gatewayServiceId?: string;
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * test
-   */
-  name?: string;
-  /**
-   * @example
-   * default
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 8080
-   */
-  port?: number;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      match: 'match',
-      name: 'name',
-      namespace: 'namespace',
-      port: 'port',
-      protocol: 'protocol',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      namespace: 'string',
-      port: 'number',
-      protocol: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HttpApiApiInfoEnvironmentsCloudProductConfigFunctionConfigs extends $tea.Model {
-  /**
-   * @example
-   * gs-xxx
-   */
-  gatewayServiceId?: string;
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * test-function
-   */
-  name?: string;
-  /**
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      match: 'match',
-      name: 'name',
-      qualifier: 'qualifier',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      qualifier: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HttpApiApiInfoEnvironmentsCloudProductConfigMseNacosConfigs extends $tea.Model {
-  /**
-   * @example
-   * gs-xxx
-   */
-  gatewayServiceId?: string;
-  /**
-   * @example
-   * DEFAULT_GROUP
-   */
-  groupName?: string;
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * springboot-test
-   */
-  name?: string;
-  /**
-   * @example
-   * public
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      groupName: 'groupName',
-      match: 'match',
-      name: 'name',
-      namespace: 'namespace',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      groupName: 'string',
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      namespace: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HttpApiApiInfoEnvironmentsCloudProductConfig extends $tea.Model {
-  /**
-   * @example
-   * CS
-   */
-  cloudProductType?: string;
-  containerServiceConfigs?: HttpApiApiInfoEnvironmentsCloudProductConfigContainerServiceConfigs[];
-  functionConfigs?: HttpApiApiInfoEnvironmentsCloudProductConfigFunctionConfigs[];
-  mseNacosConfigs?: HttpApiApiInfoEnvironmentsCloudProductConfigMseNacosConfigs[];
-  static names(): { [key: string]: string } {
-    return {
-      cloudProductType: 'cloudProductType',
-      containerServiceConfigs: 'containerServiceConfigs',
-      functionConfigs: 'functionConfigs',
-      mseNacosConfigs: 'mseNacosConfigs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudProductType: 'string',
-      containerServiceConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsCloudProductConfigContainerServiceConfigs },
-      functionConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsCloudProductConfigFunctionConfigs },
-      mseNacosConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsCloudProductConfigMseNacosConfigs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class HttpApiApiInfoEnvironmentsDnsConfigs extends $tea.Model {
-  dnsList?: string[];
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'dnsList',
-      match: 'match',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: { 'type': 'array', 'itemType': 'string' },
-      match: HttpApiBackendMatchConditions,
-      weight: 'number',
     };
   }
 
@@ -5787,6 +5033,11 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $tea.Model {
   protocol?: string;
   /**
    * @example
+   * svc-xxx
+   */
+  serviceId?: string;
+  /**
+   * @example
    * v1
    */
   version?: string;
@@ -5802,6 +5053,7 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $tea.Model {
       name: 'name',
       port: 'port',
       protocol: 'protocol',
+      serviceId: 'serviceId',
       version: 'version',
       weight: 'weight',
     };
@@ -5814,6 +5066,7 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $tea.Model {
       name: 'string',
       port: 'string',
       protocol: 'string',
+      serviceId: 'string',
       version: 'string',
       weight: 'number',
     };
@@ -5824,27 +5077,42 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $tea.Model {
   }
 }
 
-export class HttpApiApiInfoEnvironmentsVipConfigs extends $tea.Model {
-  endpoints?: string[];
-  match?: HttpApiBackendMatchConditions;
+export class HttpApiApiInfoEnvironmentsSubDomains extends $tea.Model {
   /**
    * @example
-   * 100
+   * d-xxx
    */
-  weight?: number;
+  domainId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  name?: string;
+  /**
+   * @example
+   * Internet
+   */
+  networkType?: string;
+  /**
+   * @example
+   * HTTP
+   */
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
-      endpoints: 'endpoints',
-      match: 'match',
-      weight: 'weight',
+      domainId: 'domainId',
+      name: 'name',
+      networkType: 'networkType',
+      protocol: 'protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      endpoints: { 'type': 'array', 'itemType': 'string' },
-      match: HttpApiBackendMatchConditions,
-      weight: 'number',
+      domainId: 'string',
+      name: 'string',
+      networkType: 'string',
+      protocol: 'string',
     };
   }
 
@@ -5869,9 +5137,12 @@ export class HttpApiApiInfoEnvironments extends $tea.Model {
    * Service
    */
   backendType?: string;
-  cloudProductConfig?: HttpApiApiInfoEnvironmentsCloudProductConfig;
   customDomains?: HttpApiDomainInfo[];
-  dnsConfigs?: HttpApiApiInfoEnvironmentsDnsConfigs[];
+  /**
+   * @example
+   * Deployed
+   */
+  deployStatus?: string;
   /**
    * @example
    * env-xxx
@@ -5883,27 +5154,20 @@ export class HttpApiApiInfoEnvironments extends $tea.Model {
    * test
    */
   name?: string;
-  /**
-   * @example
-   * Published
-   */
-  publishStatus?: string;
   serviceConfigs?: HttpApiApiInfoEnvironmentsServiceConfigs[];
-  vipConfigs?: HttpApiApiInfoEnvironmentsVipConfigs[];
+  subDomains?: HttpApiApiInfoEnvironmentsSubDomains[];
   static names(): { [key: string]: string } {
     return {
       alias: 'alias',
       backendScene: 'backendScene',
       backendType: 'backendType',
-      cloudProductConfig: 'cloudProductConfig',
       customDomains: 'customDomains',
-      dnsConfigs: 'dnsConfigs',
+      deployStatus: 'deployStatus',
       environmentId: 'environmentId',
       gatewayInfo: 'gatewayInfo',
       name: 'name',
-      publishStatus: 'publishStatus',
       serviceConfigs: 'serviceConfigs',
-      vipConfigs: 'vipConfigs',
+      subDomains: 'subDomains',
     };
   }
 
@@ -5912,15 +5176,181 @@ export class HttpApiApiInfoEnvironments extends $tea.Model {
       alias: 'string',
       backendScene: 'string',
       backendType: 'string',
-      cloudProductConfig: HttpApiApiInfoEnvironmentsCloudProductConfig,
       customDomains: { 'type': 'array', 'itemType': HttpApiDomainInfo },
-      dnsConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsDnsConfigs },
+      deployStatus: 'string',
       environmentId: 'string',
       gatewayInfo: HttpApiApiInfoEnvironmentsGatewayInfo,
       name: 'string',
-      publishStatus: 'string',
       serviceConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsServiceConfigs },
-      vipConfigs: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsVipConfigs },
+      subDomains: { 'type': 'array', 'itemType': HttpApiApiInfoEnvironmentsSubDomains },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiApiInfoIngressInfoEnvironmentInfo extends $tea.Model {
+  environmentId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'environmentId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiApiInfoIngressInfoK8sClusterInfo extends $tea.Model {
+  clusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'clusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiApiInfoIngressInfo extends $tea.Model {
+  environmentInfo?: HttpApiApiInfoIngressInfoEnvironmentInfo;
+  ingressClass?: string;
+  k8sClusterInfo?: HttpApiApiInfoIngressInfoK8sClusterInfo;
+  overrideIngressIp?: boolean;
+  sourceId?: string;
+  watchNamespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentInfo: 'environmentInfo',
+      ingressClass: 'ingressClass',
+      k8sClusterInfo: 'k8sClusterInfo',
+      overrideIngressIp: 'overrideIngressIp',
+      sourceId: 'sourceId',
+      watchNamespace: 'watchNamespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentInfo: HttpApiApiInfoIngressInfoEnvironmentInfo,
+      ingressClass: 'string',
+      k8sClusterInfo: HttpApiApiInfoIngressInfoK8sClusterInfo,
+      overrideIngressIp: 'boolean',
+      sourceId: 'string',
+      watchNamespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiDeployConfigPolicyConfigsAiFallbackConfig extends $tea.Model {
+  serviceIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      serviceIds: 'serviceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiDeployConfigPolicyConfigs extends $tea.Model {
+  aiFallbackConfig?: HttpApiDeployConfigPolicyConfigsAiFallbackConfig;
+  /**
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * AiFallback
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aiFallbackConfig: 'aiFallbackConfig',
+      enable: 'enable',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aiFallbackConfig: HttpApiDeployConfigPolicyConfigsAiFallbackConfig,
+      enable: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiDeployConfigServiceConfigs extends $tea.Model {
+  /**
+   * @example
+   * qwen-max
+   */
+  modelName?: string;
+  /**
+   * @example
+   * qwen-*
+   */
+  modelNamePattern?: string;
+  /**
+   * @example
+   * svc-xxx
+   */
+  serviceId?: string;
+  /**
+   * @example
+   * 100
+   */
+  weight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      modelName: 'modelName',
+      modelNamePattern: 'modelNamePattern',
+      serviceId: 'serviceId',
+      weight: 'weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      modelName: 'string',
+      modelNamePattern: 'string',
+      serviceId: 'string',
+      weight: 'number',
     };
   }
 
@@ -6464,6 +5894,116 @@ export class HttpDubboTranscoderMothedMapList extends $tea.Model {
   }
 }
 
+export class HttpRouteDomainInfos extends $tea.Model {
+  domainId?: string;
+  name?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfoGatewayInfo extends $tea.Model {
+  gatewayId?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gatewayId: 'gatewayId',
+      name: 'name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gatewayId: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfoSubDomains extends $tea.Model {
+  domainId?: string;
+  name?: string;
+  /**
+   * @example
+   * Internet
+   */
+  networkType?: string;
+  protocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'domainId',
+      name: 'name',
+      networkType: 'networkType',
+      protocol: 'protocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      name: 'string',
+      networkType: 'string',
+      protocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpRouteEnvironmentInfo extends $tea.Model {
+  alias?: string;
+  environmentId?: string;
+  gatewayInfo?: HttpRouteEnvironmentInfoGatewayInfo;
+  name?: string;
+  subDomains?: HttpRouteEnvironmentInfoSubDomains[];
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      environmentId: 'environmentId',
+      gatewayInfo: 'gatewayInfo',
+      name: 'name',
+      subDomains: 'subDomains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      environmentId: 'string',
+      gatewayInfo: HttpRouteEnvironmentInfoGatewayInfo,
+      name: 'string',
+      subDomains: { 'type': 'array', 'itemType': HttpRouteEnvironmentInfoSubDomains },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class HttpRouteMatchHeaders extends $tea.Model {
   /**
    * @example
@@ -6568,186 +6108,73 @@ export class HttpRouteMatchQueryParams extends $tea.Model {
   }
 }
 
-export class RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo extends $tea.Model {
+export class JwtIdentityConfigJwtPayloadConfig extends $tea.Model {
+  payloadKeyName?: string;
+  payloadKeyValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      payloadKeyName: 'payloadKeyName',
+      payloadKeyValue: 'payloadKeyValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      payloadKeyName: 'string',
+      payloadKeyValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class JwtIdentityConfigJwtTokenConfig extends $tea.Model {
+  key?: string;
+  pass?: boolean;
+  position?: string;
+  prefix?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      pass: 'pass',
+      position: 'position',
+      prefix: 'prefix',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      pass: 'boolean',
+      position: 'string',
+      prefix: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ServicePorts extends $tea.Model {
   name?: string;
-  operationId?: string;
+  port?: number;
+  protocol?: string;
   static names(): { [key: string]: string } {
     return {
       name: 'name',
-      operationId: 'operationId',
+      port: 'port',
+      protocol: 'protocol',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       name: 'string',
-      operationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflictsDetailsConflictingMatch extends $tea.Model {
-  match?: HttpRouteMatch;
-  operationInfo?: RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo;
-  static names(): { [key: string]: string } {
-    return {
-      match: 'match',
-      operationInfo: 'operationInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      match: HttpRouteMatch,
-      operationInfo: RouteRulesConflictInfoConflictsDetailsConflictingMatchOperationInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo extends $tea.Model {
-  name?: string;
-  operationId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'name',
-      operationId: 'operationId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operationId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflictsDetailsDetectedMatch extends $tea.Model {
-  match?: HttpRouteMatch;
-  operationInfo?: RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo;
-  static names(): { [key: string]: string } {
-    return {
-      match: 'match',
-      operationInfo: 'operationInfo',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      match: HttpRouteMatch,
-      operationInfo: RouteRulesConflictInfoConflictsDetailsDetectedMatchOperationInfo,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflictsDetails extends $tea.Model {
-  conflictingMatch?: RouteRulesConflictInfoConflictsDetailsConflictingMatch;
-  detectedMatch?: RouteRulesConflictInfoConflictsDetailsDetectedMatch;
-  level?: string;
-  static names(): { [key: string]: string } {
-    return {
-      conflictingMatch: 'conflictingMatch',
-      detectedMatch: 'detectedMatch',
-      level: 'level',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      conflictingMatch: RouteRulesConflictInfoConflictsDetailsConflictingMatch,
-      detectedMatch: RouteRulesConflictInfoConflictsDetailsDetectedMatch,
-      level: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflictsEnvironmentInfo extends $tea.Model {
-  environmentId?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      environmentId: 'environmentId',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      environmentId: 'string',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoConflicts extends $tea.Model {
-  details?: RouteRulesConflictInfoConflictsDetails[];
-  environmentInfo?: RouteRulesConflictInfoConflictsEnvironmentInfo;
-  resourceId?: string;
-  resourceName?: string;
-  resourceType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      details: 'details',
-      environmentInfo: 'environmentInfo',
-      resourceId: 'resourceId',
-      resourceName: 'resourceName',
-      resourceType: 'resourceType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      details: { 'type': 'array', 'itemType': RouteRulesConflictInfoConflictsDetails },
-      environmentInfo: RouteRulesConflictInfoConflictsEnvironmentInfo,
-      resourceId: 'string',
-      resourceName: 'string',
-      resourceType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RouteRulesConflictInfoDomainInfo extends $tea.Model {
-  domainId?: string;
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      domainId: 'domainId',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      domainId: 'string',
-      name: 'string',
+      port: 'number',
+      protocol: 'string',
     };
   }
 
@@ -6758,6 +6185,9 @@ export class RouteRulesConflictInfoDomainInfo extends $tea.Model {
 
 export class CreateDomainResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Domain ID.
+   * 
    * @example
    * d-cpu1aullhtgkidg7sa4g
    */
@@ -6781,6 +6211,9 @@ export class CreateDomainResponseBodyData extends $tea.Model {
 
 export class CreateEnvironmentResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
    */
@@ -6802,124 +6235,64 @@ export class CreateEnvironmentResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateGatewayRouteResponseBodyData extends $tea.Model {
+export class CreateHttpApiRequestIngressConfig extends $tea.Model {
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
-   * gr-cpumc37d*****
+   * env-cq146allhtgk***
    */
-  gatewayRouteId?: string;
+  environmentId?: string;
+  /**
+   * @remarks
+   * Ingress Class being listened to.
+   * 
+   * @example
+   * mse
+   */
+  ingressClass?: string;
+  /**
+   * @remarks
+   * Whether to update the address in the Ingress Status.
+   * 
+   * @example
+   * false
+   */
+  overrideIngressIp?: boolean;
+  /**
+   * @remarks
+   * Source ID.
+   * 
+   * @example
+   * src-crdddallhtgtr***
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * Namespace being watched.
+   * 
+   * @example
+   * default
+   */
+  watchNamespace?: string;
   static names(): { [key: string]: string } {
     return {
-      gatewayRouteId: 'gatewayRouteId',
+      environmentId: 'environmentId',
+      ingressClass: 'ingressClass',
+      overrideIngressIp: 'overrideIngressIp',
+      sourceId: 'sourceId',
+      watchNamespace: 'watchNamespace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      gatewayRouteId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceRequestGatewayServiceConfigs extends $tea.Model {
-  addresses?: string[];
-  /**
-   * @example
-   * group-1
-   */
-  groupName?: string;
-  /**
-   * @example
-   * itemcenter-provider
-   */
-  name?: string;
-  /**
-   * @example
-   * MSE_NACOS
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 8080
-   */
-  port?: number;
-  /**
-   * @example
-   * LATEST
-   */
-  qualifier?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addresses: 'addresses',
-      groupName: 'groupName',
-      name: 'name',
-      namespace: 'namespace',
-      port: 'port',
-      qualifier: 'qualifier',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addresses: { 'type': 'array', 'itemType': 'string' },
-      groupName: 'string',
-      name: 'string',
-      namespace: 'string',
-      port: 'number',
-      qualifier: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceResponseBodyData extends $tea.Model {
-  gatewayServiceIds?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceIds: 'gatewayServiceIds',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceIds: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateGatewayServiceVersionRequestLabels extends $tea.Model {
-  /**
-   * @example
-   * app
-   */
-  key?: string;
-  /**
-   * @example
-   * itemcenter-blue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
+      environmentId: 'string',
+      ingressClass: 'string',
+      overrideIngressIp: 'boolean',
+      sourceId: 'string',
+      watchNamespace: 'string',
     };
   }
 
@@ -6929,7 +6302,21 @@ export class CreateGatewayServiceVersionRequestLabels extends $tea.Model {
 }
 
 export class CreateHttpApiResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * HTTP API ID.
+   * 
+   * @example
+   * api-xxx
+   */
   httpApiId?: string;
+  /**
+   * @remarks
+   * Name of the API.
+   * 
+   * @example
+   * test-api
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6951,6 +6338,13 @@ export class CreateHttpApiResponseBodyData extends $tea.Model {
 }
 
 export class CreateHttpApiOperationResponseBodyDataOperations extends $tea.Model {
+  /**
+   * @remarks
+   * Operation ID.
+   * 
+   * @example
+   * op-xxx
+   */
   operationId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6970,6 +6364,10 @@ export class CreateHttpApiOperationResponseBodyDataOperations extends $tea.Model
 }
 
 export class CreateHttpApiOperationResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Operation information.
+   */
   operations?: CreateHttpApiOperationResponseBodyDataOperations[];
   static names(): { [key: string]: string } {
     return {
@@ -6988,142 +6386,20 @@ export class CreateHttpApiOperationResponseBodyData extends $tea.Model {
   }
 }
 
-export class CreateServiceSourceRequestK8sServiceSourceConfigAuthorizeSecurityGroupRules extends $tea.Model {
-  description?: string;
-  portRanges?: string[];
-  securityGroupId?: string;
+export class GetDomainResponseBodyDataStatisticsInfo extends $tea.Model {
+  resourceStatistics?: ResourceStatistic[];
+  totalCount?: string;
   static names(): { [key: string]: string } {
     return {
-      description: 'description',
-      portRanges: 'portRanges',
-      securityGroupId: 'securityGroupId',
+      resourceStatistics: 'resourceStatistics',
+      totalCount: 'totalCount',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      description: 'string',
-      portRanges: { 'type': 'array', 'itemType': 'string' },
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceRequestK8sServiceSourceConfigIngressConfig extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
-   * @example
-   * mse
-   */
-  ingressClass?: string;
-  /**
-   * @example
-   * false
-   */
-  overrideIngressIp?: boolean;
-  /**
-   * @example
-   * default
-   */
-  watchNamespace?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'enable',
-      ingressClass: 'ingressClass',
-      overrideIngressIp: 'overrideIngressIp',
-      watchNamespace: 'watchNamespace',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'boolean',
-      ingressClass: 'string',
-      overrideIngressIp: 'boolean',
-      watchNamespace: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceRequestK8sServiceSourceConfig extends $tea.Model {
-  authorizeSecurityGroupRules?: CreateServiceSourceRequestK8sServiceSourceConfigAuthorizeSecurityGroupRules[];
-  /**
-   * @example
-   * c4a21b3560fad4ec299f3e******
-   */
-  clusterId?: string;
-  ingressConfig?: CreateServiceSourceRequestK8sServiceSourceConfigIngressConfig;
-  static names(): { [key: string]: string } {
-    return {
-      authorizeSecurityGroupRules: 'authorizeSecurityGroupRules',
-      clusterId: 'clusterId',
-      ingressConfig: 'ingressConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      authorizeSecurityGroupRules: { 'type': 'array', 'itemType': CreateServiceSourceRequestK8sServiceSourceConfigAuthorizeSecurityGroupRules },
-      clusterId: 'string',
-      ingressConfig: CreateServiceSourceRequestK8sServiceSourceConfigIngressConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceRequestNacosServiceSourceConfig extends $tea.Model {
-  /**
-   * @example
-   * mse-cn-328fc8***
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'instanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateServiceSourceResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * gss-cpqots5lht****
-   */
-  serviceSourceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      serviceSourceId: 'serviceSourceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      serviceSourceId: 'string',
+      resourceStatistics: { 'type': 'array', 'itemType': ResourceStatistic },
+      totalCount: 'string',
     };
   }
 
@@ -7134,96 +6410,158 @@ export class CreateServiceSourceResponseBodyData extends $tea.Model {
 
 export class GetDomainResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Encryption algorithm name
+   * 
    * @example
    * RSA
    */
   algorithm?: string;
   /**
+   * @remarks
+   * Cloud Shield CA certificate identity.
+   * 
    * @example
    * 223576-cn-hangzhou
    */
   caCertIndentifier?: string;
   /**
+   * @remarks
+   * Cloud Shield certificate identity.
+   * 
    * @example
    * 123576-cn-hangzhou
    */
   certIndentifier?: string;
   /**
+   * @remarks
+   * Certificate name
+   * 
    * @example
    * test-cert
    */
   certName?: string;
   /**
+   * @remarks
+   * Where it was created from.
+   * 
    * @example
    * Console
    */
   createFrom?: string;
   /**
+   * @remarks
+   * Creation timestamp.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Whether it is the default domain.
+   * 
    * @example
    * false
    */
   default?: boolean;
   /**
+   * @remarks
+   * Domain ID.
+   * 
    * @example
    * d-cq1m3utlhtgvgkv7sitg
    */
   domainId?: string;
   /**
+   * @remarks
+   * Setting for HTTPS protocol type, whether to enable forced HTTPS redirection.
+   * 
    * @example
    * false
    */
   forceHttps?: boolean;
   /**
+   * @remarks
+   * HTTP/2 setting.
+   * 
    * @example
    * Open
    */
   http2Option?: string;
   /**
+   * @remarks
+   * Certificate issuer.
+   * 
    * @example
    * Alibaba
    */
   issuer?: string;
   /**
+   * @remarks
+   * Domain name.
+   * 
    * @example
    * abc.com
    */
   name?: string;
   /**
+   * @remarks
+   * Certificate expiration time.
+   * 
    * @example
    * 1719386834548
    */
   notAfterTimstamp?: number;
   /**
+   * @remarks
+   * Certificate effective time.
+   * 
    * @example
    * 1719386834548
    */
   notBeforeTimestamp?: number;
   /**
+   * @remarks
+   * The protocol types supported by the domain.
+   * 
+   * - HTTP: Supports only HTTP protocol.
+   * - HTTPS: Supports only HTTPS protocol.
+   * 
    * @example
    * HTTP
    */
   protocol?: string;
+  resourceGroupId?: string;
   /**
+   * @remarks
+   * All domain names bound to the certificate.
+   * 
    * @example
    * aliyun.com
    */
   sans?: string;
+  statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
   /**
+   * @remarks
+   * Maximum TLS protocol version, supports up to TLS 1.3.
+   * 
    * @example
    * TLS 1.3
    */
   tlsMax?: string;
   /**
+   * @remarks
+   * Minimum TLS protocol version, supports down to TLS 1.0.
+   * 
    * @example
    * TLS 1.0
    */
   tlsMin?: string;
   /**
+   * @remarks
+   * Update timestamp.
+   * 
    * @example
    * 1719386834548
    */
@@ -7245,7 +6583,9 @@ export class GetDomainResponseBodyData extends $tea.Model {
       notAfterTimstamp: 'notAfterTimstamp',
       notBeforeTimestamp: 'notBeforeTimestamp',
       protocol: 'protocol',
+      resourceGroupId: 'resourceGroupId',
       sans: 'sans',
+      statisticsInfo: 'statisticsInfo',
       tlsMax: 'tlsMax',
       tlsMin: 'tlsMin',
       updatetimestamp: 'updatetimestamp',
@@ -7269,7 +6609,9 @@ export class GetDomainResponseBodyData extends $tea.Model {
       notAfterTimstamp: 'number',
       notBeforeTimestamp: 'number',
       protocol: 'string',
+      resourceGroupId: 'string',
       sans: 'string',
+      statisticsInfo: GetDomainResponseBodyDataStatisticsInfo,
       tlsMax: 'string',
       tlsMin: 'string',
       updatetimestamp: 'number',
@@ -7281,32 +6623,93 @@ export class GetDomainResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetEnvironmentResponseBodyDataStatisticsInfo extends $tea.Model {
+  resourceStatistics?: ResourceStatistic[];
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      resourceStatistics: 'resourceStatistics',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceStatistics: { 'type': 'array', 'itemType': ResourceStatistic },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEnvironmentResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Environment alias.
+   * 
+   * @example
+   * 测试环境
+   */
   alias?: string;
   /**
+   * @remarks
+   * Creation timestamp.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Whether it is the default environment.
+   * 
    * @example
    * true
    */
   default?: boolean;
+  /**
+   * @remarks
+   * Environment description.
+   * 
+   * @example
+   * 这是xxx的xx项目测试环境
+   */
   description?: string;
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * Gateway information
+   */
   gatewayInfo?: GatewayInfo;
   /**
+   * @remarks
+   * Environment name.
+   * 
    * @example
    * test
    */
   name?: string;
+  resourceGroupId?: string;
+  statisticsInfo?: GetEnvironmentResponseBodyDataStatisticsInfo;
+  /**
+   * @remarks
+   * List of subdomains.
+   */
   subDomainInfos?: SubDomainInfo[];
   /**
+   * @remarks
+   * Update timestamp.
+   * 
    * @example
    * 1719386834548
    */
@@ -7320,6 +6723,8 @@ export class GetEnvironmentResponseBodyData extends $tea.Model {
       environmentId: 'environmentId',
       gatewayInfo: 'gatewayInfo',
       name: 'name',
+      resourceGroupId: 'resourceGroupId',
+      statisticsInfo: 'statisticsInfo',
       subDomainInfos: 'subDomainInfos',
       updateTimestamp: 'updateTimestamp',
     };
@@ -7334,6 +6739,8 @@ export class GetEnvironmentResponseBodyData extends $tea.Model {
       environmentId: 'string',
       gatewayInfo: GatewayInfo,
       name: 'string',
+      resourceGroupId: 'string',
+      statisticsInfo: GetEnvironmentResponseBodyDataStatisticsInfo,
       subDomainInfos: { 'type': 'array', 'itemType': SubDomainInfo },
       updateTimestamp: 'number',
     };
@@ -7345,13 +6752,26 @@ export class GetEnvironmentResponseBodyData extends $tea.Model {
 }
 
 export class GetGatewayResponseBodyDataEnvironments extends $tea.Model {
+  /**
+   * @remarks
+   * The environment alias.
+   * 
+   * @example
+   * 默认环境
+   */
   alias?: string;
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
    * env-cp9uhudlht***
    */
   environmentId?: string;
   /**
+   * @remarks
+   * The environment name。
+   * 
    * @example
    * default-gw-cp9ugg5***
    */
@@ -7379,11 +6799,19 @@ export class GetGatewayResponseBodyDataEnvironments extends $tea.Model {
 
 export class GetGatewayResponseBodyDataLoadBalancersPorts extends $tea.Model {
   /**
+   * @remarks
+   * Port number.
+   * 
    * @example
    * 443
    */
   port?: number;
   /**
+   * @remarks
+   * Protocol:
+   * - TCP
+   * - UDP
+   * 
    * @example
    * TCP
    */
@@ -7409,42 +6837,79 @@ export class GetGatewayResponseBodyDataLoadBalancersPorts extends $tea.Model {
 
 export class GetGatewayResponseBodyDataLoadBalancers extends $tea.Model {
   /**
+   * @remarks
+   * The address of the load balancer.
+   * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
    */
   address?: string;
   /**
+   * @remarks
+   * The IP version of the protocol:
+   * - ipv4: IPv4 type.
+   * - ipv6: IPv6 type.
+   * 
    * @example
    * ipv4
    */
   addressIpVersion?: string;
   /**
+   * @remarks
+   * Load balancer address type:
+   * - Internet: Public.
+   * - Intranet: Private.
+   * 
    * @example
    * Internet
    */
   addressType?: string;
   /**
+   * @remarks
+   * Whether it is the default entry address for the gateway.
+   * 
    * @example
    * true
    */
   gatewayDefault?: boolean;
   /**
+   * @remarks
+   * Load balancer ID.
+   * 
    * @example
    * nlb-xoh3pghru7c***
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * The provision mode of the load balancer for the gateway:
+   * - Managed: Managed by the Cloud Native API Gateway.
+   * 
    * @example
    * Managed
    */
   mode?: string;
+  /**
+   * @remarks
+   * List of listening ports.
+   */
   ports?: GetGatewayResponseBodyDataLoadBalancersPorts[];
   /**
+   * @remarks
+   * The status of the load balancer:
+   * - Ready: Available.
+   * - NotCreate: Not associated with an instance.
+   * 
    * @example
    * Ready
    */
   status?: string;
   /**
+   * @remarks
+   * The type of load balancer:
+   * - NLB: Network Load Balancer.
+   * - CLB: Classic Load Balancer.
+   * 
    * @example
    * NLB
    */
@@ -7484,11 +6949,17 @@ export class GetGatewayResponseBodyDataLoadBalancers extends $tea.Model {
 
 export class GetGatewayResponseBodyDataSecurityGroup extends $tea.Model {
   /**
+   * @remarks
+   * Security group name.
+   * 
    * @example
    * APIG-sg-gw-cq7ke5ll***
    */
   name?: string;
   /**
+   * @remarks
+   * Security group ID.
+   * 
    * @example
    * sg-bp16tafq9***
    */
@@ -7512,9 +6983,41 @@ export class GetGatewayResponseBodyDataSecurityGroup extends $tea.Model {
   }
 }
 
+export class GetGatewayResponseBodyDataTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetGatewayResponseBodyDataVSwitch extends $tea.Model {
+  /**
+   * @remarks
+   * Virtual switch name.
+   * 
+   * @example
+   * 杭州VPC虚拟交换机
+   */
   name?: string;
   /**
+   * @remarks
+   * Virtual switch ID.
+   * 
    * @example
    * vsw-bp1c7ggkj***
    */
@@ -7539,8 +7042,18 @@ export class GetGatewayResponseBodyDataVSwitch extends $tea.Model {
 }
 
 export class GetGatewayResponseBodyDataVpc extends $tea.Model {
+  /**
+   * @remarks
+   * VPC gateway name.
+   * 
+   * @example
+   * 杭州VPC
+   */
   name?: string;
   /**
+   * @remarks
+   * VPC network ID.
+   * 
    * @example
    * vpc-bp1llj52lvj6xc***
    */
@@ -7565,8 +7078,18 @@ export class GetGatewayResponseBodyDataVpc extends $tea.Model {
 }
 
 export class GetGatewayResponseBodyDataZonesVSwitch extends $tea.Model {
+  /**
+   * @remarks
+   * Virtual switch name.
+   * 
+   * @example
+   * 杭州VPC虚拟交换机
+   */
   name?: string;
   /**
+   * @remarks
+   * Virtual switch ID.
+   * 
    * @example
    * vsw-bp1c7ggkj***
    */
@@ -7591,9 +7114,23 @@ export class GetGatewayResponseBodyDataZonesVSwitch extends $tea.Model {
 }
 
 export class GetGatewayResponseBodyDataZones extends $tea.Model {
+  /**
+   * @remarks
+   * Availability zone name.
+   * 
+   * @example
+   * 杭州可用区E
+   */
   name?: string;
+  /**
+   * @remarks
+   * Virtual switch.
+   */
   vSwitch?: GetGatewayResponseBodyDataZonesVSwitch;
   /**
+   * @remarks
+   * Availability zone ID.
+   * 
    * @example
    * cn-hangzhou-e
    */
@@ -7621,70 +7158,145 @@ export class GetGatewayResponseBodyDataZones extends $tea.Model {
 
 export class GetGatewayResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Charge type
+   * - POSTPAY: Postpaid (pay-as-you-go)
+   * - PREPAY: Prepaid (subscription)
+   * 
    * @example
    * POSTPAY
    */
   chargeType?: string;
   /**
+   * @remarks
+   * Source of gateway creation:
+   * - Console: Console.
+   * 
    * @example
    * Console
    */
   createFrom?: string;
   /**
+   * @remarks
+   * Creation timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
+  /**
+   * @remarks
+   * List of environments associated with the gateway.
+   */
   environments?: GetGatewayResponseBodyDataEnvironments[];
   /**
+   * @remarks
+   * Expiration timestamp for subscription. Unit: milliseconds.
+   * 
    * @example
    * 1719386834548
    */
   expireTimestamp?: number;
   /**
+   * @remarks
+   * Gateway ID.
+   * 
    * @example
    * gw-cq2vundlhtg***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * List of entry addresses for the gateway.
+   */
   loadBalancers?: GetGatewayResponseBodyDataLoadBalancers[];
   /**
+   * @remarks
+   * Gateway name.
+   * 
    * @example
    * itemcenter-gateway
    */
   name?: string;
   /**
+   * @remarks
+   * Number of gateway instance nodes.
+   * 
    * @example
    * 2
    */
   replicas?: string;
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The security group of the gateway.
+   */
   securityGroup?: GetGatewayResponseBodyDataSecurityGroup;
   /**
+   * @remarks
+   * Gateway specification:
+   * - apigw.small.x1: Small specification.
+   * 
    * @example
    * apigw.small.x1
    */
   spec?: string;
   /**
+   * @remarks
+   * Gateway status:
+   * - Running: Running.
+   * - Creating: Creating.
+   * - CreateFailed: Creation failed.
+   * - Upgrading: Upgrading.
+   * - UpgradeFailed: Upgrade failed.
+   * - Restarting: Restarting.
+   * - RestartFailed: Restart failed.
+   * - Deleting: Deleting.
+   * - DeleteFailed: Deletion failed.
+   * 
    * @example
    * Running
    */
   status?: string;
+  tags?: GetGatewayResponseBodyDataTags[];
   /**
+   * @remarks
+   * Target version of the gateway. When it is inconsistent with the current version, an upgrade can be performed.
+   * 
    * @example
    * 2.0.2
    */
   targetVersion?: string;
   /**
+   * @remarks
+   * Update timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1719386834548
    */
   updateTimestamp?: number;
+  /**
+   * @remarks
+   * The virtual switch associated with the gateway.
+   */
   vSwitch?: GetGatewayResponseBodyDataVSwitch;
   /**
+   * @remarks
+   * Gateway version.
+   * 
    * @example
    * 2.0.2
    */
   version?: string;
+  /**
+   * @remarks
+   * The VPC (Virtual Private Cloud) associated with the gateway.
+   */
   vpc?: GetGatewayResponseBodyDataVpc;
+  /**
+   * @remarks
+   * List of availability zones associated with the gateway.
+   */
   zones?: GetGatewayResponseBodyDataZones[];
   static names(): { [key: string]: string } {
     return {
@@ -7697,9 +7309,11 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       loadBalancers: 'loadBalancers',
       name: 'name',
       replicas: 'replicas',
+      resourceGroupId: 'resourceGroupId',
       securityGroup: 'securityGroup',
       spec: 'spec',
       status: 'status',
+      tags: 'tags',
       targetVersion: 'targetVersion',
       updateTimestamp: 'updateTimestamp',
       vSwitch: 'vSwitch',
@@ -7720,9 +7334,11 @@ export class GetGatewayResponseBodyData extends $tea.Model {
       loadBalancers: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataLoadBalancers },
       name: 'string',
       replicas: 'string',
+      resourceGroupId: 'string',
       securityGroup: GetGatewayResponseBodyDataSecurityGroup,
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': GetGatewayResponseBodyDataTags },
       targetVersion: 'string',
       updateTimestamp: 'number',
       vSwitch: GetGatewayResponseBodyDataVSwitch,
@@ -7737,82 +7353,32 @@ export class GetGatewayResponseBodyData extends $tea.Model {
   }
 }
 
-export class GetGatewayRouteResponseBodyData extends $tea.Model {
-  backend?: GatewayRouteBackend;
-  /**
-   * @example
-   * 1719386834548
-   */
-  createTimestamp?: number;
-  description?: string;
-  domainInfo?: GatewayRouteDomainInfo;
-  /**
-   * @example
-   * gr-cptf6e7d5l***
-   */
-  gatewayRouteId?: string;
-  match?: HttpRouteMatch;
-  /**
-   * @example
-   * itemcenter-pre-route
-   */
-  name?: string;
-  /**
-   * @example
-   * NotPublished
-   */
-  status?: string;
-  /**
-   * @example
-   * 1719386834548
-   */
-  updateTimestamp?: number;
-  static names(): { [key: string]: string } {
-    return {
-      backend: 'backend',
-      createTimestamp: 'createTimestamp',
-      description: 'description',
-      domainInfo: 'domainInfo',
-      gatewayRouteId: 'gatewayRouteId',
-      match: 'match',
-      name: 'name',
-      status: 'status',
-      updateTimestamp: 'updateTimestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backend: GatewayRouteBackend,
-      createTimestamp: 'number',
-      description: 'string',
-      domainInfo: GatewayRouteDomainInfo,
-      gatewayRouteId: 'string',
-      match: HttpRouteMatch,
-      name: 'string',
-      status: 'string',
-      updateTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListDomainsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * List of domain information.
+   */
   items?: DomainInfo[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of items.
+   * 
    * @example
    * 9
    */
@@ -7841,18 +7407,31 @@ export class ListDomainsResponseBodyData extends $tea.Model {
 }
 
 export class ListEnvironmentsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * List of environment information.
+   */
   items?: EnvironmentInfo[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of items.
+   * 
    * @example
    * 25
    */
@@ -7880,141 +7459,20 @@ export class ListEnvironmentsResponseBodyData extends $tea.Model {
   }
 }
 
-export class ListGatewayRoutesResponseBodyDataItems extends $tea.Model {
-  backend?: GatewayRouteBackend;
-  /**
-   * @example
-   * 1719386834548
-   */
-  createTimestamp?: number;
-  description?: string;
-  domainInfo?: GatewayRouteDomainInfo;
-  /**
-   * @example
-   * gr-cqa8oddlhtg***
-   */
-  gatewayRouteId?: string;
-  match?: HttpRouteMatch;
-  /**
-   * @example
-   * pre-itemcenter-router
-   */
-  name?: string;
-  /**
-   * @example
-   * NotPublished
-   */
-  status?: string;
-  /**
-   * @example
-   * 1719386834548
-   */
-  updateTimestamp?: number;
+export class ListGatewaysRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
-      backend: 'backend',
-      createTimestamp: 'createTimestamp',
-      description: 'description',
-      domainInfo: 'domainInfo',
-      gatewayRouteId: 'gatewayRouteId',
-      match: 'match',
-      name: 'name',
-      status: 'status',
-      updateTimestamp: 'updateTimestamp',
+      key: 'key',
+      value: 'value',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      backend: GatewayRouteBackend,
-      createTimestamp: 'number',
-      description: 'string',
-      domainInfo: GatewayRouteDomainInfo,
-      gatewayRouteId: 'string',
-      match: HttpRouteMatch,
-      name: 'string',
-      status: 'string',
-      updateTimestamp: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayRoutesResponseBodyData extends $tea.Model {
-  items?: ListGatewayRoutesResponseBodyDataItems[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 2
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'items',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': ListGatewayRoutesResponseBodyDataItems },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListGatewayServicesResponseBodyData extends $tea.Model {
-  items?: GatewayService[];
-  /**
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @example
-   * 10
-   */
-  pageSize?: number;
-  /**
-   * @example
-   * 6
-   */
-  totalSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      items: 'items',
-      pageNumber: 'pageNumber',
-      pageSize: 'pageSize',
-      totalSize: 'totalSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      items: { 'type': 'array', 'itemType': GatewayService },
-      pageNumber: 'number',
-      pageSize: 'number',
-      totalSize: 'number',
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -8025,11 +7483,19 @@ export class ListGatewayServicesResponseBodyData extends $tea.Model {
 
 export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $tea.Model {
   /**
+   * @remarks
+   * Port number.
+   * 
    * @example
    * 443
    */
   port?: number;
   /**
+   * @remarks
+   * Protocol:
+   * - TCP
+   * - UDP
+   * 
    * @example
    * TCP
    */
@@ -8055,42 +7521,79 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancersPorts extends $tea.Mo
 
 export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $tea.Model {
   /**
+   * @remarks
+   * Load balancer address.
+   * 
    * @example
    * nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
    */
   address?: string;
   /**
+   * @remarks
+   * IP version:
+   * - ipv4: IPv4.
+   * - ipv6: IPv6.
+   * 
    * @example
    * ipv4
    */
   addressIpVersion?: string;
   /**
+   * @remarks
+   * Load balancer address type:
+   * - Internet: Public network.
+   * - Intranet: Private network.
+   * 
    * @example
    * Internet
    */
   addressType?: string;
   /**
+   * @remarks
+   * Indicates whether this is the default entry address for the gateway.
+   * 
    * @example
    * true
    */
   gatewayDefault?: boolean;
   /**
+   * @remarks
+   * Load balancer ID.
+   * 
    * @example
    * nlb-xqwioje1c91r***
    */
   loadBalancerId?: string;
   /**
+   * @remarks
+   * Mode of load balancer provision for the gateway:
+   * - Managed: Managed by the Cloud Native API Gateway.
+   * 
    * @example
    * Managed
    */
   mode?: string;
+  /**
+   * @remarks
+   * List of listening ports.
+   */
   ports?: ListGatewaysResponseBodyDataItemsLoadBalancersPorts[];
   /**
+   * @remarks
+   * Status of the load balancer:
+   * - Ready: Available.
+   * - NotCreate: No associated instance.
+   * 
    * @example
    * Ready
    */
   status?: string;
   /**
+   * @remarks
+   * Type of load balancer for the gateway:
+   * - NLB: Network Load Balancer.
+   * - CLB: Classic Load Balancer.
+   * 
    * @example
    * NLB
    */
@@ -8129,6 +7632,10 @@ export class ListGatewaysResponseBodyDataItemsLoadBalancers extends $tea.Model {
 }
 
 export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $tea.Model {
+  /**
+   * @remarks
+   * The Security Group ID.
+   */
   securityGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8147,7 +7654,36 @@ export class ListGatewaysResponseBodyDataItemsSecurityGroup extends $tea.Model {
   }
 }
 
+export class ListGatewaysResponseBodyDataItemsTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListGatewaysResponseBodyDataItemsVSwitch extends $tea.Model {
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8167,6 +7703,13 @@ export class ListGatewaysResponseBodyDataItemsVSwitch extends $tea.Model {
 }
 
 export class ListGatewaysResponseBodyDataItemsVpc extends $tea.Model {
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-xxxxx
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8186,6 +7729,13 @@ export class ListGatewaysResponseBodyDataItemsVpc extends $tea.Model {
 }
 
 export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $tea.Model {
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-xxxxx
+   */
   vSwitchId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8205,7 +7755,18 @@ export class ListGatewaysResponseBodyDataItemsZonesVSwitch extends $tea.Model {
 }
 
 export class ListGatewaysResponseBodyDataItemsZones extends $tea.Model {
+  /**
+   * @remarks
+   * The vSwitch.
+   */
   vSwitch?: ListGatewaysResponseBodyDataItemsZonesVSwitch;
+  /**
+   * @remarks
+   * The ID of the current zone.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8228,64 +7789,124 @@ export class ListGatewaysResponseBodyDataItemsZones extends $tea.Model {
 
 export class ListGatewaysResponseBodyDataItems extends $tea.Model {
   /**
+   * @remarks
+   * Charge type
+   * 
+   * - POSTPAY: Postpaid (pay-as-you-go)
+   * - PREPAY: Prepaid (subscription)
+   * 
    * @example
    * POSTPAY
    */
   chargeType?: string;
   /**
+   * @remarks
+   * Source of gateway creation:
+   * - Console: Console.
+   * 
    * @example
    * Console
    */
   createFrom?: string;
   /**
+   * @remarks
+   * Creation timestamp, in milliseconds.
+   * 
    * @example
    * 1719386834548
    */
   createTimestamp?: number;
   /**
+   * @remarks
+   * Expiration timestamp for the prepaid (annual or monthly) plan. Unit: milliseconds.
+   * 
    * @example
    * 172086834548
    */
   expireTimestamp?: number;
   /**
+   * @remarks
+   * Gateway ID.
+   * 
    * @example
    * gw-cpv54p5***
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * List of gateway entry addresses.
+   */
   loadBalancers?: ListGatewaysResponseBodyDataItemsLoadBalancers[];
   /**
+   * @remarks
+   * Gateway name.
+   * 
    * @example
    * itemcenter-gateway
    */
   name?: string;
   /**
+   * @remarks
+   * Number of gateway instance nodes.
+   * 
    * @example
    * 2
    */
   replicas?: string;
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The Security Group.
+   */
   securityGroup?: ListGatewaysResponseBodyDataItemsSecurityGroup;
   /**
+   * @remarks
+   * Gateway specification:
+   * - apigw.small.x1: Small specification.
+   * 
    * @example
    * apigw.small.x1
    */
   spec?: string;
   /**
+   * @remarks
+   * Gateway status:
+   * - Running: Running.
+   * - Creating: Creating.
+   * - CreateFailed: Creation failed.
+   * - Upgrading: Upgrading.
+   * - UpgradeFailed: Upgrade failed.
+   * - Restarting: Restarting.
+   * - RestartFailed: Restart failed.
+   * - Deleting: Deleting.
+   * - DeleteFailed: Deletion failed.
+   * 
    * @example
    * Running
    */
   status?: string;
+  tags?: ListGatewaysResponseBodyDataItemsTags[];
   /**
+   * @remarks
+   * Target version of the gateway. When it is inconsistent with `version`, a version upgrade can be performed.
+   * 
    * @example
    * 2.0.2
    */
   targetVersion?: string;
   /**
+   * @remarks
+   * Update timestamp. Unit: milliseconds.
+   * 
    * @example
    * 1719386834548
    */
   updateTimestamp?: number;
   vSwitch?: ListGatewaysResponseBodyDataItemsVSwitch;
   /**
+   * @remarks
+   * Gateway version.
+   * 
    * @example
    * 2.0.2
    */
@@ -8302,9 +7923,11 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
       loadBalancers: 'loadBalancers',
       name: 'name',
       replicas: 'replicas',
+      resourceGroupId: 'resourceGroupId',
       securityGroup: 'securityGroup',
       spec: 'spec',
       status: 'status',
+      tags: 'tags',
       targetVersion: 'targetVersion',
       updateTimestamp: 'updateTimestamp',
       vSwitch: 'vSwitch',
@@ -8324,9 +7947,11 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
       loadBalancers: { 'type': 'array', 'itemType': ListGatewaysResponseBodyDataItemsLoadBalancers },
       name: 'string',
       replicas: 'string',
+      resourceGroupId: 'string',
       securityGroup: ListGatewaysResponseBodyDataItemsSecurityGroup,
       spec: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListGatewaysResponseBodyDataItemsTags },
       targetVersion: 'string',
       updateTimestamp: 'number',
       vSwitch: ListGatewaysResponseBodyDataItemsVSwitch,
@@ -8342,18 +7967,31 @@ export class ListGatewaysResponseBodyDataItems extends $tea.Model {
 }
 
 export class ListGatewaysResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Gateway list
+   */
   items?: ListGatewaysResponseBodyDataItems[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 6
    */
@@ -8382,18 +8020,31 @@ export class ListGatewaysResponseBodyData extends $tea.Model {
 }
 
 export class ListHttpApiOperationsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * List of operations.
+   */
   items?: HttpApiOperationInfo[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -8422,18 +8073,31 @@ export class ListHttpApiOperationsResponseBodyData extends $tea.Model {
 }
 
 export class ListHttpApisResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * API information.
+   */
   items?: HttpApiInfoByName[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total count.
+   * 
    * @example
    * 10
    */
@@ -8461,52 +8125,24 @@ export class ListHttpApisResponseBodyData extends $tea.Model {
   }
 }
 
-export class PublishHttpApiRequestEnvironmentCloudProductConfigContainerServiceConfigs extends $tea.Model {
-  match?: HttpApiBackendMatchConditions;
+export class UpdateDomainResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Deploy revision id.
+   * 
    * @example
-   * test-service
+   * apr-xxx
    */
-  name?: string;
-  /**
-   * @example
-   * default
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 8080
-   */
-  port?: number;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
+  deployRevisionId?: string;
   static names(): { [key: string]: string } {
     return {
-      match: 'match',
-      name: 'name',
-      namespace: 'namespace',
-      port: 'port',
-      protocol: 'protocol',
-      weight: 'weight',
+      deployRevisionId: 'deployRevisionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      namespace: 'string',
-      port: 'number',
-      protocol: 'string',
-      weight: 'number',
+      deployRevisionId: 'string',
     };
   }
 
@@ -8515,374 +8151,64 @@ export class PublishHttpApiRequestEnvironmentCloudProductConfigContainerServiceC
   }
 }
 
-export class PublishHttpApiRequestEnvironmentCloudProductConfigFunctionConfigs extends $tea.Model {
-  match?: HttpApiBackendMatchConditions;
+export class UpdateHttpApiRequestIngressConfig extends $tea.Model {
   /**
+   * @remarks
+   * Environment ID.
+   * 
    * @example
-   * fc-test
-   */
-  name?: string;
-  /**
-   * @example
-   * LATEST
-   */
-  quanlifer?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      match: 'match',
-      name: 'name',
-      quanlifer: 'quanlifer',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      quanlifer: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironmentCloudProductConfigMseNacosConfigs extends $tea.Model {
-  /**
-   * @example
-   * DEFAULT_GROUP
-   */
-  groupName?: string;
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * provider
-   */
-  name?: string;
-  /**
-   * @example
-   * public
-   */
-  namespace?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: string;
-  static names(): { [key: string]: string } {
-    return {
-      groupName: 'groupName',
-      match: 'match',
-      name: 'name',
-      namespace: 'namespace',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      groupName: 'string',
-      match: HttpApiBackendMatchConditions,
-      name: 'string',
-      namespace: 'string',
-      weight: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironmentCloudProductConfig extends $tea.Model {
-  /**
-   * @example
-   * FC
-   */
-  cloudProductType?: string;
-  containerServiceConfigs?: PublishHttpApiRequestEnvironmentCloudProductConfigContainerServiceConfigs[];
-  functionConfigs?: PublishHttpApiRequestEnvironmentCloudProductConfigFunctionConfigs[];
-  mseNacosConfigs?: PublishHttpApiRequestEnvironmentCloudProductConfigMseNacosConfigs[];
-  static names(): { [key: string]: string } {
-    return {
-      cloudProductType: 'cloudProductType',
-      containerServiceConfigs: 'containerServiceConfigs',
-      functionConfigs: 'functionConfigs',
-      mseNacosConfigs: 'mseNacosConfigs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cloudProductType: 'string',
-      containerServiceConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentCloudProductConfigContainerServiceConfigs },
-      functionConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentCloudProductConfigFunctionConfigs },
-      mseNacosConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentCloudProductConfigMseNacosConfigs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironmentDnsConfigs extends $tea.Model {
-  dnsList?: string[];
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      dnsList: 'dnsList',
-      match: 'match',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsList: { 'type': 'array', 'itemType': 'string' },
-      match: HttpApiBackendMatchConditions,
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironmentServiceConfigs extends $tea.Model {
-  /**
-   * @example
-   * gs-xxx
-   */
-  gatewayServiceId?: string;
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * 8080
-   */
-  port?: number;
-  /**
-   * @example
-   * HTTP
-   */
-  protocol?: string;
-  /**
-   * @example
-   * v1
-   */
-  version?: string;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      gatewayServiceId: 'gatewayServiceId',
-      match: 'match',
-      port: 'port',
-      protocol: 'protocol',
-      version: 'version',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      gatewayServiceId: 'string',
-      match: HttpApiBackendMatchConditions,
-      port: 'number',
-      protocol: 'string',
-      version: 'string',
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironmentVipConfigs extends $tea.Model {
-  endpoints?: string[];
-  match?: HttpApiBackendMatchConditions;
-  /**
-   * @example
-   * 100
-   */
-  weight?: number;
-  static names(): { [key: string]: string } {
-    return {
-      endpoints: 'endpoints',
-      match: 'match',
-      weight: 'weight',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      endpoints: { 'type': 'array', 'itemType': 'string' },
-      match: HttpApiBackendMatchConditions,
-      weight: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class PublishHttpApiRequestEnvironment extends $tea.Model {
-  /**
-   * @example
-   * SingleService
-   */
-  backendScene?: string;
-  /**
-   * @example
-   * Service
-   */
-  backendType?: string;
-  cloudProductConfig?: PublishHttpApiRequestEnvironmentCloudProductConfig;
-  customDomainIds?: string[];
-  dnsConfigs?: PublishHttpApiRequestEnvironmentDnsConfigs[];
-  /**
-   * @example
-   * env-xxx
+   * env-cr6ql0tlhtgmc****
    */
   environmentId?: string;
-  serviceConfigs?: PublishHttpApiRequestEnvironmentServiceConfigs[];
-  vipConfigs?: PublishHttpApiRequestEnvironmentVipConfigs[];
-  static names(): { [key: string]: string } {
-    return {
-      backendScene: 'backendScene',
-      backendType: 'backendType',
-      cloudProductConfig: 'cloudProductConfig',
-      customDomainIds: 'customDomainIds',
-      dnsConfigs: 'dnsConfigs',
-      environmentId: 'environmentId',
-      serviceConfigs: 'serviceConfigs',
-      vipConfigs: 'vipConfigs',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      backendScene: 'string',
-      backendType: 'string',
-      cloudProductConfig: PublishHttpApiRequestEnvironmentCloudProductConfig,
-      customDomainIds: { 'type': 'array', 'itemType': 'string' },
-      dnsConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentDnsConfigs },
-      environmentId: 'string',
-      serviceConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentServiceConfigs },
-      vipConfigs: { 'type': 'array', 'itemType': PublishHttpApiRequestEnvironmentVipConfigs },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateGatewayServiceVersionRequestLabels extends $tea.Model {
   /**
-   * @example
-   * topology.kubernetes.io/zone
-   */
-  key?: string;
-  /**
-   * @example
-   * cn-hangzhou-k
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      key: 'key',
-      value: 'value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      key: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceSourceRequestK8sServiceSourceConfigIngressConfig extends $tea.Model {
-  /**
-   * @example
-   * true
-   */
-  enable?: boolean;
-  /**
+   * @remarks
+   * Ingress Class being listened to.
+   * 
    * @example
    * mse
    */
   ingressClass?: string;
   /**
+   * @remarks
+   * Whether to update the address in the Ingress Status.
+   * 
    * @example
    * false
    */
   overrideIngressIp?: boolean;
   /**
+   * @remarks
+   * Source ID.
+   * 
+   * @example
+   * src-crdddallhtgtr****
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * Watched namespace.
+   * 
    * @example
    * default
    */
   watchNamespace?: string;
   static names(): { [key: string]: string } {
     return {
-      enable: 'enable',
+      environmentId: 'environmentId',
       ingressClass: 'ingressClass',
       overrideIngressIp: 'overrideIngressIp',
+      sourceId: 'sourceId',
       watchNamespace: 'watchNamespace',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      enable: 'boolean',
+      environmentId: 'string',
       ingressClass: 'string',
       overrideIngressIp: 'boolean',
+      sourceId: 'string',
       watchNamespace: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateServiceSourceRequestK8sServiceSourceConfig extends $tea.Model {
-  ingressConfig?: UpdateServiceSourceRequestK8sServiceSourceConfigIngressConfig;
-  static names(): { [key: string]: string } {
-    return {
-      ingressConfig: 'ingressConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ingressConfig: UpdateServiceSourceRequestK8sServiceSourceConfigIngressConfig,
     };
   }
 
@@ -8915,7 +8241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权网关访问服务的安全组
+   * Authorize the security group for gateway to access services
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @param headers - map
@@ -8956,7 +8282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 授权网关访问服务的安全组
+   * Authorize the security group for gateway to access services
    * 
    * @param request - AddGatewaySecurityGroupRuleRequest
    * @returns AddGatewaySecurityGroupRuleResponse
@@ -8968,7 +8294,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建域名
+   * Create Domain
+   * 
+   * @remarks
+   * Create Domain.
    * 
    * @param request - CreateDomainRequest
    * @param headers - map
@@ -8978,12 +8307,12 @@ export default class Client extends OpenApi {
   async createDomainWithOptions(request: CreateDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDomainResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.caCertIndentifier)) {
-      body["caCertIndentifier"] = request.caCertIndentifier;
+    if (!Util.isUnset(request.caCertIdentifier)) {
+      body["caCertIdentifier"] = request.caCertIdentifier;
     }
 
-    if (!Util.isUnset(request.certIndentifier)) {
-      body["certIndentifier"] = request.certIndentifier;
+    if (!Util.isUnset(request.certIdentifier)) {
+      body["certIdentifier"] = request.certIdentifier;
     }
 
     if (!Util.isUnset(request.forceHttps)) {
@@ -9000,6 +8329,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocol)) {
       body["protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.tlsMax)) {
@@ -9029,7 +8362,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建域名
+   * Create Domain
+   * 
+   * @remarks
+   * Create Domain.
    * 
    * @param request - CreateDomainRequest
    * @returns CreateDomainResponse
@@ -9042,6 +8378,9 @@ export default class Client extends OpenApi {
 
   /**
    * CreateEnvironment
+   * 
+   * @remarks
+   * Create environment.
    * 
    * @param request - CreateEnvironmentRequest
    * @param headers - map
@@ -9067,6 +8406,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       body: OpenApiUtil.parseToMap(body),
@@ -9088,6 +8431,9 @@ export default class Client extends OpenApi {
   /**
    * CreateEnvironment
    * 
+   * @remarks
+   * Create environment.
+   * 
    * @param request - CreateEnvironmentRequest
    * @returns CreateEnvironmentResponse
    */
@@ -9098,166 +8444,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由
-   * 
-   * @param request - CreateGatewayRouteRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateGatewayRouteResponse
-   */
-  async createGatewayRouteWithOptions(gatewayId: string, request: CreateGatewayRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayRouteResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.backendConfig)) {
-      body["backendConfig"] = request.backendConfig;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      body["description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.domainConfig)) {
-      body["domainConfig"] = request.domainConfig;
-    }
-
-    if (!Util.isUnset(request.match)) {
-      body["match"] = request.match;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateGatewayRouteResponse>(await this.callApi(params, req, runtime), new CreateGatewayRouteResponse({}));
-  }
-
-  /**
-   * 创建网关路由
-   * 
-   * @param request - CreateGatewayRouteRequest
-   * @returns CreateGatewayRouteResponse
-   */
-  async createGatewayRoute(gatewayId: string, request: CreateGatewayRouteRequest): Promise<CreateGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createGatewayRouteWithOptions(gatewayId, request, headers, runtime);
-  }
-
-  /**
-   * 创建服务
-   * 
-   * @param request - CreateGatewayServiceRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateGatewayServiceResponse
-   */
-  async createGatewayServiceWithOptions(gatewayId: string, request: CreateGatewayServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayServiceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.gatewayServiceConfigs)) {
-      body["gatewayServiceConfigs"] = request.gatewayServiceConfigs;
-    }
-
-    if (!Util.isUnset(request.sourceType)) {
-      body["sourceType"] = request.sourceType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateGatewayService",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateGatewayServiceResponse>(await this.callApi(params, req, runtime), new CreateGatewayServiceResponse({}));
-  }
-
-  /**
-   * 创建服务
-   * 
-   * @param request - CreateGatewayServiceRequest
-   * @returns CreateGatewayServiceResponse
-   */
-  async createGatewayService(gatewayId: string, request: CreateGatewayServiceRequest): Promise<CreateGatewayServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createGatewayServiceWithOptions(gatewayId, request, headers, runtime);
-  }
-
-  /**
-   * 创建服务版本
-   * 
-   * @param request - CreateGatewayServiceVersionRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateGatewayServiceVersionResponse
-   */
-  async createGatewayServiceVersionWithOptions(gatewayId: string, gatewayServiceId: string, request: CreateGatewayServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateGatewayServiceVersionResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labels)) {
-      body["labels"] = request.labels;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      body["name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateGatewayServiceVersion",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}/service-versions`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new CreateGatewayServiceVersionResponse({}));
-  }
-
-  /**
-   * 创建服务版本
-   * 
-   * @param request - CreateGatewayServiceVersionRequest
-   * @returns CreateGatewayServiceVersionResponse
-   */
-  async createGatewayServiceVersion(gatewayId: string, gatewayServiceId: string, request: CreateGatewayServiceVersionRequest): Promise<CreateGatewayServiceVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createGatewayServiceVersionWithOptions(gatewayId, gatewayServiceId, request, headers, runtime);
-  }
-
-  /**
-   * 创建一个HTTP类型的API
+   * Create an API of HTTP type
    * 
    * @param request - CreateHttpApiRequest
    * @param headers - map
@@ -9267,12 +8454,24 @@ export default class Client extends OpenApi {
   async createHttpApiWithOptions(request: CreateHttpApiRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateHttpApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aiProtocols)) {
+      body["aiProtocols"] = request.aiProtocols;
+    }
+
     if (!Util.isUnset(request.basePath)) {
       body["basePath"] = request.basePath;
     }
 
+    if (!Util.isUnset(request.deployConfigs)) {
+      body["deployConfigs"] = request.deployConfigs;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ingressConfig)) {
+      body["ingressConfig"] = request.ingressConfig;
     }
 
     if (!Util.isUnset(request.name)) {
@@ -9281,6 +8480,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocols)) {
       body["protocols"] = request.protocols;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
     }
 
     if (!Util.isUnset(request.versionConfig)) {
@@ -9306,7 +8513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个HTTP类型的API
+   * Create an API of HTTP type
    * 
    * @param request - CreateHttpApiRequest
    * @returns CreateHttpApiResponse
@@ -9318,7 +8525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为HTTP API创建Operation
+   * Create an Operation for HTTP API
    * 
    * @param request - CreateHttpApiOperationRequest
    * @param headers - map
@@ -9351,7 +8558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为HTTP API创建Operation
+   * Create an Operation for HTTP API
    * 
    * @param request - CreateHttpApiOperationRequest
    * @returns CreateHttpApiOperationResponse
@@ -9360,59 +8567,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createHttpApiOperationWithOptions(httpApiId, request, headers, runtime);
-  }
-
-  /**
-   * 创建服务来源
-   * 
-   * @param request - CreateServiceSourceRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateServiceSourceResponse
-   */
-  async createServiceSourceWithOptions(gatewayId: string, request: CreateServiceSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateServiceSourceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.k8sServiceSourceConfig)) {
-      body["k8sServiceSourceConfig"] = request.k8sServiceSourceConfig;
-    }
-
-    if (!Util.isUnset(request.nacosServiceSourceConfig)) {
-      body["nacosServiceSourceConfig"] = request.nacosServiceSourceConfig;
-    }
-
-    if (!Util.isUnset(request.type)) {
-      body["type"] = request.type;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateServiceSource",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/service-sources`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateServiceSourceResponse>(await this.callApi(params, req, runtime), new CreateServiceSourceResponse({}));
-  }
-
-  /**
-   * 创建服务来源
-   * 
-   * @param request - CreateServiceSourceRequest
-   * @returns CreateServiceSourceResponse
-   */
-  async createServiceSource(gatewayId: string, request: CreateServiceSourceRequest): Promise<CreateServiceSourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createServiceSourceWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -9486,7 +8640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关
+   * Delete Gateway
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9511,7 +8665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关
+   * Delete Gateway
    * @returns DeleteGatewayResponse
    */
   async deleteGateway(gatewayId: string): Promise<DeleteGatewayResponse> {
@@ -9521,112 +8675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteGatewayRouteResponse
-   */
-  async deleteGatewayRouteWithOptions(gatewayId: string, gatewayRouteId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayRouteResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes/${OpenApiUtil.getEncodeParam(gatewayRouteId)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteGatewayRouteResponse>(await this.callApi(params, req, runtime), new DeleteGatewayRouteResponse({}));
-  }
-
-  /**
-   * 创建网关路由
-   * @returns DeleteGatewayRouteResponse
-   */
-  async deleteGatewayRoute(gatewayId: string, gatewayRouteId: string): Promise<DeleteGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteGatewayRouteWithOptions(gatewayId, gatewayRouteId, headers, runtime);
-  }
-
-  /**
-   * 删除服务
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteGatewayServiceResponse
-   */
-  async deleteGatewayServiceWithOptions(gatewayId: string, gatewayServiceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteGatewayService",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteGatewayServiceResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceResponse({}));
-  }
-
-  /**
-   * 删除服务
-   * @returns DeleteGatewayServiceResponse
-   */
-  async deleteGatewayService(gatewayId: string, gatewayServiceId: string): Promise<DeleteGatewayServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteGatewayServiceWithOptions(gatewayId, gatewayServiceId, headers, runtime);
-  }
-
-  /**
-   * 删除服务版本
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteGatewayServiceVersionResponse
-   */
-  async deleteGatewayServiceVersionWithOptions(gatewayId: string, gatewayServiceId: string, name: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteGatewayServiceVersionResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteGatewayServiceVersion",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}/service-versions/${OpenApiUtil.getEncodeParam(name)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new DeleteGatewayServiceVersionResponse({}));
-  }
-
-  /**
-   * 删除服务版本
-   * @returns DeleteGatewayServiceVersionResponse
-   */
-  async deleteGatewayServiceVersion(gatewayId: string, gatewayServiceId: string, name: string): Promise<DeleteGatewayServiceVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteGatewayServiceVersionWithOptions(gatewayId, gatewayServiceId, name, headers, runtime);
-  }
-
-  /**
-   * 删除HTTP API
+   * Delete HTTP API
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9651,7 +8700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除HTTP API
+   * Delete HTTP API
    * @returns DeleteHttpApiResponse
    */
   async deleteHttpApi(httpApiId: string): Promise<DeleteHttpApiResponse> {
@@ -9661,7 +8710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Operation
+   * Delete Operation
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9686,7 +8735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除Operation
+   * Delete Operation
    * @returns DeleteHttpApiOperationResponse
    */
   async deleteHttpApiOperation(httpApiId: string, operationId: string): Promise<DeleteHttpApiOperationResponse> {
@@ -9696,50 +8745,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除服务来源
+   * Query domain details
    * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteServiceSourceResponse
-   */
-  async deleteServiceSourceWithOptions(gatewayId: string, serviceSourceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteServiceSourceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteServiceSource",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/service-sources/${OpenApiUtil.getEncodeParam(serviceSourceId)}`,
-      method: "DELETE",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteServiceSourceResponse>(await this.callApi(params, req, runtime), new DeleteServiceSourceResponse({}));
-  }
-
-  /**
-   * 删除服务来源
-   * @returns DeleteServiceSourceResponse
-   */
-  async deleteServiceSource(gatewayId: string, serviceSourceId: string): Promise<DeleteServiceSourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.deleteServiceSourceWithOptions(gatewayId, serviceSourceId, headers, runtime);
-  }
-
-  /**
-   * 查询域名详情
-   * 
+   * @param request - GetDomainRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetDomainResponse
    */
-  async getDomainWithOptions(domainId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
+  async getDomainWithOptions(domainId: string, request: GetDomainRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetDomainResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.withStatistics)) {
+      query["withStatistics"] = request.withStatistics;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetDomain",
@@ -9756,25 +8778,39 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询域名详情
+   * Query domain details
+   * 
+   * @param request - GetDomainRequest
    * @returns GetDomainResponse
    */
-  async getDomain(domainId: string): Promise<GetDomainResponse> {
+  async getDomain(domainId: string, request: GetDomainRequest): Promise<GetDomainResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getDomainWithOptions(domainId, headers, runtime);
+    return await this.getDomainWithOptions(domainId, request, headers, runtime);
   }
 
   /**
    * GetEnvironment
    * 
+   * @param request - GetEnvironmentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetEnvironmentResponse
    */
-  async getEnvironmentWithOptions(environmentId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEnvironmentResponse> {
+  async getEnvironmentWithOptions(environmentId: string, request: GetEnvironmentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetEnvironmentResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.withStatistics)) {
+      query["withStatistics"] = request.withStatistics;
+    }
+
+    if (!Util.isUnset(request.withVpcInfo)) {
+      query["withVpcInfo"] = request.withVpcInfo;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApi.Params({
       action: "GetEnvironment",
@@ -9792,16 +8828,18 @@ export default class Client extends OpenApi {
 
   /**
    * GetEnvironment
+   * 
+   * @param request - GetEnvironmentRequest
    * @returns GetEnvironmentResponse
    */
-  async getEnvironment(environmentId: string): Promise<GetEnvironmentResponse> {
+  async getEnvironment(environmentId: string, request: GetEnvironmentRequest): Promise<GetEnvironmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.getEnvironmentWithOptions(environmentId, headers, runtime);
+    return await this.getEnvironmentWithOptions(environmentId, request, headers, runtime);
   }
 
   /**
-   * 获取网关实例详情
+   * Get a gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9826,7 +8864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关实例详情
+   * Get a gateway.
    * @returns GetGatewayResponse
    */
   async getGateway(gatewayId: string): Promise<GetGatewayResponse> {
@@ -9836,77 +8874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetGatewayRouteResponse
-   */
-  async getGatewayRouteWithOptions(gatewayId: string, gatewayRouteId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGatewayRouteResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes/${OpenApiUtil.getEncodeParam(gatewayRouteId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetGatewayRouteResponse>(await this.callApi(params, req, runtime), new GetGatewayRouteResponse({}));
-  }
-
-  /**
-   * 创建网关路由
-   * @returns GetGatewayRouteResponse
-   */
-  async getGatewayRoute(gatewayId: string, gatewayRouteId: string): Promise<GetGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getGatewayRouteWithOptions(gatewayId, gatewayRouteId, headers, runtime);
-  }
-
-  /**
-   * 查询服务
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetGatewayServiceResponse
-   */
-  async getGatewayServiceWithOptions(gatewayId: string, gatewayServiceId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetGatewayServiceResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "GetGatewayService",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<GetGatewayServiceResponse>(await this.callApi(params, req, runtime), new GetGatewayServiceResponse({}));
-  }
-
-  /**
-   * 查询服务
-   * @returns GetGatewayServiceResponse
-   */
-  async getGatewayService(gatewayId: string, gatewayServiceId: string): Promise<GetGatewayServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.getGatewayServiceWithOptions(gatewayId, gatewayServiceId, headers, runtime);
-  }
-
-  /**
-   * 读取HttpApi
+   * Read HttpApi
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9931,7 +8899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取HttpApi
+   * Read HttpApi
    * @returns GetHttpApiResponse
    */
   async getHttpApi(httpApiId: string): Promise<GetHttpApiResponse> {
@@ -9941,7 +8909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取Operation
+   * Get Operation
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9966,13 +8934,48 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 读取Operation
+   * Get Operation
    * @returns GetHttpApiOperationResponse
    */
   async getHttpApiOperation(httpApiId: string, operationId: string): Promise<GetHttpApiOperationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getHttpApiOperationWithOptions(httpApiId, operationId, headers, runtime);
+  }
+
+  /**
+   * 获取HttpApi的路由详情
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHttpApiRouteResponse
+   */
+  async getHttpApiRouteWithOptions(httpApiId: string, routeId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetHttpApiRouteResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetHttpApiRoute",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/http-apis/${OpenApiUtil.getEncodeParam(httpApiId)}/routes/${OpenApiUtil.getEncodeParam(routeId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetHttpApiRouteResponse>(await this.callApi(params, req, runtime), new GetHttpApiRouteResponse({}));
+  }
+
+  /**
+   * 获取HttpApi的路由详情
+   * @returns GetHttpApiRouteResponse
+   */
+  async getHttpApiRoute(httpApiId: string, routeId: string): Promise<GetHttpApiRouteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getHttpApiRouteWithOptions(httpApiId, routeId, headers, runtime);
   }
 
   /**
@@ -10000,6 +9003,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pageSize)) {
       query["pageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10067,6 +9074,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -10098,137 +9109,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由
+   * Retrieve the list of created cloud-native gateways
    * 
-   * @param request - ListGatewayRoutesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListGatewayRoutesResponse
-   */
-  async listGatewayRoutesWithOptions(gatewayId: string, request: ListGatewayRoutesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayRoutesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.keyword)) {
-      query["keyword"] = request.keyword;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["pageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["pageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.path)) {
-      query["path"] = request.path;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      query["status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListGatewayRoutes",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListGatewayRoutesResponse>(await this.callApi(params, req, runtime), new ListGatewayRoutesResponse({}));
-  }
-
-  /**
-   * 创建网关路由
-   * 
-   * @param request - ListGatewayRoutesRequest
-   * @returns ListGatewayRoutesResponse
-   */
-  async listGatewayRoutes(gatewayId: string, request: ListGatewayRoutesRequest): Promise<ListGatewayRoutesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listGatewayRoutesWithOptions(gatewayId, request, headers, runtime);
-  }
-
-  /**
-   * 查询服务列表
-   * 
-   * @param request - ListGatewayServicesRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListGatewayServicesResponse
-   */
-  async listGatewayServicesWithOptions(gatewayId: string, request: ListGatewayServicesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayServicesResponse> {
-    Util.validateModel(request);
-    let query : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.name)) {
-      query["name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.pageNumber)) {
-      query["pageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["pageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.sourceType)) {
-      query["sourceType"] = request.sourceType;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListGatewayServices",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services`,
-      method: "GET",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ListGatewayServicesResponse>(await this.callApi(params, req, runtime), new ListGatewayServicesResponse({}));
-  }
-
-  /**
-   * 查询服务列表
-   * 
-   * @param request - ListGatewayServicesRequest
-   * @returns ListGatewayServicesResponse
-   */
-  async listGatewayServices(gatewayId: string, request: ListGatewayServicesRequest): Promise<ListGatewayServicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.listGatewayServicesWithOptions(gatewayId, request, headers, runtime);
-  }
-
-  /**
-   * 获取已经创建的云原生网关列表
-   * 
-   * @param request - ListGatewaysRequest
+   * @param tmpReq - ListGatewaysRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListGatewaysResponse
    */
-  async listGatewaysWithOptions(request: ListGatewaysRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewaysResponse> {
-    Util.validateModel(request);
+  async listGatewaysWithOptions(tmpReq: ListGatewaysRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewaysResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListGatewaysShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.gatewayId)) {
       query["gatewayId"] = request.gatewayId;
@@ -10250,6 +9145,14 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -10269,7 +9172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取已经创建的云原生网关列表
+   * Retrieve the list of created cloud-native gateways
    * 
    * @param request - ListGatewaysRequest
    * @returns ListGatewaysResponse
@@ -10281,7 +9184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举Operation
+   * List Operations
    * 
    * @param request - ListHttpApiOperationsRequest
    * @param headers - map
@@ -10291,6 +9194,10 @@ export default class Client extends OpenApi {
   async listHttpApiOperationsWithOptions(httpApiId: string, request: ListHttpApiOperationsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHttpApiOperationsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.consumerAuthorizationRuleId)) {
+      query["consumerAuthorizationRuleId"] = request.consumerAuthorizationRuleId;
+    }
+
     if (!Util.isUnset(request.method)) {
       query["method"] = request.method;
     }
@@ -10315,6 +9222,14 @@ export default class Client extends OpenApi {
       query["pathLike"] = request.pathLike;
     }
 
+    if (!Util.isUnset(request.withConsumerInEnvironmentId)) {
+      query["withConsumerInEnvironmentId"] = request.withConsumerInEnvironmentId;
+    }
+
+    if (!Util.isUnset(request.withConsumerInfoById)) {
+      query["withConsumerInfoById"] = request.withConsumerInfoById;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -10334,7 +9249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举Operation
+   * List Operations
    * 
    * @param request - ListHttpApiOperationsRequest
    * @returns ListHttpApiOperationsResponse
@@ -10346,7 +9261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举HTTP API
+   * List HTTP APIs
    * 
    * @param request - ListHttpApisRequest
    * @param headers - map
@@ -10356,6 +9271,10 @@ export default class Client extends OpenApi {
   async listHttpApisWithOptions(request: ListHttpApisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListHttpApisResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
     if (!Util.isUnset(request.keyword)) {
       query["keyword"] = request.keyword;
     }
@@ -10372,8 +9291,24 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
-    if (!Util.isUnset(request.publishedOnly)) {
-      query["publishedOnly"] = request.publishedOnly;
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.types)) {
+      query["types"] = request.types;
+    }
+
+    if (!Util.isUnset(request.withAuthPolicyInEnvironmentId)) {
+      query["withAuthPolicyInEnvironmentId"] = request.withAuthPolicyInEnvironmentId;
+    }
+
+    if (!Util.isUnset(request.withConsumerInfoById)) {
+      query["withConsumerInfoById"] = request.withConsumerInfoById;
+    }
+
+    if (!Util.isUnset(request.withEnvironmentInfo)) {
+      query["withEnvironmentInfo"] = request.withEnvironmentInfo;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -10395,7 +9330,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列举HTTP API
+   * List HTTP APIs
    * 
    * @param request - ListHttpApisRequest
    * @returns ListHttpApisResponse
@@ -10404,178 +9339,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHttpApisWithOptions(request, headers, runtime);
-  }
-
-  /**
-   * 发布路由
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns OfflineGatewayRouteResponse
-   */
-  async offlineGatewayRouteWithOptions(gatewayId: string, gatewayRouteId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineGatewayRouteResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "OfflineGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes/${OpenApiUtil.getEncodeParam(gatewayRouteId)}/offline`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OfflineGatewayRouteResponse>(await this.callApi(params, req, runtime), new OfflineGatewayRouteResponse({}));
-  }
-
-  /**
-   * 发布路由
-   * @returns OfflineGatewayRouteResponse
-   */
-  async offlineGatewayRoute(gatewayId: string, gatewayRouteId: string): Promise<OfflineGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.offlineGatewayRouteWithOptions(gatewayId, gatewayRouteId, headers, runtime);
-  }
-
-  /**
-   * 下线已发布的HTTP API
-   * 
-   * @param request - OfflineHttpApiRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns OfflineHttpApiResponse
-   */
-  async offlineHttpApiWithOptions(httpApiId: string, request: OfflineHttpApiRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<OfflineHttpApiResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.environmentId)) {
-      body["environmentId"] = request.environmentId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "OfflineHttpApi",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/http-apis/${OpenApiUtil.getEncodeParam(httpApiId)}/offline`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<OfflineHttpApiResponse>(await this.callApi(params, req, runtime), new OfflineHttpApiResponse({}));
-  }
-
-  /**
-   * 下线已发布的HTTP API
-   * 
-   * @param request - OfflineHttpApiRequest
-   * @returns OfflineHttpApiResponse
-   */
-  async offlineHttpApi(httpApiId: string, request: OfflineHttpApiRequest): Promise<OfflineHttpApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.offlineHttpApiWithOptions(httpApiId, request, headers, runtime);
-  }
-
-  /**
-   * 发布路由
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns PublishGatewayRouteResponse
-   */
-  async publishGatewayRouteWithOptions(gatewayId: string, gatewayRouteId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishGatewayRouteResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "PublishGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes/${OpenApiUtil.getEncodeParam(gatewayRouteId)}/publish`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PublishGatewayRouteResponse>(await this.callApi(params, req, runtime), new PublishGatewayRouteResponse({}));
-  }
-
-  /**
-   * 发布路由
-   * @returns PublishGatewayRouteResponse
-   */
-  async publishGatewayRoute(gatewayId: string, gatewayRouteId: string): Promise<PublishGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.publishGatewayRouteWithOptions(gatewayId, gatewayRouteId, headers, runtime);
-  }
-
-  /**
-   * 发布HTTP API
-   * 
-   * @param request - PublishHttpApiRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns PublishHttpApiResponse
-   */
-  async publishHttpApiWithOptions(httpApiId: string, request: PublishHttpApiRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PublishHttpApiResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.allowOverwrite)) {
-      body["allowOverwrite"] = request.allowOverwrite;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      body["description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.environment)) {
-      body["environment"] = request.environment;
-    }
-
-    if (!Util.isUnset(request.revisionId)) {
-      body["revisionId"] = request.revisionId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "PublishHttpApi",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/http-apis/${OpenApiUtil.getEncodeParam(httpApiId)}/publish`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<PublishHttpApiResponse>(await this.callApi(params, req, runtime), new PublishHttpApiResponse({}));
-  }
-
-  /**
-   * 发布HTTP API
-   * 
-   * @param request - PublishHttpApiRequest
-   * @returns PublishHttpApiResponse
-   */
-  async publishHttpApi(httpApiId: string, request: PublishHttpApiRequest): Promise<PublishHttpApiResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.publishHttpApiWithOptions(httpApiId, request, headers, runtime);
   }
 
   /**
@@ -10697,158 +9460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关路由
-   * 
-   * @param request - UpdateGatewayRouteRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateGatewayRouteResponse
-   */
-  async updateGatewayRouteWithOptions(gatewayId: string, gatewayRouteId: string, request: UpdateGatewayRouteRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayRouteResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.backendConfig)) {
-      body["backendConfig"] = request.backendConfig;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      body["description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.domainConfig)) {
-      body["domainConfig"] = request.domainConfig;
-    }
-
-    if (!Util.isUnset(request.match)) {
-      body["match"] = request.match;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateGatewayRoute",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/http-routes/${OpenApiUtil.getEncodeParam(gatewayRouteId)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateGatewayRouteResponse>(await this.callApi(params, req, runtime), new UpdateGatewayRouteResponse({}));
-  }
-
-  /**
-   * 创建网关路由
-   * 
-   * @param request - UpdateGatewayRouteRequest
-   * @returns UpdateGatewayRouteResponse
-   */
-  async updateGatewayRoute(gatewayId: string, gatewayRouteId: string, request: UpdateGatewayRouteRequest): Promise<UpdateGatewayRouteResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateGatewayRouteWithOptions(gatewayId, gatewayRouteId, request, headers, runtime);
-  }
-
-  /**
-   * 更新服务
-   * 
-   * @param request - UpdateGatewayServiceRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateGatewayServiceResponse
-   */
-  async updateGatewayServiceWithOptions(gatewayId: string, gatewayServiceId: string, request: UpdateGatewayServiceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.addresses)) {
-      body["addresses"] = request.addresses;
-    }
-
-    if (!Util.isUnset(request.port)) {
-      body["port"] = request.port;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateGatewayService",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateGatewayServiceResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceResponse({}));
-  }
-
-  /**
-   * 更新服务
-   * 
-   * @param request - UpdateGatewayServiceRequest
-   * @returns UpdateGatewayServiceResponse
-   */
-  async updateGatewayService(gatewayId: string, gatewayServiceId: string, request: UpdateGatewayServiceRequest): Promise<UpdateGatewayServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateGatewayServiceWithOptions(gatewayId, gatewayServiceId, request, headers, runtime);
-  }
-
-  /**
-   * 更新服务版本
-   * 
-   * @param request - UpdateGatewayServiceVersionRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateGatewayServiceVersionResponse
-   */
-  async updateGatewayServiceVersionWithOptions(gatewayId: string, gatewayServiceId: string, name: string, request: UpdateGatewayServiceVersionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateGatewayServiceVersionResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.labels)) {
-      body["labels"] = request.labels;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateGatewayServiceVersion",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/gateway-services/${OpenApiUtil.getEncodeParam(gatewayServiceId)}/service-versions/${OpenApiUtil.getEncodeParam(name)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateGatewayServiceVersionResponse>(await this.callApi(params, req, runtime), new UpdateGatewayServiceVersionResponse({}));
-  }
-
-  /**
-   * 更新服务版本
-   * 
-   * @param request - UpdateGatewayServiceVersionRequest
-   * @returns UpdateGatewayServiceVersionResponse
-   */
-  async updateGatewayServiceVersion(gatewayId: string, gatewayServiceId: string, name: string, request: UpdateGatewayServiceVersionRequest): Promise<UpdateGatewayServiceVersionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateGatewayServiceVersionWithOptions(gatewayId, gatewayServiceId, name, request, headers, runtime);
-  }
-
-  /**
-   * 更新HTTP API
+   * Update HTTP API
    * 
    * @param request - UpdateHttpApiRequest
    * @param headers - map
@@ -10858,12 +9470,24 @@ export default class Client extends OpenApi {
   async updateHttpApiWithOptions(httpApiId: string, request: UpdateHttpApiRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateHttpApiResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aiProtocols)) {
+      body["aiProtocols"] = request.aiProtocols;
+    }
+
     if (!Util.isUnset(request.basePath)) {
       body["basePath"] = request.basePath;
     }
 
+    if (!Util.isUnset(request.deployConfigs)) {
+      body["deployConfigs"] = request.deployConfigs;
+    }
+
     if (!Util.isUnset(request.description)) {
       body["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.ingressConfig)) {
+      body["ingressConfig"] = request.ingressConfig;
     }
 
     if (!Util.isUnset(request.protocols)) {
@@ -10893,7 +9517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新HTTP API
+   * Update HTTP API
    * 
    * @param request - UpdateHttpApiRequest
    * @returns UpdateHttpApiResponse
@@ -10905,7 +9529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Operation
+   * Update Operation
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @param headers - map
@@ -10938,7 +9562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新Operation
+   * Update Operation
    * 
    * @param request - UpdateHttpApiOperationRequest
    * @returns UpdateHttpApiOperationResponse
@@ -10947,51 +9571,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateHttpApiOperationWithOptions(httpApiId, operationId, request, headers, runtime);
-  }
-
-  /**
-   * 更新服务来源
-   * 
-   * @param request - UpdateServiceSourceRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateServiceSourceResponse
-   */
-  async updateServiceSourceWithOptions(gatewayId: string, serviceSourceId: string, request: UpdateServiceSourceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateServiceSourceResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.k8sServiceSourceConfig)) {
-      body["k8sServiceSourceConfig"] = request.k8sServiceSourceConfig;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateServiceSource",
-      version: "2024-03-27",
-      protocol: "HTTPS",
-      pathname: `/v1/gateways/${OpenApiUtil.getEncodeParam(gatewayId)}/service-sources/${OpenApiUtil.getEncodeParam(serviceSourceId)}`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateServiceSourceResponse>(await this.callApi(params, req, runtime), new UpdateServiceSourceResponse({}));
-  }
-
-  /**
-   * 更新服务来源
-   * 
-   * @param request - UpdateServiceSourceRequest
-   * @returns UpdateServiceSourceResponse
-   */
-  async updateServiceSource(gatewayId: string, serviceSourceId: string, request: UpdateServiceSourceRequest): Promise<UpdateServiceSourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateServiceSourceWithOptions(gatewayId, serviceSourceId, request, headers, runtime);
   }
 
 }
