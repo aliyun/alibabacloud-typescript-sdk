@@ -7027,6 +7027,105 @@ export class RestartServiceInstanceResponse extends $tea.Model {
   }
 }
 
+export class RollbackServiceInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * si-3a8f9a75da074f52b969
+   */
+  serviceInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      regionId: 'RegionId',
+      serviceInstanceId: 'ServiceInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      regionId: 'string',
+      serviceInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackServiceInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * EE9EF87D-46F8-5AF6-9A65-6B034E204136
+   */
+  requestId?: string;
+  /**
+   * @example
+   * si-5289e1d6d0c14397881d
+   */
+  serviceInstanceId?: string;
+  /**
+   * @example
+   * UpgradeRollbacking
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      serviceInstanceId: 'ServiceInstanceId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      serviceInstanceId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RollbackServiceInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RollbackServiceInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RollbackServiceInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -16252,6 +16351,56 @@ export default class Client extends OpenApi {
   async restartServiceInstance(request: RestartServiceInstanceRequest): Promise<RestartServiceInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartServiceInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 回滚服务实例
+   * 
+   * @param request - RollbackServiceInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RollbackServiceInstanceResponse
+   */
+  async rollbackServiceInstanceWithOptions(request: RollbackServiceInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RollbackServiceInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RollbackServiceInstance",
+      version: "2021-05-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+  }
+
+  /**
+   * 回滚服务实例
+   * 
+   * @param request - RollbackServiceInstanceRequest
+   * @returns RollbackServiceInstanceResponse
+   */
+  async rollbackServiceInstance(request: RollbackServiceInstanceRequest): Promise<RollbackServiceInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rollbackServiceInstanceWithOptions(request, runtime);
   }
 
   /**
