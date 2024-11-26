@@ -1061,6 +1061,169 @@ export class DescribeInstanceResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceForIsvRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 155****11
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceForIsvResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1570634021000
+   */
+  beganOn?: number;
+  /**
+   * @example
+   * {"package_version":"yuncode000111"}
+   */
+  componentJson?: string;
+  /**
+   * @example
+   * 1570634018000
+   */
+  createdOn?: number;
+  /**
+   * @example
+   * 1602259200000
+   */
+  endOn?: number;
+  extendJson?: string;
+  /**
+   * @example
+   * 1551111111
+   */
+  instanceId?: number;
+  /**
+   * @example
+   * true
+   */
+  isTrial?: boolean;
+  /**
+   * @example
+   * 204211111111111
+   */
+  orderId?: number;
+  /**
+   * @example
+   * cmgj00**11
+   */
+  productCode?: string;
+  productName?: string;
+  /**
+   * @example
+   * cmgj00**11-prepay
+   */
+  productSkuCode?: string;
+  /**
+   * @example
+   * APP
+   */
+  productType?: string;
+  relationalData?: DescribeInstanceForIsvResponseBodyRelationalData;
+  /**
+   * @example
+   * 6EF60BEC-****-****-****-270359FB54A7
+   */
+  requestId?: string;
+  /**
+   * @example
+   * OPENED
+   */
+  status?: string;
+  supplierName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beganOn: 'BeganOn',
+      componentJson: 'ComponentJson',
+      createdOn: 'CreatedOn',
+      endOn: 'EndOn',
+      extendJson: 'ExtendJson',
+      instanceId: 'InstanceId',
+      isTrial: 'IsTrial',
+      orderId: 'OrderId',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      productType: 'ProductType',
+      relationalData: 'RelationalData',
+      requestId: 'RequestId',
+      status: 'Status',
+      supplierName: 'SupplierName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beganOn: 'number',
+      componentJson: 'string',
+      createdOn: 'number',
+      endOn: 'number',
+      extendJson: 'string',
+      instanceId: 'number',
+      isTrial: 'boolean',
+      orderId: 'number',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      productType: 'string',
+      relationalData: DescribeInstanceForIsvResponseBodyRelationalData,
+      requestId: 'string',
+      status: 'string',
+      supplierName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceForIsvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceForIsvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceForIsvResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstancesRequest extends $tea.Model {
   /**
    * @example
@@ -1460,6 +1623,205 @@ export class DescribeOrderResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeOrderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderForIsvRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 202*********415
+   */
+  orderId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderForIsvResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  accountQuantity?: number;
+  /**
+   * @example
+   * 190311111111****
+   */
+  aliUid?: number;
+  components?: { [key: string]: any };
+  /**
+   * @example
+   * 0.0
+   */
+  couponPrice?: number;
+  /**
+   * @example
+   * 1531191564000
+   */
+  createdOn?: number;
+  /**
+   * @remarks
+   * List
+   */
+  instanceIds?: string[];
+  /**
+   * @example
+   * 202211111111111
+   */
+  orderId?: number;
+  /**
+   * @example
+   * NORMAL
+   */
+  orderStatus?: string;
+  /**
+   * @example
+   * NEW
+   */
+  orderType?: string;
+  /**
+   * @example
+   * 10.0
+   */
+  originalPrice?: number;
+  /**
+   * @example
+   * 1531191675000
+   */
+  paidOn?: number;
+  /**
+   * @example
+   * PAID
+   */
+  payStatus?: string;
+  /**
+   * @example
+   * 0.0
+   */
+  paymentPrice?: number;
+  /**
+   * @example
+   * MONTH
+   */
+  periodType?: string;
+  /**
+   * @example
+   * cmgj02****
+   */
+  productCode?: string;
+  productName?: string;
+  /**
+   * @example
+   * cmgj02****-prepay
+   */
+  productSkuCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  quantity?: number;
+  /**
+   * @example
+   * 6EF60BEC-****-****-****-270359FB54A7
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0.0
+   */
+  totalPrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accountQuantity: 'AccountQuantity',
+      aliUid: 'AliUid',
+      components: 'Components',
+      couponPrice: 'CouponPrice',
+      createdOn: 'CreatedOn',
+      instanceIds: 'InstanceIds',
+      orderId: 'OrderId',
+      orderStatus: 'OrderStatus',
+      orderType: 'OrderType',
+      originalPrice: 'OriginalPrice',
+      paidOn: 'PaidOn',
+      payStatus: 'PayStatus',
+      paymentPrice: 'PaymentPrice',
+      periodType: 'PeriodType',
+      productCode: 'ProductCode',
+      productName: 'ProductName',
+      productSkuCode: 'ProductSkuCode',
+      quantity: 'Quantity',
+      requestId: 'RequestId',
+      totalPrice: 'TotalPrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountQuantity: 'number',
+      aliUid: 'number',
+      components: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      couponPrice: 'number',
+      createdOn: 'number',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      orderId: 'number',
+      orderStatus: 'string',
+      orderType: 'string',
+      originalPrice: 'number',
+      paidOn: 'number',
+      payStatus: 'string',
+      paymentPrice: 'number',
+      periodType: 'string',
+      productCode: 'string',
+      productName: 'string',
+      productSkuCode: 'string',
+      quantity: 'number',
+      requestId: 'string',
+      totalPrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOrderForIsvResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOrderForIsvResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOrderForIsvResponseBody,
     };
   }
 
@@ -3432,6 +3794,29 @@ export class DescribeInstanceResponseBodyModules extends $tea.Model {
 }
 
 export class DescribeInstanceResponseBodyRelationalData extends $tea.Model {
+  /**
+   * @example
+   * STARTED
+   */
+  serviceStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceStatus: 'ServiceStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceForIsvResponseBodyRelationalData extends $tea.Model {
   /**
    * @example
    * STARTED
@@ -5455,6 +5840,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 服务商侧查询实例信息
+   * 
+   * @param request - DescribeInstanceForIsvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceForIsvResponse
+   */
+  async describeInstanceForIsvWithOptions(request: DescribeInstanceForIsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceForIsvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceForIsv",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceForIsvResponse>(await this.callApi(params, req, runtime), new DescribeInstanceForIsvResponse({}));
+  }
+
+  /**
+   * 服务商侧查询实例信息
+   * 
+   * @param request - DescribeInstanceForIsvRequest
+   * @returns DescribeInstanceForIsvResponse
+   */
+  async describeInstanceForIsv(request: DescribeInstanceForIsvRequest): Promise<DescribeInstanceForIsvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceForIsvWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeInstancesResponse
@@ -5586,6 +6013,48 @@ export default class Client extends OpenApi {
   async describeOrder(request: DescribeOrderRequest): Promise<DescribeOrderResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeOrderWithOptions(request, runtime);
+  }
+
+  /**
+   * 服务商侧查询订单详情
+   * 
+   * @param request - DescribeOrderForIsvRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOrderForIsvResponse
+   */
+  async describeOrderForIsvWithOptions(request: DescribeOrderForIsvRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOrderForIsvResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOrderForIsv",
+      version: "2015-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOrderForIsvResponse>(await this.callApi(params, req, runtime), new DescribeOrderForIsvResponse({}));
+  }
+
+  /**
+   * 服务商侧查询订单详情
+   * 
+   * @param request - DescribeOrderForIsvRequest
+   * @returns DescribeOrderForIsvResponse
+   */
+  async describeOrderForIsv(request: DescribeOrderForIsvRequest): Promise<DescribeOrderForIsvResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOrderForIsvWithOptions(request, runtime);
   }
 
   /**
