@@ -13,12 +13,14 @@ export class Artifact extends $tea.Model {
    * This parameter is required.
    */
   bizId?: string;
+  catagoryBizId?: string;
   /**
    * @remarks
    * This parameter is required.
    */
   creator?: number;
   credential?: Credential;
+  fullPath?: string[];
   /**
    * @remarks
    * This parameter is required.
@@ -47,8 +49,10 @@ export class Artifact extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       bizId: 'bizId',
+      catagoryBizId: 'catagoryBizId',
       creator: 'creator',
       credential: 'credential',
+      fullPath: 'fullPath',
       gmtCreated: 'gmtCreated',
       gmtModified: 'gmtModified',
       location: 'location',
@@ -60,8 +64,10 @@ export class Artifact extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       bizId: 'string',
+      catagoryBizId: 'string',
       creator: 'number',
       credential: Credential,
+      fullPath: { 'type': 'array', 'itemType': 'string' },
       gmtCreated: 'string',
       gmtModified: 'string',
       location: 'string',
@@ -457,11 +463,13 @@ export class Task extends $tea.Model {
    * This parameter is required.
    */
   creator?: number;
+  credential?: TaskCredential;
   defaultCatalogId?: string;
   defaultDatabase?: string;
   defaultResourceQueueId?: string;
   defaultSqlComputeId?: string;
   deploymentId?: string;
+  environmentId?: string;
   extraArtifactIds?: string[];
   extraSparkSubmitParams?: string;
   files?: string[];
@@ -554,11 +562,13 @@ export class Task extends $tea.Model {
       categoryBizId: 'categoryBizId',
       content: 'content',
       creator: 'creator',
+      credential: 'credential',
       defaultCatalogId: 'defaultCatalogId',
       defaultDatabase: 'defaultDatabase',
       defaultResourceQueueId: 'defaultResourceQueueId',
       defaultSqlComputeId: 'defaultSqlComputeId',
       deploymentId: 'deploymentId',
+      environmentId: 'environmentId',
       extraArtifactIds: 'extraArtifactIds',
       extraSparkSubmitParams: 'extraSparkSubmitParams',
       files: 'files',
@@ -598,11 +608,13 @@ export class Task extends $tea.Model {
       categoryBizId: 'string',
       content: 'string',
       creator: 'number',
+      credential: TaskCredential,
       defaultCatalogId: 'string',
       defaultDatabase: 'string',
       defaultResourceQueueId: 'string',
       defaultSqlComputeId: 'string',
       deploymentId: 'string',
+      environmentId: 'string',
       extraArtifactIds: { 'type': 'array', 'itemType': 'string' },
       extraSparkSubmitParams: 'string',
       files: { 'type': 'array', 'itemType': 'string' },
@@ -1075,7 +1087,7 @@ export class CreateSqlStatementRequest extends $tea.Model {
   limit?: number;
   /**
    * @remarks
-   * The SQL compute ID. You can create an SQL compute in the workspace created in EMR Serverless Spark.
+   * The SQL session ID. You can create an SQL session in the workspace created in EMR Serverless Spark.
    * 
    * @example
    * sc-dfahdfjafhajd****
@@ -1258,6 +1270,83 @@ export class GetJobRunResponse extends $tea.Model {
   }
 }
 
+export class GetSessionClusterRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  sessionCluster?: GetSessionClusterResponseBodySessionCluster;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      sessionCluster: 'sessionCluster',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      sessionCluster: GetSessionClusterResponseBodySessionCluster,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSessionClusterResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSessionClusterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSqlStatementRequest extends $tea.Model {
   /**
    * @remarks
@@ -1345,12 +1434,16 @@ export class GetSqlStatementResponse extends $tea.Model {
 export class GrantRoleToUsersRequest extends $tea.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the role.
+   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
    * 
    * @example
    * acs:emr::w-975bcfda9625****:role/Owner
    */
   roleArn?: string;
+  /**
+   * @remarks
+   * The user ARNs.
+   */
   userArns?: string[];
   /**
    * @remarks
@@ -3067,6 +3160,46 @@ export class SqlOutputSchema extends $tea.Model {
   }
 }
 
+export class TaskCredential extends $tea.Model {
+  accessId?: string;
+  accessUrl?: string;
+  expire?: number;
+  host?: string;
+  path?: string;
+  policy?: string;
+  securityToken?: string;
+  signature?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessId: 'accessId',
+      accessUrl: 'accessUrl',
+      expire: 'expire',
+      host: 'host',
+      path: 'path',
+      policy: 'policy',
+      securityToken: 'securityToken',
+      signature: 'signature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessId: 'string',
+      accessUrl: 'string',
+      expire: 'number',
+      host: 'string',
+      path: 'string',
+      policy: 'string',
+      securityToken: 'string',
+      signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSqlStatementResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -3179,6 +3312,7 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
    * 1684119314000
    */
   endTime?: number;
+  environmentId?: string;
   /**
    * @remarks
    * The timeout period of the job.
@@ -3286,6 +3420,7 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
       configurationOverrides: 'configurationOverrides',
       displayReleaseVersion: 'displayReleaseVersion',
       endTime: 'endTime',
+      environmentId: 'environmentId',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
       fusion: 'fusion',
       jobDriver: 'jobDriver',
@@ -3310,6 +3445,7 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
       configurationOverrides: GetJobRunResponseBodyJobRunConfigurationOverrides,
       displayReleaseVersion: 'string',
       endTime: 'number',
+      environmentId: 'string',
       executionTimeoutSeconds: 'number',
       fusion: 'boolean',
       jobDriver: JobDriver,
@@ -3323,6 +3459,283 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
       stateChangeReason: GetJobRunResponseBodyJobRunStateChangeReason,
       submitTime: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
+      webUI: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBodySessionClusterApplicationConfigs extends $tea.Model {
+  /**
+   * @example
+   * spark-defaults.conf
+   */
+  configFileName?: string;
+  /**
+   * @example
+   * spark.app.name
+   */
+  configItemKey?: string;
+  /**
+   * @example
+   * test
+   */
+  configItemValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configFileName: 'configFileName',
+      configItemKey: 'configItemKey',
+      configItemValue: 'configItemValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configFileName: 'string',
+      configItemKey: 'string',
+      configItemValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBodySessionClusterAutoStartConfiguration extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBodySessionClusterAutoStopConfiguration extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  enable?: boolean;
+  /**
+   * @example
+   * 60
+   */
+  idleTimeoutMinutes?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+      idleTimeoutMinutes: 'idleTimeoutMinutes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      idleTimeoutMinutes: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBodySessionClusterStateChangeReason extends $tea.Model {
+  /**
+   * @example
+   * 1000000
+   */
+  code?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSessionClusterResponseBodySessionCluster extends $tea.Model {
+  applicationConfigs?: GetSessionClusterResponseBodySessionClusterApplicationConfigs[];
+  autoStartConfiguration?: GetSessionClusterResponseBodySessionClusterAutoStartConfiguration;
+  autoStopConfiguration?: GetSessionClusterResponseBodySessionClusterAutoStopConfiguration;
+  /**
+   * @example
+   * esr-2.2(Java Runtime)
+   */
+  displayReleaseVersion?: string;
+  /**
+   * @example
+   * your.domain.com
+   */
+  domain?: string;
+  domainInner?: string;
+  /**
+   * @example
+   * TSK-xxxxxxxx
+   */
+  draftId?: string;
+  /**
+   * @example
+   * env-cpv569tlhtgndjl86t40
+   */
+  envId?: string;
+  /**
+   * @example
+   * false
+   */
+  fusion?: boolean;
+  gmtCreate?: number;
+  /**
+   * @example
+   * SQL
+   */
+  kind?: string;
+  /**
+   * @example
+   * test
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 作业实例名称。
+   * 
+   * @example
+   * jobName
+   */
+  queueName?: string;
+  /**
+   * @example
+   * esr-2.2（Java Runtime）
+   */
+  releaseVersion?: string;
+  /**
+   * @remarks
+   * 交互式作业会话id。
+   * 
+   * @example
+   * 1234abcd-12ab-34cd-56ef-1234567890ab
+   */
+  sessionClusterId?: string;
+  startTime?: number;
+  /**
+   * @remarks
+   * 作业状态。
+   * 
+   * @example
+   * Running
+   */
+  state?: string;
+  stateChangeReason?: GetSessionClusterResponseBodySessionClusterStateChangeReason;
+  /**
+   * @remarks
+   * 任务实例ID。
+   * 
+   * @example
+   * jr-231231
+   */
+  userId?: string;
+  /**
+   * @example
+   * user1
+   */
+  userName?: string;
+  /**
+   * @example
+   * https://spark-ui/link
+   */
+  webUI?: string;
+  /**
+   * @remarks
+   * 工作空间id。
+   * 
+   * @example
+   * w-1234abcd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigs: 'applicationConfigs',
+      autoStartConfiguration: 'autoStartConfiguration',
+      autoStopConfiguration: 'autoStopConfiguration',
+      displayReleaseVersion: 'displayReleaseVersion',
+      domain: 'domain',
+      domainInner: 'domainInner',
+      draftId: 'draftId',
+      envId: 'envId',
+      fusion: 'fusion',
+      gmtCreate: 'gmtCreate',
+      kind: 'kind',
+      name: 'name',
+      queueName: 'queueName',
+      releaseVersion: 'releaseVersion',
+      sessionClusterId: 'sessionClusterId',
+      startTime: 'startTime',
+      state: 'state',
+      stateChangeReason: 'stateChangeReason',
+      userId: 'userId',
+      userName: 'userName',
+      webUI: 'webUI',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigs: { 'type': 'array', 'itemType': GetSessionClusterResponseBodySessionClusterApplicationConfigs },
+      autoStartConfiguration: GetSessionClusterResponseBodySessionClusterAutoStartConfiguration,
+      autoStopConfiguration: GetSessionClusterResponseBodySessionClusterAutoStopConfiguration,
+      displayReleaseVersion: 'string',
+      domain: 'string',
+      domainInner: 'string',
+      draftId: 'string',
+      envId: 'string',
+      fusion: 'boolean',
+      gmtCreate: 'number',
+      kind: 'string',
+      name: 'string',
+      queueName: 'string',
+      releaseVersion: 'string',
+      sessionClusterId: 'string',
+      startTime: 'number',
+      state: 'string',
+      stateChangeReason: GetSessionClusterResponseBodySessionClusterStateChangeReason,
+      userId: 'string',
+      userName: 'string',
       webUI: 'string',
       workspaceId: 'string',
     };
@@ -3960,7 +4373,7 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
   configFileName?: string;
   /**
    * @remarks
-   * The key of the configuration item.
+   * The key of the configuration.
    * 
    * @example
    * spark.app.name
@@ -3968,7 +4381,7 @@ export class ListSessionClustersResponseBodySessionClustersApplicationConfigs ex
   configItemKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration value.
    * 
    * @example
    * test_application
@@ -4115,6 +4528,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    */
   displayReleaseVersion?: string;
   domain?: string;
+  domainInner?: string;
   /**
    * @remarks
    * The ID of the job that is associated with the session.
@@ -4131,6 +4545,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    * false
    */
   fusion?: boolean;
+  gmtCreate?: number;
   /**
    * @remarks
    * The session type.
@@ -4177,6 +4592,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    * sc-123131
    */
   sessionClusterId?: string;
+  startTime?: number;
   /**
    * @remarks
    * The status of the session.
@@ -4200,7 +4616,7 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   userId?: string;
   /**
    * @remarks
-   * The name of the user.
+   * The username.
    * 
    * @example
    * test_user
@@ -4229,13 +4645,16 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
       autoStopConfiguration: 'autoStopConfiguration',
       displayReleaseVersion: 'displayReleaseVersion',
       domain: 'domain',
+      domainInner: 'domainInner',
       draftId: 'draftId',
       fusion: 'fusion',
+      gmtCreate: 'gmtCreate',
       kind: 'kind',
       name: 'name',
       queueName: 'queueName',
       releaseVersion: 'releaseVersion',
       sessionClusterId: 'sessionClusterId',
+      startTime: 'startTime',
       state: 'state',
       stateChangeReason: 'stateChangeReason',
       userId: 'userId',
@@ -4252,13 +4671,16 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
       autoStopConfiguration: ListSessionClustersResponseBodySessionClustersAutoStopConfiguration,
       displayReleaseVersion: 'string',
       domain: 'string',
+      domainInner: 'string',
       draftId: 'string',
       fusion: 'boolean',
+      gmtCreate: 'number',
       kind: 'string',
       name: 'string',
       queueName: 'string',
       releaseVersion: 'string',
       sessionClusterId: 'string',
+      startTime: 'number',
       state: 'string',
       stateChangeReason: ListSessionClustersResponseBodySessionClustersStateChangeReason,
       userId: 'string',
@@ -5026,6 +5448,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询SessionCluster集群
+   * 
+   * @param request - GetSessionClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSessionClusterResponse
+   */
+  async getSessionClusterWithOptions(workspaceId: string, sessionClusterId: string, request: GetSessionClusterRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetSessionClusterResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSessionCluster",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/${OpenApiUtil.getEncodeParam(workspaceId)}/sessionClusters/${OpenApiUtil.getEncodeParam(sessionClusterId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSessionClusterResponse>(await this.callApi(params, req, runtime), new GetSessionClusterResponse({}));
+  }
+
+  /**
+   * 查询SessionCluster集群
+   * 
+   * @param request - GetSessionClusterRequest
+   * @returns GetSessionClusterResponse
+   */
+  async getSessionCluster(workspaceId: string, sessionClusterId: string, request: GetSessionClusterRequest): Promise<GetSessionClusterResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSessionClusterWithOptions(workspaceId, sessionClusterId, request, headers, runtime);
+  }
+
+  /**
    * Queries the status of an SQL query task.
    * 
    * @param request - GetSqlStatementRequest
@@ -5233,7 +5700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志内容
+   * Obtains the log content.
    * 
    * @param request - ListLogContentsRequest
    * @param headers - map
@@ -5278,7 +5745,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取日志内容
+   * Obtains the log content.
    * 
    * @param request - ListLogContentsRequest
    * @returns ListLogContentsResponse
@@ -5351,7 +5818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sessions.
+   * Queries the list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @param headers - map
@@ -5404,7 +5871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of sessions.
+   * Queries the list of sessions.
    * 
    * @param request - ListSessionClustersRequest
    * @returns ListSessionClustersResponse
@@ -5416,7 +5883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作空间队列列表
+   * Queries the list of queues in a Spark workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @param headers - map
@@ -5453,7 +5920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看工作空间队列列表
+   * Queries the list of queues in a Spark workspace.
    * 
    * @param request - ListWorkspaceQueuesRequest
    * @returns ListWorkspaceQueuesResponse
