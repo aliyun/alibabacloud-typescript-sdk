@@ -404,6 +404,10 @@ export class AddShareReportResponse extends $tea.Model {
 
 export class AddUserRequest extends $tea.Model {
   /**
+   * @deprecated
+   */
+  accountId?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -443,6 +447,7 @@ export class AddUserRequest extends $tea.Model {
   userType?: number;
   static names(): { [key: string]: string } {
     return {
+      accountId: 'AccountId',
       accountName: 'AccountName',
       adminUser: 'AdminUser',
       authAdminUser: 'AuthAdminUser',
@@ -454,6 +459,7 @@ export class AddUserRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountId: 'string',
       accountName: 'string',
       adminUser: 'boolean',
       authAdminUser: 'boolean',
@@ -9959,6 +9965,107 @@ export class SetDataLevelPermissionWhiteListResponse extends $tea.Model {
   }
 }
 
+export class SmartqQueryAbilityRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  cubeId?: string;
+  /**
+   * @example
+   * 7c7223ae-****-3c744528014b
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userQuestion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cubeId: 'CubeId',
+      userId: 'UserId',
+      userQuestion: 'UserQuestion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cubeId: 'string',
+      userId: 'string',
+      userQuestion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqQueryAbilityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * D787E1A3-A************2B05DF8D885
+   */
+  requestId?: string;
+  result?: SmartqQueryAbilityResponseBodyResult;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      result: SmartqQueryAbilityResponseBodyResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqQueryAbilityResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SmartqQueryAbilityResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SmartqQueryAbilityResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDataLevelPermissionStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -17877,6 +17984,80 @@ export class QueryWorkspaceUserListResponseBodyResult extends $tea.Model {
   }
 }
 
+export class SmartqQueryAbilityResponseBodyResultMetaType extends $tea.Model {
+  /**
+   * @example
+   * Polar***STPS
+   */
+  key?: string;
+  /**
+   * @example
+   * string
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqQueryAbilityResponseBodyResultValues extends $tea.Model {
+  row?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      row: 'Row',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      row: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SmartqQueryAbilityResponseBodyResult extends $tea.Model {
+  chartType?: string;
+  metaType?: SmartqQueryAbilityResponseBodyResultMetaType[];
+  values?: SmartqQueryAbilityResponseBodyResultValues[];
+  static names(): { [key: string]: string } {
+    return {
+      chartType: 'ChartType',
+      metaType: 'MetaType',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chartType: 'string',
+      metaType: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultMetaType },
+      values: { 'type': 'array', 'itemType': SmartqQueryAbilityResponseBodyResultValues },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateWorkspaceUsersRoleResponseBodyResult extends $tea.Model {
   /**
    * @example
@@ -18120,6 +18301,10 @@ export default class Client extends OpenApi {
   async addUserWithOptions(request: AddUserRequest, runtime: $Util.RuntimeOptions): Promise<AddUserResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accountId)) {
+      query["AccountId"] = request.accountId;
+    }
+
     if (!Util.isUnset(request.accountName)) {
       query["AccountName"] = request.accountName;
     }
@@ -22580,6 +22765,56 @@ export default class Client extends OpenApi {
   async setDataLevelPermissionWhiteList(request: SetDataLevelPermissionWhiteListRequest): Promise<SetDataLevelPermissionWhiteListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setDataLevelPermissionWhiteListWithOptions(request, runtime);
+  }
+
+  /**
+   * 问数能力开放
+   * 
+   * @param request - SmartqQueryAbilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SmartqQueryAbilityResponse
+   */
+  async smartqQueryAbilityWithOptions(request: SmartqQueryAbilityRequest, runtime: $Util.RuntimeOptions): Promise<SmartqQueryAbilityResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cubeId)) {
+      query["CubeId"] = request.cubeId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    if (!Util.isUnset(request.userQuestion)) {
+      query["UserQuestion"] = request.userQuestion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SmartqQueryAbility",
+      version: "2022-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SmartqQueryAbilityResponse>(await this.callApi(params, req, runtime), new SmartqQueryAbilityResponse({}));
+  }
+
+  /**
+   * 问数能力开放
+   * 
+   * @param request - SmartqQueryAbilityRequest
+   * @returns SmartqQueryAbilityResponse
+   */
+  async smartqQueryAbility(request: SmartqQueryAbilityRequest): Promise<SmartqQueryAbilityResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.smartqQueryAbilityWithOptions(request, runtime);
   }
 
   /**
