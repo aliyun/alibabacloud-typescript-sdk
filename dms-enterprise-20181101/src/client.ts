@@ -44,6 +44,369 @@ export class AsyncTaskVO extends $tea.Model {
   }
 }
 
+export class DLCatalog extends $tea.Model {
+  description?: string;
+  location?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      location: 'Location',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      location: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLColumn extends $tea.Model {
+  comment?: string;
+  name?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      comment: 'Comment',
+      name: 'Name',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      comment: 'string',
+      name: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLDatabase extends $tea.Model {
+  catalogName?: string;
+  dbId?: number;
+  description?: string;
+  location?: string;
+  name?: string;
+  parameters?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dbId: 'DbId',
+      description: 'Description',
+      location: 'Location',
+      name: 'Name',
+      parameters: 'Parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dbId: 'number',
+      description: 'string',
+      location: 'string',
+      name: 'string',
+      parameters: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLOrder extends $tea.Model {
+  col?: string;
+  order?: number;
+  static names(): { [key: string]: string } {
+    return {
+      col: 'Col',
+      order: 'Order',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      col: 'string',
+      order: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLSerdeInfo extends $tea.Model {
+  description?: string;
+  deserializerClass?: string;
+  name?: string;
+  parameters?: { [key: string]: any };
+  serdeType?: string;
+  serializationLib?: string;
+  serializerClass?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      deserializerClass: 'DeserializerClass',
+      name: 'Name',
+      parameters: 'Parameters',
+      serdeType: 'SerdeType',
+      serializationLib: 'SerializationLib',
+      serializerClass: 'SerializerClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      deserializerClass: 'string',
+      name: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      serdeType: 'string',
+      serializationLib: 'string',
+      serializerClass: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLSkewedInfo extends $tea.Model {
+  skewedColNames?: string[];
+  skewedColValueLocationMaps?: { [key: string]: any };
+  skewedColValues?: string[][];
+  static names(): { [key: string]: string } {
+    return {
+      skewedColNames: 'SkewedColNames',
+      skewedColValueLocationMaps: 'SkewedColValueLocationMaps',
+      skewedColValues: 'SkewedColValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      skewedColNames: { 'type': 'array', 'itemType': 'string' },
+      skewedColValueLocationMaps: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      skewedColValues: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLStorageDescriptor extends $tea.Model {
+  bucketCols?: string[];
+  columns?: DLColumn[];
+  inputFormat?: string;
+  isCompressed?: boolean;
+  location?: string;
+  numBuckets?: number;
+  originalColumns?: DLColumn[];
+  outputFormat?: string;
+  parameters?: { [key: string]: any };
+  serdeInfo?: DLSerdeInfo;
+  skewedInfo?: DLSkewedInfo;
+  sortCols?: DLOrder[];
+  static names(): { [key: string]: string } {
+    return {
+      bucketCols: 'BucketCols',
+      columns: 'Columns',
+      inputFormat: 'InputFormat',
+      isCompressed: 'IsCompressed',
+      location: 'Location',
+      numBuckets: 'NumBuckets',
+      originalColumns: 'OriginalColumns',
+      outputFormat: 'OutputFormat',
+      parameters: 'Parameters',
+      serdeInfo: 'SerdeInfo',
+      skewedInfo: 'SkewedInfo',
+      sortCols: 'SortCols',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bucketCols: { 'type': 'array', 'itemType': 'string' },
+      columns: { 'type': 'array', 'itemType': DLColumn },
+      inputFormat: 'string',
+      isCompressed: 'boolean',
+      location: 'string',
+      numBuckets: 'number',
+      originalColumns: { 'type': 'array', 'itemType': DLColumn },
+      outputFormat: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      serdeInfo: DLSerdeInfo,
+      skewedInfo: DLSkewedInfo,
+      sortCols: { 'type': 'array', 'itemType': DLOrder },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLTable extends $tea.Model {
+  catalogName?: string;
+  createTime?: number;
+  creatorId?: number;
+  dbId?: number;
+  dbName?: string;
+  description?: string;
+  lastAccessTime?: number;
+  location?: string;
+  modifierId?: number;
+  name?: string;
+  owner?: string;
+  ownerType?: string;
+  parameters?: { [key: string]: any };
+  partitionKeys?: DLColumn[];
+  retention?: number;
+  storageDescriptor?: DLStorageDescriptor;
+  tableType?: string;
+  viewExpandedText?: string;
+  viewOriginalText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      dbId: 'DbId',
+      dbName: 'DbName',
+      description: 'Description',
+      lastAccessTime: 'LastAccessTime',
+      location: 'Location',
+      modifierId: 'ModifierId',
+      name: 'Name',
+      owner: 'Owner',
+      ownerType: 'OwnerType',
+      parameters: 'Parameters',
+      partitionKeys: 'PartitionKeys',
+      retention: 'Retention',
+      storageDescriptor: 'StorageDescriptor',
+      tableType: 'TableType',
+      viewExpandedText: 'ViewExpandedText',
+      viewOriginalText: 'ViewOriginalText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      createTime: 'number',
+      creatorId: 'number',
+      dbId: 'number',
+      dbName: 'string',
+      description: 'string',
+      lastAccessTime: 'number',
+      location: 'string',
+      modifierId: 'number',
+      name: 'string',
+      owner: 'string',
+      ownerType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      partitionKeys: { 'type': 'array', 'itemType': DLColumn },
+      retention: 'number',
+      storageDescriptor: DLStorageDescriptor,
+      tableType: 'string',
+      viewExpandedText: 'string',
+      viewOriginalText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DLTablebaseInfo extends $tea.Model {
+  catalogName?: string;
+  createTime?: number;
+  creatorId?: number;
+  dbId?: number;
+  dbName?: string;
+  description?: string;
+  lastAccessTime?: number;
+  location?: string;
+  modifierId?: number;
+  name?: string;
+  owner?: string;
+  ownerType?: string;
+  parameters?: { [key: string]: any };
+  partitionKeys?: DLColumn[];
+  retention?: number;
+  tableType?: string;
+  viewExpandedText?: string;
+  viewOriginalText?: string;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      createTime: 'CreateTime',
+      creatorId: 'CreatorId',
+      dbId: 'DbId',
+      dbName: 'DbName',
+      description: 'Description',
+      lastAccessTime: 'LastAccessTime',
+      location: 'Location',
+      modifierId: 'ModifierId',
+      name: 'Name',
+      owner: 'Owner',
+      ownerType: 'OwnerType',
+      parameters: 'Parameters',
+      partitionKeys: 'PartitionKeys',
+      retention: 'Retention',
+      tableType: 'TableType',
+      viewExpandedText: 'ViewExpandedText',
+      viewOriginalText: 'ViewOriginalText',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      createTime: 'number',
+      creatorId: 'number',
+      dbId: 'number',
+      dbName: 'string',
+      description: 'string',
+      lastAccessTime: 'number',
+      location: 'string',
+      modifierId: 'number',
+      name: 'string',
+      owner: 'string',
+      ownerType: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      partitionKeys: { 'type': 'array', 'itemType': DLColumn },
+      retention: 'number',
+      tableType: 'string',
+      viewExpandedText: 'string',
+      viewOriginalText: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DatasetItemVO extends $tea.Model {
   asyncTaskList?: AsyncTaskVO[];
   datasetStatus?: number;
@@ -1607,7 +1970,7 @@ export class ApproveOrderRequest extends $tea.Model {
   approvalNodeId?: number;
   /**
    * @remarks
-   * If ApprovalType is set to ADD_APPROVAL_NODE, you need to specify this parameter. The position of the new approval node. Valid values:
+   * The position of the new approval node. You must specify this parameter if ApprovalType is set to ADD_APPROVAL_NODE. Valid values:
    * 
    * *   **PRE_ADD_APPROVAL_NODE**: before the current approval node.
    * *   **POST_ADD_APPROVAL_NODE**: after the current approval node.
@@ -1648,6 +2011,15 @@ export class ApproveOrderRequest extends $tea.Model {
    * 12***
    */
   newApprover?: number;
+  /**
+   * @remarks
+   * >  You can specify this parameter if ApprovalType is set to TRANSFER. You need to only specify one of NewApproverList and NewApprover.
+   * 
+   * The IDs of the users to whom the ticket is transferred. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * 154***,155***,156***
+   */
   newApproverList?: string;
   /**
    * @remarks
@@ -1657,6 +2029,13 @@ export class ApproveOrderRequest extends $tea.Model {
    * 23***
    */
   oldApprover?: number;
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that actually calls the API.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -2936,6 +3315,281 @@ export class CloseOrderResponse extends $tea.Model {
   }
 }
 
+export class CreateAbacAuthorizationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
+  identityType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12****
+   */
+  policyId?: number;
+  /**
+   * @example
+   * 31****
+   */
+  roleId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 51****
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      identityType: 'IdentityType',
+      policyId: 'PolicyId',
+      roleId: 'RoleId',
+      tid: 'Tid',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityType: 'string',
+      policyId: 'number',
+      roleId: 'number',
+      tid: 'number',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAbacAuthorizationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAbacAuthorizationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAbacAuthorizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAbacAuthorizationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAbacPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {
+   *   "Statement": [
+   *     {
+   *       "Action": "*",
+   *       "Effect": "Allow",
+   *       "Resource": "*",
+   *       "Condition": {
+   *         "StringEqualsIgnoreCase": {
+   *           "dms:DbType": [
+   *             "redis"
+   *           ]
+   *         }
+   *       }
+   *     }
+   *   ],
+   *   "Version": "1"
+   * }
+   */
+  abacPolicyContent?: string;
+  /**
+   * @example
+   * test
+   */
+  abacPolicyDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * policy_test
+   */
+  abacPolicyName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abacPolicyContent: 'AbacPolicyContent',
+      abacPolicyDesc: 'AbacPolicyDesc',
+      abacPolicyName: 'AbacPolicyName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abacPolicyContent: 'string',
+      abacPolicyDesc: 'string',
+      abacPolicyName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAbacPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 12****
+   */
+  createPolicyResult?: number;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      createPolicyResult: 'CreatePolicyResult',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createPolicyResult: 'number',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAbacPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAbacPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAbacPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAuthorityTemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -3807,6 +4461,13 @@ export class CreateDataExportOrderRequest extends $tea.Model {
    * This parameter is required.
    */
   pluginParam?: CreateDataExportOrderRequestPluginParam;
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that actually calls the API.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -3886,6 +4547,13 @@ export class CreateDataExportOrderShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   pluginParamShrink?: string;
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that actually calls the API.
+   * 
+   * @example
+   * 21400447956867****
+   */
   realLoginUserUid?: string;
   /**
    * @remarks
@@ -7688,6 +8356,234 @@ export class CreateUploadOSSFileJobResponse extends $tea.Model {
   }
 }
 
+export class DeleteAbacAuthorizationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123***
+   */
+  authorizationId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * USER
+   */
+  identityType?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationId: 'AuthorizationId',
+      identityType: 'IdentityType',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationId: 'number',
+      identityType: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAbacAuthorizationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 207176D7-A9B3-55CE-A9DA-14E223A31913
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  result?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      result: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAbacAuthorizationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAbacAuthorizationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAbacAuthorizationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAbacPolicyRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12****
+   */
+  abacPolicyId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abacPolicyId: 'AbacPolicyId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abacPolicyId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAbacPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  deletePolicyResult?: boolean;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      deletePolicyResult: 'DeletePolicyResult',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deletePolicyResult: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAbacPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAbacPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAbacPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAuthorityTemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -10959,6 +11855,115 @@ export class ExecuteStructSyncResponse extends $tea.Model {
   }
 }
 
+export class GetAbacPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * 12****
+   */
+  abacPolicyId?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  abacPolicyName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abacPolicyId: 'AbacPolicyId',
+      abacPolicyName: 'AbacPolicyName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abacPolicyId: 'number',
+      abacPolicyName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAbacPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  policy?: GetAbacPolicyResponseBodyPolicy;
+  /**
+   * @example
+   * 2B7844DE-A0C3-50ED-A796-8F07D377144C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      policy: 'Policy',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      policy: GetAbacPolicyResponseBodyPolicy,
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAbacPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAbacPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAbacPolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApprovalDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -12258,10 +13263,10 @@ export class GetDataCorrectOrderDetailResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - **true**: The request is successful.
-   * - **false**: The request fails.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -19689,6 +20694,266 @@ export class InspectProxyAccessSecretResponse extends $tea.Model {
   }
 }
 
+export class ListAbacAuthorizationsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 12****
+   */
+  policyId?: string;
+  /**
+   * @example
+   * USER_DEFINE
+   */
+  policySource?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      policyId: 'PolicyId',
+      policySource: 'PolicySource',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      policyId: 'string',
+      policySource: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacAuthorizationsResponseBody extends $tea.Model {
+  authorizationList?: ListAbacAuthorizationsResponseBodyAuthorizationList[];
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 3
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationList: 'AuthorizationList',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationList: { 'type': 'array', 'itemType': ListAbacAuthorizationsResponseBodyAuthorizationList },
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacAuthorizationsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAbacAuthorizationsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAbacAuthorizationsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacPoliciesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacPoliciesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  policyList?: ListAbacPoliciesResponseBodyPolicyList[];
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 5
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      policyList: 'PolicyList',
+      requestId: 'RequestId',
+      success: 'Success',
+      tid: 'Tid',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      policyList: { 'type': 'array', 'itemType': ListAbacPoliciesResponseBodyPolicyList },
+      requestId: 'string',
+      success: 'boolean',
+      tid: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacPoliciesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAbacPoliciesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAbacPoliciesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAuthorityTemplateRequest extends $tea.Model {
   /**
    * @example
@@ -19807,6 +21072,468 @@ export class ListAuthorityTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListAuthorityTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedDatabasesForUserRequest extends $tea.Model {
+  /**
+   * @example
+   * MySQL
+   */
+  dbType?: string;
+  /**
+   * @example
+   * product
+   */
+  envType?: string;
+  /**
+   * @example
+   * false
+   */
+  logic?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * policy_test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 51****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      envType: 'EnvType',
+      logic: 'Logic',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      envType: 'string',
+      logic: 'boolean',
+      pageNumber: 'string',
+      pageSize: 'string',
+      searchKey: 'string',
+      tid: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedDatabasesForUserResponseBody extends $tea.Model {
+  databases?: ListAuthorizedDatabasesForUserResponseBodyDatabases[];
+  /**
+   * @example
+   * 012AE0B5-4B52-532F-BD7C-1EE9F182089B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databases: 'Databases',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databases: { 'type': 'array', 'itemType': ListAuthorizedDatabasesForUserResponseBodyDatabases },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedDatabasesForUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorizedDatabasesForUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAuthorizedDatabasesForUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedInstancesForUserRequest extends $tea.Model {
+  /**
+   * @example
+   * MySQL
+   */
+  dbType?: string;
+  /**
+   * @example
+   * product
+   */
+  envType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * policy_test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 51****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      envType: 'EnvType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      envType: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      searchKey: 'string',
+      tid: 'number',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedInstancesForUserResponseBody extends $tea.Model {
+  instances?: ListAuthorizedInstancesForUserResponseBodyInstances[];
+  /**
+   * @example
+   * B7DB89CC-017D-5503-8953-38FFE241A618
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: { 'type': 'array', 'itemType': ListAuthorizedInstancesForUserResponseBodyInstances },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedInstancesForUserResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorizedInstancesForUserResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAuthorizedInstancesForUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 135***
+   */
+  dbId?: string;
+  /**
+   * @example
+   * false
+   */
+  logic?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * poc_test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      logic: 'Logic',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'string',
+      logic: 'boolean',
+      pageNumber: 'string',
+      pageSize: 'string',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForDatabaseResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+   */
+  requestId?: string;
+  users?: ListAuthorizedUsersForDatabaseResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      users: { 'type': 'array', 'itemType': ListAuthorizedUsersForDatabaseResponseBodyUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorizedUsersForDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAuthorizedUsersForDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 174****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: string;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * poc_test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3****
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'string',
+      pageSize: 'string',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  users?: ListAuthorizedUsersForInstanceResponseBodyUsers[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      users: 'Users',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      users: { 'type': 'array', 'itemType': ListAuthorizedUsersForInstanceResponseBodyUsers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAuthorizedUsersForInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAuthorizedUsersForInstanceResponseBody,
     };
   }
 
@@ -24518,7 +26245,7 @@ export class ListSQLReviewOriginSQLRequest extends $tea.Model {
   orderActionDetail?: ListSQLReviewOriginSQLRequestOrderActionDetail;
   /**
    * @remarks
-   * The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](https://help.aliyun.com/document_detail/257777.html) operation to query the ID of the ticket.
+   * The ID of the SQL review ticket. You can call the [CreateSQLReviewOrder](https://help.aliyun.com/document_detail/257777.html) operation to query the ticket ID.
    * 
    * This parameter is required.
    * 
@@ -24528,7 +26255,7 @@ export class ListSQLReviewOriginSQLRequest extends $tea.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/465818.html) operation to query the ID of the tenant.
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
    * 
    * @example
    * 1
@@ -24563,7 +26290,7 @@ export class ListSQLReviewOriginSQLShrinkRequest extends $tea.Model {
   orderActionDetailShrink?: string;
   /**
    * @remarks
-   * The ID of the ticket for the SQL review. You can call the [CreateSQLReviewOrder](https://help.aliyun.com/document_detail/257777.html) operation to query the ID of the ticket.
+   * The ID of the SQL review ticket. You can call the [CreateSQLReviewOrder](https://help.aliyun.com/document_detail/257777.html) operation to query the ticket ID.
    * 
    * This parameter is required.
    * 
@@ -24573,7 +26300,7 @@ export class ListSQLReviewOriginSQLShrinkRequest extends $tea.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/465818.html) operation to query the ID of the tenant.
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) or [ListUserTenants](https://help.aliyun.com/document_detail/198074.html) operation to query the tenant ID.
    * 
    * @example
    * 1
@@ -24603,7 +26330,7 @@ export class ListSQLReviewOriginSQLShrinkRequest extends $tea.Model {
 export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code that is returned.
    * 
    * @example
    * UnknownError
@@ -24611,7 +26338,7 @@ export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message that is returned if the request failed.
    * 
    * @example
    * UnknownError
@@ -24624,7 +26351,7 @@ export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
   originSQLList?: ListSQLReviewOriginSQLResponseBodyOriginSQLList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
@@ -24632,7 +26359,10 @@ export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful. Valid values: Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -24640,7 +26370,7 @@ export class ListSQLReviewOriginSQLResponseBody extends $tea.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of the SQL statements.
+   * The number of SQL statements in the file.
    * 
    * @example
    * 10
@@ -29320,6 +31050,118 @@ export class PauseDataCorrectSQLJobResponse extends $tea.Model {
   }
 }
 
+export class PauseDataExportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1276****
+   */
+  jobId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 546****
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseDataExportJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PauseDataExportJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PauseDataExportJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PauseDataExportJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreviewWorkflowRequest extends $tea.Model {
   /**
    * @remarks
@@ -30727,6 +32569,118 @@ export class RegisterUserResponse extends $tea.Model {
   }
 }
 
+export class RemoveDataExportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1276****
+   */
+  jobId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 420****
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDataExportJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RemoveDataExportJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveDataExportJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RemoveDataExportJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestartDataCorrectSQLJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -30868,6 +32822,118 @@ export class RestartDataCorrectSQLJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RestartDataCorrectSQLJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataExportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1276****
+   */
+  jobId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 420****
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 23****
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataExportJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartDataExportJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartDataExportJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartDataExportJobResponseBody,
     };
   }
 
@@ -31289,7 +33355,7 @@ export class RevokeTemplateAuthorityResponse extends $tea.Model {
 export class RevokeUserPermissionRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the database. The database can be a physical database or a logical database.
+   * The database ID. The database can be a physical database or a logical database.
    * 
    * *   To query the ID of a physical database, call the [ListDatabases](https://help.aliyun.com/document_detail/141873.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
    * *   To query the ID of a logical database, call the [ListLogicDatabases](https://help.aliyun.com/document_detail/141874.html) or [SearchDatabase](https://help.aliyun.com/document_detail/141876.html) operation.
@@ -31300,13 +33366,13 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   dbId?: string;
   /**
    * @remarks
-   * The object type on which the permission you want to revoke from the user. Valid values:
+   * The type of the object on which you want to revoke permissions from a user. Valid values:
    * 
-   * *   **INSTANCE**: database instances
-   * *   **DATABASE**: physical databases
-   * *   **LOGIC_DATABASE**: logical databases
-   * *   **TABLE**: physical tables
-   * *   **LOGIC_TABLE**: logical tables
+   * *   **INSTANCE**: instances.
+   * *   **DATABASE**: physical databases.
+   * *   **LOGIC_DATABASE**: logical databases.
+   * *   **TABLE**: physical tables.
+   * *   **LOGIC_TABLE**: logical tables.
    * 
    * This parameter is required.
    * 
@@ -31316,7 +33382,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   dsType?: string;
   /**
    * @remarks
-   * The ID of the database instance. You must specify this parameter when you revoke a permission from the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the database instance ID.
+   * The database instance ID. You must specify this parameter if you revoke a permission from the database instance. You can call the [ListInstances](https://help.aliyun.com/document_detail/141936.html) or [GetInstance](https://help.aliyun.com/document_detail/141567.html) operation to query the ID of the database instance.
    * 
    * @example
    * 174****
@@ -31326,11 +33392,14 @@ export class RevokeUserPermissionRequest extends $tea.Model {
    * @remarks
    * Specifies whether the database is a logical database. Valid values:
    * 
-   * * **true**: The database is a logical database.
-   * * **false**: The database is a physical database.
+   * *   **true**: The database is a logical database.
+   * *   **false**: The database is a physical database.
    * 
-   * > * If the database is a logical database, set this parameter to **true**.
-   * > * If the database is a physical database, set this parameter to **false**.
+   * > 
+   * 
+   * *   If the database is a logical database, set this parameter to **true**.
+   * 
+   * *   If the database is a physical database, set this parameter to **false**.
    * 
    * @example
    * false
@@ -31338,11 +33407,13 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   logic?: boolean;
   /**
    * @remarks
-   * The type of the permission. Valid values:
+   * The type of the permissions. Valid values:
    * 
-   * *   **QUERY**: the data query permission
-   * *   **EXPORT**: the data export permission
-   * *   **CORRECT**: the data change permission
+   * *   **QUERY**: query permissions.
+   * *   **EXPORT**: export permissions.
+   * *   **CORRECT**: change permissions.
+   * *   **LOGIN**: logon permissions.
+   * *   **PERF**: query permissions on the performance details of an instance.
    * 
    * This parameter is required.
    * 
@@ -31352,7 +33423,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   permTypes?: string;
   /**
    * @remarks
-   * The ID of the table. You must specify this parameter when you revoke a permission from the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table ID.
+   * The table ID. You must specify this parameter if you revoke a permission from the table. You can call the [ListTables](https://help.aliyun.com/document_detail/141878.html) operation to query the table ID.
    * 
    * @example
    * 13****
@@ -31368,7 +33439,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
+   * The tenant ID. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
    * 
    * @example
    * 3***
@@ -31376,7 +33447,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   tid?: number;
   /**
    * @remarks
-   * The ID of the permission. You can call the [ListUserPermission](https://help.aliyun.com/document_detail/146957.html) operation to query the permission ID.
+   * The permission ID. You can call the [ListUserPermission](https://help.aliyun.com/document_detail/146957.html) operation to query the permission ID.
    * 
    * This parameter is required.
    * 
@@ -31386,7 +33457,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
   userAccessId?: string;
   /**
    * @remarks
-   * The ID of the user. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query the user ID.
+   * The user ID. You can call the [ListUsers](https://help.aliyun.com/document_detail/141938.html) or [GetUser](https://help.aliyun.com/document_detail/147098.html) operation to query the ID of the user.
    * 
    * This parameter is required.
    * 
@@ -31432,7 +33503,7 @@ export class RevokeUserPermissionRequest extends $tea.Model {
 export class RevokeUserPermissionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The error code returned.
+   * The error code that is returned.
    * 
    * @example
    * MissingUserId
@@ -31440,7 +33511,7 @@ export class RevokeUserPermissionResponseBody extends $tea.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The error message that is returned.
    * 
    * @example
    * UserId is mandatory for this action.
@@ -31448,7 +33519,7 @@ export class RevokeUserPermissionResponseBody extends $tea.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A99CD576-1E18-4E86-931E-C3CCE56D****
@@ -31458,8 +33529,8 @@ export class RevokeUserPermissionResponseBody extends $tea.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -32879,6 +34950,118 @@ export class SubmitStructSyncOrderApprovalResponse extends $tea.Model {
   }
 }
 
+export class SuspendDataExportJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1276****
+   */
+  jobId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 903****
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      orderId: 'OrderId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'number',
+      orderId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendDataExportJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SuspendDataExportJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendDataExportJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SuspendDataExportJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SuspendTaskFlowInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -33275,6 +35458,152 @@ export class SyncInstanceMetaResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SyncInstanceMetaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAbacPolicyRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   *   "Statement": [
+   *     {
+   *       "Action": "*",
+   *       "Effect": "Allow",
+   *       "Resource": "*",
+   *       "Condition": {
+   *         "StringEqualsIgnoreCase": {
+   *           "dms:DbType": [
+   *             "redis"
+   *           ]
+   *         }
+   *       }
+   *     }
+   *   ],
+   *   "Version": "1"
+   * }
+   */
+  abacPolicyContent?: string;
+  /**
+   * @example
+   * test
+   */
+  abacPolicyDesc?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12****
+   */
+  abacPolicyId?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  abacPolicyName?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abacPolicyContent: 'AbacPolicyContent',
+      abacPolicyDesc: 'AbacPolicyDesc',
+      abacPolicyId: 'AbacPolicyId',
+      abacPolicyName: 'AbacPolicyName',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abacPolicyContent: 'string',
+      abacPolicyDesc: 'string',
+      abacPolicyId: 'number',
+      abacPolicyName: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAbacPolicyResponseBody extends $tea.Model {
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * CE43759B-5A72-560A-BF3D-862F38B36B9E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * true
+   */
+  updatePolicyResult?: number;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      updatePolicyResult: 'UpdatePolicyResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      updatePolicyResult: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAbacPolicyResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAbacPolicyResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAbacPolicyResponseBody,
     };
   }
 
@@ -39242,6 +41571,83 @@ export class ExecuteScriptResponseBodyResults extends $tea.Model {
   }
 }
 
+export class GetAbacPolicyResponseBodyPolicy extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  authorizedQuantity?: string;
+  /**
+   * @example
+   * 51****
+   */
+  creatorId?: number;
+  /**
+   * @example
+   * {
+   *   "Statement": [
+   *     {
+   *       "Action": "*",
+   *       "Effect": "Allow",
+   *       "Resource": "*",
+   *       "Condition": {
+   *         "StringEqualsIgnoreCase": {
+   *           "dms:DbType": [
+   *             "redis"
+   *           ]
+   *         }
+   *       }
+   *     }
+   *   ],
+   *   "Version": "1"
+   * }
+   */
+  policyContent?: string;
+  /**
+   * @example
+   * test
+   */
+  policyDesc?: string;
+  /**
+   * @example
+   * 12****
+   */
+  policyId?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  policyName?: string;
+  policySource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizedQuantity: 'AuthorizedQuantity',
+      creatorId: 'CreatorId',
+      policyContent: 'PolicyContent',
+      policyDesc: 'PolicyDesc',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policySource: 'PolicySource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizedQuantity: 'string',
+      creatorId: 'number',
+      policyContent: 'string',
+      policyDesc: 'string',
+      policyId: 'number',
+      policyName: 'string',
+      policySource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApprovalDetailResponseBodyApprovalDetailCurrentHandlersCurrentHandler extends $tea.Model {
   /**
    * @remarks
@@ -39502,6 +41908,8 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $tea.Model {
    * 1234
    */
   templateId?: number;
+  thirdpartyWorkflowComment?: string;
+  thirdpartyWorkflowUrl?: string;
   /**
    * @remarks
    * The title of the approval process.
@@ -39540,6 +41948,8 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $tea.Model {
       orderType: 'OrderType',
       reasonList: 'ReasonList',
       templateId: 'TemplateId',
+      thirdpartyWorkflowComment: 'ThirdpartyWorkflowComment',
+      thirdpartyWorkflowUrl: 'ThirdpartyWorkflowUrl',
       title: 'Title',
       workflowInsCode: 'WorkflowInsCode',
       workflowNodes: 'WorkflowNodes',
@@ -39556,6 +41966,8 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $tea.Model {
       orderType: 'string',
       reasonList: GetApprovalDetailResponseBodyApprovalDetailReasonList,
       templateId: 'number',
+      thirdpartyWorkflowComment: 'string',
+      thirdpartyWorkflowUrl: 'string',
       title: 'string',
       workflowInsCode: 'string',
       workflowNodes: GetApprovalDetailResponseBodyApprovalDetailWorkflowNodes,
@@ -41488,7 +43900,24 @@ export class GetDataCorrectBackupFilesResponseBodyDataCorrectBackupFiles extends
 }
 
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The number of times defragmentation is performed. This parameter is valid only if the value of OptimizeTableAfterEveryClearTimes is greater than 0.
+   * 
+   * @example
+   * 0
+   */
   currentClearTaskCount?: number;
+  /**
+   * @remarks
+   * Indicates whether the Periodically Optimize Table feature is enabled. Valid values:
+   * 
+   * *   **0** (default): The feature is disabled.
+   * *   **A value greater than 0**: The feature is enabled. The value indicates the number of cleanups after which the system performs defragmentation.
+   * 
+   * @example
+   * 0
+   */
   optimizeTableAfterEveryClearTimes?: number;
   static names(): { [key: string]: string } {
     return {
@@ -41510,9 +43939,54 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDe
 }
 
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the first row of the CSV file contains field names. Valid values:
+   * 
+   * *   **true**: The first row in the CSV file contains field names.
+   * *   **false**: The first row in the CSV file contains data.
+   * 
+   * >  This parameter is valid if the value of **FileType** is **CSV** or **EXCEL**.
+   * 
+   * @example
+   * true
+   */
   csvFirstRowIsColumnDef?: boolean;
+  /**
+   * @remarks
+   * Indicates whether an error that occurs is ignored. Valid values:
+   * 
+   * *   **true**: If an error occurs when SQL statements are being executed, DMS skips the current SQL statement and continues to execute subsequent SQL statements.
+   * *   **false**: If an error occurs when SQL statements are being executed, DMS stops executing subsequent SQL statements.
+   * 
+   * @example
+   * false
+   */
   ignoreError?: boolean;
+  /**
+   * @remarks
+   * The import mode. Valid values:
+   * 
+   * *   **FAST_MODE**: fast mode. In the Execute step, the uploaded file is read and SQL statements are executed to import data to the specified destination database. Compared with the security mode, this mode can be used to import data in a less secure but more efficient manner.
+   * *   **SAFE_MODE**: security mode. In the Precheck step, the uploaded file is parsed, and SQL statements or CSV file data is cached. In the Execute step, the cached SQL statements are read and executed to import data, or the cached CSV file data is read and imported to the specified destination database. Compared with the fast mode, this mode can be used to import data in a more secure but less efficient manner.
+   * 
+   * @example
+   * FAST_MODE
+   */
   importMode?: string;
+  /**
+   * @remarks
+   * The mode in which data is to be imported to the destination table. Valid values:
+   * 
+   * *   **INSERT**: The database checks the primary key during data insertion. If the primary key is duplicated, an error is reported.
+   * *   **INSERT_IGNORE**: If the imported data contains data records that are the same as those in the destination table, the new data records are ignored.
+   * *   **REPLACE_INTO**: If the imported data contains a row that has the same value for the primary key or unique index as an existing row in the destination table, the system deletes the existing row and inserts the new row into the destination table.
+   * 
+   * >  This parameter is valid if the value of FileType is CSV or EXCEL.
+   * 
+   * @example
+   * INSERT
+   */
   insertType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -41538,19 +44012,131 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDe
 }
 
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the task is a scheduled task for historical data cleanup. This parameter is a reserved parameter and is valid only if the value of DetailType is CRON_CLEAR_DATA.
+   * 
+   * @example
+   * true
+   */
   cron?: boolean;
+  /**
+   * @remarks
+   * The number of times the scheduled task is run. This parameter is valid only if the value of DetailType is CRON_CLEAR_DATA.
+   * 
+   * @example
+   * 0
+   */
   cronCallTimes?: number;
+  /**
+   * @remarks
+   * The additional configuration information about historical data cleanup. This parameter is valid only if the value of DetailType is CRON_CLEAR_DATA.
+   */
   cronExtConfig?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailCronExtConfig;
+  /**
+   * @remarks
+   * The CRON expression of the scheduled task. This parameter is valid only if the value of DetailType is CRON_CLEAR_DATA.
+   * 
+   * @example
+   * 0 0 2 * * ?
+   */
   cronFormat?: string;
+  /**
+   * @remarks
+   * The time when the task was last run.
+   * 
+   * @example
+   * 2024-04-19 02:00:00.0
+   */
   cronLastCallStartTime?: string;
+  /**
+   * @remarks
+   * The time when the task is run next time. This parameter is returned only if the value of CronStatus is SUCCESS.
+   * 
+   * @example
+   * 2024-04-19 02:00:00
+   */
   cronNextCallTime?: string;
+  /**
+   * @remarks
+   * The state of the scheduled task. If this parameter is empty, the task is not run. Valid values:
+   * 
+   * *   PAUSE: The task is suspended.
+   * *   WAITING: The task is waiting to be run.
+   * *   SUCCESS: The task is run.
+   * 
+   * @example
+   * SUCCESS
+   */
   cronStatus?: string;
+  /**
+   * @remarks
+   * The name of the table to which data is to be imported. This parameter is valid only if the value of DetailType is BIG_FILE. If the value of FileType is SQL, this parameter is empty.
+   * 
+   * @example
+   * tb_import_tb_name
+   */
   csvTableName?: string;
+  /**
+   * @remarks
+   * The ID of the current data change task. This is a reserved parameter and can be ignored.
+   * 
+   * @example
+   * 13***
+   */
   currentTaskId?: number;
+  /**
+   * @remarks
+   * The type of the ticket. Valid values:
+   * 
+   * *   COMMON: regular data change.
+   * *   CHUNK_DML: lock-free data change.
+   * *   BIG_FILE: large data import.
+   * *   CRON_CLEAR_DATA: historical data cleanup.
+   * *   PROCEDURE: programmable object change.
+   * 
+   * @example
+   * BIG_FILE
+   */
   detailType?: string;
+  /**
+   * @remarks
+   * The execution duration of the scheduled task. Unit: hour. This parameter is valid only if the value of DetailType is CRON_CLEAR_DATA. If the value is greater than 0, an execution duration is set.
+   * 
+   * @example
+   * 1
+   */
   duration?: number;
+  /**
+   * @remarks
+   * The encoding method of the file. This parameter may be empty, which indicates the value of AUTO. Valid values:
+   * 
+   * *   **AUTO**: automatic identification.
+   * *   **UTF-8**: UTF-8 encoding.
+   * *   **GBK**: GBK encoding.
+   * *   **ISO-8859-1**: ISO-8859-1 encoding.
+   * 
+   * @example
+   * UTF-8
+   */
   fileEncoding?: string;
+  /**
+   * @remarks
+   * The type of the file to be imported. This parameter is valid if the value of DetailType is BIG_FILE. Valid values:
+   * 
+   * *   **SQL**: an SQL file.
+   * *   **CSV**: a CSV file.
+   * *   **EXCEL**: an Excel file.
+   * *   **JSON**: a JSON file, which is supported only by MongoDB databases.
+   * 
+   * @example
+   * CSV
+   */
   fileType?: string;
+  /**
+   * @remarks
+   * The additional configuration information about data import. This parameter is valid if the value of DetailType is BIG_FILE.
+   */
   importExtConfig?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetailImportExtConfig;
   static names(): { [key: string]: string } {
     return {
@@ -41598,7 +44184,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDe
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabaseListDatabase extends $tea.Model {
   /**
    * @remarks
-   * The ID of the database.
+   * The database ID.
    * 
    * @example
    * 1860****
@@ -41616,14 +44202,14 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabase
    * @remarks
    * The type of the environment to which the database belongs. Valid values:
    * 
-   * - product: production environment
-   * - dev: development environment
-   * - pre: staging environment
-   * - test: test environment
-   * - sit: system integration testing (SIT) environment
-   * - uat: user acceptance testing (UAT) environment
-   * - pet: stress testing environment
-   * - stag: STAG environment
+   * *   product: production environment.
+   * *   dev: development environment.
+   * *   pre: pre-release environment.
+   * *   test: test environment.
+   * *   sit: system integration testing (SIT) environment
+   * *   uat: user acceptance testing (UAT) environment.
+   * *   pet: stress testing environment.
+   * *   stag: staging environment.
    * 
    * @example
    * product
@@ -41633,8 +44219,8 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailDatabase
    * @remarks
    * Indicates whether the database is a logical database. Valid values:
    * 
-   * - **true**: The database is a logical database.
-   * - **false**: The database is a physical database.
+   * *   **true.**: The database is a logical database.
+   * *   **false**: The database is a physical database.
    * 
    * @example
    * false
@@ -41830,7 +44416,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailOrderDet
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheckDetailTaskCheckDO extends $tea.Model {
   /**
    * @remarks
-   * The status of the precheck. Valid values:
+   * The state of the precheck. Valid values:
    * 
    * *   **WAITING**: The ticket is pending precheck.
    * *   **RUNNING**: The ticket is being prechecked.
@@ -41856,7 +44442,7 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheck
   checkStep?: string;
   /**
    * @remarks
-   * The message that indicates a check step.
+   * The message that appears when a check step is executed.
    * 
    * @example
    * tip messsage
@@ -41903,6 +44489,10 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheck
 }
 
 export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the ticket. This parameter is used to store the configuration information specific to a data change ticket type.
+   */
   configDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailConfigDetail;
   /**
    * @remarks
@@ -41933,19 +44523,20 @@ export class GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetail extends
   preCheckDetail?: GetDataCorrectOrderDetailResponseBodyDataCorrectOrderDetailPreCheckDetail;
   /**
    * @remarks
-   * The status of the ticket. Valid values:
+   * The specific state of the data change ticket. Valid values:
    * 
-   * - **new**: The ticket is created.
-   * - **precheck**: The ticket is being prechecked.
-   * - **precheck_fail**: The ticket fails the precheck.
-   * - **precheck_success**: The ticket passes the precheck and waits to be submitted for approval.
-   * - **toaudit**: The ticket is being reviewed.
-   * - **Approved**: The ticket is approved.
-   * - **reject**: The ticket is rejected.
-   * - **waiting**: The ticket is submitted and waits to be scheduled.
-   * - **processing**: The ticket is being executed.
-   * - **success**: The ticket is executed.
-   * - **closed**: The ticket is closed.
+   * >  The state of the ticket is not exactly equivalent to the status code for the ticket. To query the status code of the ticket, you can call the [GetOrderBaseInfo](https://help.aliyun.com/document_detail/465868.html) operation and check the value of StatusCode in the response.
+   * 
+   * *   **new**: The ticket is created.
+   * *   **precheck**: The ticket is in the pre-check phase.
+   * *   **precheckFailed**: The ticket failed to pass the precheck.
+   * *   **precheck_success**: The ticket passes the precheck and waits to be submitted for approval.
+   * *   **toaudit**: The ticket is being reviewed.
+   * *   **Approved**: The ticket is approved.
+   * *   **reject**: The ticket is rejected.
+   * *   **waiting**: The task is submitted and waits to be scheduled.
+   * *   **processing**: The task is being executed.
+   * *   **Success**: The task is successful.
    * 
    * @example
    * approved
@@ -42261,6 +44852,7 @@ export class GetDataExportDownloadURLResponseBodyDownloadURLResult extends $tea.
 }
 
 export class GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo extends $tea.Model {
+  jobId?: number;
   /**
    * @remarks
    * The state of the data export ticket. Valid values:
@@ -42290,6 +44882,7 @@ export class GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo ex
   preCheckId?: number;
   static names(): { [key: string]: string } {
     return {
+      jobId: 'JobId',
       jobStatus: 'JobStatus',
       preCheckId: 'PreCheckId',
     };
@@ -42297,6 +44890,7 @@ export class GetDataExportOrderDetailResponseBodyDataExportOrderDetailKeyInfo ex
 
   static types(): { [key: string]: any } {
     return {
+      jobId: 'number',
       jobStatus: 'string',
       preCheckId: 'number',
     };
@@ -48876,6 +51470,145 @@ export class GetUserUploadFileJobResponseBodyUploadFileJobDetail extends $tea.Mo
   }
 }
 
+export class ListAbacAuthorizationsResponseBodyAuthorizationList extends $tea.Model {
+  /**
+   * @example
+   * 32****
+   */
+  authorizationId?: number;
+  /**
+   * @example
+   * 51****
+   */
+  identityId?: number;
+  /**
+   * @example
+   * test_user
+   */
+  identityName?: string;
+  /**
+   * @example
+   * USER
+   */
+  identityType?: string;
+  /**
+   * @example
+   * 12****
+   */
+  policyId?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  policyName?: string;
+  /**
+   * @example
+   * USER_DEFINE
+   */
+  policySource?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationId: 'AuthorizationId',
+      identityId: 'IdentityId',
+      identityName: 'IdentityName',
+      identityType: 'IdentityType',
+      policyId: 'PolicyId',
+      policyName: 'PolicyName',
+      policySource: 'PolicySource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationId: 'number',
+      identityId: 'number',
+      identityName: 'string',
+      identityType: 'string',
+      policyId: 'number',
+      policyName: 'string',
+      policySource: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAbacPoliciesResponseBodyPolicyList extends $tea.Model {
+  /**
+   * @example
+   * {
+   *   "Statement": [
+   *     {
+   *       "Action": "*",
+   *       "Effect": "Allow",
+   *       "Resource": "*",
+   *       "Condition": {
+   *         "StringEqualsIgnoreCase": {
+   *           "dms:DbType": [
+   *             "redis"
+   *           ]
+   *         }
+   *       }
+   *     }
+   *   ],
+   *   "Version": "1"
+   * }
+   */
+  abacPolicyContent?: string;
+  /**
+   * @example
+   * test
+   */
+  abacPolicyDesc?: string;
+  /**
+   * @example
+   * 12****
+   */
+  abacPolicyId?: number;
+  /**
+   * @example
+   * policy_test
+   */
+  abacPolicyName?: string;
+  /**
+   * @example
+   * USER_DEFINE
+   */
+  abacPolicySource?: string;
+  /**
+   * @example
+   * 51****
+   */
+  creatorId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      abacPolicyContent: 'AbacPolicyContent',
+      abacPolicyDesc: 'AbacPolicyDesc',
+      abacPolicyId: 'AbacPolicyId',
+      abacPolicyName: 'AbacPolicyName',
+      abacPolicySource: 'AbacPolicySource',
+      creatorId: 'CreatorId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abacPolicyContent: 'string',
+      abacPolicyDesc: 'string',
+      abacPolicyId: 'number',
+      abacPolicyName: 'string',
+      abacPolicySource: 'string',
+      creatorId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAuthorityTemplateResponseBodyAuthorityTemplateViewListAuthorityTemplateView extends $tea.Model {
   /**
    * @example
@@ -48930,6 +51663,317 @@ export class ListAuthorityTemplateResponseBodyAuthorityTemplateViewList extends 
   static types(): { [key: string]: any } {
     return {
       authorityTemplateView: { 'type': 'array', 'itemType': ListAuthorityTemplateResponseBodyAuthorityTemplateViewListAuthorityTemplateView },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail extends $tea.Model {
+  /**
+   * @example
+   * DATABASE
+   */
+  dsType?: string;
+  /**
+   * @example
+   * 2024-12-06 10:00:00
+   */
+  expireDate?: string;
+  message?: string;
+  /**
+   * @example
+   * CORRECT
+   */
+  permType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dsType: 'DsType',
+      expireDate: 'ExpireDate',
+      message: 'Message',
+      permType: 'PermType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dsType: 'string',
+      expireDate: 'string',
+      message: 'string',
+      permType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedDatabasesForUserResponseBodyDatabases extends $tea.Model {
+  /**
+   * @example
+   * 254****
+   */
+  dbId?: string;
+  /**
+   * @example
+   * MYSQL
+   */
+  dbType?: string;
+  /**
+   * @example
+   * product
+   */
+  envType?: string;
+  /**
+   * @example
+   * 235****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * false
+   */
+  logic?: boolean;
+  permissionDetail?: ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail;
+  /**
+   * @example
+   * poc_testdb
+   */
+  schemaName?: string;
+  /**
+   * @example
+   * poc
+   */
+  searchName?: string;
+  /**
+   * @example
+   * 51****
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      dbType: 'DbType',
+      envType: 'EnvType',
+      instanceId: 'InstanceId',
+      logic: 'Logic',
+      permissionDetail: 'PermissionDetail',
+      schemaName: 'SchemaName',
+      searchName: 'SearchName',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'string',
+      dbType: 'string',
+      envType: 'string',
+      instanceId: 'string',
+      logic: 'boolean',
+      permissionDetail: ListAuthorizedDatabasesForUserResponseBodyDatabasesPermissionDetail,
+      schemaName: 'string',
+      searchName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedInstancesForUserResponseBodyInstancesPermissionDetail extends $tea.Model {
+  /**
+   * @example
+   * DATABASE
+   */
+  dsType?: string;
+  /**
+   * @example
+   * 2024-12-06 10:00:00
+   */
+  expireDate?: string;
+  message?: string;
+  /**
+   * @example
+   * CORRECT
+   */
+  permType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dsType: 'DsType',
+      expireDate: 'ExpireDate',
+      message: 'Message',
+      permType: 'PermType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dsType: 'string',
+      expireDate: 'string',
+      message: 'string',
+      permType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedInstancesForUserResponseBodyInstances extends $tea.Model {
+  /**
+   * @example
+   * MySQL
+   */
+  dbType?: string;
+  /**
+   * @example
+   * product
+   */
+  envType?: string;
+  /**
+   * @example
+   * rm-2zex9lrc0gz0****.mysql.rds.aliyuncs.com
+   */
+  host?: string;
+  /**
+   * @example
+   * DMS_TEST
+   */
+  instanceAlias?: string;
+  /**
+   * @example
+   * 21****
+   */
+  instanceId?: string;
+  permissionDetail?: ListAuthorizedInstancesForUserResponseBodyInstancesPermissionDetail;
+  /**
+   * @example
+   * 3306
+   */
+  port?: string;
+  /**
+   * @example
+   * 51****
+   */
+  userId?: string;
+  /**
+   * @example
+   * user_test
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbType: 'DbType',
+      envType: 'EnvType',
+      host: 'Host',
+      instanceAlias: 'InstanceAlias',
+      instanceId: 'InstanceId',
+      permissionDetail: 'PermissionDetail',
+      port: 'Port',
+      userId: 'UserId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbType: 'string',
+      envType: 'string',
+      host: 'string',
+      instanceAlias: 'string',
+      instanceId: 'string',
+      permissionDetail: ListAuthorizedInstancesForUserResponseBodyInstancesPermissionDetail,
+      port: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForDatabaseResponseBodyUsers extends $tea.Model {
+  /**
+   * @example
+   * 164882191****
+   */
+  uid?: string;
+  /**
+   * @example
+   * 51****
+   */
+  userId?: string;
+  /**
+   * @example
+   * user_test
+   */
+  userNickName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+      userId: 'UserId',
+      userNickName: 'UserNickName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+      userId: 'string',
+      userNickName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAuthorizedUsersForInstanceResponseBodyUsers extends $tea.Model {
+  /**
+   * @example
+   * 164882191****
+   */
+  uid?: string;
+  /**
+   * @example
+   * 51***
+   */
+  userId?: string;
+  /**
+   * @example
+   * user_test
+   */
+  userNickName?: string;
+  /**
+   * @example
+   * user01
+   */
+  userRealName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      uid: 'Uid',
+      userId: 'UserId',
+      userNickName: 'UserNickName',
+      userRealName: 'UserRealName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      uid: 'string',
+      userId: 'string',
+      userNickName: 'string',
+      userRealName: 'string',
     };
   }
 
@@ -53503,7 +56547,7 @@ export class ListSQLExecAuditLogResponseBodySQLExecAuditLogList extends $tea.Mod
 export class ListSQLReviewOriginSQLRequestOrderActionDetailPage extends $tea.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -53511,7 +56555,7 @@ export class ListSQLReviewOriginSQLRequestOrderActionDetailPage extends $tea.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -53541,12 +56585,12 @@ export class ListSQLReviewOriginSQLRequestOrderActionDetail extends $tea.Model {
    * @remarks
    * The review status of the SQL statement. Valid values:
    * 
-   * *   **new**: The SQL statement is pending for analysis.
-   * *   **unknown**: The SQL statement failed to be parsed.
-   * *   **check_not_pass**: The SQL statement failed the review.
+   * *   **new**: The SQL statement was waiting to be reviewed.
+   * *   **unknown**: The SQL statement cannot be parsed.
+   * *   **check_not_pass**: The SQL statement failed to pass the review.
    * *   **check_pass**: The SQL statement passed the review.
-   * *   **force_pass**: The SQL statement passed the review by manual effort.
-   * *   **force_not_pass**: The SQL statement failed the review by manual effort.
+   * *   **force_pass**: The SQL statement passed the manual review.
+   * *   **force_not_pass**: The SQL statement failed to pass the manual review.
    * 
    * @example
    * check_not_pass
@@ -53554,7 +56598,7 @@ export class ListSQLReviewOriginSQLRequestOrderActionDetail extends $tea.Model {
   checkStatusResult?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The ID of the file that contains the SQL statements to be reviewed.
    * 
    * @example
    * 123345
@@ -53562,19 +56606,19 @@ export class ListSQLReviewOriginSQLRequestOrderActionDetail extends $tea.Model {
   fileId?: number;
   /**
    * @remarks
-   * The paging settings.
+   * The pagination information.
    */
   page?: ListSQLReviewOriginSQLRequestOrderActionDetailPage;
   /**
    * @remarks
    * The optimization suggestion for the SQL statement. Valid values:
    * 
-   * *   **MUST_IMPROVE**: The SQL statement must be improved.
+   * *   **MUST_IMPROVE**: The SQL statement must be optimized.
    * *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
-   * *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+   * *   **SUGGEST_IMPROVE**: We recommend that you optimize the SQL statement.
    * *   **USE_DMS_TOOLKIT**: We recommend that you change schemas without locking tables.
    * *   **USE_DMS_DML_UNLOCK**: We recommend that you change data without locking tables.
-   * *   **TABLE_INDEX_SUGGEST**: We recommend that you use SQL statements that use indexes.
+   * *   **TABLE_INDEX_SUGGEST**: We recommend that you optimize indexes for the SQL statement.
    * 
    * @example
    * MUST_IMPROVE
@@ -53608,12 +56652,12 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
    * @remarks
    * The review status of the SQL statement. Valid values:
    * 
-   * *   **new**: The SQL statement is pending for analysis.
-   * *   **unknown**: The SQL statement failed to be parsed.
-   * *   **check_not_pass**: The SQL statement failed the review.
+   * *   **new**: The SQL statement was waiting to be reviewed.
+   * *   **unknown**: The SQL statement cannot be parsed.
+   * *   **check_not_pass**: The SQL statement failed to pass the review.
    * *   **check_pass**: The SQL statement passed the review.
-   * *   **force_pass**: The SQL statement passed the review by manual effort.
-   * *   **force_not_pass**: The SQL statement failed the review by manual effort.
+   * *   **force_pass**: The SQL statement passed the manual review.
+   * *   **force_not_pass**: The SQL statement failed to pass the manual review.
    * 
    * @example
    * check_pass
@@ -53621,7 +56665,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   checkStatus?: string;
   /**
    * @remarks
-   * The time when the SQL statement is reviewed.
+   * The time when the SQL statement was reviewed.
    * 
    * @example
    * 2021-06-09 21:07:00
@@ -53629,7 +56673,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   checkedTime?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID.
    * 
    * @example
    * 123321
@@ -53645,14 +56689,14 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   fileName?: string;
   /**
    * @remarks
-   * The statistics of optimization suggestions for SQL statements. The value is a JSON string. The following optimization suggestions are involved:
+   * The statistics on the optimization suggestions for SQL statements. The value is a JSON string. Valid values:
    * 
-   * *   **MUST_IMPROVE**: The SQL statement must be improved.
-   * *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
-   * *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+   * *   **MUST_IMPROVE**: The SQL statements must be optimized.
+   * *   **POTENTIAL_ISSUE**: The SQL statements contain potential issues.
+   * *   **SUGGEST_IMPROVE**: We recommend that you optimize the SQL statements.
    * *   **USEDMSTOOLKIT**: We recommend that you change schemas without locking tables.
    * *   **USEDMSDML_UNLOCK**: We recommend that you change data without locking tables.
-   * *   **TABLEINDEXSUGGEST**: We recommend that you use SQL statements that use indexes.
+   * *   **TABLEINDEXSUGGEST**: We recommend that you optimize indexes for the SQL statements.
    * 
    * @example
    * {"POTENTIAL_ISSUE":1,"SUGGEST_IMPROVE":1}
@@ -53660,7 +56704,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   reviewSummary?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The SQL statement in the file.
    * 
    * @example
    * select id from table_name
@@ -53676,7 +56720,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   SQLId?: number;
   /**
    * @remarks
-   * SQLName.
+   * The name of the SQL statement.
    * 
    * @example
    * getByPk
@@ -53684,7 +56728,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   SQLName?: string;
   /**
    * @remarks
-   * The key that is used to query the details of optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2712723\\&spm) operation to query the details of optimization suggestions based on the key.
+   * The key that is used to query the information about optimization suggestions. You can call the [GetSQLReviewOptimizeDetail](https://help.aliyun.com/document_detail/465919.html) operation to query the details based on this key.
    * 
    * @example
    * a57e54ec5433475ea3082d882fdb89c5
@@ -53692,7 +56736,7 @@ export class ListSQLReviewOriginSQLResponseBodyOriginSQLList extends $tea.Model 
   SQLReviewQueryKey?: string;
   /**
    * @remarks
-   * The MD5 hash value of the SQL statement.
+   * The MD5 hash value that is obtained after the SQL statement is calculated by using a hash algorithm.
    * 
    * @example
    * 95adb6e77a0884d9e50232cb8c5c969d
@@ -58945,6 +61989,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建权限策略授权
+   * 
+   * @param request - CreateAbacAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAbacAuthorizationResponse
+   */
+  async createAbacAuthorizationWithOptions(request: CreateAbacAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<CreateAbacAuthorizationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityType)) {
+      query["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.roleId)) {
+      query["RoleId"] = request.roleId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAbacAuthorization",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAbacAuthorizationResponse>(await this.callApi(params, req, runtime), new CreateAbacAuthorizationResponse({}));
+  }
+
+  /**
+   * 创建权限策略授权
+   * 
+   * @param request - CreateAbacAuthorizationRequest
+   * @returns CreateAbacAuthorizationResponse
+   */
+  async createAbacAuthorization(request: CreateAbacAuthorizationRequest): Promise<CreateAbacAuthorizationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAbacAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建权限策略
+   * 
+   * @param request - CreateAbacPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAbacPolicyResponse
+   */
+  async createAbacPolicyWithOptions(request: CreateAbacPolicyRequest, runtime: $Util.RuntimeOptions): Promise<CreateAbacPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abacPolicyContent)) {
+      query["AbacPolicyContent"] = request.abacPolicyContent;
+    }
+
+    if (!Util.isUnset(request.abacPolicyDesc)) {
+      query["AbacPolicyDesc"] = request.abacPolicyDesc;
+    }
+
+    if (!Util.isUnset(request.abacPolicyName)) {
+      query["AbacPolicyName"] = request.abacPolicyName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAbacPolicy",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateAbacPolicyResponse>(await this.callApi(params, req, runtime), new CreateAbacPolicyResponse({}));
+  }
+
+  /**
+   * 创建权限策略
+   * 
+   * @param request - CreateAbacPolicyRequest
+   * @returns CreateAbacPolicyResponse
+   */
+  async createAbacPolicy(request: CreateAbacPolicyRequest): Promise<CreateAbacPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createAbacPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a permission template
    * 
    * @remarks
@@ -60561,6 +63717,102 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除权限策略授权
+   * 
+   * @param request - DeleteAbacAuthorizationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAbacAuthorizationResponse
+   */
+  async deleteAbacAuthorizationWithOptions(request: DeleteAbacAuthorizationRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAbacAuthorizationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authorizationId)) {
+      query["AuthorizationId"] = request.authorizationId;
+    }
+
+    if (!Util.isUnset(request.identityType)) {
+      query["IdentityType"] = request.identityType;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAbacAuthorization",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAbacAuthorizationResponse>(await this.callApi(params, req, runtime), new DeleteAbacAuthorizationResponse({}));
+  }
+
+  /**
+   * 删除权限策略授权
+   * 
+   * @param request - DeleteAbacAuthorizationRequest
+   * @returns DeleteAbacAuthorizationResponse
+   */
+  async deleteAbacAuthorization(request: DeleteAbacAuthorizationRequest): Promise<DeleteAbacAuthorizationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAbacAuthorizationWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除权限策略
+   * 
+   * @param request - DeleteAbacPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAbacPolicyResponse
+   */
+  async deleteAbacPolicyWithOptions(request: DeleteAbacPolicyRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAbacPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abacPolicyId)) {
+      query["AbacPolicyId"] = request.abacPolicyId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAbacPolicy",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAbacPolicyResponse>(await this.callApi(params, req, runtime), new DeleteAbacPolicyResponse({}));
+  }
+
+  /**
+   * 删除权限策略
+   * 
+   * @param request - DeleteAbacPolicyRequest
+   * @returns DeleteAbacPolicyResponse
+   */
+  async deleteAbacPolicy(request: DeleteAbacPolicyRequest): Promise<DeleteAbacPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAbacPolicyWithOptions(request, runtime);
+  }
+
+  /**
    * 删除权限模版
    * 
    * @param request - DeleteAuthorityTemplateRequest
@@ -61774,6 +65026,56 @@ export default class Client extends OpenApi {
   async executeStructSync(request: ExecuteStructSyncRequest): Promise<ExecuteStructSyncResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.executeStructSyncWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取策略详情
+   * 
+   * @param request - GetAbacPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAbacPolicyResponse
+   */
+  async getAbacPolicyWithOptions(request: GetAbacPolicyRequest, runtime: $Util.RuntimeOptions): Promise<GetAbacPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abacPolicyId)) {
+      query["AbacPolicyId"] = request.abacPolicyId;
+    }
+
+    if (!Util.isUnset(request.abacPolicyName)) {
+      query["AbacPolicyName"] = request.abacPolicyName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAbacPolicy",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAbacPolicyResponse>(await this.callApi(params, req, runtime), new GetAbacPolicyResponse({}));
+  }
+
+  /**
+   * 获取策略详情
+   * 
+   * @param request - GetAbacPolicyRequest
+   * @returns GetAbacPolicyResponse
+   */
+  async getAbacPolicy(request: GetAbacPolicyRequest): Promise<GetAbacPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAbacPolicyWithOptions(request, runtime);
   }
 
   /**
@@ -64895,6 +68197,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取权限策略授权列表
+   * 
+   * @param request - ListAbacAuthorizationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAbacAuthorizationsResponse
+   */
+  async listAbacAuthorizationsWithOptions(request: ListAbacAuthorizationsRequest, runtime: $Util.RuntimeOptions): Promise<ListAbacAuthorizationsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    if (!Util.isUnset(request.policySource)) {
+      query["PolicySource"] = request.policySource;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAbacAuthorizations",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAbacAuthorizationsResponse>(await this.callApi(params, req, runtime), new ListAbacAuthorizationsResponse({}));
+  }
+
+  /**
+   * 获取权限策略授权列表
+   * 
+   * @param request - ListAbacAuthorizationsRequest
+   * @returns ListAbacAuthorizationsResponse
+   */
+  async listAbacAuthorizations(request: ListAbacAuthorizationsRequest): Promise<ListAbacAuthorizationsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAbacAuthorizationsWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取权限策略列表
+   * 
+   * @param request - ListAbacPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAbacPoliciesResponse
+   */
+  async listAbacPoliciesWithOptions(request: ListAbacPoliciesRequest, runtime: $Util.RuntimeOptions): Promise<ListAbacPoliciesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAbacPolicies",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAbacPoliciesResponse>(await this.callApi(params, req, runtime), new ListAbacPoliciesResponse({}));
+  }
+
+  /**
+   * 获取权限策略列表
+   * 
+   * @param request - ListAbacPoliciesRequest
+   * @returns ListAbacPoliciesResponse
+   */
+  async listAbacPolicies(request: ListAbacPoliciesRequest): Promise<ListAbacPoliciesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAbacPoliciesWithOptions(request, runtime);
+  }
+
+  /**
    * 获取权限模版列表
    * 
    * @param request - ListAuthorityTemplateRequest
@@ -64946,6 +68360,262 @@ export default class Client extends OpenApi {
   async listAuthorityTemplate(request: ListAuthorityTemplateRequest): Promise<ListAuthorityTemplateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAuthorityTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户有权限的数据库
+   * 
+   * @param request - ListAuthorizedDatabasesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedDatabasesForUserResponse
+   */
+  async listAuthorizedDatabasesForUserWithOptions(request: ListAuthorizedDatabasesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizedDatabasesForUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.logic)) {
+      query["Logic"] = request.logic;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAuthorizedDatabasesForUser",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthorizedDatabasesForUserResponse>(await this.callApi(params, req, runtime), new ListAuthorizedDatabasesForUserResponse({}));
+  }
+
+  /**
+   * 获取用户有权限的数据库
+   * 
+   * @param request - ListAuthorizedDatabasesForUserRequest
+   * @returns ListAuthorizedDatabasesForUserResponse
+   */
+  async listAuthorizedDatabasesForUser(request: ListAuthorizedDatabasesForUserRequest): Promise<ListAuthorizedDatabasesForUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAuthorizedDatabasesForUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取用户有权限的实例
+   * 
+   * @param request - ListAuthorizedInstancesForUserRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedInstancesForUserResponse
+   */
+  async listAuthorizedInstancesForUserWithOptions(request: ListAuthorizedInstancesForUserRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizedInstancesForUserResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.envType)) {
+      query["EnvType"] = request.envType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      query["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAuthorizedInstancesForUser",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthorizedInstancesForUserResponse>(await this.callApi(params, req, runtime), new ListAuthorizedInstancesForUserResponse({}));
+  }
+
+  /**
+   * 获取用户有权限的实例
+   * 
+   * @param request - ListAuthorizedInstancesForUserRequest
+   * @returns ListAuthorizedInstancesForUserResponse
+   */
+  async listAuthorizedInstancesForUser(request: ListAuthorizedInstancesForUserRequest): Promise<ListAuthorizedInstancesForUserResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAuthorizedInstancesForUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询有数据库权限的用户
+   * 
+   * @param request - ListAuthorizedUsersForDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedUsersForDatabaseResponse
+   */
+  async listAuthorizedUsersForDatabaseWithOptions(request: ListAuthorizedUsersForDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizedUsersForDatabaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbId)) {
+      query["DbId"] = request.dbId;
+    }
+
+    if (!Util.isUnset(request.logic)) {
+      query["Logic"] = request.logic;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAuthorizedUsersForDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthorizedUsersForDatabaseResponse>(await this.callApi(params, req, runtime), new ListAuthorizedUsersForDatabaseResponse({}));
+  }
+
+  /**
+   * 查询有数据库权限的用户
+   * 
+   * @param request - ListAuthorizedUsersForDatabaseRequest
+   * @returns ListAuthorizedUsersForDatabaseResponse
+   */
+  async listAuthorizedUsersForDatabase(request: ListAuthorizedUsersForDatabaseRequest): Promise<ListAuthorizedUsersForDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAuthorizedUsersForDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询有实例权限的用户
+   * 
+   * @param request - ListAuthorizedUsersForInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAuthorizedUsersForInstanceResponse
+   */
+  async listAuthorizedUsersForInstanceWithOptions(request: ListAuthorizedUsersForInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ListAuthorizedUsersForInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAuthorizedUsersForInstance",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAuthorizedUsersForInstanceResponse>(await this.callApi(params, req, runtime), new ListAuthorizedUsersForInstanceResponse({}));
+  }
+
+  /**
+   * 查询有实例权限的用户
+   * 
+   * @param request - ListAuthorizedUsersForInstanceRequest
+   * @returns ListAuthorizedUsersForInstanceResponse
+   */
+  async listAuthorizedUsersForInstance(request: ListAuthorizedUsersForInstanceRequest): Promise<ListAuthorizedUsersForInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAuthorizedUsersForInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -68323,6 +71993,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 终止数据导出任务
+   * 
+   * @param request - PauseDataExportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PauseDataExportJobResponse
+   */
+  async pauseDataExportJobWithOptions(request: PauseDataExportJobRequest, runtime: $Util.RuntimeOptions): Promise<PauseDataExportJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "PauseDataExportJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<PauseDataExportJobResponse>(await this.callApi(params, req, runtime), new PauseDataExportJobResponse({}));
+  }
+
+  /**
+   * 终止数据导出任务
+   * 
+   * @param request - PauseDataExportJobRequest
+   * @returns PauseDataExportJobResponse
+   */
+  async pauseDataExportJob(request: PauseDataExportJobRequest): Promise<PauseDataExportJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.pauseDataExportJobWithOptions(request, runtime);
+  }
+
+  /**
    * 创建工单审批流
    * 
    * @param request - PreviewWorkflowRequest
@@ -68835,6 +72555,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除数据导出任务
+   * 
+   * @param request - RemoveDataExportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveDataExportJobResponse
+   */
+  async removeDataExportJobWithOptions(request: RemoveDataExportJobRequest, runtime: $Util.RuntimeOptions): Promise<RemoveDataExportJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RemoveDataExportJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RemoveDataExportJobResponse>(await this.callApi(params, req, runtime), new RemoveDataExportJobResponse({}));
+  }
+
+  /**
+   * 删除数据导出任务
+   * 
+   * @param request - RemoveDataExportJobRequest
+   * @returns RemoveDataExportJobResponse
+   */
+  async removeDataExportJob(request: RemoveDataExportJobRequest): Promise<RemoveDataExportJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.removeDataExportJobWithOptions(request, runtime);
+  }
+
+  /**
    * Reruns a failed SQL task for data change.
    * 
    * @param request - RestartDataCorrectSQLJobRequest
@@ -68886,6 +72656,56 @@ export default class Client extends OpenApi {
   async restartDataCorrectSQLJob(request: RestartDataCorrectSQLJobRequest): Promise<RestartDataCorrectSQLJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartDataCorrectSQLJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 重启数据导出任务
+   * 
+   * @param request - RestartDataExportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartDataExportJobResponse
+   */
+  async restartDataExportJobWithOptions(request: RestartDataExportJobRequest, runtime: $Util.RuntimeOptions): Promise<RestartDataExportJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartDataExportJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartDataExportJobResponse>(await this.callApi(params, req, runtime), new RestartDataExportJobResponse({}));
+  }
+
+  /**
+   * 重启数据导出任务
+   * 
+   * @param request - RestartDataExportJobRequest
+   * @returns RestartDataExportJobResponse
+   */
+  async restartDataExportJob(request: RestartDataExportJobRequest): Promise<RestartDataExportJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartDataExportJobWithOptions(request, runtime);
   }
 
   /**
@@ -69051,7 +72871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a permission on a resource from a user.
+   * Revokes the permissions on instances, databases, and tables from a user.
    * 
    * @param request - RevokeUserPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -69118,7 +72938,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes a permission on a resource from a user.
+   * Revokes the permissions on instances, databases, and tables from a user.
    * 
    * @param request - RevokeUserPermissionRequest
    * @returns RevokeUserPermissionResponse
@@ -69609,6 +73429,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 中断数据导出任务
+   * 
+   * @param request - SuspendDataExportJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendDataExportJobResponse
+   */
+  async suspendDataExportJobWithOptions(request: SuspendDataExportJobRequest, runtime: $Util.RuntimeOptions): Promise<SuspendDataExportJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.orderId)) {
+      query["OrderId"] = request.orderId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SuspendDataExportJob",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SuspendDataExportJobResponse>(await this.callApi(params, req, runtime), new SuspendDataExportJobResponse({}));
+  }
+
+  /**
+   * 中断数据导出任务
+   * 
+   * @param request - SuspendDataExportJobRequest
+   * @returns SuspendDataExportJobResponse
+   */
+  async suspendDataExportJob(request: SuspendDataExportJobRequest): Promise<SuspendDataExportJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.suspendDataExportJobWithOptions(request, runtime);
+  }
+
+  /**
    * Suspends a task flow instance.
    * 
    * @param request - SuspendTaskFlowInstanceRequest
@@ -69762,6 +73632,64 @@ export default class Client extends OpenApi {
   async syncInstanceMeta(request: SyncInstanceMetaRequest): Promise<SyncInstanceMetaResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.syncInstanceMetaWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新权限策略
+   * 
+   * @param request - UpdateAbacPolicyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAbacPolicyResponse
+   */
+  async updateAbacPolicyWithOptions(request: UpdateAbacPolicyRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAbacPolicyResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.abacPolicyContent)) {
+      query["AbacPolicyContent"] = request.abacPolicyContent;
+    }
+
+    if (!Util.isUnset(request.abacPolicyDesc)) {
+      query["AbacPolicyDesc"] = request.abacPolicyDesc;
+    }
+
+    if (!Util.isUnset(request.abacPolicyId)) {
+      query["AbacPolicyId"] = request.abacPolicyId;
+    }
+
+    if (!Util.isUnset(request.abacPolicyName)) {
+      query["AbacPolicyName"] = request.abacPolicyName;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAbacPolicy",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAbacPolicyResponse>(await this.callApi(params, req, runtime), new UpdateAbacPolicyResponse({}));
+  }
+
+  /**
+   * 更新权限策略
+   * 
+   * @param request - UpdateAbacPolicyRequest
+   * @returns UpdateAbacPolicyResponse
+   */
+  async updateAbacPolicy(request: UpdateAbacPolicyRequest): Promise<UpdateAbacPolicyResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateAbacPolicyWithOptions(request, runtime);
   }
 
   /**
