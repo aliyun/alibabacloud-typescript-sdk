@@ -54,6 +54,7 @@ export class AICreateSessionMessageResponseBody extends $tea.Model {
   code?: number;
   data?: string;
   msg?: string;
+  reference?: AICreateSessionMessageResponseBodyReference[];
   requestId?: string;
   sessionId?: string;
   static names(): { [key: string]: string } {
@@ -62,6 +63,7 @@ export class AICreateSessionMessageResponseBody extends $tea.Model {
       code: 'code',
       data: 'data',
       msg: 'msg',
+      reference: 'reference',
       requestId: 'requestId',
       sessionId: 'session_id',
     };
@@ -73,6 +75,7 @@ export class AICreateSessionMessageResponseBody extends $tea.Model {
       code: 'number',
       data: 'string',
       msg: 'string',
+      reference: { 'type': 'array', 'itemType': AICreateSessionMessageResponseBodyReference },
       requestId: 'string',
       sessionId: 'string',
     };
@@ -1004,6 +1007,28 @@ export class AICreateSessionMessageRequestContext extends $tea.Model {
       name: 'string',
       namespace: 'string',
       uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AICreateSessionMessageResponseBodyReference extends $tea.Model {
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
     };
   }
 
