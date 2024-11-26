@@ -21170,6 +21170,7 @@ export class UpdateVideoInfoRequest extends $tea.Model {
    * video title
    */
   title?: string;
+  userData?: string;
   /**
    * @remarks
    * The ID of the video.
@@ -21187,6 +21188,7 @@ export class UpdateVideoInfoRequest extends $tea.Model {
       description: 'Description',
       tags: 'Tags',
       title: 'Title',
+      userData: 'UserData',
       videoId: 'VideoId',
     };
   }
@@ -21198,6 +21200,7 @@ export class UpdateVideoInfoRequest extends $tea.Model {
       description: 'string',
       tags: 'string',
       title: 'string',
+      userData: 'string',
       videoId: 'string',
     };
   }
@@ -33045,6 +33048,17 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
    * 1
    */
   encrypt?: number;
+  /**
+   * @remarks
+   * The encryption type of the media stream. Valid values:
+   * 
+   * *   **License**: decryption on local devices
+   * 
+   * >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
+   * 
+   * @example
+   * License
+   */
   encryptMode?: string;
   /**
    * @remarks
@@ -34857,6 +34871,7 @@ export class GetVideoInfoResponseBodyVideo extends $tea.Model {
    * Video title in ApsaraVideo VOD
    */
   title?: string;
+  userData?: string;
   /**
    * @remarks
    * The ID of the media file.
@@ -34889,6 +34904,7 @@ export class GetVideoInfoResponseBodyVideo extends $tea.Model {
       tags: 'Tags',
       templateGroupId: 'TemplateGroupId',
       title: 'Title',
+      userData: 'UserData',
       videoId: 'VideoId',
     };
   }
@@ -34917,6 +34933,7 @@ export class GetVideoInfoResponseBodyVideo extends $tea.Model {
       tags: 'string',
       templateGroupId: 'string',
       title: 'string',
+      userData: 'string',
       videoId: 'string',
     };
   }
@@ -35101,6 +35118,7 @@ export class GetVideoInfosResponseBodyVideoList extends $tea.Model {
    * Video tiltle
    */
   title?: string;
+  userData?: string;
   /**
    * @remarks
    * The ID of the audio or video file.
@@ -35130,6 +35148,7 @@ export class GetVideoInfosResponseBodyVideoList extends $tea.Model {
       tags: 'Tags',
       templateGroupId: 'TemplateGroupId',
       title: 'Title',
+      userData: 'UserData',
       videoId: 'VideoId',
     };
   }
@@ -35155,6 +35174,7 @@ export class GetVideoInfosResponseBodyVideoList extends $tea.Model {
       tags: 'string',
       templateGroupId: 'string',
       title: 'string',
+      userData: 'string',
       videoId: 'string',
     };
   }
@@ -49740,6 +49760,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.title)) {
       query["Title"] = request.title;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
     }
 
     if (!Util.isUnset(request.videoId)) {
