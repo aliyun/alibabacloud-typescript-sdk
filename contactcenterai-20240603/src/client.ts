@@ -36,6 +36,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
    * false
    */
   stream?: boolean;
+  timeConstraintList?: string[];
   userProfiles?: AnalyzeConversationRequestUserProfiles[];
   static names(): { [key: string]: string } {
     return {
@@ -48,6 +49,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
       sceneName: 'sceneName',
       serviceInspection: 'serviceInspection',
       stream: 'stream',
+      timeConstraintList: 'timeConstraintList',
       userProfiles: 'userProfiles',
     };
   }
@@ -63,6 +65,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
       sceneName: 'string',
       serviceInspection: AnalyzeConversationRequestServiceInspection,
       stream: 'boolean',
+      timeConstraintList: { 'type': 'array', 'itemType': 'string' },
       userProfiles: { 'type': 'array', 'itemType': AnalyzeConversationRequestUserProfiles },
     };
   }
@@ -84,6 +87,8 @@ export class AnalyzeConversationResponseBody extends $tea.Model {
    * stop
    */
   finishReason?: string;
+  inputTokens?: string;
+  outputTokens?: string;
   /**
    * @example
    * 968A8634-FA2C-5381-9B3E-C552DED7E8BF
@@ -95,14 +100,18 @@ export class AnalyzeConversationResponseBody extends $tea.Model {
    */
   success?: boolean;
   text?: string;
+  totalTokens?: string;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'errorCode',
       errorInfo: 'errorInfo',
       finishReason: 'finishReason',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
       requestId: 'requestId',
       success: 'success',
       text: 'text',
+      totalTokens: 'totalTokens',
     };
   }
 
@@ -111,9 +120,12 @@ export class AnalyzeConversationResponseBody extends $tea.Model {
       errorCode: 'string',
       errorInfo: 'string',
       finishReason: 'string',
+      inputTokens: 'string',
+      outputTokens: 'string',
       requestId: 'string',
       success: 'boolean',
       text: 'string',
+      totalTokens: 'string',
     };
   }
 
@@ -147,86 +159,30 @@ export class AnalyzeConversationResponse extends $tea.Model {
   }
 }
 
-export class CreateConversationAnalysisTaskRequest extends $tea.Model {
-  /**
-   * @example
-   * 1
-   */
-  autoSplit?: number;
-  /**
-   * @example
-   * 0
-   */
-  clientChannel?: number;
-  examples?: CreateConversationAnalysisTaskRequestExamples;
-  fields?: CreateConversationAnalysisTaskRequestFields[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * audio.mp3
-   */
-  fileName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * tyxmTurbo
-   */
-  modelCode?: string;
+export class AnalyzeImageRequest extends $tea.Model {
+  imageUrls?: string[];
   resultTypes?: string[];
-  sceneName?: string;
-  /**
-   * @example
-   * 0
-   */
-  serviceChannel?: number;
-  serviceChannelKeywords?: string[];
-  serviceInspection?: CreateConversationAnalysisTaskRequestServiceInspection;
-  templateIds?: string[];
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * http://a.b.com/inner.mp3
+   * false
    */
-  voiceFileUrl?: string;
+  stream?: boolean;
   static names(): { [key: string]: string } {
     return {
-      autoSplit: 'autoSplit',
-      clientChannel: 'clientChannel',
-      examples: 'examples',
-      fields: 'fields',
-      fileName: 'fileName',
-      modelCode: 'modelCode',
+      imageUrls: 'imageUrls',
       resultTypes: 'resultTypes',
-      sceneName: 'sceneName',
-      serviceChannel: 'serviceChannel',
-      serviceChannelKeywords: 'serviceChannelKeywords',
-      serviceInspection: 'serviceInspection',
-      templateIds: 'templateIds',
-      voiceFileUrl: 'voiceFileUrl',
+      stream: 'stream',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      autoSplit: 'number',
-      clientChannel: 'number',
-      examples: CreateConversationAnalysisTaskRequestExamples,
-      fields: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestFields },
-      fileName: 'string',
-      modelCode: 'string',
+      imageUrls: { 'type': 'array', 'itemType': 'string' },
       resultTypes: { 'type': 'array', 'itemType': 'string' },
-      sceneName: 'string',
-      serviceChannel: 'number',
-      serviceChannelKeywords: { 'type': 'array', 'itemType': 'string' },
-      serviceInspection: CreateConversationAnalysisTaskRequestServiceInspection,
-      templateIds: { 'type': 'array', 'itemType': 'string' },
-      voiceFileUrl: 'string',
+      stream: 'boolean',
     };
   }
 
@@ -235,31 +191,59 @@ export class CreateConversationAnalysisTaskRequest extends $tea.Model {
   }
 }
 
-export class CreateConversationAnalysisTaskResponseBody extends $tea.Model {
-  data?: CreateConversationAnalysisTaskResponseBodyData;
+export class AnalyzeImageResponseBody extends $tea.Model {
   /**
    * @example
-   * 9F1DB065-AE0D-5EE3-B1AF-48632CB0831C
+   * stop
+   */
+  finishReason?: string;
+  /**
+   * @example
+   * 1000
+   */
+  inputTokens?: string;
+  /**
+   * @example
+   * 2000
+   */
+  outputTokens?: string;
+  /**
+   * @example
+   * 9*****-AE0D-5EE3-B1AF-48632CB0831C
    */
   requestId?: string;
   /**
    * @example
    * True
    */
-  success?: string;
+  success?: boolean;
+  text?: string;
+  /**
+   * @example
+   * 3000
+   */
+  totalTokens?: string;
   static names(): { [key: string]: string } {
     return {
-      data: 'data',
+      finishReason: 'finishReason',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
       requestId: 'requestId',
       success: 'success',
+      text: 'text',
+      totalTokens: 'totalTokens',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      data: CreateConversationAnalysisTaskResponseBodyData,
+      finishReason: 'string',
+      inputTokens: 'string',
+      outputTokens: 'string',
       requestId: 'string',
-      success: 'string',
+      success: 'boolean',
+      text: 'string',
+      totalTokens: 'string',
     };
   }
 
@@ -268,10 +252,10 @@ export class CreateConversationAnalysisTaskResponseBody extends $tea.Model {
   }
 }
 
-export class CreateConversationAnalysisTaskResponse extends $tea.Model {
+export class AnalyzeImageResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
-  body?: CreateConversationAnalysisTaskResponseBody;
+  body?: AnalyzeImageResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -284,7 +268,7 @@ export class CreateConversationAnalysisTaskResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
-      body: CreateConversationAnalysisTaskResponseBody,
+      body: AnalyzeImageResponseBody,
     };
   }
 
@@ -547,11 +531,17 @@ export class RunCompletionResponseBody extends $tea.Model {
    */
   requestId?: string;
   text?: string;
+  inputTokens?: string;
+  outputTokens?: string;
+  totalTokens?: string;
   static names(): { [key: string]: string } {
     return {
       finishReason: 'FinishReason',
       requestId: 'RequestId',
       text: 'Text',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
     };
   }
 
@@ -560,6 +550,9 @@ export class RunCompletionResponseBody extends $tea.Model {
       finishReason: 'string',
       requestId: 'string',
       text: 'string',
+      inputTokens: 'string',
+      outputTokens: 'string',
+      totalTokens: 'string',
     };
   }
 
@@ -638,11 +631,17 @@ export class RunCompletionMessageResponseBody extends $tea.Model {
    */
   requestId?: string;
   text?: string;
+  inputTokens?: string;
+  outputTokens?: string;
+  totalTokens?: string;
   static names(): { [key: string]: string } {
     return {
       finishReason: 'FinishReason',
       requestId: 'RequestId',
       text: 'Text',
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
     };
   }
 
@@ -651,6 +650,9 @@ export class RunCompletionMessageResponseBody extends $tea.Model {
       finishReason: 'string',
       requestId: 'string',
       text: 'string',
+      inputTokens: 'string',
+      outputTokens: 'string',
+      totalTokens: 'string',
     };
   }
 
@@ -983,236 +985,6 @@ export class AnalyzeConversationRequestUserProfiles extends $tea.Model {
     return {
       name: 'string',
       value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestExamplesSentences extends $tea.Model {
-  /**
-   * @example
-   * chat-01
-   */
-  chatId?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * user
-   */
-  role?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      chatId: 'chatId',
-      role: 'role',
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      chatId: 'string',
-      role: 'string',
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestExamples extends $tea.Model {
-  output?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sentences?: CreateConversationAnalysisTaskRequestExamplesSentences[];
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      sentences: 'sentences',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: 'string',
-      sentences: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestExamplesSentences },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestFieldsEnumValues extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValue?: string;
-  static names(): { [key: string]: string } {
-    return {
-      desc: 'desc',
-      enumValue: 'enumValue',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      desc: 'string',
-      enumValue: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestFields extends $tea.Model {
-  /**
-   * @example
-   * phoneNumber
-   */
-  code?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  desc?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  enumValues?: CreateConversationAnalysisTaskRequestFieldsEnumValues[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'code',
-      desc: 'desc',
-      enumValues: 'enumValues',
-      name: 'name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      desc: 'string',
-      enumValues: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestFieldsEnumValues },
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  content?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  title?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'content',
-      title: 'title',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-      title: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskRequestServiceInspection extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionContents?: CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  inspectionIntroduction?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  sceneIntroduction?: string;
-  static names(): { [key: string]: string } {
-    return {
-      inspectionContents: 'inspectionContents',
-      inspectionIntroduction: 'inspectionIntroduction',
-      sceneIntroduction: 'sceneIntroduction',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inspectionContents: { 'type': 'array', 'itemType': CreateConversationAnalysisTaskRequestServiceInspectionInspectionContents },
-      inspectionIntroduction: 'string',
-      sceneIntroduction: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateConversationAnalysisTaskResponseBodyData extends $tea.Model {
-  /**
-   * @example
-   * 20240905-********-93E9-5D45-B4EF-045743A34071
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'taskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
     };
   }
 
@@ -1878,6 +1650,10 @@ export default class Client extends OpenApi {
       body["stream"] = request.stream;
     }
 
+    if (!Util.isUnset(request.timeConstraintList)) {
+      body["timeConstraintList"] = request.timeConstraintList;
+    }
+
     if (!Util.isUnset(request.userProfiles)) {
       body["userProfiles"] = request.userProfiles;
     }
@@ -1913,66 +1689,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建语音文件调用llm任务
+   * 图片分析
    * 
-   * @param request - CreateConversationAnalysisTaskRequest
+   * @param request - AnalyzeImageRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateConversationAnalysisTaskResponse
+   * @returns AnalyzeImageResponse
    */
-  async createConversationAnalysisTaskWithOptions(workspaceId: string, appId: string, request: CreateConversationAnalysisTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateConversationAnalysisTaskResponse> {
+  async analyzeImageWithOptions(workspaceId: string, appId: string, request: AnalyzeImageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AnalyzeImageResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.autoSplit)) {
-      body["autoSplit"] = request.autoSplit;
-    }
-
-    if (!Util.isUnset(request.clientChannel)) {
-      body["clientChannel"] = request.clientChannel;
-    }
-
-    if (!Util.isUnset(request.examples)) {
-      body["examples"] = request.examples;
-    }
-
-    if (!Util.isUnset(request.fields)) {
-      body["fields"] = request.fields;
-    }
-
-    if (!Util.isUnset(request.fileName)) {
-      body["fileName"] = request.fileName;
-    }
-
-    if (!Util.isUnset(request.modelCode)) {
-      body["modelCode"] = request.modelCode;
+    if (!Util.isUnset(request.imageUrls)) {
+      body["imageUrls"] = request.imageUrls;
     }
 
     if (!Util.isUnset(request.resultTypes)) {
       body["resultTypes"] = request.resultTypes;
     }
 
-    if (!Util.isUnset(request.sceneName)) {
-      body["sceneName"] = request.sceneName;
-    }
-
-    if (!Util.isUnset(request.serviceChannel)) {
-      body["serviceChannel"] = request.serviceChannel;
-    }
-
-    if (!Util.isUnset(request.serviceChannelKeywords)) {
-      body["serviceChannelKeywords"] = request.serviceChannelKeywords;
-    }
-
-    if (!Util.isUnset(request.serviceInspection)) {
-      body["serviceInspection"] = request.serviceInspection;
-    }
-
-    if (!Util.isUnset(request.templateIds)) {
-      body["templateIds"] = request.templateIds;
-    }
-
-    if (!Util.isUnset(request.voiceFileUrl)) {
-      body["voiceFileUrl"] = request.voiceFileUrl;
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1980,29 +1716,29 @@ export default class Client extends OpenApi {
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
-      action: "CreateConversationAnalysisTask",
+      action: "AnalyzeImage",
       version: "2024-06-03",
       protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/createConversationAnalysisTask`,
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/ccai/app/${OpenApiUtil.getEncodeParam(appId)}/analyzeImage`,
       method: "POST",
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateConversationAnalysisTaskResponse>(await this.callApi(params, req, runtime), new CreateConversationAnalysisTaskResponse({}));
+    return $tea.cast<AnalyzeImageResponse>(await this.callApi(params, req, runtime), new AnalyzeImageResponse({}));
   }
 
   /**
-   * 创建语音文件调用llm任务
+   * 图片分析
    * 
-   * @param request - CreateConversationAnalysisTaskRequest
-   * @returns CreateConversationAnalysisTaskResponse
+   * @param request - AnalyzeImageRequest
+   * @returns AnalyzeImageResponse
    */
-  async createConversationAnalysisTask(workspaceId: string, appId: string, request: CreateConversationAnalysisTaskRequest): Promise<CreateConversationAnalysisTaskResponse> {
+  async analyzeImage(workspaceId: string, appId: string, request: AnalyzeImageRequest): Promise<AnalyzeImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
-    return await this.createConversationAnalysisTaskWithOptions(workspaceId, appId, request, headers, runtime);
+    return await this.analyzeImageWithOptions(workspaceId, appId, request, headers, runtime);
   }
 
   /**
