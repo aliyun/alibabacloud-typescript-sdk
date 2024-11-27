@@ -428,10 +428,9 @@ export class CreateApiExportRequest extends $tea.Model {
   param?: string;
   /**
    * @remarks
-   * The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
-   * 
-   * - **cn** (default): Chinese mainland.
-   * - **cn-hongkong**: outside the Chinese mainland.
+   * Language type. Valid values:
+   * - **cn**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * cn
@@ -2276,6 +2275,7 @@ export class DeleteApisecAbnormalsRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -2306,7 +2306,7 @@ export class DeleteApisecAbnormalsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -2392,6 +2392,7 @@ export class DeleteApisecEventsRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -2429,7 +2430,7 @@ export class DeleteApisecEventsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -3554,7 +3555,9 @@ export class DescribeAccountDelegatedStatusResponse extends $tea.Model {
 export class DescribeApiExportsRequest extends $tea.Model {
   /**
    * @remarks
-   * The returned data export tasks.
+   * The ID of the Web Application Firewall (WAF) instance.
+   * 
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -3564,7 +3567,10 @@ export class DescribeApiExportsRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The response parameters.
+   * Language type. Valid values:
+   * 
+   * - **cn**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -3572,7 +3578,7 @@ export class DescribeApiExportsRequest extends $tea.Model {
   lang?: string;
   /**
    * @remarks
-   * The request ID.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -3580,7 +3586,7 @@ export class DescribeApiExportsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of entries to return on each page. Default value: **10**.
    * 
    * @example
    * 10
@@ -3588,7 +3594,10 @@ export class DescribeApiExportsRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned data export task.
+   * The region ID of the Web Application Firewall (WAF) instance. Valid values:
+   * 
+   * *   **cn-hangzhou**: Chinese mainland.
+   * *   **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -3596,7 +3605,7 @@ export class DescribeApiExportsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the file.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -3632,12 +3641,12 @@ export class DescribeApiExportsRequest extends $tea.Model {
 export class DescribeApiExportsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * The returned data export tasks.
    */
   apiExports?: DescribeApiExportsResponseBodyApiExports[];
   /**
    * @remarks
-   * The format of the exported file.
+   * The request ID.
    * 
    * @example
    * D9532525-E885-54E7-A178-D5554D563AFB
@@ -3705,6 +3714,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -3712,7 +3722,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1687313820
@@ -3732,10 +3742,10 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sorting order. Valid values:
    * 
-   * *   asc: ascending order.
-   * *   desc: descending order.
+   * - **asc**: ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * desc
@@ -3751,10 +3761,10 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page. Default value: **5**.
    * 
    * @example
-   * 10
+   * 5
    */
   pageSize?: number;
   /**
@@ -3778,7 +3788,7 @@ export class DescribeApisecAbnormalDomainStatisticRequest extends $tea.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1682571600
@@ -3825,7 +3835,7 @@ export class DescribeApisecAbnormalDomainStatisticResponseBody extends $tea.Mode
   data?: DescribeApisecAbnormalDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * Id of the request.
    * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014***B11AE
@@ -3910,7 +3920,7 @@ export class DescribeApisecAbnormalsRequest extends $tea.Model {
    * @remarks
    * The type of the risk.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
    * 
    * @example
    * LackOfSpeedLimit
@@ -3936,7 +3946,7 @@ export class DescribeApisecAbnormalsRequest extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purposes of APIs.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * RegisterAPI
@@ -4241,7 +4251,7 @@ export class DescribeApisecApiResourcesRequest extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
    * 
    * @example
    * SendMail
@@ -4384,7 +4394,7 @@ export class DescribeApisecApiResourcesRequest extends $tea.Model {
    * @remarks
    * The sensitive data type in the request.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported sensitive data types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
    * 
    * @example
    * 1004,1005
@@ -4415,7 +4425,7 @@ export class DescribeApisecApiResourcesRequest extends $tea.Model {
    * @remarks
    * The sensitive data type in the response.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported sensitive data types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
    * 
    * @example
    * 1004
@@ -4569,7 +4579,7 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683183599
@@ -4579,7 +4589,7 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * >  You can call the [DescribeInstanceInfo](https://help.aliyun.com/document_detail/140857.html) operation to query the ID of the WAF instance.
+   * >  You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -4608,7 +4618,7 @@ export class DescribeApisecAssetTrendRequest extends $tea.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1668496310
@@ -4649,7 +4659,7 @@ export class DescribeApisecAssetTrendResponseBody extends $tea.Model {
   data?: DescribeApisecAssetTrendResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * Id of the request.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19****5EB0
@@ -4703,6 +4713,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -4710,7 +4721,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1686895256
@@ -4730,10 +4741,10 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sorting order. Valid values:
    * 
-   * *   asc: ascending order.
-   * *   desc: descending order.
+   * - **asc**: ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * desc
@@ -4741,7 +4752,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -4749,10 +4760,10 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page. Default value: **5**.
    * 
    * @example
-   * 10
+   * 5
    */
   pageSize?: number;
   /**
@@ -4776,7 +4787,7 @@ export class DescribeApisecEventDomainStatisticRequest extends $tea.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+   * The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1668496310
@@ -4823,7 +4834,7 @@ export class DescribeApisecEventDomainStatisticResponseBody extends $tea.Model {
   data?: DescribeApisecEventDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * Id of the request.
    * 
    * @example
    * 66A98669-*******-80A6-3014697B11AE
@@ -4904,7 +4915,7 @@ export class DescribeApisecEventsRequest extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
    * 
    * @example
    * SendMail
@@ -4959,7 +4970,7 @@ export class DescribeApisecEventsRequest extends $tea.Model {
    * @remarks
    * The type of the event.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported event types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
    * 
    * @example
    * ObtainSensitiveUnauthorized
@@ -6059,10 +6070,10 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting order.
+   * The sorting order. Valid values:
    * 
-   * *   asc: ascending order.
-   * *   desc: descending order.
+   * -  **asc**: ascending order.
+   * - **desc**: descending order.
    * 
    * @example
    * desc
@@ -6078,10 +6089,10 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: **10**.
+   * The number of entries per page. Default value: **5**.
    * 
    * @example
-   * 10
+   * 5
    */
   pageSize?: number;
   /**
@@ -6113,10 +6124,10 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $tea.Model {
   startTime?: number;
   /**
    * @remarks
-   * The sensitive data type.
+   * The sensitive data type. Valid values:
    * 
-   * *   request: sensitive data in requests.
-   * *   response: sensitive data in responses.
+   * - **request**: sensitive data in requests.
+   * - **response**: sensitive data in responses.
    * 
    * @example
    * request
@@ -6165,7 +6176,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBody extends $tea.Mod
   data?: DescribeApisecSensitiveDomainStatisticResponseBodyData[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 56B40D30-4960-4F19-B7D5-2B1F***6CB70
@@ -7584,6 +7595,9 @@ export class DescribeCloudResourcesRequest extends $tea.Model {
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The name of the instance that is added to WAF.
+   * 
    * @example
    * test-name
    */
@@ -7608,12 +7622,16 @@ export class DescribeCloudResourcesRequest extends $tea.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The cloud service to which the resource belongs. Valid values:
+   * The cloud service to which the resource belongs. If you do not specify this parameter, the system automatically returns the Application Load Balancer (ALB), Microservices Engine (MSE), Function Compute, and Serverless App Engine (SAE) resources that are added to WAF. Valid values:
    * 
-   * *   **alb**: Application Load Balancer (ALB).
-   * *   **mse**: Microservices Engine (MSE).
+   * *   **alb**: ALB.
+   * *   **mse**: MSE.
    * *   **fc**: Function Compute.
-   * *   **sae**: Serverless App Engine (SAE).
+   * *   **sae**: SAE.
+   * *   **ecs**: Elastic Compute Service (ECS).
+   * *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+   * *   **clb7**: Layer 7 CLB.
+   * *   **nlb**: Network Load Balancer (NLB).
    * 
    * >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
    * 
@@ -15935,7 +15953,7 @@ export class DescribeSensitiveOutboundStatisticRequest extends $tea.Model {
    * @remarks
    * The type of the sensitive data. Separate multiple types with commas (,).
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data. Only built-in types of sensitive data are supported for this operation.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data. Only built-in types of sensitive data are supported for this operation.
    * 
    * @example
    * 1000,1001
@@ -16334,7 +16352,7 @@ export class DescribeSensitiveRequestLogRequest extends $tea.Model {
    * @remarks
    * The type of the sensitive data.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1000,1001
@@ -16534,7 +16552,7 @@ export class DescribeSensitiveRequestsRequest extends $tea.Model {
    * @remarks
    * The type of the sensitive data.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1001
@@ -17763,6 +17781,7 @@ export class DescribeUserApiRequestRequest extends $tea.Model {
   /**
    * @remarks
    * The API.
+   * >Notice: This parameter is deprecated, please use ApiId to query.
    * 
    * @example
    * /api/v1/know
@@ -17790,6 +17809,7 @@ export class DescribeUserApiRequestRequest extends $tea.Model {
   /**
    * @remarks
    * The domain name or IP address of the API.
+   * >Notice: This parameter is deprecated, please use ApiId to query.
    * 
    * @example
    * c.***.com
@@ -17966,6 +17986,7 @@ export class DescribeUserAssetRequest extends $tea.Model {
   /**
    * @remarks
    * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * >Notice: The parameter has been deprecated.
    * 
    * @example
    * 1723435200
@@ -18488,7 +18509,7 @@ export class DescribeUserWafLogStatusRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -18524,7 +18545,6 @@ export class DescribeUserWafLogStatusResponseBody extends $tea.Model {
    * *   **cn-beijing**: China (Beijing).
    * *   **cn-hongkong**: China (Hong Kong).
    * *   **ap-southeast-1**: Singapore.
-   * *   **ap-southeast-2**: Australia (Sydney).
    * *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
    * *   **ap-southeast-5**: Indonesia (Jakarta).
    * *   **ap-southeast-6**: Philippines (Manila).
@@ -19439,6 +19459,7 @@ export class ModifyApisecAbnormalsRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -19477,7 +19498,7 @@ export class ModifyApisecAbnormalsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -19733,6 +19754,7 @@ export class ModifyApisecEventsRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
+   * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
    * 
    * @example
    * 428
@@ -19778,7 +19800,7 @@ export class ModifyApisecEventsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud resource group.
+   * 阿里云资源组ID。
    * 
    * @example
    * rg-acfm***q
@@ -25312,7 +25334,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $tea.Model {
    * @remarks
    * The type of the risk.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
    * 
    * @example
    * LackOfSpeedLimit
@@ -25346,7 +25368,7 @@ export class DescribeApisecAbnormalsResponseBodyData extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purposes of APIs.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
    * 
    * @example
    * SendMail
@@ -25608,7 +25630,7 @@ export class DescribeApisecApiResourcesResponseBodyData extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
    * 
    * @example
    * SendMail
@@ -25795,7 +25817,7 @@ export class DescribeApisecAssetTrendResponseBodyData extends $tea.Model {
   assetOffline?: number;
   /**
    * @remarks
-   * The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time for statistics. Specify a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1683600042
@@ -25919,7 +25941,7 @@ export class DescribeApisecEventsResponseBodyData extends $tea.Model {
    * @remarks
    * The business purpose of the API.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
    * 
    * @example
    * SendMail
@@ -26006,7 +26028,7 @@ export class DescribeApisecEventsResponseBodyData extends $tea.Model {
    * @remarks
    * The type of the event.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported event types.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
    * 
    * @example
    * ObtainSensitiveUnauthorized
@@ -26490,6 +26512,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea
   /**
    * @remarks
    * The code of the sensitive data.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
    * 
    * @example
    * 10
@@ -26497,7 +26520,11 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $tea
   sensitiveCode?: string;
   /**
    * @remarks
-   * The sensitivity level of the sensitive data.
+   * The sensitivity level of the sensitive data.Valid values:
+   * 
+   * * **S1**: low sensitivity.
+   * * **S2**: moderate sensitivity.
+   * * **S3**: high sensitivity.
    * 
    * @example
    * L3
@@ -27399,11 +27426,21 @@ export class DescribeCloudResourceAccessPortDetailsResponseBodyAccessPortDetails
 
 export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model {
   /**
+   * @remarks
+   * The number of the HTTP ports that are added to WAF.
+   * 
+   * >  This parameter is returned only if the cloud service is ECS or CLB.
+   * 
    * @example
    * 1
    */
   httpPortCount?: number;
   /**
+   * @remarks
+   * The number of the HTTPS ports that are added to WAF.
+   * 
+   * >  This parameter is returned only if the cloud service is ECS or CLB.
+   * 
    * @example
    * 1
    */
@@ -27443,16 +27480,25 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
    */
   resourceInstance?: string;
   /**
+   * @remarks
+   * The ID of the instance that is added to WAF.
+   * 
    * @example
    * lb-uf60ub45fr9b***
    */
   resourceInstanceId?: string;
   /**
+   * @remarks
+   * The IP address of the instance that is added to WAF.
+   * 
    * @example
    * 1.1.1.1
    */
   resourceInstanceIp?: string;
   /**
+   * @remarks
+   * The name of the instance that is added to WAF.
+   * 
    * @example
    * test-name
    */
@@ -27475,6 +27521,9 @@ export class DescribeCloudResourcesResponseBodyCloudResources extends $tea.Model
    * *   **mse**: MSE.
    * *   **fc**: Function Compute.
    * *   **sae**: SAE.
+   * *   **ecs**: ECS.
+   * *   **clb4**: Layer 4 CLB.
+   * *   **clb7**: Layer 7 CLB.
    * 
    * @example
    * alb
@@ -30155,7 +30204,7 @@ export class DescribeFreeUserEventsResponseBodyEvent extends $tea.Model {
    * @remarks
    * The type of the security event.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of security events.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of security events.
    * 
    * @example
    * Event_DataTraverse
@@ -33089,7 +33138,7 @@ export class DescribeSensitiveOutboundStatisticResponseBodyData extends $tea.Mod
    * @remarks
    * The type of the sensitive data.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1001
@@ -33242,6 +33291,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $tea.Model {
    * a.****.com
    */
   matchedHost?: string;
+  remoteCountryId?: string;
   /**
    * @remarks
    * The time when the request was initiated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
@@ -33273,6 +33323,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $tea.Model {
       clientIP: 'ClientIP',
       count: 'Count',
       matchedHost: 'MatchedHost',
+      remoteCountryId: 'RemoteCountryId',
       requestTime: 'RequestTime',
       sensitiveList: 'SensitiveList',
       traceId: 'TraceId',
@@ -33286,6 +33337,7 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $tea.Model {
       clientIP: 'string',
       count: 'number',
       matchedHost: 'string',
+      remoteCountryId: 'string',
       requestTime: 'number',
       sensitiveList: 'string',
       traceId: 'string',
@@ -33473,7 +33525,7 @@ export class DescribeSensitiveStatisticResponseBodyData extends $tea.Model {
    * @remarks
    * The type of the sensitive data.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
    * 
    * @example
    * 1003
@@ -33579,6 +33631,8 @@ export class DescribeUserAbnormalTrendResponseBodyTrend extends $tea.Model {
    * @remarks
    * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
    * 
+   * >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
+   * 
    * @example
    * 1722268800
    */
@@ -33645,7 +33699,7 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $tea.Model {
    * @remarks
    * The type of the risk.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
    * 
    * @example
    * LackOfSpeedLimit
@@ -33786,6 +33840,7 @@ export class DescribeUserEventTrendResponseBodyTrend extends $tea.Model {
   /**
    * @remarks
    * The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+   * >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
    * 
    * @example
    * 1723435200
@@ -33853,7 +33908,7 @@ export class DescribeUserEventTypeResponseBodyEvent extends $tea.Model {
    * @remarks
    * The type of the security event.
    * 
-   * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of security events.
+   * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of security events.
    * 
    * @example
    * Event_AbnormalFrequency
