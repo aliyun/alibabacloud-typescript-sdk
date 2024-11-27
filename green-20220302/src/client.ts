@@ -751,6 +751,104 @@ export class ImageAsyncModerationResponse extends $tea.Model {
   }
 }
 
+export class ImageBatchModerationRequest extends $tea.Model {
+  /**
+   * @example
+   * {
+   *         "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
+   *         "dataId": "img123****"
+   *     }
+   */
+  serviceParameters?: string;
+  /**
+   * @example
+   * baselineCheck,tonalityImprove
+   */
+  services?: string;
+  static names(): { [key: string]: string } {
+    return {
+      serviceParameters: 'ServiceParameters',
+      services: 'Services',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      serviceParameters: 'string',
+      services: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ImageBatchModerationResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  msg?: string;
+  /**
+   * @example
+   * 6CF2815C-C8C7-4A01-B52E-FF6E24F53492
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      msg: 'Msg',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ImageBatchModerationResponseBodyData,
+      msg: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ImageBatchModerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ImageBatchModerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationRequest extends $tea.Model {
   /**
    * @remarks
@@ -3097,6 +3195,497 @@ export class ImageAsyncModerationResponseBodyData extends $tea.Model {
   }
 }
 
+export class ImageBatchModerationResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 81.22
+   */
+  confidence?: number;
+  description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtCustomImage extends $tea.Model {
+  /**
+   * @example
+   * 1965304870002
+   */
+  imageId?: string;
+  /**
+   * @example
+   * 1965304870002
+   */
+  libId?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      libId: 'LibId',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation extends $tea.Model {
+  /**
+   * @example
+   * 440
+   */
+  h?: number;
+  /**
+   * @example
+   * 330
+   */
+  w?: number;
+  /**
+   * @example
+   * 11
+   */
+  x?: number;
+  /**
+   * @example
+   * 22
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo extends $tea.Model {
+  /**
+   * @example
+   * 99.1
+   */
+  confidence?: number;
+  /**
+   * @example
+   * logo_sns
+   */
+  label?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      label: 'Label',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      label: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtLogoData extends $tea.Model {
+  location?: ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation;
+  logo?: ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo[];
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      logo: 'Logo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: ImageBatchModerationResponseBodyDataResultsExtLogoDataLocation,
+      logo: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtLogoDataLogo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation extends $tea.Model {
+  /**
+   * @example
+   * 440
+   */
+  h?: number;
+  /**
+   * @example
+   * 330
+   */
+  w?: number;
+  /**
+   * @example
+   * 11
+   */
+  x?: number;
+  /**
+   * @example
+   * 22
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtPublicFigure extends $tea.Model {
+  figureId?: string;
+  figureName?: string;
+  location?: ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation[];
+  static names(): { [key: string]: string } {
+    return {
+      figureId: 'FigureId',
+      figureName: 'FigureName',
+      location: 'Location',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      figureId: 'string',
+      figureName: 'string',
+      location: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtPublicFigureLocation },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText extends $tea.Model {
+  keyWords?: string;
+  /**
+   * @example
+   * 123456
+   */
+  libId?: string;
+  libName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyWords: 'KeyWords',
+      libId: 'LibId',
+      libName: 'LibName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyWords: 'string',
+      libId: 'string',
+      libName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation extends $tea.Model {
+  /**
+   * @example
+   * 33
+   */
+  h?: number;
+  /**
+   * @example
+   * 44
+   */
+  w?: number;
+  /**
+   * @example
+   * 11
+   */
+  x?: number;
+  /**
+   * @example
+   * 22
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      h: 'H',
+      w: 'W',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      h: 'number',
+      w: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult extends $tea.Model {
+  location?: ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation;
+  /**
+   * @example
+   * abcd
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      location: 'Location',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      location: ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResultLocation,
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExtTextInImage extends $tea.Model {
+  customText?: ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText[];
+  ocrResult?: ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult[];
+  riskWord?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      customText: 'CustomText',
+      ocrResult: 'OcrResult',
+      riskWord: 'RiskWord',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customText: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtTextInImageCustomText },
+      ocrResult: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtTextInImageOcrResult },
+      riskWord: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsExt extends $tea.Model {
+  customImage?: ImageBatchModerationResponseBodyDataResultsExtCustomImage[];
+  logoData?: ImageBatchModerationResponseBodyDataResultsExtLogoData;
+  publicFigure?: ImageBatchModerationResponseBodyDataResultsExtPublicFigure[];
+  textInImage?: ImageBatchModerationResponseBodyDataResultsExtTextInImage;
+  static names(): { [key: string]: string } {
+    return {
+      customImage: 'CustomImage',
+      logoData: 'LogoData',
+      publicFigure: 'PublicFigure',
+      textInImage: 'TextInImage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customImage: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtCustomImage },
+      logoData: ImageBatchModerationResponseBodyDataResultsExtLogoData,
+      publicFigure: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsExtPublicFigure },
+      textInImage: ImageBatchModerationResponseBodyDataResultsExtTextInImage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResultsResult extends $tea.Model {
+  /**
+   * @example
+   * 81.22
+   */
+  confidence?: number;
+  description?: string;
+  /**
+   * @example
+   * violent_explosion
+   */
+  label?: string;
+  static names(): { [key: string]: string } {
+    return {
+      confidence: 'Confidence',
+      description: 'Description',
+      label: 'Label',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      confidence: 'number',
+      description: 'string',
+      label: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyDataResults extends $tea.Model {
+  ext?: ImageBatchModerationResponseBodyDataResultsExt;
+  result?: ImageBatchModerationResponseBodyDataResultsResult[];
+  /**
+   * @example
+   * high
+   */
+  riskLevel?: string;
+  /**
+   * @example
+   * baselineCheck
+   */
+  service?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ext: 'Ext',
+      result: 'Result',
+      riskLevel: 'RiskLevel',
+      service: 'Service',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ext: ImageBatchModerationResponseBodyDataResultsExt,
+      result: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResultsResult },
+      riskLevel: 'string',
+      service: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ImageBatchModerationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 26769ada6e264e7ba9aa048241e12be9
+   */
+  dataId?: string;
+  result?: ImageBatchModerationResponseBodyDataResult[];
+  results?: ImageBatchModerationResponseBodyDataResults[];
+  /**
+   * @example
+   * high
+   */
+  riskLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataId: 'DataId',
+      result: 'Result',
+      results: 'Results',
+      riskLevel: 'RiskLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataId: 'string',
+      result: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResult },
+      results: { 'type': 'array', 'itemType': ImageBatchModerationResponseBodyDataResults },
+      riskLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageModerationResponseBodyDataExtCustomImage extends $tea.Model {
   /**
    * @remarks
@@ -4144,6 +4733,13 @@ export class ImageModerationResponseBodyDataExtTextInImage extends $tea.Model {
 }
 
 export class ImageModerationResponseBodyDataExtVlContent extends $tea.Model {
+  /**
+   * @remarks
+   * the vl output content
+   * 
+   * @example
+   * this is a cat
+   */
   outputText?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4198,6 +4794,10 @@ export class ImageModerationResponseBodyDataExt extends $tea.Model {
    * Returns the text information in the hit image.
    */
   textInImage?: ImageModerationResponseBodyDataExtTextInImage;
+  /**
+   * @remarks
+   * the vl output content
+   */
   vlContent?: ImageModerationResponseBodyDataExtVlContent;
   static names(): { [key: string]: string } {
     return {
@@ -5868,6 +6468,52 @@ export default class Client extends OpenApi {
   async imageAsyncModeration(request: ImageAsyncModerationRequest): Promise<ImageAsyncModerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.imageAsyncModerationWithOptions(request, runtime);
+  }
+
+  /**
+   * 图片批量调用
+   * 
+   * @param request - ImageBatchModerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImageBatchModerationResponse
+   */
+  async imageBatchModerationWithOptions(request: ImageBatchModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageBatchModerationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
+    }
+
+    if (!Util.isUnset(request.services)) {
+      query["Services"] = request.services;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ImageBatchModeration",
+      version: "2022-03-02",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ImageBatchModerationResponse>(await this.callApi(params, req, runtime), new ImageBatchModerationResponse({}));
+  }
+
+  /**
+   * 图片批量调用
+   * 
+   * @param request - ImageBatchModerationRequest
+   * @returns ImageBatchModerationResponse
+   */
+  async imageBatchModeration(request: ImageBatchModerationRequest): Promise<ImageBatchModerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.imageBatchModerationWithOptions(request, runtime);
   }
 
   /**
