@@ -100,7 +100,7 @@ export class DLDatabase extends $tea.Model {
   description?: string;
   location?: string;
   name?: string;
-  parameters?: string;
+  parameters?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {
       catalogName: 'CatalogName',
@@ -119,7 +119,7 @@ export class DLDatabase extends $tea.Model {
       description: 'string',
       location: 'string',
       name: 'string',
-      parameters: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
     };
   }
 
@@ -698,6 +698,162 @@ export class UsersDetailsVO extends $tea.Model {
       userConfirmed: 'number',
       userName: 'string',
       userPublicKeyPem: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthorityTemplateItemsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  items?: AddAuthorityTemplateItemsRequestItems[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15***
+   */
+  templateId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      templateId: 'TemplateId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': AddAuthorityTemplateItemsRequestItems },
+      templateId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthorityTemplateItemsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  itemsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15***
+   */
+  templateId?: number;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      itemsShrink: 'Items',
+      templateId: 'TemplateId',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      itemsShrink: 'string',
+      templateId: 'number',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthorityTemplateItemsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 3D3FB827-E667-50DB-AD59-C83F8237FECB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddAuthorityTemplateItemsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddAuthorityTemplateItemsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddAuthorityTemplateItemsResponseBody,
     };
   }
 
@@ -14537,6 +14693,408 @@ export class GetDataImportSQLResponse extends $tea.Model {
   }
 }
 
+export class GetDataLakeCatalogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   * 
+   * **if can be null:**
+   * false
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @example
+   * 3
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeCatalogResponseBody extends $tea.Model {
+  catalog?: DLCatalog;
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * code: 404, can not find catalog, name : hiv request id: 6090E571-E5B1-1E6D-BF44-F9E10E8B7EB1
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      catalog: 'Catalog',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalog: DLCatalog,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeCatalogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataLakeCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataLakeCatalogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   * 
+   * **if can be null:**
+   * false
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   * 
+   * **if can be null:**
+   * false
+   */
+  name?: string;
+  /**
+   * @example
+   * 3
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      name: 'Name',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      name: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeDatabaseResponseBody extends $tea.Model {
+  database?: DLDatabase;
+  /**
+   * @example
+   * 404
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * code: 404, can not find catalog, name : hive1 request id: FF737753-9641-1F51-AFDA-7DF541114B29
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * E5EE2B9E-2F95-57FA-B284-CB441CEE49D6
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: DLDatabase,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataLakeDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeTableRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   * 
+   * **if can be null:**
+   * false
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   * 
+   * **if can be null:**
+   * false
+   */
+  dbName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100g_customer
+   * 
+   * **if can be null:**
+   * false
+   */
+  name?: string;
+  /**
+   * @example
+   * 3
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      name: 'Name',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      name: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeTableResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Unknown server error
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  table?: DLTable;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      table: 'Table',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'string',
+      table: DLTable,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataLakeTableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataLakeTableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataLakeTableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataTrackJobDegreeRequest extends $tea.Model {
   /**
    * @remarks
@@ -23038,6 +23596,408 @@ export class ListDataImportSQLTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDataImportSQLTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeCatalogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @example
+   * hive
+   * 
+   * **if can be null:**
+   * false
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataRegion: 'DataRegion',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataRegion: 'string',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeCatalogResponseBody extends $tea.Model {
+  cataLogList?: ListDataLakeCatalogResponseBodyCataLogList;
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * E76DD2E7-EBAC-5724-B163-19AAC233F8F2
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      cataLogList: 'CataLogList',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cataLogList: ListDataLakeCatalogResponseBodyCataLogList,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeCatalogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeCatalogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeCatalogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeDatabaseRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   * 
+   * **if can be null:**
+   * false
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   * 
+   * **if can be null:**
+   * false
+   */
+  dataRegion?: string;
+  /**
+   * @example
+   * default
+   * 
+   * **if can be null:**
+   * false
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeDatabaseResponseBody extends $tea.Model {
+  databaseList?: ListDataLakeDatabaseResponseBodyDatabaseList;
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      databaseList: 'DatabaseList',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseList: ListDataLakeDatabaseResponseBodyDatabaseList,
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeDatabaseResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeDatabaseResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeDatabaseResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTablebaseInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hive
+   */
+  catalogName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  dataRegion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * default
+   */
+  dbName?: string;
+  /**
+   * @example
+   * 1
+   */
+  page?: number;
+  /**
+   * @example
+   * 10
+   */
+  rows?: number;
+  /**
+   * @example
+   * test
+   */
+  searchKey?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  static names(): { [key: string]: string } {
+    return {
+      catalogName: 'CatalogName',
+      dataRegion: 'DataRegion',
+      dbName: 'DbName',
+      page: 'Page',
+      rows: 'Rows',
+      searchKey: 'SearchKey',
+      tid: 'Tid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalogName: 'string',
+      dataRegion: 'string',
+      dbName: 'string',
+      page: 'number',
+      rows: 'number',
+      searchKey: 'string',
+      tid: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTablebaseInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 400
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Specified parameter Rows is not valid.
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * B43AD641-49C2-5299-9E06-1B37EC1B****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  tablebaseInfoList?: ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+      tablebaseInfoList: 'TablebaseInfoList',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      tablebaseInfoList: ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList,
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTablebaseInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataLakeTablebaseInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataLakeTablebaseInfoResponseBody,
     };
   }
 
@@ -34425,6 +35385,161 @@ export class SetOwnersResponse extends $tea.Model {
   }
 }
 
+export class SetWorkflowExtraInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  renderAddApprovalNode?: boolean;
+  /**
+   * @example
+   * true
+   */
+  renderAgree?: boolean;
+  /**
+   * @example
+   * true
+   */
+  renderCancel?: boolean;
+  /**
+   * @example
+   * false
+   */
+  renderReject?: boolean;
+  /**
+   * @example
+   * true
+   */
+  renderTransfer?: boolean;
+  /**
+   * @example
+   * test
+   */
+  thirdpartyWorkflowComment?: string;
+  /**
+   * @example
+   * https://xxx
+   */
+  thirdpartyWorkflowUrl?: string;
+  /**
+   * @example
+   * 3***
+   */
+  tid?: number;
+  /**
+   * @example
+   * 184****
+   */
+  workflowInstanceId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      renderAddApprovalNode: 'RenderAddApprovalNode',
+      renderAgree: 'RenderAgree',
+      renderCancel: 'RenderCancel',
+      renderReject: 'RenderReject',
+      renderTransfer: 'RenderTransfer',
+      thirdpartyWorkflowComment: 'ThirdpartyWorkflowComment',
+      thirdpartyWorkflowUrl: 'ThirdpartyWorkflowUrl',
+      tid: 'Tid',
+      workflowInstanceId: 'WorkflowInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      renderAddApprovalNode: 'boolean',
+      renderAgree: 'boolean',
+      renderCancel: 'boolean',
+      renderReject: 'boolean',
+      renderTransfer: 'boolean',
+      thirdpartyWorkflowComment: 'string',
+      thirdpartyWorkflowUrl: 'string',
+      tid: 'number',
+      workflowInstanceId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetWorkflowExtraInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * UnknownError
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * 8401893F-4235-55D5-B563-7CF7A7D037DE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'boolean',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetWorkflowExtraInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetWorkflowExtraInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetWorkflowExtraInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SkipDataCorrectRowCheckRequest extends $tea.Model {
   /**
    * @remarks
@@ -39035,6 +40150,56 @@ export class UpdateUserResponse extends $tea.Model {
   }
 }
 
+export class AddAuthorityTemplateItemsRequestItems extends $tea.Model {
+  /**
+   * @example
+   * 2478****
+   */
+  dbId?: number;
+  /**
+   * @example
+   * 237****
+   */
+  instanceId?: number;
+  permissionTypes?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * INSTANCE
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test_table
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbId: 'DbId',
+      instanceId: 'InstanceId',
+      permissionTypes: 'PermissionTypes',
+      resourceType: 'ResourceType',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbId: 'number',
+      instanceId: 'number',
+      permissionTypes: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddLhMembersRequestMembers extends $tea.Model {
   /**
    * @remarks
@@ -41908,7 +43073,21 @@ export class GetApprovalDetailResponseBodyApprovalDetail extends $tea.Model {
    * 1234
    */
   templateId?: number;
+  /**
+   * @remarks
+   * Third-party approval flow remarks.
+   * 
+   * @example
+   * test
+   */
   thirdpartyWorkflowComment?: string;
+  /**
+   * @remarks
+   * The third-party approval flow link.
+   * 
+   * @example
+   * https://xxx
+   */
   thirdpartyWorkflowUrl?: string;
   /**
    * @remarks
@@ -53150,6 +54329,63 @@ export class ListDataImportSQLPreCheckDetailResponseBodyPreCheckSQLDetailList ex
   }
 }
 
+export class ListDataLakeCatalogResponseBodyCataLogList extends $tea.Model {
+  catalog?: DLCatalog[];
+  static names(): { [key: string]: string } {
+    return {
+      catalog: 'Catalog',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      catalog: { 'type': 'array', 'itemType': DLCatalog },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeDatabaseResponseBodyDatabaseList extends $tea.Model {
+  database?: DLDatabase[];
+  static names(): { [key: string]: string } {
+    return {
+      database: 'Database',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      database: { 'type': 'array', 'itemType': DLDatabase },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataLakeTablebaseInfoResponseBodyTablebaseInfoList extends $tea.Model {
+  tablebaseInfo?: DLTablebaseInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      tablebaseInfo: 'TablebaseInfo',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tablebaseInfo: { 'type': 'array', 'itemType': DLTablebaseInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDatabaseUserPermssionsResponseBodyUserPermissionsUserPermissionPermDetailsPermDetail extends $tea.Model {
   /**
    * @remarks
@@ -61040,6 +62276,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加权限模板资源
+   * 
+   * @param tmpReq - AddAuthorityTemplateItemsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddAuthorityTemplateItemsResponse
+   */
+  async addAuthorityTemplateItemsWithOptions(tmpReq: AddAuthorityTemplateItemsRequest, runtime: $Util.RuntimeOptions): Promise<AddAuthorityTemplateItemsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddAuthorityTemplateItemsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.items)) {
+      request.itemsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.items, "Items", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.itemsShrink)) {
+      query["Items"] = request.itemsShrink;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddAuthorityTemplateItems",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddAuthorityTemplateItemsResponse>(await this.callApi(params, req, runtime), new AddAuthorityTemplateItemsResponse({}));
+  }
+
+  /**
+   * 添加权限模板资源
+   * 
+   * @param request - AddAuthorityTemplateItemsRequest
+   * @returns AddAuthorityTemplateItemsResponse
+   */
+  async addAuthorityTemplateItems(request: AddAuthorityTemplateItemsRequest): Promise<AddAuthorityTemplateItemsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addAuthorityTemplateItemsWithOptions(request, runtime);
+  }
+
+  /**
    * Adds a masking rule.
    * 
    * @param request - AddDesensitizationRuleRequest
@@ -66013,6 +67305,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取uc的数据库目录
+   * 
+   * @param request - GetDataLakeCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataLakeCatalogResponse
+   */
+  async getDataLakeCatalogWithOptions(request: GetDataLakeCatalogRequest, runtime: $Util.RuntimeOptions): Promise<GetDataLakeCatalogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataLakeCatalog",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataLakeCatalogResponse>(await this.callApi(params, req, runtime), new GetDataLakeCatalogResponse({}));
+  }
+
+  /**
+   * 获取uc的数据库目录
+   * 
+   * @param request - GetDataLakeCatalogRequest
+   * @returns GetDataLakeCatalogResponse
+   */
+  async getDataLakeCatalog(request: GetDataLakeCatalogRequest): Promise<GetDataLakeCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataLakeCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取UC的数据库
+   * 
+   * @param request - GetDataLakeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataLakeDatabaseResponse
+   */
+  async getDataLakeDatabaseWithOptions(request: GetDataLakeDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<GetDataLakeDatabaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataLakeDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataLakeDatabaseResponse>(await this.callApi(params, req, runtime), new GetDataLakeDatabaseResponse({}));
+  }
+
+  /**
+   * 获取UC的数据库
+   * 
+   * @param request - GetDataLakeDatabaseRequest
+   * @returns GetDataLakeDatabaseResponse
+   */
+  async getDataLakeDatabase(request: GetDataLakeDatabaseRequest): Promise<GetDataLakeDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取表信息
+   * 
+   * @param request - GetDataLakeTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataLakeTableResponse
+   */
+  async getDataLakeTableWithOptions(request: GetDataLakeTableRequest, runtime: $Util.RuntimeOptions): Promise<GetDataLakeTableResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataLakeTable",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataLakeTableResponse>(await this.callApi(params, req, runtime), new GetDataLakeTableResponse({}));
+  }
+
+  /**
+   * 获取表信息
+   * 
+   * @param request - GetDataLakeTableRequest
+   * @returns GetDataLakeTableResponse
+   */
+  async getDataLakeTable(request: GetDataLakeTableRequest): Promise<GetDataLakeTableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataLakeTableWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the progress of a data tracking task.
    * 
    * @param request - GetDataTrackJobDegreeRequest
@@ -69166,6 +70620,176 @@ export default class Client extends OpenApi {
   async listDataImportSQLType(request: ListDataImportSQLTypeRequest): Promise<ListDataImportSQLTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDataImportSQLTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取uc的数据库目录列表
+   * 
+   * @param request - ListDataLakeCatalogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeCatalogResponse
+   */
+  async listDataLakeCatalogWithOptions(request: ListDataLakeCatalogRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakeCatalogResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakeCatalog",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakeCatalogResponse>(await this.callApi(params, req, runtime), new ListDataLakeCatalogResponse({}));
+  }
+
+  /**
+   * 获取uc的数据库目录列表
+   * 
+   * @param request - ListDataLakeCatalogRequest
+   * @returns ListDataLakeCatalogResponse
+   */
+  async listDataLakeCatalog(request: ListDataLakeCatalogRequest): Promise<ListDataLakeCatalogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakeCatalogWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据库列表
+   * 
+   * @param request - ListDataLakeDatabaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeDatabaseResponse
+   */
+  async listDataLakeDatabaseWithOptions(request: ListDataLakeDatabaseRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakeDatabaseResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakeDatabase",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakeDatabaseResponse>(await this.callApi(params, req, runtime), new ListDataLakeDatabaseResponse({}));
+  }
+
+  /**
+   * 获取数据库列表
+   * 
+   * @param request - ListDataLakeDatabaseRequest
+   * @returns ListDataLakeDatabaseResponse
+   */
+  async listDataLakeDatabase(request: ListDataLakeDatabaseRequest): Promise<ListDataLakeDatabaseResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakeDatabaseWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取表信息
+   * 
+   * @param request - ListDataLakeTablebaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataLakeTablebaseInfoResponse
+   */
+  async listDataLakeTablebaseInfoWithOptions(request: ListDataLakeTablebaseInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListDataLakeTablebaseInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!Util.isUnset(request.dataRegion)) {
+      query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.page)) {
+      query["Page"] = request.page;
+    }
+
+    if (!Util.isUnset(request.rows)) {
+      query["Rows"] = request.rows;
+    }
+
+    if (!Util.isUnset(request.searchKey)) {
+      query["SearchKey"] = request.searchKey;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataLakeTablebaseInfo",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataLakeTablebaseInfoResponse>(await this.callApi(params, req, runtime), new ListDataLakeTablebaseInfoResponse({}));
+  }
+
+  /**
+   * 获取表信息
+   * 
+   * @param request - ListDataLakeTablebaseInfoRequest
+   * @returns ListDataLakeTablebaseInfoResponse
+   */
+  async listDataLakeTablebaseInfo(request: ListDataLakeTablebaseInfoRequest): Promise<ListDataLakeTablebaseInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataLakeTablebaseInfoWithOptions(request, runtime);
   }
 
   /**
@@ -73230,6 +74854,80 @@ export default class Client extends OpenApi {
   async setOwners(request: SetOwnersRequest): Promise<SetOwnersResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setOwnersWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改审批流额外信息
+   * 
+   * @param request - SetWorkflowExtraInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetWorkflowExtraInfoResponse
+   */
+  async setWorkflowExtraInfoWithOptions(request: SetWorkflowExtraInfoRequest, runtime: $Util.RuntimeOptions): Promise<SetWorkflowExtraInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.renderAddApprovalNode)) {
+      query["RenderAddApprovalNode"] = request.renderAddApprovalNode;
+    }
+
+    if (!Util.isUnset(request.renderAgree)) {
+      query["RenderAgree"] = request.renderAgree;
+    }
+
+    if (!Util.isUnset(request.renderCancel)) {
+      query["RenderCancel"] = request.renderCancel;
+    }
+
+    if (!Util.isUnset(request.renderReject)) {
+      query["RenderReject"] = request.renderReject;
+    }
+
+    if (!Util.isUnset(request.renderTransfer)) {
+      query["RenderTransfer"] = request.renderTransfer;
+    }
+
+    if (!Util.isUnset(request.thirdpartyWorkflowComment)) {
+      query["ThirdpartyWorkflowComment"] = request.thirdpartyWorkflowComment;
+    }
+
+    if (!Util.isUnset(request.thirdpartyWorkflowUrl)) {
+      query["ThirdpartyWorkflowUrl"] = request.thirdpartyWorkflowUrl;
+    }
+
+    if (!Util.isUnset(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!Util.isUnset(request.workflowInstanceId)) {
+      query["WorkflowInstanceId"] = request.workflowInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetWorkflowExtraInfo",
+      version: "2018-11-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetWorkflowExtraInfoResponse>(await this.callApi(params, req, runtime), new SetWorkflowExtraInfoResponse({}));
+  }
+
+  /**
+   * 修改审批流额外信息
+   * 
+   * @param request - SetWorkflowExtraInfoRequest
+   * @returns SetWorkflowExtraInfoResponse
+   */
+  async setWorkflowExtraInfo(request: SetWorkflowExtraInfoRequest): Promise<SetWorkflowExtraInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setWorkflowExtraInfoWithOptions(request, runtime);
   }
 
   /**
