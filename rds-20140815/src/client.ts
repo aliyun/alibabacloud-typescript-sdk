@@ -25349,6 +25349,7 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * keaxncrjluwu0gue****
    */
   DBProxyEndpointId?: string;
+  DBProxyEndpointMinSlaveCount?: string;
   /**
    * @remarks
    * An internal parameter. You can ignore this parameter.
@@ -25465,6 +25466,7 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
       DBProxyConnectStringNetType: 'DBProxyConnectStringNetType',
       DBProxyConnectStringPort: 'DBProxyConnectStringPort',
       DBProxyEndpointId: 'DBProxyEndpointId',
+      DBProxyEndpointMinSlaveCount: 'DBProxyEndpointMinSlaveCount',
       DBProxyEngineType: 'DBProxyEngineType',
       DBProxyFeatures: 'DBProxyFeatures',
       DBProxyNodes: 'DBProxyNodes',
@@ -25486,6 +25488,7 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
       DBProxyConnectStringNetType: 'string',
       DBProxyConnectStringPort: 'string',
       DBProxyEndpointId: 'string',
+      DBProxyEndpointMinSlaveCount: 'string',
       DBProxyEngineType: 'string',
       DBProxyFeatures: 'string',
       DBProxyNodes: DescribeDBProxyEndpointResponseBodyDBProxyNodes,
@@ -34029,6 +34032,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * b076f6ff-46d1-4234-a608-4e951ed6****
    */
   serialNumber?: string;
+  spotStrategy?: string;
   /**
    * @remarks
    * The instance status. Valid values:
@@ -34119,6 +34123,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       securityGroupIds: 'SecurityGroupIds',
       serialNumber: 'SerialNumber',
+      spotStrategy: 'SpotStrategy',
       status: 'Status',
       stoppedMode: 'StoppedMode',
       vlanId: 'VlanId',
@@ -34165,6 +34170,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       securityGroupIds: DescribeRCInstanceAttributeResponseBodySecurityGroupIds,
       serialNumber: 'string',
+      spotStrategy: 'string',
       status: 'string',
       stoppedMode: 'string',
       vlanId: 'string',
@@ -48085,6 +48091,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
    * test-proxy
    */
   dbEndpointAliases?: string;
+  dbEndpointMinSlaveCount?: string;
   /**
    * @remarks
    * The type of operation that you want to perform. Valid values:
@@ -48212,6 +48219,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       DBProxyEndpointId: 'DBProxyEndpointId',
       DBProxyEngineType: 'DBProxyEngineType',
       dbEndpointAliases: 'DbEndpointAliases',
+      dbEndpointMinSlaveCount: 'DbEndpointMinSlaveCount',
       dbEndpointOperator: 'DbEndpointOperator',
       dbEndpointReadWriteMode: 'DbEndpointReadWriteMode',
       dbEndpointType: 'DbEndpointType',
@@ -48235,6 +48243,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
       DBProxyEndpointId: 'string',
       DBProxyEngineType: 'string',
       dbEndpointAliases: 'string',
+      dbEndpointMinSlaveCount: 'string',
       dbEndpointOperator: 'string',
       dbEndpointReadWriteMode: 'string',
       dbEndpointType: 'string',
@@ -56219,6 +56228,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * sg-uf6av412xaxixuezol6w
    */
   securityGroupId?: string;
+  spotStrategy?: string;
   /**
    * @remarks
    * The specification of the system disk.
@@ -56274,6 +56284,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
+      spotStrategy: 'SpotStrategy',
       systemDisk: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -56308,6 +56319,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       resourceGroupId: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
+      spotStrategy: 'string',
       systemDisk: RunRCInstancesRequestSystemDisk,
       tag: { 'type': 'array', 'itemType': RunRCInstancesRequestTag },
       vSwitchId: 'string',
@@ -56521,6 +56533,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * sg-uf6av412xaxixuezol6w
    */
   securityGroupId?: string;
+  spotStrategy?: string;
   /**
    * @remarks
    * The specification of the system disk.
@@ -56576,6 +56589,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
+      spotStrategy: 'SpotStrategy',
       systemDiskShrink: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -56610,6 +56624,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       resourceGroupId: 'string',
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
+      spotStrategy: 'string',
       systemDiskShrink: 'string',
       tag: { 'type': 'array', 'itemType': RunRCInstancesShrinkRequestTag },
       vSwitchId: 'string',
@@ -76983,6 +76998,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  spotStrategy?: string;
   /**
    * @remarks
    * The instance status. Valid values:
@@ -77021,6 +77037,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       instanceChargeType: 'InstanceChargeType',
       instanceId: 'InstanceId',
       regionId: 'RegionId',
+      spotStrategy: 'SpotStrategy',
       status: 'Status',
       tagResources: 'TagResources',
       vpcId: 'VpcId',
@@ -77040,6 +77057,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       instanceChargeType: 'string',
       instanceId: 'string',
       regionId: 'string',
+      spotStrategy: 'string',
       status: 'string',
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
       vpcId: 'string',
@@ -104569,6 +104587,10 @@ export default class Client extends OpenApi {
       query["DbEndpointAliases"] = request.dbEndpointAliases;
     }
 
+    if (!Util.isUnset(request.dbEndpointMinSlaveCount)) {
+      query["DbEndpointMinSlaveCount"] = request.dbEndpointMinSlaveCount;
+    }
+
     if (!Util.isUnset(request.dbEndpointOperator)) {
       query["DbEndpointOperator"] = request.dbEndpointOperator;
     }
@@ -109145,6 +109167,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
     }
 
     if (!Util.isUnset(request.systemDiskShrink)) {
