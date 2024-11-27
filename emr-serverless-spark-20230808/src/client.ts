@@ -1431,6 +1431,118 @@ export class GetSqlStatementResponse extends $tea.Model {
   }
 }
 
+export class GetTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * TASK
+   */
+  templateType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'regionId',
+      templateType: 'templateType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      templateType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponseBody extends $tea.Model {
+  data?: Template;
+  /**
+   * @example
+   * 040003
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * InvalidUser.NotFound
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 200
+   */
+  httpStatusCode?: string;
+  /**
+   * @example
+   * 484D9DDA-300D-525E-AF7A-0CCCA5C64A7A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: Template,
+      errorCode: 'string',
+      errorMessage: 'string',
+      httpStatusCode: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GrantRoleToUsersRequest extends $tea.Model {
   /**
    * @remarks
@@ -5535,6 +5647,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+  }
+
+  /**
+   * 获取任务模板
+   * 
+   * @param request - GetTemplateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateResponse
+   */
+  async getTemplateWithOptions(workspaceBizId: string, request: GetTemplateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTemplateResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      query["templateType"] = request.templateType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemplate",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/interactive/v1/workspace/${OpenApiUtil.getEncodeParam(workspaceBizId)}/template`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateResponse>(await this.callApi(params, req, runtime), new GetTemplateResponse({}));
+  }
+
+  /**
+   * 获取任务模板
+   * 
+   * @param request - GetTemplateRequest
+   * @returns GetTemplateResponse
+   */
+  async getTemplate(workspaceBizId: string, request: GetTemplateRequest): Promise<GetTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getTemplateWithOptions(workspaceBizId, request, headers, runtime);
   }
 
   /**
