@@ -1535,6 +1535,123 @@ export class AttachEnsInstancesResponse extends $tea.Model {
   }
 }
 
+export class AttachInstanceSDGRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGResponseBody extends $tea.Model {
+  data?: AttachInstanceSDGResponseBodyData;
+  /**
+   * @example
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AttachInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachInstanceSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachNetworkInterfaceRequest extends $tea.Model {
   /**
    * @remarks
@@ -18193,6 +18310,178 @@ export class DescribeInstanceMonitorDataResponse extends $tea.Model {
   }
 }
 
+export class DescribeInstanceSDGStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aic-xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  SDGIds?: string[];
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      SDGIds: 'SDGIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      SDGIds: { 'type': 'array', 'itemType': 'string' },
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSDGStatusShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aic-xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  SDGIdsShrink?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      SDGIdsShrink: 'SDGIds',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      SDGIdsShrink: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSDGStatusResponseBody extends $tea.Model {
+  deploymentStatus?: DescribeInstanceSDGStatusResponseBodyDeploymentStatus[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * C0003E8B-B930-4F59-ADC0-0E209A9012A8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deploymentStatus: 'DeploymentStatus',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deploymentStatus: { 'type': 'array', 'itemType': DescribeInstanceSDGStatusResponseBodyDeploymentStatus },
+      pageNumber: 'number',
+      pageSize: 'string',
+      requestId: 'string',
+      totalCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSDGStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeInstanceSDGStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeInstanceSDGStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInstanceSpecResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -26370,6 +26659,123 @@ export class DetachDiskResponse extends $tea.Model {
   }
 }
 
+export class DetachInstanceSDGRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachInstanceSDGShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachInstanceSDGResponseBody extends $tea.Model {
+  data?: DetachInstanceSDGResponseBodyData;
+  /**
+   * @example
+   * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DetachInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachInstanceSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DetachNetworkInterfaceRequest extends $tea.Model {
   /**
    * @remarks
@@ -30747,6 +31153,123 @@ export class ModifyVSwitchAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyVSwitchAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGResponseBody extends $tea.Model {
+  data?: MountInstanceSDGResponseBodyData;
+  /**
+   * @example
+   * F3B261DD-3858-4D3C-877D-303ADF374600
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: MountInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MountInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MountInstanceSDGResponseBody,
     };
   }
 
@@ -38830,6 +39353,123 @@ export class UnloadRegionSDGResponse extends $tea.Model {
   }
 }
 
+export class UnmountInstanceSDGRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIds: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnmountInstanceSDGShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sdg-xxxx
+   */
+  SDGId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdsShrink: 'InstanceIds',
+      SDGId: 'SDGId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdsShrink: 'string',
+      SDGId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnmountInstanceSDGResponseBody extends $tea.Model {
+  data?: UnmountInstanceSDGResponseBodyData;
+  /**
+   * @example
+   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: UnmountInstanceSDGResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnmountInstanceSDGResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnmountInstanceSDGResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnmountInstanceSDGResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UntagResourcesRequest extends $tea.Model {
   /**
    * @remarks
@@ -39587,6 +40227,102 @@ export class AssignPrivateIpAddressesResponseBodyAssignedPrivateIpAddressesSet e
     return {
       networkInterfaceId: 'string',
       privateIpSet: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  /**
+   * @example
+   * sdg not found
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * aic-xxxxx-0
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  failedCount?: number;
+  failedItems?: AttachInstanceSDGResponseBodyDataResultFailedItems[];
+  /**
+   * @example
+   * 1
+   */
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': AttachInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachInstanceSDGResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  result?: AttachInstanceSDGResponseBodyDataResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: AttachInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
     };
   }
 
@@ -47048,6 +47784,71 @@ export class DescribeInstanceMonitorDataResponseBodyMonitorData extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       instanceMonitorData: { 'type': 'array', 'itemType': DescribeInstanceMonitorDataResponseBodyMonitorDataInstanceMonitorData },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeInstanceSDGStatusResponseBodyDeploymentStatus extends $tea.Model {
+  /**
+   * @example
+   * cn-guangzhou-26
+   */
+  ensRegionId?: string;
+  /**
+   * @example
+   * aic-xxxx
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * shared
+   */
+  mountType?: string;
+  /**
+   * @example
+   * attach
+   */
+  phase?: string;
+  /**
+   * @example
+   * sdg-xxxxxxx
+   */
+  SDGId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * 2023-02-17T02:44:31Z
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ensRegionId: 'EnsRegionId',
+      instanceId: 'InstanceId',
+      mountType: 'MountType',
+      phase: 'Phase',
+      SDGId: 'SDGId',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ensRegionId: 'string',
+      instanceId: 'string',
+      mountType: 'string',
+      phase: 'string',
+      SDGId: 'string',
+      status: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -54625,6 +55426,102 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $tea.Model {
   }
 }
 
+export class DetachInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  /**
+   * @example
+   * sdg not found
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * aic-xxxxx-0
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachInstanceSDGResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  failedCount?: number;
+  failedItems?: DetachInstanceSDGResponseBodyDataResultFailedItems[];
+  /**
+   * @example
+   * 1
+   */
+  successCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': DetachInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachInstanceSDGResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  result?: DetachInstanceSDGResponseBodyDataResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: DetachInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DistApplicationDataResponseBodyDistInstanceIds extends $tea.Model {
   distInstanceId?: string[];
   static names(): { [key: string]: string } {
@@ -55530,6 +56427,102 @@ export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
       resourceType: 'string',
       tagKey: 'string',
       tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  /**
+   * @example
+   * sdg not found
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * aic-xxxxx-0
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  failedCount?: number;
+  failedItems?: MountInstanceSDGResponseBodyDataResultFailedItems[];
+  /**
+   * @example
+   * 1
+   */
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': MountInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MountInstanceSDGResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  result?: MountInstanceSDGResponseBodyDataResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: MountInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
     };
   }
 
@@ -56719,6 +57712,102 @@ export class UnloadRegionSDGResponseBodyData extends $tea.Model {
   }
 }
 
+export class UnmountInstanceSDGResponseBodyDataResultFailedItems extends $tea.Model {
+  /**
+   * @example
+   * sdg not found
+   */
+  errMessage?: string;
+  /**
+   * @example
+   * aic-xxxxx-0
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errMessage: 'ErrMessage',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errMessage: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnmountInstanceSDGResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  failedCount?: number;
+  failedItems?: UnmountInstanceSDGResponseBodyDataResultFailedItems[];
+  /**
+   * @example
+   * 1
+   */
+  successCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      failedCount: 'FailedCount',
+      failedItems: 'FailedItems',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      failedCount: 'number',
+      failedItems: { 'type': 'array', 'itemType': UnmountInstanceSDGResponseBodyDataResultFailedItems },
+      successCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnmountInstanceSDGResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  result?: UnmountInstanceSDGResponseBodyDataResult;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      result: 'Result',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      result: UnmountInstanceSDGResponseBodyDataResult,
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateEnsSaleControlRequestSaleControlsConditionControls extends $tea.Model {
   conditionControlModuleCode?: string;
   conditionControlModuleValue?: string;
@@ -57369,6 +58458,58 @@ export default class Client extends OpenApi {
   async attachEnsInstances(request: AttachEnsInstancesRequest): Promise<AttachEnsInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachEnsInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 将某个SDG attach到对应的AIC上
+   * 
+   * @param tmpReq - AttachInstanceSDGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachInstanceSDGResponse
+   */
+  async attachInstanceSDGWithOptions(tmpReq: AttachInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<AttachInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachInstanceSDGResponse>(await this.callApi(params, req, runtime), new AttachInstanceSDGResponse({}));
+  }
+
+  /**
+   * 将某个SDG attach到对应的AIC上
+   * 
+   * @param request - AttachInstanceSDGRequest
+   * @returns AttachInstanceSDGResponse
+   */
+  async attachInstanceSDG(request: AttachInstanceSDGRequest): Promise<AttachInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachInstanceSDGWithOptions(request, runtime);
   }
 
   /**
@@ -64214,6 +65355,50 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 描述某个AIC实例下的SDG挂载情况
+   * 
+   * @param tmpReq - DescribeInstanceSDGStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceSDGStatusResponse
+   */
+  async describeInstanceSDGStatusWithOptions(tmpReq: DescribeInstanceSDGStatusRequest, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceSDGStatusResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeInstanceSDGStatusShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.SDGIds)) {
+      request.SDGIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.SDGIds, "SDGIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeInstanceSDGStatus",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeInstanceSDGStatusResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSDGStatusResponse({}));
+  }
+
+  /**
+   * 描述某个AIC实例下的SDG挂载情况
+   * 
+   * @param request - DescribeInstanceSDGStatusRequest
+   * @returns DescribeInstanceSDGStatusResponse
+   */
+  async describeInstanceSDGStatus(request: DescribeInstanceSDGStatusRequest): Promise<DescribeInstanceSDGStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeInstanceSDGStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the instance specifications that you can purchase.
    * 
    * @param request - DescribeInstanceSpecRequest
@@ -66658,6 +67843,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解除SDG的attach状态
+   * 
+   * @param tmpReq - DetachInstanceSDGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachInstanceSDGResponse
+   */
+  async detachInstanceSDGWithOptions(tmpReq: DetachInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<DetachInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetachInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachInstanceSDGResponse>(await this.callApi(params, req, runtime), new DetachInstanceSDGResponse({}));
+  }
+
+  /**
+   * 解除SDG的attach状态
+   * 
+   * @param request - DetachInstanceSDGRequest
+   * @returns DetachInstanceSDGResponse
+   */
+  async detachInstanceSDG(request: DetachInstanceSDGRequest): Promise<DetachInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachInstanceSDGWithOptions(request, runtime);
+  }
+
+  /**
    * Detach an elastic network interface (ENI) from an instance.
    * 
    * @remarks
@@ -68627,6 +69864,58 @@ export default class Client extends OpenApi {
   async modifyVSwitchAttribute(request: ModifyVSwitchAttributeRequest): Promise<ModifyVSwitchAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyVSwitchAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 将已经attach在instance上的SDG实际部署到对应的AIC
+   * 
+   * @param tmpReq - MountInstanceSDGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MountInstanceSDGResponse
+   */
+  async mountInstanceSDGWithOptions(tmpReq: MountInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<MountInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new MountInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MountInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MountInstanceSDGResponse>(await this.callApi(params, req, runtime), new MountInstanceSDGResponse({}));
+  }
+
+  /**
+   * 将已经attach在instance上的SDG实际部署到对应的AIC
+   * 
+   * @param request - MountInstanceSDGRequest
+   * @returns MountInstanceSDGResponse
+   */
+  async mountInstanceSDG(request: MountInstanceSDGRequest): Promise<MountInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.mountInstanceSDGWithOptions(request, runtime);
   }
 
   /**
@@ -72115,6 +73404,58 @@ export default class Client extends OpenApi {
   async unloadRegionSDG(request: UnloadRegionSDGRequest): Promise<UnloadRegionSDGResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unloadRegionSDGWithOptions(request, runtime);
+  }
+
+  /**
+   * 将已经Mount的SDG从对应的Instance上解除下来，恢复到attach状态
+   * 
+   * @param tmpReq - UnmountInstanceSDGRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnmountInstanceSDGResponse
+   */
+  async unmountInstanceSDGWithOptions(tmpReq: UnmountInstanceSDGRequest, runtime: $Util.RuntimeOptions): Promise<UnmountInstanceSDGResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UnmountInstanceSDGShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "InstanceIds", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["InstanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.SDGId)) {
+      query["SDGId"] = request.SDGId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnmountInstanceSDG",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnmountInstanceSDGResponse>(await this.callApi(params, req, runtime), new UnmountInstanceSDGResponse({}));
+  }
+
+  /**
+   * 将已经Mount的SDG从对应的Instance上解除下来，恢复到attach状态
+   * 
+   * @param request - UnmountInstanceSDGRequest
+   * @returns UnmountInstanceSDGResponse
+   */
+  async unmountInstanceSDG(request: UnmountInstanceSDGRequest): Promise<UnmountInstanceSDGResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unmountInstanceSDGWithOptions(request, runtime);
   }
 
   /**
