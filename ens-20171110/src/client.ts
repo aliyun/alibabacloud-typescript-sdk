@@ -25038,6 +25038,7 @@ export class DescribeSnapshotsRequest extends $tea.Model {
    * cn-hangzhou
    */
   ensRegionId?: string;
+  ensRegionIds?: string;
   /**
    * @remarks
    * The ID of the instance.
@@ -25070,14 +25071,17 @@ export class DescribeSnapshotsRequest extends $tea.Model {
    * sp-bp67acfmxazb4p****
    */
   snapshotId?: string;
+  snapshotName?: string;
   static names(): { [key: string]: string } {
     return {
       diskId: 'DiskId',
       ensRegionId: 'EnsRegionId',
+      ensRegionIds: 'EnsRegionIds',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       snapshotId: 'SnapshotId',
+      snapshotName: 'SnapshotName',
     };
   }
 
@@ -25085,10 +25089,12 @@ export class DescribeSnapshotsRequest extends $tea.Model {
     return {
       diskId: 'string',
       ensRegionId: 'string',
+      ensRegionIds: 'string',
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       snapshotId: 'string',
+      snapshotName: 'string',
     };
   }
 
@@ -52490,6 +52496,7 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $te
    * overlay
    */
   mountType?: string;
+  phase?: string;
   /**
    * @remarks
    * The ID of the edge node.
@@ -52524,6 +52531,7 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $te
     return {
       instanceId: 'InstanceId',
       mountType: 'MountType',
+      phase: 'Phase',
       regionId: 'RegionId',
       status: 'Status',
       updateTime: 'UpdateTime',
@@ -52534,6 +52542,7 @@ export class DescribeSDGDeploymentStatusResponseBodyDeploymentStatus extends $te
     return {
       instanceId: 'string',
       mountType: 'string',
+      phase: 'string',
       regionId: 'string',
       status: 'string',
       updateTime: 'string',
@@ -66214,6 +66223,10 @@ export default class Client extends OpenApi {
       query["EnsRegionId"] = request.ensRegionId;
     }
 
+    if (!Util.isUnset(request.ensRegionIds)) {
+      query["EnsRegionIds"] = request.ensRegionIds;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -66228,6 +66241,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.snapshotId)) {
       query["SnapshotId"] = request.snapshotId;
+    }
+
+    if (!Util.isUnset(request.snapshotName)) {
+      query["SnapshotName"] = request.snapshotName;
     }
 
     let req = new $OpenApi.OpenApiRequest({
