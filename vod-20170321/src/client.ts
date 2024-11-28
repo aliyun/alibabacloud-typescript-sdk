@@ -19959,6 +19959,7 @@ export class SubmitTranscodeJobsRequest extends $tea.Model {
    * 6
    */
   priority?: string;
+  sessionId?: string;
   /**
    * @remarks
    * The ID of the transcoding template group that you want to use. To view the template group ID, perform the following operations: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**.
@@ -19997,6 +19998,7 @@ export class SubmitTranscodeJobsRequest extends $tea.Model {
       overrideParams: 'OverrideParams',
       pipelineId: 'PipelineId',
       priority: 'Priority',
+      sessionId: 'SessionId',
       templateGroupId: 'TemplateGroupId',
       userData: 'UserData',
       videoId: 'VideoId',
@@ -20009,6 +20011,7 @@ export class SubmitTranscodeJobsRequest extends $tea.Model {
       overrideParams: 'string',
       pipelineId: 'string',
       priority: 'string',
+      sessionId: 'string',
       templateGroupId: 'string',
       userData: 'string',
       videoId: 'string',
@@ -49152,6 +49155,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.priority)) {
       query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
     }
 
     if (!Util.isUnset(request.templateGroupId)) {
