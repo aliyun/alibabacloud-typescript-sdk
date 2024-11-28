@@ -752,6 +752,7 @@ export class ImageAsyncModerationResponse extends $tea.Model {
 }
 
 export class ImageBatchModerationRequest extends $tea.Model {
+  service?: string;
   /**
    * @example
    * {
@@ -760,22 +761,17 @@ export class ImageBatchModerationRequest extends $tea.Model {
    *     }
    */
   serviceParameters?: string;
-  /**
-   * @example
-   * baselineCheck,tonalityImprove
-   */
-  services?: string;
   static names(): { [key: string]: string } {
     return {
+      service: 'Service',
       serviceParameters: 'ServiceParameters',
-      services: 'Services',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      service: 'string',
       serviceParameters: 'string',
-      services: 'string',
     };
   }
 
@@ -6480,12 +6476,12 @@ export default class Client extends OpenApi {
   async imageBatchModerationWithOptions(request: ImageBatchModerationRequest, runtime: $Util.RuntimeOptions): Promise<ImageBatchModerationResponse> {
     Util.validateModel(request);
     let query = { };
-    if (!Util.isUnset(request.serviceParameters)) {
-      query["ServiceParameters"] = request.serviceParameters;
+    if (!Util.isUnset(request.service)) {
+      query["Service"] = request.service;
     }
 
-    if (!Util.isUnset(request.services)) {
-      query["Services"] = request.services;
+    if (!Util.isUnset(request.serviceParameters)) {
+      query["ServiceParameters"] = request.serviceParameters;
     }
 
     let req = new $OpenApi.OpenApiRequest({
