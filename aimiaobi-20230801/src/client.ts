@@ -2841,6 +2841,121 @@ export class GenerateViewPointResponse extends $tea.Model {
   }
 }
 
+export class GetCategoriesByTaskIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCategoriesByTaskIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetCategoriesByTaskIdResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': GetCategoriesByTaskIdResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCategoriesByTaskIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCategoriesByTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCategoriesByTaskIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomHotTopicBroadcastJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -3415,6 +3530,121 @@ export class GetDocClusterTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDocClusterTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetEnterpriseVocAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetEnterpriseVocAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetEnterpriseVocAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetEnterpriseVocAnalysisTaskResponseBody,
     };
   }
 
@@ -5164,6 +5394,240 @@ export class InsertInterveneRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: InsertInterveneRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdRequest extends $tea.Model {
+  categories?: string[];
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * token-xxxx
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 3
+   */
+  size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      current: 'Current',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      size: 'Size',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      current: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
+      size: 'number',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdShrinkRequest extends $tea.Model {
+  categoriesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * token-xxxx
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 3
+   */
+  size?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoriesShrink: 'Categories',
+      current: 'Current',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      size: 'Size',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoriesShrink: 'string',
+      current: 'number',
+      maxResults: 'number',
+      nextToken: 'string',
+      size: 'number',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListAnalysisTagDetailByTaskIdResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * token-xxxx
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListAnalysisTagDetailByTaskIdResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAnalysisTagDetailByTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAnalysisTagDetailByTaskIdResponseBody,
     };
   }
 
@@ -12351,6 +12815,245 @@ export class SubmitDocClusterTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitEnterpriseVocAnalysisTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contentTags?: SubmitEnterpriseVocAnalysisTaskRequestContentTags[];
+  contents?: SubmitEnterpriseVocAnalysisTaskRequestContents[];
+  /**
+   * @example
+   * oss://default/bucket-name/materialDocument/tenant_agent/fileName
+   */
+  fileKey?: string;
+  filterTags?: SubmitEnterpriseVocAnalysisTaskRequestFilterTags[];
+  /**
+   * @example
+   * shortContent
+   */
+  materialType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  positiveSample?: string;
+  /**
+   * @example
+   * oss://default/bucket-name/path/xxx.xlsx
+   */
+  positiveSampleFileKey?: string;
+  /**
+   * @example
+   * lightAppSass
+   */
+  taskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentTags: 'ContentTags',
+      contents: 'Contents',
+      fileKey: 'FileKey',
+      filterTags: 'FilterTags',
+      materialType: 'MaterialType',
+      modelId: 'ModelId',
+      positiveSample: 'PositiveSample',
+      positiveSampleFileKey: 'PositiveSampleFileKey',
+      taskType: 'TaskType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContentTags },
+      contents: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestContents },
+      fileKey: 'string',
+      filterTags: { 'type': 'array', 'itemType': SubmitEnterpriseVocAnalysisTaskRequestFilterTags },
+      materialType: 'string',
+      modelId: 'string',
+      positiveSample: 'string',
+      positiveSampleFileKey: 'string',
+      taskType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  contentTagsShrink?: string;
+  contentsShrink?: string;
+  /**
+   * @example
+   * oss://default/bucket-name/materialDocument/tenant_agent/fileName
+   */
+  fileKey?: string;
+  filterTagsShrink?: string;
+  /**
+   * @example
+   * shortContent
+   */
+  materialType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  positiveSample?: string;
+  /**
+   * @example
+   * oss://default/bucket-name/path/xxx.xlsx
+   */
+  positiveSampleFileKey?: string;
+  /**
+   * @example
+   * lightAppSass
+   */
+  taskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contentTagsShrink: 'ContentTags',
+      contentsShrink: 'Contents',
+      fileKey: 'FileKey',
+      filterTagsShrink: 'FilterTags',
+      materialType: 'MaterialType',
+      modelId: 'ModelId',
+      positiveSample: 'PositiveSample',
+      positiveSampleFileKey: 'PositiveSampleFileKey',
+      taskType: 'TaskType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contentTagsShrink: 'string',
+      contentsShrink: 'string',
+      fileKey: 'string',
+      filterTagsShrink: 'string',
+      materialType: 'string',
+      modelId: 'string',
+      positiveSample: 'string',
+      positiveSampleFileKey: 'string',
+      taskType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitEnterpriseVocAnalysisTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitEnterpriseVocAnalysisTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitEnterpriseVocAnalysisTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitEnterpriseVocAnalysisTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -13160,6 +13863,138 @@ export class UpdateMaterialDocumentResponse extends $tea.Model {
   }
 }
 
+export class ValidateUploadTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Content
+   */
+  fileKey?: string;
+  /**
+   * @example
+   * lightAppSass
+   */
+  taskType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Content
+   */
+  templateType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileKey: 'FileKey',
+      taskType: 'TaskType',
+      templateType: 'TemplateType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileKey: 'string',
+      taskType: 'string',
+      templateType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateUploadTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ValidateUploadTemplateResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: ValidateUploadTemplateResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateUploadTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ValidateUploadTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ValidateUploadTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearIntervenesResponseBodyData extends $tea.Model {
   failIdList?: string[];
   /**
@@ -13627,6 +14462,54 @@ export class GenerateViewPointResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetCategoriesByTaskIdResponseBodyDataChildren extends $tea.Model {
+  category?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCategoriesByTaskIdResponseBodyData extends $tea.Model {
+  category?: string;
+  children?: GetCategoriesByTaskIdResponseBodyDataChildren[];
+  /**
+   * @example
+   * 2
+   */
+  count?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      children: 'Children',
+      count: 'Count',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      children: { 'type': 'array', 'itemType': GetCategoriesByTaskIdResponseBodyDataChildren },
+      count: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCustomHotTopicBroadcastJobResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -14008,6 +14891,213 @@ export class GetDocClusterTaskResponseBodyData extends $tea.Model {
       errorMessage: 'string',
       status: 'string',
       topics: { 'type': 'array', 'itemType': GetDocClusterTaskResponseBodyDataTopics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  tagName?: string;
+  /**
+   * @example
+   * multiTagValues
+   */
+  tagTaskType?: string;
+  /**
+   * @example
+   * 100
+   */
+  valueCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tagName: 'TagName',
+      tagTaskType: 'TagTaskType',
+      valueCount: 'ValueCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagName: 'string',
+      tagTaskType: 'string',
+      valueCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics extends $tea.Model {
+  tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      tagValueCountStatistic: 'TagValueCountStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValueCountStatistic: { 'type': 'array', 'itemType': GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatisticsTagValueCountStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  tagName?: string;
+  /**
+   * @example
+   * multiTagValues
+   */
+  tagTaskType?: string;
+  /**
+   * @example
+   * 100
+   */
+  valueCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      tagName: 'TagName',
+      tagTaskType: 'TagTaskType',
+      valueCount: 'ValueCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagName: 'string',
+      tagTaskType: 'string',
+      valueCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics extends $tea.Model {
+  tagValueCountStatistic?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic[];
+  static names(): { [key: string]: string } {
+    return {
+      tagValueCountStatistic: 'TagValueCountStatistic',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagValueCountStatistic: { 'type': 'array', 'itemType': GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatisticsTagValueCountStatistic },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  count?: number;
+  filterDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics;
+  tagDimensionStatistics?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      filterDimensionStatistics: 'FilterDimensionStatistics',
+      tagDimensionStatistics: 'TagDimensionStatistics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      filterDimensionStatistics: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewFilterDimensionStatistics,
+      tagDimensionStatistics: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverviewTagDimensionStatistics,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyDataUsage extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetEnterpriseVocAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * error
+   */
+  errorMessage?: string;
+  statisticsOverview?: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview;
+  /**
+   * @example
+   * SUCCESSED
+   */
+  status?: string;
+  usage?: GetEnterpriseVocAnalysisTaskResponseBodyDataUsage;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      statisticsOverview: 'StatisticsOverview',
+      status: 'Status',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      statisticsOverview: GetEnterpriseVocAnalysisTaskResponseBodyDataStatisticsOverview,
+      status: 'string',
+      usage: GetEnterpriseVocAnalysisTaskResponseBodyDataUsage,
     };
   }
 
@@ -16569,6 +17659,86 @@ export class InsertInterveneRuleResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  summaryOverview?: string;
+  /**
+   * @example
+   * xxx
+   */
+  tagName?: string;
+  tags?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      summaryOverview: 'SummaryOverview',
+      tagName: 'TagName',
+      tags: 'Tags',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      summaryOverview: 'string',
+      tagName: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAnalysisTagDetailByTaskIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  contentTags?: ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags[];
+  /**
+   * @example
+   * 112
+   */
+  id?: number;
+  /**
+   * @example
+   * summaryAndOverview
+   */
+  tagTaskType?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      contentTags: 'ContentTags',
+      id: 'Id',
+      tagTaskType: 'TagTaskType',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentTags: { 'type': 'array', 'itemType': ListAnalysisTagDetailByTaskIdResponseBodyDataContentTags },
+      id: 'number',
+      tagTaskType: 'string',
+      taskId: 'string',
     };
   }
 
@@ -22323,6 +23493,131 @@ export class SubmitDocClusterTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitEnterpriseVocAnalysisTaskRequestContentTags extends $tea.Model {
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagName?: string;
+  /**
+   * @example
+   * singleTagValue
+   */
+  tagTaskType?: string;
+  tagValueDefinePrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'TagDefinePrompt',
+      tagName: 'TagName',
+      tagTaskType: 'TagTaskType',
+      tagValueDefinePrompt: 'TagValueDefinePrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+      tagTaskType: 'string',
+      tagValueDefinePrompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestContents extends $tea.Model {
+  extraInfo?: string;
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      extraInfo: 'ExtraInfo',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extraInfo: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskRequestFilterTags extends $tea.Model {
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * 一级标签-二级标签
+   */
+  tagName?: string;
+  /**
+   * @example
+   * singleTagValue
+   */
+  tagType?: string;
+  tagValueDefinePrompt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'TagDefinePrompt',
+      tagName: 'TagName',
+      tagType: 'TagType',
+      tagValueDefinePrompt: 'TagValueDefinePrompt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+      tagType: 'string',
+      tagValueDefinePrompt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitEnterpriseVocAnalysisTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * xxxxx
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments extends $tea.Model {
   text?: string;
   username?: string;
@@ -22438,6 +23733,43 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends
     return {
       taskId: 'string',
       taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ValidateUploadTemplateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 50
+   */
+  commentCount?: number;
+  /**
+   * @example
+   * 50
+   */
+  dialogueCount?: number;
+  /**
+   * @example
+   * 50
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      commentCount: 'CommentCount',
+      dialogueCount: 'DialogueCount',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commentCount: 'number',
+      dialogueCount: 'number',
+      totalCount: 'number',
     };
   }
 
@@ -23562,6 +24894,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取某次标签挖掘结果分类
+   * 
+   * @param request - GetCategoriesByTaskIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCategoriesByTaskIdResponse
+   */
+  async getCategoriesByTaskIdWithOptions(request: GetCategoriesByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<GetCategoriesByTaskIdResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCategoriesByTaskId",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCategoriesByTaskIdResponse>(await this.callApi(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
+  }
+
+  /**
+   * 获取某次标签挖掘结果分类
+   * 
+   * @param request - GetCategoriesByTaskIdRequest
+   * @returns GetCategoriesByTaskIdResponse
+   */
+  async getCategoriesByTaskId(request: GetCategoriesByTaskIdRequest): Promise<GetCategoriesByTaskIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCategoriesByTaskIdWithOptions(request, runtime);
+  }
+
+  /**
    * 获取自定义播报单任务结果
    * 
    * @param request - GetCustomHotTopicBroadcastJobRequest
@@ -23801,6 +25179,52 @@ export default class Client extends OpenApi {
   async getDocClusterTask(request: GetDocClusterTaskRequest): Promise<GetDocClusterTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocClusterTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取企业VOC分析任务结果
+   * 
+   * @param request - GetEnterpriseVocAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEnterpriseVocAnalysisTaskResponse
+   */
+  async getEnterpriseVocAnalysisTaskWithOptions(request: GetEnterpriseVocAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetEnterpriseVocAnalysisTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetEnterpriseVocAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 获取企业VOC分析任务结果
+   * 
+   * @param request - GetEnterpriseVocAnalysisTaskRequest
+   * @returns GetEnterpriseVocAnalysisTaskResponse
+   */
+  async getEnterpriseVocAnalysisTask(request: GetEnterpriseVocAnalysisTaskRequest): Promise<GetEnterpriseVocAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getEnterpriseVocAnalysisTaskWithOptions(request, runtime);
   }
 
   /**
@@ -24523,6 +25947,78 @@ export default class Client extends OpenApi {
   async insertInterveneRule(request: InsertInterveneRuleRequest): Promise<InsertInterveneRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertInterveneRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页获取企业VOC分析任务明细列表
+   * 
+   * @param tmpReq - ListAnalysisTagDetailByTaskIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAnalysisTagDetailByTaskIdResponse
+   */
+  async listAnalysisTagDetailByTaskIdWithOptions(tmpReq: ListAnalysisTagDetailByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<ListAnalysisTagDetailByTaskIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListAnalysisTagDetailByTaskIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoriesShrink)) {
+      body["Categories"] = request.categoriesShrink;
+    }
+
+    if (!Util.isUnset(request.current)) {
+      body["Current"] = request.current;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      body["Size"] = request.size;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAnalysisTagDetailByTaskId",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
+  }
+
+  /**
+   * 分页获取企业VOC分析任务明细列表
+   * 
+   * @param request - ListAnalysisTagDetailByTaskIdRequest
+   * @returns ListAnalysisTagDetailByTaskIdResponse
+   */
+  async listAnalysisTagDetailByTaskId(request: ListAnalysisTagDetailByTaskIdRequest): Promise<ListAnalysisTagDetailByTaskIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listAnalysisTagDetailByTaskIdWithOptions(request, runtime);
   }
 
   /**
@@ -27380,6 +28876,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交VOC异步任务
+   * 
+   * @param tmpReq - SubmitEnterpriseVocAnalysisTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitEnterpriseVocAnalysisTaskResponse
+   */
+  async submitEnterpriseVocAnalysisTaskWithOptions(tmpReq: SubmitEnterpriseVocAnalysisTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitEnterpriseVocAnalysisTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitEnterpriseVocAnalysisTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.contentTags)) {
+      request.contentTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contentTags, "ContentTags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.contents)) {
+      request.contentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.contents, "Contents", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.filterTags)) {
+      request.filterTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterTags, "FilterTags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.contentTagsShrink)) {
+      body["ContentTags"] = request.contentTagsShrink;
+    }
+
+    if (!Util.isUnset(request.contentsShrink)) {
+      body["Contents"] = request.contentsShrink;
+    }
+
+    if (!Util.isUnset(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.filterTagsShrink)) {
+      body["FilterTags"] = request.filterTagsShrink;
+    }
+
+    if (!Util.isUnset(request.materialType)) {
+      body["MaterialType"] = request.materialType;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["ModelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.positiveSample)) {
+      body["PositiveSample"] = request.positiveSample;
+    }
+
+    if (!Util.isUnset(request.positiveSampleFileKey)) {
+      body["PositiveSampleFileKey"] = request.positiveSampleFileKey;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitEnterpriseVocAnalysisTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
+  }
+
+  /**
+   * 提交VOC异步任务
+   * 
+   * @param request - SubmitEnterpriseVocAnalysisTaskRequest
+   * @returns SubmitEnterpriseVocAnalysisTaskResponse
+   */
+  async submitEnterpriseVocAnalysisTask(request: SubmitEnterpriseVocAnalysisTaskRequest): Promise<SubmitEnterpriseVocAnalysisTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
    * 提交选题热点分析任务
    * 
    * @param tmpReq - SubmitTopicSelectionPerspectiveAnalysisTaskRequest
@@ -27683,6 +29271,60 @@ export default class Client extends OpenApi {
   async updateMaterialDocument(request: UpdateMaterialDocumentRequest): Promise<UpdateMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMaterialDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验企业VOC上传模板
+   * 
+   * @param request - ValidateUploadTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateUploadTemplateResponse
+   */
+  async validateUploadTemplateWithOptions(request: ValidateUploadTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ValidateUploadTemplateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.fileKey)) {
+      body["FileKey"] = request.fileKey;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      body["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.templateType)) {
+      body["TemplateType"] = request.templateType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ValidateUploadTemplate",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ValidateUploadTemplateResponse>(await this.callApi(params, req, runtime), new ValidateUploadTemplateResponse({}));
+  }
+
+  /**
+   * 校验企业VOC上传模板
+   * 
+   * @param request - ValidateUploadTemplateRequest
+   * @returns ValidateUploadTemplateResponse
+   */
+  async validateUploadTemplate(request: ValidateUploadTemplateRequest): Promise<ValidateUploadTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.validateUploadTemplateWithOptions(request, runtime);
   }
 
 }
