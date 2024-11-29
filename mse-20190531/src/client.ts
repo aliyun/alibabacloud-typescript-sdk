@@ -67512,6 +67512,7 @@ export class ListServiceSourceResponseBodyData extends $tea.Model {
    * The information about the support for Ingresses by applications.
    */
   ingressOptions?: ListServiceSourceResponseBodyDataIngressOptions;
+  invalid?: boolean;
   /**
    * @remarks
    * The name.
@@ -67560,6 +67561,7 @@ export class ListServiceSourceResponseBodyData extends $tea.Model {
       groupList: 'GroupList',
       id: 'Id',
       ingressOptions: 'IngressOptions',
+      invalid: 'Invalid',
       name: 'Name',
       pathList: 'PathList',
       source: 'Source',
@@ -67579,6 +67581,7 @@ export class ListServiceSourceResponseBodyData extends $tea.Model {
       groupList: { 'type': 'array', 'itemType': 'string' },
       id: 'number',
       ingressOptions: ListServiceSourceResponseBodyDataIngressOptions,
+      invalid: 'boolean',
       name: 'string',
       pathList: { 'type': 'array', 'itemType': 'string' },
       source: 'string',
