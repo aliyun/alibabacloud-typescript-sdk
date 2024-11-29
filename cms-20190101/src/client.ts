@@ -1886,7 +1886,7 @@ export class CreateHostAvailabilityRequest extends $tea.Model {
   alertConfigEscalationList?: CreateHostAvailabilityRequestAlertConfigEscalationList[];
   /**
    * @remarks
-   * The information about the resources for which alerts are triggered.
+   * The resources for which alerts are triggered.
    */
   alertConfigTargetList?: CreateHostAvailabilityRequestAlertConfigTargetList[];
   /**
@@ -11357,7 +11357,7 @@ export class DescribeEventRuleTargetListResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The information about the recipients in Message Service (MNS).
+   * The notifications of Simple Message Queue (formerly MNS) (SMQ).
    */
   mnsParameters?: DescribeEventRuleTargetListResponseBodyMnsParameters;
   /**
@@ -11444,7 +11444,7 @@ export class DescribeEventRuleTargetListResponse extends $tea.Model {
 export class DescribeExporterOutputListRequest extends $tea.Model {
   /**
    * @remarks
-   * The number of the page to return. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -11452,7 +11452,7 @@ export class DescribeExporterOutputListRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10
@@ -25350,7 +25350,7 @@ export class PutEventRuleTargetsRequest extends $tea.Model {
   fcParameters?: PutEventRuleTargetsRequestFcParameters[];
   /**
    * @remarks
-   * The information about the recipients in Message Service (MNS).
+   * The notifications of Simple Message Queue (formerly MNS) (SMQ).
    */
   mnsParameters?: PutEventRuleTargetsRequestMnsParameters[];
   /**
@@ -25433,7 +25433,7 @@ export class PutEventRuleTargetsResponseBody extends $tea.Model {
   failedFcParameters?: PutEventRuleTargetsResponseBodyFailedFcParameters;
   /**
    * @remarks
-   * This parameter is returned if the specified queues in the request failed to be created or modified in MNS.
+   * This parameter is returned if the specified queues in the request failed to be created or modified in SMQ.
    */
   failedMnsParameters?: PutEventRuleTargetsResponseBodyFailedMnsParameters;
   /**
@@ -26586,7 +26586,7 @@ export class PutMetricRuleTargetsRequest extends $tea.Model {
   ruleId?: string;
   /**
    * @remarks
-   * N/A.
+   * None.
    * 
    * This parameter is required.
    */
@@ -29572,7 +29572,7 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $tea.Model {
    * *   UIS: Ultimate Internet Service (UIS)
    * *   nls: Intelligent Speech Interaction
    * *   ots: Tablestore
-   * *   NAS: Apsara File Storage NAS
+   * *   NAS: File Storage NAS
    * *   ECI: Elastic Container Instance (ECI)
    * *   OpenAPI: OpenAPI Explorer
    * *   pvtzpost: Alibaba Cloud DNS PrivateZone
@@ -29733,6 +29733,12 @@ export class CreateGroupMetricRulesRequestGroupMetricRules extends $tea.Model {
    * 00:00-05:30
    */
   noEffectiveInterval?: string;
+  /**
+   * @example
+   * {
+   *       "NotSendOK": true
+   * }
+   */
   options?: string;
   /**
    * @remarks
@@ -29930,15 +29936,15 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the resource.
    * 
-   * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+   * For more information about how to query the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
    * 
    * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
    * 
-   * *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+   * *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
    * 
    * *   {userId}: the ID of the Alibaba Cloud account.
    * 
-   * *   {regionId}: the region ID of the message queue or topic.
+   * *   {regionId}: the region ID of the SMQ queue or topic.
    * 
    * *   {Resource type}: the type of the resource that triggers the alert. Valid values:
    * 
@@ -29958,7 +29964,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
    * @remarks
    * The ID of the resource for which alerts are triggered.
    * 
-   * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+   * For more information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
    * 
    * @example
    * 1
@@ -29966,7 +29972,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfigTargetList exten
   id?: string;
   /**
    * @remarks
-   * The parameters of the alert callback. Specify the parameters in the JSON format.
+   * The parameters of the alert callback. The parameters are in the JSON format.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -30022,7 +30028,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
    * *   GreaterThanLastWeek: greater than the metric value at the same time last week
    * *   LessThanLastWeek: less than the metric value at the same time last week
    * *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-   * *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+   * *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
    * 
    * Valid values of N: 1 to 3.
    * 
@@ -30034,7 +30040,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
   comparisonOperator?: string;
   /**
    * @remarks
-   * The time period during which the alert rule is effective.
+   * The period of time during which the alert rule is effective.
    * 
    * Valid values of N: 1 to 3.
    * 
@@ -30046,9 +30052,9 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
    * @remarks
    * The alert level. Valid values:
    * 
-   * *   critical (default): critical
-   * *   warn: warning
-   * *   info: information
+   * *   critical (default)
+   * *   warn
+   * *   info
    * 
    * Valid values of N: 1 to 3.
    * 
@@ -30072,7 +30078,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
    * 
    * Valid values of N: 1 to 3.
    * 
-   * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+   * >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
    * 
    * @example
    * 86400
@@ -30080,7 +30086,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
   silenceTime?: string;
   /**
    * @remarks
-   * The statistical method for alerts.
+   * The statistical aggregation method that is used to calculate the metric values.
    * 
    * Valid values of N: 1 to 3.
    * 
@@ -30103,8 +30109,6 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
    * 
    * Valid values of N: 1 to 3.
    * 
-   * Unit: cores.
-   * 
    * This parameter is required.
    * 
    * @example
@@ -30117,7 +30121,7 @@ export class CreateGroupMonitoringAgentProcessRequestAlertConfig extends $tea.Mo
    * 
    * Valid values of N: 1 to 3.
    * 
-   * >  An alert is triggered only if the number of times for which the threshold can be consecutively exceeded is reached.
+   * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
    * 
    * This parameter is required.
    * 
@@ -30554,13 +30558,13 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $tea.Mod
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
    * 
-   * *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+   * *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
    * 
    * *   {userId}: the ID of the Alibaba Cloud account.
    * 
-   * *   {regionId}: the region ID of the message queue or topic.
+   * *   {regionId}: the region ID of the SMQ queue or topic.
    * 
-   * *   {Resource type}: the type of the resource that triggers the alert. Valid values:
+   * *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
    * 
    *     *   **queues**
    *     *   **topics**
@@ -35755,7 +35759,7 @@ export class DescribeEventRuleTargetListResponseBodyMnsParametersMnsParameter ex
   id?: string;
   /**
    * @remarks
-   * The name of the MNS queue.
+   * The name of the SMQ queue.
    * 
    * @example
    * testQueue
@@ -35763,7 +35767,7 @@ export class DescribeEventRuleTargetListResponseBodyMnsParametersMnsParameter ex
   queue?: string;
   /**
    * @remarks
-   * The region where MNS is deployed.
+   * The region for SMQ.
    * 
    * @example
    * cn-hangzhou
@@ -35771,7 +35775,7 @@ export class DescribeEventRuleTargetListResponseBodyMnsParametersMnsParameter ex
   region?: string;
   /**
    * @remarks
-   * The MNS topic.
+   * The SMQ topic.
    * 
    * @example
    * topic_sample
@@ -36382,7 +36386,21 @@ export class DescribeGroupMonitoringAgentProcessResponseBodyProcessesProcessAler
    * @remarks
    * The Alibaba Cloud Resource Name (ARN) of the resource. Format: acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message. Example: acs:mns:cn-hangzhou:120886317861\\*\\*\\*\\*:/queues/test123/message. Fields:
    * 
-   * {Service name abbreviation}: the abbreviation of the service name. Valid value: mns. {userId}: the ID of the Alibaba Cloud account. {regionId}: the region ID of the message queue or topic. {Resource type}: the type of the resource that triggers the alert. Valid values: - **queues** - **topics** - {Resource name}: the resource name. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.
+   * *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
+   * 
+   * *   {userId}: the ID of the Alibaba Cloud account.
+   * 
+   * *   {regionId}: the region ID of the SMQ queue or topic.
+   * 
+   * *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
+   * 
+   *     *   **queues**
+   *     *   **topics**
+   * 
+   * *   {Resource name}: the resource name.
+   * 
+   *     *   If the resource type is **queues**, the resource name is the queue name.
+   *     *   If the resource type is **topics**, the resource name is the topic name.
    * 
    * @example
    * acs:mns:cn-hangzhou:120886317861****:/queues/test/message
@@ -36406,9 +36424,11 @@ export class DescribeGroupMonitoringAgentProcessResponseBodyProcessesProcessAler
   jsonParmas?: string;
   /**
    * @remarks
-   * The level of the alert. Valid values:
+   * The alert level. Valid values:
    * 
-   * INFO WARN CRITICAL
+   * *   INFO
+   * *   WARN
+   * *   CRITICAL
    * 
    * @example
    * CRITICAL
@@ -36525,7 +36545,7 @@ export class DescribeGroupMonitoringAgentProcessResponseBodyProcessesProcessAler
   statistics?: string;
   /**
    * @remarks
-   * The resource for which alerts are triggered.
+   * The resources for which alerts are triggered.
    */
   targetList?: DescribeGroupMonitoringAgentProcessResponseBodyProcessesProcessAlertConfigAlertConfigTargetList;
   /**
@@ -44160,6 +44180,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * testKey:testValue
    */
   header?: string;
+  hostBinding?: string;
+  hostBindingType?: number;
   /**
    * @remarks
    * The HTTP request method. Valid values:
@@ -44314,6 +44336,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * false
    */
   screenShot?: boolean;
+  scrollEnd?: boolean;
   /**
    * @example
    * false
@@ -44371,6 +44394,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       expectValue: 'expect_value',
       failureRate: 'failure_rate',
       header: 'header',
+      hostBinding: 'host_binding',
+      hostBindingType: 'host_binding_type',
       httpMethod: 'http_method',
       ipNetwork: 'ip_network',
       isBase64Encode: 'isBase64Encode',
@@ -44390,6 +44415,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseFormat: 'response_format',
       retryDelay: 'retry_delay',
       screenShot: 'screen_shot',
+      scrollEnd: 'scroll_end',
       strictMode: 'strict_mode',
       timeOut: 'time_out',
       trafficHijackElementBlacklist: 'traffic_hijack_element_blacklist',
@@ -44424,6 +44450,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       expectValue: 'string',
       failureRate: 'number',
       header: 'string',
+      hostBinding: 'string',
+      hostBindingType: 'number',
       httpMethod: 'string',
       ipNetwork: 'string',
       isBase64Encode: 'string',
@@ -44443,6 +44471,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
       responseFormat: 'string',
       retryDelay: 'number',
       screenShot: 'boolean',
+      scrollEnd: 'boolean',
       strictMode: 'boolean',
       timeOut: 'number',
       trafficHijackElementBlacklist: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist,
@@ -46732,13 +46761,13 @@ export class ModifyHostAvailabilityRequestAlertConfigTargetList extends $tea.Mod
    * 
    * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
    * 
-   * *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+   * *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
    * 
    * *   {userId}: the ID of the Alibaba Cloud account.
    * 
-   * *   {regionId}: the region ID of the message queue or topic.
+   * *   {regionId}: the region ID of the SMQ queue or topic.
    * 
-   * *   {Resource type}: the type of the resource that triggers the alert. Valid values:
+   * *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
    * 
    *     *   **queues**
    *     *   **topics**
@@ -47988,9 +48017,9 @@ export class PutEventRuleTargetsRequestContactParameters extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The alert level and the corresponding notification methods. Valid values of N: 1 to 5. Valid values:
+   * The alert notification methods. Valid values of N: 1 to 5. Valid values:
    * 
-   * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+   * 4: Alert notifications are sent by using DingTalk and emails.
    * 
    * @example
    * 3
@@ -48084,7 +48113,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the MNS queue. Valid values of N: 1 to 5.
+   * The name of the SMQ queue. Valid values of N: 1 to 5.
    * 
    * @example
    * queue1
@@ -48092,7 +48121,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $tea.Model {
   queue?: string;
   /**
    * @remarks
-   * The region where Message Service (MNS) is deployed. Valid values of N: 1 to 5.
+   * The region for SMQ. Valid values of N: 1 to 5.
    * 
    * @example
    * cn-hangzhou
@@ -48100,7 +48129,7 @@ export class PutEventRuleTargetsRequestMnsParameters extends $tea.Model {
   region?: string;
   /**
    * @remarks
-   * The MNS topic.
+   * The SMQ topic.
    * 
    * @example
    * topic_sample
@@ -48362,9 +48391,9 @@ export class PutEventRuleTargetsResponseBodyFailedContactParametersContactParame
   id?: number;
   /**
    * @remarks
-   * The alert level and the corresponding notification methods. Valid values:
+   * The alert notification methods. Valid values:
    * 
-   * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+   * 4: Alert notifications are sent by using DingTalk and emails.
    * 
    * @example
    * 3
@@ -49156,13 +49185,13 @@ export class PutLogMonitorRequestValueFilter extends $tea.Model {
 export class PutMetricRuleTargetsRequestTargets extends $tea.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the resource. Message Service (MNS), Auto Scaling, Simple Log Service, and Function Compute are supported.
+   * The Alibaba Cloud Resource Name (ARN) of the resource. Simple Message Queue (formerly MNS) (SMQ), Auto Scaling, Simple Log Service, and Function Compute are supported.
    * 
-   * The following part describes the ARN of MNS and the parameters provided by the ARN:
+   * The following part describes the ARN of SMQ and the parameters in the ARN:
    * 
    * `acs:mns:{regionId}:{userId}:/{Resource type}/{Resource name}/message`.
    * 
-   * *   {regionId}: the region ID of the message queue or topic.
+   * *   {regionId}: the region ID of the SMQ queue or topic.
    * 
    * *   {userId}: the ID of the Alibaba Cloud account that owns the resource.
    * 
@@ -49208,7 +49237,7 @@ export class PutMetricRuleTargetsRequestTargets extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The JSON-formatted parameters of the alert callback.
+   * The parameters of the alert callback. The parameters are in the JSON format.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -49252,13 +49281,13 @@ export class PutMetricRuleTargetsRequestTargets extends $tea.Model {
 export class PutMetricRuleTargetsResponseBodyFailDataTargetsTarget extends $tea.Model {
   /**
    * @remarks
-   * The ARN of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. MNS, Auto Scaling, Simple Log Service, and Function Compute are supported. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following part describes the ARN of MNS and the parameters in the ARN:
+   * The ARN of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. SMQ, Auto Scaling, Simple Log Service, and Function Compute are supported. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following part describes the ARN of SMQ and the parameters in the ARN:
    * 
    * *   {Service name abbreviation}: mns.
    * 
    * *   {userId}: the ID of the Alibaba Cloud account.
    * 
-   * *   {regionId}: the region ID of the message queue or topic.
+   * *   {regionId}: the region ID of the SMQ queue or topic.
    * 
    * *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
    * 
@@ -51511,13 +51540,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstore group for the metrics of Simple Log Service logs.
+   * Creates a Logstore group of Hybrid Cloud Monitoring.
    * 
    * @remarks
-   * # Prerequisites
+   * ## [](#)Prerequisites
    * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * # Description
-   * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+   * ## [](#)Description
+   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
    * 
    * @param request - CreateHybridMonitorSLSGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51556,13 +51585,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Logstore group for the metrics of Simple Log Service logs.
+   * Creates a Logstore group of Hybrid Cloud Monitoring.
    * 
    * @remarks
-   * # Prerequisites
+   * ## [](#)Prerequisites
    * Simple Log Service is activated. A project and a Logstore are created in Simple Log Service. For more information, see [Getting Started](https://help.aliyun.com/document_detail/54604.html).
-   * # Description
-   * In this example, a Logstore group named `Logstore_test` is created. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
+   * ## [](#)Description
+   * This topic provides an example on how to create a Logstore group named `Logstore_test`. The region ID is `cn-hangzhou`. The project is `aliyun-project`. The Logstore is `Logstore-ECS`. The response shows that the Logstore group is created.
    * 
    * @param request - CreateHybridMonitorSLSGroupRequest
    * @returns CreateHybridMonitorSLSGroupResponse
@@ -54695,7 +54724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the push channels of an event-triggered alert rule.
+   * Queries event-triggered alert rules.
    * 
    * @remarks
    * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
@@ -54729,7 +54758,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the push channels of an event-triggered alert rule.
+   * Queries event-triggered alert rules.
    * 
    * @remarks
    * This topic provides an example to show how to query the details of an event-triggered alert rule named `testRule`.
@@ -60157,6 +60186,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param tmpReq - PutResourceMetricRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60269,6 +60299,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - PutResourceMetricRuleRequest
    * @returns PutResourceMetricRuleResponse
@@ -60283,6 +60314,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - PutResourceMetricRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -60317,6 +60349,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * This topic provides an example on how to create a threshold-triggered alert rule for the `cpu_total` metric of an Elastic Compute Service (ECS) instance whose ID is `i-uf6j91r34rnwawoo****`. The namespace of ECS metrics is `acs_ecs_dashboard`. The alert contact group of the alert rule is `ECS_Group`. The name of the alert rule is `test123`. The ID of the alert rule is `a151cd6023eacee2f0978e03863cc1697c89508****`. The statistical method for Critical-level alerts is `Average`. The comparison operator for Critical-level alerts is `GreaterThanOrEqualToThreshold`. The threshold for Critical-level alerts is `90`. The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered is `3`.
+   * >  Statistics verification was added on August 15, 2024. Only the statistical value of the corresponding metric can be set for the Statistics parameter. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](https://www.alibabacloud.com/help/en/cms/support/appendix-1-metrics).
    * 
    * @param request - PutResourceMetricRulesRequest
    * @returns PutResourceMetricRulesResponse
