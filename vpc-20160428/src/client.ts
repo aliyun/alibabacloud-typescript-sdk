@@ -11319,6 +11319,10 @@ export class CreateIpv6GatewayResponse extends $tea.Model {
 }
 
 export class CreateNatGatewayRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access mode for reverse access to the VPC NAT gateway.
+   */
   accessMode?: CreateNatGatewayRequestAccessMode;
   /**
    * @remarks
@@ -11362,13 +11366,11 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * @remarks
    * The mode in which the EIP is associated with the NAT gateway. Valid values:
    * 
-   * *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
+   * - **MULTI_BINDED**(default): the multi-EIP-to-ENI mode.
    * 
-   * *   **NAT**: NAT mode. IPv4 gateways are supported in this mode.
+   * - **NAT**: NAT mode, which is compatible with IPv4 addresses.
    * 
-   *     **
-   * 
-   *     **Note** If a NAT gateway is associated with an EIP in NAT mode, the EIP occupies one private IP address in the vSwitch. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
+   * > If an EIP is associated with a NAT gateway in NAT mode, the EIP occupies a private IP address of the vSwitch where the NAT gateway is deployed. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, EIPs cannot be associated with the NAT gateway. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
    * 
    * @example
    * MULTI_BINDED
@@ -11382,7 +11384,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * *   **false**
    * 
    * @example
-   * false
+   * true
    */
   icmpReplyEnabled?: boolean;
   /**
@@ -11409,7 +11411,7 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * @remarks
    * The name of the NAT gateway.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
    * 
    * If this parameter is not set, the system assigns a default name to the NAT gateway.
    * 
@@ -11446,6 +11448,10 @@ export class CreateNatGatewayRequest extends $tea.Model {
    * Invalid parameter.
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+   */
   privateLinkEnabled?: boolean;
   /**
    * @remarks
@@ -11484,6 +11490,9 @@ export class CreateNatGatewayRequest extends $tea.Model {
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * MULTI_BINDED
    */
   tag?: CreateNatGatewayRequestTag[];
   /**
@@ -11575,6 +11584,10 @@ export class CreateNatGatewayRequest extends $tea.Model {
 }
 
 export class CreateNatGatewayShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The access mode for reverse access to the VPC NAT gateway.
+   */
   accessModeShrink?: string;
   /**
    * @remarks
@@ -11618,13 +11631,11 @@ export class CreateNatGatewayShrinkRequest extends $tea.Model {
    * @remarks
    * The mode in which the EIP is associated with the NAT gateway. Valid values:
    * 
-   * *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
+   * - **MULTI_BINDED**(default): the multi-EIP-to-ENI mode.
    * 
-   * *   **NAT**: NAT mode. IPv4 gateways are supported in this mode.
+   * - **NAT**: NAT mode, which is compatible with IPv4 addresses.
    * 
-   *     **
-   * 
-   *     **Note** If a NAT gateway is associated with an EIP in NAT mode, the EIP occupies one private IP address in the vSwitch. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
+   * > If an EIP is associated with a NAT gateway in NAT mode, the EIP occupies a private IP address of the vSwitch where the NAT gateway is deployed. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, EIPs cannot be associated with the NAT gateway. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
    * 
    * @example
    * MULTI_BINDED
@@ -11638,7 +11649,7 @@ export class CreateNatGatewayShrinkRequest extends $tea.Model {
    * *   **false**
    * 
    * @example
-   * false
+   * true
    */
   icmpReplyEnabled?: boolean;
   /**
@@ -11665,7 +11676,7 @@ export class CreateNatGatewayShrinkRequest extends $tea.Model {
    * @remarks
    * The name of the NAT gateway.
    * 
-   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
+   * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The name must start with a letter.
    * 
    * If this parameter is not set, the system assigns a default name to the NAT gateway.
    * 
@@ -11702,6 +11713,10 @@ export class CreateNatGatewayShrinkRequest extends $tea.Model {
    * Invalid parameter.
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+   */
   privateLinkEnabled?: boolean;
   /**
    * @remarks
@@ -11740,6 +11755,9 @@ export class CreateNatGatewayShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * MULTI_BINDED
    */
   tag?: CreateNatGatewayShrinkRequestTag[];
   /**
@@ -14800,22 +14818,35 @@ export class CreateSslVpnServerRequest extends $tea.Model {
   compress?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable two-factor authentication. If you enable two-factor authentication, you must configure `IDaaSInstanceId` and `IDaaSRegionId`. Valid values:
+   * Specifies whether to enable two-factor authentication. To enable two-factor authentication, you need to specify `IDaaSInstanceId`, `IDaaSRegionId`, and `IDaaSApplicationId`. Valid values:
    * 
-   * *   **true**: enables this feature.
-   * *   **false** (default): disables this feature.
+   * *   **true**
+   * *   **false** (default)
    * 
-   * > - Two-factor authentication supports only earlier versions of IDaaS instances. If you do not have and cannot create earlier versions of IDaaS instances, you cannot enable two-factor authentication.
-   * > - If two-factor authentication is already enabled for existing SSL servers, you can continue to use two-factor authentication.
+   * > 
+   * 
+   * *   If you use two-factor authentication for the first time, you need to complete [authorization](https://ram.console.aliyun.com/role/authorization?request=%7B%22Services%22%3A%5B%7B%22Service%22%3A%22VPN%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunVpnAccessingIdaasRole%22%2C%22TemplateId%22%3A%22IdaasRole%22%7D%5D%7D%5D%2C%22ReturnUrl%22%3A%22https%3A%2F%2Fvpc.console.aliyun.com%2Fsslvpn%2Fcn-shanghai%2Fvpn-servers%22%7D) before you create an SSL server.
+   * 
+   * *   IDaaS EIAM 1.0 instances are no longer available for purchase. If your Alibaba Cloud account has IDaaS EIAM 1.0 instances, IDaaS EIAM 1.0 instances can be associated after two-factor authentication is enabled. If your Alibaba Cloud account does not have IDaaS EIAM 1.0 instances, only IDaaS EIAM 2.0 instances can be associated after two-factor authentication is enabled.
    * 
    * @example
    * false
    */
   enableMultiFactorAuth?: boolean;
+  /**
+   * @remarks
+   * The ID of the IDaaS application.
+   * 
+   * *   If an IDaaS EIAM 2.0 instance is associated, you need to specify an IDaaS application ID.
+   * *   If an IDaaS EIAM 1.0 instance is associated, you do not need to specify an IDaaS application ID.
+   * 
+   * @example
+   * app_my6g4qmvnwxzj2f****
+   */
   IDaaSApplicationId?: string;
   /**
    * @remarks
-   * The Identity as a Service (IDaaS) instance ID.
+   * The ID of the IDaaS EIAM instance.
    * 
    * @example
    * idaas-cn-hangzhou-p****
@@ -14823,7 +14854,7 @@ export class CreateSslVpnServerRequest extends $tea.Model {
   IDaaSInstanceId?: string;
   /**
    * @remarks
-   * The ID of the region where the IDaaS instance is created.
+   * The region ID of the IDaaS EIAM instance.
    * 
    * @example
    * cn-hangzhou
@@ -18017,9 +18048,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the customer gateway.
-   * 
-   * This parameter is required.
+   * The customer gateway ID.
    * 
    * @example
    * cgw-p0w2jemrcj5u61un8****
@@ -18058,6 +18087,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
    * true
    */
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   /**
    * @remarks
    * The health check configuration:
@@ -18085,14 +18115,14 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
    * @remarks
    * The configurations of Phase 1 negotiations:
    * 
-   * *   **IkeConfig.Psk**: The pre-shared key that is used for authentication between the VPN gateway and the data center.
+   * *   **IkeConfig.Psk**: the pre-shared key that is used for identity authentication between the VPN gateway and the on-premises data center.
    * 
-   *     *   It must be 1 to 100 characters in length, and can contain letters, digits, and the following characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-   *     *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is generated by the system.
+   *     *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   *     *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   *     > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, a connection cannot be established between the data center and the VPN gateway.
+   *     > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises data center. Otherwise, connections between the on-premises data center and the VPN gateway cannot be established.
    * 
-   * *   **IkeConfig.IkeVersion**: the IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
+   * *   **IkeConfig.IkeVersion**: the version of the Internet Key Exchange (IKE) protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
    * 
    * *   **IkeConfig.IkeMode**: the negotiation mode. Valid values: **main** and **aggressive**. Default value: **main**.
    * 
@@ -18102,9 +18132,9 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
    * 
    * *   **IkeConfig.IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
    * 
-   * *   **IkeConfig.IkeLifetime**: the SA lifetime determined by Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * *   **IkeConfig.IkeLifetime**: the SA lifetime as a result of Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
    * 
-   * *   **IkeConfig.LocalId**: the identifier on the Alibaba Cloud side. The identifier cannot exceed 100 characters in length. This parameter is empty by default.
+   * *   **IkeConfig.LocalIdIPsec**: the identifier on the Alibaba Cloud side. The identifier cannot exceed 100 characters in length. This parameter is left empty by default.
    * 
    * *   **IkeConfig.RemoteId**: the identifier on the data center side. The identifier cannot exceed 100 characters in length. The default value is the IP address of the customer gateway.
    * 
@@ -18223,6 +18253,11 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
    * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
    */
   tags?: CreateVpnAttachmentRequestTags[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  tunnelOptionsSpecification?: CreateVpnAttachmentRequestTunnelOptionsSpecification[];
   static names(): { [key: string]: string } {
     return {
       autoConfigRoute: 'AutoConfigRoute',
@@ -18232,6 +18267,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       healthCheckConfig: 'HealthCheckConfig',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
@@ -18246,6 +18282,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tags: 'Tags',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
     };
   }
 
@@ -18258,6 +18295,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       healthCheckConfig: 'string',
       ikeConfig: 'string',
       ipsecConfig: 'string',
@@ -18272,6 +18310,7 @@ export class CreateVpnAttachmentRequest extends $tea.Model {
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tags: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTags },
+      tunnelOptionsSpecification: { 'type': 'array', 'itemType': CreateVpnAttachmentRequestTunnelOptionsSpecification },
     };
   }
 
@@ -18522,26 +18561,28 @@ export class CreateVpnConnectionRequest extends $tea.Model {
   healthCheckConfig?: string;
   /**
    * @remarks
-   * This parameter is available if you create an IPsec-VPN connection in single-tunnel mode.
+   * This parameter is supported if you create an IPsec-VPN connection in single-tunnel mode.
    * 
    * The configurations of Phase 1 negotiations:
    * 
-   * *   **IkeConfig.Psk**: The pre-shared key that is used for authentication between the VPN gateway and the on-premises database.
+   * *   **IkeConfig.Psk**: the pre-shared key that is used for identity authentication between the VPN gateway and the on-premises data center.
    * 
-   *     *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   *     *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
    * 
-   *     *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is generated by the system.
+   *     *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   *          >The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises database. Otherwise, the on-premises database and the VPN gateway cannot establish a connection.
+   *         **
+   * 
+   *         **Note** The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises data center. Otherwise, connections between the on-premises data center and the VPN gateway cannot be established.
    * 
    * *   **IkeConfig.IkeVersion**: the version of the Internet Key Exchange (IKE) protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
    * 
-   *     Compared with IKEv1, IKEv2 simplifies the security association (SA) negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   *     Compared with IKEv1, IKEv2 simplifies the security association (SA) negotiation process and provides better support for scenarios with multiple CIDR blocks.
    * 
    * *   **IkeConfig.IkeMode**: the negotiation mode of IKE. Valid values: **main** and **aggressive**. Default value: **main**.
    * 
    *     *   **main:** This mode offers higher security during negotiations.
-   *     *   **aggressive:** This mode is faster and has a higher success rate.
+   *     *   **aggressive**: This mode supports faster negotiations and a higher success rate.
    * 
    * *   **IkeConfig.IkeEncAlg**: the encryption algorithm that is used in Phase 1 negotiations.
    * 
@@ -18551,13 +18592,13 @@ export class CreateVpnConnectionRequest extends $tea.Model {
    * 
    *     Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
    * 
-   * *   **IkeConfig.IkePfs**: the Diffie-Hellman (DH) key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
+   * *   **IkeConfig.IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
    * 
-   * *   **IkeConfig.IkeLifetime**: the SA lifetime determined by Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+   * *   **IkeConfig.IkeLifetime**: the SA lifetime as a result of Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
    * 
-   * *   **IkeConfig.LocalId**: the identifier of the VPN gateway. The value can be up to 100 characters in length. The default value is the IP address of the VPN gateway.
+   * *   **IkeConfig.LocalId**: the identifier of the VPN gateway. It can contain at most 100 characters. The default value is the IP address of the VPN gateway.
    * 
-   * *   **IkeConfig.RemoteId**: the identifier of the customer gateway. The value can be up to 100 characters in length. The default value is the IP address of the customer gateway.
+   * *   **IkeConfig.RemoteId**: the identifier of the customer gateway. It can contain at most 100 characters. The default value is the IP address of the customer gateway.
    * 
    * @example
    * {"Psk":"1234****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalId":"47.XX.XX.1","RemoteId":"47.XX.XX.2"}
@@ -18669,8 +18710,8 @@ export class CreateVpnConnectionRequest extends $tea.Model {
    * @remarks
    * The tunnel configurations.
    * 
-   * *   You can specify the parameters in the **TunnelOptionsSpecification** array if you create an IPsec-VPN connection in dual-tunnel mode.
-   * *   If you create an IPsec-VPN connection in dual-tunnel mode, you need to configure an active tunnel and a standby tunnel. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+   * *   You can specify parameters in the **TunnelOptionsSpecification** array when you create an IPsec-VPN connection in dual tunnel mode.
+   * *   When you create an IPsec-VPN connection in dual tunnel mode, you must add configurations of the active and standby tunnels for the IPsec-VPN connection. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
    * 
    * **if can be null:**
    * true
@@ -38830,6 +38871,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $tea.Model {
    * The list of routes.
    */
   vcoRouteEntries?: DescribeVcoRouteEntriesResponseBodyVcoRouteEntries[];
+  vpnRouteCounts?: DescribeVcoRouteEntriesResponseBodyVpnRouteCounts[];
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
@@ -38837,6 +38879,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $tea.Model {
       requestId: 'RequestId',
       totalCount: 'TotalCount',
       vcoRouteEntries: 'VcoRouteEntries',
+      vpnRouteCounts: 'VpnRouteCounts',
     };
   }
 
@@ -38847,6 +38890,7 @@ export class DescribeVcoRouteEntriesResponseBody extends $tea.Model {
       requestId: 'string',
       totalCount: 'number',
       vcoRouteEntries: { 'type': 'array', 'itemType': DescribeVcoRouteEntriesResponseBodyVcoRouteEntries },
+      vpnRouteCounts: { 'type': 'array', 'itemType': DescribeVcoRouteEntriesResponseBodyVpnRouteCounts },
     };
   }
 
@@ -41359,31 +41403,36 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The automatically generated tag of the VPN gateway.
+   * The tag that is automatically generated for the VPN gateway. The tag consists of the following parameters:
    * 
    * *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
    * 
    *     *   **true**
    *     *   **false**
    * 
-   * *   **VisuallySsl**: indicates whether the VPN gateway allows you to view information about connected SSL clients.
+   * *   **VisuallySsl**: indicates whether the VPN gateway allows you to view the connection information of SSL clients. Valid values:
    * 
    *     *   **true**
    *     *   **false**
    * 
-   * *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes.
+   * *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes. Valid values:
    * 
    *     *   **true**
    *     *   **false**
    * 
-   * *   **VpnNewImage**: indicates whether the VPN gateway is upgraded.
+   * *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
    * 
    *     *   **true**
    *     *   **false**
    * 
-   * *   **description**
+   * *   **description**: the description of the VPN gateway. This parameter is only for internal use.
    * 
-   * *   **VpnVersion**
+   * *   **VpnVersion**: the version of the VPN gateway.
+   * 
+   * *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
+   * 
+   *     *   **true**
+   *     *   **false**
    * 
    * @example
    * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
@@ -41391,7 +41440,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   tag?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tags that are added to the VPN gateway.
    */
   tags?: DescribeVpnGatewayResponseBodyTags;
   /**
@@ -41420,9 +41469,7 @@ export class DescribeVpnGatewayResponseBody extends $tea.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The type of the VPN gateway.
-   * 
-   * Only **Normal** may be returned, which indicates a standard VPN gateway.
+   * The type of VPN gateway. Only **Normal** may be returned, which indicates a standard VPN gateway.
    * 
    * @example
    * Normal
@@ -41718,11 +41765,7 @@ export class DescribeVpnGatewaysRequest extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The value of tag N to add to the resource.
-   * 
-   * The value of this parameter can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-   * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
+   * The tags that are added to the VPN gateway.
    */
   tag?: DescribeVpnGatewaysRequestTag[];
   /**
@@ -41819,7 +41862,7 @@ export class DescribeVpnGatewaysResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The VPN gateways.
+   * The information about the VPN gateways.
    */
   vpnGateways?: DescribeVpnGatewaysResponseBodyVpnGateways;
   static names(): { [key: string]: string } {
@@ -42154,6 +42197,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $tea.Model {
    * 1
    */
   totalCount?: number;
+  vpnRouteCounts?: DescribeVpnRouteEntriesResponseBodyVpnRouteCounts;
   /**
    * @remarks
    * The list of route entries.
@@ -42165,6 +42209,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $tea.Model {
       pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
+      vpnRouteCounts: 'VpnRouteCounts',
       vpnRouteEntries: 'VpnRouteEntries',
     };
   }
@@ -42175,6 +42220,7 @@ export class DescribeVpnRouteEntriesResponseBody extends $tea.Model {
       pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
+      vpnRouteCounts: DescribeVpnRouteEntriesResponseBodyVpnRouteCounts,
       vpnRouteEntries: DescribeVpnRouteEntriesResponseBodyVpnRouteEntries,
     };
   }
@@ -43541,7 +43587,7 @@ export class DissociateVpnGatewayWithCertificateRequest extends $tea.Model {
    * @remarks
    * The certificate ID.
    * 
-   * >  The certificate ID refers to the ID generated after the SSL certificate is associated with a VPN gateway. It is not the ID of the certificate itself. You can call [ListVpnCertificateAssociations](https://help.aliyun.com/document_detail/448813.html) to query certificate IDs.
+   * > The certificate ID refers to the ID generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate. You can call the [ListVpnCertificateAssociations](https://help.aliyun.com/document_detail/2521961.html) operation to query certificate IDs.
    * 
    * This parameter is required.
    * 
@@ -59868,6 +59914,11 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
    */
   enableNatTraversal?: boolean;
   /**
+   * **if can be null:**
+   * true
+   */
+  enableTunnelsBgp?: boolean;
+  /**
    * @remarks
    * The health check configurations:
    * 
@@ -60012,6 +60063,11 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * **if can be null:**
+   * true
+   */
+  tunnelOptionsSpecification?: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecification[];
+  /**
    * @remarks
    * The ID of the IPsec-VPN connection.
    * 
@@ -60030,6 +60086,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       healthCheckConfig: 'HealthCheckConfig',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
@@ -60042,6 +60099,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       remoteSubnet: 'RemoteSubnet',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vpnConnectionId: 'VpnConnectionId',
     };
   }
@@ -60055,6 +60113,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       healthCheckConfig: 'string',
       ikeConfig: 'string',
       ipsecConfig: 'string',
@@ -60067,6 +60126,7 @@ export class ModifyVpnAttachmentAttributeRequest extends $tea.Model {
       remoteSubnet: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      tunnelOptionsSpecification: { 'type': 'array', 'itemType': ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecification },
       vpnConnectionId: 'string',
     };
   }
@@ -60156,6 +60216,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
    * true
    */
   enableNatTraversal?: boolean;
+  enableTunnelsBgp?: boolean;
   /**
    * @remarks
    * The configuration of Phase 1 negotiations.
@@ -60242,6 +60303,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
    * ike_sa_not_established
    */
   status?: string;
+  tunnelOptionsSpecification?: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification[];
   /**
    * @remarks
    * The health check configuration of the IPsec-VPN connection.
@@ -60278,6 +60340,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       effectImmediately: 'EffectImmediately',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
+      enableTunnelsBgp: 'EnableTunnelsBgp',
       ikeConfig: 'IkeConfig',
       ipsecConfig: 'IpsecConfig',
       localSubnet: 'LocalSubnet',
@@ -60288,6 +60351,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       spec: 'Spec',
       status: 'Status',
+      tunnelOptionsSpecification: 'TunnelOptionsSpecification',
       vcoHealthCheck: 'VcoHealthCheck',
       vpnBgpConfig: 'VpnBgpConfig',
       vpnConnectionId: 'VpnConnectionId',
@@ -60305,6 +60369,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       effectImmediately: 'boolean',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
+      enableTunnelsBgp: 'boolean',
       ikeConfig: ModifyVpnAttachmentAttributeResponseBodyIkeConfig,
       ipsecConfig: ModifyVpnAttachmentAttributeResponseBodyIpsecConfig,
       localSubnet: 'string',
@@ -60315,6 +60380,7 @@ export class ModifyVpnAttachmentAttributeResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       spec: 'string',
       status: 'string',
+      tunnelOptionsSpecification: { 'type': 'array', 'itemType': ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification },
       vcoHealthCheck: ModifyVpnAttachmentAttributeResponseBodyVcoHealthCheck,
       vpnBgpConfig: ModifyVpnAttachmentAttributeResponseBodyVpnBgpConfig,
       vpnConnectionId: 'string',
@@ -60366,27 +60432,27 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
   autoConfigRoute?: boolean;
   /**
    * @remarks
-   * This parameter is supported by single-tunnel IPsec-VPN connections.
+   * This parameter is supported if you modify the configurations of an IPsec-VPN connection in single-tunnel mode.
    * 
-   * The Border Gateway Protocol (BGP) configurations:
+   * BGP configuration:
    * 
-   * *   **BgpConfig.EnableBgp:** specifies whether to enable BGP. Valid values: **true** and **false**.
+   * *   **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** and **false**.
    * 
    * *   **BgpConfig.LocalAsn:** the autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**.
    * 
-   *     You can enter the ASN in two segments. Separate the first 16 bits of the ASN from the remaining 16 bits with a period (.). Enter the number in each segment in decimal format.
+   *     You can enter a value in two segments separated by a period (.). Each segment is 16 bits in length. Enter the number in each segment in decimal format.
    * 
-   *     For example, if you enter 123.456, the ASN is: 123 × 65536 + 456 = 8061384.
+   *     For example, if you enter 123.456, the ASN is 8061384. The ASN is calculated by using the following formula: 123 × 65536 + 456 = 8061384.
    * 
-   * *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+   * *   **BgpConfig.TunnelCidr**: The CIDR block of the IPsec tunnel. The CIDR block must fall within 169.254.0.0/16 and the mask of the CIDR block must be 30 bits in length. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
    * 
-   *     > The CIDR block of the IPsec tunnel of each IPsec-VPN connection must be unique on a VPN gateway.
+   *     > The CIDR block of the IPsec tunnel for each IPsec-VPN connection on a VPN gateway must be unique.
    * 
-   * *   **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block range of the IPsec tunnel.
+   * *   **LocalBgpIp**: the BGP address on the Alibaba Cloud side. It must be an IP address that falls within the CIDR block of the IPsec tunnel.
    * 
    * > - This parameter is required when the VPN gateway has dynamic BGP enabled.
-   * > - Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [BGP dynamic routing ](https://help.aliyun.com/document_detail/170235.html).
-   * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
+   * > - Before you add BGP configurations, we recommend that you learn about how BGP dynamic routing works and the limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/2638220.html).
+   * > - We recommend that you use a private ASN to establish BGP connections to Alibaba Cloud. For information about the range of private ASNs, see the relevant documentation.
    * 
    * @example
    * {"EnableBgp":"true","LocalAsn":"65530","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
@@ -60472,25 +60538,27 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
   healthCheckConfig?: string;
   /**
    * @remarks
-   * This parameter is supported by single-tunnel IPsec-VPN connections.
+   * This parameter is supported if you modify the configurations of an IPsec-VPN connection in single-tunnel mode.
    * 
    * The configurations of Phase 1 negotiations:
    * 
-   * *   **IkeConfig.Psk**: the pre-shared key that is used for authentication between the VPN gateway and the data center.
+   * *   **IkeConfig.Psk**: The pre-shared key that is used for identity authentication between the VPN gateway and the on-premises data center.
    * 
-   *     *   It must be 1 to 100 characters in length, and can contain letters, digits, and the following characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-   *     *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is generated by the system.
+   *     *   The key cannot contain space characters. The key must be 1 to 100 characters in length, and can contain digits, letters, and the following special characters: ``~!`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   *     *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   *      > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises database. Otherwise, the on-premises database and the VPN gateway cannot establish a connection.
+   *     **
+   * 
+   *     **Description** The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the on-premises data center. Otherwise, connections between the on-premises data center and the VPN gateway cannot be established.
    * 
    * *   **IkeConfig.IkeVersion**: the version of the Internet Key Exchange (IKE) protocol. Valid values: **ikev1** and **ikev2**.
    * 
-   *     Compared with IKEv1, IKEv2 simplifies the security association (SA) negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   *     Compared with IKEv1, IKEv2 simplifies the security association (SA) negotiation process and provides better support for scenarios with multiple CIDR blocks.
    * 
    * *   **IkeConfig.IkeMode**: the negotiation mode of IKE. Valid values: **main** and **aggressive**.
    * 
-   *     *   **main**: This mode offers higher security during negotiations.
-   *     *   **aggressive**: This mode is faster and has a higher success rate.
+   *     *   **main:** This mode offers higher security during negotiations.
+   *     *   **aggressive:** This mode supports faster negotiations and a higher success rate.
    * 
    * *   **IkeConfig.IkeEncAlg**: the encryption algorithm that is used in Phase 1 negotiations.
    * 
@@ -60500,13 +60568,13 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
    * 
    *     Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**.
    * 
-   * *   **IkeConfig.IkePfs**: the Diffie-Hellman (DH) key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**.
+   * *   **IkeConfig.IkePfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**.
    * 
-   * *   **IkeConfig.IkeLifetime**: the security association (SA) lifetime that is determined by Phase 1 negotiations. Unit: seconds. Valid values: **0 to 86400**.
+   * *   **IkeConfig.IkeLifetime**: the SA lifetime as a result of Phase 1 negotiations. Unit: seconds Valid values: **0 to 86400**.
    * 
-   * *   **IkeConfig.LocalId**: the identifier of the VPN gateway. The identifier cannot exceed 100 characters in length. The default value is the IP address of the VPN gateway.
+   * *   **IkeConfig.LocalId**: the identifier of the VPN gateway. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the VPN gateway.
    * 
-   * *   **IkeConfig.RemoteId**: the identifier of the customer gateway. The identifier cannot exceed 100 characters in length. The default value is the IP address of the customer gateway.
+   * *   **IkeConfig.RemoteId**: the identifier of the customer gateway. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the customer gateway.
    * 
    * @example
    * {"Psk":"pgw6dy7d1i8i****","IkeVersion":"ikev1","IkeMode":"main","IkeEncAlg":"aes","IkeAuthAlg":"sha1","IkePfs":"group2","IkeLifetime":86400,"LocalId":"116.64.XX.XX","RemoteId":"139.18.XX.XX"}
@@ -60606,7 +60674,7 @@ export class ModifyVpnConnectionAttributeRequest extends $tea.Model {
    * @remarks
    * The tunnel configurations.
    * 
-   * You can specify the parameters in **TunnelOptionsSpecification** if you modify the configuration of a dual-tunnel IPsec-VPN connection. You can modify both the active and standby tunnels of the IPsec-VPN connection.
+   * You can specify parameters in the **TunnelOptionsSpecification** array when you modify the configurations of an IPsec-VPN connection in dual-tunnel mode. You can modify the configurations of both the active and standby tunnels of the IPsec-VPN connection.
    * 
    * **if can be null:**
    * true
@@ -70642,7 +70710,28 @@ export class CreateIpv6GatewayRequestTag extends $tea.Model {
 }
 
 export class CreateNatGatewayRequestAccessMode extends $tea.Model {
+  /**
+   * @remarks
+   * Access mode. Valid values:
+   * 
+   * - **route**: route mode
+   * 
+   * - **tunnel**: tunnel mode
+   * 
+   * > If this parameter is specified, you must set **PrivateLinkEnabled** to **true**.
+   * 
+   * @example
+   * route
+   */
   modeValue?: string;
+  /**
+   * @remarks
+   * Tunnel mode type:
+   * 
+   * - **geneve**: Geneve type
+   * 
+   * > This value takes effect if the access mode is the tunnel mode.
+   */
   tunnelType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70666,7 +70755,7 @@ export class CreateNatGatewayRequestAccessMode extends $tea.Model {
 export class CreateNatGatewayRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -70674,7 +70763,7 @@ export class CreateNatGatewayRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestValue
@@ -70702,7 +70791,7 @@ export class CreateNatGatewayRequestTag extends $tea.Model {
 export class CreateNatGatewayShrinkRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestKey
@@ -70710,7 +70799,7 @@ export class CreateNatGatewayShrinkRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag value can be up to 128 characters in length, and cannot start with acs: or aliyun. It cannot contain http:// or https://.
+   * The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
    * 
    * @example
    * TestValue
@@ -72541,6 +72630,139 @@ export class CreateVpnAttachmentRequestTags extends $tea.Model {
   }
 }
 
+export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateVpnAttachmentRequestTunnelOptionsSpecification extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  tunnelBgpConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelIkeConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIndex?: number;
+  tunnelIpsecConfig?: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      tunnelBgpConfig: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelIkeConfig: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIndex: 'number',
+      tunnelIpsecConfig: CreateVpnAttachmentRequestTunnelOptionsSpecificationTunnelIpsecConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateVpnConnectionRequestTags extends $tea.Model {
   /**
    * @remarks
@@ -72588,11 +72810,13 @@ export class CreateVpnConnectionRequestTags extends $tea.Model {
 export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
   /**
    * @remarks
-   * The ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
+   * The autonomous system number (ASN) of the tunnel on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
    * 
-   * > *   If you set **EnableTunnelsBgp** to **true**, this parameter is required.
-   * >*   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](https://help.aliyun.com/document_detail/170235.html).
-   * >*   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
+   *  
+   * 
+   * > - If you set **EnableTunnelsBgp** to **true**, you must set this parameter.
+   * > - Before you add BGP configurations, we recommend that you learn about how BGP dynamic routing works and the limits. For more information, see [VPN Gateway supports BGP dynamic routing](https://help.aliyun.com/document_detail/170235.html).
+   * > - We recommend that you use a private ASN to establish BGP connections to Alibaba Cloud. For information about the range of private ASNs, see the relevant documentation.
    * 
    * @example
    * 65530
@@ -72600,7 +72824,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig
   localAsn?: number;
   /**
    * @remarks
-   * The BGP address on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block range.
+   * The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block.
    * 
    * @example
    * 169.254.10.1
@@ -72608,9 +72832,9 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig
   localBgpIp?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+   * The BGP CIDR block of the tunnel. The CIDR block must fall within the 169.254.0.0/16 range. The subnet mask of the CIDR block must be 30 bits in length.
    * 
-   * >  The BGP CIDR block of a tunnel associated with a VPN gateway must be unique.
+   * >  The BGP CIDR block of each tunnel must be unique on a VPN gateway.
    * 
    * @example
    * 169.254.10.0/30
@@ -72660,7 +72884,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime that is determined by Phase 1 negotiations. Unit: seconds.
+   * The SA lifetime as a result of Phase 1 negotiations. Unit: seconds.
    * 
    * Valid values: **0** to **86400**. Default value: **86400**.
    * 
@@ -72672,8 +72896,8 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
    * @remarks
    * The negotiation mode of IKE. Valid values: **main** and **aggressive**. Default value: **main**.
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * *   **main:** This mode offers higher security during negotiations.
+   * *   **aggressive**: This mode supports faster negotiations and a higher success rate.
    * 
    * @example
    * main
@@ -72681,7 +72905,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeMode?: string;
   /**
    * @remarks
-   * The DH key exchange algorithm that is used in Phase 1 negotiations. Default value: **group2**.\\
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Default value: **group2**.\\
    * Valid values: **group1**, **group2**, **group5**, and **group14**.
    * 
    * @example
@@ -72692,7 +72916,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
    * @remarks
    * The version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
    * 
-   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
    * 
    * @example
    * ikev1
@@ -72700,9 +72924,9 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations. The value can be up to 100 characters in length. The default identifier is the IP address of the tunnel.
+   * The identifier of the tunnel on the Alibaba Cloud side, which is used in Phase 1 negotiations. It can contain at most 100 characters. The default value is the IP address of the tunnel.
    * 
-   * You can set **LocalId** to a fully qualified domain name (FQDN). In this case, we recommend that you set IkeMode to **aggressive**.
+   * **LocalId** supports fully qualified domain names (FQDNs). If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
    * 
    * @example
    * 47.21.XX.XX
@@ -72710,10 +72934,10 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
   localId?: string;
   /**
    * @remarks
-   * The pre-shared key, which is used for identity authentication between the tunnel and the tunnel peer.
+   * The pre-shared key that is used for identity authentication between the tunnel and the tunnel peer.
    * 
-   * *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-   * *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is generated by the system.
+   * *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following special characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   * *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
    * >  The tunnel and the tunnel peer must use the same pre-shared key. Otherwise, the tunnel cannot be established.
    * 
@@ -72723,9 +72947,9 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIkeConfig
   psk?: string;
   /**
    * @remarks
-   * The identifier of the tunnel peer, which is used in Phase 1 negotiations. The value can be up to 100 characters in length. The default identifier is the IP address of the customer gateway associated with the tunnel.
+   * The identifier of the tunnel peer, which is used in Phase 1 negotiations. It can contain at most 100 characters. The default value is the IP address of the customer gateway that is associated with the tunnel.
    * 
-   * You can set **RemoteId** to an FQDN. In this case, we recommend that you set IkeMode to **aggressive**.
+   * **RemoteId** supports FQDNs. If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
    * 
    * @example
    * 47.42.XX.XX
@@ -72787,7 +73011,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConf
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime that is determined by Phase 2 negotiations. Unit: seconds.
+   * The SA lifetime as a result of Phase 2 negotiations. Unit: seconds.
    * 
    * Valid values: **0** to **86400**. Default value: **86400**.
    * 
@@ -72797,7 +73021,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConf
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH key exchange algorithm that is used in Phase 2 negotiations. Default value: **group2**.
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations. Default value: **group2**.
    * 
    * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
    * 
@@ -72831,11 +73055,11 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelIpsecConf
 export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.Model {
   /**
    * @remarks
-   * The ID of the customer gateway associated with the tunnel.
+   * The ID of the customer gateway that is associated with the tunnel.
    * 
-   * > *   This parameter is required if the VPN gateway supports the dual-tunnel mode.
-   * >*   You can specify the parameters in the **TunnelOptionsSpecification** array if you create an IPsec-VPN connection in dual-tunnel mode.
-   * >*   If you create an IPsec-VPN connection in dual-tunnel mode, you need to configure an active tunnel and a standby tunnel. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+   * > - This parameter is required when you create an IPsec-VPN connection in dual-tunnel mode.
+   * > - You can specify parameters in the **TunnelOptionsSpecification** array when you create an IPsec-VPN connection in dual tunnel mode.
+   * > - When you create an IPsec-VPN connection in dual tunnel mode, you must add configurations of the active and standby tunnels for the IPsec-VPN connection. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
    * 
    * @example
    * cgw-p0wy363lucf1uyae8****
@@ -72843,10 +73067,10 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.M
   customerGatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to enable DPD for the tunnel. Valid values:
+   * Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
    * 
-   * *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-   * *   **false**
+   * *   **true** (default): enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+   * *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
    * 
    * @example
    * true
@@ -72856,8 +73080,8 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.M
    * @remarks
    * Specifies whether to enable NAT traversal for the tunnel. Valid values:
    * 
-   * *   **true** (default) After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
-   * *   **false**
+   * *   **true** (default): enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+   * *   **false**: disables NAT traversal.
    * 
    * @example
    * true
@@ -72865,10 +73089,10 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.M
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * The CA certificate. If the VPN gateway is of the SM type, you must configure a CA certificate for the peer gateway device.
+   * If the VPN gateway uses an SM certificate, you need to configure the CA certificate used by the IPsec peer.
    * 
-   * *   If an SM VPN gateway is used to create the IPsec-VPN connection, this parameter is required.
-   * *   If a standard VPN gateway is used to create the IPsec-VPN connection, leave this parameter empty.
+   * *   If the VPN gateway uses an SM certificate, this parameter is required.
+   * *   If the VPN gateway does not use an SM certificate, leave this parameter empty.
    * 
    * @example
    * -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -72876,10 +73100,10 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.M
   remoteCaCertificate?: string;
   /**
    * @remarks
-   * The role of the tunnel. Valid values:
+   * The role of the tunnel. Valid values: Valid values:
    * 
-   * *   **master**: The tunnel is the active tunnel.
-   * *   **slave**: The tunnel is the standby tunnel.
+   * *   **master**: The tunnel is an active tunnel.
+   * *   **slave**: The tunnel is a standby tunnel.
    * 
    * @example
    * master
@@ -72887,7 +73111,7 @@ export class CreateVpnConnectionRequestTunnelOptionsSpecification extends $tea.M
   role?: string;
   /**
    * @remarks
-   * The BGP configurations for the tunnel.
+   * The Border Gateway Protocol (BGP) configurations of the tunnel.
    */
   tunnelBgpConfig?: CreateVpnConnectionRequestTunnelOptionsSpecificationTunnelBgpConfig;
   /**
@@ -85634,6 +85858,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $tea.Mod
    * vco-p0w2jpkhi2eeop6q6****
    */
   nextHop?: string;
+  nextHopTunnelIdList?: string[];
   /**
    * @remarks
    * The destination CIDR block of the route.
@@ -85700,6 +85925,7 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $tea.Mod
       community: 'Community',
       createTime: 'CreateTime',
       nextHop: 'NextHop',
+      nextHopTunnelIdList: 'NextHopTunnelIdList',
       routeDest: 'RouteDest',
       routeEntryType: 'RouteEntryType',
       source: 'Source',
@@ -85715,12 +85941,38 @@ export class DescribeVcoRouteEntriesResponseBodyVcoRouteEntries extends $tea.Mod
       community: 'string',
       createTime: 'number',
       nextHop: 'string',
+      nextHopTunnelIdList: { 'type': 'array', 'itemType': 'string' },
       routeDest: 'string',
       routeEntryType: 'string',
       source: 'string',
       state: 'string',
       vpnConnectionId: 'string',
       weight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVcoRouteEntriesResponseBodyVpnRouteCounts extends $tea.Model {
+  routeCount?: number;
+  routeEntryType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeCount: 'RouteCount',
+      routeEntryType: 'RouteEntryType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeCount: 'number',
+      routeEntryType: 'string',
+      source: 'string',
     };
   }
 
@@ -87860,6 +88112,28 @@ export class DescribeVpcsResponseBodyVpcs extends $tea.Model {
   }
 }
 
+export class DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $tea.Model {
   /**
    * @remarks
@@ -87904,6 +88178,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $tea.Model
    * nametest1
    */
   name?: string;
+  tag?: string;
+  tags?: DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags[];
   /**
    * @remarks
    * The ID of the transit router with which the IPsec-VPN connection is associated.
@@ -87927,6 +88203,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $tea.Model
       description: 'Description',
       instanceId: 'InstanceId',
       name: 'Name',
+      tag: 'Tag',
+      tags: 'Tags',
       transitRouterId: 'TransitRouterId',
       transitRouterName: 'TransitRouterName',
     };
@@ -87939,6 +88217,8 @@ export class DescribeVpnAttachmentsResponseBodyVpnAttachments extends $tea.Model
       description: 'string',
       instanceId: 'string',
       name: 'string',
+      tag: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeVpnAttachmentsResponseBodyVpnAttachmentsTags },
       transitRouterId: 'string',
       transitRouterName: 'string',
     };
@@ -88521,6 +88801,7 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
    * The configuration of Phase 1 negotiations.
    */
   tunnelIkeConfig?: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  tunnelIndex?: number;
   /**
    * @remarks
    * The configurations of Phase 2 negotiations.
@@ -88549,6 +88830,7 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
       tunnelBgpConfig: 'TunnelBgpConfig',
       tunnelId: 'TunnelId',
       tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
       tunnelIpsecConfig: 'TunnelIpsecConfig',
       zoneNo: 'ZoneNo',
     };
@@ -88567,6 +88849,7 @@ export class DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOp
       tunnelBgpConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
       tunnelId: 'string',
       tunnelIkeConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIndex: 'number',
       tunnelIpsecConfig: DescribeVpnConnectionResponseBodyTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
       zoneNo: 'string',
     };
@@ -89428,6 +89711,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
    * The configuration of Phase 1 negotiations.
    */
   tunnelIkeConfig?: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig;
+  tunnelIndex?: number;
   /**
    * @remarks
    * The configurations of Phase 2 negotiations.
@@ -89454,6 +89738,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
       tunnelBgpConfig: 'TunnelBgpConfig',
       tunnelId: 'TunnelId',
       tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
       tunnelIpsecConfig: 'TunnelIpsecConfig',
       zoneNo: 'ZoneNo',
     };
@@ -89472,6 +89757,7 @@ export class DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnel
       tunnelBgpConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelBgpConfig,
       tunnelId: 'string',
       tunnelIkeConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIkeConfig,
+      tunnelIndex: 'number',
       tunnelIpsecConfig: DescribeVpnConnectionsResponseBodyVpnConnectionsVpnConnectionTunnelOptionsSpecificationTunnelOptionsTunnelIpsecConfig,
       zoneNo: 'string',
     };
@@ -90336,11 +90622,9 @@ export class DescribeVpnGatewayAvailableZonesResponseBodyAvailableZoneIdList ext
 export class DescribeVpnGatewaysRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key. The tag key cannot be an empty string.
+   * The tag key.
    * 
-   * It can be at most 64 characters in length, and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
-   * 
-   * You can specify at most 20 tag keys in each call.
+   * You can specify at most 20 tag keys at a time.
    * 
    * @example
    * FinanceDept
@@ -90350,9 +90634,7 @@ export class DescribeVpnGatewaysRequestTag extends $tea.Model {
    * @remarks
    * The tag value.
    * 
-   * The tag value can be an empty string and cannot exceed 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
-   * 
-   * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
+   * Each tag key corresponds to one tag value. You can specify at most 20 tag values at a time.
    * 
    * @example
    * FinanceJoshua
@@ -90761,7 +91043,7 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
   status?: string;
   /**
    * @remarks
-   * The tag that is automatically generated for the VPN gateway. The tag consists of the following parameters:
+   * The tag that is automatically generated for the VPN gateway.
    * 
    * *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
    * 
@@ -90780,12 +91062,17 @@ export class DescribeVpnGatewaysResponseBodyVpnGatewaysVpnGateway extends $tea.M
    * 
    * *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
    * 
-   *     *   **true**
+   *     *   **true**: queries only SQL templates that need to be optimized.
    *     *   **false**: does not query only SQL statements that need to be optimized.
    * 
    * *   **description**: the description of the VPN gateway. This parameter is only for internal use.
    * 
    * *   **VpnVersion**: the version of the VPN gateway.
+   * 
+   * *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
+   * 
+   *     *   **true**
+   *     *   **false**
    * 
    * @example
    * {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
@@ -91051,6 +91338,50 @@ export class DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntries extends $t
   static types(): { [key: string]: any } {
     return {
       vpnPbrRouteEntry: { 'type': 'array', 'itemType': DescribeVpnPbrRouteEntriesResponseBodyVpnPbrRouteEntriesVpnPbrRouteEntry },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnRouteEntriesResponseBodyVpnRouteCountsVpnRouteCount extends $tea.Model {
+  routeCount?: number;
+  routeEntryType?: string;
+  source?: string;
+  static names(): { [key: string]: string } {
+    return {
+      routeCount: 'RouteCount',
+      routeEntryType: 'RouteEntryType',
+      source: 'Source',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      routeCount: 'number',
+      routeEntryType: 'string',
+      source: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpnRouteEntriesResponseBodyVpnRouteCounts extends $tea.Model {
+  vpnRouteCount?: DescribeVpnRouteEntriesResponseBodyVpnRouteCountsVpnRouteCount[];
+  static names(): { [key: string]: string } {
+    return {
+      vpnRouteCount: 'VpnRouteCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpnRouteCount: { 'type': 'array', 'itemType': DescribeVpnRouteEntriesResponseBodyVpnRouteCountsVpnRouteCount },
     };
   }
 
@@ -97443,6 +97774,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecCo
 }
 
 export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $tea.Model {
+  customerGatewayId?: string;
   /**
    * @remarks
    * Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
@@ -97492,6 +97824,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $tea
   tunnelIpsecConfig?: ModifyTunnelAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
   static names(): { [key: string]: string } {
     return {
+      customerGatewayId: 'CustomerGatewayId',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
       remoteCaCertificate: 'RemoteCaCertificate',
@@ -97503,6 +97836,7 @@ export class ModifyTunnelAttributeRequestTunnelOptionsSpecification extends $tea
 
   static types(): { [key: string]: any } {
     return {
+      customerGatewayId: 'string',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
       remoteCaCertificate: 'string',
@@ -97842,6 +98176,142 @@ export class ModifyVpcPrefixListRequestRemovePrefixListEntry extends $tea.Model 
   }
 }
 
+export class ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecification extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  tunnelBgpConfig?: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIndex?: number;
+  tunnelIpsecConfig?: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      tunnelBgpConfig: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIndex: 'number',
+      tunnelIpsecConfig: ModifyVpnAttachmentAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyVpnAttachmentAttributeResponseBodyIkeConfig extends $tea.Model {
   /**
    * @remarks
@@ -97998,6 +98468,157 @@ export class ModifyVpnAttachmentAttributeResponseBodyIpsecConfig extends $tea.Mo
       ipsecEncAlg: 'string',
       ipsecLifetime: 'number',
       ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelBgpConfig extends $tea.Model {
+  localAsn?: number;
+  localBgpIp?: string;
+  peerAsn?: number;
+  peerBgpIp?: string;
+  tunnelCidr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      localAsn: 'LocalAsn',
+      localBgpIp: 'LocalBgpIp',
+      peerAsn: 'PeerAsn',
+      peerBgpIp: 'PeerBgpIp',
+      tunnelCidr: 'TunnelCidr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      localAsn: 'number',
+      localBgpIp: 'string',
+      peerAsn: 'number',
+      peerBgpIp: 'string',
+      tunnelCidr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIkeConfig extends $tea.Model {
+  ikeAuthAlg?: string;
+  ikeEncAlg?: string;
+  ikeLifetime?: number;
+  ikeMode?: string;
+  ikePfs?: string;
+  ikeVersion?: string;
+  localId?: string;
+  psk?: string;
+  remoteId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ikeAuthAlg: 'IkeAuthAlg',
+      ikeEncAlg: 'IkeEncAlg',
+      ikeLifetime: 'IkeLifetime',
+      ikeMode: 'IkeMode',
+      ikePfs: 'IkePfs',
+      ikeVersion: 'IkeVersion',
+      localId: 'LocalId',
+      psk: 'Psk',
+      remoteId: 'RemoteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ikeAuthAlg: 'string',
+      ikeEncAlg: 'string',
+      ikeLifetime: 'number',
+      ikeMode: 'string',
+      ikePfs: 'string',
+      ikeVersion: 'string',
+      localId: 'string',
+      psk: 'string',
+      remoteId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIpsecConfig extends $tea.Model {
+  ipsecAuthAlg?: string;
+  ipsecEncAlg?: string;
+  ipsecLifetime?: number;
+  ipsecPfs?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipsecAuthAlg: 'IpsecAuthAlg',
+      ipsecEncAlg: 'IpsecEncAlg',
+      ipsecLifetime: 'IpsecLifetime',
+      ipsecPfs: 'IpsecPfs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipsecAuthAlg: 'string',
+      ipsecEncAlg: 'string',
+      ipsecLifetime: 'number',
+      ipsecPfs: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecification extends $tea.Model {
+  customerGatewayId?: string;
+  enableDpd?: boolean;
+  enableNatTraversal?: boolean;
+  internetIp?: string;
+  role?: string;
+  state?: string;
+  tunnelBgpConfig?: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelBgpConfig;
+  tunnelId?: string;
+  tunnelIkeConfig?: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIkeConfig;
+  tunnelIndex?: number;
+  tunnelIpsecConfig?: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIpsecConfig;
+  static names(): { [key: string]: string } {
+    return {
+      customerGatewayId: 'CustomerGatewayId',
+      enableDpd: 'EnableDpd',
+      enableNatTraversal: 'EnableNatTraversal',
+      internetIp: 'InternetIp',
+      role: 'Role',
+      state: 'State',
+      tunnelBgpConfig: 'TunnelBgpConfig',
+      tunnelId: 'TunnelId',
+      tunnelIkeConfig: 'TunnelIkeConfig',
+      tunnelIndex: 'TunnelIndex',
+      tunnelIpsecConfig: 'TunnelIpsecConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customerGatewayId: 'string',
+      enableDpd: 'boolean',
+      enableNatTraversal: 'boolean',
+      internetIp: 'string',
+      role: 'string',
+      state: 'string',
+      tunnelBgpConfig: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelBgpConfig,
+      tunnelId: 'string',
+      tunnelIkeConfig: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIkeConfig,
+      tunnelIndex: 'number',
+      tunnelIpsecConfig: ModifyVpnAttachmentAttributeResponseBodyTunnelOptionsSpecificationTunnelIpsecConfig,
     };
   }
 
@@ -98185,9 +98806,11 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
    * @remarks
    * The ASN of the tunnel on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
    * 
-   * > - You can specify or modify this parameter if BGP is enabled for the IPsec-VPN connection (**EnableTunnelsBgp** is set to **true**).
-   * > - Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](https://help.aliyun.com/document_detail/170235.html).
-   * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. For information about the range of private ASNs, see the relevant documentation.
+   * >  You can specify this parameter only if **EnableTunnelsBgp** is set to **true**.
+   * 
+   * *   Before you add BGP configurations, we recommend that you learn about how BGP dynamic routing works and the limits. For more information, see [Configure BGP dynamic routing](https://help.aliyun.com/document_detail/2638220.html).
+   * 
+   * *   We recommend that you use a private ASN to establish BGP connections to Alibaba Cloud. For information about the range of private ASNs, see the relevant documentation.
    * 
    * @example
    * 65530
@@ -98195,7 +98818,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   localAsn?: number;
   /**
    * @remarks
-   * The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block range.
+   * The BGP IP address of the tunnel on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block.
    * 
    * @example
    * 169.254.10.1
@@ -98203,9 +98826,11 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   localBgpIp?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+   * The BGP CIDR block of the tunnel.
    * 
-   * >  The BGP CIDR block of a tunnel associated with a VPN gateway must be unique.
+   * The CIDR block must fall within 169.254.0.0/16 and the mask of the CIDR block must be 30 bits in length. The CIDR block cannot be 169.254.0.0/30, 169.254.1.0/30, 169.254.2.0/30, 169.254.3.0/30, 169.254.4.0/30, 169.254.5.0/30, 169.254.6.0/30, or 169.254.169.252/30.
+   * 
+   * >  The BGP CIDR block of each tunnel must be unique on a VPN gateway.
    * 
    * @example
    * 169.254.10.0/30
@@ -98255,7 +98880,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime that is determined by Phase 1 negotiations. Unit: seconds. Valid values: **0** to **86400**.
+   * The SA lifetime as a result of Phase 1 negotiations. Unit: seconds Valid values: **0** to **86400**.
    * 
    * @example
    * 86400
@@ -98263,10 +98888,10 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode. Valid values:
+   * The negotiation mode of IKE. Valid values:
    * 
-   * *   **main**: This mode offers higher security during negotiations.
-   * *   **aggressive**: This mode is faster and has a higher success rate.
+   * *   **main:** This mode offers higher security during negotiations.
+   * *   **aggressive:** This mode supports faster negotiations and a higher success rate.
    * 
    * @example
    * main
@@ -98274,7 +98899,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ikeMode?: string;
   /**
    * @remarks
-   * The DH key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**.
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 1 negotiations. Valid values: **group1**, **group2**, **group5**, and **group14**.
    * 
    * @example
    * group2
@@ -98284,7 +98909,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
    * @remarks
    * The version of the IKE protocol. Valid values: **ikev1** and **ikev2**.
    * 
-   * Compared with IKEv1, IKEv2 simplifies the security association (SA) negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios with multiple CIDR blocks.
    * 
    * @example
    * ikev1
@@ -98292,9 +98917,9 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ikeVersion?: string;
   /**
    * @remarks
-   * The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length. The default identifier is the IP address of the tunnel.
+   * The identifier on the Alibaba Cloud side, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the tunnel.
    * 
-   * You can set **LocalId** to a fully qualified domain name (FQDN). In this case, we recommend that you set IkeMode to **aggressive**.
+   * **LocalId** supports fully qualified domain names (FQDNs). If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
    * 
    * @example
    * 47.21.XX.XX
@@ -98304,10 +98929,10 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
    * @remarks
    * The pre-shared key, which is used for identity authentication between the tunnel and the tunnel peer.
    * 
-   * *   The key must be 1 to 100 characters in length and can contain digits, letters, and the following characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
-   * *   If you do not specify a pre-shared key, the system generates a random 16-character string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is generated by the system.
+   * *   The key cannot contain space characters. The key must be 1 to 100 characters in length, and can contain digits, letters, and the following special characters: ``~!\\`@#$%^&*()_-+={}[]|;:\\",.<>/?``
+   * *   If you do not specify a pre-shared key, the system randomly generates a 16-bit string as the pre-shared key. You can call the [DescribeVpnConnection](https://help.aliyun.com/document_detail/2526951.html) operation to query the pre-shared key that is automatically generated by the system.
    * 
-   * >  The tunnel and the tunnel peer must use the same pre-shared key. Otherwise, the tunnel cannot be established.
+   * >  The tunnel and the tunnel peer must use the same pre-shared key. Otherwise, the tunnel cannot be built.
    * 
    * @example
    * 123456****
@@ -98315,9 +98940,9 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   psk?: string;
   /**
    * @remarks
-   * The identifier of the tunnel peer, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length. The default identifier is the IP address of the customer gateway associated with the tunnel.
+   * The identifier of the tunnel peer, which is used in Phase 1 negotiations. The identifier cannot exceed 100 characters in length and cannot contain space characters. The default value is the IP address of the customer gateway that is associated with the tunnel.
    * 
-   * You can set **RemoteId** to an FQDN. In this case, we recommend that you set IkeMode to **aggressive**.
+   * **RemoteId** supports FQDNs. If you use an FQDN, we recommend that you set the negotiation mode to **aggressive**.
    * 
    * @example
    * 47.42.XX.XX
@@ -98379,7 +99004,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The SA lifetime that is determined by Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**.
+   * The SA lifetime as a result of Phase 2 negotiations. Unit: seconds Valid values: **0** to **86400**.
    * 
    * @example
    * 86400
@@ -98387,7 +99012,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH key exchange algorithm that is used in Phase 2 negotiations.
+   * The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations.
    * 
    * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
    * 
@@ -98421,10 +99046,18 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnel
 export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification extends $tea.Model {
   /**
    * @remarks
+   * The ID of the customer gateway associated with the tunnel.
+   * 
+   * @example
+   * cgw-1nmwbpgrp7ssqm1yn****
+   */
+  customerGatewayId?: string;
+  /**
+   * @remarks
    * Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
    * 
-   * *   **true** The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
-   * *   **false**
+   * *   **true**: enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+   * *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
    * 
    * @example
    * true
@@ -98434,8 +99067,8 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
    * @remarks
    * Specifies whether to enable NAT traversal for the tunnel. Valid values:
    * 
-   * *   **true** After NAT traversal is enabled, the initiator does not check the UDP ports during Internet Key Exchange (IKE) negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
-   * *   **false**
+   * *   **true**: enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+   * *   **false**: disables NAT traversal.
    * 
    * @example
    * true
@@ -98469,8 +99102,6 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
   tunnelBgpConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelBgpConfig;
   /**
    * @remarks
-   * **TunnelOptionsSpecification** parameters are supported by dual-tunnel IPsec-VPN gateways. You can modify both the active and standby tunnels of the IPsec-VPN connection.
-   * 
    * The tunnel ID.
    * 
    * @example
@@ -98489,6 +99120,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
   tunnelIpsecConfig?: ModifyVpnConnectionAttributeRequestTunnelOptionsSpecificationTunnelIpsecConfig;
   static names(): { [key: string]: string } {
     return {
+      customerGatewayId: 'CustomerGatewayId',
       enableDpd: 'EnableDpd',
       enableNatTraversal: 'EnableNatTraversal',
       remoteCaCertificate: 'RemoteCaCertificate',
@@ -98502,6 +99134,7 @@ export class ModifyVpnConnectionAttributeRequestTunnelOptionsSpecification exten
 
   static types(): { [key: string]: any } {
     return {
+      customerGatewayId: 'string',
       enableDpd: 'boolean',
       enableNatTraversal: 'boolean',
       remoteCaCertificate: 'string',
@@ -105597,15 +106230,14 @@ export default class Client extends OpenApi {
    * Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
    * 
    * @remarks
-   * ## [](#)
+   * ## Usage notes
    * Before you call this operation, take note of the following items:
-   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+   * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
    * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
    * It takes 1 to 3 minutes to create a NAT gateway.
-   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
    * 
    * @param tmpReq - CreateNatGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -105737,15 +106369,14 @@ export default class Client extends OpenApi {
    * Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
    * 
    * @remarks
-   * ## [](#)
+   * ## Usage notes
    * Before you call this operation, take note of the following items:
-   * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+   * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
    * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
    * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
    *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
    *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
    * It takes 1 to 3 minutes to create a NAT gateway.
-   * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
    * 
    * @param request - CreateNatGatewayRequest
    * @returns CreateNatGatewayResponse
@@ -107145,12 +107776,13 @@ export default class Client extends OpenApi {
    * Creates an SSL server.
    * 
    * @remarks
-   *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-   * ### [](#)Prerequisites
-   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+   * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
+   * ### [](#)Prerequisite
+   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+   * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
    * 
    * @param request - CreateSslVpnServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -107252,12 +107884,13 @@ export default class Client extends OpenApi {
    * Creates an SSL server.
    * 
    * @remarks
-   *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+   *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
    *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
    *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-   * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-   * ### [](#)Prerequisites
-   * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+   * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
+   * ### [](#)Prerequisite
+   * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+   * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
    * 
    * @param request - CreateSslVpnServerRequest
    * @returns CreateSslVpnServerResponse
@@ -108691,6 +109324,10 @@ export default class Client extends OpenApi {
       query["EnableNatTraversal"] = request.enableNatTraversal;
     }
 
+    if (!Util.isUnset(request.enableTunnelsBgp)) {
+      query["EnableTunnelsBgp"] = request.enableTunnelsBgp;
+    }
+
     if (!Util.isUnset(request.healthCheckConfig)) {
       query["HealthCheckConfig"] = request.healthCheckConfig;
     }
@@ -108747,8 +109384,19 @@ export default class Client extends OpenApi {
       query["Tags"] = request.tags;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tunnelOptionsSpecification)) {
+      bodyFlat["TunnelOptionsSpecification"] = request.tunnelOptionsSpecification;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateVpnAttachment",
@@ -128019,6 +128667,10 @@ export default class Client extends OpenApi {
       query["EnableNatTraversal"] = request.enableNatTraversal;
     }
 
+    if (!Util.isUnset(request.enableTunnelsBgp)) {
+      query["EnableTunnelsBgp"] = request.enableTunnelsBgp;
+    }
+
     if (!Util.isUnset(request.healthCheckConfig)) {
       query["HealthCheckConfig"] = request.healthCheckConfig;
     }
@@ -128071,8 +128723,19 @@ export default class Client extends OpenApi {
       query["VpnConnectionId"] = request.vpnConnectionId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tunnelOptionsSpecification)) {
+      bodyFlat["TunnelOptionsSpecification"] = request.tunnelOptionsSpecification;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "ModifyVpnAttachmentAttribute",
