@@ -2550,6 +2550,195 @@ export class CommitRoutineStagingCodeResponse extends $tea.Model {
   }
 }
 
+export class CreateClientCertificateRequest extends $tea.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE REQUEST-----
+   */
+  CSR?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pkeyType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 365
+   */
+  validityDays?: number;
+  static names(): { [key: string]: string } {
+    return {
+      CSR: 'CSR',
+      pkeyType: 'PkeyType',
+      siteId: 'SiteId',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CSR: 'string',
+      pkeyType: 'string',
+      siteId: 'number',
+      validityDays: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * babaded901474b9693acf530e0fb1dbb
+   */
+  CACertificateId?: string;
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  /**
+   * @example
+   * babaded901474b9693acf530e0fb1d95
+   */
+  id?: string;
+  /**
+   * @example
+   * DCDN CA
+   */
+  issuer?: string;
+  /**
+   * @example
+   * 2024-12-01T02:12:49Z
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-12-01T02:12:49Z
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * -----BEGIN PRIVATE KEY-----
+   */
+  privateKey?: string;
+  /**
+   * @example
+   * C370DAF1-C838-4288-A1A0-9A87633D248E
+   */
+  requestId?: string;
+  /**
+   * @example
+   * babaded901474b9693acf530e0fb1daa
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * active
+   */
+  status?: string;
+  /**
+   * @example
+   * 365
+   */
+  validityDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CACertificateId: 'CACertificateId',
+      certificate: 'Certificate',
+      commonName: 'CommonName',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      privateKey: 'PrivateKey',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CACertificateId: 'string',
+      certificate: 'string',
+      commonName: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      privateKey: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      validityDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateClientCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateClientCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCustomScenePolicyRequest extends $tea.Model {
   /**
    * @remarks
@@ -5618,35 +5807,112 @@ export class CreateSiteDeliveryTaskResponse extends $tea.Model {
 
 export class CreateSiteFunctionRequest extends $tea.Model {
   cacheReserve?: CreateSiteFunctionRequestCacheReserve[];
+  /**
+   * @remarks
+   * The cache rules.
+   */
   cacheRules?: CreateSiteFunctionRequestCacheRules[];
+  /**
+   * @remarks
+   * The cache tags.
+   */
   cacheTags?: CreateSiteFunctionRequestCacheTags[];
+  /**
+   * @remarks
+   * The configuration of CNAME flattening.
+   */
   cnameFlattening?: CreateSiteFunctionRequestCnameFlattening[];
+  /**
+   * @remarks
+   * The configuration of a compression rule.
+   */
   compressionRules?: CreateSiteFunctionRequestCompressionRules[];
   crossBorderOptimization?: CreateSiteFunctionRequestCrossBorderOptimization[];
+  /**
+   * @remarks
+   * The configuration of development mode.
+   */
   developmentMode?: CreateSiteFunctionRequestDevelopmentMode[];
+  /**
+   * @remarks
+   * The configuration of a request header modification rule.
+   */
   httpRequestHeaderModificationRules?: CreateSiteFunctionRequestHttpRequestHeaderModificationRules[];
+  /**
+   * @remarks
+   * The configuration of a response header modification rule.
+   */
   httpResponseHeaderModificationRules?: CreateSiteFunctionRequestHttpResponseHeaderModificationRules[];
   httpsApplicationConfiguration?: CreateSiteFunctionRequestHttpsApplicationConfiguration[];
   httpsBasicConfiguration?: CreateSiteFunctionRequestHttpsBasicConfiguration[];
+  /**
+   * @remarks
+   * The configuration of image transformations.
+   */
   imageTransform?: CreateSiteFunctionRequestImageTransform[];
+  /**
+   * @remarks
+   * The IPv6 configuration.
+   */
   ipv6?: CreateSiteFunctionRequestIpv6[];
+  /**
+   * @remarks
+   * The configuration of managed transforms.
+   */
   managedTransforms?: CreateSiteFunctionRequestManagedTransforms[];
   networkOptimization?: CreateSiteFunctionRequestNetworkOptimization[];
+  /**
+   * @remarks
+   * The configuration of origin protection.
+   */
   originProtection?: CreateSiteFunctionRequestOriginProtection[];
+  /**
+   * @remarks
+   * The configuration of an origin rule.
+   */
   originRules?: CreateSiteFunctionRequestOriginRules[];
+  /**
+   * @remarks
+   * The configuration of a redirect rule.
+   */
   redirectRules?: CreateSiteFunctionRequestRedirectRules[];
+  /**
+   * @remarks
+   * The configuration of a URL rewrite rule.
+   */
   rewriteUrlRules?: CreateSiteFunctionRequestRewriteUrlRules[];
+  /**
+   * @remarks
+   * The configuration of SEO crawler bypassing.
+   */
   seoBypass?: CreateSiteFunctionRequestSeoBypass[];
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * CreateSiteFunction
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The configuration of site hold. After this feature is enabled, other accounts cannot add your website domain or its subdomains to ESA.
+   */
   siteNameExclusive?: CreateSiteFunctionRequestSiteNameExclusive[];
+  /**
+   * @remarks
+   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
+   */
   sitePause?: CreateSiteFunctionRequestSitePause[];
+  /**
+   * @remarks
+   * The version number of the website. You can use this parameter to specify a version of your website to apply the new feature settings. By default, version 0 is used.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   tieredCache?: CreateSiteFunctionRequestTieredCache[];
   static names(): { [key: string]: string } {
@@ -5716,35 +5982,112 @@ export class CreateSiteFunctionRequest extends $tea.Model {
 
 export class CreateSiteFunctionShrinkRequest extends $tea.Model {
   cacheReserveShrink?: string;
+  /**
+   * @remarks
+   * The cache rules.
+   */
   cacheRulesShrink?: string;
+  /**
+   * @remarks
+   * The cache tags.
+   */
   cacheTagsShrink?: string;
+  /**
+   * @remarks
+   * The configuration of CNAME flattening.
+   */
   cnameFlatteningShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a compression rule.
+   */
   compressionRulesShrink?: string;
   crossBorderOptimizationShrink?: string;
+  /**
+   * @remarks
+   * The configuration of development mode.
+   */
   developmentModeShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a request header modification rule.
+   */
   httpRequestHeaderModificationRulesShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a response header modification rule.
+   */
   httpResponseHeaderModificationRulesShrink?: string;
   httpsApplicationConfigurationShrink?: string;
   httpsBasicConfigurationShrink?: string;
+  /**
+   * @remarks
+   * The configuration of image transformations.
+   */
   imageTransformShrink?: string;
+  /**
+   * @remarks
+   * The IPv6 configuration.
+   */
   ipv6Shrink?: string;
+  /**
+   * @remarks
+   * The configuration of managed transforms.
+   */
   managedTransformsShrink?: string;
   networkOptimizationShrink?: string;
+  /**
+   * @remarks
+   * The configuration of origin protection.
+   */
   originProtectionShrink?: string;
+  /**
+   * @remarks
+   * The configuration of an origin rule.
+   */
   originRulesShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a redirect rule.
+   */
   redirectRulesShrink?: string;
+  /**
+   * @remarks
+   * The configuration of a URL rewrite rule.
+   */
   rewriteUrlRulesShrink?: string;
+  /**
+   * @remarks
+   * The configuration of SEO crawler bypassing.
+   */
   seoBypassShrink?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
    * CreateSiteFunction
    */
   siteId?: number;
+  /**
+   * @remarks
+   * The configuration of site hold. After this feature is enabled, other accounts cannot add your website domain or its subdomains to ESA.
+   */
   siteNameExclusiveShrink?: string;
+  /**
+   * @remarks
+   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
+   */
   sitePauseShrink?: string;
+  /**
+   * @remarks
+   * The version number of the website. You can use this parameter to specify a version of your website to apply the new feature settings. By default, version 0 is used.
+   * 
+   * @example
+   * 0
+   */
   siteVersion?: number;
   tieredCacheShrink?: string;
   static names(): { [key: string]: string } {
@@ -5813,10 +6156,17 @@ export class CreateSiteFunctionShrinkRequest extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned configurations.
+   */
   configs?: CreateSiteFunctionResponseBodyConfigs;
   /**
    * @remarks
    * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE73368
    */
   requestId?: string;
   static names(): { [key: string]: string } {
@@ -7354,6 +7704,321 @@ export class CreateWaitingRoomRuleResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateWaitingRoomRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * babaded901474b9693acf530e0fb1d95
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * babaded901474b9693acf530e0fb1d95
+   */
+  id?: string;
+  /**
+   * @example
+   * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCaCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCaCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCaCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClientCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClientCaCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A74
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteClientCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteClientCertificateResponseBody,
     };
   }
 
@@ -11076,6 +11741,351 @@ export class GetCacheReserveSpecificationResponse extends $tea.Model {
   }
 }
 
+export class GetCertificateQuotaRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * free
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateQuotaResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
+  quota?: number;
+  /**
+   * @example
+   * 5
+   */
+  quotaUsage?: number;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  siteCount?: number;
+  siteUsage?: GetCertificateQuotaResponseBodySiteUsage[];
+  /**
+   * @example
+   * free
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      quota: 'Quota',
+      quotaUsage: 'QuotaUsage',
+      requestId: 'RequestId',
+      siteCount: 'SiteCount',
+      siteUsage: 'SiteUsage',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      quota: 'number',
+      quotaUsage: 'number',
+      requestId: 'string',
+      siteCount: 'number',
+      siteUsage: { 'type': 'array', 'itemType': GetCertificateQuotaResponseBodySiteUsage },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateQuotaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCertificateQuotaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCertificateQuotaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCaCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * babab9db65ee5efcca9f3d41d4b5****
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCaCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  result?: GetClientCaCertificateResponseBodyResult;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetClientCaCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCaCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientCaCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  result?: GetClientCertificateResponseBodyResult;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * active
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      requestId: 'string',
+      result: GetClientCertificateResponseBodyResult,
+      siteId: 'number',
+      siteName: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEdgeContainerAppRequest extends $tea.Model {
   /**
    * @remarks
@@ -12955,6 +13965,8 @@ export class GetRealtimeDeliveryFieldResponse extends $tea.Model {
 export class GetRecordRequest extends $tea.Model {
   /**
    * @remarks
+   * The record ID, which can be obtained by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12979,10 +13991,14 @@ export class GetRecordRequest extends $tea.Model {
 }
 
 export class GetRecordResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the queried record.
+   */
   recordModel?: GetRecordResponseBodyRecordModel;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
@@ -14365,7 +15381,7 @@ export class GetUploadTaskRequest extends $tea.Model {
   siteId?: number;
   /**
    * @remarks
-   * The ID of the file upload task. This field is assigned after you call the [UploadFile](https://help.aliyun.com/document_detail/435925.html) operation.
+   * The ID of the file upload task. This field is assigned after you call the [UploadFile](https://help.aliyun.com/document_detail/2850466.html) operation.
    * 
    * @example
    * 159253299357****
@@ -15532,6 +16548,223 @@ export class ListCacheReserveInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListCacheReserveInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCiphersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * strict
+   */
+  ciphersGroup?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersGroup: 'CiphersGroup',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersGroup: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCiphersResponseBody extends $tea.Model {
+  /**
+   * @example
+   * all
+   */
+  ciphersGroup?: string;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  result?: string[];
+  /**
+   * @example
+   * 16
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ciphersGroup: 'CiphersGroup',
+      requestId: 'RequestId',
+      result: 'Result',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ciphersGroup: 'string',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': 'string' },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCiphersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListCiphersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListCiphersResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCaCertificatesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCaCertificatesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
+   */
+  requestId?: string;
+  result?: ListClientCaCertificatesResponseBodyResult[];
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 16
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      result: 'Result',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      result: { 'type': 'array', 'itemType': ListClientCaCertificatesResponseBodyResult },
+      siteId: 'number',
+      siteName: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCaCertificatesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListClientCaCertificatesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListClientCaCertificatesResponseBody,
     };
   }
 
@@ -18593,6 +19826,7 @@ export class ListSitesRequest extends $tea.Model {
    * false
    */
   onlyEnterprise?: boolean;
+  orderBy?: string;
   /**
    * @remarks
    * The page number. Default value: **1**.
@@ -18669,6 +19903,7 @@ export class ListSitesRequest extends $tea.Model {
       accessType: 'AccessType',
       coverage: 'Coverage',
       onlyEnterprise: 'OnlyEnterprise',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       planSubscribeType: 'PlanSubscribeType',
@@ -18685,6 +19920,7 @@ export class ListSitesRequest extends $tea.Model {
       accessType: 'string',
       coverage: 'string',
       onlyEnterprise: 'boolean',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       planSubscribeType: 'string',
@@ -18733,6 +19969,7 @@ export class ListSitesShrinkRequest extends $tea.Model {
    * false
    */
   onlyEnterprise?: boolean;
+  orderBy?: string;
   /**
    * @remarks
    * The page number. Default value: **1**.
@@ -18809,6 +20046,7 @@ export class ListSitesShrinkRequest extends $tea.Model {
       accessType: 'AccessType',
       coverage: 'Coverage',
       onlyEnterprise: 'OnlyEnterprise',
+      orderBy: 'OrderBy',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       planSubscribeType: 'PlanSubscribeType',
@@ -18825,6 +20063,7 @@ export class ListSitesShrinkRequest extends $tea.Model {
       accessType: 'string',
       coverage: 'string',
       onlyEnterprise: 'boolean',
+      orderBy: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       planSubscribeType: 'string',
@@ -19383,6 +20622,7 @@ export class ListUserRatePlanInstancesRequest extends $tea.Model {
    * 500
    */
   pageSize?: number;
+  remainingExpireDays?: number;
   /**
    * @remarks
    * The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
@@ -19427,6 +20667,7 @@ export class ListUserRatePlanInstancesRequest extends $tea.Model {
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
+      remainingExpireDays: 'RemainingExpireDays',
       sortBy: 'SortBy',
       sortOrder: 'SortOrder',
       status: 'Status',
@@ -19439,6 +20680,7 @@ export class ListUserRatePlanInstancesRequest extends $tea.Model {
       instanceId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      remainingExpireDays: 'number',
       sortBy: 'string',
       sortOrder: 'string',
       status: 'string',
@@ -22480,6 +23722,111 @@ export class ResetScheduledPreloadJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetScheduledPreloadJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeClientCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeClientCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * 15C66C7B-671A-4297-9187-2C4477247A123425345
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeClientCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeClientCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeClientCertificateResponseBody,
     };
   }
 
@@ -27157,6 +28504,167 @@ export class UpdateWaitingRoomRuleResponse extends $tea.Model {
   }
 }
 
+export class UploadClientCaCertificateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * -----BEGIN CERTIFICATE-----
+   */
+  certificate?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      certificate: 'Certificate',
+      name: 'Name',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      certificate: 'string',
+      name: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadClientCaCertificateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 1dc5fc9af4eead2570c70d94b416130baeb6d4429b51fd3557379588456aca66
+   */
+  fingerprintSha256?: string;
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * 2024-12-01T02:13:07Z
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-12-01T02:13:07Z
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
+   */
+  requestId?: string;
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  serialNumber?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @example
+   * 300
+   */
+  validityDays?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      fingerprintSha256: 'FingerprintSha256',
+      id: 'Id',
+      issuer: 'Issuer',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      requestId: 'RequestId',
+      serialNumber: 'SerialNumber',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      validityDays: 'ValidityDays',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      fingerprintSha256: 'string',
+      id: 'string',
+      issuer: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      requestId: 'string',
+      serialNumber: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      validityDays: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadClientCaCertificateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadClientCaCertificateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadClientCaCertificateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadFileRequest extends $tea.Model {
   /**
    * @remarks
@@ -30527,7 +32035,15 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCacheReserve extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @example
+   * cr_hk_123456789
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30549,28 +32065,186 @@ export class CreateSiteFunctionRequestCacheReserve extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCacheRules extends $tea.Model {
+  /**
+   * @example
+   * 8880
+   */
   additionalCacheablePorts?: string;
+  /**
+   * @remarks
+   * The browser cache configuration. Valid values:
+   * 
+   * *   no_cache: does not cache resources.
+   * *   follow_origin: follows the origin\\"s cache rule.
+   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
+   * 
+   * @example
+   * follow_origin
+   */
   browserCacheMode?: string;
+  /**
+   * @remarks
+   * The browser cache TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   browserCacheTtl?: string;
+  /**
+   * @remarks
+   * The configuration of bypass cache. Valid values:
+   * 
+   * *   cache_all: Responses of all requests are cached.
+   * *   default_cache (default): Resources are cached only based on supported file extensions.
+   * *   bypass_all: All requests bypass the cache component.
+   * 
+   * @example
+   * default_cache
+   */
   bypassCache?: string;
+  /**
+   * @example
+   * on
+   */
   cacheDeceptionArmor?: string;
+  /**
+   * @example
+   * bypass_cache_reserve
+   */
   cacheReserveEligibility?: string;
+  /**
+   * @example
+   * cookiename
+   */
   checkPresenceCookie?: string;
+  /**
+   * @example
+   * headername
+   */
   checkPresenceHeader?: string;
+  /**
+   * @remarks
+   * The edge cache configuration. Valid values:
+   * 
+   * *   follow_origin: follows the origin\\"s cache rule. If the origin does not have a cache rule, the default cache rule is used.
+   * *   no-cache: does not cache resources.
+   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
+   * *   follow_origin_bypass: follows the origin\\"s cache rule. If the origin does not have a cache rule, no resources are cached.
+   * 
+   * @example
+   * follow_origin
+   */
   edgeCacheMode?: string;
+  /**
+   * @remarks
+   * The edge cache TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   edgeCacheTtl?: string;
+  /**
+   * @remarks
+   * The status code TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   edgeStatusCodeCacheTtl?: string;
+  /**
+   * @remarks
+   * The cookie names and values included in the cache key. Separate multiple combinations with spaces.
+   * 
+   * @example
+   * cookie_exapmle
+   */
   includeCookie?: string;
+  /**
+   * @remarks
+   * The header names and values included in the cache key. Separate multiple combinations with spaces.
+   * 
+   * @example
+   * example
+   */
   includeHeader?: string;
+  /**
+   * @remarks
+   * The parameters to be retained or ignored in the query string. Separate multiple values with spaces.
+   * 
+   * @example
+   * example
+   */
   queryString?: string;
+  /**
+   * @remarks
+   * Specifies how to process the query string when cache keys are generated. Valid values:
+   * 
+   * *   ignore_all: ignores the entire query string.
+   * *   exclude_query_string: ignores specified parameters in the query string.
+   * *   reserve_all (default): retains the entire query string.
+   * *   include_query_string: retains specified parameters in the query string.
+   * 
+   * @example
+   * reserve_all
+   */
   queryStringMode?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * on
+   */
   serveStale?: string;
+  /**
+   * @remarks
+   * Specifies whether to sort query strings. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   sortQueryStringForCache?: string;
+  /**
+   * @example
+   * on
+   */
   userDeviceType?: string;
+  /**
+   * @example
+   * on
+   */
   userGeo?: string;
+  /**
+   * @example
+   * on
+   */
   userLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30634,7 +32308,24 @@ export class CreateSiteFunctionRequestCacheRules extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCacheTags extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the matching is not case-sensitive. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   caseInsensitive?: string;
+  /**
+   * @remarks
+   * The name of the custom cache tag.
+   * 
+   * @example
+   * example
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30656,6 +32347,16 @@ export class CreateSiteFunctionRequestCacheTags extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCnameFlattening extends $tea.Model {
+  /**
+   * @remarks
+   * The CNAME flattening mode. Valid values:
+   * 
+   * *   flatten_all: flattens all CNAMEs.
+   * *   flatten_all (default): flattens only the root domain.
+   * 
+   * @example
+   * on
+   */
   flattenMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30675,10 +32376,54 @@ export class CreateSiteFunctionRequestCnameFlattening extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCompressionRules extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable Brotli compression. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   brotli?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable Gzip compression. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   gzip?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30706,6 +32451,10 @@ export class CreateSiteFunctionRequestCompressionRules extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestCrossBorderOptimization extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30725,6 +32474,16 @@ export class CreateSiteFunctionRequestCrossBorderOptimization extends $tea.Model
 }
 
 export class CreateSiteFunctionRequestDevelopmentMode extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable the development mode. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30744,8 +32503,20 @@ export class CreateSiteFunctionRequestDevelopmentMode extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  /**
+   * @example
+   * headername
+   */
   name?: string;
+  /**
+   * @example
+   * add
+   */
   operation?: string;
+  /**
+   * @example
+   * headervalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30769,9 +32540,40 @@ export class CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestH
 }
 
 export class CreateSiteFunctionRequestHttpRequestHeaderModificationRules extends $tea.Model {
+  /**
+   * @remarks
+   * Modifies a request header. You can add, delete, or modify a response header.
+   * 
+   * @example
+   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
+   */
   requestHeaderModification?: CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30797,8 +32599,20 @@ export class CreateSiteFunctionRequestHttpRequestHeaderModificationRules extends
 }
 
 export class CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  /**
+   * @example
+   * headername
+   */
   name?: string;
+  /**
+   * @example
+   * add
+   */
   operation?: string;
+  /**
+   * @example
+   * headervalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30822,9 +32636,40 @@ export class CreateSiteFunctionRequestHttpResponseHeaderModificationRulesRespons
 }
 
 export class CreateSiteFunctionRequestHttpResponseHeaderModificationRules extends $tea.Model {
+  /**
+   * @remarks
+   * Modifies a response header. You can add, delete, or modify a request header.
+   * 
+   * @example
+   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
+   */
   responseHeaderModification?: CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30850,18 +32695,70 @@ export class CreateSiteFunctionRequestHttpResponseHeaderModificationRules extend
 }
 
 export class CreateSiteFunctionRequestHttpsApplicationConfiguration extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   altSvc?: string;
+  /**
+   * @example
+   * on
+   */
   altSvcClear?: string;
+  /**
+   * @example
+   * 86400
+   */
   altSvcMa?: string;
+  /**
+   * @example
+   * on
+   */
   altSvcPersist?: string;
+  /**
+   * @example
+   * on
+   */
   hsts?: string;
+  /**
+   * @example
+   * on
+   */
   hstsIncludeSubdomains?: string;
+  /**
+   * @example
+   * 3600
+   */
   hstsMaxAge?: string;
+  /**
+   * @example
+   * on
+   */
   hstsPreload?: string;
+  /**
+   * @example
+   * on
+   */
   httpsForce?: string;
+  /**
+   * @example
+   * 301
+   */
   httpsForceCode?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30905,18 +32802,70 @@ export class CreateSiteFunctionRequestHttpsApplicationConfiguration extends $tea
 }
 
 export class CreateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model {
+  /**
+   * @example
+   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+   */
   ciphersuite?: string;
+  /**
+   * @example
+   * all
+   */
   ciphersuiteGroup?: string;
+  /**
+   * @example
+   * on
+   */
   http2?: string;
+  /**
+   * @example
+   * on
+   */
   http3?: string;
+  /**
+   * @example
+   * on
+   */
   https?: string;
+  /**
+   * @example
+   * on
+   */
   ocspStapling?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * on
+   */
   tls10?: string;
+  /**
+   * @example
+   * on
+   */
   tls11?: string;
+  /**
+   * @example
+   * on
+   */
   tls12?: string;
+  /**
+   * @example
+   * on
+   */
   tls13?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30960,6 +32909,16 @@ export class CreateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model
 }
 
 export class CreateSiteFunctionRequestImageTransform extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable image transformations. Valid values:
+   * 
+   * *   on
+   * *   off (default)
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30979,6 +32938,16 @@ export class CreateSiteFunctionRequestImageTransform extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestIpv6 extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable IPv6. Valid values:
+   * 
+   * *   on (default)
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30998,7 +32967,27 @@ export class CreateSiteFunctionRequestIpv6 extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestManagedTransforms extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to include the header that indicates the geographical location of a client in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   addClientGeolocationHeaders?: string;
+  /**
+   * @remarks
+   * Specifies whether to include the "ali-real-client-ip" header that contains the client\\"s real IP address in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   addRealClientIpHeader?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31020,13 +33009,45 @@ export class CreateSiteFunctionRequestManagedTransforms extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestNetworkOptimization extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   grpc?: string;
+  /**
+   * @example
+   * on
+   */
   http2Origin?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * on
+   */
   smartRouting?: string;
+  /**
+   * @example
+   * on
+   */
   uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
   websocket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31060,6 +33081,16 @@ export class CreateSiteFunctionRequestNetworkOptimization extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestOriginProtection extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable origin protection. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31079,15 +33110,83 @@ export class CreateSiteFunctionRequestOriginProtection extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestOriginRules extends $tea.Model {
+  /**
+   * @remarks
+   * The hostname that overrides the resolved hostname of an incoming request.
+   * 
+   * @example
+   * test.example.com
+   */
   dnsRecord?: string;
+  /**
+   * @remarks
+   * The Host header in origin requests.
+   * 
+   * @example
+   * origin.example.com
+   */
   originHost?: string;
+  /**
+   * @example
+   * 8080
+   */
   originHttpPort?: string;
+  /**
+   * @example
+   * 4433
+   */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * The protocol used for origin requests. Valid values:
+   * 
+   * *   http: HTTP.
+   * *   https: HTTPS.
+   * *   follow: follows the protocol used by the client.
+   * 
+   * @example
+   * http
+   */
   originScheme?: string;
+  /**
+   * @remarks
+   * The SNI in origin requests.
+   * 
+   * @example
+   * origin.example.com
+   */
   originSni?: string;
+  /**
+   * @example
+   * on
+   */
   range?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31125,12 +33224,75 @@ export class CreateSiteFunctionRequestOriginRules extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestRedirectRules extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to retain the query string. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   reserveQueryString?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The response code that you want to use to indicate URL redirection. Valid value:
+   * 
+   * *   301
+   * *   302
+   * *   303
+   * *   307
+   * *   308
+   * 
+   * @example
+   * 301
+   */
   statusCode?: string;
+  /**
+   * @remarks
+   * The destination URL to which requests are redirected.
+   * 
+   * @example
+   * http://www.exapmle.com/index.html
+   */
   targetUrl?: string;
+  /**
+   * @remarks
+   * The redirect type. Valid value:
+   * 
+   * *   static
+   * 
+   * @example
+   * static
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31162,12 +33324,70 @@ export class CreateSiteFunctionRequestRedirectRules extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
+  /**
+   * @remarks
+   * The desired query string to which you want to rewrite the query string in the original request.
+   * 
+   * @example
+   * ?example=123
+   */
   queryString?: string;
+  /**
+   * @remarks
+   * The query string rewrite method. Valid values:
+   * 
+   * *   static
+   * *   dynamic
+   * 
+   * @example
+   * static
+   */
   rewriteQueryStringType?: string;
+  /**
+   * @remarks
+   * The path rewrite method. Valid values:
+   * 
+   * *   static
+   * *   dynamic
+   * 
+   * @example
+   * static
+   */
   rewriteUriType?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The desired URI to which you want to rewrite the path in the original request.
+   * 
+   * @example
+   * /image.example.com/index.html
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31199,6 +33419,16 @@ export class CreateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestSeoBypass extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable SEO crawler bypassing. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31218,6 +33448,16 @@ export class CreateSiteFunctionRequestSeoBypass extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to enable site hold. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31237,6 +33477,16 @@ export class CreateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestSitePause extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether ESA is paused on the website. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   paused?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31256,6 +33506,10 @@ export class CreateSiteFunctionRequestSitePause extends $tea.Model {
 }
 
 export class CreateSiteFunctionRequestTieredCache extends $tea.Model {
+  /**
+   * @example
+   * edge_smart
+   */
   cacheArchitectureMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31275,8 +33529,20 @@ export class CreateSiteFunctionRequestTieredCache extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCacheReserve extends $tea.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @example
+   * cr_hk_123456789
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31300,30 +33566,202 @@ export class CreateSiteFunctionResponseBodyConfigsCacheReserve extends $tea.Mode
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCacheRules extends $tea.Model {
+  /**
+   * @example
+   * 8880
+   */
   additionalCacheablePorts?: string;
+  /**
+   * @remarks
+   * The browser cache configuration. Valid values:
+   * 
+   * *   no_cache: does not cache resources.
+   * *   follow_origin: follows the origin\\"s cache rule.
+   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
+   * 
+   * @example
+   * follow_origin
+   */
   browserCacheMode?: string;
+  /**
+   * @remarks
+   * The browser cache TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   browserCacheTtl?: string;
+  /**
+   * @remarks
+   * The configuration of bypass cache. Valid values:
+   * 
+   * *   cache_all: Responses of all requests are cached.
+   * *   default_cache (default): Resources are cached only based on supported file extensions.
+   * *   bypass_all: All requests bypass the cache component.
+   * 
+   * @example
+   * default_cache
+   */
   bypassCache?: string;
+  /**
+   * @example
+   * on
+   */
   cacheDeceptionArmor?: string;
+  /**
+   * @example
+   * bypass_cache_reserve
+   */
   cacheReserveEligibility?: string;
+  /**
+   * @example
+   * cookiename
+   */
   checkPresenceCookie?: string;
+  /**
+   * @example
+   * headername
+   */
   checkPresenceHeader?: string;
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The edge cache configuration. Valid values:
+   * 
+   * *   follow_origin: follows the origin\\"s cache rule. If the origin does not have a cache rule, the default cache rule is used.
+   * *   no-cache: does not cache resources.
+   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
+   * *   follow_origin_bypass: follows the origin\\"s cache rule. If the origin does not have a cache rule, no resources are cached.
+   * 
+   * @example
+   * follow_origin
+   */
   edgeCacheMode?: string;
+  /**
+   * @remarks
+   * The edge cache TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   edgeCacheTtl?: string;
+  /**
+   * @remarks
+   * The status code TTL. Unit: seconds.
+   * 
+   * @example
+   * 300
+   */
   edgeStatusCodeCacheTtl?: string;
+  /**
+   * @remarks
+   * The cookie names and values included in the cache key. Multiple combinations are separated by spaces.
+   * 
+   * @example
+   * cookie_exapmle
+   */
   includeCookie?: string;
+  /**
+   * @remarks
+   * The header names and values included in the cache key. Multiple combinations are separated by spaces.
+   * 
+   * @example
+   * example
+   */
   includeHeader?: string;
+  /**
+   * @remarks
+   * The parameters to be retained or ignored in the query string. Multiple values are separated by spaces.
+   * 
+   * @example
+   * example
+   */
   queryString?: string;
+  /**
+   * @remarks
+   * The method to process the query string when cache keys are generated. Valid values:
+   * 
+   * *   ignore_all: ignores the entire query string.
+   * *   exclude_query_string: ignores specified parameters in the query string.
+   * *   reserve_all (default): retains the entire query string.
+   * *   include_query_string: retains specified parameters in the query string.
+   * 
+   * @example
+   * reserve_all
+   */
   queryStringMode?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * on
+   */
   serveStale?: string;
+  /**
+   * @remarks
+   * Indicates whether query string sorting is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   sortQueryStringForCache?: string;
+  /**
+   * @example
+   * on
+   */
   userDeviceType?: string;
+  /**
+   * @example
+   * on
+   */
   userGeo?: string;
+  /**
+   * @example
+   * on
+   */
   userLanguage?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31391,9 +33829,40 @@ export class CreateSiteFunctionResponseBodyConfigsCacheRules extends $tea.Model 
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCacheTags extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether the matching is not case-sensitive. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   caseInsensitive?: string;
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @remarks
+   * The name of the custom cache tag.
+   * 
+   * @example
+   * example
+   */
   tagName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31419,8 +33888,20 @@ export class CreateSiteFunctionResponseBodyConfigsCacheTags extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCnameFlattening extends $tea.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * flatten_all
+   */
   flattenMode?: string;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31444,12 +33925,70 @@ export class CreateSiteFunctionResponseBodyConfigsCnameFlattening extends $tea.M
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCompressionRules extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether Brotli compression is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   brotli?: string;
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether Gzip compression is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   gzip?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31481,7 +34020,15 @@ export class CreateSiteFunctionResponseBodyConfigsCompressionRules extends $tea.
 }
 
 export class CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization extends $tea.Model {
+  /**
+   * @example
+   * 395227502417920
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   enable?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31503,8 +34050,32 @@ export class CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization extend
 }
 
 export class CreateSiteFunctionResponseBodyConfigsDevelopmentMode extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether the development mode is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31528,8 +34099,20 @@ export class CreateSiteFunctionResponseBodyConfigsDevelopmentMode extends $tea.M
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
+  /**
+   * @example
+   * headername
+   */
   name?: string;
+  /**
+   * @example
+   * add
+   */
   operation?: string;
+  /**
+   * @example
+   * headervalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31553,11 +34136,56 @@ export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationR
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Modifies a request header. You can add, delete, or modify a request header.
+   * 
+   * @example
+   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
+   */
   requestHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification[];
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31587,8 +34215,20 @@ export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationR
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
+  /**
+   * @example
+   * headername
+   */
   name?: string;
+  /**
+   * @example
+   * add
+   */
   operation?: string;
+  /**
+   * @example
+   * headervalue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31612,11 +34252,56 @@ export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModification
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Modifies a response header. You can add, delete, or modify a request header.
+   * 
+   * @example
+   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
+   */
   responseHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification[];
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31646,20 +34331,80 @@ export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModification
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration extends $tea.Model {
+  /**
+   * @example
+   * on
+   */
   altSvc?: string;
+  /**
+   * @example
+   * on
+   */
   altSvcClear?: string;
+  /**
+   * @example
+   * 86400
+   */
   altSvcMa?: string;
+  /**
+   * @example
+   * on
+   */
   altSvcPersist?: string;
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   hsts?: string;
+  /**
+   * @example
+   * on
+   */
   hstsIncludeSubdomains?: string;
+  /**
+   * @example
+   * 3600
+   */
   hstsMaxAge?: string;
+  /**
+   * @example
+   * on
+   */
   hstsPreload?: string;
+  /**
+   * @example
+   * on
+   */
   httpsForce?: string;
+  /**
+   * @example
+   * 301
+   */
   httpsForceCode?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31707,20 +34452,80 @@ export class CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration 
 }
 
 export class CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration extends $tea.Model {
+  /**
+   * @example
+   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+   */
   ciphersuite?: string;
+  /**
+   * @example
+   * all
+   */
   ciphersuiteGroup?: string;
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   http2?: string;
+  /**
+   * @example
+   * on
+   */
   http3?: string;
+  /**
+   * @example
+   * on
+   */
   https?: string;
+  /**
+   * @example
+   * on
+   */
   ocspStapling?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * on
+   */
   tls10?: string;
+  /**
+   * @example
+   * on
+   */
   tls11?: string;
+  /**
+   * @example
+   * on
+   */
   tls12?: string;
+  /**
+   * @example
+   * on
+   */
   tls13?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31768,8 +34573,33 @@ export class CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration extend
 }
 
 export class CreateSiteFunctionResponseBodyConfigsImageTransform extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether the image transformations feature is enabled. Valid values:
+   * 
+   * on
+   * 
+   * off (default)
+   * 
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31793,8 +34623,33 @@ export class CreateSiteFunctionResponseBodyConfigsImageTransform extends $tea.Mo
 }
 
 export class CreateSiteFunctionResponseBodyConfigsIpv6 extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether IPv6 is enabled. Valid values:
+   * 
+   * on (default)
+   * 
+   * off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31818,9 +34673,43 @@ export class CreateSiteFunctionResponseBodyConfigsIpv6 extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBodyConfigsManagedTransforms extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether the header that indicates the geographical location of a client is included in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   addClientGeolocationHeaders?: string;
+  /**
+   * @remarks
+   * Indicates whether the "ali-real-client-ip" header that contains the client\\"s real IP address is included in an origin request. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   addRealClientIpHeader?: string;
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31846,15 +34735,55 @@ export class CreateSiteFunctionResponseBodyConfigsManagedTransforms extends $tea
 }
 
 export class CreateSiteFunctionResponseBodyConfigsNetworkOptimization extends $tea.Model {
+  /**
+   * @example
+   * 390286182395904
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   grpc?: string;
+  /**
+   * @example
+   * on
+   */
   http2Origin?: string;
+  /**
+   * @example
+   * (http.host eq \\"video.example.com\\")
+   */
   rule?: string;
+  /**
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @example
+   * on
+   */
   smartRouting?: string;
+  /**
+   * @example
+   * 300
+   */
   uploadMaxFilesize?: string;
+  /**
+   * @example
+   * on
+   */
   websocket?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31892,17 +34821,99 @@ export class CreateSiteFunctionResponseBodyConfigsNetworkOptimization extends $t
 }
 
 export class CreateSiteFunctionResponseBodyConfigsOriginRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The hostname that overrides the resolved hostname of an incoming request.
+   * 
+   * @example
+   * test.example.com
+   */
   dnsRecord?: string;
+  /**
+   * @remarks
+   * The Host header in origin requests.
+   * 
+   * @example
+   * origin.example.com
+   */
   originHost?: string;
+  /**
+   * @example
+   * 8080
+   */
   originHttpPort?: string;
+  /**
+   * @example
+   * 4433
+   */
   originHttpsPort?: string;
+  /**
+   * @remarks
+   * The protocol used for origin requests. Valid values:
+   * 
+   * *   http: HTTP.
+   * *   https: HTTPS.
+   * *   follow: follows the protocol used by the client.
+   * 
+   * @example
+   * http
+   */
   originScheme?: string;
+  /**
+   * @remarks
+   * The SNI in origin requests.
+   * 
+   * @example
+   * origin.example.com
+   */
   originSni?: string;
+  /**
+   * @example
+   * on
+   */
   range?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31944,14 +34955,91 @@ export class CreateSiteFunctionResponseBodyConfigsOriginRules extends $tea.Model
 }
 
 export class CreateSiteFunctionResponseBodyConfigsRedirectRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether the feature of retaining the query string is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   reserveQueryString?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @remarks
+   * The response code that you want to use to indicate URL redirection. Valid values:
+   * 
+   * *   301
+   * *   302
+   * *   303
+   * *   307
+   * *   308
+   * 
+   * @example
+   * 301
+   */
   statusCode?: string;
+  /**
+   * @remarks
+   * The destination URL to which requests are redirected.
+   * 
+   * @example
+   * http://www.exapmle.com/index.html
+   */
   targetUrl?: string;
+  /**
+   * @remarks
+   * The redirect type. Valid value:
+   * 
+   * *   static
+   * 
+   * @example
+   * static
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31987,14 +35075,86 @@ export class CreateSiteFunctionResponseBodyConfigsRedirectRules extends $tea.Mod
 }
 
 export class CreateSiteFunctionResponseBodyConfigsRewriteUrlRules extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * The desired query string to which you want to rewrite the query string in the original request.
+   * 
+   * @example
+   * ?example=123
+   */
   queryString?: string;
+  /**
+   * @remarks
+   * The query string rewrite method. Valid values:
+   * 
+   * *   static
+   * *   dynamic
+   * 
+   * @example
+   * static
+   */
   rewriteQueryStringType?: string;
+  /**
+   * @remarks
+   * The path rewrite method. Valid values:
+   * 
+   * *   static
+   * *   dynamic
+   * 
+   * @example
+   * static
+   */
   rewriteUriType?: string;
+  /**
+   * @remarks
+   * The rule content.
+   * 
+   * @example
+   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
+   */
   rule?: string;
+  /**
+   * @remarks
+   * Indicates whether the rule is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   ruleEnable?: string;
+  /**
+   * @remarks
+   * The rule name.
+   * 
+   * @example
+   * rule_example
+   */
   ruleName?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
+  /**
+   * @remarks
+   * The desired URI to which you want to rewrite the path in the original request.
+   * 
+   * @example
+   * /image.example.com/index.html
+   */
   uri?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32030,8 +35190,32 @@ export class CreateSiteFunctionResponseBodyConfigsRewriteUrlRules extends $tea.M
 }
 
 export class CreateSiteFunctionResponseBodyConfigsSeoBypass extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether SEO crawler bypassing is enabled. Valid values:
+   * 
+   * *   on
+   * *   off
+   * 
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32055,8 +35239,20 @@ export class CreateSiteFunctionResponseBodyConfigsSeoBypass extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBodyConfigsSiteNameExclusive extends $tea.Model {
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * on
+   */
   enable?: string;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32080,8 +35276,32 @@ export class CreateSiteFunctionResponseBodyConfigsSiteNameExclusive extends $tea
 }
 
 export class CreateSiteFunctionResponseBodyConfigsSitePause extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration ID.
+   * 
+   * @example
+   * 344147756398592
+   */
   configId?: number;
+  /**
+   * @remarks
+   * Indicates whether ESA is paused on the website. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   paused?: string;
+  /**
+   * @remarks
+   * The order in which the rule is executed.
+   * 
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32105,8 +35325,20 @@ export class CreateSiteFunctionResponseBodyConfigsSitePause extends $tea.Model {
 }
 
 export class CreateSiteFunctionResponseBodyConfigsTieredCache extends $tea.Model {
+  /**
+   * @example
+   * edge_smart
+   */
   cacheArchitectureMode?: string;
+  /**
+   * @example
+   * 352816096987136
+   */
   configId?: number;
+  /**
+   * @example
+   * 1
+   */
   sequence?: string;
   static names(): { [key: string]: string } {
     return {
@@ -32131,25 +35363,81 @@ export class CreateSiteFunctionResponseBodyConfigsTieredCache extends $tea.Model
 
 export class CreateSiteFunctionResponseBodyConfigs extends $tea.Model {
   cacheReserve?: CreateSiteFunctionResponseBodyConfigsCacheReserve[];
+  /**
+   * @remarks
+   * The cache rules.
+   */
   cacheRules?: CreateSiteFunctionResponseBodyConfigsCacheRules[];
+  /**
+   * @remarks
+   * The cache tags.
+   */
   cacheTags?: CreateSiteFunctionResponseBodyConfigsCacheTags[];
   cnameFlattening?: CreateSiteFunctionResponseBodyConfigsCnameFlattening[];
+  /**
+   * @remarks
+   * The configuration of a compression rule.
+   */
   compressionRules?: CreateSiteFunctionResponseBodyConfigsCompressionRules[];
   crossBorderOptimization?: CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization[];
+  /**
+   * @remarks
+   * The configuration of development mode.
+   */
   developmentMode?: CreateSiteFunctionResponseBodyConfigsDevelopmentMode[];
+  /**
+   * @remarks
+   * The configuration of a request header modification rule.
+   */
   httpRequestHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules[];
+  /**
+   * @remarks
+   * The configuration of a response header modification rule.
+   */
   httpResponseHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules[];
   httpsApplicationConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration[];
   httpsBasicConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration[];
+  /**
+   * @remarks
+   * The configuration of image transformations.
+   */
   imageTransform?: CreateSiteFunctionResponseBodyConfigsImageTransform[];
+  /**
+   * @remarks
+   * The IPv6 configuration.
+   */
   ipv6?: CreateSiteFunctionResponseBodyConfigsIpv6[];
+  /**
+   * @remarks
+   * The configuration of managed transforms.
+   */
   managedTransforms?: CreateSiteFunctionResponseBodyConfigsManagedTransforms[];
   networkOptimization?: CreateSiteFunctionResponseBodyConfigsNetworkOptimization[];
+  /**
+   * @remarks
+   * The configuration of an origin rule.
+   */
   originRules?: CreateSiteFunctionResponseBodyConfigsOriginRules[];
+  /**
+   * @remarks
+   * The configuration of a redirect rule.
+   */
   redirectRules?: CreateSiteFunctionResponseBodyConfigsRedirectRules[];
+  /**
+   * @remarks
+   * The configuration of a URL rewrite rule.
+   */
   rewriteUrlRules?: CreateSiteFunctionResponseBodyConfigsRewriteUrlRules[];
+  /**
+   * @remarks
+   * The configuration of SEO crawler bypassing.
+   */
   seoBypass?: CreateSiteFunctionResponseBodyConfigsSeoBypass[];
   siteNameExclusive?: CreateSiteFunctionResponseBodyConfigsSiteNameExclusive[];
+  /**
+   * @remarks
+   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
+   */
   sitePause?: CreateSiteFunctionResponseBodyConfigsSitePause[];
   tieredCache?: CreateSiteFunctionResponseBodyConfigsTieredCache[];
   static names(): { [key: string]: string } {
@@ -33190,6 +36478,264 @@ export class DescribePurgeTasksResponseBodyTasks extends $tea.Model {
       status: 'string',
       taskId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCertificateQuotaResponseBodySiteUsage extends $tea.Model {
+  /**
+   * @example
+   * 165929521496928
+   */
+  siteId?: string;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  /**
+   * @example
+   * 5
+   */
+  siteUsage?: number;
+  static names(): { [key: string]: string } {
+    return {
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+      siteUsage: 'SiteUsage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      siteId: 'string',
+      siteName: 'string',
+      siteUsage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCaCertificateResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2024-03-05 18:24:04
+   */
+  createTime?: string;
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b5****
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @example
+   * 2024-03-05 18:24:04
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  CACertificateId?: string;
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * active
+   */
+  status?: string;
+  /**
+   * @example
+   * dcdn
+   */
+  type?: string;
+  /**
+   * @example
+   * 2024-09-22 05:33:13
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      CACertificateId: 'CACertificateId',
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      CACertificateId: 'string',
+      commonName: 'string',
+      createTime: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -34427,26 +37973,51 @@ export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $tea.Model
 
 export class GetRecordResponseBodyRecordModelAuthConf extends $tea.Model {
   /**
+   * @remarks
+   * The access key ID of the account to which the origin server belongs. This parameter is returned if the origin type is OSS and AuthType is set to private_cross_account, or the origin type is S3 and AuthType is set to private.
+   * 
    * @example
    * VIxuvJSA2S03f******kp208dy5w7
    */
   accessKey?: string;
   /**
+   * @remarks
+   * The authentication type of the origin server. Different origins support different authentication types. The origin type refers to the SourceType parameter in this operation. This parameter is returned if the origin type is OSS or S3Valid values:
+   * 
+   * *   **public**: public read. This value is returned when the origin is a public OSS or S3 bucket.
+   * *   **private**: private read. This value is returned when the origin is a private S3 bucket.
+   * *   **private_same_account**: private read in the same account. This value is returned when the origin is a private OSS bucket in your account.
+   * *   **private_cross_account**: private read across accounts. This value is returned when the origin is a private OSS bucket in a different Alibaba Cloud account.
+   * 
    * @example
    * public
    */
   authType?: string;
   /**
+   * @remarks
+   * The region of the origin. If the origin type is S3, you must specify this value. You can obtain the region information from the official website of S3.
+   * 
    * @example
    * us-east-1
    */
   region?: string;
   /**
+   * @remarks
+   * The secret access key of the account to which the origin server belongs. This parameter is returned if the origin type is OSS and AuthType is set to private_cross_account, or the origin type is S3 and AuthType is set to private.SecretKey
+   * 
    * @example
    * u0Nkg5gBK*******QF5wvKMM504JUHt
    */
   secretKey?: string;
   /**
+   * @remarks
+   * The version of the signature algorithm. This parameter is returned when the origin type is S3 and AuthType is private. The following two types are supported:
+   * 
+   * *   **v2**
+   * *   **v4**
+   * 
+   * If this parameter is left empty, the default value v4 is used.
+   * 
    * @example
    * v2
    */
@@ -34478,71 +38049,122 @@ export class GetRecordResponseBodyRecordModelAuthConf extends $tea.Model {
 
 export class GetRecordResponseBodyRecordModelData extends $tea.Model {
   /**
+   * @remarks
+   * The encryption algorithm used for the record, specified within the range from 0 to 255. This parameter is required when you add CERT or SSHFP records.
+   * 
    * @example
    * 1
    */
   algorithm?: number;
   /**
+   * @remarks
+   * The public key of the certificate. This parameter is required when you add CERT, SMIMEA, or TLSA records.
+   * 
    * @example
    * dGVzdGFkYWxrcw==
    */
   certificate?: string;
   /**
+   * @remarks
+   * The public key fingerprint of the record. This parameter is required when you add a SSHFP record.
+   * 
    * @example
    * abcdef1234567890
    */
   fingerprint?: string;
   /**
+   * @remarks
+   * The flag bit of the record. The Flag for a CAA record indicates its priority and how it is processed, specified within the range of 0 to 255. This parameter is required when you add a CAA record.
+   * 
    * @example
    * 128
    */
   flag?: number;
   /**
+   * @remarks
+   * The public key identification for the record. Valid values: 0 to 65535. This parameter is required when you add a CAA record.
+   * 
    * @example
    * 1
    */
   keyTag?: number;
   /**
+   * @remarks
+   * The algorithm policy used to match or validate the certificate, specified within the range 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 1
    */
   matchingType?: number;
   /**
+   * @remarks
+   * The port of the record. Valid values: 0 to 65535. This parameter is required when you add an SRV record.
+   * 
    * @example
    * 8707
    */
   port?: number;
   /**
+   * @remarks
+   * The priority of the record. Valid values: 0 to 65535. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, and URI records.
+   * 
    * @example
    * 10
    */
   priority?: number;
   /**
+   * @remarks
+   * The type of the certificate or public key, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 1
    */
   selector?: number;
   /**
+   * @remarks
+   * The tag of the record. The Tag of a CAA record indicate its specific type and usage.
+   * 
    * @example
    * issue
    */
   tag?: string;
   /**
+   * @remarks
+   * The certificate type of the record (in CERT records), or the public key type (in SSHFP records). This parameter is required when you add CERT or SSHFP records.
+   * 
    * @example
    * RSA
    */
   type?: number;
   /**
+   * @remarks
+   * The usage identifier of the record, specified within the range of 0 to 255. This parameter is required when you add SMIMEA or TLSA records.
+   * 
    * @example
    * 0
    */
   usage?: number;
   /**
+   * @remarks
+   * The record value or part of the record content. This parameter is returned when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI records. It has different meanings based on types of records.
+   * 
+   * *   **A/AAAA**: the IP address. Multiple IP addresses are separated with commas (,). There is at least one IPv4 address.
+   * *   **CNAME**: the target domain name.
+   * *   **NS**: the nameserver for the domain name.
+   * *   **MX**: a valid domain name of the target mail server.
+   * *   **TXT**: a valid text string.
+   * *   **CAA**: a valid domain name of the certificate authority.
+   * *   **SRV**: a valid domain name of the target host.
+   * *   **URI**: a valid URI string.
+   * 
    * @example
    * example.com
    */
   value?: string;
   /**
+   * @remarks
+   * The weight of the record, specified within the range of 0 to 65535. This parameter is required when you add SRV or URI records.
+   * 
    * @example
    * 0
    */
@@ -34591,70 +38213,145 @@ export class GetRecordResponseBodyRecordModelData extends $tea.Model {
 }
 
 export class GetRecordResponseBodyRecordModel extends $tea.Model {
+  /**
+   * @remarks
+   * The origin authentication information of the CNAME record.
+   */
   authConf?: GetRecordResponseBodyRecordModelAuthConf;
   /**
+   * @remarks
+   * The business scenario of the record for acceleration. Leave this parameter empty if your record is not proxied. Valid values:
+   * 
+   * *   **image_video**
+   * *   **api**
+   * *   **web**
+   * 
    * @example
    * image_video
    */
   bizName?: string;
+  /**
+   * @remarks
+   * The comments of the record.
+   * 
+   * @example
+   * This is a comment.
+   */
   comment?: string;
   /**
+   * @remarks
+   * The time when the record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-03-10T13:30:39Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The DNS record information. The content returned by this parameter varies based on the record type.
+   * 
    * @example
    * {"value":"1.1.1.1"}
    */
   data?: GetRecordResponseBodyRecordModelData;
+  /**
+   * @remarks
+   * The origin host policy. This policy takes effect when the record type is CNAME. Valid values:
+   * 
+   * *   follow_hostname: matches the requested domain name.
+   * *   follow_origin_domain: matches the origin\\"s domain name.
+   * 
+   * @example
+   * follow_origin_domain
+   */
   hostPolicy?: string;
   /**
+   * @remarks
+   * Indicates whether the record is proxied. Only CNAME and A/AAAA records can be proxied. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
    * @example
    * true
    */
   proxied?: boolean;
   /**
+   * @remarks
+   * The CNAME. If you use CNAME setup when you add your website to ESA, the value is the CNAME that you configured then.
+   * 
    * @example
    * a.example.com.cnamezone.com
    */
   recordCname?: string;
   /**
+   * @remarks
+   * The record ID.
+   * 
    * @example
    * 1234567890123
    */
   recordId?: number;
   /**
+   * @remarks
+   * The record name.
+   * 
    * @example
    * a.example.com
    */
   recordName?: string;
   /**
+   * @remarks
+   * The origin type for the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * 
+   * *   **OSS**: OSS bucket.
+   * *   **S3**: S3 bucket.
+   * *   **LB**: load balancer.
+   * *   **OP**: origin pool.
+   * *   **Domain**: domain name.
+   * 
+   * If you do not pass this parameter or if you leave its value empty, Domain is returned by default.
+   * 
    * @example
    * OSS
    */
   recordSourceType?: string;
   /**
+   * @remarks
+   * The type of the DNS record, such as **A/AAAA, CNAME, and TXT**.
+   * 
    * @example
    * A/AAAA
    */
   recordType?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The TTL of the record. Unit: seconds. If the value is 1, the TTL of the record is determined by the system.
+   * 
    * @example
    * 20
    */
   ttl?: number;
   /**
+   * @remarks
+   * The time when the record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2023-01-27T02:26:22Z
    */
@@ -35822,6 +39519,113 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Mode
       expireTime: 'string',
       instanceId: 'string',
       status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListClientCaCertificatesResponseBodyResult extends $tea.Model {
+  /**
+   * @example
+   * www.example.com
+   */
+  commonName?: string;
+  /**
+   * @example
+   * 2024-06-24 07:48:51
+   */
+  createTime?: string;
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b5****
+   */
+  id?: string;
+  /**
+   * @example
+   * GlobalSign nv-sa
+   */
+  issuer?: string;
+  /**
+   * @example
+   * yourCertName
+   */
+  name?: string;
+  /**
+   * @example
+   * 2024-03-31 02:08:00
+   */
+  notAfter?: string;
+  /**
+   * @example
+   * 2023-03-31 02:08:00
+   */
+  notBefore?: string;
+  /**
+   * @example
+   * RSA
+   */
+  pubkeyAlgorithm?: string;
+  /**
+   * @example
+   * www.example.com,*.example.com
+   */
+  SAN?: string;
+  /**
+   * @example
+   * SHA256-RSA
+   */
+  signatureAlgorithm?: string;
+  /**
+   * @example
+   * OK
+   */
+  status?: string;
+  /**
+   * @example
+   * upload
+   */
+  type?: string;
+  /**
+   * @example
+   * 2024-07-20 06:18:42
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonName: 'CommonName',
+      createTime: 'CreateTime',
+      id: 'Id',
+      issuer: 'Issuer',
+      name: 'Name',
+      notAfter: 'NotAfter',
+      notBefore: 'NotBefore',
+      pubkeyAlgorithm: 'PubkeyAlgorithm',
+      SAN: 'SAN',
+      signatureAlgorithm: 'SignatureAlgorithm',
+      status: 'Status',
+      type: 'Type',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonName: 'string',
+      createTime: 'string',
+      id: 'string',
+      issuer: 'string',
+      name: 'string',
+      notAfter: 'string',
+      notBefore: 'string',
+      pubkeyAlgorithm: 'string',
+      SAN: 'string',
+      signatureAlgorithm: 'string',
+      status: 'string',
+      type: 'string',
+      updateTime: 'string',
     };
   }
 
@@ -39460,6 +43264,7 @@ export class ListSitesResponseBodySites extends $tea.Model {
    * verify_d516cb3740f81f0cef77d162edd1****
    */
   verifyCode?: string;
+  visitTime?: string;
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
@@ -39477,6 +43282,7 @@ export class ListSitesResponseBodySites extends $tea.Model {
       tags: 'Tags',
       updateTime: 'UpdateTime',
       verifyCode: 'VerifyCode',
+      visitTime: 'VisitTime',
     };
   }
 
@@ -39497,6 +43303,7 @@ export class ListSitesResponseBodySites extends $tea.Model {
       tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       updateTime: 'string',
       verifyCode: 'string',
+      visitTime: 'string',
     };
   }
 
@@ -43517,6 +47324,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建客户端证书
+   * 
+   * @param request - CreateClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateClientCertificateResponse
+   */
+  async createClientCertificateWithOptions(request: CreateClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<CreateClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.CSR)) {
+      body["CSR"] = request.CSR;
+    }
+
+    if (!Util.isUnset(request.pkeyType)) {
+      body["PkeyType"] = request.pkeyType;
+    }
+
+    if (!Util.isUnset(request.validityDays)) {
+      body["ValidityDays"] = request.validityDays;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateClientCertificateResponse>(await this.callApi(params, req, runtime), new CreateClientCertificateResponse({}));
+  }
+
+  /**
+   * 创建客户端证书
+   * 
+   * @param request - CreateClientCertificateRequest
+   * @returns CreateClientCertificateResponse
+   */
+  async createClientCertificate(request: CreateClientCertificateRequest): Promise<CreateClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
    * 
    * @param request - CreateCustomScenePolicyRequest
@@ -44587,7 +48450,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增站点功能配置
+   * Configures one or more feature settings for a website.
+   * 
+   * @remarks
+   * This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
    * 
    * @param tmpReq - CreateSiteFunctionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44808,7 +48674,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 新增站点功能配置
+   * Configures one or more feature settings for a website.
+   * 
+   * @remarks
+   * This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
    * 
    * @param request - CreateSiteFunctionRequest
    * @returns CreateSiteFunctionResponse
@@ -45292,6 +49161,120 @@ export default class Client extends OpenApi {
   async createWaitingRoomRule(request: CreateWaitingRoomRuleRequest): Promise<CreateWaitingRoomRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createWaitingRoomRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除证书
+   * 
+   * @param request - DeleteCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCertificateResponse
+   */
+  async deleteCertificateWithOptions(request: DeleteCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCertificateResponse>(await this.callApi(params, req, runtime), new DeleteCertificateResponse({}));
+  }
+
+  /**
+   * 删除证书
+   * 
+   * @param request - DeleteCertificateRequest
+   * @returns DeleteCertificateResponse
+   */
+  async deleteCertificate(request: DeleteCertificateRequest): Promise<DeleteCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除客户端CA证书
+   * 
+   * @param request - DeleteClientCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClientCaCertificateResponse
+   */
+  async deleteClientCaCertificateWithOptions(request: DeleteClientCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientCaCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteClientCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientCaCertificateResponse>(await this.callApi(params, req, runtime), new DeleteClientCaCertificateResponse({}));
+  }
+
+  /**
+   * 删除客户端CA证书
+   * 
+   * @param request - DeleteClientCaCertificateRequest
+   * @returns DeleteClientCaCertificateResponse
+   */
+  async deleteClientCaCertificate(request: DeleteClientCaCertificateRequest): Promise<DeleteClientCaCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteClientCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除客户端证书
+   * 
+   * @param request - DeleteClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteClientCertificateResponse
+   */
+  async deleteClientCertificateWithOptions(request: DeleteClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteClientCertificateResponse>(await this.callApi(params, req, runtime), new DeleteClientCertificateResponse({}));
+  }
+
+  /**
+   * 删除客户端证书
+   * 
+   * @param request - DeleteClientCertificateRequest
+   * @returns DeleteClientCertificateResponse
+   */
+  async deleteClientCertificate(request: DeleteClientCertificateRequest): Promise<DeleteClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteClientCertificateWithOptions(request, runtime);
   }
 
   /**
@@ -46959,6 +50942,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询证书quota及用量
+   * 
+   * @param request - GetCertificateQuotaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCertificateQuotaResponse
+   */
+  async getCertificateQuotaWithOptions(request: GetCertificateQuotaRequest, runtime: $Util.RuntimeOptions): Promise<GetCertificateQuotaResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCertificateQuota",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCertificateQuotaResponse>(await this.callApi(params, req, runtime), new GetCertificateQuotaResponse({}));
+  }
+
+  /**
+   * 查询证书quota及用量
+   * 
+   * @param request - GetCertificateQuotaRequest
+   * @returns GetCertificateQuotaResponse
+   */
+  async getCertificateQuota(request: GetCertificateQuotaRequest): Promise<GetCertificateQuotaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCertificateQuotaWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取客户端CA证书信息
+   * 
+   * @param request - GetClientCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientCaCertificateResponse
+   */
+  async getClientCaCertificateWithOptions(request: GetClientCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetClientCaCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientCaCertificateResponse>(await this.callApi(params, req, runtime), new GetClientCaCertificateResponse({}));
+  }
+
+  /**
+   * 获取客户端CA证书信息
+   * 
+   * @param request - GetClientCaCertificateRequest
+   * @returns GetClientCaCertificateResponse
+   */
+  async getClientCaCertificate(request: GetClientCaCertificateRequest): Promise<GetClientCaCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取客户端证书以及证书信息
+   * 
+   * @param request - GetClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientCertificateResponse
+   */
+  async getClientCertificateWithOptions(request: GetClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<GetClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientCertificateResponse>(await this.callApi(params, req, runtime), new GetClientCertificateResponse({}));
+  }
+
+  /**
+   * 获取客户端证书以及证书信息
+   * 
+   * @param request - GetClientCertificateRequest
+   * @returns GetClientCertificateResponse
+   */
+  async getClientCertificate(request: GetClientCertificateRequest): Promise<GetClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a containerized application, including basic application configurations and health check configurations.
    * 
    * @param request - GetEdgeContainerAppRequest
@@ -47585,7 +51682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个记录信息
+   * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
    * 
    * @param request - GetRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47612,7 +51709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询单个记录信息
+   * Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
    * 
    * @param request - GetRecordRequest
    * @returns GetRecordResponse
@@ -48474,6 +52571,82 @@ export default class Client extends OpenApi {
   async listCacheReserveInstances(request: ListCacheReserveInstancesRequest): Promise<ListCacheReserveInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCacheReserveInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询TLS密码套件列表
+   * 
+   * @param request - ListCiphersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCiphersResponse
+   */
+  async listCiphersWithOptions(request: ListCiphersRequest, runtime: $Util.RuntimeOptions): Promise<ListCiphersResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListCiphers",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListCiphersResponse>(await this.callApi(params, req, runtime), new ListCiphersResponse({}));
+  }
+
+  /**
+   * 查询TLS密码套件列表
+   * 
+   * @param request - ListCiphersRequest
+   * @returns ListCiphersResponse
+   */
+  async listCiphers(request: ListCiphersRequest): Promise<ListCiphersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listCiphersWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询站点下客户端CA证书列表
+   * 
+   * @param request - ListClientCaCertificatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListClientCaCertificatesResponse
+   */
+  async listClientCaCertificatesWithOptions(request: ListClientCaCertificatesRequest, runtime: $Util.RuntimeOptions): Promise<ListClientCaCertificatesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListClientCaCertificates",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListClientCaCertificatesResponse>(await this.callApi(params, req, runtime), new ListClientCaCertificatesResponse({}));
+  }
+
+  /**
+   * 查询站点下客户端CA证书列表
+   * 
+   * @param request - ListClientCaCertificatesRequest
+   * @returns ListClientCaCertificatesResponse
+   */
+  async listClientCaCertificates(request: ListClientCaCertificatesRequest): Promise<ListClientCaCertificatesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listClientCaCertificatesWithOptions(request, runtime);
   }
 
   /**
@@ -50678,6 +54851,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 吊销客户端证书
+   * 
+   * @param request - RevokeClientCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeClientCertificateResponse
+   */
+  async revokeClientCertificateWithOptions(request: RevokeClientCertificateRequest, runtime: $Util.RuntimeOptions): Promise<RevokeClientCertificateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeClientCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeClientCertificateResponse>(await this.callApi(params, req, runtime), new RevokeClientCertificateResponse({}));
+  }
+
+  /**
+   * 吊销客户端证书
+   * 
+   * @param request - RevokeClientCertificateRequest
+   * @returns RevokeClientCertificateResponse
+   */
+  async revokeClientCertificate(request: RevokeClientCertificateRequest): Promise<RevokeClientCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeClientCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Rolls back a version of a containerized application.
    * 
    * @param request - RollbackEdgeContainerAppVersionRequest
@@ -52592,12 +56803,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 上传客户端CA证书
+   * 
+   * @param request - UploadClientCaCertificateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadClientCaCertificateResponse
+   */
+  async uploadClientCaCertificateWithOptions(request: UploadClientCaCertificateRequest, runtime: $Util.RuntimeOptions): Promise<UploadClientCaCertificateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.certificate)) {
+      body["Certificate"] = request.certificate;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadClientCaCertificate",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadClientCaCertificateResponse>(await this.callApi(params, req, runtime), new UploadClientCaCertificateResponse({}));
+  }
+
+  /**
+   * 上传客户端CA证书
+   * 
+   * @param request - UploadClientCaCertificateRequest
+   * @returns UploadClientCaCertificateResponse
+   */
+  async uploadClientCaCertificate(request: UploadClientCaCertificateRequest): Promise<UploadClientCaCertificateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadClientCaCertificateWithOptions(request, runtime);
+  }
+
+  /**
    * Uploads the file that contains resources to be purged or prefetched.
    * 
    * @remarks
    * > 
    * *   The file can be up to 10 MB in size.
-   * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
    * 
    * @param request - UploadFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -52645,7 +56907,6 @@ export default class Client extends OpenApi {
    * @remarks
    * > 
    * *   The file can be up to 10 MB in size.
-   * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
    * 
    * @param request - UploadFileRequest
    * @returns UploadFileResponse
