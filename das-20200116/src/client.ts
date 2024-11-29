@@ -8,29 +8,8 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class DataResultValue extends $tea.Model {
-  /**
-   * @remarks
-   * The SQL ID.
-   * 
-   * @example
-   * ad78a4e7d3ce81590c9dc2d5f4bc****
-   */
   sqlId?: string;
-  /**
-   * @remarks
-   * The instance ID.
-   * 
-   * @example
-   * rm-2ze8g2am97624****
-   */
   instanceId?: string;
-  /**
-   * @remarks
-   * The number of failed executions.
-   * 
-   * @example
-   * 1
-   */
   count?: number;
   static names(): { [key: string]: string } {
     return {
@@ -420,256 +399,6 @@ export class AddHDMInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: AddHDMInstanceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAdamBenchTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The description of the stress testing task.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * test-das-bench-0501
-   */
-  description?: string;
-  /**
-   * @remarks
-   * The ID of the destination instance. The instance must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance. You can call the [GetInstanceInspections](https://help.aliyun.com/document_detail/202857.html) operation to query the ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * rm-2ze1jdv45i7l6****
-   */
-  dstInstanceId?: string;
-  /**
-   * @remarks
-   * The name of the privileged account for the destination instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * root***
-   */
-  dstSuperAccount?: string;
-  /**
-   * @remarks
-   * The password of the privileged account for the destination instance.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * root***1234
-   */
-  dstSuperPassword?: string;
-  /**
-   * @remarks
-   * The rate at which the traffic captured from the source database instance is replayed on the destination database instance. Valid values: 1 to 30. Default value: 1.
-   * 
-   * @example
-   * 1
-   */
-  rate?: number;
-  /**
-   * @remarks
-   * The duration of the stress testing task for which the traffic is captured from the source instance. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 86400000
-   */
-  requestDuration?: number;
-  /**
-   * @remarks
-   * The start time of the stress testing task. Specify the time in the UNIX timestamp format. Unit: milliseconds.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1588819800000
-   */
-  requestStartTime?: number;
-  /**
-   * @remarks
-   * The database engine that the source database instance runs.
-   * 
-   * @example
-   * MySQL
-   */
-  srcEngine?: string;
-  /**
-   * @remarks
-   * The version of the database engine that the source database instance runs.
-   * 
-   * @example
-   * 9i
-   */
-  srcEngineVersion?: string;
-  /**
-   * @remarks
-   * The maximum number of queries per second (QPS) within the time period during which traffic on the source database instance is captured. The value must be accurate to two decimal places.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 2013.22
-   */
-  srcMaxQps?: number;
-  /**
-   * @remarks
-   * The average QPS within the time period in which traffic on the source database instance is captured. The value must be accurate to two decimal places.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 312.22
-   */
-  srcMeanQps?: number;
-  /**
-   * @remarks
-   * The URL of the Object Storage Service (OSS) folder in which the archived objects for SQL statements that run on the source database instance are stored. You can obtain the URL after you upload the archived files to OSS.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * http://rdslog-hz-v3.oss-cn-hangzhou.aliyuncs.com/custins4131****
-   */
-  srcSqlOssAddr?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      dstInstanceId: 'DstInstanceId',
-      dstSuperAccount: 'DstSuperAccount',
-      dstSuperPassword: 'DstSuperPassword',
-      rate: 'Rate',
-      requestDuration: 'RequestDuration',
-      requestStartTime: 'RequestStartTime',
-      srcEngine: 'SrcEngine',
-      srcEngineVersion: 'SrcEngineVersion',
-      srcMaxQps: 'SrcMaxQps',
-      srcMeanQps: 'SrcMeanQps',
-      srcSqlOssAddr: 'SrcSqlOssAddr',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      dstInstanceId: 'string',
-      dstSuperAccount: 'string',
-      dstSuperPassword: 'string',
-      rate: 'number',
-      requestDuration: 'number',
-      requestStartTime: 'number',
-      srcEngine: 'string',
-      srcEngineVersion: 'string',
-      srcMaxQps: 'number',
-      srcMeanQps: 'number',
-      srcSqlOssAddr: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAdamBenchTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The detailed information, including the error codes and the number of entries that are returned.
-   * 
-   * @example
-   * "Data": { "total": 1, "list":[...] }, "Code": 200, "Success": true }
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
-   * 
-   * @example
-   * Successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B6D17591-B48B-4D31-9CD6-9B9796B2****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**: The request was successful.
-   * *   **false**: The request failed.
-   * 
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateAdamBenchTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateAdamBenchTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateAdamBenchTaskResponseBody,
     };
   }
 
@@ -1710,6 +1439,115 @@ export class CreateKillInstanceSessionTaskWithMaintainUserResponse extends $tea.
   }
 }
 
+export class CreateLatestDeadLockAnalysisRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pc-bp1u5mas9exx7****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * pi-bp16v3824rt73****
+   */
+  nodeId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLatestDeadLockAnalysisResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * B6D17591-B48B-4D31-9CD6-9B9796B2****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateLatestDeadLockAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateLatestDeadLockAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateLatestDeadLockAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateQueryOptimizeTagRequest extends $tea.Model {
   /**
    * @remarks
@@ -2713,7 +2551,7 @@ export class DescribeAutoScalingConfigResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The configurations of the auto scaling feature.
+   * The configurations of the auto scaling feature for instances.
    */
   data?: DescribeAutoScalingConfigResponseBodyData;
   /**
@@ -4301,7 +4139,7 @@ export class DescribeSqlLogConfigResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The data that is returned.
    */
   data?: DescribeSqlLogConfigResponseBodyData;
   /**
@@ -4889,7 +4727,7 @@ export class DescribeSqlLogTasksRequest extends $tea.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10
@@ -7901,9 +7739,7 @@ export class GetAutonomousNotifyEventsInRangeResponse extends $tea.Model {
 export class GetBlockingDetailListRequest extends $tea.Model {
   /**
    * @remarks
-   * The database name list.
-   * 
-   * *   Separate multiple database names with commas (,).
+   * The name of the database. Separate multiple database names with commas (,).
    * 
    * @example
    * school1,school2
@@ -7921,7 +7757,7 @@ export class GetBlockingDetailListRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
-   * The database instance ID.
+   * The ID of the database instance.
    * 
    * This parameter is required.
    * 
@@ -7947,7 +7783,7 @@ export class GetBlockingDetailListRequest extends $tea.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The hash value of the SQL statement.
+   * The hash value of the SQL statement. The hash values of SQL statements of the same type are the same.
    * 
    * @example
    * DC08B955CAD25E7B
@@ -7955,7 +7791,7 @@ export class GetBlockingDetailListRequest extends $tea.Model {
   queryHash?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * This parameter is required.
    * 
@@ -8026,10 +7862,10 @@ export class GetBlockingDetailListResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -8520,7 +8356,7 @@ export class GetDasSQLLogHotDataRequest extends $tea.Model {
    * @remarks
    * The keyword that is used for the query.
    * 
-   * >  The keyword must be at least four characters in length. You can specify multiple keywords that are separated by spaces. Fuzzy queries are not supported.
+   * >  Fuzzy search is not supported. You can query data by using multiple keywords. Separate keywords with spaces.
    * 
    * @example
    * test
@@ -8572,9 +8408,9 @@ export class GetDasSQLLogHotDataRequest extends $tea.Model {
   sqlType?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: millisecond.
+   * The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
-   * >  You can query only the data generated after DAS Enterprise Edition V2 or V3 was enabled. The beginning of the time range to query can be up to seven days earlier than the current time.
+   * >  The beginning of the time range to query must be later than the time when DAS Enterprise Edition is enabled, and can be up to seven days earlier than the current time.
    * 
    * This parameter is required.
    * 
@@ -8780,10 +8616,139 @@ export class GetDasSQLLogHotDataResponse extends $tea.Model {
   }
 }
 
+export class GetDeadLockDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pc-bp1u5mas9exx7****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * pi-bp16v3824rt73****
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * AUTO
+   */
+  source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a0e390cd5aca9ae964448f040153****
+   */
+  textId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      source: 'Source',
+      textId: 'TextId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      nodeId: 'string',
+      source: 'string',
+      textId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadLockDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: string;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 9CB97BC4-6479-55D0-B9D0-EA925AFE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  /**
+   * @example
+   * None
+   */
+  synchro?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+      synchro: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadLockDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeadLockDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeadLockDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDeadLockDetailListRequest extends $tea.Model {
   /**
    * @remarks
-   * The database name list.
+   * The name of the database. When you specify multiple databases, you must separate the database names with commas (,).
    * 
    * @example
    * school1,school2
@@ -8801,7 +8766,7 @@ export class GetDeadLockDetailListRequest extends $tea.Model {
   endTime?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the database instance.
    * 
    * This parameter is required.
    * 
@@ -8873,7 +8838,7 @@ export class GetDeadLockDetailListResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: GetDeadLockDetailListResponseBodyData;
   /**
@@ -8947,6 +8912,317 @@ export class GetDeadLockDetailListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDeadLockDetailListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadLockHistoryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1732069466000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pc-bp1u5mas9exx7****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * pi-bp16v3824rt73****
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * AUTO
+   */
+  source?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1731983066000
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      source: 'Source',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      nodeId: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      source: 'string',
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadLockHistoryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * {
+   *     "total": 2,
+   *     "list": [
+   *         {
+   *             "accountId": "108************",
+   *             "textId": "35303d12d52d29ba73bb85fa2d5b****",
+   *             "gmtModified": 1732712680000,
+   *             "lockTime": 1732687047000,
+   *             "gmtCreate": 1732712680000,
+   *             "nodeId": "pi-8****************",
+   *             "uuid": "pc-8v**************"
+   *         },
+   *         {
+   *             "accountId": "108************",
+   *             "textId": "50a24bdcc5fe7e03f92a55ae7574****",
+   *             "gmtModified": 1732626448000,
+   *             "lockTime": 1722500305000,
+   *             "gmtCreate": 1732626448000,
+   *             "nodeId": "pi-8****************",
+   *             "uuid": "pc-8v**************"
+   *         }
+   *     ]
+   * }
+   */
+  data?: string;
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * B6D17591-B48B-4D31-9CD6-9B9796B2****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  /**
+   * @example
+   * None
+   */
+  synchro?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      synchro: 'Synchro',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'string',
+      synchro: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadLockHistoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeadLockHistoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeadLockHistoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadlockHistogramRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1732069466000
+   */
+  endTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pc-bp1u5mas9exx7****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * pi-bp16v3824rt73****
+   */
+  nodeId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1731983066000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      nodeId: 'NodeId',
+      startTime: 'StartTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      instanceId: 'string',
+      nodeId: 'string',
+      startTime: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadlockHistogramResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: GetDeadlockHistogramResponseBodyData[];
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 0A74B755-98B7-59DB-8724-1321B394****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': GetDeadlockHistogramResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadlockHistogramResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDeadlockHistogramResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDeadlockHistogramResponseBody,
     };
   }
 
@@ -9444,9 +9720,9 @@ export class GetFullRequestOriginStatByInstanceIdRequest extends $tea.Model {
   role?: string;
   /**
    * @remarks
-   * The type of the SQL statement. Valid values: **SELECT**, **INSERT**, **UPDATE**, **DELETE**, **LOGIN**, **LOGOUT**, **MERGE**, **ALTER**, **CREATEINDEX**, **DROPINDEX**, **CREATE**, **DROP**, **SET**, **DESC**, **REPLACE**, **CALL**, **BEGIN**, **DESCRIBE**, **ROLLBACK**, **FLUSH**, **USE**, **SHOW**, **START**, **COMMIT**, and **RENAME**.
+   * The type of the SQL statement. Valid values: **SELECT**, **INSERT**, **UPDATE**, **DELETE**, **MERGE**, **ALTER**, **CREATEINDEX**, **DROPINDEX**, **CREATE**, **DROP**, **SET**, **DESC**, **REPLACE**, **CALL**, **BEGIN**, **DESCRIBE**, **ROLLBACK**, **FLUSH**, **USE**, **SHOW**, **START**, **COMMIT**, and **RENAME**.
    * 
-   * >  If the database instance is an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, or a PolarDB-X 2.0 instance, the statistics can be collected based on the SQL statement type.
+   * >  If the database instance is an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL instance, or a PolarDB-X 2.0 instance, statistics can be collected based on the SQL statement type.
    * 
    * @example
    * SELECT
@@ -11648,7 +11924,7 @@ export class GetPfsMetricTrendsRequest extends $tea.Model {
    * @remarks
    * The node ID.
    * 
-   * >  You must specify this parameter for an ApsaraDB RDS for MySQL cluster instance and a PolarDB for MySQL cluster.
+   * >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
    * 
    * @example
    * r-x****-db-0
@@ -11993,7 +12269,7 @@ export class GetPfsSqlSummariesRequest extends $tea.Model {
    * @remarks
    * The node ID.
    * 
-   * >  This parameter must be specified if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+   * >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
    * 
    * @example
    * r-****-db-0
@@ -12094,7 +12370,7 @@ export class GetPfsSqlSummariesResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetPfsSqlSummariesResponseBodyData;
   /**
@@ -14356,7 +14632,9 @@ export class GetRequestDiagnosisResultRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The unique ID of the diagnostics task. You can call the [CreateRequestDiagnosis](https://help.aliyun.com/document_detail/341609.html) operation to query the diagnostics task ID.
+   * The unique ID of the diagnostic task.[](~~341609~~)
+   * 
+   * >  If you set MessageId to the task ID of the automatic SQL optimization feature, no result is returned.
    * 
    * This parameter is required.
    * 
@@ -15434,7 +15712,7 @@ export class KillInstanceAllSessionResponse extends $tea.Model {
 export class ModifyAutoScalingConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The configuration item of the automatic bandwidth adjustment feature.
+   * The configuration item of the bandwidth auto scaling feature.
    */
   bandwidth?: ModifyAutoScalingConfigRequestBandwidth;
   /**
@@ -15449,17 +15727,17 @@ export class ModifyAutoScalingConfigRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The configuration item of the auto scaling feature for resources.
+   * The configuration item of the resource auto scaling feature.
    */
   resource?: ModifyAutoScalingConfigRequestResource;
   /**
    * @remarks
-   * The configuration item of the auto scaling feature for shards.
+   * The configuration item of the shard auto scaling feature.
    */
   shard?: ModifyAutoScalingConfigRequestShard;
   /**
    * @remarks
-   * The configuration item of the auto scaling feature for specifications.
+   * The configuration item of the specification auto scaling feature.
    */
   spec?: ModifyAutoScalingConfigRequestSpec;
   /**
@@ -16154,235 +16432,6 @@ export class SetEventSubscriptionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetEventSubscriptionResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCloudBenchTaskRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The stress testing task ID. You can call the [DescribeCloudBenchTasks](https://help.aliyun.com/document_detail/230670.html) operation to query the task ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * e5cec704-0518-430f-8263-76f4dcds****
-   */
-  taskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCloudBenchTaskResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The HTTP status code returned.
-   * 
-   * @example
-   * 200
-   */
-  code?: string;
-  /**
-   * @remarks
-   * The reserved parameter.
-   * 
-   * @example
-   * None
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The returned message.
-   * 
-   * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
-   * 
-   * @example
-   * Successful
-   */
-  message?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * B6D17591-B48B-4D31-9CD6-9B9796B2****
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
-   * 
-   * @example
-   * true
-   */
-  success?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class StopCloudBenchTaskResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: StopCloudBenchTaskResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: StopCloudBenchTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncHDMAliyunResourceRequest extends $tea.Model {
-  async?: string;
-  resourceTypes?: string;
-  uid?: string;
-  userId?: string;
-  waitForModifySecurityIps?: string;
-  context?: string;
-  accessKey?: string;
-  signature?: string;
-  skipAuth?: string;
-  timestamp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      async: 'Async',
-      resourceTypes: 'ResourceTypes',
-      uid: 'Uid',
-      userId: 'UserId',
-      waitForModifySecurityIps: 'WaitForModifySecurityIps',
-      context: '__context',
-      accessKey: 'accessKey',
-      signature: 'signature',
-      skipAuth: 'skipAuth',
-      timestamp: 'timestamp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      async: 'string',
-      resourceTypes: 'string',
-      uid: 'string',
-      userId: 'string',
-      waitForModifySecurityIps: 'string',
-      context: 'string',
-      accessKey: 'string',
-      signature: 'string',
-      skipAuth: 'string',
-      timestamp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncHDMAliyunResourceResponseBody extends $tea.Model {
-  code?: string;
-  data?: string;
-  message?: string;
-  requestId?: string;
-  success?: string;
-  synchro?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      data: 'Data',
-      message: 'Message',
-      requestId: 'RequestId',
-      success: 'Success',
-      synchro: 'Synchro',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      data: 'string',
-      message: 'string',
-      requestId: 'string',
-      success: 'string',
-      synchro: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class SyncHDMAliyunResourceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: SyncHDMAliyunResourceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: SyncHDMAliyunResourceResponseBody,
     };
   }
 
@@ -17807,10 +17856,10 @@ export class DescribeAutoScalingConfigResponseBodyDataSpec extends $tea.Model {
   maxReadOnlyNodes?: number;
   /**
    * @remarks
-   * The maximum specifications to which the database instance can be upgraded. For more information about the specifications of each type of supported database instances, see the following topics:
+   * The maximum specifications to which the cluster can be scaled up. For more information about the specifications of each type of supported database instances, see the following topics:
    * 
-   * *   PolarDB for MySQL Cluster Edition instances: [Specifications of compute nodes](https://help.aliyun.com/document_detail/102542.html).
-   * *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or enhanced SSDs (ESSDs): [Specifications](https://help.aliyun.com/document_detail/276974.html).
+   * *   PolarDB for MySQL Cluster Edition instances: [Compute node specifications of PolarDB for MySQL Enterprise Edition](https://help.aliyun.com/document_detail/102542.html)
+   * *   ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: [Specifications](https://help.aliyun.com/document_detail/276974.html)
    * 
    * @example
    * polar.mysql.x8.12xlarge
@@ -23251,7 +23300,7 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $tea.Model {
    * @remarks
    * The returned data of the asynchronous request.
    */
-  result?: { [key: string]: DataResultValue }[];
+  result?: { [key: string]: DataResultValue };
   /**
    * @remarks
    * The ID of the asynchronous request.
@@ -23297,7 +23346,7 @@ export class GetAsyncErrorRequestStatResultResponseBodyData extends $tea.Model {
       complete: 'boolean',
       fail: 'boolean',
       isFinish: 'boolean',
-      result: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': DataResultValue } },
+      result: { 'type': 'map', 'keyType': 'string', 'valueType': DataResultValue },
       resultId: 'string',
       state: 'string',
       timestamp: 'number',
@@ -24256,7 +24305,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $tea.Model {
   clientAppName?: string;
   /**
    * @remarks
-   * The time when the blocking data was collected.
+   * The time when the blocking data was collected. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1700065800000
@@ -24264,7 +24313,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $tea.Model {
   currentCollectionTime?: number;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * school
@@ -24312,7 +24361,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $tea.Model {
   sqlText?: string;
   /**
    * @remarks
-   * The time when the execution started.
+   * The time when the execution started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1608888296000
@@ -24320,7 +24369,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * The blocking duration. Unit: milliseconds.
+   * The duration of the blocking. Unit: milliseconds.
    * 
    * @example
    * 30000
@@ -24328,7 +24377,7 @@ export class GetBlockingDetailListResponseBodyDataList extends $tea.Model {
   waitTimeMs?: number;
   /**
    * @remarks
-   * The wait type.
+   * The wait type. For more information about wait types, see [sys.dm_os_wait_stats (Transact-SQL)](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?view=sql-server-ver15).
    * 
    * @example
    * MISCELLANEOUS
@@ -24977,7 +25026,7 @@ export class GetDasSQLLogHotDataResponseBodyData extends $tea.Model {
 export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $tea.Model {
   /**
    * @remarks
-   * The client application.
+   * The name of the client that initiates the transaction in the session.
    * 
    * @example
    * Microsoft SQL Server Management Studio - Query
@@ -24985,7 +25034,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   clientApp?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * school
@@ -24993,7 +25042,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   databaseName?: string;
   /**
    * @remarks
-   * The host name.
+   * The hostname.
    * 
    * @example
    * sd74020124
@@ -25001,7 +25050,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   hostName?: string;
   /**
    * @remarks
-   * The time when the transaction started.
+   * The time when the transaction was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1702301152000
@@ -25009,7 +25058,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   lastTranStarted?: number;
   /**
    * @remarks
-   * The lock mode.
+   * The mode of the lock. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * U
@@ -25017,7 +25066,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   lockMode?: string;
   /**
    * @remarks
-   * The size of the logs generated by the session.
+   * The size of the logs generated in the session. Unit: bytes.
    * 
    * @example
    * 352
@@ -25025,7 +25074,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   logUsed?: number;
   /**
    * @remarks
-   * The username that is used for login.
+   * The logon name of the user.
    * 
    * @example
    * sd74020124\\\\Administrator
@@ -25041,7 +25090,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   objectOwned?: string;
   /**
    * @remarks
-   * The object that the current transaction requested to lock.
+   * The object that the transaction requested to lock.
    * 
    * @example
    * school.dbo.test1
@@ -25049,7 +25098,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   objectRequested?: string;
   /**
    * @remarks
-   * The holding mode.
+   * The lock mode held by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * X
@@ -25057,7 +25106,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   ownMode?: string;
   /**
    * @remarks
-   * The ID of the session that started the transaction.
+   * The ID of the session in which the transaction is started.
    * 
    * @example
    * 61
@@ -25073,7 +25122,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   sqlText?: string;
   /**
    * @remarks
-   * The transaction status.
+   * The status of the transaction.
    * 
    * @example
    * suspended
@@ -25081,7 +25130,10 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   status?: string;
   /**
    * @remarks
-   * The victim.
+   * Indicates whether the session is the victim of the deadlock. Valid values:
+   * 
+   * *   **0**: no.
+   * *   **1**: yes.
    * 
    * @example
    * 0
@@ -25089,7 +25141,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   victim?: number;
   /**
    * @remarks
-   * The wait mode.
+   * The lock mode requested by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * U
@@ -25097,7 +25149,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   waitMode?: string;
   /**
    * @remarks
-   * The pending resource.
+   * The resources requested by the transaction.
    * 
    * @example
    * RID: 5:1:312:0
@@ -25105,7 +25157,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
   waitResource?: string;
   /**
    * @remarks
-   * The description of the pending resource.
+   * The details of the resources requested by the transaction.
    * 
    * @example
    * RID:school:school.mdf:312:0
@@ -25163,7 +25215,7 @@ export class GetDeadLockDetailListResponseBodyDataListBlockProcessList extends $
 export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   /**
    * @remarks
-   * The time when the data was collected.
+   * The time when the data was collected. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1702301170701
@@ -25171,12 +25223,12 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   batchId?: number;
   /**
    * @remarks
-   * The blocking list.
+   * The blocking details of the instance. The details are information about the session that caused the lock.
    */
   blockProcessList?: GetDeadLockDetailListResponseBodyDataListBlockProcessList[];
   /**
    * @remarks
-   * The client application.
+   * The name of the client.
    * 
    * @example
    * Microsoft SQL Server Management Studio - Query
@@ -25184,7 +25236,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   clientApp?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * school
@@ -25192,7 +25244,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The host name.
+   * The hostname.
    * 
    * @example
    * sd74020124
@@ -25200,7 +25252,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   hostName?: string;
   /**
    * @remarks
-   * The time when the transaction started.
+   * The time when the transaction was started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1702301141000
@@ -25208,7 +25260,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   lastTranStarted?: number;
   /**
    * @remarks
-   * The lock mode.
+   * The mode of the lock. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * U
@@ -25216,7 +25268,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   lockMode?: string;
   /**
    * @remarks
-   * The size of the logs generated by the session.
+   * The size of the logs generated in the session. Unit: bytes.
    * 
    * @example
    * 352
@@ -25224,7 +25276,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   logUsed?: number;
   /**
    * @remarks
-   * The username that is used for login.
+   * The logon name of the user.
    * 
    * @example
    * sd74020124\\\\Administrator
@@ -25240,7 +25292,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   objectOwned?: string;
   /**
    * @remarks
-   * The object that the current transaction requested to lock.
+   * The object that the transaction requested to lock.
    * 
    * @example
    * school.dbo.test2
@@ -25248,7 +25300,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   objectRequested?: string;
   /**
    * @remarks
-   * The holding mode.
+   * The lock mode held by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * X
@@ -25256,7 +25308,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   ownMode?: string;
   /**
    * @remarks
-   * The ID of the session that started the transaction.
+   * The ID of the session in which the transaction is started.
    * 
    * @example
    * 56
@@ -25272,7 +25324,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   sqlText?: string;
   /**
    * @remarks
-   * The transaction status.
+   * The status of the transaction.
    * 
    * @example
    * suspended
@@ -25280,7 +25332,10 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The victim.
+   * Indicates whether the session is the victim of the deadlock. Valid values:
+   * 
+   * *   **0**: no.
+   * *   **1**: yes.
    * 
    * @example
    * 1
@@ -25288,7 +25343,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   victim?: number;
   /**
    * @remarks
-   * The wait mode.
+   * The lock mode requested by the session. For more information, see [Lock modes](https://help.aliyun.com/document_detail/2362804.html).
    * 
    * @example
    * U
@@ -25296,7 +25351,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   waitMode?: string;
   /**
    * @remarks
-   * The pending resource.
+   * The resources requested by the transaction.
    * 
    * @example
    * RID: 5:1:376:0
@@ -25304,7 +25359,7 @@ export class GetDeadLockDetailListResponseBodyDataList extends $tea.Model {
   waitResource?: string;
   /**
    * @remarks
-   * The description of the pending resource.
+   * The details of the resources requested by the transaction.
    * 
    * @example
    * RID:school:school.mdf:376:0
@@ -25371,7 +25426,7 @@ export class GetDeadLockDetailListResponseBodyData extends $tea.Model {
   list?: GetDeadLockDetailListResponseBodyDataList[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -25379,7 +25434,7 @@ export class GetDeadLockDetailListResponseBodyData extends $tea.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -25408,6 +25463,78 @@ export class GetDeadLockDetailListResponseBodyData extends $tea.Model {
       pageNo: 'number',
       pageSize: 'number',
       total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDeadlockHistogramResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1729998000000
+   */
+  endTime?: string;
+  /**
+   * @example
+   * pc-bp1u5mas9exx7****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 2
+   */
+  lockNumber?: number;
+  /**
+   * @example
+   * pi-bp16v3824rt73****
+   */
+  nodeId?: string;
+  /**
+   * @example
+   * 1729994400000
+   */
+  startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  /**
+   * @example
+   * B6D17591-B48B-4D31-9CD6-1321B394****
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 108************
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      instanceId: 'InstanceId',
+      lockNumber: 'LockNumber',
+      nodeId: 'NodeId',
+      startTime: 'StartTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      instanceId: 'string',
+      lockNumber: 'number',
+      nodeId: 'string',
+      startTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      userId: 'string',
     };
   }
 
@@ -29430,7 +29557,7 @@ export class GetPfsSqlSummariesResponseBodyDataList extends $tea.Model {
    * @remarks
    * The node ID.
    * 
-   * > This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+   * >  This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
    * 
    * @example
    * r-x****-db-0
@@ -29909,7 +30036,7 @@ export class GetPfsSqlSummariesResponseBodyData extends $tea.Model {
   extra?: any;
   /**
    * @remarks
-   * The detailed information.
+   * The details of the data returned.
    */
   list?: GetPfsSqlSummariesResponseBodyDataList[];
   /**
@@ -32756,7 +32883,7 @@ export class GetStorageAnalysisResultResponseBodyData extends $tea.Model {
 export class ModifyAutoScalingConfigRequestBandwidth extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to apply the **Bandwidth** configuration of the automatic bandwidth adjustment feature. Valid values:
+   * Specifies whether to apply the **Bandwidth** configuration of the bandwidth auto scaling feature. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -32800,7 +32927,7 @@ export class ModifyAutoScalingConfigRequestBandwidth extends $tea.Model {
   bandwidthUsageUpperThreshold?: number;
   /**
    * @remarks
-   * Specifies whether to enable the automatic bandwidth downgrade feature. Valid values:
+   * Specifies whether to enable automatic bandwidth downgrade. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -32811,7 +32938,7 @@ export class ModifyAutoScalingConfigRequestBandwidth extends $tea.Model {
   downgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the automatic bandwidth adjustment feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+   * The observation window of the bandwidth auto scaling feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
    * 
    * *   **1m**
    * *   **5m**
@@ -32828,7 +32955,7 @@ export class ModifyAutoScalingConfigRequestBandwidth extends $tea.Model {
   observationWindowSize?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic bandwidth upgrade feature. Valid values:
+   * Specifies whether to enable automatic bandwidth upgrade. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -32867,7 +32994,7 @@ export class ModifyAutoScalingConfigRequestBandwidth extends $tea.Model {
 export class ModifyAutoScalingConfigRequestResource extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to apply the **Resource** configuration of the auto scaling feature for resources. Valid values:
+   * Specifies whether to apply the **Resource** configuration of the resource auto scaling feature. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -32881,7 +33008,7 @@ export class ModifyAutoScalingConfigRequestResource extends $tea.Model {
   apply?: boolean;
   /**
    * @remarks
-   * The average CPU utilization threshold that triggers automatic scale-out of resources. Unit: %. Valid values:
+   * The average CPU utilization threshold that triggers automatic resource scale-out. Unit: %. Valid values:
    * 
    * *   **70**
    * *   **80**
@@ -32914,7 +33041,7 @@ export class ModifyAutoScalingConfigRequestResource extends $tea.Model {
   downgradeObservationWindowSize?: string;
   /**
    * @remarks
-   * Specifies whether to enable the auto scaling feature for resources. Valid values:
+   * Specifies whether to enable resource auto scaling. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -32972,12 +33099,12 @@ export class ModifyAutoScalingConfigRequestResource extends $tea.Model {
 export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to apply the **Shard** configuration of the auto scaling feature for shards. Valid values:
+   * Specifies whether to apply the **Shard** configuration of the shard auto scaling feature. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * > The auto scaling feature for shards is available only for ApsaraDB for Redis Community Edition cloud-native instances on the China site (aliyun.com).
+   * >  The shard auto scaling feature is available only for Tair (Redis OSS-compatible) cloud-native cluster instances on the China site (aliyun.com).
    * 
    * @example
    * true
@@ -32985,12 +33112,12 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   apply?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the feature of automatically removing shards. Valid values:
+   * Specifies whether to enable automatic shard removal. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * >  The feature of automatically removing shards is in canary release.
+   * >  The automatic shard removal feature is in a canary release.
    * 
    * @example
    * true
@@ -32998,7 +33125,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   downgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the feature of automatically removing shards. The value of this parameter consists of a numeric value and a time unit suffix. The **h** time unit suffix specifies the hour. The **d** time unit suffix specifies the day. Valid values:
+   * The observation window of the automatic shard removal feature. The value of this parameter consists of a numeric value and a time unit suffix. The **h** time unit suffix specifies the hour. The **d** time unit suffix specifies the day. Valid values:
    * 
    * *   **1h**
    * *   **2h**
@@ -33026,7 +33153,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   maxShards?: number;
   /**
    * @remarks
-   * The average memory usage threshold that triggers automatic removal of shards. Unit: %. Valid values:
+   * The average memory usage threshold that triggers automatic shard removal. Unit: %. Valid values:
    * 
    * *   **10**
    * *   **20**
@@ -33041,7 +33168,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   memUsageLowerThreshold?: number;
   /**
    * @remarks
-   * The average memory usage threshold that triggers automatic adding of shards. Unit: %. Valid values:
+   * The average memory usage threshold that triggers automatic shard addition. Unit: %. Valid values:
    * 
    * *   **50**
    * *   **60**
@@ -33069,7 +33196,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   minShards?: number;
   /**
    * @remarks
-   * Specifies whether to enable the feature of automatically adding shards. Valid values:
+   * Specifies whether to enable automatic shard addition. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -33080,7 +33207,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
   upgrade?: boolean;
   /**
    * @remarks
-   * The observation window of the feature of automatically adding shards. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+   * The observation window of the automatic shard addition feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
    * 
    * *   **5m**
    * *   **10m**
@@ -33130,7 +33257,7 @@ export class ModifyAutoScalingConfigRequestShard extends $tea.Model {
 export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to apply the **Spec** configuration of the auto scaling feature for specifications. Valid values:
+   * Specifies whether to apply the **Spec** configuration of the specification auto scaling feature. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -33141,10 +33268,10 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
   apply?: boolean;
   /**
    * @remarks
-   * The quiescent period. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute, the **h** time unit suffix specifies the hour, and the **d** time suffix unit specifies the day.
+   * The quiescent period. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute, the **h** time unit suffix specifies the hour, and the **d** time unit suffix specifies the day.
    * 
    * *   Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
-   * *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
+   * *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or Enterprise SSDs (ESSDs): **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
    * 
    * @example
    * 5m
@@ -33163,7 +33290,7 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
    * *   **80**
    * *   **90**
    * 
-   * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+   * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
    * 
    * @example
    * 70
@@ -33174,12 +33301,12 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
   cpuUsageUpperThreshold?: number;
   /**
    * @remarks
-   * Specifies whether to enable the automatic specification scale-down feature. Valid values:
+   * Specifies whether to enable automatic specification scale-down. Valid values:
    * 
    * *   **true**
    * *   **false**
    * 
-   * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+   * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
    * 
    * @example
    * true
@@ -33192,7 +33319,7 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
    * @remarks
    * The maximum number of read-only nodes of the instance.
    * 
-   * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance.
+   * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance.
    * 
    * @example
    * 10
@@ -33225,7 +33352,7 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
    * *   **80**
    * *   **90**
    * 
-   * > This parameter must be specified if the database instance is an ApsaraDB for Redis Community Edition cloud-native instance on the China site (aliyun.com).
+   * >  This parameter must be specified if the database instance is a Tair (Redis OSS-compatible) Community Edition cloud-native instance on the China site (aliyun.com).
    * 
    * @example
    * 70
@@ -33240,7 +33367,7 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
    * 
    * *   Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **15m**, and **30m**.
    * *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: **5m**, **20m**, **30m**, **40m**, and **1h**.
-   * *   Valid values for ApsaraDB for Redis Community Edition cloud-native instances: **5m**, **10m**, **15m**, and **30m**.
+   * *   Valid values for Tair (Redis OSS-compatible) Community Edition cloud-native instances: **5m**, **10m**, **15m**, and **30m**.
    * 
    * @example
    * 5m
@@ -33251,7 +33378,7 @@ export class ModifyAutoScalingConfigRequestSpec extends $tea.Model {
   observationWindowSize?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic specification scale-up feature. Valid values:
+   * Specifies whether to enable automatic specification scale-up. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -33327,12 +33454,12 @@ export class ModifyAutoScalingConfigRequestStorage extends $tea.Model {
   diskUsageUpperThreshold?: number;
   /**
    * @remarks
-   * The maximum storage size of the database instance. The value must be greater than or equal to the total storage size of the instance. Valid values of different types of instances:
+   * The maximum storage size of the database instance. Unit: GB. The value must be greater than or equal to the total storage size of the instance.
    * 
-   * *   If the ApsaraDB for RDS instance uses ESSDs, the value of this parameter can be set to 32000, in GB.
-   * *   If the ApsaraDB for RDS instance uses standard SSDs, the value of this parameter can be set to 6000, in GB.
+   * *   If the instance uses ESSDs, the maximum value of this parameter can be 32000.
+   * *   If the instance uses standard SSDs, the maximum value of this parameter can be 6000.
    * 
-   * >  The ApsaraDB RDS for MySQL instances that use standard SSDs are discontinued. We recommend that you [upgrade the storage type of an ApsaraDB RDS for MySQL instance from standard SSDs to ESSDs](https://help.aliyun.com/document_detail/314678.html).
+   * >  The standard SSD storage type is phased out. We recommend that you [upgrade the storage type of your instance from standard SSDs to ESSDs](https://help.aliyun.com/document_detail/314678.html).
    * 
    * @example
    * 32000
@@ -33343,7 +33470,7 @@ export class ModifyAutoScalingConfigRequestStorage extends $tea.Model {
   maxStorage?: number;
   /**
    * @remarks
-   * Specifies whether to enable the automatic storage expansion feature. Valid values:
+   * Specifies whether to enable automatic storage expansion. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -34550,116 +34677,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a stress testing task on Advanced Database & Application Migration (ADAM).
-   * 
-   * @remarks
-   * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You can create an Advanced Database & Application Migration (ADAM) stress testing task to check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-   * Make sure that your database instances meet the following requirements:
-   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
-   * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
-   * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
-   * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-   * 
-   * @param request - CreateAdamBenchTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateAdamBenchTaskResponse
-   */
-  async createAdamBenchTaskWithOptions(request: CreateAdamBenchTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAdamBenchTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.dstInstanceId)) {
-      query["DstInstanceId"] = request.dstInstanceId;
-    }
-
-    if (!Util.isUnset(request.dstSuperAccount)) {
-      query["DstSuperAccount"] = request.dstSuperAccount;
-    }
-
-    if (!Util.isUnset(request.dstSuperPassword)) {
-      query["DstSuperPassword"] = request.dstSuperPassword;
-    }
-
-    if (!Util.isUnset(request.rate)) {
-      query["Rate"] = request.rate;
-    }
-
-    if (!Util.isUnset(request.requestDuration)) {
-      query["RequestDuration"] = request.requestDuration;
-    }
-
-    if (!Util.isUnset(request.requestStartTime)) {
-      query["RequestStartTime"] = request.requestStartTime;
-    }
-
-    if (!Util.isUnset(request.srcEngine)) {
-      query["SrcEngine"] = request.srcEngine;
-    }
-
-    if (!Util.isUnset(request.srcEngineVersion)) {
-      query["SrcEngineVersion"] = request.srcEngineVersion;
-    }
-
-    if (!Util.isUnset(request.srcMaxQps)) {
-      query["SrcMaxQps"] = request.srcMaxQps;
-    }
-
-    if (!Util.isUnset(request.srcMeanQps)) {
-      query["SrcMeanQps"] = request.srcMeanQps;
-    }
-
-    if (!Util.isUnset(request.srcSqlOssAddr)) {
-      query["SrcSqlOssAddr"] = request.srcSqlOssAddr;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateAdamBenchTask",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateAdamBenchTaskResponse>(await this.callApi(params, req, runtime), new CreateAdamBenchTaskResponse({}));
-  }
-
-  /**
-   * Creates a stress testing task on Advanced Database & Application Migration (ADAM).
-   * 
-   * @remarks
-   * Database Autonomy Service (DAS) provides the intelligent stress testing feature. You can create an Advanced Database & Application Migration (ADAM) stress testing task to check whether you need to scale up your database instance to handle workloads during peak hours. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-   * Make sure that your database instances meet the following requirements:
-   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
-   * *   The destination instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
-   * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
-   * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-   * 
-   * @param request - CreateAdamBenchTaskRequest
-   * @returns CreateAdamBenchTaskResponse
-   */
-  async createAdamBenchTask(request: CreateAdamBenchTaskRequest): Promise<CreateAdamBenchTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createAdamBenchTaskWithOptions(request, runtime);
-  }
-
-  /**
    * Creates a cache analysis task.
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
-   * *   This operation is applicable only to ApsaraDB for Redis Community Edition instances and performance-enhanced instances of the ApsaraDB for Redis Enhanced Edition (Tair).
-   * >  Redis 7.0 is not supported. You are not allowed to use custom modules.
+   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
+   * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
+   * *   Tair ESSD/SSD-based instances are not supported.
    * 
    * @param request - CreateCacheAnalysisJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34706,10 +34732,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call DAS, you must set the region to cn-shanghai.
-   * *   This operation is applicable only to ApsaraDB for Redis Community Edition instances and performance-enhanced instances of the ApsaraDB for Redis Enhanced Edition (Tair).
-   * >  Redis 7.0 is not supported. You are not allowed to use custom modules.
+   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   You can call this operation to analyze the data structures of ApsaraDB for Redis and the following self-developed data structures of Tair: TairString, TairHash, TairGIS, TairBloom, TairDoc, TairCpc, and TairZset. Other self-developed Tair data structures are not supported.
+   * *   If the specifications of the database instance that you want to analyze are changed, the backup file generated before the specification change cannot be analyzed.
+   * *   Tair ESSD/SSD-based instances are not supported.
    * 
    * @param request - CreateCacheAnalysisJobRequest
    * @returns CreateCacheAnalysisJobResponse
@@ -34724,8 +34751,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
-   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
-   * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
+   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
+   * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
    * 
@@ -34866,8 +34893,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html). Before you call this API operation, make sure that your database instances meet the following requirements:
-   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition or X-Engine Edition cluster.
-   * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL instance.
+   * *   The source database instance is an ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance, or a PolarDB for MySQL Cluster Edition cluster.
+   * *   The destination database instance is an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster.
    * *   The source and destination database instances are connected to DAS. For information about how to connect database instances to DAS, see [Connect an Alibaba Cloud database instance to DAS](https://help.aliyun.com/document_detail/65405.html).
    * *   DAS Enterprise Edition is enabled for the source and destination database instances. For more information, see [Overview](https://help.aliyun.com/document_detail/190912.html).
    * 
@@ -35081,6 +35108,52 @@ export default class Client extends OpenApi {
   async createKillInstanceSessionTaskWithMaintainUser(request: CreateKillInstanceSessionTaskWithMaintainUserRequest): Promise<CreateKillInstanceSessionTaskWithMaintainUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createKillInstanceSessionTaskWithMaintainUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建最近死锁分析任务
+   * 
+   * @param request - CreateLatestDeadLockAnalysisRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLatestDeadLockAnalysisResponse
+   */
+  async createLatestDeadLockAnalysisWithOptions(request: CreateLatestDeadLockAnalysisRequest, runtime: $Util.RuntimeOptions): Promise<CreateLatestDeadLockAnalysisResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateLatestDeadLockAnalysis",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateLatestDeadLockAnalysisResponse>(await this.callApi(params, req, runtime), new CreateLatestDeadLockAnalysisResponse({}));
+  }
+
+  /**
+   * 创建最近死锁分析任务
+   * 
+   * @param request - CreateLatestDeadLockAnalysisRequest
+   * @returns CreateLatestDeadLockAnalysisResponse
+   */
+  async createLatestDeadLockAnalysis(request: CreateLatestDeadLockAnalysisRequest): Promise<CreateLatestDeadLockAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createLatestDeadLockAnalysisWithOptions(request, runtime);
   }
 
   /**
@@ -36096,12 +36169,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Database Autonomy Service (DAS) Enterprise Edition is enabled for a database instance.
+   * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
    * 
    * @remarks
-   *   For more information about database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
+   * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
    * 
    * @param request - DescribeInstanceDasProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36132,12 +36206,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries whether Database Autonomy Service (DAS) Enterprise Edition is enabled for a database instance.
+   * Queries whether Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled for a database instance.
    * 
    * @remarks
-   *   For more information about database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   *   For more information about the database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
+   * >  We recommend that you call the [DescribeSqlLogConfig](https://help.aliyun.com/document_detail/2778837.html) operation to query the DAS Enterprise Edition configurations of a database instance.
    * 
    * @param request - DescribeInstanceDasProRequest
    * @returns DescribeInstanceDasProResponse
@@ -36398,7 +36473,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL Explorer and Audit tasks of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+   * Queries the audit log tasks of a database instance.
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
@@ -36458,7 +36533,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SQL Explorer and Audit tasks of a database instance for which Database Autonomy Service (DAS) Enterprise Edition is enabled.
+   * Queries the audit log tasks of a database instance.
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
@@ -36552,7 +36627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 100 hot keys over a period of time.
+   * Queries the top 100 hotkeys over a period of time.
    * 
    * @remarks
    * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
@@ -36609,7 +36684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 100 hot keys over a period of time.
+   * Queries the top 100 hotkeys over a period of time.
    * 
    * @remarks
    * If the number of queries per second (QPS) of a key is greater than 3,000, the key is considered a hot key.
@@ -36790,12 +36865,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+   * Deactivates Database Autonomy Service (DAS) Professional Edition.
    * 
    * @remarks
-   *   For more information about database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1.
+   * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - DisableDasProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36830,12 +36906,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables Database Autonomy Service (DAS) Enterprise Edition for a database instance.
+   * Deactivates Database Autonomy Service (DAS) Professional Edition.
    * 
    * @remarks
-   *   For more information about database instances that support DAS Enterprise Edition, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   *   For more information about the database instances that support DAS Enterprise Edition, see [Overview](https://help.aliyun.com/document_detail/190912.html).
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1.
+   * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable or disable DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - DisableDasProRequest
    * @returns DisableDasProResponse
@@ -36968,12 +37045,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables Database Autonomy Service (DAS) Enterprise Edition V1 for a database instance.
+   * Activates Database Autonomy Service (DAS) Professional Edition.
    * 
    * @remarks
    *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1.
-   * >  If your database instance supports DAS Enterprise Edition V3, you cannot call this operation to enable DAS Enterprise Edition V1. You can call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable DAS Enterprise Edition V3 for your database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - EnableDasProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37012,12 +37089,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables Database Autonomy Service (DAS) Enterprise Edition V1 for a database instance.
+   * Activates Database Autonomy Service (DAS) Professional Edition.
    * 
    * @remarks
    *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1.
-   * >  If your database instance supports DAS Enterprise Edition V3, you cannot call this operation to enable DAS Enterprise Edition V1. You can call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to enable DAS Enterprise Edition V3 for your database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [Editions and supported features](https://help.aliyun.com/document_detail/156204.html).
+   * >  We recommend that you call the [ModifySqlLogConfig](https://help.aliyun.com/document_detail/2778835.html) operation to activate or deactivate DAS Enterprise Edition for a database instance. For more information about the databases and regions supported by each version of DAS Enterprise Edition, see [DAS editions and supported features](https://help.aliyun.com/document_detail/156204.html).
    * 
    * @param request - EnableDasProRequest
    * @returns EnableDasProResponse
@@ -37103,9 +37180,10 @@ export default class Client extends OpenApi {
    * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
    * 
    * @remarks
-   * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-   * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+   * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+   * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
    * 
    * @param request - GetAsyncErrorRequestListByCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37155,9 +37233,10 @@ export default class Client extends OpenApi {
    * Asynchronously queries the IDs of SQL statements that generate a MySQL error code in the SQL Explorer results of a database instance.
    * 
    * @remarks
-   * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of **isFinish** is **false** in the response, wait for 1 second and then send a request again. If the value of **isFinish** is **true**, the complete results are returned.
-   * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Purchase DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
-   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+   * >  GetAsyncErrorRequestListByCode is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the **isFinish** parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the **isFinish** parameter is **true**, the complete results are returned.
+   * *   This API operation supports only ApsaraDB RDS for MySQL instances and PolarDB for MySQL clusters for which Database Autonomy Service (DAS) Enterprise Edition is enabled. For more information, see [Enable and manage DAS Economy Edition and DAS Enterprise Edition](https://help.aliyun.com/document_detail/163298.html).
+   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
    * 
    * @param request - GetAsyncErrorRequestListByCodeRequest
    * @returns GetAsyncErrorRequestListByCodeResponse
@@ -37435,9 +37514,9 @@ export default class Client extends OpenApi {
    * @remarks
    * Before you call this operation, take note of the following items:
    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage is of one of the following types:
-   *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0.
-   *     *   PolarDB for MySQL Cluster Edition instance that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, or PolarDB for MySQL X-Engine Edition instance that runs MySQL 8.0.
+   * *   The database instance that you want to manage must be of one of the following types:
+   *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
    * 
    * @param request - GetAutoThrottleRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37477,9 +37556,9 @@ export default class Client extends OpenApi {
    * @remarks
    * Before you call this operation, take note of the following items:
    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage is of one of the following types:
-   *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition instance that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0.
-   *     *   PolarDB for MySQL Cluster Edition instance that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, or PolarDB for MySQL X-Engine Edition instance that runs MySQL 8.0.
+   * *   The database instance that you want to manage must be of one of the following types:
+   *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
+   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
    * 
    * @param request - GetAutoThrottleRulesRequest
    * @returns GetAutoThrottleRulesResponse
@@ -37646,7 +37725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the blocking statistics of an instance.
+   * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
    *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
@@ -37706,7 +37785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the blocking statistics of an instance.
+   * Queries the blocking data of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
    *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
@@ -37780,13 +37859,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage of SQL Explorer of a database instance.
+   * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
    * 
    * @remarks
-   *   For information about database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
+   * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
    * 
    * @param request - GetDasProServiceUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37821,13 +37901,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage usage of SQL Explorer of a database instance.
+   * Queries the storage usage of a database instance for which Database Autonomy Service (DAS) Enterprise Edition V1 or V2 is enabled.
    * 
    * @remarks
-   *   For information about database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   *   For information about the database instances that support this operation, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
    * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
    * *   This operation is applicable only to DAS Enterprise Edition V1 and V2.
+   * >  We recommend that you call the [DescribeSqlLogStatistic](https://help.aliyun.com/document_detail/2778836.html) operation to query the data statistics of a database instance for which DAS Enterprise Edition is enabled.
    * 
    * @param request - GetDasProServiceUsageRequest
    * @returns GetDasProServiceUsageResponse
@@ -37838,14 +37919,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the hot storage data that Database Autonomy Service (DAS) Enterprise Edition V2 or V3 generated for a database instance within the previous seven days.
+   * Queries the hot data of audit logs.
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
    * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster in the China (Shanghai) region.
-   * >  You can query only the data generated after DAS Enterprise Edition V2 or V3 was enabled. The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the beginning and the end of the time range to query cannot exceed 24 hours.
+   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
+   * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
    * 
    * @param request - GetDasSQLLogHotDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37984,14 +38065,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of the hot storage data that Database Autonomy Service (DAS) Enterprise Edition V2 or V3 generated for a database instance within the previous seven days.
+   * Queries the hot data of audit logs.
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
    * *   If you use an Alibaba Cloud SDK or DAS SDK to call this operation, we recommend that you use the latest version of the SDK.
-   * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
-   * *   The database instance that you want to manage must be an ApsaraDB RDS for MySQL instance or a PolarDB for MySQL cluster in the China (Shanghai) region.
-   * >  You can query only the data generated after DAS Enterprise Edition V2 or V3 was enabled. The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the beginning and the end of the time range to query cannot exceed 24 hours.
+   * *   If you use an SDK to call API operations of DAS, you must set the region ID to cn-shanghai.
+   * *   This operation is applicable to PolarDB for MySQL, ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and ApsaraDB RDS for SQL Server.
+   * >  The beginning of the time range to query can be up to seven days earlier than the current time. The interval between the start time and the end time cannot exceed one day. This operation can return a maximum of 10,000 entries.
    * 
    * @param request - GetDasSQLLogHotDataRequest
    * @returns GetDasSQLLogHotDataResponse
@@ -38002,7 +38083,61 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deadlock details of an instance.
+   * 查询单个死锁详情
+   * 
+   * @param request - GetDeadLockDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeadLockDetailResponse
+   */
+  async getDeadLockDetailWithOptions(request: GetDeadLockDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetDeadLockDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.textId)) {
+      query["TextId"] = request.textId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeadLockDetail",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeadLockDetailResponse>(await this.callApi(params, req, runtime), new GetDeadLockDetailResponse({}));
+  }
+
+  /**
+   * 查询单个死锁详情
+   * 
+   * @param request - GetDeadLockDetailRequest
+   * @returns GetDeadLockDetailResponse
+   */
+  async getDeadLockDetail(request: GetDeadLockDetailRequest): Promise<GetDeadLockDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeadLockDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
    *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
@@ -38058,7 +38193,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the deadlock details of an instance.
+   * Queries the deadlock details of an ApsaraDB RDS for SQL Server instance.
    * 
    * @remarks
    *   This operation is applicable only to ApsaraDB RDS for SQL Server instances.
@@ -38071,6 +38206,130 @@ export default class Client extends OpenApi {
   async getDeadLockDetailList(request: GetDeadLockDetailListRequest): Promise<GetDeadLockDetailListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDeadLockDetailListWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取历史死锁记录
+   * 
+   * @param request - GetDeadLockHistoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeadLockHistoryResponse
+   */
+  async getDeadLockHistoryWithOptions(request: GetDeadLockHistoryRequest, runtime: $Util.RuntimeOptions): Promise<GetDeadLockHistoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      query["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.source)) {
+      query["Source"] = request.source;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeadLockHistory",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeadLockHistoryResponse>(await this.callApi(params, req, runtime), new GetDeadLockHistoryResponse({}));
+  }
+
+  /**
+   * 获取历史死锁记录
+   * 
+   * @param request - GetDeadLockHistoryRequest
+   * @returns GetDeadLockHistoryResponse
+   */
+  async getDeadLockHistory(request: GetDeadLockHistoryRequest): Promise<GetDeadLockHistoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeadLockHistoryWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询时间范围内基于错误日志分析的死锁数量
+   * 
+   * @param request - GetDeadlockHistogramRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDeadlockHistogramResponse
+   */
+  async getDeadlockHistogramWithOptions(request: GetDeadlockHistogramRequest, runtime: $Util.RuntimeOptions): Promise<GetDeadlockHistogramResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.nodeId)) {
+      body["NodeId"] = request.nodeId;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDeadlockHistogram",
+      version: "2020-01-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDeadlockHistogramResponse>(await this.callApi(params, req, runtime), new GetDeadlockHistogramResponse({}));
+  }
+
+  /**
+   * 查询时间范围内基于错误日志分析的死锁数量
+   * 
+   * @param request - GetDeadlockHistogramRequest
+   * @returns GetDeadlockHistogramResponse
+   */
+  async getDeadlockHistogram(request: GetDeadlockHistogramRequest): Promise<GetDeadlockHistogramResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDeadlockHistogramWithOptions(request, runtime);
   }
 
   /**
@@ -38435,10 +38694,11 @@ export default class Client extends OpenApi {
    * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
    * 
    * @remarks
-   * >  The complete query results are not returned immediately after an asynchronous request is sent. If the value of isFinish is **false** in the response, wait for 1 second and send the request again. The complete query results are returned until the value of isFinish is **true**.
+   * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
    * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-   * *   For more information about database instances that support SQL Explorer, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-   * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
    * 
    * @param request - GetFullRequestStatResultByInstanceIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38528,10 +38788,11 @@ export default class Client extends OpenApi {
    * Asynchronously collects the full request statistics in the SQL Explorer results of a database instance by SQL ID.
    * 
    * @remarks
-   * >  The complete query results are not returned immediately after an asynchronous request is sent. If the value of isFinish is **false** in the response, wait for 1 second and send the request again. The complete query results are returned until the value of isFinish is **true**.
+   * >  GetFullRequestStatResultByInstanceId is an asynchronous operation. After a request is sent, the complete results are not returned immediately. If the value of the isFinish parameter is **false** in the response, wait for 1 second and then send a request again. If the value of the isFinish parameter is **true**, the complete results are returned.
    * The SQL Explorer feature allows you to check the health status of SQL statements and troubleshoot performance issues. For more information, see [SQL Explorer](https://help.aliyun.com/document_detail/204096.html).
-   * *   For more information about database instances that support SQL Explorer, see [Overview](https://help.aliyun.com/document_detail/190912.html).
-   * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   For more information about database instances that support this feature, see [Overview of DAS Enterprise Edition](https://help.aliyun.com/document_detail/190912.html).
+   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   When you call this operation, the value of the SqlId parameter changes due to the optimization of the SQL template algorithm starting from September 1, 2024. For more information, see [[Notice\\] Optimization of the SQL template algorithm](~~2845725~~).
    * 
    * @param request - GetFullRequestStatResultByInstanceIdRequest
    * @returns GetFullRequestStatResultByInstanceIdResponse
@@ -40066,15 +40327,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * *   This operation supports the following database engines:
-   *     *   ApsaraDB RDS for MySQL
-   *     *   ApsaraDB RDS for PostgreSQL
-   *     *   ApsaraDB RDS for SQL Server
+   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
+   * *   This operation is applicable to the following database engines:
+   *     *   RDS MySQL
+   *     *   RDS PostgreSQL
+   *     *   RDS SQL Server
    *     *   PolarDB for MySQL
-   *     *   PolarDB for PostgreSQL (compatible with Oracle)
+   *     *   PolarDB for PostgreSQL (Compatible with Oracle)
    *     *   ApsaraDB for MongoDB
-   * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+   * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
    * 
    * @param request - GetRequestDiagnosisResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40125,15 +40387,16 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an SDK to call operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
-   * *   This operation supports the following database engines:
-   *     *   ApsaraDB RDS for MySQL
-   *     *   ApsaraDB RDS for PostgreSQL
-   *     *   ApsaraDB RDS for SQL Server
+   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   You cannot call this operation to query the diagnostic result of the automatic SQL optimization feature.
+   * *   This operation is applicable to the following database engines:
+   *     *   RDS MySQL
+   *     *   RDS PostgreSQL
+   *     *   RDS SQL Server
    *     *   PolarDB for MySQL
-   *     *   PolarDB for PostgreSQL (compatible with Oracle)
+   *     *   PolarDB for PostgreSQL (Compatible with Oracle)
    *     *   ApsaraDB for MongoDB
-   * >  The minor engine version of the Apsara RDS for PostgreSQL instance must be 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
+   * >  If your instance is an ApsaraDB RDS for PostgreSQL instance, make sure that the minor engine version of your instance is 20220130 or later. For more information about how to check and update the minor engine version of an ApsaraDB RDS for PostgreSQL instance, see [Update the minor engine version of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/146895.html).
    * 
    * @param request - GetRequestDiagnosisResultRequest
    * @returns GetRequestDiagnosisResultResponse
@@ -40750,7 +41013,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
    * *   Make sure that the database instance that you want to manage is connected to DAS.
    * 
@@ -40827,7 +41090,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Before you call this operation, take note of the following items:
-   * *   If you use an Alibaba Cloud SDK or Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
+   * *   If you use an Alibaba Cloud SDK or a Database Autonomy Service (DAS) SDK to call this operation, we recommend that you use the latest version of the SDK.
    * *   If you use an SDK to call the API operations of DAS, you must set the region ID to cn-shanghai.
    * *   Make sure that the database instance that you want to manage is connected to DAS.
    * 
@@ -40837,128 +41100,6 @@ export default class Client extends OpenApi {
   async setEventSubscription(request: SetEventSubscriptionRequest): Promise<SetEventSubscriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setEventSubscriptionWithOptions(request, runtime);
-  }
-
-  /**
-   * Stops a stress testing task.
-   * 
-   * @remarks
-   * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-   * 
-   * @param request - StopCloudBenchTaskRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns StopCloudBenchTaskResponse
-   */
-  async stopCloudBenchTaskWithOptions(request: StopCloudBenchTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopCloudBenchTaskResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.taskId)) {
-      query["TaskId"] = request.taskId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "StopCloudBenchTask",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<StopCloudBenchTaskResponse>(await this.callApi(params, req, runtime), new StopCloudBenchTaskResponse({}));
-  }
-
-  /**
-   * Stops a stress testing task.
-   * 
-   * @remarks
-   * Database Autonomy Service (DAS) provides the intelligent stress testing feature. This feature helps you check whether your instance needs to be scaled up to effectively handle traffic spikes. For more information, see [Intelligent stress testing](https://help.aliyun.com/document_detail/155068.html).
-   * 
-   * @param request - StopCloudBenchTaskRequest
-   * @returns StopCloudBenchTaskResponse
-   */
-  async stopCloudBenchTask(request: StopCloudBenchTaskRequest): Promise<StopCloudBenchTaskResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.stopCloudBenchTaskWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - SyncHDMAliyunResourceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns SyncHDMAliyunResourceResponse
-   */
-  async syncHDMAliyunResourceWithOptions(request: SyncHDMAliyunResourceRequest, runtime: $Util.RuntimeOptions): Promise<SyncHDMAliyunResourceResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.async)) {
-      query["Async"] = request.async;
-    }
-
-    if (!Util.isUnset(request.resourceTypes)) {
-      query["ResourceTypes"] = request.resourceTypes;
-    }
-
-    if (!Util.isUnset(request.uid)) {
-      query["Uid"] = request.uid;
-    }
-
-    if (!Util.isUnset(request.userId)) {
-      query["UserId"] = request.userId;
-    }
-
-    if (!Util.isUnset(request.waitForModifySecurityIps)) {
-      query["WaitForModifySecurityIps"] = request.waitForModifySecurityIps;
-    }
-
-    if (!Util.isUnset(request.context)) {
-      query["__context"] = request.context;
-    }
-
-    if (!Util.isUnset(request.accessKey)) {
-      query["accessKey"] = request.accessKey;
-    }
-
-    if (!Util.isUnset(request.signature)) {
-      query["signature"] = request.signature;
-    }
-
-    if (!Util.isUnset(request.skipAuth)) {
-      query["skipAuth"] = request.skipAuth;
-    }
-
-    if (!Util.isUnset(request.timestamp)) {
-      query["timestamp"] = request.timestamp;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "SyncHDMAliyunResource",
-      version: "2020-01-16",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<SyncHDMAliyunResourceResponse>(await this.callApi(params, req, runtime), new SyncHDMAliyunResourceResponse({}));
-  }
-
-  /**
-   * @param request - SyncHDMAliyunResourceRequest
-   * @returns SyncHDMAliyunResourceResponse
-   */
-  async syncHDMAliyunResource(request: SyncHDMAliyunResourceRequest): Promise<SyncHDMAliyunResourceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.syncHDMAliyunResourceWithOptions(request, runtime);
   }
 
   /**
@@ -41042,10 +41183,10 @@ export default class Client extends OpenApi {
    * Before you call this operation, take note of the following items:
    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
    * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
-   * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+   * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
    * *   This operation supports the following database engines:
    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
-   *     *   PolarDB for MySQL Cluster Edition or X-Engine Edition
+   *     *   PolarDB for MySQL Cluster Edition
    * 
    * @param request - UpdateAutoSqlOptimizeStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41086,10 +41227,10 @@ export default class Client extends OpenApi {
    * Before you call this operation, take note of the following items:
    * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
    * *   DAS Enterprise Edition must be enabled for the database instance that you want to manage. To enable DAS Enterprise Edition for a database instance, you can call the [EnableDasPro](https://help.aliyun.com/document_detail/411645.html) operation.
-   * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
+   * *   The autonomy service must be enabled for the database instance. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
    * *   This operation supports the following database engines:
    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition
-   *     *   PolarDB for MySQL Cluster Edition or X-Engine Edition
+   *     *   PolarDB for MySQL Cluster Edition
    * 
    * @param request - UpdateAutoSqlOptimizeStatusRequest
    * @returns UpdateAutoSqlOptimizeStatusResponse
@@ -41103,13 +41244,13 @@ export default class Client extends OpenApi {
    * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
    * 
    * @remarks
-   * >  Asynchronous calls do not immediately return the complete results. You must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.
+   * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
    * Before you call this operation, take note of the following items:
-   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
    * *   The database instance that you want to manage must be of one of the following types:
    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, or PolarDB for MySQL X-Engine Edition that runs MySQL 8.0
+   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
    * 
    * @param request - UpdateAutoThrottleRulesAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41183,13 +41324,13 @@ export default class Client extends OpenApi {
    * Asynchronously configures parameters related to the automatic SQL throttling feature for multiple database instances at a time.
    * 
    * @remarks
-   * >  Asynchronous calls do not immediately return the complete results. You must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.
+   * >  Asynchronous calls do not immediately return the complete results. To obtain the complete results, you must use the value of **ResultId** returned in the response to re-initiate the call until the value of **isFinish** is **true**.**** In this case, you must call this operation at least twice.
    * Before you call this operation, take note of the following items:
-   * *   If you use an SDK to call the API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
+   * *   If you use an SDK to call API operations of Database Autonomy Service (DAS), you must set the region ID to cn-shanghai.
    * *   The autonomy service must be enabled for the database instance that you want to manage. For more information, see [Autonomy center](https://help.aliyun.com/document_detail/152139.html).
    * *   The database instance that you want to manage must be of one of the following types:
    *     *   ApsaraDB RDS for MySQL High-availability Edition or Enterprise Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
-   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0, or PolarDB for MySQL X-Engine Edition that runs MySQL 8.0
+   *     *   PolarDB for MySQL Cluster Edition that runs MySQL 5.6, MySQL 5.7, or MySQL 8.0
    * 
    * @param request - UpdateAutoThrottleRulesAsyncRequest
    * @returns UpdateAutoThrottleRulesAsyncResponse
