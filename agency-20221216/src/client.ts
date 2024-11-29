@@ -7,6 +7,104 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CancelCouponRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 501001340370350
+   */
+  couponId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      couponId: 'CouponId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      couponId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCouponResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  message?: string;
+  /**
+   * @example
+   * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelCouponResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelCouponResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelCouponResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelSubscriptionBillRequest extends $tea.Model {
   /**
    * @remarks
@@ -118,6 +216,141 @@ export class CancelSubscriptionBillResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CancelSubscriptionBillResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CouponApprovalStatusListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 5093156
+   */
+  templateId?: string;
+  templateName?: string;
+  /**
+   * @example
+   * 2
+   */
+  templateStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateStatus: 'TemplateStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNo: 'number',
+      pageSize: 'number',
+      templateId: 'string',
+      templateName: 'string',
+      templateStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CouponApprovalStatusListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: CouponApprovalStatusListResponseBodyData[];
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': CouponApprovalStatusListResponseBodyData },
+      message: 'string',
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CouponApprovalStatusListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CouponApprovalStatusListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CouponApprovalStatusListResponseBody,
     };
   }
 
@@ -949,6 +1182,108 @@ export class DeductOutstandingBalanceResponse extends $tea.Model {
   }
 }
 
+export class DeleteCouponTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6558410265670417297
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponTemplateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * true
+   */
+  data?: boolean;
+  /**
+   * @example
+   * 200
+   */
+  message?: string;
+  /**
+   * @example
+   * A747A00F-E096-5244-88B3-3E474BAE3AE4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'boolean',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteCouponTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteCouponTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteCouponTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EditEndUserStatusRequest extends $tea.Model {
   /**
    * @remarks
@@ -1505,7 +1840,7 @@ export class ExportCustomerQuotaRecordResponse extends $tea.Model {
 export class GetAccountInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * Message
+   * Pagination, current page.
    * 
    * This parameter is required.
    * 
@@ -1515,7 +1850,7 @@ export class GetAccountInfoRequest extends $tea.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Success
+   * Pagination, record number on each page, maximum 20.
    * 
    * This parameter is required.
    * 
@@ -1525,7 +1860,7 @@ export class GetAccountInfoRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 10 (Value <= 20)
+   * Account UID of Distribution Customer. This parameter and the UserType parameter must have one filled. If this parameter is empty, then check all Distribution Customer accounts of the selected UserType.
    * 
    * @example
    * 1215848086704806
@@ -1533,12 +1868,10 @@ export class GetAccountInfoRequest extends $tea.Model {
   uid?: number;
   /**
    * @remarks
-   * Result Code - Error Code. Value Range:
-   * - 200 OK
-   * - 1109 System Error
-   * - 3029: Invalid UID
-   * - 3062: UID and UserType are both empty.
-   * - 3063: UserType value out of range.
+   * Distribution Customer\\"s Account Type:
+   * - 1 End User
+   * - 2 Enterprise
+   * - 3 T2 Partner
    * 
    * @example
    * 1
@@ -1570,18 +1903,17 @@ export class GetAccountInfoRequest extends $tea.Model {
 export class GetAccountInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Account Type:
-   * - 1 Agency\\"s End User
-   * - 2 Reseller\\"s End User
-   * - 3 Enterprise
-   * - 4 T2 Agency Partner
-   * - 5 T2 Reseller Partner
-   * - 6 T2 Agency+Reseller Partner
+   * List of Account Information
    */
   accountInfoList?: GetAccountInfoResponseBodyAccountInfoList;
   /**
    * @remarks
-   * Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
+   * Result Code - Error Code. Value Range:
+   * - 200 OK
+   * - 1109 System Error
+   * - 3029: Invalid UID
+   * - 3062: UID and UserType are both empty.
+   * - 3063: UserType value out of range.
    * 
    * @example
    * 200
@@ -1592,17 +1924,17 @@ export class GetAccountInfoResponseBody extends $tea.Model {
    * message
    * 
    * @example
-   * Pagination Information
+   * success
    */
   message?: string;
   /**
    * @remarks
-   * Pagination, page volume in total.
+   * Pagination Information
    */
   pageInfo?: GetAccountInfoResponseBodyPageInfo;
   /**
    * @remarks
-   * Request id, a unique identifier generated by Alibaba cloud for the request.
+   * Request id, a unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
@@ -1610,7 +1942,7 @@ export class GetAccountInfoResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Pagination, record number on each page.
+   * Candidate Value: True/False, which indicates whether the current API call itself is successful. It does not guarantee the success of subsequent business operations.
    * 
    * @example
    * true
@@ -1660,6 +1992,100 @@ export class GetAccountInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAccountInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCouponTemplateDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5093156
+   */
+  templateId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      templateId: 'TemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      templateId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCouponTemplateDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: GetCouponTemplateDetailResponseBodyData;
+  message?: string;
+  /**
+   * @example
+   * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetCouponTemplateDetailResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCouponTemplateDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCouponTemplateDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCouponTemplateDetailResponseBody,
     };
   }
 
@@ -3950,6 +4376,63 @@ export class SubscriptionBillResponse extends $tea.Model {
   }
 }
 
+export class CouponApprovalStatusListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * test@test.aliyunid.com
+   */
+  issuerAccount?: string;
+  /**
+   * @example
+   * 5432738203821334
+   */
+  issuerUid?: string;
+  note?: string;
+  /**
+   * @example
+   * S00000101-100040
+   */
+  templateId?: string;
+  templateName?: string;
+  /**
+   * @example
+   * 2
+   */
+  templateStatus?: number;
+  /**
+   * @example
+   * 2024-02-02 09:46:59
+   */
+  timeOfRequest?: string;
+  static names(): { [key: string]: string } {
+    return {
+      issuerAccount: 'IssuerAccount',
+      issuerUid: 'IssuerUid',
+      note: 'Note',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      templateStatus: 'TemplateStatus',
+      timeOfRequest: 'TimeOfRequest',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      issuerAccount: 'string',
+      issuerUid: 'string',
+      note: 'string',
+      templateId: 'string',
+      templateName: 'string',
+      templateStatus: 'number',
+      timeOfRequest: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateCouponTemplateResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -4180,15 +4663,17 @@ export class ExportCustomerQuotaRecordResponseBodyData extends $tea.Model {
 export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.Model {
   /**
    * @remarks
-   * The E-mail of Distribution Customer.
+   * The name of Sub Account.
+   * - Enterprise Customer: Name of Company
+   * - T2 Reseller: Name of Partner
    * 
    * @example
-   * Description of Distribution Customer.
+   * XXX Technology LTD.
    */
   accountNickname?: string;
   /**
    * @remarks
-   * Account CID of Distribution Customer.
+   * Alibaba Cloud Login name of Distribution Customer.
    * 
    * @example
    * 1234@qq.com
@@ -4196,7 +4681,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   aliyunId?: string;
   /**
    * @remarks
-   * XXX Technology LTD.
+   * The time that Distribution Customer successfully associated with Distributor.
    * 
    * @example
    * 2021-01-01
@@ -4204,25 +4689,39 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   associationSuccessTime?: string;
   /**
    * @remarks
-   * customer\\"s CID
+   * Account CID of Distribution Customer.
    * 
    * @example
    * 61479572
    */
   cid?: number;
+  /**
+   * @remarks
+   * Type of customer\\"s account, 0 Individual, 1 Enterprise
+   * 
+   * @example
+   * 1
+   */
   customerAccountType?: number;
   /**
    * @remarks
-   * customer manager
+   * Customer\\"s Sales Manager
    * 
    * @example
-   * abc
+   * Tommy
    */
   customerBd?: string;
+  /**
+   * @remarks
+   * Whether the customer has completed Enterprise Real-name Authentication, 0 No, 1 Yes
+   * 
+   * @example
+   * 1
+   */
   customerEnterpriseCertified?: number;
   /**
    * @remarks
-   * The account have Shutdown-delay Privilege, After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.
+   * When Shutdown Policy is delayStop, this number refer to Shutdown-delay Credit (overdraft limit).
    * 
    * @example
    * 600
@@ -4230,18 +4729,18 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   delayAmount?: string;
   /**
    * @remarks
-   * Partner\\"s Shutdown Policy Management for Sub Account.
-   * 1: delayStop. The account have Shutdown-delay Privilege, After Shutdown-delay Credit is ran out, Alibaba Cloud will take over resources and keep the instance for 15 days. In addition, the instance will be released if Sub Account failed to pay the bill within these 15 days.
-   * 2: noStop. Partner will manually manage Shutdown Status for Sub Account. Meanwhile, System would not manage the resource\\"s life-circle of Sub Account.
-   * 3: immediatelyStop. Once valid quota of Sub Account falls below 0 and be identified as defaulting account, it will trigger the instance shutdown immediately.
+   * There are a value for Shutdown Policy Management towards Sub Account.
+   * - 1 immediatelyStop,  immediately shutdown the instance once customer\\"s quota is ran out.
+   * - 2 delayStop, delay shutdown the instance until customer\\"s Shutdown-delay Credit is ran out. Please refer to DelayAmount.
+   * - 3 noStop, customer\\"s instance status is rely on manual control instead of auto setting.
    * 
    * @example
-   * noStop
+   * immediatelyStop
    */
   delayStatus?: string;
   /**
    * @remarks
-   * Sub Account
+   * The E-mail of Distribution Customer.
    * 
    * @example
    * 1234@qq.com
@@ -4249,7 +4748,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   email?: string;
   /**
    * @remarks
-   * Account UID of Distribution Customer.
+   * The contact number of Distribution Customer.
    * 
    * @example
    * 13641588680
@@ -4257,27 +4756,39 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   mobile?: string;
   /**
    * @remarks
-   * Purchase Forbidden：Ban the new purchase action
-   * normal：Normal--End Use can issue Cloud Resource order immediately.
+   * Purchase Control, Value Range:
+   * - Purchase Forbidden
+   * - Normal (Purchase is allowed)
    * 
    * @example
    * Normal
    */
   newBuyStatus?: string;
+  /**
+   * @remarks
+   * The Country Code where the customer\\"s account is registered.
+   * 
+   * @example
+   * CN
+   */
   registerCountryCode?: string;
   /**
    * @remarks
-   * Valid mobile number of Distribution Customer.
+   * Description of Distribution Customer.
    * 
    * @example
-   * Alibaba Cloud Login name of Distribution Customer.
+   * Sub Account
    */
   remark?: string;
   /**
    * @remarks
-   * The name of Sub Account:
-   * 1.	Use the official name of Company, if Sub Account is an enterprise.
-   * 2.	Use the official name of Partner, if Sub Account is a T2 reseller.
+   * Account Type:
+   * - 1 Agency\\"s End User
+   * - 2 Reseller\\"s End User
+   * - 3 Enterprise
+   * - 4 T2 Agency Partner
+   * - 5 T2 Reseller Partner
+   * - 6 T2 Agency+Reseller Partner
    * 
    * @example
    * 1
@@ -4285,7 +4796,7 @@ export class GetAccountInfoResponseBodyAccountInfoListAccountInfo extends $tea.M
   subAccountType?: number;
   /**
    * @remarks
-   * Request ID, the unique request identifier generated by Alibaba Cloud.
+   * Account UID of Distribution Customer.
    * 
    * @example
    * 1415740779475837
@@ -4360,7 +4871,7 @@ export class GetAccountInfoResponseBodyAccountInfoList extends $tea.Model {
 export class GetAccountInfoResponseBodyPageInfo extends $tea.Model {
   /**
    * @remarks
-   * Account Information
+   * Pagination, current page.
    * 
    * @example
    * 1
@@ -4368,7 +4879,7 @@ export class GetAccountInfoResponseBodyPageInfo extends $tea.Model {
   page?: number;
   /**
    * @remarks
-   * Pagination, current page.
+   * Pagination, record number on each page.
    * 
    * @example
    * 10
@@ -4376,7 +4887,7 @@ export class GetAccountInfoResponseBodyPageInfo extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * List of Account Information
+   * Pagination, page volume in total.
    * 
    * @example
    * 12
@@ -4395,6 +4906,101 @@ export class GetAccountInfoResponseBodyPageInfo extends $tea.Model {
       page: 'number',
       pageSize: 'number',
       total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCouponTemplateDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * UNIVERSAL
+   */
+  applicableProducts?: string;
+  /**
+   * @example
+   * aliyun_poc
+   */
+  costBearer?: string;
+  couponDescription?: string;
+  /**
+   * @example
+   * 2024-11-21 18:18:22
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * 100
+   */
+  denomination?: number;
+  /**
+   * @example
+   * 1
+   */
+  limitPerPerson?: number;
+  /**
+   * @example
+   * ALL,BILLING
+   */
+  purchaseType?: string;
+  reasonForApplication?: string;
+  /**
+   * @example
+   * APPROVED
+   */
+  status?: string;
+  /**
+   * @example
+   * 1576
+   */
+  templateId?: number;
+  templateName?: string;
+  /**
+   * @example
+   * 100
+   */
+  validUntil?: string;
+  /**
+   * @example
+   * 0
+   */
+  validUntilType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicableProducts: 'ApplicableProducts',
+      costBearer: 'CostBearer',
+      couponDescription: 'CouponDescription',
+      createdTime: 'CreatedTime',
+      denomination: 'Denomination',
+      limitPerPerson: 'LimitPerPerson',
+      purchaseType: 'PurchaseType',
+      reasonForApplication: 'ReasonForApplication',
+      status: 'Status',
+      templateId: 'TemplateId',
+      templateName: 'TemplateName',
+      validUntil: 'ValidUntil',
+      validUntilType: 'ValidUntilType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicableProducts: 'string',
+      costBearer: 'string',
+      couponDescription: 'string',
+      createdTime: 'string',
+      denomination: 'number',
+      limitPerPerson: 'number',
+      purchaseType: 'string',
+      reasonForApplication: 'string',
+      status: 'string',
+      templateId: 'number',
+      templateName: 'string',
+      validUntil: 'string',
+      validUntilType: 'string',
     };
   }
 
@@ -5689,6 +6295,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 作废优惠券
+   * 
+   * @param request - CancelCouponRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelCouponResponse
+   */
+  async cancelCouponWithOptions(request: CancelCouponRequest, runtime: $Util.RuntimeOptions): Promise<CancelCouponResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.couponId)) {
+      query["CouponId"] = request.couponId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelCoupon",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelCouponResponse>(await this.callApi(params, req, runtime), new CancelCouponResponse({}));
+  }
+
+  /**
+   * 作废优惠券
+   * 
+   * @param request - CancelCouponRequest
+   * @returns CancelCouponResponse
+   */
+  async cancelCoupon(request: CancelCouponRequest): Promise<CancelCouponResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelCouponWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
    * 
    * @remarks
@@ -5740,6 +6388,64 @@ export default class Client extends OpenApi {
   async cancelSubscriptionBill(request: CancelSubscriptionBillRequest): Promise<CancelSubscriptionBillResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelSubscriptionBillWithOptions(request, runtime);
+  }
+
+  /**
+   * 优惠券审批状态列表
+   * 
+   * @param request - CouponApprovalStatusListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CouponApprovalStatusListResponse
+   */
+  async couponApprovalStatusListWithOptions(request: CouponApprovalStatusListRequest, runtime: $Util.RuntimeOptions): Promise<CouponApprovalStatusListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateStatus)) {
+      query["TemplateStatus"] = request.templateStatus;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CouponApprovalStatusList",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CouponApprovalStatusListResponse>(await this.callApi(params, req, runtime), new CouponApprovalStatusListResponse({}));
+  }
+
+  /**
+   * 优惠券审批状态列表
+   * 
+   * @param request - CouponApprovalStatusListRequest
+   * @returns CouponApprovalStatusListResponse
+   */
+  async couponApprovalStatusList(request: CouponApprovalStatusListRequest): Promise<CouponApprovalStatusListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.couponApprovalStatusListWithOptions(request, runtime);
   }
 
   /**
@@ -5990,6 +6696,48 @@ export default class Client extends OpenApi {
   async deductOutstandingBalance(request: DeductOutstandingBalanceRequest): Promise<DeductOutstandingBalanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deductOutstandingBalanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 作废优惠券模板
+   * 
+   * @param request - DeleteCouponTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteCouponTemplateResponse
+   */
+  async deleteCouponTemplateWithOptions(request: DeleteCouponTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteCouponTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteCouponTemplate",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteCouponTemplateResponse>(await this.callApi(params, req, runtime), new DeleteCouponTemplateResponse({}));
+  }
+
+  /**
+   * 作废优惠券模板
+   * 
+   * @param request - DeleteCouponTemplateRequest
+   * @returns DeleteCouponTemplateResponse
+   */
+  async deleteCouponTemplate(request: DeleteCouponTemplateRequest): Promise<DeleteCouponTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteCouponTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -6246,6 +6994,48 @@ export default class Client extends OpenApi {
   async getAccountInfo(request: GetAccountInfoRequest): Promise<GetAccountInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAccountInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询优惠券模板详情
+   * 
+   * @param request - GetCouponTemplateDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCouponTemplateDetailResponse
+   */
+  async getCouponTemplateDetailWithOptions(request: GetCouponTemplateDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetCouponTemplateDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.templateId)) {
+      query["TemplateId"] = request.templateId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCouponTemplateDetail",
+      version: "2022-12-16",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCouponTemplateDetailResponse>(await this.callApi(params, req, runtime), new GetCouponTemplateDetailResponse({}));
+  }
+
+  /**
+   * 查询优惠券模板详情
+   * 
+   * @param request - GetCouponTemplateDetailRequest
+   * @returns GetCouponTemplateDetailResponse
+   */
+  async getCouponTemplateDetail(request: GetCouponTemplateDetailRequest): Promise<GetCouponTemplateDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCouponTemplateDetailWithOptions(request, runtime);
   }
 
   /**
