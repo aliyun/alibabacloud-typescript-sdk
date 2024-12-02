@@ -1171,6 +1171,11 @@ export class Cluster extends $tea.Model {
    */
   createTime?: number;
   /**
+   * @example
+   * false
+   */
+  deletionProtection?: boolean;
+  /**
    * @remarks
    * 部署模式。
    * 
@@ -1274,6 +1279,7 @@ export class Cluster extends $tea.Model {
       clusterState: 'ClusterState',
       clusterType: 'ClusterType',
       createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       description: 'Description',
       emrDefaultRole: 'EmrDefaultRole',
@@ -1299,6 +1305,7 @@ export class Cluster extends $tea.Model {
       clusterState: 'string',
       clusterType: 'string',
       createTime: 'number',
+      deletionProtection: 'boolean',
       deployMode: 'string',
       description: 'string',
       emrDefaultRole: 'string',
@@ -1467,6 +1474,7 @@ export class ClusterSummary extends $tea.Model {
    * 1592837465784
    */
   createTime?: number;
+  deletionProtection?: boolean;
   description?: string;
   /**
    * @remarks
@@ -1540,6 +1548,7 @@ export class ClusterSummary extends $tea.Model {
       clusterState: 'ClusterState',
       clusterType: 'ClusterType',
       createTime: 'CreateTime',
+      deletionProtection: 'DeletionProtection',
       description: 'Description',
       emrDefaultRole: 'EmrDefaultRole',
       endTime: 'EndTime',
@@ -1560,6 +1569,7 @@ export class ClusterSummary extends $tea.Model {
       clusterState: 'string',
       clusterType: 'string',
       createTime: 'number',
+      deletionProtection: 'boolean',
       description: 'string',
       emrDefaultRole: 'string',
       endTime: 'number',
@@ -3150,6 +3160,26 @@ export class Node extends $tea.Model {
 export class NodeAttributes extends $tea.Model {
   /**
    * @remarks
+   * 是否启用云盘加密。取值范围：
+   * - true：启用加密。
+   * - false：不加密。
+   * 
+   * 默认值：false，不加密
+   * 
+   * @example
+   * false
+   */
+  dataDiskEncrypted?: boolean;
+  /**
+   * @remarks
+   * KMS加密秘钥ID。
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
+  dataDiskKMSKeyId?: string;
+  /**
+   * @remarks
    * ECS ssh登录秘钥。
    * 
    * @example
@@ -3184,6 +3214,26 @@ export class NodeAttributes extends $tea.Model {
   securityGroupId?: string;
   /**
    * @remarks
+   * 是否启用云盘加密。取值范围：
+   * - true：启用加密。
+   * - false：不加密。
+   * 
+   * 默认值：false，不加密
+   * 
+   * @example
+   * false
+   */
+  systemDiskEncrypted?: boolean;
+  /**
+   * @remarks
+   * KMS加密秘钥ID。
+   * 
+   * @example
+   * 0e478b7a-4262-4802-b8cb-00d3fb40****
+   */
+  systemDiskKMSKeyId?: string;
+  /**
+   * @remarks
    * 专有网络ID。
    * 
    * This parameter is required.
@@ -3204,10 +3254,14 @@ export class NodeAttributes extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      dataDiskEncrypted: 'DataDiskEncrypted',
+      dataDiskKMSKeyId: 'DataDiskKMSKeyId',
       keyPairName: 'KeyPairName',
       masterRootPassword: 'MasterRootPassword',
       ramRole: 'RamRole',
       securityGroupId: 'SecurityGroupId',
+      systemDiskEncrypted: 'SystemDiskEncrypted',
+      systemDiskKMSKeyId: 'SystemDiskKMSKeyId',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -3215,10 +3269,14 @@ export class NodeAttributes extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dataDiskEncrypted: 'boolean',
+      dataDiskKMSKeyId: 'string',
       keyPairName: 'string',
       masterRootPassword: 'string',
       ramRole: 'string',
       securityGroupId: 'string',
+      systemDiskEncrypted: 'boolean',
+      systemDiskKMSKeyId: 'string',
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -3376,6 +3434,7 @@ export class NodeGroup extends $tea.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  privatePoolOptions?: PrivatePoolOptions;
   /**
    * @remarks
    * 存活节点数量。
@@ -3411,9 +3470,6 @@ export class NodeGroup extends $tea.Model {
    */
   stateChangeReason?: NodeGroupStateChangeReason;
   /**
-   * @remarks
-   * 节点组状态，NodeGroupState别名。
-   * 
    * @example
    * CREATED
    */
@@ -3463,6 +3519,7 @@ export class NodeGroup extends $tea.Model {
       nodeGroupType: 'NodeGroupType',
       nodeResizeStrategy: 'NodeResizeStrategy',
       paymentType: 'PaymentType',
+      privatePoolOptions: 'PrivatePoolOptions',
       runningNodeCount: 'RunningNodeCount',
       spotBidPrices: 'SpotBidPrices',
       spotInstanceRemedy: 'SpotInstanceRemedy',
@@ -3490,6 +3547,7 @@ export class NodeGroup extends $tea.Model {
       nodeGroupType: 'string',
       nodeResizeStrategy: 'string',
       paymentType: 'string',
+      privatePoolOptions: PrivatePoolOptions,
       runningNodeCount: 'number',
       spotBidPrices: { 'type': 'array', 'itemType': SpotBidPrice },
       spotInstanceRemedy: 'boolean',
@@ -3615,6 +3673,7 @@ export class NodeGroupConfig extends $tea.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  privatePoolOptions?: PrivatePoolOptions;
   /**
    * @remarks
    * 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
@@ -3690,6 +3749,7 @@ export class NodeGroupConfig extends $tea.Model {
       nodeGroupType: 'NodeGroupType',
       nodeResizeStrategy: 'NodeResizeStrategy',
       paymentType: 'PaymentType',
+      privatePoolOptions: 'PrivatePoolOptions',
       spotBidPrices: 'SpotBidPrices',
       spotInstanceRemedy: 'SpotInstanceRemedy',
       spotStrategy: 'SpotStrategy',
@@ -3715,6 +3775,7 @@ export class NodeGroupConfig extends $tea.Model {
       nodeGroupType: 'string',
       nodeResizeStrategy: 'string',
       paymentType: 'string',
+      privatePoolOptions: PrivatePoolOptions,
       spotBidPrices: { 'type': 'array', 'itemType': SpotBidPrice },
       spotInstanceRemedy: 'boolean',
       spotStrategy: 'string',
@@ -4265,6 +4326,36 @@ export class PriceInfo extends $tea.Model {
       spotPrice: 'string',
       taxPrice: 'string',
       tradePrice: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PrivatePoolOptions extends $tea.Model {
+  /**
+   * @example
+   * Open
+   */
+  matchCriteria?: string;
+  /**
+   * @example
+   * eap-bp67acfmxazb4****
+   */
+  privatePoolIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      matchCriteria: 'MatchCriteria',
+      privatePoolIds: 'PrivatePoolIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      matchCriteria: 'string',
+      privatePoolIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -6468,6 +6559,7 @@ export class CreateClusterRequest extends $tea.Model {
    * DATALAKE
    */
   clusterType?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The deployment mode of master nodes in the cluster. Valid values:
@@ -6574,6 +6666,7 @@ export class CreateClusterRequest extends $tea.Model {
       clientToken: 'ClientToken',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
+      deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       description: 'Description',
       nodeAttributes: 'NodeAttributes',
@@ -6596,6 +6689,7 @@ export class CreateClusterRequest extends $tea.Model {
       clientToken: 'string',
       clusterName: 'string',
       clusterType: 'string',
+      deletionProtection: 'boolean',
       deployMode: 'string',
       description: 'string',
       nodeAttributes: NodeAttributes,
@@ -6922,6 +7016,8 @@ export class CreateScriptResponse extends $tea.Model {
 }
 
 export class DecreaseNodesRequest extends $tea.Model {
+  batchInterval?: number;
+  batchSize?: number;
   /**
    * @remarks
    * The cluster ID.
@@ -6970,6 +7066,8 @@ export class DecreaseNodesRequest extends $tea.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      batchInterval: 'BatchInterval',
+      batchSize: 'BatchSize',
       clusterId: 'ClusterId',
       decreaseNodeCount: 'DecreaseNodeCount',
       nodeGroupId: 'NodeGroupId',
@@ -6980,6 +7078,8 @@ export class DecreaseNodesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      batchInterval: 'number',
+      batchSize: 'number',
       clusterId: 'string',
       decreaseNodeCount: 'number',
       nodeGroupId: 'string',
@@ -13904,7 +14004,7 @@ export class ListInstanceTypesRequest extends $tea.Model {
    * EMR distribution.
    * 
    * @example
-   * 线上已发布版本EMR-5.8.0
+   * EMR-5.8.0
    */
   releaseVersion?: string;
   /**
@@ -15445,24 +15545,24 @@ export class RunApplicationActionResponse extends $tea.Model {
 export class RunClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * 应用配置。数组元素个数N的取值范围：1~1000。
+   * The service configurations. Number of elements in the array: 1 to 1,000.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
    * @remarks
-   * 应用列表。数组元素个数N的取值范围：1~100。
+   * The list of services. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
   applications?: Application[];
   /**
    * @remarks
-   * 引导脚本。数组元素个数N的取值范围：1~10。
+   * The bootstrap actions. Number of elements in the array: 1 to 10.
    */
   bootstrapScripts?: Script[];
   /**
    * @remarks
-   * 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+   * The client token that is used to ensure the idempotence of the request. The same ClientToken value for multiple calls to the RunCluster operation results in identical responses. Only one cluster can be created by using the same ClientToken value.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -15470,7 +15570,7 @@ export class RunClusterRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+   * The cluster name. The name must be 1 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -15480,13 +15580,16 @@ export class RunClusterRequest extends $tea.Model {
   clusterName?: string;
   /**
    * @remarks
-   * 创建的EMR集群类型。取值范围：
-   * - DATALAKE：新版数据湖。
-   * - OLAP：数据分析。
-   * - DATAFLOW：实时数据流。
-   * - DATASERVING：数据服务。
-   * - CUSTOM：自定义集群。
-   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * The type of the cluster. Valid values:
+   * 
+   * *   DATALAKE
+   * *   OLAP
+   * *   DATAFLOW
+   * *   DATASERVING
+   * *   CUSTOM
+   * *   HADOOP: We recommend that you set this parameter to DATALAKE rather than HADOOP.
+   * 
+   * If the first time you create an EMR cluster is after 17:00 (UTC+8) on December 19, 2022, you cannot create a Hadoop, Data Science, Presto, or ZooKeeper cluster.
    * 
    * This parameter is required.
    * 
@@ -15494,39 +15597,46 @@ export class RunClusterRequest extends $tea.Model {
    * DATALAKE
    */
   clusterType?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
-   * 集群中的应用部署模式。取值范围：
-   * - NORMAL：非高可用部署。集群1个MASTER节点。
-   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
+   * The deployment mode of master nodes in the cluster. Valid values:
    * 
-   * 默认值：NORMAL。
+   * *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
+   * *   HA: high availability mode. A cluster that contains at least three master nodes is created.
    * 
    * @example
    * HA
    */
   deployMode?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * Emr cluster for ETL
    */
   description?: string;
+  /**
+   * @remarks
+   * The basic attributes of all ECS instances in the cluster.
+   */
   nodeAttributes?: NodeAttributes;
   /**
    * @remarks
-   * 节点组。数组元素个数N的取值范围：1~100。
-   * <p>
+   * The node groups. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
   nodeGroups?: NodeGroupConfig[];
   /**
    * @remarks
-   * 集群的付费类型。取值范围：
-   * - PayAsYouGo：后付费。
-   * - Subscription：预付费。
+   * The billing method of the cluster. Valid values:
    * 
-   * 默认值：PayAsYouGo。
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
+   * Default value: PayAsYouGo.
    * 
    * @example
    * PayAsYouGo
@@ -15534,7 +15644,7 @@ export class RunClusterRequest extends $tea.Model {
   paymentType?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15544,7 +15654,7 @@ export class RunClusterRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * EMR发行版。
+   * The EMR version. You can query available EMR versions in the EMR console.
    * 
    * This parameter is required.
    * 
@@ -15554,7 +15664,7 @@ export class RunClusterRequest extends $tea.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * 集群所在的企业资源组ID。
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -15562,20 +15672,23 @@ export class RunClusterRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Kerberos安全模式。取值范围：
-   * - NORMAL：普通模式，不开启Kerberos模式。
-   * - KERBEROS：开启Kerberos模式。
+   * The security mode of the cluster. Valid values:
    * 
-   * 默认值：NORMAL
+   * *   NORMAL: regular mode. Kerberos authentication is disabled. This is the default value.
+   * *   KERBEROS: Kerberos mode. Kerberos authentication is enabled.
    * 
    * @example
    * NORMAL
    */
   securityMode?: string;
+  /**
+   * @remarks
+   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * 标签。数组元数个数N的取值范围：0~20。
+   * The list of tags. Number of elements in the array: 0 to 20.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {
@@ -15586,6 +15699,7 @@ export class RunClusterRequest extends $tea.Model {
       clientToken: 'ClientToken',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
+      deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       description: 'Description',
       nodeAttributes: 'NodeAttributes',
@@ -15608,6 +15722,7 @@ export class RunClusterRequest extends $tea.Model {
       clientToken: 'string',
       clusterName: 'string',
       clusterType: 'string',
+      deletionProtection: 'boolean',
       deployMode: 'string',
       description: 'string',
       nodeAttributes: NodeAttributes,
@@ -15630,24 +15745,24 @@ export class RunClusterRequest extends $tea.Model {
 export class RunClusterShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * 应用配置。数组元素个数N的取值范围：1~1000。
+   * The service configurations. Number of elements in the array: 1 to 1,000.
    */
   applicationConfigsShrink?: string;
   /**
    * @remarks
-   * 应用列表。数组元素个数N的取值范围：1~100。
+   * The list of services. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
   applicationsShrink?: string;
   /**
    * @remarks
-   * 引导脚本。数组元素个数N的取值范围：1~10。
+   * The bootstrap actions. Number of elements in the array: 1 to 10.
    */
   bootstrapScriptsShrink?: string;
   /**
    * @remarks
-   * 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+   * The client token that is used to ensure the idempotence of the request. The same ClientToken value for multiple calls to the RunCluster operation results in identical responses. Only one cluster can be created by using the same ClientToken value.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -15655,7 +15770,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+   * The cluster name. The name must be 1 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -15665,13 +15780,16 @@ export class RunClusterShrinkRequest extends $tea.Model {
   clusterName?: string;
   /**
    * @remarks
-   * 创建的EMR集群类型。取值范围：
-   * - DATALAKE：新版数据湖。
-   * - OLAP：数据分析。
-   * - DATAFLOW：实时数据流。
-   * - DATASERVING：数据服务。
-   * - CUSTOM：自定义集群。
-   * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+   * The type of the cluster. Valid values:
+   * 
+   * *   DATALAKE
+   * *   OLAP
+   * *   DATAFLOW
+   * *   DATASERVING
+   * *   CUSTOM
+   * *   HADOOP: We recommend that you set this parameter to DATALAKE rather than HADOOP.
+   * 
+   * If the first time you create an EMR cluster is after 17:00 (UTC+8) on December 19, 2022, you cannot create a Hadoop, Data Science, Presto, or ZooKeeper cluster.
    * 
    * This parameter is required.
    * 
@@ -15679,39 +15797,46 @@ export class RunClusterShrinkRequest extends $tea.Model {
    * DATALAKE
    */
   clusterType?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
-   * 集群中的应用部署模式。取值范围：
-   * - NORMAL：非高可用部署。集群1个MASTER节点。
-   * - HA：高可用部署。高可用部署要求至少3个MASTER节点。
+   * The deployment mode of master nodes in the cluster. Valid values:
    * 
-   * 默认值：NORMAL。
+   * *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
+   * *   HA: high availability mode. A cluster that contains at least three master nodes is created.
    * 
    * @example
    * HA
    */
   deployMode?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * Emr cluster for ETL
    */
   description?: string;
+  /**
+   * @remarks
+   * The basic attributes of all ECS instances in the cluster.
+   */
   nodeAttributesShrink?: string;
   /**
    * @remarks
-   * 节点组。数组元素个数N的取值范围：1~100。
-   * <p>
+   * The node groups. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
   nodeGroupsShrink?: string;
   /**
    * @remarks
-   * 集群的付费类型。取值范围：
-   * - PayAsYouGo：后付费。
-   * - Subscription：预付费。
+   * The billing method of the cluster. Valid values:
    * 
-   * 默认值：PayAsYouGo。
+   * *   PayAsYouGo
+   * *   Subscription
+   * 
+   * Default value: PayAsYouGo.
    * 
    * @example
    * PayAsYouGo
@@ -15719,7 +15844,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
   paymentType?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15729,7 +15854,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * EMR发行版。
+   * The EMR version. You can query available EMR versions in the EMR console.
    * 
    * This parameter is required.
    * 
@@ -15739,7 +15864,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * 集群所在的企业资源组ID。
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -15747,20 +15872,23 @@ export class RunClusterShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Kerberos安全模式。取值范围：
-   * - NORMAL：普通模式，不开启Kerberos模式。
-   * - KERBEROS：开启Kerberos模式。
+   * The security mode of the cluster. Valid values:
    * 
-   * 默认值：NORMAL
+   * *   NORMAL: regular mode. Kerberos authentication is disabled. This is the default value.
+   * *   KERBEROS: Kerberos mode. Kerberos authentication is enabled.
    * 
    * @example
    * NORMAL
    */
   securityMode?: string;
+  /**
+   * @remarks
+   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   */
   subscriptionConfigShrink?: string;
   /**
    * @remarks
-   * 标签。数组元数个数N的取值范围：0~20。
+   * The list of tags. Number of elements in the array: 0 to 20.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -15771,6 +15899,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
       clientToken: 'ClientToken',
       clusterName: 'ClusterName',
       clusterType: 'ClusterType',
+      deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       description: 'Description',
       nodeAttributesShrink: 'NodeAttributes',
@@ -15793,6 +15922,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
       clientToken: 'string',
       clusterName: 'string',
       clusterType: 'string',
+      deletionProtection: 'boolean',
       deployMode: 'string',
       description: 'string',
       nodeAttributesShrink: 'string',
@@ -15815,7 +15945,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
 export class RunClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * The cluster ID.
    * 
    * @example
    * c-b933c5aac7f7***
@@ -15823,7 +15953,7 @@ export class RunClusterResponseBody extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 操作ID。
+   * The operation ID.
    * 
    * @example
    * op-13c37a77c505****
@@ -15831,7 +15961,7 @@ export class RunClusterResponseBody extends $tea.Model {
   operationId?: string;
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -18122,6 +18252,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
    * 200
    */
   maxCapacity?: number;
+  maxOnDemandCapacity?: number;
   /**
    * @remarks
    * The minimum number of nodes in the node group. Default value: 0.
@@ -18133,6 +18264,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
   static names(): { [key: string]: string } {
     return {
       maxCapacity: 'MaxCapacity',
+      maxOnDemandCapacity: 'MaxOnDemandCapacity',
       minCapacity: 'MinCapacity',
     };
   }
@@ -18140,6 +18272,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
   static types(): { [key: string]: any } {
     return {
       maxCapacity: 'number',
+      maxOnDemandCapacity: 'number',
       minCapacity: 'number',
     };
   }
@@ -18255,6 +18388,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
    * asp-asduwe23znl***
    */
   scalingPolicyId?: string;
+  scalingPolicyType?: string;
   /**
    * @remarks
    * The list of auto scaling rules.
@@ -18266,6 +18400,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
       constraints: 'Constraints',
       nodeGroupId: 'NodeGroupId',
       scalingPolicyId: 'ScalingPolicyId',
+      scalingPolicyType: 'ScalingPolicyType',
       scalingRules: 'ScalingRules',
     };
   }
@@ -18276,6 +18411,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
       constraints: GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConstraints,
       nodeGroupId: 'string',
       scalingPolicyId: 'string',
+      scalingPolicyType: 'string',
       scalingRules: { 'type': 'array', 'itemType': GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesScalingRules },
     };
   }
@@ -18349,6 +18485,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
    * DATALAKE
    */
   clusterType?: string;
+  deletionProtection?: boolean;
   /**
    * @remarks
    * The deployment mode of master nodes in the cluster. Valid values:
@@ -18456,6 +18593,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
       clusterName: 'ClusterName',
       clusterState: 'ClusterState',
       clusterType: 'ClusterType',
+      deletionProtection: 'DeletionProtection',
       deployMode: 'DeployMode',
       emrDefaultRole: 'EmrDefaultRole',
       existCloneConfig: 'ExistCloneConfig',
@@ -18481,6 +18619,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
       clusterName: 'string',
       clusterState: 'string',
       clusterType: 'string',
+      deletionProtection: 'boolean',
       deployMode: 'string',
       emrDefaultRole: 'string',
       existCloneConfig: 'boolean',
@@ -50444,6 +50583,10 @@ export default class Client extends OpenApi {
       query["ClusterType"] = request.clusterType;
     }
 
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
     if (!Util.isUnset(request.deployMode)) {
       query["DeployMode"] = request.deployMode;
     }
@@ -50636,6 +50779,14 @@ export default class Client extends OpenApi {
   async decreaseNodesWithOptions(request: DecreaseNodesRequest, runtime: $Util.RuntimeOptions): Promise<DecreaseNodesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.batchInterval)) {
+      query["BatchInterval"] = request.batchInterval;
+    }
+
+    if (!Util.isUnset(request.batchSize)) {
+      query["BatchSize"] = request.batchSize;
+    }
+
     if (!Util.isUnset(request.clusterId)) {
       query["ClusterId"] = request.clusterId;
     }
@@ -54183,6 +54334,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+   * 
+   * @remarks
+   * RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+   * 
    * @param tmpReq - RunClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RunClusterResponse
@@ -54249,6 +54405,10 @@ export default class Client extends OpenApi {
       body["ClusterType"] = request.clusterType;
     }
 
+    if (!Util.isUnset(request.deletionProtection)) {
+      body["DeletionProtection"] = request.deletionProtection;
+    }
+
     if (!Util.isUnset(request.deployMode)) {
       body["DeployMode"] = request.deployMode;
     }
@@ -54308,6 +54468,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+   * 
+   * @remarks
+   * RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+   * 
    * @param request - RunClusterRequest
    * @returns RunClusterResponse
    */
