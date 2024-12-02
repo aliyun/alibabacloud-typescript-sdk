@@ -656,6 +656,9 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
 
 export class AttachRCDiskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The reserved parameter. This parameter is not supported.
+   * 
    * @example
    * false
    */
@@ -4744,13 +4747,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > 
-   * 
-   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -5617,13 +5616,9 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * *   **VPC**: a virtual private cloud (VPC)
    * *   **Classic**: the classic network
    * 
-   * > 
-   * 
-   * *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-   * 
-   * *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+   * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+   * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+   * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
    * 
    * @example
    * Classic
@@ -10464,7 +10459,7 @@ export class CreateRCSnapshotRequest extends $tea.Model {
   retentionDays?: number;
   /**
    * @remarks
-   * The zone ID.
+   * This parameter has been deprecated.
    * 
    * @example
    * cn-hangzhou-b
@@ -25349,6 +25344,13 @@ export class DescribeDBProxyEndpointResponseBody extends $tea.Model {
    * keaxncrjluwu0gue****
    */
   DBProxyEndpointId?: string;
+  /**
+   * @remarks
+   * The minimum number of reserved instances.
+   * 
+   * @example
+   * 2
+   */
   DBProxyEndpointMinSlaveCount?: string;
   /**
    * @remarks
@@ -33127,15 +33129,18 @@ export class DescribeRCClustersRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -48035,20 +48040,25 @@ export class ModifyDBProxyResponse extends $tea.Model {
 export class ModifyDBProxyEndpointRequest extends $tea.Model {
   /**
    * @remarks
-   * The features that you want to enable for the proxy endpoint. If you specify more than one feature, separate the features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end of the value.
+   * The capabilities that you want to enable for the proxy endpoint. If you specify more than one capability, separate the capabilities with semicolons (;). Format: `Capability 1:Status;Capability 2:Status;...`. Do not add a semicolon (;) at the end of the value.
    * 
-   * Valid feature values:
+   * Valid capability values:
    * 
    * *   **ReadWriteSpliting**: read/write splitting
    * *   **ConnectionPersist**: connection pooling
    * *   **TransactionReadSqlRouteOptimizeStatus**: transaction splitting
+   * *   **AZProximityAccess**: nearest access
    * 
    * Valid status values:
    * 
    * *   **1**: enabled
    * *   **0**: disabled
    * 
-   * >  If the instance runs PostgreSQL, you can enable only the read/write splitting feature, which is specified by **ReadWriteSpliting**.
+   * > 
+   * 
+   * *   If the instance runs PostgreSQL, you can enable only read/write splitting, which is specified by **ReadWriteSpliting**.
+   * 
+   * *   Nearest access is supported only by dedicated database proxies for RDS instances that run MySQL.
    * 
    * @example
    * ReadWriteSpliting:1;ConnectionPersist:0
@@ -48128,9 +48138,9 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   dbEndpointType?: string;
   /**
    * @remarks
-   * The specified time takes effect. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+   * The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * > This parameter must be passed when EffectiveTime is SpecificTime.
+   * >  If **EffectiveTime** is set to **SpecificTime**, you must specify this parameter.
    * 
    * @example
    * 2023-05-06T07:08:09Z
@@ -48138,15 +48148,13 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   effectiveSpecificTime?: string;
   /**
    * @remarks
-   * Effective time, value:
+   * The effective time. Valid values:
    * 
-   * - **Immediate**: effective immediately.
+   * *   **Immediate**: The effective time is immediate.
+   * *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * *   **SpecificTime**: The effective time is a specified point in time.
    * 
-   * - **MaintainTime**: effective during the operational and maintainable time period, see ModifyDBInstanceMaintainTime.
-   * 
-   * - **SpecificTime**: effective at a specified time.
-   * 
-   * Default value: MaintainTime.
+   * Default value: **MaintainTime**.
    * 
    * @example
    * MaintainTime
@@ -48157,10 +48165,10 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
    * @remarks
    * The policy that is used to allocate read weights. Valid values:
    * 
-   * *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
-   * *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
+   * *   **Standard** (default): The system automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
+   * *   **Custom**: You must manually allocate read weights to the primary and read-only instances.
    * 
-   * > You must specify this parameter only when the read/write splitting feature is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
+   * >  You must specify this parameter when read/write splitting is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
    * 
    * @example
    * Standard
@@ -48206,7 +48214,7 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Specifies the switch ID corresponding to the availability zone of the proxy connection address. By default, it is the switch ID corresponding to the default terminal of the proxy instance. You can query the created switch by calling the DescribeVSwitches interface.
+   * The ID of the vSwitch in the zone in which the proxy endpoint is specified. The default value is the ID of the vSwitch that corresponds to the default terminal of the database proxy. You can call the DescribeVSwitches operation to query existing vSwitches.
    * 
    * @example
    * vsw-uf6adz52c2p****
@@ -51211,8 +51219,31 @@ export class ModifyRCInstanceChargeTypeResponse extends $tea.Model {
 }
 
 export class ModifyRCInstanceDescriptionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance name.
+   * 
+   * >  The name must be 2 to 255 characters in length and can contain letters, digits, `underscores (_)`, and `hyphens (-)`. It must start with a letter.
+   * 
+   * @example
+   * testInstance
+   */
   instanceDescription?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * rc-m5ei7b1w38w2l91x****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -51236,6 +51267,13 @@ export class ModifyRCInstanceDescriptionRequest extends $tea.Model {
 }
 
 export class ModifyRCInstanceDescriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * CCECD3CD-AB2D-4F6D-BEDE-47BC90A398D2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -60004,11 +60042,8 @@ export class CreateDBInstanceRequestServerlessConfig extends $tea.Model {
    * *   **true**
    * *   **false** (default)
    * 
-   * > 
-   * 
-   * *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
-   * 
-   * *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
+   * > *   This parameter is required only for serverless instances that run MySQL and PostgreSQL. If you set this parameter to true, a service interruption that lasts approximately 30 to 120 seconds occurs during forced scaling. Process with caution.
+   * > *   The RCU scaling for a serverless instance immediately takes effect. In some cases, such as the execution of large transactions, the scaling does not immediately take effect. In this case, you can enable this feature to forcefully scale the RCUs of the instance.
    * 
    * @example
    * false
@@ -75727,6 +75762,7 @@ export class DescribeRCClusterNodesResponseBodyPage extends $tea.Model {
 }
 
 export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
+  clusterId?: string;
   /**
    * @remarks
    * The cluster name.
@@ -75757,19 +75793,24 @@ export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
    * Running
    */
   status?: string;
+  vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
       status: 'Status',
+      vpcId: 'VpcId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      clusterId: 'string',
       clusterName: 'string',
       createTime: 'string',
       status: 'string',
+      vpcId: 'string',
     };
   }
 
@@ -97538,6 +97579,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -106243,7 +106288,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RC实例描述
+   * Modifies the name of an RDS Custom instance.
    * 
    * @param request - ModifyRCInstanceDescriptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -106282,7 +106327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改RC实例描述
+   * Modifies the name of an RDS Custom instance.
    * 
    * @param request - ModifyRCInstanceDescriptionRequest
    * @returns ModifyRCInstanceDescriptionResponse
