@@ -7,6 +7,104 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class AnalyzeGitRepositoryRequest extends $tea.Model {
+  branch?: string;
+  clientToken?: string;
+  orgId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  owner?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  platform?: string;
+  regionId?: string;
+  repoFullName?: string;
+  repoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      clientToken: 'ClientToken',
+      orgId: 'OrgId',
+      owner: 'Owner',
+      platform: 'Platform',
+      regionId: 'RegionId',
+      repoFullName: 'RepoFullName',
+      repoId: 'RepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      clientToken: 'string',
+      orgId: 'string',
+      owner: 'string',
+      platform: 'string',
+      regionId: 'string',
+      repoFullName: 'string',
+      repoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeGitRepositoryResponseBody extends $tea.Model {
+  analysisResults?: AnalyzeGitRepositoryResponseBodyAnalysisResults[];
+  count?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisResults: 'AnalysisResults',
+      count: 'Count',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisResults: { 'type': 'array', 'itemType': AnalyzeGitRepositoryResponseBodyAnalysisResults },
+      count: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeGitRepositoryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnalyzeGitRepositoryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AnalyzeGitRepositoryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelExecutionRequest extends $tea.Model {
   /**
    * @remarks
@@ -7483,6 +7581,110 @@ export class ListGitRepositoriesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGitRepositoriesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGitRepositoryContentsRequest extends $tea.Model {
+  branch?: string;
+  clientToken?: string;
+  contentType?: string;
+  orgId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  owner?: string;
+  path?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  platform?: string;
+  regionId?: string;
+  repoFullName?: string;
+  repoId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      clientToken: 'ClientToken',
+      contentType: 'ContentType',
+      orgId: 'OrgId',
+      owner: 'Owner',
+      path: 'Path',
+      platform: 'Platform',
+      regionId: 'RegionId',
+      repoFullName: 'RepoFullName',
+      repoId: 'RepoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      clientToken: 'string',
+      contentType: 'string',
+      orgId: 'string',
+      owner: 'string',
+      path: 'string',
+      platform: 'string',
+      regionId: 'string',
+      repoFullName: 'string',
+      repoId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGitRepositoryContentsResponseBody extends $tea.Model {
+  contents?: ListGitRepositoryContentsResponseBodyContents[];
+  count?: number;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      contents: 'Contents',
+      count: 'Count',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      contents: { 'type': 'array', 'itemType': ListGitRepositoryContentsResponseBodyContents },
+      count: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGitRepositoryContentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGitRepositoryContentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGitRepositoryContentsResponseBody,
     };
   }
 
@@ -15578,6 +15780,50 @@ export class ValidateTemplateContentResponse extends $tea.Model {
   }
 }
 
+export class AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles extends $tea.Model {
+  fileType?: string;
+  paths?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      fileType: 'FileType',
+      paths: 'Paths',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileType: 'string',
+      paths: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AnalyzeGitRepositoryResponseBodyAnalysisResults extends $tea.Model {
+  buildFiles?: AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles[];
+  buildType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      buildFiles: 'BuildFiles',
+      buildType: 'BuildType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buildFiles: { 'type': 'array', 'itemType': AnalyzeGitRepositoryResponseBodyAnalysisResultsBuildFiles },
+      buildType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateApplicationRequestAlarmConfig extends $tea.Model {
   /**
    * @remarks
@@ -19733,6 +19979,7 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
    * Automatic
    */
   mode?: string;
+  nextScheduleTime?: string;
   /**
    * @remarks
    * The output of the execution.
@@ -19894,6 +20141,7 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
       lastTriggerStatusMessage: 'LastTriggerStatusMessage',
       lastTriggerTime: 'LastTriggerTime',
       mode: 'Mode',
+      nextScheduleTime: 'NextScheduleTime',
       outputs: 'Outputs',
       parameters: 'Parameters',
       parentExecutionId: 'ParentExecutionId',
@@ -19932,6 +20180,7 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
       lastTriggerStatusMessage: 'string',
       lastTriggerTime: 'string',
       mode: 'string',
+      nextScheduleTime: 'string',
       outputs: 'string',
       parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       parentExecutionId: 'string',
@@ -19981,6 +20230,34 @@ export class ListGitRepositoriesResponseBodyGitRepos extends $tea.Model {
       htmlUrl: 'string',
       isPrivate: 'boolean',
       repoId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGitRepositoryContentsResponseBodyContents extends $tea.Model {
+  content?: string;
+  name?: string;
+  path?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      name: 'Name',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      name: 'string',
+      path: 'string',
+      type: 'string',
     };
   }
 
@@ -23892,6 +24169,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分析仓库
+   * 
+   * @param request - AnalyzeGitRepositoryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnalyzeGitRepositoryResponse
+   */
+  async analyzeGitRepositoryWithOptions(request: AnalyzeGitRepositoryRequest, runtime: $Util.RuntimeOptions): Promise<AnalyzeGitRepositoryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AnalyzeGitRepository",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AnalyzeGitRepositoryResponse>(await this.callApi(params, req, runtime), new AnalyzeGitRepositoryResponse({}));
+  }
+
+  /**
+   * 分析仓库
+   * 
+   * @param request - AnalyzeGitRepositoryRequest
+   * @returns AnalyzeGitRepositoryResponse
+   */
+  async analyzeGitRepository(request: AnalyzeGitRepositoryRequest): Promise<AnalyzeGitRepositoryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.analyzeGitRepositoryWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels an execution.
    * 
    * @param request - CancelExecutionRequest
@@ -26631,6 +26978,84 @@ export default class Client extends OpenApi {
   async listGitRepositories(request: ListGitRepositoriesRequest): Promise<ListGitRepositoriesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGitRepositoriesWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取仓库文件与目录信息
+   * 
+   * @param request - ListGitRepositoryContentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGitRepositoryContentsResponse
+   */
+  async listGitRepositoryContentsWithOptions(request: ListGitRepositoryContentsRequest, runtime: $Util.RuntimeOptions): Promise<ListGitRepositoryContentsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.branch)) {
+      query["Branch"] = request.branch;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.contentType)) {
+      query["ContentType"] = request.contentType;
+    }
+
+    if (!Util.isUnset(request.orgId)) {
+      query["OrgId"] = request.orgId;
+    }
+
+    if (!Util.isUnset(request.owner)) {
+      query["Owner"] = request.owner;
+    }
+
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
+    if (!Util.isUnset(request.platform)) {
+      query["Platform"] = request.platform;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.repoFullName)) {
+      query["RepoFullName"] = request.repoFullName;
+    }
+
+    if (!Util.isUnset(request.repoId)) {
+      query["RepoId"] = request.repoId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGitRepositoryContents",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGitRepositoryContentsResponse>(await this.callApi(params, req, runtime), new ListGitRepositoryContentsResponse({}));
+  }
+
+  /**
+   * 获取仓库文件与目录信息
+   * 
+   * @param request - ListGitRepositoryContentsRequest
+   * @returns ListGitRepositoryContentsResponse
+   */
+  async listGitRepositoryContents(request: ListGitRepositoryContentsRequest): Promise<ListGitRepositoryContentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listGitRepositoryContentsWithOptions(request, runtime);
   }
 
   /**
