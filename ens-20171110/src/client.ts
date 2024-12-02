@@ -7673,6 +7673,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
    * 15
    */
   idleTimeout?: number;
+  ispAffinity?: boolean;
   /**
    * @remarks
    * The ID of the Network Address Translation (NAT) gateway.
@@ -7742,6 +7743,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       idleTimeout: 'IdleTimeout',
+      ispAffinity: 'IspAffinity',
       natGatewayId: 'NatGatewayId',
       snatEntryName: 'SnatEntryName',
       snatIp: 'SnatIp',
@@ -7755,6 +7757,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       idleTimeout: 'number',
+      ispAffinity: 'boolean',
       natGatewayId: 'string',
       snatEntryName: 'string',
       snatIp: 'string',
@@ -18887,6 +18890,7 @@ export class DescribeInstancesRequest extends $tea.Model {
    * sg-5kyicq2kfcapxrdds6tar7jqb
    */
   securityGroupId?: string;
+  serviceStatus?: string[];
   /**
    * @remarks
    * The status of the instance. Valid values:
@@ -18930,6 +18934,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       pageSize: 'PageSize',
       searchKey: 'SearchKey',
       securityGroupId: 'SecurityGroupId',
+      serviceStatus: 'ServiceStatus',
       status: 'Status',
       tags: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -18954,6 +18959,7 @@ export class DescribeInstancesRequest extends $tea.Model {
       pageSize: 'string',
       searchKey: 'string',
       securityGroupId: 'string',
+      serviceStatus: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       tags: { 'type': 'array', 'itemType': DescribeInstancesRequestTags },
       vSwitchId: 'string',
@@ -19105,6 +19111,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
    * sg-5kyicq2kfcapxrdds6tar7jqb
    */
   securityGroupId?: string;
+  serviceStatusShrink?: string;
   /**
    * @remarks
    * The status of the instance. Valid values:
@@ -19148,6 +19155,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
       pageSize: 'PageSize',
       searchKey: 'SearchKey',
       securityGroupId: 'SecurityGroupId',
+      serviceStatusShrink: 'ServiceStatus',
       status: 'Status',
       tagsShrink: 'Tags',
       vSwitchId: 'VSwitchId',
@@ -19172,6 +19180,7 @@ export class DescribeInstancesShrinkRequest extends $tea.Model {
       pageSize: 'string',
       searchKey: 'string',
       securityGroupId: 'string',
+      serviceStatusShrink: 'string',
       status: 'string',
       tagsShrink: 'string',
       vSwitchId: 'string',
@@ -25533,6 +25542,7 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
    * 10
    */
   idleTimeout?: number;
+  ispAffinity?: boolean;
   /**
    * @remarks
    * The ID of the Network Address Translation (NAT) gateway.
@@ -25635,6 +25645,7 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
       creationTime: 'CreationTime',
       destCIDR: 'DestCIDR',
       idleTimeout: 'IdleTimeout',
+      ispAffinity: 'IspAffinity',
       natGatewayId: 'NatGatewayId',
       requestId: 'RequestId',
       snatEntryId: 'SnatEntryId',
@@ -25654,6 +25665,7 @@ export class DescribeSnatAttributeResponseBody extends $tea.Model {
       creationTime: 'string',
       destCIDR: 'string',
       idleTimeout: 'number',
+      ispAffinity: 'boolean',
       natGatewayId: 'string',
       requestId: 'string',
       snatEntryId: 'string',
@@ -31048,6 +31060,94 @@ export class ModifySnapshotAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifySnapshotAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySnatEntryRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  ispAffinity?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * snat-5tfjp36fsrb36zs36faj0****
+   */
+  snatEntryId?: string;
+  /**
+   * @example
+   * test0
+   */
+  snatEntryName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ispAffinity: 'IspAffinity',
+      snatEntryId: 'SnatEntryId',
+      snatEntryName: 'SnatEntryName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ispAffinity: 'boolean',
+      snatEntryId: 'string',
+      snatEntryName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySnatEntryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 125B04C7-3D0D-4245-AF96-14E3758E3F06
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySnatEntryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySnatEntryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySnatEntryResponseBody,
     };
   }
 
@@ -48930,6 +49030,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
    * The IDs of the security groups.
    */
   securityGroupIds?: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds;
+  serviceStatus?: string;
   /**
    * @remarks
    * The instance type.
@@ -48997,6 +49098,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       publicIpAddress: 'PublicIpAddress',
       publicIpAddresses: 'PublicIpAddresses',
       securityGroupIds: 'SecurityGroupIds',
+      serviceStatus: 'ServiceStatus',
       specName: 'SpecName',
       spotStrategy: 'SpotStrategy',
       status: 'Status',
@@ -49032,6 +49134,7 @@ export class DescribeInstancesResponseBodyInstancesInstance extends $tea.Model {
       publicIpAddress: DescribeInstancesResponseBodyInstancesInstancePublicIpAddress,
       publicIpAddresses: DescribeInstancesResponseBodyInstancesInstancePublicIpAddresses,
       securityGroupIds: DescribeInstancesResponseBodyInstancesInstanceSecurityGroupIds,
+      serviceStatus: 'string',
       specName: 'string',
       spotStrategy: 'string',
       status: 'string',
@@ -54815,6 +54918,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
    * 900
    */
   idleTimeout?: number;
+  ispAffinity?: boolean;
   /**
    * @remarks
    * The ID of the NAT gateway.
@@ -54891,6 +54995,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
   static names(): { [key: string]: string } {
     return {
       idleTimeout: 'IdleTimeout',
+      ispAffinity: 'IspAffinity',
       natGatewayId: 'NatGatewayId',
       snatEntryId: 'SnatEntryId',
       snatEntryName: 'SnatEntryName',
@@ -54905,6 +55010,7 @@ export class DescribeSnatTableEntriesResponseBodySnatTableEntries extends $tea.M
   static types(): { [key: string]: any } {
     return {
       idleTimeout: 'number',
+      ispAffinity: 'boolean',
       natGatewayId: 'string',
       snatEntryId: 'string',
       snatEntryName: 'string',
@@ -61056,6 +61162,10 @@ export default class Client extends OpenApi {
       query["IdleTimeout"] = request.idleTimeout;
     }
 
+    if (!Util.isUnset(request.ispAffinity)) {
+      query["IspAffinity"] = request.ispAffinity;
+    }
+
     if (!Util.isUnset(request.natGatewayId)) {
       query["NatGatewayId"] = request.natGatewayId;
     }
@@ -65520,6 +65630,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new DescribeInstancesShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.serviceStatus)) {
+      request.serviceStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceStatus, "ServiceStatus", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tags)) {
       request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "Tags", "json");
     }
@@ -65587,6 +65701,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.serviceStatusShrink)) {
+      query["ServiceStatus"] = request.serviceStatusShrink;
     }
 
     if (!Util.isUnset(request.status)) {
@@ -69806,6 +69924,56 @@ export default class Client extends OpenApi {
   async modifySnapshotAttribute(request: ModifySnapshotAttributeRequest): Promise<ModifySnapshotAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySnapshotAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改snat规则
+   * 
+   * @param request - ModifySnatEntryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySnatEntryResponse
+   */
+  async modifySnatEntryWithOptions(request: ModifySnatEntryRequest, runtime: $Util.RuntimeOptions): Promise<ModifySnatEntryResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ispAffinity)) {
+      query["IspAffinity"] = request.ispAffinity;
+    }
+
+    if (!Util.isUnset(request.snatEntryId)) {
+      query["SnatEntryId"] = request.snatEntryId;
+    }
+
+    if (!Util.isUnset(request.snatEntryName)) {
+      query["SnatEntryName"] = request.snatEntryName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySnatEntry",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySnatEntryResponse>(await this.callApi(params, req, runtime), new ModifySnatEntryResponse({}));
+  }
+
+  /**
+   * 修改snat规则
+   * 
+   * @param request - ModifySnatEntryRequest
+   * @returns ModifySnatEntryResponse
+   */
+  async modifySnatEntry(request: ModifySnatEntryRequest): Promise<ModifySnatEntryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySnatEntryWithOptions(request, runtime);
   }
 
   /**
