@@ -408,6 +408,7 @@ export class CreateArtifactRequest extends $tea.Model {
    * The build properties of the artifact, utilized for hosting and building the deployment package.
    */
   artifactBuildProperty?: CreateArtifactRequestArtifactBuildProperty;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -485,6 +486,7 @@ export class CreateArtifactRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -500,6 +502,7 @@ export class CreateArtifactRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildProperty: CreateArtifactRequestArtifactBuildProperty,
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactProperty: CreateArtifactRequestArtifactProperty,
       artifactType: 'string',
@@ -523,6 +526,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
    * The build properties of the artifact, utilized for hosting and building the deployment package.
    */
   artifactBuildPropertyShrink?: string;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -600,6 +604,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildPropertyShrink: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactPropertyShrink: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -615,6 +620,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildPropertyShrink: 'string',
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactPropertyShrink: 'string',
       artifactType: 'string',
@@ -641,6 +647,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -752,6 +759,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -771,6 +779,7 @@ export class CreateArtifactResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildProperty: 'string',
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -2512,6 +2521,7 @@ export class GetArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -2640,6 +2650,7 @@ export class GetArtifactResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -2662,6 +2673,7 @@ export class GetArtifactResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildProperty: 'string',
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -7442,6 +7454,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -7513,6 +7526,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
    * Available
    */
   status?: string;
+  statusDetail?: string;
   /**
    * @remarks
    * The ID of the region that supports the deployment package.
@@ -7536,6 +7550,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -7544,6 +7559,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
       gmtModified: 'GmtModified',
       requestId: 'RequestId',
       status: 'Status',
+      statusDetail: 'StatusDetail',
       supportRegionIds: 'SupportRegionIds',
       versionName: 'VersionName',
     };
@@ -7552,6 +7568,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildProperty: 'string',
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -7560,6 +7577,7 @@ export class UpdateArtifactResponseBody extends $tea.Model {
       gmtModified: 'string',
       requestId: 'string',
       status: 'string',
+      statusDetail: 'string',
       supportRegionIds: 'string',
       versionName: 'string',
     };
@@ -8767,7 +8785,59 @@ export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.
   }
 }
 
+export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  argumentName?: string;
+  argumentValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argumentName: 'ArgumentName',
+      argumentValue: 'ArgumentValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argumentName: 'string',
+      argumentValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  branch?: string;
+  owner?: string;
+  platform?: string;
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      owner: 'Owner',
+      platform: 'Platform',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      owner: 'string',
+      platform: 'string',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  buildArgs?: CreateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  codeRepo?: CreateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
    * The command content.
@@ -8792,6 +8862,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * RunShellScript
    */
   commandType?: string;
+  dockerfilePath?: string;
   /**
    * @remarks
    * The region ID where the source mirror image is located.
@@ -8802,6 +8873,7 @@ export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sourceContainerImage?: string;
   /**
    * @remarks
    * The source image id. Supported Types:
@@ -8820,18 +8892,26 @@ export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
   sourceImageId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildArgs: 'BuildArgs',
+      codeRepo: 'CodeRepo',
       commandContent: 'CommandContent',
       commandType: 'CommandType',
+      dockerfilePath: 'DockerfilePath',
       regionId: 'RegionId',
+      sourceContainerImage: 'SourceContainerImage',
       sourceImageId: 'SourceImageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildArgs: { 'type': 'array', 'itemType': CreateArtifactRequestArtifactBuildPropertyBuildArgs },
+      codeRepo: CreateArtifactRequestArtifactBuildPropertyCodeRepo,
       commandContent: 'string',
       commandType: 'string',
+      dockerfilePath: 'string',
       regionId: 'string',
+      sourceContainerImage: 'string',
       sourceImageId: 'string',
     };
   }
@@ -11563,6 +11643,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  artifactBuildType?: string;
   /**
    * @remarks
    * The ID of the deployment package.
@@ -11690,6 +11771,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       artifactBuildProperty: 'ArtifactBuildProperty',
+      artifactBuildType: 'ArtifactBuildType',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
@@ -11710,6 +11792,7 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       artifactBuildProperty: 'string',
+      artifactBuildType: 'string',
       artifactId: 'string',
       artifactProperty: 'string',
       artifactType: 'string',
@@ -13472,7 +13555,59 @@ export class ListServicesResponseBodyServices extends $tea.Model {
   }
 }
 
+export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  argumentName?: string;
+  argumentValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      argumentName: 'ArgumentName',
+      argumentValue: 'ArgumentValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      argumentName: 'string',
+      argumentValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  branch?: string;
+  owner?: string;
+  platform?: string;
+  repoName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      branch: 'Branch',
+      owner: 'Owner',
+      platform: 'Platform',
+      repoName: 'RepoName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      branch: 'string',
+      owner: 'string',
+      platform: 'string',
+      repoName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  buildArgs?: UpdateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  codeRepo?: UpdateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
    * The command content.
@@ -13497,6 +13632,7 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * RunShellScript
    */
   commandType?: string;
+  dockerfilePath?: string;
   /**
    * @remarks
    * The region ID where the source mirror image is located.
@@ -13507,6 +13643,7 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sourceContainerImage?: string;
   /**
    * @remarks
    * The source image id. Supported Types:
@@ -13525,18 +13662,26 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
   sourceImageId?: string;
   static names(): { [key: string]: string } {
     return {
+      buildArgs: 'BuildArgs',
+      codeRepo: 'CodeRepo',
       commandContent: 'CommandContent',
       commandType: 'CommandType',
+      dockerfilePath: 'DockerfilePath',
       regionId: 'RegionId',
+      sourceContainerImage: 'SourceContainerImage',
       sourceImageId: 'SourceImageId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      buildArgs: { 'type': 'array', 'itemType': UpdateArtifactRequestArtifactBuildPropertyBuildArgs },
+      codeRepo: UpdateArtifactRequestArtifactBuildPropertyCodeRepo,
       commandContent: 'string',
       commandType: 'string',
+      dockerfilePath: 'string',
       regionId: 'string',
+      sourceContainerImage: 'string',
       sourceImageId: 'string',
     };
   }
@@ -14417,6 +14562,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.artifactBuildPropertyShrink)) {
       query["ArtifactBuildProperty"] = request.artifactBuildPropertyShrink;
+    }
+
+    if (!Util.isUnset(request.artifactBuildType)) {
+      query["ArtifactBuildType"] = request.artifactBuildType;
     }
 
     if (!Util.isUnset(request.artifactId)) {
