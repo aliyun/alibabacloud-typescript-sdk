@@ -7174,11 +7174,16 @@ export class DescribeEciScalingConfigurationsResponse extends $tea.Model {
 }
 
 export class DescribeElasticStrengthRequest extends $tea.Model {
+  dataDiskCategories?: string[];
+  imageFamily?: string;
+  imageId?: string;
+  imageName?: string;
   /**
    * @remarks
    * The instance types. The instance types specified by this parameter overwrite the instance types specified in the scaling configuration.
    */
   instanceTypes?: string[];
+  ipv6AddressCount?: number;
   /**
    * @remarks
    * The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
@@ -7216,6 +7221,7 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    * The IDs of the scaling groups that you want to query.
    */
   scalingGroupIds?: string[];
+  spotStrategy?: string;
   /**
    * @remarks
    * The categories of the system disks. The categories of the system disks specified by this parameter overwrite the categories of the system disks specified in the scaling configuration. Valid values:
@@ -7226,25 +7232,40 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    * *   cloud_essd: Enterprise SSD (ESSD).
    */
   systemDiskCategories?: string[];
+  vSwitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
+      dataDiskCategories: 'DataDiskCategories',
+      imageFamily: 'ImageFamily',
+      imageId: 'ImageId',
+      imageName: 'ImageName',
       instanceTypes: 'InstanceTypes',
+      ipv6AddressCount: 'Ipv6AddressCount',
       priorityStrategy: 'PriorityStrategy',
       regionId: 'RegionId',
       scalingGroupId: 'ScalingGroupId',
       scalingGroupIds: 'ScalingGroupIds',
+      spotStrategy: 'SpotStrategy',
       systemDiskCategories: 'SystemDiskCategories',
+      vSwitchIds: 'VSwitchIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      dataDiskCategories: { 'type': 'array', 'itemType': 'string' },
+      imageFamily: 'string',
+      imageId: 'string',
+      imageName: 'string',
       instanceTypes: { 'type': 'array', 'itemType': 'string' },
+      ipv6AddressCount: 'number',
       priorityStrategy: 'string',
       regionId: 'string',
       scalingGroupId: 'string',
       scalingGroupIds: { 'type': 'array', 'itemType': 'string' },
+      spotStrategy: 'string',
       systemDiskCategories: { 'type': 'array', 'itemType': 'string' },
+      vSwitchIds: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
