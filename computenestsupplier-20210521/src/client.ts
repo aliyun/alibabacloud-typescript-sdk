@@ -2965,14 +2965,6 @@ export class GetServiceResponseBody extends $tea.Model {
    * The commodity details.
    */
   commodity?: GetServiceResponseBodyCommodity;
-  /**
-   * @remarks
-   * The commodity code of the service in Alibaba Cloud Marketplace.
-   * 
-   * @example
-   * cmjj00xxxx
-   */
-  commodityCode?: string;
   complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks
@@ -2990,14 +2982,6 @@ export class GetServiceResponseBody extends $tea.Model {
    * componesConfigs
    */
   crossRegionConnectionStatus?: string;
-  /**
-   * @remarks
-   * The validity period of the default license. Unit: day. Valid values: 1 to 1000.
-   * 
-   * @example
-   * 1
-   */
-  defaultLicenseDays?: number;
   /**
    * @remarks
    * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -3088,19 +3072,6 @@ export class GetServiceResponseBody extends $tea.Model {
   payFromType?: string;
   /**
    * @remarks
-   * The billing method of the service. Valid values:
-   * 
-   * *   Permanent: Once you purchase the service, you can use it permanently.
-   * *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
-   * *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
-   * *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
-   * 
-   * @example
-   * Permanent
-   */
-  payType?: string;
-  /**
-   * @remarks
    * The permissions on the service. Valid values:
    * 
    * *   Deployable: Permissions to deploy the service.
@@ -3188,14 +3159,6 @@ export class GetServiceResponseBody extends $tea.Model {
    * DISCOVERABLE
    */
   serviceDiscoverable?: string;
-  /**
-   * @remarks
-   * The URL of the service documentation.
-   * 
-   * @example
-   * http://example1.com
-   */
-  serviceDocUrl?: string;
   serviceDocumentInfos?: GetServiceResponseBodyServiceDocumentInfos[];
   /**
    * @remarks
@@ -3427,11 +3390,9 @@ export class GetServiceResponseBody extends $tea.Model {
       buildInfo: 'BuildInfo',
       categories: 'Categories',
       commodity: 'Commodity',
-      commodityCode: 'CommodityCode',
       complianceMetadata: 'ComplianceMetadata',
       createTime: 'CreateTime',
       crossRegionConnectionStatus: 'CrossRegionConnectionStatus',
-      defaultLicenseDays: 'DefaultLicenseDays',
       deployMetadata: 'DeployMetadata',
       deployType: 'DeployType',
       duration: 'Duration',
@@ -3441,7 +3402,6 @@ export class GetServiceResponseBody extends $tea.Model {
       logMetadata: 'LogMetadata',
       operationMetadata: 'OperationMetadata',
       payFromType: 'PayFromType',
-      payType: 'PayType',
       permission: 'Permission',
       policyNames: 'PolicyNames',
       progress: 'Progress',
@@ -3452,7 +3412,6 @@ export class GetServiceResponseBody extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       serviceAuditDocumentUrl: 'ServiceAuditDocumentUrl',
       serviceDiscoverable: 'ServiceDiscoverable',
-      serviceDocUrl: 'ServiceDocUrl',
       serviceDocumentInfos: 'ServiceDocumentInfos',
       serviceId: 'ServiceId',
       serviceInfos: 'ServiceInfos',
@@ -3489,11 +3448,9 @@ export class GetServiceResponseBody extends $tea.Model {
       buildInfo: 'string',
       categories: 'string',
       commodity: GetServiceResponseBodyCommodity,
-      commodityCode: 'string',
       complianceMetadata: GetServiceResponseBodyComplianceMetadata,
       createTime: 'string',
       crossRegionConnectionStatus: 'string',
-      defaultLicenseDays: 'number',
       deployMetadata: 'string',
       deployType: 'string',
       duration: 'number',
@@ -3503,7 +3460,6 @@ export class GetServiceResponseBody extends $tea.Model {
       logMetadata: 'string',
       operationMetadata: 'string',
       payFromType: 'string',
-      payType: 'string',
       permission: 'string',
       policyNames: 'string',
       progress: 'number',
@@ -3514,7 +3470,6 @@ export class GetServiceResponseBody extends $tea.Model {
       resourceGroupId: 'string',
       serviceAuditDocumentUrl: 'string',
       serviceDiscoverable: 'string',
-      serviceDocUrl: 'string',
       serviceDocumentInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceDocumentInfos },
       serviceId: 'string',
       serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
@@ -10959,6 +10914,28 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
   }
 }
 
+export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $tea.Model {
+  version?: string;
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetServiceInstanceResponseBodyService extends $tea.Model {
   /**
    * @remarks
@@ -11066,6 +11043,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
    * http://example.com
    */
   supplierUrl?: string;
+  upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
   /**
    * @remarks
    * The service versions that can be updated.
@@ -11100,6 +11078,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
       status: 'Status',
       supplierName: 'SupplierName',
       supplierUrl: 'SupplierUrl',
+      upgradableServiceInfos: 'UpgradableServiceInfos',
       upgradableServiceVersions: 'UpgradableServiceVersions',
       version: 'Version',
       versionName: 'VersionName',
@@ -11119,6 +11098,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
       status: 'string',
       supplierName: 'string',
       supplierUrl: 'string',
+      upgradableServiceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceUpgradableServiceInfos },
       upgradableServiceVersions: { 'type': 'array', 'itemType': 'string' },
       version: 'string',
       versionName: 'string',
