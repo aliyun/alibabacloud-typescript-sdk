@@ -1826,11 +1826,17 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   /**
    * @remarks
    * The end time of the instance maintenance window.
+   * 
+   * @example
+   * 1970-01-01T05:00Z
    */
   maintainEndtime?: string;
   /**
    * @remarks
    * The start time of the instance maintenance window.
+   * 
+   * @example
+   * 1970-01-01T02:00Z
    */
   maintainStarttime?: string;
   /**
@@ -1843,7 +1849,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   objectStoreSize?: number;
   /**
    * @remarks
-   * 地域ID。
+   * The Region ID.
    * 
    * @example
    * cn-beijing
@@ -1898,16 +1904,20 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   storageSize?: number;
   /**
    * @remarks
-   * The zone ID.
+   * The subdomain zone ID.
    * 
    * @example
    * cn-beijing-h-aliyun
    */
   subDomain?: string;
+  /**
+   * @remarks
+   * The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+   */
   tags?: DescribeDBInstanceAttributeResponseBodyTags[];
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-bp175iuvg8nxqraf2****
@@ -1915,7 +1925,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   vpcId?: string;
   /**
    * @remarks
-   * 实例可用区ID
+   * The Zone ID.
    * 
    * @example
    * cn-beijing-h
@@ -4908,6 +4918,9 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
   /**
    * @remarks
    * The instance name.
+   * 
+   * @example
+   * test instance
    */
   dbInstanceName?: string;
   /**
@@ -4920,7 +4933,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
   memory?: number;
   /**
    * @remarks
-   * 修改时间。
+   * The modified time.
    * 
    * @example
    * 2024-07-02T16:35:44+08:00
@@ -4934,6 +4947,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
    * PL1
    */
   performanceLevel?: string;
+  scalingRulesEnable?: boolean;
   /**
    * @remarks
    * The time when the cluster started.
@@ -4971,6 +4985,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
       memory: 'Memory',
       modifiedTime: 'ModifiedTime',
       performanceLevel: 'PerformanceLevel',
+      scalingRulesEnable: 'ScalingRulesEnable',
       startTime: 'StartTime',
       status: 'Status',
     };
@@ -4990,6 +5005,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
       memory: 'number',
       modifiedTime: 'string',
       performanceLevel: 'string',
+      scalingRulesEnable: 'boolean',
       startTime: 'string',
       status: 'string',
     };
@@ -5002,11 +5018,17 @@ export class DescribeDBInstanceAttributeResponseBodyDBClusterList extends $tea.M
 
 export class DescribeDBInstanceAttributeResponseBodyTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * testKey
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * testValue
    */
