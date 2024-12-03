@@ -1253,6 +1253,95 @@ export class JwtIdentityConfig extends $tea.Model {
   }
 }
 
+export class ParentResourceInfo extends $tea.Model {
+  apiInfo?: HttpApiApiInfo;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      apiInfo: 'apiInfo',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiInfo: HttpApiApiInfo,
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PluginClassInfo extends $tea.Model {
+  alias?: string;
+  configExample?: string;
+  description?: string;
+  executePriority?: number;
+  executeStage?: string;
+  imageName?: string;
+  innerPlugin?: boolean;
+  mode?: string;
+  name?: string;
+  pluginClassId?: string;
+  source?: string;
+  supportedMinGatewayVersion?: string;
+  type?: string;
+  version?: string;
+  versionDescription?: string;
+  wasmLanguage?: string;
+  wasmUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'alias',
+      configExample: 'configExample',
+      description: 'description',
+      executePriority: 'executePriority',
+      executeStage: 'executeStage',
+      imageName: 'imageName',
+      innerPlugin: 'innerPlugin',
+      mode: 'mode',
+      name: 'name',
+      pluginClassId: 'pluginClassId',
+      source: 'source',
+      supportedMinGatewayVersion: 'supportedMinGatewayVersion',
+      type: 'type',
+      version: 'version',
+      versionDescription: 'versionDescription',
+      wasmLanguage: 'wasmLanguage',
+      wasmUrl: 'wasmUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      configExample: 'string',
+      description: 'string',
+      executePriority: 'number',
+      executeStage: 'string',
+      imageName: 'string',
+      innerPlugin: 'boolean',
+      mode: 'string',
+      name: 'string',
+      pluginClassId: 'string',
+      source: 'string',
+      supportedMinGatewayVersion: 'string',
+      type: 'string',
+      version: 'string',
+      versionDescription: 'string',
+      wasmLanguage: 'string',
+      wasmUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PolicyClassInfo extends $tea.Model {
   alias?: string;
   attachableResourceTypes?: string[];
@@ -1380,6 +1469,34 @@ export class PolicyInfo extends $tea.Model {
       name: 'string',
       policyId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResourceInfo extends $tea.Model {
+  resourceId?: string;
+  resourceName?: string;
+  resourceType?: string;
+  resourceVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'resourceId',
+      resourceName: 'resourceName',
+      resourceType: 'resourceType',
+      resourceVersion: 'resourceVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceName: 'string',
+      resourceType: 'string',
+      resourceVersion: 'string',
     };
   }
 
@@ -1686,6 +1803,28 @@ export class SubDomainInfo extends $tea.Model {
   }
 }
 
+export class TlsCipherSuitesConfig extends $tea.Model {
+  cipherSuites?: TlsCipherSuitesConfigCipherSuites[];
+  configType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cipherSuites: 'cipherSuites',
+      configType: 'configType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cipherSuites: { 'type': 'array', 'itemType': TlsCipherSuitesConfigCipherSuites },
+      configType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AddGatewaySecurityGroupRuleRequest extends $tea.Model {
   /**
    * @remarks
@@ -1857,6 +1996,7 @@ export class CreateDomainRequest extends $tea.Model {
    */
   protocol?: string;
   resourceGroupId?: string;
+  tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
    * Maximum TLS protocol version, supports up to TLS 1.3.
@@ -1882,6 +2022,7 @@ export class CreateDomainRequest extends $tea.Model {
       name: 'name',
       protocol: 'protocol',
       resourceGroupId: 'resourceGroupId',
+      tlsCipherSuitesConfig: 'tlsCipherSuitesConfig',
       tlsMax: 'tlsMax',
       tlsMin: 'tlsMin',
     };
@@ -1896,6 +2037,7 @@ export class CreateDomainRequest extends $tea.Model {
       name: 'string',
       protocol: 'string',
       resourceGroupId: 'string',
+      tlsCipherSuitesConfig: TlsCipherSuitesConfig,
       tlsMax: 'string',
       tlsMin: 'string',
     };
@@ -3842,6 +3984,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
    * cs-xxx
    */
   withConsumerInfoById?: string;
+  withPluginAttachmentByPluginId?: string;
   static names(): { [key: string]: string } {
     return {
       consumerAuthorizationRuleId: 'consumerAuthorizationRuleId',
@@ -3853,6 +3996,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
       pathLike: 'pathLike',
       withConsumerInEnvironmentId: 'withConsumerInEnvironmentId',
       withConsumerInfoById: 'withConsumerInfoById',
+      withPluginAttachmentByPluginId: 'withPluginAttachmentByPluginId',
     };
   }
 
@@ -3867,6 +4011,7 @@ export class ListHttpApiOperationsRequest extends $tea.Model {
       pathLike: 'string',
       withConsumerInEnvironmentId: 'string',
       withConsumerInfoById: 'string',
+      withPluginAttachmentByPluginId: 'string',
     };
   }
 
@@ -4015,6 +4160,7 @@ export class ListHttpApisRequest extends $tea.Model {
    * env-xxx
    */
   withAuthPolicyInEnvironmentId?: string;
+  withAuthPolicyList?: boolean;
   /**
    * @remarks
    * Each API information in the response carries a list of authorization rules for the specified consumer ID.
@@ -4024,6 +4170,8 @@ export class ListHttpApisRequest extends $tea.Model {
    */
   withConsumerInfoById?: string;
   withEnvironmentInfo?: boolean;
+  withEnvironmentInfoById?: string;
+  withPluginAttachmentByPluginId?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
@@ -4034,8 +4182,11 @@ export class ListHttpApisRequest extends $tea.Model {
       resourceGroupId: 'resourceGroupId',
       types: 'types',
       withAuthPolicyInEnvironmentId: 'withAuthPolicyInEnvironmentId',
+      withAuthPolicyList: 'withAuthPolicyList',
       withConsumerInfoById: 'withConsumerInfoById',
       withEnvironmentInfo: 'withEnvironmentInfo',
+      withEnvironmentInfoById: 'withEnvironmentInfoById',
+      withPluginAttachmentByPluginId: 'withPluginAttachmentByPluginId',
     };
   }
 
@@ -4049,8 +4200,11 @@ export class ListHttpApisRequest extends $tea.Model {
       resourceGroupId: 'string',
       types: 'string',
       withAuthPolicyInEnvironmentId: 'string',
+      withAuthPolicyList: 'boolean',
       withConsumerInfoById: 'string',
       withEnvironmentInfo: 'boolean',
+      withEnvironmentInfoById: 'string',
+      withPluginAttachmentByPluginId: 'string',
     };
   }
 
@@ -4183,6 +4337,7 @@ export class UpdateDomainRequest extends $tea.Model {
    * HTTP
    */
   protocol?: string;
+  tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
    * Maximum TLS protocol version, supports up to TLS 1.3.
@@ -4206,6 +4361,7 @@ export class UpdateDomainRequest extends $tea.Model {
       forceHttps: 'forceHttps',
       http2Option: 'http2Option',
       protocol: 'protocol',
+      tlsCipherSuitesConfig: 'tlsCipherSuitesConfig',
       tlsMax: 'tlsMax',
       tlsMin: 'tlsMin',
     };
@@ -4218,6 +4374,7 @@ export class UpdateDomainRequest extends $tea.Model {
       forceHttps: 'boolean',
       http2Option: 'string',
       protocol: 'string',
+      tlsCipherSuitesConfig: TlsCipherSuitesConfig,
       tlsMax: 'string',
       tlsMin: 'string',
     };
@@ -6183,6 +6340,28 @@ export class ServicePorts extends $tea.Model {
   }
 }
 
+export class TlsCipherSuitesConfigCipherSuites extends $tea.Model {
+  name?: string;
+  supportVersions?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      supportVersions: 'supportVersions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      supportVersions: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -6542,6 +6721,7 @@ export class GetDomainResponseBodyData extends $tea.Model {
    */
   sans?: string;
   statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
+  tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
    * Maximum TLS protocol version, supports up to TLS 1.3.
@@ -6586,6 +6766,7 @@ export class GetDomainResponseBodyData extends $tea.Model {
       resourceGroupId: 'resourceGroupId',
       sans: 'sans',
       statisticsInfo: 'statisticsInfo',
+      tlsCipherSuitesConfig: 'tlsCipherSuitesConfig',
       tlsMax: 'tlsMax',
       tlsMin: 'tlsMin',
       updatetimestamp: 'updatetimestamp',
@@ -6612,6 +6793,7 @@ export class GetDomainResponseBodyData extends $tea.Model {
       resourceGroupId: 'string',
       sans: 'string',
       statisticsInfo: GetDomainResponseBodyDataStatisticsInfo,
+      tlsCipherSuitesConfig: TlsCipherSuitesConfig,
       tlsMax: 'string',
       tlsMin: 'string',
       updatetimestamp: 'number',
@@ -8335,6 +8517,10 @@ export default class Client extends OpenApi {
       body["resourceGroupId"] = request.resourceGroupId;
     }
 
+    if (!Util.isUnset(request.tlsCipherSuitesConfig)) {
+      body["tlsCipherSuitesConfig"] = request.tlsCipherSuitesConfig;
+    }
+
     if (!Util.isUnset(request.tlsMax)) {
       body["tlsMax"] = request.tlsMax;
     }
@@ -9230,6 +9416,10 @@ export default class Client extends OpenApi {
       query["withConsumerInfoById"] = request.withConsumerInfoById;
     }
 
+    if (!Util.isUnset(request.withPluginAttachmentByPluginId)) {
+      query["withPluginAttachmentByPluginId"] = request.withPluginAttachmentByPluginId;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -9303,12 +9493,24 @@ export default class Client extends OpenApi {
       query["withAuthPolicyInEnvironmentId"] = request.withAuthPolicyInEnvironmentId;
     }
 
+    if (!Util.isUnset(request.withAuthPolicyList)) {
+      query["withAuthPolicyList"] = request.withAuthPolicyList;
+    }
+
     if (!Util.isUnset(request.withConsumerInfoById)) {
       query["withConsumerInfoById"] = request.withConsumerInfoById;
     }
 
     if (!Util.isUnset(request.withEnvironmentInfo)) {
       query["withEnvironmentInfo"] = request.withEnvironmentInfo;
+    }
+
+    if (!Util.isUnset(request.withEnvironmentInfoById)) {
+      query["withEnvironmentInfoById"] = request.withEnvironmentInfoById;
+    }
+
+    if (!Util.isUnset(request.withPluginAttachmentByPluginId)) {
+      query["withPluginAttachmentByPluginId"] = request.withPluginAttachmentByPluginId;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9370,6 +9572,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.protocol)) {
       body["protocol"] = request.protocol;
+    }
+
+    if (!Util.isUnset(request.tlsCipherSuitesConfig)) {
+      body["tlsCipherSuitesConfig"] = request.tlsCipherSuitesConfig;
     }
 
     if (!Util.isUnset(request.tlsMax)) {
