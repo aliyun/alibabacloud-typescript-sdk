@@ -1598,6 +1598,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * 12
    */
   period?: number;
+  pricingCycle?: number;
   /**
    * @remarks
    * The code of the service to which the instance belongs. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
@@ -1659,6 +1660,7 @@ export class CreateInstanceRequest extends $tea.Model {
       ownerId: 'OwnerId',
       parameter: 'Parameter',
       period: 'Period',
+      pricingCycle: 'PricingCycle',
       productCode: 'ProductCode',
       productType: 'ProductType',
       renewPeriod: 'RenewPeriod',
@@ -1674,6 +1676,7 @@ export class CreateInstanceRequest extends $tea.Model {
       ownerId: 'number',
       parameter: { 'type': 'array', 'itemType': CreateInstanceRequestParameter },
       period: 'number',
+      pricingCycle: 'number',
       productCode: 'string',
       productType: 'string',
       renewPeriod: 'number',
@@ -6210,7 +6213,7 @@ export class GetCustomerListResponse extends $tea.Model {
 export class GetOrderDetailRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * This parameter is required.
    * 
@@ -6241,7 +6244,7 @@ export class GetOrderDetailRequest extends $tea.Model {
 export class GetOrderDetailResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The status code.
+   * The response code.
    * 
    * @example
    * Success
@@ -6249,12 +6252,12 @@ export class GetOrderDetailResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetOrderDetailResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * Successful!
@@ -6262,7 +6265,7 @@ export class GetOrderDetailResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
@@ -16301,7 +16304,7 @@ export class AllocateCostUnitResourceRequestResourceInstanceList extends $tea.Mo
    * @remarks
    * The split item of the shared instance. This parameter is required only for shared instances.
    * 
-   * *   Eight cloud services support bill splitting. The commodity codes of the eight services are oss, dcdn, snapshot, vod, cdn, live, cbwp, and pcdn.
+   * *   Eight cloud services support bill splitting. The commodity codes of the eight services are oss, dcdn, snapshot, vod, cdn, live, and cbwp.
    * *   You can obtain the split item of a shared instance by calling QueryCostUnitResource operation to obtain all resource instances within a cost center.
    * 
    * @example
@@ -18762,7 +18765,7 @@ export class DescribeInstanceBillResponseBodyDataItems extends $tea.Model {
    * The configurations of the instance.
    * 
    * @example
-   * CPU：12
+   * CPU:12
    */
   instanceConfig?: string;
   /**
@@ -23413,8 +23416,29 @@ export class GetCustomerListResponseBodyData extends $tea.Model {
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModulePropertiesBillModuleProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute code of the configured item.
+   * 
+   * @example
+   * cloud_ssd
+   */
   attrApiCode?: string;
+  /**
+   * @remarks
+   * The API code of the configured item.
+   * 
+   * @example
+   * cloud_ssd
+   */
   moduleApiCode?: string;
+  /**
+   * @remarks
+   * The attribute value of the configuration item.
+   * 
+   * @example
+   * cloud_ssd
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23457,9 +23481,34 @@ export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillMod
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The API code of the configuration item.
+   * 
+   * @example
+   * datadisk
+   */
   apiCode?: string;
+  /**
+   * @remarks
+   * The attributes of the configured item.
+   */
   billModuleProperties?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfigBillModuleConfigBillModuleProperties;
+  /**
+   * @remarks
+   * The code of the configuration item.
+   * 
+   * @example
+   * datadisk
+   */
   code?: string;
+  /**
+   * @remarks
+   * The name of the configuration item.
+   * 
+   * @example
+   * Data disk
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23504,8 +23553,29 @@ export class GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig extend
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModulePropertiesModuleProperties extends $tea.Model {
+  /**
+   * @remarks
+   * The attribute code of the configured item.
+   * 
+   * @example
+   * cloud_efficiency
+   */
   code?: string;
+  /**
+   * @remarks
+   * The attribute name of the configured item.
+   * 
+   * @example
+   * cloud_efficiency
+   */
   name?: string;
+  /**
+   * @remarks
+   * The attribute value of the configured item.
+   * 
+   * @example
+   * cloud_efficiency
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23548,8 +23618,26 @@ export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOri
 }
 
 export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The code of the configuration item.
+   * 
+   * @example
+   * systemdisk
+   */
   code?: string;
+  /**
+   * @remarks
+   * The attributes of the configured item.
+   */
   moduleProperties?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfigOriginalModuleConfigModuleProperties;
+  /**
+   * @remarks
+   * The name of the configuration item.
+   * 
+   * @example
+   * System disk
+   */
   name?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23594,16 +23682,20 @@ export class GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig ex
 export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   /**
    * @remarks
-   * The after-tax amount of the order.
+   * The aftertaxt amount of the order.
    * 
    * @example
    * 0
    */
   afterTaxAmount?: string;
+  /**
+   * @remarks
+   * The billing information about the configurations.
+   */
   billModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderBillModuleConfig;
   /**
    * @remarks
-   * The service code.
+   * The commodity code.
    * 
    * @example
    * rds
@@ -23627,7 +23719,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * The currency.
+   * The currency. Valid values: CNY, USD, and JPY.
    * 
    * @example
    * CNY
@@ -23635,7 +23727,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   currency?: string;
   /**
    * @remarks
-   * The order extension information.
+   * The additional information about the order.
    */
   extendInfos?: { [key: string]: string };
   /**
@@ -23648,7 +23740,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   instanceIDs?: string;
   /**
    * @remarks
-   * The ID of the Resource Access Management (RAM) user who performs operations on the order. If no RAM user is involved, leave this parameter blank.
+   * The ID of the Resource Access Management (RAM) user that performs operations on the order. If no RAM user is involved, this parameter is empty.
    * 
    * @example
    * 23424243432
@@ -23656,7 +23748,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   operator?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 3453425324
@@ -23664,10 +23756,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   orderId?: string;
   /**
    * @remarks
-   * The type of the suborder. Valid values:
-   * 
-   * *   ProductSubOrder: the service suborder
-   * *   RefundSubOrder: the refund suborder
+   * The type of the suborder. A value of productsuborder indicates service suborder. A value of refundsuborder indicates refund suborder.
    * 
    * @example
    * ProductSubOrder
@@ -23675,15 +23764,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   orderSubType?: string;
   /**
    * @remarks
-   * The type of the order. Valid values:
-   * 
-   * *   New: purchases an instance.
-   * *   Renew: renews an instance.
-   * *   Upgrade: upgrades the configurations of an instance.
-   * *   Refund: applies for a refund.
-   * *   Convert: switches the billing method.
-   * *   Downgrade: downgrades the configurations of an instance.
-   * *   ResizeDisk: resizes the disk.
+   * The type of the order. Valid values: new, renew, upgrade, and refund.
    * 
    * @example
    * New
@@ -23691,16 +23772,20 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   orderType?: string;
   /**
    * @remarks
-   * The module information without standardized conversion.
+   * The configuration information that is not formatted.
    * 
    * @example
    * DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
    */
   originalConfig?: string;
+  /**
+   * @remarks
+   * The information about the configurations.
+   */
   originalModuleConfig?: GetOrderDetailResponseBodyDataOrderListOrderOriginalModuleConfig;
   /**
    * @remarks
-   * The currency of payment.
+   * The currency used for payment. Valid values: CNY, USD, and JPY.
    * 
    * @example
    * CNY
@@ -23708,11 +23793,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   paymentCurrency?: string;
   /**
    * @remarks
-   * The status of payment. Valid values:
-   * 
-   * *   Unpaid: The order is not paid.
-   * *   Paid: The order is paid.
-   * *   Cancelled: The order is canceled.
+   * The payment state. Valid values: unpaid, paid, and canceled.
    * 
    * @example
    * Paid
@@ -23776,7 +23857,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   quantity?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -23800,10 +23881,7 @@ export class GetOrderDetailResponseBodyDataOrderListOrder extends $tea.Model {
   subOrderId?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * 
-   * *   Subscription: subscription
-   * *   PayAsYouGo: pay-as-you-go
+   * The billing method. Valid values: Subscription and PayAsYouGo.
    * 
    * @example
    * PayAsYouGo
@@ -23938,12 +24016,12 @@ export class GetOrderDetailResponseBodyData extends $tea.Model {
   hostName?: string;
   /**
    * @remarks
-   * The details of the order.
+   * The orders returned.
    */
   orderList?: GetOrderDetailResponseBodyDataOrderList;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -23951,7 +24029,7 @@ export class GetOrderDetailResponseBodyData extends $tea.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -23959,7 +24037,7 @@ export class GetOrderDetailResponseBodyData extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -27593,6 +27671,13 @@ export class QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList extend
    * ApsaraDB
    */
   commodityName?: string;
+  /**
+   * @remarks
+   * The code of the service. The code is the same as that in Cost Center.
+   * 
+   * @example
+   * rds
+   */
   pipCode?: string;
   /**
    * @remarks
@@ -27626,6 +27711,15 @@ export class QueryCostUnitResourceResponseBodyDataResourceInstanceDtoList extend
    * testResource
    */
   resourceNick?: string;
+  /**
+   * @remarks
+   * The source of the resource. Value:
+   * - AUTO_ALLOCATE
+   * - MANUAL_ALLOCATE
+   * 
+   * @example
+   * MANUAL_ALLOCATE
+   */
   resourceSource?: string;
   /**
    * @remarks
@@ -33938,7 +34032,7 @@ export default class Client extends OpenApi {
    * Creates a financial relationship.
    * 
    * @remarks
-   * For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 
+   * For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html). 
    * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
    * 
    * @param request - AddAccountRelationRequest
@@ -33997,7 +34091,7 @@ export default class Client extends OpenApi {
    * Creates a financial relationship.
    * 
    * @remarks
-   * For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html). 
+   * For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html). 
    * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
    * 
    * @param request - AddAccountRelationRequest
@@ -34540,6 +34634,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.period)) {
       query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
     }
 
     if (!Util.isUnset(request.productCode)) {
@@ -36108,7 +36206,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
    * *   You can query split bills that were generated within the last 12 months by calling this operation.
-   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
+   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
    * 
    * @param request - DescribeSplitItemBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36200,7 +36298,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
    * *   You can query split bills that were generated within the last 12 months by calling this operation.
-   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
+   * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
    * 
    * @param request - DescribeSplitItemBillRequest
    * @returns DescribeSplitItemBillResponse
