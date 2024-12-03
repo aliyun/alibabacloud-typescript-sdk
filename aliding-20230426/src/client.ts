@@ -6983,6 +6983,11 @@ export class CreatePersonalTodoTaskRequest extends $tea.Model {
    */
   participantIds?: string[];
   /**
+   * @example
+   * 1703750708595
+   */
+  reminderTimeStamp?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -6998,6 +7003,7 @@ export class CreatePersonalTodoTaskRequest extends $tea.Model {
       executorIds: 'ExecutorIds',
       notifyConfigs: 'NotifyConfigs',
       participantIds: 'ParticipantIds',
+      reminderTimeStamp: 'ReminderTimeStamp',
       subject: 'Subject',
       tenantContext: 'TenantContext',
     };
@@ -7010,6 +7016,7 @@ export class CreatePersonalTodoTaskRequest extends $tea.Model {
       executorIds: { 'type': 'array', 'itemType': 'string' },
       notifyConfigs: CreatePersonalTodoTaskRequestNotifyConfigs,
       participantIds: { 'type': 'array', 'itemType': 'string' },
+      reminderTimeStamp: 'number',
       subject: 'string',
       tenantContext: CreatePersonalTodoTaskRequestTenantContext,
     };
@@ -7046,6 +7053,11 @@ export class CreatePersonalTodoTaskShrinkRequest extends $tea.Model {
    */
   participantIdsShrink?: string;
   /**
+   * @example
+   * 1703750708595
+   */
+  reminderTimeStamp?: number;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -7061,6 +7073,7 @@ export class CreatePersonalTodoTaskShrinkRequest extends $tea.Model {
       executorIdsShrink: 'ExecutorIds',
       notifyConfigsShrink: 'NotifyConfigs',
       participantIdsShrink: 'ParticipantIds',
+      reminderTimeStamp: 'ReminderTimeStamp',
       subject: 'Subject',
       tenantContextShrink: 'TenantContext',
     };
@@ -7073,6 +7086,7 @@ export class CreatePersonalTodoTaskShrinkRequest extends $tea.Model {
       executorIdsShrink: 'string',
       notifyConfigsShrink: 'string',
       participantIdsShrink: 'string',
+      reminderTimeStamp: 'number',
       subject: 'string',
       tenantContextShrink: 'string',
     };
@@ -73194,6 +73208,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.participantIdsShrink)) {
       body["ParticipantIds"] = request.participantIdsShrink;
+    }
+
+    if (!Util.isUnset(request.reminderTimeStamp)) {
+      body["ReminderTimeStamp"] = request.reminderTimeStamp;
     }
 
     if (!Util.isUnset(request.subject)) {
