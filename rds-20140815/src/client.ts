@@ -4768,6 +4768,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 0
    */
   ioAccelerationEnabled?: string;
+  optimizedWrites?: string;
   /**
    * @remarks
    * The billing method of the instance. Valid values:
@@ -5110,6 +5111,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       engineVersion: 'EngineVersion',
       instanceNetworkType: 'InstanceNetworkType',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
+      optimizedWrites: 'OptimizedWrites',
       payType: 'PayType',
       period: 'Period',
       port: 'Port',
@@ -5174,6 +5176,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       engineVersion: 'string',
       instanceNetworkType: 'string',
       ioAccelerationEnabled: 'string',
+      optimizedWrites: 'string',
       payType: 'string',
       period: 'string',
       port: 'string',
@@ -5637,6 +5640,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * 0
    */
   ioAccelerationEnabled?: string;
+  optimizedWrites?: string;
   /**
    * @remarks
    * The billing method of the instance. Valid values:
@@ -5979,6 +5983,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       engineVersion: 'EngineVersion',
       instanceNetworkType: 'InstanceNetworkType',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
+      optimizedWrites: 'OptimizedWrites',
       payType: 'PayType',
       period: 'Period',
       port: 'Port',
@@ -6043,6 +6048,7 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
       engineVersion: 'string',
       instanceNetworkType: 'string',
       ioAccelerationEnabled: 'string',
+      optimizedWrites: 'string',
       payType: 'string',
       period: 'string',
       port: 'string',
@@ -46450,6 +46456,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * None
    */
   ioAccelerationEnabled?: string;
+  optimizedWrites?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -46580,6 +46587,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       effectiveTime: 'EffectiveTime',
       engineVersion: 'EngineVersion',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
+      optimizedWrites: 'OptimizedWrites',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -46615,6 +46623,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       effectiveTime: 'string',
       engineVersion: 'string',
       ioAccelerationEnabled: 'string',
+      optimizedWrites: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -46821,6 +46830,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * None
    */
   ioAccelerationEnabled?: string;
+  optimizedWrites?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
@@ -46951,6 +46961,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       effectiveTime: 'EffectiveTime',
       engineVersion: 'EngineVersion',
       ioAccelerationEnabled: 'IoAccelerationEnabled',
+      optimizedWrites: 'OptimizedWrites',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       payType: 'PayType',
@@ -46986,6 +46997,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       effectiveTime: 'string',
       engineVersion: 'string',
       ioAccelerationEnabled: 'string',
+      optimizedWrites: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       payType: 'string',
@@ -65298,6 +65310,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * true
    */
   multipleTempUpgrade?: boolean;
+  optimizedWritesInfo?: string;
   /**
    * @remarks
    * Indicates whether PgBouncer is enabled.
@@ -65564,6 +65577,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxIOMBPS: 'MaxIOMBPS',
       maxIOPS: 'MaxIOPS',
       multipleTempUpgrade: 'MultipleTempUpgrade',
+      optimizedWritesInfo: 'OptimizedWritesInfo',
       PGBouncerEnabled: 'PGBouncerEnabled',
       payType: 'PayType',
       port: 'Port',
@@ -65648,6 +65662,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       maxIOMBPS: 'number',
       maxIOPS: 'number',
       multipleTempUpgrade: 'boolean',
+      optimizedWritesInfo: 'string',
       PGBouncerEnabled: 'string',
       payType: 'string',
       port: 'string',
@@ -84888,6 +84903,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioAccelerationEnabled)) {
       query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
+    }
+
+    if (!Util.isUnset(request.optimizedWrites)) {
+      query["OptimizedWrites"] = request.optimizedWrites;
     }
 
     if (!Util.isUnset(request.payType)) {
@@ -104132,6 +104151,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ioAccelerationEnabled)) {
       query["IoAccelerationEnabled"] = request.ioAccelerationEnabled;
+    }
+
+    if (!Util.isUnset(request.optimizedWrites)) {
+      query["OptimizedWrites"] = request.optimizedWrites;
     }
 
     if (!Util.isUnset(request.ownerAccount)) {
