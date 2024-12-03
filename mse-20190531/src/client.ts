@@ -42820,6 +42820,7 @@ export class UpdateGatewayServiceRequest extends $tea.Model {
    * zh
    */
   acceptLanguage?: string;
+  dnsServerList?: string[];
   /**
    * @example
    * 501
@@ -42864,6 +42865,7 @@ export class UpdateGatewayServiceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      dnsServerList: 'DnsServerList',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
@@ -42878,6 +42880,7 @@ export class UpdateGatewayServiceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      dnsServerList: { 'type': 'array', 'itemType': 'string' },
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'string',
@@ -42900,6 +42903,7 @@ export class UpdateGatewayServiceShrinkRequest extends $tea.Model {
    * zh
    */
   acceptLanguage?: string;
+  dnsServerListShrink?: string;
   /**
    * @example
    * 501
@@ -42944,6 +42948,7 @@ export class UpdateGatewayServiceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       acceptLanguage: 'AcceptLanguage',
+      dnsServerListShrink: 'DnsServerList',
       gatewayId: 'GatewayId',
       gatewayUniqueId: 'GatewayUniqueId',
       id: 'Id',
@@ -42958,6 +42963,7 @@ export class UpdateGatewayServiceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       acceptLanguage: 'string',
+      dnsServerListShrink: 'string',
       gatewayId: 'number',
       gatewayUniqueId: 'string',
       id: 'string',
@@ -56132,6 +56138,7 @@ export class GetGatewayServiceDetailResponseBodyDataVersions extends $tea.Model 
 }
 
 export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
+  dnsServerList?: string[];
   /**
    * @remarks
    * The ID of the gateway.
@@ -56294,6 +56301,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
   versions?: GetGatewayServiceDetailResponseBodyDataVersions[];
   static names(): { [key: string]: string } {
     return {
+      dnsServerList: 'DnsServerList',
       gatewayId: 'GatewayId',
       gatewayTrafficPolicy: 'GatewayTrafficPolicy',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -56323,6 +56331,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dnsServerList: { 'type': 'array', 'itemType': 'string' },
       gatewayId: 'number',
       gatewayTrafficPolicy: TrafficPolicy,
       gatewayUniqueId: 'string',
@@ -57329,6 +57338,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
    * This is a plug-in.
    */
   summary?: string;
+  summaryEn?: string;
   /**
    * @remarks
    * The type.
@@ -57385,6 +57395,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       routeConfigStartIndex: 'RouteConfigStartIndex',
       status: 'Status',
       summary: 'Summary',
+      summaryEn: 'SummaryEn',
       type: 'Type',
       version: 'Version',
       versionJson: 'VersionJson',
@@ -57413,6 +57424,7 @@ export class GetPluginConfigResponseBodyData extends $tea.Model {
       routeConfigStartIndex: 'number',
       status: 'string',
       summary: 'string',
+      summaryEn: 'string',
       type: 'number',
       version: 'string',
       versionJson: 'string',
@@ -57541,6 +57553,7 @@ export class GetPluginsResponseBodyData extends $tea.Model {
    * This is a plug-in.
    */
   summary?: string;
+  summaryEn?: string;
   /**
    * @remarks
    * The version of the plug-in.
@@ -57583,6 +57596,7 @@ export class GetPluginsResponseBodyData extends $tea.Model {
       publishState: 'PublishState',
       status: 'Status',
       summary: 'Summary',
+      summaryEn: 'SummaryEn',
       version: 'Version',
       wasmFile: 'WasmFile',
       wasmLang: 'WasmLang',
@@ -57604,6 +57618,7 @@ export class GetPluginsResponseBodyData extends $tea.Model {
       publishState: 'number',
       status: 'string',
       summary: 'string',
+      summaryEn: 'string',
       version: 'string',
       wasmFile: 'string',
       wasmLang: 'number',
@@ -58335,6 +58350,7 @@ export class ImportNacosConfigResponseBodyData extends $tea.Model {
 }
 
 export class ImportServicesRequestServiceList extends $tea.Model {
+  dnsServerList?: string[];
   /**
    * @remarks
    * The group.
@@ -58382,6 +58398,7 @@ export class ImportServicesRequestServiceList extends $tea.Model {
   serviceProtocol?: string;
   static names(): { [key: string]: string } {
     return {
+      dnsServerList: 'DnsServerList',
       groupName: 'GroupName',
       ips: 'Ips',
       name: 'Name',
@@ -58393,6 +58410,7 @@ export class ImportServicesRequestServiceList extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dnsServerList: { 'type': 'array', 'itemType': 'string' },
       groupName: 'string',
       ips: { 'type': 'array', 'itemType': 'string' },
       name: 'string',
@@ -65851,6 +65869,7 @@ export class ListGatewayServiceResponseBodyDataResultVersions extends $tea.Model
 }
 
 export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
+  dnsServerList?: string[];
   /**
    * @remarks
    * The gateway ID.
@@ -66028,6 +66047,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
   versions?: ListGatewayServiceResponseBodyDataResultVersions[];
   static names(): { [key: string]: string } {
     return {
+      dnsServerList: 'DnsServerList',
       gatewayId: 'GatewayId',
       gatewayTrafficPolicy: 'GatewayTrafficPolicy',
       gatewayUniqueId: 'GatewayUniqueId',
@@ -66057,6 +66077,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dnsServerList: { 'type': 'array', 'itemType': 'string' },
       gatewayId: 'number',
       gatewayTrafficPolicy: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy,
       gatewayUniqueId: 'string',
@@ -87512,6 +87533,10 @@ export default class Client extends OpenApi {
     Util.validateModel(tmpReq);
     let request = new UpdateGatewayServiceShrinkRequest({ });
     OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dnsServerList)) {
+      request.dnsServerListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dnsServerList, "DnsServerList", "json");
+    }
+
     if (!Util.isUnset(tmpReq.ipList)) {
       request.ipListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipList, "IpList", "json");
     }
@@ -87519,6 +87544,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.acceptLanguage)) {
       query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.dnsServerListShrink)) {
+      query["DnsServerList"] = request.dnsServerListShrink;
     }
 
     if (!Util.isUnset(request.gatewayId)) {
