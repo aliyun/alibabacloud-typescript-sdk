@@ -2203,6 +2203,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
    * 20
    */
   ephemeralStorage?: number;
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The custom hostnames of the containers.
@@ -2427,6 +2428,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       eipBandwidth: 'EipBandwidth',
       enableSls: 'EnableSls',
       ephemeralStorage: 'EphemeralStorage',
+      gpuDriverVersion: 'GpuDriverVersion',
       hostAliases: 'HostAliases',
       hostName: 'HostName',
       imageRegistryCredentials: 'ImageRegistryCredentials',
@@ -2481,6 +2483,7 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
       eipBandwidth: 'number',
       enableSls: 'boolean',
       ephemeralStorage: 'number',
+      gpuDriverVersion: 'string',
       hostAliases: { 'type': 'array', 'itemType': CreateEciScalingConfigurationRequestHostAliases },
       hostName: 'string',
       imageRegistryCredentials: { 'type': 'array', 'itemType': CreateEciScalingConfigurationRequestImageRegistryCredentials },
@@ -4230,6 +4233,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  capacityOptions?: CreateScalingGroupRequestCapacityOptions;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -4659,6 +4663,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       albServerGroups: 'AlbServerGroups',
       allocationStrategy: 'AllocationStrategy',
       azBalance: 'AzBalance',
+      capacityOptions: 'CapacityOptions',
       clientToken: 'ClientToken',
       compensateWithOnDemand: 'CompensateWithOnDemand',
       containerGroupId: 'ContainerGroupId',
@@ -4710,6 +4715,7 @@ export class CreateScalingGroupRequest extends $tea.Model {
       albServerGroups: { 'type': 'array', 'itemType': CreateScalingGroupRequestAlbServerGroups },
       allocationStrategy: 'string',
       azBalance: 'boolean',
+      capacityOptions: CreateScalingGroupRequestCapacityOptions,
       clientToken: 'string',
       compensateWithOnDemand: 'boolean',
       containerGroupId: 'string',
@@ -13230,6 +13236,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
    * 20
    */
   ephemeralStorage?: number;
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The hosts.
@@ -13450,6 +13457,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       eipBandwidth: 'EipBandwidth',
       enableSls: 'EnableSls',
       ephemeralStorage: 'EphemeralStorage',
+      gpuDriverVersion: 'GpuDriverVersion',
       hostAliases: 'HostAliases',
       hostName: 'HostName',
       imageRegistryCredentials: 'ImageRegistryCredentials',
@@ -13505,6 +13513,7 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
       eipBandwidth: 'number',
       enableSls: 'boolean',
       ephemeralStorage: 'number',
+      gpuDriverVersion: 'string',
       hostAliases: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestHostAliases },
       hostName: 'string',
       imageRegistryCredentials: { 'type': 'array', 'itemType': ModifyEciScalingConfigurationRequestImageRegistryCredentials },
@@ -15304,6 +15313,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  capacityOptions?: ModifyScalingGroupRequestCapacityOptions;
   /**
    * @remarks
    * Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as cost-related issues and insufficient resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:
@@ -15595,6 +15605,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       activeScalingConfigurationId: 'ActiveScalingConfigurationId',
       allocationStrategy: 'AllocationStrategy',
       azBalance: 'AzBalance',
+      capacityOptions: 'CapacityOptions',
       compensateWithOnDemand: 'CompensateWithOnDemand',
       customPolicyARN: 'CustomPolicyARN',
       defaultCooldown: 'DefaultCooldown',
@@ -15633,6 +15644,7 @@ export class ModifyScalingGroupRequest extends $tea.Model {
       activeScalingConfigurationId: 'string',
       allocationStrategy: 'string',
       azBalance: 'boolean',
+      capacityOptions: ModifyScalingGroupRequestCapacityOptions,
       compensateWithOnDemand: 'boolean',
       customPolicyARN: 'string',
       defaultCooldown: 'number',
@@ -22405,6 +22417,34 @@ export class CreateScalingGroupRequestAlbServerGroups extends $tea.Model {
   }
 }
 
+export class CreateScalingGroupRequestCapacityOptions extends $tea.Model {
+  compensateWithOnDemand?: boolean;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotAutoReplaceOnDemand?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      compensateWithOnDemand: 'CompensateWithOnDemand',
+      onDemandBaseCapacity: 'OnDemandBaseCapacity',
+      onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compensateWithOnDemand: 'boolean',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotAutoReplaceOnDemand: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScalingGroupRequestDBInstances extends $tea.Model {
   /**
    * @remarks
@@ -27282,6 +27322,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
    * 20
    */
   ephemeralStorage?: number;
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The hostnames and IP addresses for a container that are added to the hosts file of the elastic container instance.
@@ -27528,6 +27569,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       egressBandwidth: 'EgressBandwidth',
       eipBandwidth: 'EipBandwidth',
       ephemeralStorage: 'EphemeralStorage',
+      gpuDriverVersion: 'GpuDriverVersion',
       hostAliases: 'HostAliases',
       hostName: 'HostName',
       imageRegistryCredentials: 'ImageRegistryCredentials',
@@ -27584,6 +27626,7 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
       egressBandwidth: 'number',
       eipBandwidth: 'number',
       ephemeralStorage: 'number',
+      gpuDriverVersion: 'string',
       hostAliases: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsHostAliases },
       hostName: 'string',
       imageRegistryCredentials: { 'type': 'array', 'itemType': DescribeEciScalingConfigurationsResponseBodyScalingConfigurationsImageRegistryCredentials },
@@ -31246,6 +31289,34 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
   }
 }
 
+export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions extends $tea.Model {
+  compensateWithOnDemand?: boolean;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotAutoReplaceOnDemand?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      compensateWithOnDemand: 'CompensateWithOnDemand',
+      onDemandBaseCapacity: 'OnDemandBaseCapacity',
+      onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compensateWithOnDemand: 'boolean',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotAutoReplaceOnDemand: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeScalingGroupsResponseBodyScalingGroupsDBInstances extends $tea.Model {
   /**
    * @remarks
@@ -31610,6 +31681,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  capacityOptions?: DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions;
   /**
    * @remarks
    * Indicates whether Auto Scaling can create pay-as-you-go instances to supplement preemptible instances if preemptible instances cannot be created due to price-related factors or insufficient inventory when MultiAZPolicy is set to COST_OPTIMIZED. Valid values:
@@ -32100,6 +32172,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       albServerGroups: 'AlbServerGroups',
       allocationStrategy: 'AllocationStrategy',
       azBalance: 'AzBalance',
+      capacityOptions: 'CapacityOptions',
       compensateWithOnDemand: 'CompensateWithOnDemand',
       creationTime: 'CreationTime',
       currentHostName: 'CurrentHostName',
@@ -32167,6 +32240,7 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
       albServerGroups: { 'type': 'array', 'itemType': DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups },
       allocationStrategy: 'string',
       azBalance: 'boolean',
+      capacityOptions: DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions,
       compensateWithOnDemand: 'boolean',
       creationTime: 'string',
       currentHostName: 'string',
@@ -37170,6 +37244,34 @@ export class ModifyScalingConfigurationShrinkRequestSpotPriceLimits extends $tea
   }
 }
 
+export class ModifyScalingGroupRequestCapacityOptions extends $tea.Model {
+  compensateWithOnDemand?: boolean;
+  onDemandBaseCapacity?: number;
+  onDemandPercentageAboveBaseCapacity?: number;
+  spotAutoReplaceOnDemand?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      compensateWithOnDemand: 'CompensateWithOnDemand',
+      onDemandBaseCapacity: 'OnDemandBaseCapacity',
+      onDemandPercentageAboveBaseCapacity: 'OnDemandPercentageAboveBaseCapacity',
+      spotAutoReplaceOnDemand: 'SpotAutoReplaceOnDemand',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      compensateWithOnDemand: 'boolean',
+      onDemandBaseCapacity: 'number',
+      onDemandPercentageAboveBaseCapacity: 'number',
+      spotAutoReplaceOnDemand: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyScalingGroupRequestLaunchTemplateOverrides extends $tea.Model {
   /**
    * @remarks
@@ -38924,6 +39026,10 @@ export default class Client extends OpenApi {
       query["EphemeralStorage"] = request.ephemeralStorage;
     }
 
+    if (!Util.isUnset(request.gpuDriverVersion)) {
+      query["GpuDriverVersion"] = request.gpuDriverVersion;
+    }
+
     if (!Util.isUnset(request.hostAliases)) {
       query["HostAliases"] = request.hostAliases;
     }
@@ -39572,6 +39678,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.azBalance)) {
       query["AzBalance"] = request.azBalance;
+    }
+
+    if (!Util.isUnset(request.capacityOptions)) {
+      query["CapacityOptions"] = request.capacityOptions;
     }
 
     if (!Util.isUnset(request.clientToken)) {
@@ -43704,6 +43814,10 @@ export default class Client extends OpenApi {
       query["EphemeralStorage"] = request.ephemeralStorage;
     }
 
+    if (!Util.isUnset(request.gpuDriverVersion)) {
+      query["GpuDriverVersion"] = request.gpuDriverVersion;
+    }
+
     if (!Util.isUnset(request.hostAliases)) {
       query["HostAliases"] = request.hostAliases;
     }
@@ -44391,6 +44505,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.azBalance)) {
       query["AzBalance"] = request.azBalance;
+    }
+
+    if (!Util.isUnset(request.capacityOptions)) {
+      query["CapacityOptions"] = request.capacityOptions;
     }
 
     if (!Util.isUnset(request.compensateWithOnDemand)) {
