@@ -933,6 +933,118 @@ export class GetLoginTokenResponse extends $tea.Model {
   }
 }
 
+export class GetStsTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * e4e169bea1cc48e8afac53**********
+   */
+  authCode?: string;
+  /**
+   * @example
+   * eac19bef-1e45-4190-a03a-4ea74b69****
+   */
+  clientId?: string;
+  /**
+   * @example
+   * 22.21.2.**
+   */
+  clientIp?: string;
+  /**
+   * @example
+   * windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
+   */
+  clientOS?: string;
+  /**
+   * @example
+   * 6.3.0-R-20231106.210000
+   */
+  clientVersion?: string;
+  /**
+   * @example
+   * 2943802884B27030B6759F9132B2****
+   */
+  uuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authCode: 'AuthCode',
+      clientId: 'ClientId',
+      clientIp: 'ClientIp',
+      clientOS: 'ClientOS',
+      clientVersion: 'ClientVersion',
+      uuid: 'Uuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authCode: 'string',
+      clientId: 'string',
+      clientIp: 'string',
+      clientOS: 'string',
+      clientVersion: 'string',
+      uuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStsTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * CCF92035-6231-5ABB-930E-1E003C32****
+   */
+  requestId?: string;
+  stsTokenModel?: GetStsTokenResponseBodyStsTokenModel;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      stsTokenModel: 'StsTokenModel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      stsTokenModel: GetStsTokenResponseBodyStsTokenModel,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetStsTokenResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetStsTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetStsTokenResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshLoginTokenRequest extends $tea.Model {
   /**
    * @remarks
@@ -1334,6 +1446,43 @@ export class GetLoginTokenResponseBodyTenantInfos extends $tea.Model {
   }
 }
 
+export class GetStsTokenResponseBodyStsTokenModel extends $tea.Model {
+  /**
+   * @example
+   * be4be09e-cd00-4b4c-add7-11b4d8****
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * sts****
+   */
+  stsToken?: string;
+  /**
+   * @example
+   * 105552640689****
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      sessionId: 'SessionId',
+      stsToken: 'StsToken',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sessionId: 'string',
+      stsToken: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1618,6 +1767,68 @@ export default class Client extends OpenApi {
   async getLoginToken(request: GetLoginTokenRequest): Promise<GetLoginTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getLoginTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取无影StsToken
+   * 
+   * @param request - GetStsTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetStsTokenResponse
+   */
+  async getStsTokenWithOptions(request: GetStsTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetStsTokenResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.authCode)) {
+      body["AuthCode"] = request.authCode;
+    }
+
+    if (!Util.isUnset(request.clientId)) {
+      body["ClientId"] = request.clientId;
+    }
+
+    if (!Util.isUnset(request.clientIp)) {
+      body["ClientIp"] = request.clientIp;
+    }
+
+    if (!Util.isUnset(request.clientOS)) {
+      body["ClientOS"] = request.clientOS;
+    }
+
+    if (!Util.isUnset(request.clientVersion)) {
+      body["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!Util.isUnset(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetStsToken",
+      version: "2021-02-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "Anonymous",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetStsTokenResponse>(await this.callApi(params, req, runtime), new GetStsTokenResponse({}));
+  }
+
+  /**
+   * 获取无影StsToken
+   * 
+   * @param request - GetStsTokenRequest
+   * @returns GetStsTokenResponse
+   */
+  async getStsToken(request: GetStsTokenRequest): Promise<GetStsTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getStsTokenWithOptions(request, runtime);
   }
 
   /**
