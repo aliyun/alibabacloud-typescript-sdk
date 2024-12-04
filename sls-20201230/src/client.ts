@@ -3537,6 +3537,11 @@ export class Logstore extends $tea.Model {
 export class Machine extends $tea.Model {
   /**
    * @example
+   * test
+   */
+  hostId?: string;
+  /**
+   * @example
    * 192.168.x.x
    */
   ip?: string;
@@ -3557,6 +3562,7 @@ export class Machine extends $tea.Model {
   userdefinedId?: string;
   static names(): { [key: string]: string } {
     return {
+      hostId: 'host-id',
       ip: 'ip',
       lastHeartbeatTime: 'lastHeartbeatTime',
       machineUniqueid: 'machine-uniqueid',
@@ -3566,6 +3572,7 @@ export class Machine extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      hostId: 'string',
       ip: 'string',
       lastHeartbeatTime: 'number',
       machineUniqueid: 'string',
@@ -16075,6 +16082,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $tea.Model {
    * 123
    */
   logCount?: number;
+  notice?: string;
   /**
    * @remarks
    * 下载进度
@@ -16091,6 +16099,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $tea.Model {
       filePath: 'filePath',
       fileSize: 'fileSize',
       logCount: 'logCount',
+      notice: 'notice',
       progress: 'progress',
     };
   }
@@ -16103,6 +16112,7 @@ export class GetDownloadJobResponseBodyExecutionDetails extends $tea.Model {
       filePath: 'string',
       fileSize: 'number',
       logCount: 'number',
+      notice: 'string',
       progress: 'number',
     };
   }
@@ -17064,6 +17074,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $tea.Mo
    * 123
    */
   logCount?: number;
+  notice?: string;
   /**
    * @remarks
    * 下载进度
@@ -17080,6 +17091,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $tea.Mo
       filePath: 'filePath',
       fileSize: 'fileSize',
       logCount: 'logCount',
+      notice: 'notice',
       progress: 'progress',
     };
   }
@@ -17092,6 +17104,7 @@ export class ListDownloadJobsResponseBodyResultsExecutionDetails extends $tea.Mo
       filePath: 'string',
       fileSize: 'number',
       logCount: 'number',
+      notice: 'string',
       progress: 'number',
     };
   }
@@ -17808,7 +17821,6 @@ export default class Client extends OpenApi {
     super(config);
     let gatewayClient = new GatewayClient();
     this._spi = gatewayClient;
-    this._signatureAlgorithm = "v2";
     this._endpointRule = "central";
   }
 
