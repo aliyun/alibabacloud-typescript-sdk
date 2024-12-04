@@ -13806,6 +13806,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.
    * 11xx
    */
   schemeVersion?: number;
+  score?: number;
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13816,6 +13817,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.
       rid: 'Rid',
       schemeId: 'SchemeId',
       schemeVersion: 'SchemeVersion',
+      score: 'Score',
       type: 'Type',
     };
   }
@@ -13829,6 +13831,7 @@ export class GetResultResponseBodyDataResultInfoHitResultHitResult extends $tea.
       rid: 'string',
       schemeId: 'number',
       schemeVersion: 'number',
+      score: 'number',
       type: 'string',
     };
   }
@@ -14424,6 +14427,7 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
    * test
    */
   taskName?: string;
+  vid?: string;
   static names(): { [key: string]: string } {
     return {
       agent: 'Agent',
@@ -14452,6 +14456,7 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       status: 'Status',
       taskId: 'TaskId',
       taskName: 'TaskName',
+      vid: 'Vid',
     };
   }
 
@@ -14483,6 +14488,7 @@ export class GetResultResponseBodyDataResultInfo extends $tea.Model {
       status: 'number',
       taskId: 'string',
       taskName: 'string',
+      vid: 'string',
     };
   }
 
@@ -14521,6 +14527,7 @@ export class GetResultToReviewResponseBodyDataDialoguesDialogue extends $tea.Mod
    * 2019-10-01 11:12:01
    */
   beginTime?: string;
+  beginTimeMs?: number;
   /**
    * @example
    * 7
@@ -14553,6 +14560,7 @@ export class GetResultToReviewResponseBodyDataDialoguesDialogue extends $tea.Mod
     return {
       begin: 'Begin',
       beginTime: 'BeginTime',
+      beginTimeMs: 'BeginTimeMs',
       emotionValue: 'EmotionValue',
       end: 'End',
       hourMinSec: 'HourMinSec',
@@ -14568,6 +14576,7 @@ export class GetResultToReviewResponseBodyDataDialoguesDialogue extends $tea.Mod
     return {
       begin: 'number',
       beginTime: 'string',
+      beginTimeMs: 'number',
       emotionValue: 'number',
       end: 'number',
       hourMinSec: 'string',
