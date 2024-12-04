@@ -498,13 +498,163 @@ export class AssociateProjectToResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class AttachDataQualityRulesToEvaluationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200001
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataQualityRuleIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      dataQualityRuleIds: 'DataQualityRuleIds',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      dataQualityRuleIds: { 'type': 'array', 'itemType': 'number' },
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachDataQualityRulesToEvaluationTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200001
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataQualityRuleIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      dataQualityRuleIdsShrink: 'DataQualityRuleIds',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      dataQualityRuleIdsShrink: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachDataQualityRulesToEvaluationTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * E6F0DBDD-5AD8-4870-A6A0
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AttachDataQualityRulesToEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachDataQualityRulesToEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AttachDataQualityRulesToEvaluationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CloneDataSourceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the destination data source The name can contain letters, digits, and underscores (_), and must start with a letter. It cannot exceed 60 characters in length.
+   * 
    * @example
    * demo_holo_datasource
    */
   cloneDataSourceName?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 16036
    */
@@ -530,6 +680,9 @@ export class CloneDataSourceRequest extends $tea.Model {
 
 export class CloneDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the cloned data source.
+   * 
    * @example
    * 19715
    */
@@ -586,6 +739,8 @@ export class CloneDataSourceResponse extends $tea.Model {
 export class CreateAlertRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -594,15 +749,23 @@ export class CreateAlertRuleRequest extends $tea.Model {
   enabled?: boolean;
   /**
    * @remarks
+   * The name of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * xm_create_test
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the alert notification.
+   */
   notification?: CreateAlertRuleRequestNotification;
   /**
    * @remarks
+   * The ID of the Alibaba Cloud account used by the creator of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -611,6 +774,8 @@ export class CreateAlertRuleRequest extends $tea.Model {
   owner?: string;
   /**
    * @remarks
+   * The conditions for triggering the alert.
+   * 
    * This parameter is required.
    */
   triggerCondition?: CreateAlertRuleRequestTriggerCondition;
@@ -642,6 +807,8 @@ export class CreateAlertRuleRequest extends $tea.Model {
 export class CreateAlertRuleShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -650,15 +817,23 @@ export class CreateAlertRuleShrinkRequest extends $tea.Model {
   enabled?: boolean;
   /**
    * @remarks
+   * The name of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
    * xm_create_test
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the alert notification.
+   */
   notificationShrink?: string;
   /**
    * @remarks
+   * The ID of the Alibaba Cloud account used by the creator of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -667,6 +842,8 @@ export class CreateAlertRuleShrinkRequest extends $tea.Model {
   owner?: string;
   /**
    * @remarks
+   * The conditions for triggering the alert.
+   * 
    * This parameter is required.
    */
   triggerConditionShrink?: string;
@@ -697,11 +874,17 @@ export class CreateAlertRuleShrinkRequest extends $tea.Model {
 
 export class CreateAlertRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 123123
    */
   id?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A6C6B486-E3A2-5D52-9E76-D9380485D946
    */
@@ -752,13 +935,16 @@ export class CreateAlertRuleResponse extends $tea.Model {
 
 export class CreateDIAlarmRuleRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ABFUOEUOTRTRJKE
    */
   clientToken?: string;
   /**
    * @remarks
-   * 任务ID，是告警规则关联的任务ID。
+   * The ID of the synchronization task with which the alert rule is associated.
    * 
    * This parameter is required.
    * 
@@ -768,12 +954,12 @@ export class CreateDIAlarmRuleRequest extends $tea.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * 描述。
+   * The description of the alert rule.
    */
   description?: string;
   /**
    * @remarks
-   * 告警规则是否启用，默认不开启。
+   * Specifies whether to enable the alert rule. By default, the alert rule is disabled.
    * 
    * @example
    * true
@@ -781,10 +967,13 @@ export class CreateDIAlarmRuleRequest extends $tea.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 告警指标类型，可选的枚举值：
-   * - Heartbeat（任务状态报警）
-   * - FailoverCount（failover次数报警）
-   * - Delay（任务延迟报警）
+   * The metric type in the alert rule. Valid values:
+   * 
+   * *   Heartbeat
+   * *   FailoverCount
+   * *   Delay
+   * *   DdlReport
+   * *   ResourceUtilization
    * 
    * This parameter is required.
    * 
@@ -794,6 +983,8 @@ export class CreateDIAlarmRuleRequest extends $tea.Model {
   metricType?: string;
   /**
    * @remarks
+   * The name of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -802,11 +993,15 @@ export class CreateDIAlarmRuleRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The alert notification settings.
+   * 
    * This parameter is required.
    */
   notificationSettings?: CreateDIAlarmRuleRequestNotificationSettings;
   /**
    * @remarks
+   * The conditions that can trigger the alert rule.
+   * 
    * This parameter is required.
    */
   triggerConditions?: CreateDIAlarmRuleRequestTriggerConditions[];
@@ -843,13 +1038,16 @@ export class CreateDIAlarmRuleRequest extends $tea.Model {
 
 export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
    * @example
    * ABFUOEUOTRTRJKE
    */
   clientToken?: string;
   /**
    * @remarks
-   * 任务ID，是告警规则关联的任务ID。
+   * The ID of the synchronization task with which the alert rule is associated.
    * 
    * This parameter is required.
    * 
@@ -859,12 +1057,12 @@ export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
   DIJobId?: number;
   /**
    * @remarks
-   * 描述。
+   * The description of the alert rule.
    */
   description?: string;
   /**
    * @remarks
-   * 告警规则是否启用，默认不开启。
+   * Specifies whether to enable the alert rule. By default, the alert rule is disabled.
    * 
    * @example
    * true
@@ -872,10 +1070,13 @@ export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 告警指标类型，可选的枚举值：
-   * - Heartbeat（任务状态报警）
-   * - FailoverCount（failover次数报警）
-   * - Delay（任务延迟报警）
+   * The metric type in the alert rule. Valid values:
+   * 
+   * *   Heartbeat
+   * *   FailoverCount
+   * *   Delay
+   * *   DdlReport
+   * *   ResourceUtilization
    * 
    * This parameter is required.
    * 
@@ -885,6 +1086,8 @@ export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
   metricType?: string;
   /**
    * @remarks
+   * The name of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -893,11 +1096,15 @@ export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
+   * The alert notification settings.
+   * 
    * This parameter is required.
    */
   notificationSettingsShrink?: string;
   /**
    * @remarks
+   * The conditions that can trigger the alert rule.
+   * 
    * This parameter is required.
    */
   triggerConditionsShrink?: string;
@@ -935,13 +1142,16 @@ export class CreateDIAlarmRuleShrinkRequest extends $tea.Model {
 export class CreateDIAlarmRuleResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 代表资源一级ID的资源属性字段
+   * The ID of the alert rule.
    * 
    * @example
    * 1
    */
   DIAlarmRuleId?: string;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * C636A747-7E4E-594D-94CD-2B4F8A9A9A63
    */
@@ -991,14 +1201,22 @@ export class CreateDIAlarmRuleResponse extends $tea.Model {
 }
 
 export class CreateDIJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   */
   description?: string;
   /**
    * @remarks
+   * The settings of the destination. Only a single destination is supported.
+   * 
    * This parameter is required.
    */
   destinationDataSourceSettings?: CreateDIJobRequestDestinationDataSourceSettings[];
   /**
    * @remarks
+   * The destination type. Valid values: Hologres and Hive.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1007,15 +1225,29 @@ export class CreateDIJobRequest extends $tea.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
+   * The name of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
    * mysql_to_holo_sync_8772
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+   */
   jobSettings?: CreateDIJobRequestJobSettings;
   /**
    * @remarks
+   * The synchronization type. Valid values:
+   * 
+   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * *   RealtimeIncremental: real-time incremental synchronization
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1023,22 +1255,33 @@ export class CreateDIJobRequest extends $tea.Model {
    */
   migrationType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The resource settings.
+   * 
    * This parameter is required.
    */
   resourceSettings?: CreateDIJobRequestResourceSettings;
   /**
    * @remarks
+   * The settings of the source. Only a single source is supported.
+   * 
    * This parameter is required.
    */
   sourceDataSourceSettings?: CreateDIJobRequestSourceDataSourceSettings[];
   /**
    * @remarks
+   * The source type. Set this parameter to MySQL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1047,9 +1290,15 @@ export class CreateDIJobRequest extends $tea.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
+   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * 
    * This parameter is required.
    */
   tableMappings?: CreateDIJobRequestTableMappings[];
+  /**
+   * @remarks
+   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: CreateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -1091,14 +1340,22 @@ export class CreateDIJobRequest extends $tea.Model {
 }
 
 export class CreateDIJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   */
   description?: string;
   /**
    * @remarks
+   * The settings of the destination. Only a single destination is supported.
+   * 
    * This parameter is required.
    */
   destinationDataSourceSettingsShrink?: string;
   /**
    * @remarks
+   * The destination type. Valid values: Hologres and Hive.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1107,15 +1364,29 @@ export class CreateDIJobShrinkRequest extends $tea.Model {
   destinationDataSourceType?: string;
   /**
    * @remarks
+   * The name of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
    * mysql_to_holo_sync_8772
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+   */
   jobSettingsShrink?: string;
   /**
    * @remarks
+   * The synchronization type. Valid values:
+   * 
+   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * *   RealtimeIncremental: real-time incremental synchronization
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1123,22 +1394,33 @@ export class CreateDIJobShrinkRequest extends $tea.Model {
    */
   migrationType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 10000
    */
   projectId?: number;
   /**
    * @remarks
+   * The resource settings.
+   * 
    * This parameter is required.
    */
   resourceSettingsShrink?: string;
   /**
    * @remarks
+   * The settings of the source. Only a single source is supported.
+   * 
    * This parameter is required.
    */
   sourceDataSourceSettingsShrink?: string;
   /**
    * @remarks
+   * The source type. Set this parameter to MySQL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1147,9 +1429,15 @@ export class CreateDIJobShrinkRequest extends $tea.Model {
   sourceDataSourceType?: string;
   /**
    * @remarks
+   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   * 
    * This parameter is required.
    */
   tableMappingsShrink?: string;
+  /**
+   * @remarks
+   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1192,11 +1480,17 @@ export class CreateDIJobShrinkRequest extends $tea.Model {
 
 export class CreateDIJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 11792
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 4F6AB6B3-41FB-5EBB-AFB2-0C98D49DA2BB
    */
@@ -1245,9 +1539,876 @@ export class CreateDIJobResponse extends $tea.Model {
   }
 }
 
+export class CreateDataQualityEvaluationTaskRequest extends $tea.Model {
+  dataQualityRules?: CreateDataQualityEvaluationTaskRequestDataQualityRules[];
+  /**
+   * @example
+   * 1
+   */
+  dataSourceId?: number;
+  /**
+   * @remarks
+   * 质量监控任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooks?: CreateDataQualityEvaluationTaskRequestHooks[];
+  /**
+   * @remarks
+   * 质量监控任务名称
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notifications?: CreateDataQualityEvaluationTaskRequestNotifications;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  target?: CreateDataQualityEvaluationTaskRequestTarget;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  trigger?: CreateDataQualityEvaluationTaskRequestTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRules: 'DataQualityRules',
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      hooks: 'Hooks',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRules: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestDataQualityRules },
+      dataSourceId: 'number',
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestHooks },
+      name: 'string',
+      notifications: CreateDataQualityEvaluationTaskRequestNotifications,
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: CreateDataQualityEvaluationTaskRequestTarget,
+      trigger: CreateDataQualityEvaluationTaskRequestTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskShrinkRequest extends $tea.Model {
+  dataQualityRulesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  dataSourceId?: number;
+  /**
+   * @remarks
+   * 质量监控任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooksShrink?: string;
+  /**
+   * @remarks
+   * 质量监控任务名称
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notificationsShrink?: string;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  targetShrink?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  triggerShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRulesShrink: 'DataQualityRules',
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      hooksShrink: 'Hooks',
+      name: 'Name',
+      notificationsShrink: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      targetShrink: 'Target',
+      triggerShrink: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRulesShrink: 'string',
+      dataSourceId: 'number',
+      description: 'string',
+      hooksShrink: 'string',
+      name: 'string',
+      notificationsShrink: 'string',
+      projectId: 'number',
+      runtimeConf: 'string',
+      targetShrink: 'string',
+      triggerShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 10001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 2d9ce-38ef-4923-baf6-391a7e656
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataQualityEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataQualityEvaluationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200001
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * { "triggerTime": 1733284062000 }
+   */
+  parameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  runtimeResource?: CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      runtimeResource: 'RuntimeResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      parameters: 'string',
+      projectId: 'number',
+      runtimeResource: CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 200001
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * { "triggerTime": 1733284062000 }
+   */
+  parameters?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  runtimeResourceShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      runtimeResourceShrink: 'RuntimeResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      parameters: 'string',
+      projectId: 'number',
+      runtimeResourceShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 22130
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ecb967ec-c137-48****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataQualityEvaluationTaskInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataQualityEvaluationTaskInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: CreateDataQualityRuleRequestCheckingConfig;
+  /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
+  errorHandlers?: CreateDataQualityRuleRequestErrorHandlers[];
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10726
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfig?: CreateDataQualityRuleRequestSamplingConfig;
+  /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
+   * @example
+   * Normal
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
+  target?: CreateDataQualityRuleRequestTarget;
+  /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: CreateDataQualityRuleRequestCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': CreateDataQualityRuleRequestErrorHandlers },
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: CreateDataQualityRuleRequestSamplingConfig,
+      severity: 'string',
+      target: CreateDataQualityRuleRequestTarget,
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfigShrink?: string;
+  /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
+  errorHandlersShrink?: string;
+  /**
+   * @remarks
+   * The name of the rule.
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10726
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfigShrink?: string;
+  /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
+   * @example
+   * Normal
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
+  targetShrink?: string;
+  /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfigShrink: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlersShrink: 'ErrorHandlers',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfigShrink: 'SamplingConfig',
+      severity: 'Severity',
+      targetShrink: 'Target',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfigShrink: 'string',
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlersShrink: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfigShrink: 'string',
+      severity: 'string',
+      targetShrink: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleResponseBody extends $tea.Model {
+  id?: number;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataQualityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataQualityRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: CreateDataQualityRuleTemplateRequestCheckingConfig;
+  /**
+   * @remarks
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfig?: CreateDataQualityRuleTemplateRequestSamplingConfig;
+  /**
+   * @remarks
+   * The applicable scope of the template. Valid values:
+   * 
+   * *   Tenant: The template is available in all workspaces in the current tenant.
+   * *   Project: The template is available only in the current workspace.
+   * 
+   * @example
+   * Project
+   */
+  visibleScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      visibleScope: 'VisibleScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: CreateDataQualityRuleTemplateRequestCheckingConfig,
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: CreateDataQualityRuleTemplateRequestSamplingConfig,
+      visibleScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfigShrink?: string;
+  /**
+   * @remarks
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfigShrink?: string;
+  /**
+   * @remarks
+   * The applicable scope of the template. Valid values:
+   * 
+   * *   Tenant: The template is available in all workspaces in the current tenant.
+   * *   Project: The template is available only in the current workspace.
+   * 
+   * @example
+   * Project
+   */
+  visibleScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfigShrink: 'CheckingConfig',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfigShrink: 'SamplingConfig',
+      visibleScope: 'VisibleScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfigShrink: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfigShrink: 'string',
+      visibleScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateResponseBody extends $tea.Model {
+  code?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDataQualityRuleTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDataQualityRuleTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
+   * The parameters that you need to configure to the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/zh/dataworks/developer-reference/data-source-connection-information-connectionproperties/?spm=a2c4g.11186623.0.0.3fbb6fe7fo5AMK).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1264,6 +2425,11 @@ export class CreateDataSourceRequest extends $tea.Model {
   connectionProperties?: string;
   /**
    * @remarks
+   * The mode in which you want to add the data source. The mode varies based on the data source type. Valid values for MySQL data sources:
+   * 
+   * *   InstanceMode: instance mode
+   * *   UrlMode: connection string mode
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1271,12 +2437,17 @@ export class CreateDataSourceRequest extends $tea.Model {
    */
   connectionPropertiesMode?: string;
   /**
+   * @remarks
+   * The description of the data source. The description cannot exceed 3,000 characters in length.
+   * 
    * @example
    * this is a holo datasource
    */
   description?: string;
   /**
    * @remarks
+   * The name of the data source. The name can be up to 255 characters in length and can contain letters, digits, and underscores (_). The name must start with a letter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1293,6 +2464,8 @@ export class CreateDataSourceRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The type of the data source. More than 70 types of data sources are supported in DataWorks.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1328,6 +2501,9 @@ export class CreateDataSourceRequest extends $tea.Model {
 
 export class CreateDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 22130
    */
@@ -1384,6 +2560,8 @@ export class CreateDataSourceResponse extends $tea.Model {
 export class CreateDataSourceSharedRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1399,12 +2577,17 @@ export class CreateDataSourceSharedRuleRequest extends $tea.Model {
    */
   envType?: string;
   /**
+   * @remarks
+   * The user with which you want to share the data source. If you do not configure this parameter, the data source is shared to an entire workspace.
+   * 
    * @example
    * 1107550004253538
    */
   sharedUser?: string;
   /**
    * @remarks
+   * The ID of the workspace to which you want to share the data source. You cannot share the data source to the workspace with which the data source is associated.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1436,6 +2619,9 @@ export class CreateDataSourceSharedRuleRequest extends $tea.Model {
 
 export class CreateDataSourceSharedRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The sharing rule ID.
+   * 
    * @example
    * 105412
    */
@@ -2024,29 +3210,58 @@ export class CreateNodeResponse extends $tea.Model {
 
 export class CreateProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspace belongs. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
+   * You can configure this parameter to specify an Alibaba Cloud resource group that you want to use to manage the workspace.
+   * 
    * @example
    * rg-acfmzbn7pti3zff
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: CreateProjectRequestAliyunResourceTags[];
+  /**
+   * @remarks
+   * The description of the workspace.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the development environment. Valid values:
+   * 
+   * *   true : enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+   * *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+   * 
    * @example
    * false
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether to disable the Develop role. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * true
    */
   devRoleDisabled?: boolean;
   /**
    * @remarks
+   * The display name of the workspace.
+   * 
    * This parameter is required.
    */
   displayName?: string;
   /**
    * @remarks
+   * The name of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2054,6 +3269,12 @@ export class CreateProjectRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+   * 
+   * *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: disables scheduling of PAI tasks.
+   * 
    * @example
    * true
    */
@@ -2091,29 +3312,58 @@ export class CreateProjectRequest extends $tea.Model {
 
 export class CreateProjectShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspace belongs. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
+   * You can configure this parameter to specify an Alibaba Cloud resource group that you want to use to manage the workspace.
+   * 
    * @example
    * rg-acfmzbn7pti3zff
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTagsShrink?: string;
+  /**
+   * @remarks
+   * The description of the workspace.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the development environment. Valid values:
+   * 
+   * *   true : enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+   * *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+   * 
    * @example
    * false
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether to disable the Develop role. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * true
    */
   devRoleDisabled?: boolean;
   /**
    * @remarks
+   * The display name of the workspace.
+   * 
    * This parameter is required.
    */
   displayName?: string;
   /**
    * @remarks
+   * The name of the workspace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2121,6 +3371,12 @@ export class CreateProjectShrinkRequest extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+   * 
+   * *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: disables scheduling of PAI tasks.
+   * 
    * @example
    * true
    */
@@ -2158,11 +3414,17 @@ export class CreateProjectShrinkRequest extends $tea.Model {
 
 export class CreateProjectResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 123456
    */
   projectId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
@@ -2214,6 +3476,10 @@ export class CreateProjectResponse extends $tea.Model {
 export class CreateProjectMemberRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2222,11 +3488,17 @@ export class CreateProjectMemberRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to assign to the member.
+   * 
    * This parameter is required.
    */
   roleCodes?: string[];
   /**
    * @remarks
+   * The ID of the account that you want to add to the workspace as a member. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.7159281fJ97yfv), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account that you want to add to the workspace as a member.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2257,6 +3529,10 @@ export class CreateProjectMemberRequest extends $tea.Model {
 export class CreateProjectMemberShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2265,11 +3541,17 @@ export class CreateProjectMemberShrinkRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
+   * The codes of the roles in the workspace. You can call the [ListProjectRoles](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-listprojectroles?spm=a2c4g.11186623.0.0.43841daeywTtF3) operation to query the codes of all roles in the workspace.
+   * 
+   * You must configure this parameter to specify the roles that you want to assign to the member.
+   * 
    * This parameter is required.
    */
   roleCodesShrink?: string;
   /**
    * @remarks
+   * The ID of the account that you want to add to the workspace as a member. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.7159281fJ97yfv), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account that you want to add to the workspace as a member.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2299,6 +3581,9 @@ export class CreateProjectMemberShrinkRequest extends $tea.Model {
 
 export class CreateProjectMemberResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 2B2F0B26-9253-5780-B6DB-F1A886D44D6F
    */
@@ -2489,6 +3774,9 @@ export class CreateResourceGroupRequest extends $tea.Model {
    */
   remark?: string;
   /**
+   * @remarks
+   * The specifications of the resource group. Unit: compute unit (CU). This parameter is required only when you set the PaymentType parameter to PrePaid.
+   * 
    * @example
    * 2
    */
@@ -2800,6 +4088,9 @@ export class CreateWorkflowDefinitionResponse extends $tea.Model {
 
 export class DeleteAlertRuleRequest extends $tea.Model {
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 105412
    */
@@ -2823,11 +4114,17 @@ export class DeleteAlertRuleRequest extends $tea.Model {
 
 export class DeleteAlertRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -3060,8 +4357,289 @@ export class DeleteDIJobResponse extends $tea.Model {
   }
 }
 
+export class DeleteDataQualityEvaluationTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 123123
+   */
+  id?: number;
+  /**
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityEvaluationTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 0bc1ec92159376****
+   */
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataQualityEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataQualityEvaluationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * @example
+   * 19715
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 17302
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataQualityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataQualityRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The code for the template.
+   * 
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 10001
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDataQualityRuleTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDataQualityRuleTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDataQualityRuleTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDataSourceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 1234
    */
@@ -3085,6 +4663,9 @@ export class DeleteDataSourceRequest extends $tea.Model {
 
 export class DeleteDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B56432E0-2112-5C97-88D0-AA0AE5C75C74
    */
@@ -3141,6 +4722,8 @@ export class DeleteDataSourceResponse extends $tea.Model {
 export class DeleteDataSourceSharedRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The sharing rule ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3513,6 +5096,10 @@ export class DeleteNodeResponse extends $tea.Model {
 export class DeleteProjectRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3538,6 +5125,9 @@ export class DeleteProjectRequest extends $tea.Model {
 
 export class DeleteProjectResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AFBB799F-8578-51C5-A766-E922EDB8XXXX
    */
@@ -3952,6 +5542,8 @@ export class DeleteRouteResponse extends $tea.Model {
 export class DeleteTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3959,6 +5551,14 @@ export class DeleteTaskRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
@@ -3984,11 +5584,17 @@ export class DeleteTaskRequest extends $tea.Model {
 
 export class DeleteTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -4133,6 +5739,150 @@ export class DeleteWorkflowDefinitionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteWorkflowDefinitionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDataQualityRulesFromEvaluationTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataQualityRuleIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10002
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      dataQualityRuleIds: 'DataQualityRuleIds',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      dataQualityRuleIds: { 'type': 'array', 'itemType': 'number' },
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDataQualityRulesFromEvaluationTaskShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  dataQualityEvaluationTaskId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataQualityRuleIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10002
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskId: 'DataQualityEvaluationTaskId',
+      dataQualityRuleIdsShrink: 'DataQualityRuleIds',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskId: 'number',
+      dataQualityRuleIdsShrink: 'string',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDataQualityRulesFromEvaluationTaskResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DetachDataQualityRulesFromEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DetachDataQualityRulesFromEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DetachDataQualityRulesFromEvaluationTaskResponseBody,
     };
   }
 
@@ -4367,6 +6117,9 @@ export class ExecDeploymentStageResponse extends $tea.Model {
 
 export class GetAlertRuleRequest extends $tea.Model {
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 28547072
    */
@@ -4389,8 +6142,15 @@ export class GetAlertRuleRequest extends $tea.Model {
 }
 
 export class GetAlertRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the rule.
+   */
   alertRule?: GetAlertRuleResponseBodyAlertRule;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 8abcb91f-d266-4073-b907-2ed670378ed1
    */
@@ -4441,12 +6201,25 @@ export class GetAlertRuleResponse extends $tea.Model {
 
 export class GetDIJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 11588
    */
   DIJobId?: number;
+  /**
+   * @remarks
+   * DataWorks工作空间ID。您可以通过ListProjects接口获取工作空间ID。
+   * 
+   * @example
+   * 10000
+   */
   projectId?: number;
   /**
+   * @remarks
+   * Specifies whether to return detailed configuration information, including TransformationRules, TableMappings, and JobSettings. Valid values: true and false. Default value: true.
+   * 
    * @example
    * true
    */
@@ -4473,10 +6246,14 @@ export class GetDIJobRequest extends $tea.Model {
 }
 
 export class GetDIJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: GetDIJobResponseBodyPagingInfo;
   /**
    * @remarks
-   * 代表创建时间的资源属性字段
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
    * 
    * @example
    * C99E2BE6-9DEA-5C2E-8F51-1DDCFEADE490
@@ -4635,6 +6412,309 @@ export class GetDIJobLogResponse extends $tea.Model {
   }
 }
 
+export class GetDataQualityEvaluationTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 1006455182
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBody extends $tea.Model {
+  dataQualityEvaluationTask?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * SDFSDFSDF-SDFSDF-SDFDSF-SDFSDF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTask: 'DataQualityEvaluationTask',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTask: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataQualityEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataQualityEvaluationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * 7227550902
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBody extends $tea.Model {
+  dataQualityEvaluationTaskInstance?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance;
+  /**
+   * @example
+   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityEvaluationTaskInstance: 'DataQualityEvaluationTaskInstance',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityEvaluationTaskInstance: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataQualityEvaluationTaskInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataQualityEvaluationTaskInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * 19715
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the rule.
+   */
+  dataQualityRule?: GetDataQualityRuleResponseBodyDataQualityRule;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRule: 'DataQualityRule',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRule: GetDataQualityRuleResponseBodyDataQualityRule,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataQualityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataQualityRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateRequest extends $tea.Model {
+  /**
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateResponseBody extends $tea.Model {
+  dataQualityRuleTemplate?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplate;
+  /**
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRuleTemplate: 'DataQualityRuleTemplate',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRuleTemplate: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplate,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDataQualityRuleTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDataQualityRuleTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataSourceRequest extends $tea.Model {
   /**
    * @remarks
@@ -4664,6 +6744,10 @@ export class GetDataSourceRequest extends $tea.Model {
 }
 
 export class GetDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the data source.
+   */
   dataSource?: GetDataSourceResponseBodyDataSource;
   /**
    * @remarks
@@ -4918,6 +7002,8 @@ export class GetFunctionResponse extends $tea.Model {
 export class GetJobStatusRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the asynchronous task that is generated after you call an asynchronous operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4942,8 +7028,15 @@ export class GetJobStatusRequest extends $tea.Model {
 }
 
 export class GetJobStatusResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The real-time status information of the asynchronous task.
+   */
   jobStatus?: GetJobStatusResponseBodyJobStatus;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5E2BFE96-C0E0-5A98-85C8-633EC803198D
    */
@@ -5365,6 +7458,21 @@ export class GetProjectMemberResponse extends $tea.Model {
 export class GetProjectRoleRequest extends $tea.Model {
   /**
    * @remarks
+   * The code of the role in the DataWorks workspace.
+   * 
+   * Valid values:
+   * 
+   * *   role_project_admin: workspace administrator
+   * *   role_project_dev: developer
+   * *   role_project_dg_admin: data governance administrator
+   * *   role_project_guest: visitor
+   * *   role_project_security: security administrator
+   * *   role_project_deploy: deployer
+   * *   role_project_owner: workspace owner
+   * *   role_project_data_analyst: data analyst
+   * *   role_project_pe: O\\&M engineer
+   * *   role_project_erd: model designer
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5373,6 +7481,8 @@ export class GetProjectRoleRequest extends $tea.Model {
   code?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5399,8 +7509,15 @@ export class GetProjectRoleRequest extends $tea.Model {
 }
 
 export class GetProjectRoleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The role in the DataWorks workspace.
+   */
   projectRole?: GetProjectRoleResponseBodyProjectRole;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 82F28E60-CF48-5EDF-AB25-D806847B97D1
    */
@@ -5579,6 +7696,10 @@ export class GetResourceGroupResponseBody extends $tea.Model {
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details about the resource group.
+   */
   resourceGroup?: GetResourceGroupResponseBodyResourceGroup;
   /**
    * @example
@@ -5663,6 +7784,10 @@ export class GetRouteResponseBody extends $tea.Model {
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about the route.
+   */
   route?: GetRouteResponseBodyRoute;
   /**
    * @example
@@ -5718,6 +7843,8 @@ export class GetRouteResponse extends $tea.Model {
 export class GetTaskRequest extends $tea.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5725,6 +7852,14 @@ export class GetTaskRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
@@ -5750,10 +7885,17 @@ export class GetTaskRequest extends $tea.Model {
 
 export class GetTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The details of the task.
+   */
   task?: GetTaskResponseBodyTask;
   static names(): { [key: string]: string } {
     return {
@@ -5888,6 +8030,8 @@ export class GetTaskInstanceResponse extends $tea.Model {
 export class GetTaskInstanceLogRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5895,6 +8039,9 @@ export class GetTaskInstanceLogRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The sequence number of an instance run. Minimum value: 1. By default, the latest run is used.
+   * 
    * @example
    * 1
    */
@@ -5920,11 +8067,17 @@ export class GetTaskInstanceLogRequest extends $tea.Model {
 
 export class GetTaskInstanceLogResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * The run log of the instance.
+   * 
    * @example
    * This is running log
    */
@@ -6227,6 +8380,10 @@ export class GrantMemberProjectRolesResponse extends $tea.Model {
 export class ImportWorkflowDefinitionRequest extends $tea.Model {
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6235,6 +8392,8 @@ export class ImportWorkflowDefinitionRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
+   * The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
+   * 
    * This parameter is required.
    */
   spec?: string;
@@ -6258,8 +8417,15 @@ export class ImportWorkflowDefinitionRequest extends $tea.Model {
 }
 
 export class ImportWorkflowDefinitionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The status information of the asynchronous task.
+   */
   asyncJob?: ImportWorkflowDefinitionResponseBodyAsyncJob;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
    */
@@ -6310,17 +8476,25 @@ export class ImportWorkflowDefinitionResponse extends $tea.Model {
 
 export class ListAlertRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * error_rule
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 1933790683****
    */
   owner?: string;
   /**
    * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6329,6 +8503,8 @@ export class ListAlertRulesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Maximum value: 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6336,11 +8512,22 @@ export class ListAlertRulesRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the alert recipient.
+   * 
    * @example
    * 1933790683****
    */
   receiver?: string;
+  /**
+   * @remarks
+   * The IDs of the scheduling tasks.
+   */
   taskIds?: number[];
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   types?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6373,17 +8560,25 @@ export class ListAlertRulesRequest extends $tea.Model {
 
 export class ListAlertRulesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * error_rule
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 1933790683****
    */
   owner?: string;
   /**
    * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6392,6 +8587,8 @@ export class ListAlertRulesShrinkRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Maximum value: 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6399,11 +8596,22 @@ export class ListAlertRulesShrinkRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the alert recipient.
+   * 
    * @example
    * 1933790683****
    */
   receiver?: string;
+  /**
+   * @remarks
+   * The IDs of the scheduling tasks.
+   */
   taskIdsShrink?: string;
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   typesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6435,8 +8643,15 @@ export class ListAlertRulesShrinkRequest extends $tea.Model {
 }
 
 export class ListAlertRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListAlertRulesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A6C6B486-E3A2-5D52-9E76-D9380485D946
    */
@@ -6487,21 +8702,33 @@ export class ListAlertRulesResponse extends $tea.Model {
 
 export class ListDIAlarmRulesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 34988
    */
   DIAlarmRuleId?: number;
   /**
+   * @remarks
+   * The ID of the synchronization task for which alert rules are configured.
+   * 
    * @example
    * 1000001
    */
   jobId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
@@ -6530,8 +8757,15 @@ export class ListDIAlarmRulesRequest extends $tea.Model {
 }
 
 export class ListDIAlarmRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDIAlarmRulesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 74C2FECD-5B3A-554A-BCF5-351A36DE9815
    */
@@ -6582,12 +8816,17 @@ export class ListDIAlarmRulesResponse extends $tea.Model {
 
 export class ListDIJobEventsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 11588
    */
   DIJobId?: number;
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6596,6 +8835,8 @@ export class ListDIJobEventsRequest extends $tea.Model {
   endTime?: number;
   /**
    * @remarks
+   * The type of event that you want to query. Valid values: Failover, Alarm, and DDL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6603,17 +8844,25 @@ export class ListDIJobEventsRequest extends $tea.Model {
    */
   eventType?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6648,8 +8897,15 @@ export class ListDIJobEventsRequest extends $tea.Model {
 }
 
 export class ListDIJobEventsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDIJobEventsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 645F6D68-9C29-5961-80B1-BDD4B794C22D
    */
@@ -6700,12 +8956,17 @@ export class ListDIJobEventsResponse extends $tea.Model {
 
 export class ListDIJobMetricsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 11265
    */
   DIJobId?: number;
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6714,11 +8975,15 @@ export class ListDIJobMetricsRequest extends $tea.Model {
   endTime?: number;
   /**
    * @remarks
+   * The metrics that you want to query.
+   * 
    * This parameter is required.
    */
   metricName?: string[];
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6750,12 +9015,17 @@ export class ListDIJobMetricsRequest extends $tea.Model {
 
 export class ListDIJobMetricsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 11265
    */
   DIJobId?: number;
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6764,11 +9034,15 @@ export class ListDIJobMetricsShrinkRequest extends $tea.Model {
   endTime?: number;
   /**
    * @remarks
+   * The metrics that you want to query.
+   * 
    * This parameter is required.
    */
   metricNameShrink?: string;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6799,8 +9073,15 @@ export class ListDIJobMetricsShrinkRequest extends $tea.Model {
 }
 
 export class ListDIJobMetricsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDIJobMetricsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
@@ -6852,6 +9133,8 @@ export class ListDIJobMetricsResponse extends $tea.Model {
 export class ListDIJobRunDetailsRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6859,36 +9142,57 @@ export class ListDIJobRunDetailsRequest extends $tea.Model {
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   instanceId?: number;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The name of the source.
+   * 
    * @example
    * ds_name
    */
   sourceDataSourceName?: string;
   /**
+   * @remarks
+   * The name of the database in the source.
+   * 
    * @example
    * db_name
    */
   sourceDatabaseName?: string;
   /**
+   * @remarks
+   * The name of the schema of the source.
+   * 
    * @example
    * schema_name
    */
   sourceSchemaName?: string;
   /**
+   * @remarks
+   * The name of the table in the source.
+   * 
    * @example
    * table_name
    */
@@ -6925,8 +9229,15 @@ export class ListDIJobRunDetailsRequest extends $tea.Model {
 }
 
 export class ListDIJobRunDetailsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDIJobRunDetailsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 691CA452-D37A-4ED0-9441
    */
@@ -7584,6 +9895,127 @@ export class ListDataQualityResultsResponse extends $tea.Model {
   }
 }
 
+export class ListDataQualityRuleTemplateRequest extends $tea.Model {
+  creationSource?: string;
+  /**
+   * @remarks
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. If you want to query a system template, set this parameter to the name of the system template. Fuzzy match is supported.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
+   * @example
+   * 10
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      creationSource: 'CreationSource',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      projectId: 'ProjectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creationSource: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      projectId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRuleTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
+  pagingInfo?: ListDataQualityRuleTemplateResponseBodyPagingInfo;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pagingInfo: 'PagingInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pagingInfo: ListDataQualityRuleTemplateResponseBodyPagingInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRuleTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDataQualityRuleTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDataQualityRuleTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataQualityRulesRequest extends $tea.Model {
   /**
    * @remarks
@@ -7721,6 +10153,8 @@ export class ListDataQualityRulesResponse extends $tea.Model {
 export class ListDataSourceSharedRulesRequest extends $tea.Model {
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7728,6 +10162,9 @@ export class ListDataSourceSharedRulesRequest extends $tea.Model {
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * The ID of the workspace to which the data source is shared. You cannot share the data source to the workspace with which the data source is associated.
+   * 
    * @example
    * 1
    */
@@ -7752,10 +10189,14 @@ export class ListDataSourceSharedRulesRequest extends $tea.Model {
 }
 
 export class ListDataSourceSharedRulesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The sharing rules of the data source.
+   */
   dataSourceSharedRules?: ListDataSourceSharedRulesResponseBodyDataSourceSharedRules[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -7807,32 +10248,59 @@ export class ListDataSourceSharedRulesResponse extends $tea.Model {
 
 export class ListDataSourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The environment in which the data sources are used. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The name of the data source. Fuzzy match by data source name is supported.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the data sources. Valid values:
+   * 
+   * *   Desc: descending order
+   * *   Asc: ascending order
+   * 
+   * Default value: Asc
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7840,6 +10308,15 @@ export class ListDataSourcesRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The field that you want to use to sort the data sources. Valid values:
+   * 
+   * *   CreateTime
+   * *   Id
+   * *   Name
+   * 
+   * Default value: Id
+   * 
    * @example
    * Id
    */
@@ -7849,6 +10326,10 @@ export class ListDataSourcesRequest extends $tea.Model {
    * ["tag1", "tag2", "tag3"]
    */
   tags?: string;
+  /**
+   * @remarks
+   * The data source types. This parameter specifies a filter condition. You can specify multiple data source types.
+   */
   types?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7885,32 +10366,59 @@ export class ListDataSourcesRequest extends $tea.Model {
 
 export class ListDataSourcesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The environment in which the data sources are used. Valid values:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
    * @example
    * Prod
    */
   envType?: string;
   /**
+   * @remarks
+   * The name of the data source. Fuzzy match by data source name is supported.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The order in which you want to sort the data sources. Valid values:
+   * 
+   * *   Desc: descending order
+   * *   Asc: ascending order
+   * 
+   * Default value: Asc
+   * 
    * @example
    * Asc
    */
   order?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7918,6 +10426,15 @@ export class ListDataSourcesShrinkRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The field that you want to use to sort the data sources. Valid values:
+   * 
+   * *   CreateTime
+   * *   Id
+   * *   Name
+   * 
+   * Default value: Id
+   * 
    * @example
    * Id
    */
@@ -7927,6 +10444,10 @@ export class ListDataSourcesShrinkRequest extends $tea.Model {
    * ["tag1", "tag2", "tag3"]
    */
   tags?: string;
+  /**
+   * @remarks
+   * The data source types. This parameter specifies a filter condition. You can specify multiple data source types.
+   */
   typesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7962,8 +10483,15 @@ export class ListDataSourcesShrinkRequest extends $tea.Model {
 }
 
 export class ListDataSourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDataSourcesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7BE1433F-6D55-5D86-9344-CA6F7DD19B13
    */
@@ -8152,6 +10680,8 @@ export class ListDeploymentsResponse extends $tea.Model {
 export class ListDownstreamTaskInstancesRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8159,11 +10689,17 @@ export class ListDownstreamTaskInstancesRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -8190,8 +10726,15 @@ export class ListDownstreamTaskInstancesRequest extends $tea.Model {
 }
 
 export class ListDownstreamTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDownstreamTaskInstancesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -8243,6 +10786,8 @@ export class ListDownstreamTaskInstancesResponse extends $tea.Model {
 export class ListDownstreamTasksRequest extends $tea.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8250,16 +10795,30 @@ export class ListDownstreamTasksRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
@@ -8288,8 +10847,15 @@ export class ListDownstreamTasksRequest extends $tea.Model {
 }
 
 export class ListDownstreamTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListDownstreamTasksResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -9015,20 +11581,38 @@ export class ListProjectMembersResponse extends $tea.Model {
 }
 
 export class ListProjectRolesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The codes of roles in the DataWorks workspace.
+   */
   codes?: string[];
+  /**
+   * @remarks
+   * The names of roles in the DataWorks workspace.
+   */
   names?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9036,6 +11620,14 @@ export class ListProjectRolesRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The type of the role in the DataWorks workspace.
+   * 
+   * Valid values:
+   * 
+   * *   UserCustom: user-defined role
+   * *   System: system role
+   * 
    * @example
    * System
    */
@@ -9068,20 +11660,38 @@ export class ListProjectRolesRequest extends $tea.Model {
 }
 
 export class ListProjectRolesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The codes of roles in the DataWorks workspace.
+   */
   codesShrink?: string;
+  /**
+   * @remarks
+   * The names of roles in the DataWorks workspace.
+   */
   namesShrink?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9089,6 +11699,14 @@ export class ListProjectRolesShrinkRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The type of the role in the DataWorks workspace.
+   * 
+   * Valid values:
+   * 
+   * *   UserCustom: user-defined role
+   * *   System: system role
+   * 
    * @example
    * System
    */
@@ -9121,8 +11739,15 @@ export class ListProjectRolesShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectRolesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListProjectRolesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 61649187-0BCF-5E75-8D4B-64FDBEBBB447
    */
@@ -9173,39 +11798,103 @@ export class ListProjectRolesResponse extends $tea.Model {
 
 export class ListProjectsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspaces belong. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
    * @example
    * rg-acfmzbn7pti3zff
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: ListProjectsRequestAliyunResourceTags[];
   /**
+   * @remarks
+   * Specifies whether the development environment is enabled. Valid values:
+   * 
+   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
+   * *   false: The development environment is disabled. In this case, only the production environment is used in a workspace.
+   * 
    * @example
    * true
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether the Develop role is disabled. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
   devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * The IDs of the DataWorks workspaces.
+   */
   ids?: number[];
+  /**
+   * @remarks
+   * The names of the DataWorks workspaces.
+   */
   names?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
+   * 
+   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: Scheduling of PAI tasks is disabled.
+   * 
    * @example
    * true
    */
   paiTaskEnabled?: boolean;
   /**
+   * @remarks
+   * The status of the workspaces. Valid values:
+   * 
+   * *   Available
+   * *   Initializing
+   * *   InitFailed
+   * *   Forbidden
+   * *   Deleting
+   * *   DeleteFailed
+   * *   Frozen
+   * *   Updating
+   * *   UpdateFailed
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
    * @example
    * Available
    */
@@ -9247,39 +11936,103 @@ export class ListProjectsRequest extends $tea.Model {
 
 export class ListProjectsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspaces belong. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+   * 
    * @example
    * rg-acfmzbn7pti3zff
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTagsShrink?: string;
   /**
+   * @remarks
+   * Specifies whether the development environment is enabled. Valid values:
+   * 
+   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
+   * *   false: The development environment is disabled. In this case, only the production environment is used in a workspace.
+   * 
    * @example
    * true
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether the Develop role is disabled. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
   devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * The IDs of the DataWorks workspaces.
+   */
   idsShrink?: string;
+  /**
+   * @remarks
+   * The names of the DataWorks workspaces.
+   */
   namesShrink?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
+   * 
+   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: Scheduling of PAI tasks is disabled.
+   * 
    * @example
    * true
    */
   paiTaskEnabled?: boolean;
   /**
+   * @remarks
+   * The status of the workspaces. Valid values:
+   * 
+   * *   Available
+   * *   Initializing
+   * *   InitFailed
+   * *   Forbidden
+   * *   Deleting
+   * *   DeleteFailed
+   * *   Frozen
+   * *   Updating
+   * *   UpdateFailed
+   * 
+   * <!---->
+   * 
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * *
+   * 
    * @example
    * Available
    */
@@ -9320,8 +12073,15 @@ export class ListProjectsShrinkRequest extends $tea.Model {
 }
 
 export class ListProjectsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListProjectsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6D24AD9A-652F-59E2-AC1F-05029300F8A4
    */
@@ -9372,21 +12132,38 @@ export class ListProjectsResponse extends $tea.Model {
 
 export class ListResourceGroupsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of a resource group, which is used for fuzzy match.
+   * 
    * @example
    * Resource
    */
   name?: string;
   /**
+   * @remarks
+   * The billing method of resource groups. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+   */
   resourceGroupTypes?: string[];
+  /**
+   * @remarks
+   * The statuses of resource groups.
+   */
   statuses?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -9415,21 +12192,38 @@ export class ListResourceGroupsRequest extends $tea.Model {
 
 export class ListResourceGroupsShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The name of a resource group, which is used for fuzzy match.
+   * 
    * @example
    * Resource
    */
   name?: string;
   /**
+   * @remarks
+   * The billing method of resource groups. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The ID of the DataWorks workspace.
+   * 
    * @example
    * 1000
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+   */
   resourceGroupTypesShrink?: string;
+  /**
+   * @remarks
+   * The statuses of resource groups.
+   */
   statusesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9458,12 +12252,22 @@ export class ListResourceGroupsShrinkRequest extends $tea.Model {
 
 export class ListResourceGroupsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The resource groups returned.
+   */
   resourceGroupList?: ListResourceGroupsResponseBodyResourceGroupList[];
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false.
+   * 
    * @example
    * true
    */
@@ -9681,6 +12485,10 @@ export class ListRoutesResponseBody extends $tea.Model {
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The routes.
+   */
   routeList?: ListRoutesResponseBodyRouteList[];
   /**
    * @example
@@ -9735,12 +12543,17 @@ export class ListRoutesResponse extends $tea.Model {
 
 export class ListTaskInstanceOperationLogsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days.
+   * 
    * @example
    * 1710239005403
    */
   date?: number;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9748,11 +12561,17 @@ export class ListTaskInstanceOperationLogsRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -9781,8 +12600,15 @@ export class ListTaskInstanceOperationLogsRequest extends $tea.Model {
 }
 
 export class ListTaskInstanceOperationLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListTaskInstanceOperationLogsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -9834,6 +12660,8 @@ export class ListTaskInstanceOperationLogsResponse extends $tea.Model {
 export class ListTaskInstancesRequest extends $tea.Model {
   /**
    * @remarks
+   * The data timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9841,33 +12669,59 @@ export class ListTaskInstancesRequest extends $tea.Model {
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The IDs of the instances. You can query multiple instances at a time by instance ID.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9875,40 +12729,97 @@ export class ListTaskInstancesRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The information about the resource group. Set this parameter to the identifier of a resource group for scheduling.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
   runtimeResource?: string;
   /**
+   * @remarks
+   * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   `TriggerTime (Desc/Asc)`
+   * 
+   * *   `StartedTime (Desc/Asc)`
+   * 
+   * *   `FinishedTime (Desc/Asc)`
+   * 
+   * *   `CreateTime (Desc/Asc)`
+   * 
+   * *   `Id (Desc/Asc)`
+   * 
+   *     Default value: `Id Desc`.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The IDs of the tasks. You can query multiple instances at a time by task ID.
+   */
   taskIds?: number[];
+  /**
+   * @remarks
+   * The name of the task. Fuzzy match is supported.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
+  /**
+   * @example
+   * Normal
+   */
   triggerRecurrence?: string;
+  /**
+   * @example
+   * Normal
+   */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance.
+   * 
+   * Valid values:
+   * 
+   * *   SmokeTest
+   * *   Manual
+   * *   SupplementData
+   * *   ManualWorkflow
+   * *   Normal
+   * 
    * @example
    * Normal
    */
@@ -9969,6 +12880,8 @@ export class ListTaskInstancesRequest extends $tea.Model {
 export class ListTaskInstancesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The data timestamp.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9976,33 +12889,59 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The IDs of the instances. You can query multiple instances at a time by instance ID.
+   */
   idsShrink?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
    * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10010,40 +12949,97 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The information about the resource group. Set this parameter to the identifier of a resource group for scheduling.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
   runtimeResource?: string;
   /**
+   * @remarks
+   * The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+   * 
+   * *   `TriggerTime (Desc/Asc)`
+   * 
+   * *   `StartedTime (Desc/Asc)`
+   * 
+   * *   `FinishedTime (Desc/Asc)`
+   * 
+   * *   `CreateTime (Desc/Asc)`
+   * 
+   * *   `Id (Desc/Asc)`
+   * 
+   *     Default value: `Id Desc`.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The IDs of the tasks. You can query multiple instances at a time by task ID.
+   */
   taskIdsShrink?: string;
+  /**
+   * @remarks
+   * The name of the task. Fuzzy match is supported.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
+  /**
+   * @example
+   * Normal
+   */
   triggerRecurrence?: string;
+  /**
+   * @example
+   * Normal
+   */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance.
+   * 
+   * Valid values:
+   * 
+   * *   SmokeTest
+   * *   Manual
+   * *   SupplementData
+   * *   ManualWorkflow
+   * *   Normal
+   * 
    * @example
    * Normal
    */
@@ -10102,8 +13098,15 @@ export class ListTaskInstancesShrinkRequest extends $tea.Model {
 }
 
 export class ListTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListTaskInstancesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -10154,12 +13157,17 @@ export class ListTaskInstancesResponse extends $tea.Model {
 
 export class ListTaskOperationLogsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days.
+   * 
    * @example
    * 1710239005403
    */
   date?: number;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10167,16 +13175,30 @@ export class ListTaskOperationLogsRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
@@ -10207,8 +13229,15 @@ export class ListTaskOperationLogsRequest extends $tea.Model {
 }
 
 export class ListTaskOperationLogsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListTaskOperationLogsResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -10258,29 +13287,52 @@ export class ListTaskOperationLogsResponse extends $tea.Model {
 }
 
 export class ListTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the task. Fuzzy match is supported.
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
    * @remarks
+   * The workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10288,31 +13340,68 @@ export class ListTasksRequest extends $tea.Model {
    */
   projectId?: number;
   /**
+   * @remarks
+   * The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
   runtimeResource?: string;
   /**
+   * @remarks
+   * The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
+   * 
+   * *   `ModifyTime (Desc/Asc)`
+   * 
+   * *   `CreateTime (Desc/Asc)`
+   * 
+   * *   `Id (Desc/Asc)`
+   * 
+   *     Default value: `Id Desc`.
+   * 
    * @example
    * Id Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -10357,8 +13446,15 @@ export class ListTasksRequest extends $tea.Model {
 }
 
 export class ListTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListTasksResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -10410,6 +13506,8 @@ export class ListTasksResponse extends $tea.Model {
 export class ListUpstreamTaskInstancesRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10417,11 +13515,17 @@ export class ListUpstreamTaskInstancesRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -10448,8 +13552,15 @@ export class ListUpstreamTaskInstancesRequest extends $tea.Model {
 }
 
 export class ListUpstreamTaskInstancesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListUpstreamTaskInstancesResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -10501,6 +13612,8 @@ export class ListUpstreamTaskInstancesResponse extends $tea.Model {
 export class ListUpstreamTasksRequest extends $tea.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -10508,16 +13621,30 @@ export class ListUpstreamTasksRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
@@ -10546,8 +13673,15 @@ export class ListUpstreamTasksRequest extends $tea.Model {
 }
 
 export class ListUpstreamTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   pagingInfo?: ListUpstreamTasksResponseBodyPagingInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
@@ -11209,18 +14343,27 @@ export class MoveWorkflowDefinitionResponse extends $tea.Model {
 
 export class RemoveTaskInstanceDependenciesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The IDs of ancestor instances of the instance
+   */
   upstreamTaskInstanceIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -11245,18 +14388,27 @@ export class RemoveTaskInstanceDependenciesRequest extends $tea.Model {
 
 export class RemoveTaskInstanceDependenciesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The IDs of ancestor instances of the instance
+   */
   upstreamTaskInstanceIdsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11281,11 +14433,17 @@ export class RemoveTaskInstanceDependenciesShrinkRequest extends $tea.Model {
 
 export class RemoveTaskInstanceDependenciesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -11846,6 +15004,10 @@ export class RerunTaskInstancesResponseBody extends $tea.Model {
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -11949,6 +15111,10 @@ export class ResumeTaskInstancesResponseBody extends $tea.Model {
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -12205,6 +15371,10 @@ export class SetSuccessTaskInstancesResponseBody extends $tea.Model {
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -12535,6 +15705,10 @@ export class StopTaskInstancesResponseBody extends $tea.Model {
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -12638,6 +15812,10 @@ export class SuspendTaskInstancesResponseBody extends $tea.Model {
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -12686,6 +15864,8 @@ export class SuspendTaskInstancesResponse extends $tea.Model {
 export class TriggerSchedulerTaskInstanceRequest extends $tea.Model {
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12694,6 +15874,8 @@ export class TriggerSchedulerTaskInstanceRequest extends $tea.Model {
   taskId?: number;
   /**
    * @remarks
+   * The time defined by the HTTP Trigger node.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12721,11 +15903,17 @@ export class TriggerSchedulerTaskInstanceRequest extends $tea.Model {
 
 export class TriggerSchedulerTaskInstanceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -12776,26 +15964,46 @@ export class TriggerSchedulerTaskInstanceResponse extends $tea.Model {
 
 export class UpdateAlertRuleRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 105412
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * collection_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the alert notification.
+   */
   notification?: UpdateAlertRuleRequestNotification;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 193379****
    */
   owner?: string;
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   triggerCondition?: UpdateAlertRuleRequestTriggerCondition;
   static names(): { [key: string]: string } {
     return {
@@ -12826,26 +16034,46 @@ export class UpdateAlertRuleRequest extends $tea.Model {
 
 export class UpdateAlertRuleShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 105412
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * collection_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the alert notification.
+   */
   notificationShrink?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 193379****
    */
   owner?: string;
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   triggerConditionShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12876,11 +16104,17 @@ export class UpdateAlertRuleShrinkRequest extends $tea.Model {
 
 export class UpdateAlertRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D85FEE2B-6174-5817-AF9E-FDD02FEDA5BC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -12932,6 +16166,8 @@ export class UpdateAlertRuleResponse extends $tea.Model {
 export class UpdateDIAlarmRuleRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12939,27 +16175,57 @@ export class UpdateDIAlarmRuleRequest extends $tea.Model {
    */
   DIAlarmRuleId?: number;
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 1
    */
   DIJobId?: number;
+  /**
+   * @remarks
+   * The description of the alert rule.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the alert rule. By default, the alert rule is disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The metric type in the alert rule. Valid values:
+   * 
+   * *   Heartbeat
+   * *   FailoverCount
+   * *   Delay
+   * *   DdlReport
+   * *   ResourceUtilization
+   * 
    * @example
    * Heartbeat
    */
   metricType?: string;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * alarm_rule_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The alert notification settings.
+   */
   notificationSettings?: UpdateDIAlarmRuleRequestNotificationSettings;
+  /**
+   * @remarks
+   * The conditions that can trigger the alert rule.
+   */
   triggerConditions?: UpdateDIAlarmRuleRequestTriggerConditions[];
   static names(): { [key: string]: string } {
     return {
@@ -12995,6 +16261,8 @@ export class UpdateDIAlarmRuleRequest extends $tea.Model {
 export class UpdateDIAlarmRuleShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the alert rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13002,27 +16270,57 @@ export class UpdateDIAlarmRuleShrinkRequest extends $tea.Model {
    */
   DIAlarmRuleId?: number;
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 1
    */
   DIJobId?: number;
+  /**
+   * @remarks
+   * The description of the alert rule.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the alert rule. By default, the alert rule is disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The metric type in the alert rule. Valid values:
+   * 
+   * *   Heartbeat
+   * *   FailoverCount
+   * *   Delay
+   * *   DdlReport
+   * *   ResourceUtilization
+   * 
    * @example
    * Heartbeat
    */
   metricType?: string;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * alarm_rule_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The alert notification settings.
+   */
   notificationSettingsShrink?: string;
+  /**
+   * @remarks
+   * The conditions that can trigger the alert rule.
+   */
   triggerConditionsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13057,11 +16355,20 @@ export class UpdateDIAlarmRuleShrinkRequest extends $tea.Model {
 
 export class UpdateDIAlarmRuleResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * A6C6B486-E3A2-5D52-9E76-D9380485D946
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -13113,17 +16420,46 @@ export class UpdateDIAlarmRuleResponse extends $tea.Model {
 export class UpdateDIJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
    * 11588
    */
   DIJobId?: number;
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+   */
   jobSettings?: UpdateDIJobRequestJobSettings;
+  /**
+   * @remarks
+   * DataWorks工作空间ID。您可以通过[ListProjects](https://help.aliyun.com/document_detail/178393.html)接口获取工作空间ID。
+   * 
+   * @example
+   * 10000
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * The resource settings.
+   */
   resourceSettings?: UpdateDIJobRequestResourceSettings;
+  /**
+   * @remarks
+   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   */
   tableMappings?: UpdateDIJobRequestTableMappings[];
+  /**
+   * @remarks
+   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: UpdateDIJobRequestTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -13157,17 +16493,46 @@ export class UpdateDIJobRequest extends $tea.Model {
 export class UpdateDIJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the synchronization task.
+   * 
    * This parameter is required.
    * 
    * @example
    * 11588
    */
   DIJobId?: number;
+  /**
+   * @remarks
+   * The description of the synchronization task.
+   */
   description?: string;
+  /**
+   * @remarks
+   * The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+   */
   jobSettingsShrink?: string;
+  /**
+   * @remarks
+   * DataWorks工作空间ID。您可以通过[ListProjects](https://help.aliyun.com/document_detail/178393.html)接口获取工作空间ID。
+   * 
+   * @example
+   * 10000
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * The resource settings.
+   */
   resourceSettingsShrink?: string;
+  /**
+   * @remarks
+   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   */
   tableMappingsShrink?: string;
+  /**
+   * @remarks
+   * The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+   */
   transformationRulesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13200,11 +16565,20 @@ export class UpdateDIJobShrinkRequest extends $tea.Model {
 
 export class UpdateDIJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID. You can use the ID to query logs and troubleshoot issues.
+   * 
    * @example
    * AAC30B35-820D-5F3E-A42C-E96BB6379325
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -13253,9 +16627,745 @@ export class UpdateDIJobResponse extends $tea.Model {
   }
 }
 
+export class UpdateDataQualityEvaluationTaskRequest extends $tea.Model {
+  dataQualityRules?: UpdateDataQualityEvaluationTaskRequestDataQualityRules[];
+  /**
+   * @example
+   * 358750
+   */
+  dataSourceId?: number;
+  /**
+   * @remarks
+   * 质量监控任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooks?: UpdateDataQualityEvaluationTaskRequestHooks[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7227061794
+   */
+  id?: number;
+  /**
+   * @remarks
+   * 质量监控任务名称
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notifications?: UpdateDataQualityEvaluationTaskRequestNotifications;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  target?: UpdateDataQualityEvaluationTaskRequestTarget;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  trigger?: UpdateDataQualityEvaluationTaskRequestTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRules: 'DataQualityRules',
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRules: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestDataQualityRules },
+      dataSourceId: 'number',
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestHooks },
+      id: 'number',
+      name: 'string',
+      notifications: UpdateDataQualityEvaluationTaskRequestNotifications,
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: UpdateDataQualityEvaluationTaskRequestTarget,
+      trigger: UpdateDataQualityEvaluationTaskRequestTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskShrinkRequest extends $tea.Model {
+  dataQualityRulesShrink?: string;
+  /**
+   * @example
+   * 358750
+   */
+  dataSourceId?: number;
+  /**
+   * @remarks
+   * 质量监控任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooksShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 7227061794
+   */
+  id?: number;
+  /**
+   * @remarks
+   * 质量监控任务名称
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notificationsShrink?: string;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 10000
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  targetShrink?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  triggerShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRulesShrink: 'DataQualityRules',
+      dataSourceId: 'DataSourceId',
+      description: 'Description',
+      hooksShrink: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notificationsShrink: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      targetShrink: 'Target',
+      triggerShrink: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRulesShrink: 'string',
+      dataSourceId: 'number',
+      description: 'string',
+      hooksShrink: 'string',
+      id: 'number',
+      name: 'string',
+      notificationsShrink: 'string',
+      projectId: 'number',
+      runtimeConf: 'string',
+      targetShrink: 'string',
+      triggerShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8abcb91f-d266-4073-b907-2ed670378ed1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataQualityEvaluationTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataQualityEvaluationTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: UpdateDataQualityRuleRequestCheckingConfig;
+  /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
+  errorHandlers?: UpdateDataQualityRuleRequestErrorHandlers[];
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfig?: UpdateDataQualityRuleRequestSamplingConfig;
+  /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
+   * @example
+   * High
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
+  target?: UpdateDataQualityRuleRequestTarget;
+  /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: UpdateDataQualityRuleRequestCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': UpdateDataQualityRuleRequestErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: UpdateDataQualityRuleRequestSamplingConfig,
+      severity: 'string',
+      target: UpdateDataQualityRuleRequestTarget,
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfigShrink?: string;
+  /**
+   * @remarks
+   * The description of the rule. The description can be up to 500 characters in length.
+   * 
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the rule.
+   * 
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  /**
+   * @remarks
+   * The operations that you can perform after the rule-based check fails.
+   */
+  errorHandlersShrink?: string;
+  /**
+   * @remarks
+   * The rule ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 100001
+   */
+  id?: number;
+  /**
+   * @remarks
+   * The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfigShrink?: string;
+  /**
+   * @remarks
+   * The strength of the rule. Valid values:
+   * 
+   * *   Normal
+   * *   High
+   * 
+   * @example
+   * High
+   */
+  severity?: string;
+  /**
+   * @remarks
+   * The monitored object of the rule.
+   */
+  targetShrink?: string;
+  /**
+   * @remarks
+   * The ID of the template used by the rule.
+   * 
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfigShrink: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlersShrink: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfigShrink: 'SamplingConfig',
+      severity: 'Severity',
+      targetShrink: 'Target',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfigShrink: 'string',
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlersShrink: 'string',
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfigShrink: 'string',
+      severity: 'string',
+      targetShrink: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataQualityRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataQualityRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: UpdateDataQualityRuleTemplateRequestCheckingConfig;
+  /**
+   * @remarks
+   * The code for the template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfig?: UpdateDataQualityRuleTemplateRequestSamplingConfig;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      code: 'Code',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: UpdateDataQualityRuleTemplateRequestCheckingConfig,
+      code: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: UpdateDataQualityRuleTemplateRequestSamplingConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfigShrink?: string;
+  /**
+   * @remarks
+   * The code for the template.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The directory in which the template is stored. Slashes (/) are used to separate directory levels. The name of each directory level can be up to 1,024 characters in length. It cannot contain whitespace characters or slashes (/).
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfigShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfigShrink: 'CheckingConfig',
+      code: 'Code',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfigShrink: 'SamplingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfigShrink: 'string',
+      code: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfigShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 691CA452-D37A-4ED0-9441
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDataQualityRuleTemplateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDataQualityRuleTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
+   * The parameters that you need to configure to the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/zh/dataworks/developer-reference/data-source-connection-information-connectionproperties/?spm=a2c4g.11186623.0.0.3fbb6fe7fo5AMK).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13271,17 +17381,29 @@ export class UpdateDataSourceRequest extends $tea.Model {
    */
   connectionProperties?: string;
   /**
+   * @remarks
+   * The mode in which the data source is added. The mode varies based on the data source type. Valid values:
+   * 
+   * *   InstanceMode: instance mode
+   * *   UrlMode: connection string mode
+   * *   CdhMode: CDH cluster mode
+   * 
    * @example
    * UrlMode
    */
   connectionPropertiesMode?: string;
   /**
+   * @remarks
+   * The description of the data source. The description cannot exceed 3,000 characters in length.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
    * @remarks
+   * The data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13290,6 +17412,8 @@ export class UpdateDataSourceRequest extends $tea.Model {
   id?: number;
   /**
    * @remarks
+   * The DataWorks workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13323,6 +17447,9 @@ export class UpdateDataSourceRequest extends $tea.Model {
 
 export class UpdateDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 102E8E24-0387-531D-8A75-1C0AE7DD03E5
    */
@@ -13604,17 +17731,39 @@ export class UpdateNodeResponse extends $tea.Model {
 }
 
 export class UpdateProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the workspace.
+   */
   description?: string;
   /**
+   * @remarks
+   * Specifies whether to enable the development environment. Valid values:
+   * 
+   * *   true: enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+   * *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+   * 
    * @example
    * true
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether to disable the Develop role. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
+   * Note: If you disable the Develop role, you cannot assume the Develop role to develop nodes in workflows and edit node code. The Develop role cannot be enabled again after it is disabled.
+   * 
    * @example
    * true
    */
   devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * The display name of the workspace.
+   */
   displayName?: string;
   /**
    * @remarks
@@ -13625,6 +17774,12 @@ export class UpdateProjectRequest extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+   * 
+   * *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: disables scheduling of PAI tasks.
+   * 
    * @example
    * true
    */
@@ -14026,10 +18181,17 @@ export class UpdateRouteResponse extends $tea.Model {
 
 export class UpdateTaskInstancesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The instances.
+   */
   taskInstances?: UpdateTaskInstancesRequestTaskInstances[];
   static names(): { [key: string]: string } {
     return {
@@ -14052,10 +18214,17 @@ export class UpdateTaskInstancesRequest extends $tea.Model {
 
 export class UpdateTaskInstancesShrinkRequest extends $tea.Model {
   /**
+   * @remarks
+   * The remarks.
+   * 
    * @example
    * this is a comment
    */
   comment?: string;
+  /**
+   * @remarks
+   * The instances.
+   */
   taskInstancesShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14078,10 +18247,17 @@ export class UpdateTaskInstancesShrinkRequest extends $tea.Model {
 
 export class UpdateTaskInstancesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {
     return {
@@ -15092,6 +19268,11 @@ export class DataQualityResultRule extends $tea.Model {
 export class DataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model {
   /**
    * @example
+   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   */
+  expression?: string;
+  /**
+   * @example
    * >
    */
   operator?: string;
@@ -15102,6 +19283,7 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model 
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -15109,6 +19291,7 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -15122,6 +19305,11 @@ export class DataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model 
 export class DataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model {
   /**
    * @example
+   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   */
+  expression?: string;
+  /**
+   * @example
    * >
    */
   operator?: string;
@@ -15132,6 +19320,7 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model 
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -15139,6 +19328,7 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model 
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -15152,6 +19342,11 @@ export class DataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model 
 export class DataQualityRuleCheckingConfigThresholdsWarned extends $tea.Model {
   /**
    * @example
+   * 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+   */
+  expression?: string;
+  /**
+   * @example
    * >
    */
   operator?: string;
@@ -15162,6 +19357,7 @@ export class DataQualityRuleCheckingConfigThresholdsWarned extends $tea.Model {
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -15169,6 +19365,7 @@ export class DataQualityRuleCheckingConfigThresholdsWarned extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -15357,15 +19554,34 @@ export class DataQualityRuleTarget extends $tea.Model {
 
 export class CreateAlertRuleRequestNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
+   * 
    * @example
    * {"atAll":true}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of the alert recipient. Valid valves:
+   * 
+   * *   AliUid: Alibaba Cloud account ID.
+   * *   Shift Schedules: The personnel in a shift schedule.
+   * *   TaskOwner: The node owner. This parameter is available for custom alerts and event alerts.
+   * *   Owner: The baseline owner. This parameter is available for baseline alerts.
+   * *   WebhookUrl: URL of a custom webhook.
+   * *   DingdingUrl: DingTalk chatbot URL.
+   * *   FeishuUrl: Lark chatbot URL.
+   * *   WeixinUrl: WeCom chatbot URL.
+   * 
    * @example
    * TaskOwner
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The IDs of the alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15391,30 +19607,46 @@ export class CreateAlertRuleRequestNotificationReceivers extends $tea.Model {
 export class CreateAlertRuleRequestNotification extends $tea.Model {
   /**
    * @remarks
+   * The alert channels.
+   * 
    * This parameter is required.
    */
   channels?: string[];
   /**
+   * @remarks
+   * The interval at which an alert notification is sent. Unit: minutes. Valid values: 5 to 10,000.
+   * 
    * @example
    * 30
    */
   intervalInMinutes?: number;
   /**
+   * @remarks
+   * The maximum number of times an alert notification is sent within one calendar day. Valid values: 1 to 10,000.
+   * 
    * @example
    * 3
    */
   maximum?: number;
   /**
    * @remarks
+   * The alert recipient.
+   * 
    * This parameter is required.
    */
   receivers?: CreateAlertRuleRequestNotificationReceivers[];
   /**
+   * @remarks
+   * The end of the time range for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
   silenceEndTime?: string;
   /**
+   * @remarks
+   * The beginning of the time range for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
@@ -15448,11 +19680,17 @@ export class CreateAlertRuleRequestNotification extends $tea.Model {
 
 export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the scheduling cycle of the instance. Valid values: 1 to 288.
+   * 
    * @example
    * 1
    */
   cycleId?: number;
   /**
+   * @remarks
+   * The timeout period of instance running. The time is in the hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
+   * 
    * @example
    * 12:00
    */
@@ -15477,6 +19715,10 @@ export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycle
 }
 
 export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the scheduling cycle and timeout period of the instance.
+   */
   cycleAndTime?: CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
   static names(): { [key: string]: string } {
     return {
@@ -15497,10 +19739,17 @@ export class CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished exte
 
 export class CreateAlertRuleRequestTriggerConditionExtensionError extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether an alert is triggered if a batch synchronization task is rerun after it fails to run as expected.
+   * 
    * @example
    * false
    */
   autoRerunAlert?: boolean;
+  /**
+   * @remarks
+   * The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+   */
   streamTaskIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -15523,6 +19772,9 @@ export class CreateAlertRuleRequestTriggerConditionExtensionError extends $tea.M
 
 export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
   /**
+   * @remarks
+   * The number of instances on which an error occurs. Valid values: 1 to 10,000.
+   * 
    * @example
    * 5
    */
@@ -15546,6 +19798,9 @@ export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount e
 
 export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
   /**
+   * @remarks
+   * The percentage of the number of instances on which an error occurs in the workspace to the total number of instances on the current day. Valid values: 1 to 100.
+   * 
    * @example
    * 5
    */
@@ -15569,11 +19824,21 @@ export class CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercent
 
 export class CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
   /**
+   * @remarks
+   * The percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   percentage?: number;
   /**
+   * @remarks
+   * The way in which the number of auto triggered node instances that are generated in your workspace significantly fluctuates. Valid values:
+   * 
+   * *   abs: The number of instances increases or decreases.
+   * *   increase: The number of instances increases.
+   * *   decrease: The number of instances decreases.
+   * 
    * @example
    * abs
    */
@@ -15599,6 +19864,9 @@ export class CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluc
 
 export class CreateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period. Unit: minutes. Valid values: 1 to 21,600.
+   * 
    * @example
    * 10
    */
@@ -15622,6 +19890,9 @@ export class CreateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea
 
 export class CreateAlertRuleRequestTriggerConditionExtensionUnFinished extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period of the instance that is still running at a specified point in time. The time is in the hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
+   * 
    * @example
    * 30:00
    */
@@ -15644,12 +19915,40 @@ export class CreateAlertRuleRequestTriggerConditionExtensionUnFinished extends $
 }
 
 export class CreateAlertRuleRequestTriggerConditionExtension extends $tea.Model {
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to CycleUnfinished.
+   */
   cycleUnfinished?: CreateAlertRuleRequestTriggerConditionExtensionCycleUnfinished;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to Error.
+   */
   error?: CreateAlertRuleRequestTriggerConditionExtensionError;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorCount.
+   */
   instanceErrorCount?: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorPercentage.
+   */
   instanceErrorPercentage?: CreateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceTransferFluctuate.
+   */
   instanceTransferFluctuate?: CreateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to Timeout.
+   */
   timeout?: CreateAlertRuleRequestTriggerConditionExtensionTimeout;
+  /**
+   * @remarks
+   * The alert configuration. This parameter takes effect only if the Type parameter is set to UnFinished.
+   */
   unFinished?: CreateAlertRuleRequestTriggerConditionExtensionUnFinished;
   static names(): { [key: string]: string } {
     return {
@@ -15681,9 +19980,25 @@ export class CreateAlertRuleRequestTriggerConditionExtension extends $tea.Model 
 }
 
 export class CreateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The whitelists of the monitoring tasks.
+   */
   allowTasks?: number[];
+  /**
+   * @remarks
+   * The IDs of monitored objects.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Task: node
+   * *   Baseline: baseline
+   * *   Project: workspace
+   * *   BizProcess: workflow
+   * 
    * @example
    * Task
    */
@@ -15710,9 +20025,34 @@ export class CreateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
 }
 
 export class CreateAlertRuleRequestTriggerCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information about the rule. This parameter is required for some trigger conditions.
+   */
   extension?: CreateAlertRuleRequestTriggerConditionExtension;
+  /**
+   * @remarks
+   * The monitored object.
+   */
   target?: CreateAlertRuleRequestTriggerConditionTarget;
   /**
+   * @remarks
+   * The condition for triggering the alert. Valid values:
+   * 
+   * *   Finished: The system sends an alert notification when the instance is successfully run.
+   * *   UnFinished: The system sends an alert notification if the instance is still running at a specified point in time.
+   * *   Error: The system sends an alert notification if an error occurs when the instance is running.
+   * *   CycleUnfinished: The system sends an alert notification if the instance is still running at the end of a specified cycle.
+   * *   Timeout: The system sends an alert notification if the instance is still running after a specified period of time ends.
+   * *   InstanceTransferComplete: The system sends an alert notification if DataWorks generates auto triggered node instances that need to run the next day before 24:00.
+   * *   InstanceTransferFluctuate: The system sends an alert notification when the number of auto triggered node instances that are generated in your workspace significantly fluctuates, in comparison with the average number of auto triggered node instances that are historically generated in the workspace.
+   * *   ExhaustedError: The system sends an alert notification if an error persists after the instance is automatically rerun.
+   * *   InstanceKeyword: The system sends an alert notification if the instance with errors contain specified keywords.
+   * *   InstanceErrorCount: The system sends an alert notification if the number of instances on which an error occurs on the current day reaches a specified threshold.
+   * *   InstanceErrorPercentage: The system sends an alert notification if the proportion of the number of instances on which an error occurs in the workspace to the total number of instances on the current day reaches a specified threshold.
+   * *   ResourceGroupPercentage: The system sends an alert notification if the value of the ResourceGroupPercentage parameter is greater than a specific percentage for a specific period of time.
+   * *   ResourceGroupWaitCount: The system sends an alert notification if the value of the ResourceGroupWaitCount parameter is greater than a specific number for a specific period of time.
+   * 
    * @example
    * Error
    */
@@ -15739,8 +20079,23 @@ export class CreateAlertRuleRequestTriggerCondition extends $tea.Model {
 }
 
 export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification methods. Valid values:
+   * 
+   * *   Mail
+   * *   Phone
+   * *   Sms
+   * *   Ding
+   */
   channels?: string[];
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Warning
    */
@@ -15766,10 +20121,20 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels ex
 
 export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+   * 
    * @example
    * DingToken
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The recipient.
+   * 
+   * *   If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
+   * *   If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15792,11 +20157,22 @@ export class CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
 
 export class CreateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * 
    * @example
    * 5
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notificationChannels?: CreateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  /**
+   * @remarks
+   * The settings of alert notification recipients.
+   */
   notificationReceivers?: CreateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -15820,18 +20196,38 @@ export class CreateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
 }
 
 export class CreateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The types of DDL operations for which the alert rule takes effect.
+   */
   ddlReportTags?: string[];
   /**
+   * @remarks
+   * The time interval for alert calculation. Unit: minutes.
+   * 
    * @example
    * 10
    */
   duration?: number;
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Warning
    */
   severity?: string;
   /**
+   * @remarks
+   * The alert threshold.
+   * 
+   * *   If the alert rule is for task status, you do not need to specify a threshold.
+   * *   If the alert rule is for failovers, you must specify the number of failovers.
+   * *   If the alert rule is for latency, you must specify the latency duration, in seconds.
+   * 
    * @example
    * 10
    */
@@ -15861,6 +20257,9 @@ export class CreateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
 
 export class CreateDIJobRequestDestinationDataSourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * holo_datasource_1
    */
@@ -15884,11 +20283,17 @@ export class CreateDIJobRequestDestinationDataSourceSettings extends $tea.Model 
 
 export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The data type of the destination field.
+   * 
    * @example
    * text
    */
   destinationDataType?: string;
   /**
+   * @remarks
+   * The data type of the source field.
+   * 
    * @example
    * bigint
    */
@@ -15914,11 +20319,20 @@ export class CreateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Mo
 
 export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Model {
   /**
+   * @remarks
+   * The synchronization type that requires periodic scheduling. Valid values:
+   * 
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * 
    * @example
    * Full
    */
   cycleMigrationType?: string;
   /**
+   * @remarks
+   * The scheduling parameters.
+   * 
    * @example
    * bizdate=$bizdate
    */
@@ -15944,11 +20358,29 @@ export class CreateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Mod
 
 export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
   /**
+   * @remarks
+   * The processing policy. Valid values:
+   * 
+   * *   Ignore: ignores a DDL message.
+   * *   Critical: reports an error for a DDL message.
+   * *   Normal: normally processes a DDL message.
+   * 
    * @example
    * Critical
    */
   action?: string;
   /**
+   * @remarks
+   * The type of the DDL operation. Valid values:
+   * 
+   * *   RenameColumn
+   * *   ModifyColumn
+   * *   CreateTable
+   * *   TruncateTable
+   * *   DropTable
+   * *   DropColumn
+   * *   AddColumn
+   * 
    * @example
    * AddColumn
    */
@@ -15974,11 +20406,26 @@ export class CreateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model
 
 export class CreateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the configuration item. Valid values:
+   * 
+   * *   runtime.offline.speed.limit.mb: specifies the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
+   * *   runtime.offline.speed.limit.enable: specifies whether throttling is enabled for a batch synchronization task.
+   * *   dst.offline.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
+   * *   runtime.offline.concurrent: specifies the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   dst.realtime.connection.max: specifies the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
+   * *   runtime.enable.auto.create.schema: specifies whether schemas are automatically created in the destination of a synchronization task.
+   * *   src.offline.datasource.max.connection: specifies the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   runtime.realtime.concurrent: specifies the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * 
    * @example
    * runtime.offline.concurrent
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * 1
    */
@@ -16004,13 +20451,32 @@ export class CreateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
 
 export class CreateDIJobRequestJobSettings extends $tea.Model {
   /**
+   * @remarks
+   * The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+   * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
    */
   channelSettings?: string;
+  /**
+   * @remarks
+   * The data type mappings between source fields and destination fields.
+   */
   columnDataTypeSettings?: CreateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  /**
+   * @remarks
+   * The settings for periodic scheduling.
+   */
   cycleScheduleSettings?: CreateDIJobRequestJobSettingsCycleScheduleSettings;
+  /**
+   * @remarks
+   * The processing settings for DDL messages.
+   */
   ddlHandlingSettings?: CreateDIJobRequestJobSettingsDdlHandlingSettings[];
+  /**
+   * @remarks
+   * The runtime settings.
+   */
   runtimeSettings?: CreateDIJobRequestJobSettingsRuntimeSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -16039,11 +20505,17 @@ export class CreateDIJobRequestJobSettings extends $tea.Model {
 
 export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of compute units (CUs) in the resource group for Data Integration that are used for batch synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * 
    * @example
    * S_res_group_111_222
    */
@@ -16069,11 +20541,17 @@ export class CreateDIJobRequestResourceSettingsOfflineResourceSettings extends $
 
 export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for Data Integration that are used for real-time synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * 
    * @example
    * S_res_group_111_222
    */
@@ -16099,11 +20577,17 @@ export class CreateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 
 export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for scheduling that are used for batch synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for scheduling used for batch synchronization.
+   * 
    * @example
    * S_res_group_235454102432001_1579085295030
    */
@@ -16128,8 +20612,20 @@ export class CreateDIJobRequestResourceSettingsScheduleResourceSettings extends 
 }
 
 export class CreateDIJobRequestResourceSettings extends $tea.Model {
+  /**
+   * @remarks
+   * The resource used for batch synchronization.
+   */
   offlineResourceSettings?: CreateDIJobRequestResourceSettingsOfflineResourceSettings;
+  /**
+   * @remarks
+   * The resource used for real-time synchronization.
+   */
   realtimeResourceSettings?: CreateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  /**
+   * @remarks
+   * The resource used for scheduling.
+   */
   scheduleResourceSettings?: CreateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
     return {
@@ -16154,11 +20650,17 @@ export class CreateDIJobRequestResourceSettings extends $tea.Model {
 
 export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties extends $tea.Model {
   /**
+   * @remarks
+   * The encoding format of the database.
+   * 
    * @example
    * UTF-8
    */
   encoding?: string;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * GMT+8
    */
@@ -16184,10 +20686,17 @@ export class CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties exte
 
 export class CreateDIJobRequestSourceDataSourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_datasource_1
    */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The properties of the data source.
+   */
   dataSourceProperties?: CreateDIJobRequestSourceDataSourceSettingsDataSourceProperties;
   static names(): { [key: string]: string } {
     return {
@@ -16210,21 +20719,36 @@ export class CreateDIJobRequestSourceDataSourceSettings extends $tea.Model {
 
 export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
   /**
+   * @remarks
+   * The operation that is performed to select objects. Valid values: Include and Exclude.
+   * 
    * @example
    * Include
    */
   action?: string;
   /**
+   * @remarks
+   * The expression.
+   * 
    * @example
    * mysql_table_1
    */
   expression?: string;
   /**
+   * @remarks
+   * The expression type. Valid values: Exact and Regex.
+   * 
    * @example
    * Exact
    */
   expressionType?: string;
   /**
+   * @remarks
+   * The object type. Valid values:
+   * 
+   * *   Table
+   * *   Database
+   * 
    * @example
    * Table
    */
@@ -16254,16 +20778,37 @@ export class CreateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
 
 export class CreateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefineRuntimeSettings
+   * *   DefinePartitionKey
+   * 
    * @example
    * Rename
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which you want to perform the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -16290,7 +20835,15 @@ export class CreateDIJobRequestTableMappingsTransformationRules extends $tea.Mod
 }
 
 export class CreateDIJobRequestTableMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   */
   sourceObjectSelectionRules?: CreateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  /**
+   * @remarks
+   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: CreateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -16313,21 +20866,70 @@ export class CreateDIJobRequestTableMappings extends $tea.Model {
 
 export class CreateDIJobRequestTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefineRuntimeSettings
+   * *   DefinePartitionKey
+   * 
    * @example
    * Rename
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The expression of the rule. The expression must be a JSON string.
+   * 
+   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}
+   * 
+   * *   expression: the expression of the renaming rule. You can use the following variables in an expression: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} specifies the name of the source. ${srcDatabaseName} specifies the name of a source database. ${srcTableName} specifies the name of a source table.
+   * *   variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name cannot be enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from specifies the original string. to specifies the new string.
+   * 
+   * Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}
+   * 
+   * *   If you do not configure such a rule, no fields are added to the destination and no values are assigned by default.
+   * *   columnName: the name of the field that you want to add.
+   * *   columnValueType: the value type of the field. Valid values: Constant and Variable.
+   * *   columnValue: the value of the field. If you set the valueType parameter to Constant, set the columnValue parameter to a custom constant of the STRING type. If you set the valueType parameter to Variable, set the columnValue to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC specifies the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation.
+   * 
+   * Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}
+   * 
+   * *   If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default.
+   * *   If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * *   If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run.
+   * 
+   * Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}
+   * 
+   * *   If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal.
+   * *   dmlType: the DML operation. Valid values: Insert, Update, and Delete.
+   * *   dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete.
+   * *   filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
    */
   ruleExpression?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which you want to perform the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -16355,13 +20957,1129 @@ export class CreateDIJobRequestTransformationRules extends $tea.Model {
   }
 }
 
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0.01
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @example
+   * =
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0.001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds extends $tea.Model {
+  critical?: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical;
+  expected?: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected;
+  warned?: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical,
+      expected: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected,
+      warned: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * {"bizdate": ["-1"]}
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM ods_api_log WHERE status = \\"Error\\";
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * NullValueCount
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * status != \\"Succeeded\\"
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * odps.sql.type.system.odps2=True,odps.sql.hive.compatible=True
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestDataQualityRules extends $tea.Model {
+  checkingConfig?: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: CreateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers[];
+  /**
+   * @example
+   * 2176
+   */
+  id?: number;
+  name?: string;
+  samplingConfig?: CreateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig;
+  /**
+   * @example
+   * High
+   */
+  severity?: string;
+  /**
+   * @example
+   * SYSTEM:field:null_value:fixed:0
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: CreateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers },
+      id: 'number',
+      name: 'string',
+      samplingConfig: CreateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig,
+      severity: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestHooks extends $tea.Model {
+  /**
+   * @remarks
+   * Hook触发条件
+   * 
+   * @example
+   * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * Hook类型
+   * 
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * 
+   * @example
+   * {  "atAll": true }
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * 告警接收人类型
+   * 
+   * @example
+   * DingdingUrl
+   */
+  receiverType?: string;
+  /**
+   * @remarks
+   * 告警接收人
+   */
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestNotificationsNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  notificationChannels?: CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * 告警接收人设置
+   */
+  notificationReceivers?: CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知触发条件
+   * 
+   * @example
+   * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * 具体的消息通知设置
+   */
+  notifications?: CreateDataQualityEvaluationTaskRequestNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': CreateDataQualityEvaluationTaskRequestNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestTarget extends $tea.Model {
+  /**
+   * @remarks
+   * 表所属的数据库类型
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * 分区表的分区设置
+   * 
+   * @example
+   * pt=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * 表在数据地图中的唯一ID
+   * 
+   * @example
+   * odps.api_test.ods_openapi_log_d
+   */
+  tableGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskRequestTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 具体指明哪些调度节点的实例执行成功后可以触发
+   */
+  taskIds?: number[];
+  /**
+   * @remarks
+   * 何种事件可以触发质量校验任务执行
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityEvaluationTaskInstanceRequestRuntimeResource extends $tea.Model {
+  /**
+   * @example
+   * 0.25
+   */
+  cu?: number;
+  /**
+   * @example
+   * 63900680
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cu: 'Cu',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cu: 'number',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.05
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue <= 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestCheckingConfigThresholds extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
+  critical?: CreateDataQualityRuleRequestCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
+  expected?: CreateDataQualityRuleRequestCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
+  warned?: CreateDataQualityRuleRequestCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: CreateDataQualityRuleRequestCheckingConfigThresholdsCritical,
+      expected: CreateDataQualityRuleRequestCheckingConfigThresholdsExpected,
+      warned: CreateDataQualityRuleRequestCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestCheckingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * 
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
+  thresholds?: CreateDataQualityRuleRequestCheckingConfigThresholds;
+  /**
+   * @remarks
+   * The method that is used to calculate a threshold. You can leave this parameter empty if you use a rule template. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: CreateDataQualityRuleRequestCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestErrorHandlers extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
+   * 
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * Count
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleRequestTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * The ID of the table that is limited by the rule in Data Map.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateRequestCheckingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * 
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDataQualityRuleTemplateRequestSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * Count
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * {"SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateProjectRequestAliyunResourceTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * batch
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * blue
    */
@@ -16424,15 +22142,34 @@ export class CreateResourceGroupResponseBodyResourceGroupOrder extends $tea.Mode
 
 export class GetAlertRuleResponseBodyAlertRuleNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
+   * 
    * @example
    * {"atAll":true}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of the alert recipient. Valid valves:
+   * 
+   * *   AliUid: Alibaba Cloud account ID.
+   * *   Shift Schedules: the personnel in a shift schedule.
+   * *   TaskOwner: the task owner. The task owner can receive custom alerts and event alerts.
+   * *   Owner: the baseline owner. The baseline owner can receive baseline alerts.
+   * *   WebhookUrl: URL of a custom webhook.
+   * *   DingdingUrl: DingTalk webhook URL.
+   * *   FeishuUrl: Lark webhook URL.
+   * *   WeixinUrl: WeCom webhook URL.
+   * 
    * @example
    * WebhookUrl
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -16456,24 +22193,44 @@ export class GetAlertRuleResponseBodyAlertRuleNotificationReceivers extends $tea
 }
 
 export class GetAlertRuleResponseBodyAlertRuleNotification extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification channels.
+   */
   channels?: string[];
   /**
+   * @remarks
+   * The interval at which an alert notification is sent. Unit: minutes. Valid values: [5,10000].
+   * 
    * @example
    * 30
    */
   intervalInMinutes?: number;
   /**
+   * @remarks
+   * The maximum number of times an alert notification can be sent within a calendar day. Valid values: [1, 10000].
+   * 
    * @example
    * 3
    */
   maximum?: number;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receivers?: GetAlertRuleResponseBodyAlertRuleNotificationReceivers[];
   /**
+   * @remarks
+   * The end time for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
   silenceEndTime?: string;
   /**
+   * @remarks
+   * The start time for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
@@ -16507,11 +22264,17 @@ export class GetAlertRuleResponseBodyAlertRuleNotification extends $tea.Model {
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the scheduling cycle of the instance. Valid values: [1,288].
+   * 
    * @example
    * 1
    */
   cycleId?: number;
   /**
+   * @remarks
+   * The latest completion time of the instance within the scheduling cycle. The time is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 12:00
    */
@@ -16536,6 +22299,10 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfi
 }
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the scheduling cycle and timeout period of the instance.
+   */
   cycleAndTime?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
   static names(): { [key: string]: string } {
     return {
@@ -16556,10 +22323,17 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfi
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+   * 
    * @example
    * false
    */
   autoRerunAlert?: boolean;
+  /**
+   * @remarks
+   * The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+   */
   streamTaskIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -16582,6 +22356,9 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError ext
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of instances on which an error occurs. Valid values: [1,10000].
+   * 
    * @example
    * 10
    */
@@ -16605,6 +22382,9 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceE
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
@@ -16628,11 +22408,21 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceE
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
   percentage?: number;
   /**
+   * @remarks
+   * The way in which the number of auto triggered node instances that are generated in your workspace fluctuates. Valid values:
+   * 
+   * *   abs: the absolute value. The number of instances increases or decreases.
+   * *   increase: The number of instances increases.
+   * *   decrease: The number of instances decreases.
+   * 
    * @example
    * 10
    */
@@ -16658,6 +22448,9 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceT
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period. Unit: minutes. Valid values: [1, 21600].
+   * 
    * @example
    * 10
    */
@@ -16681,6 +22474,9 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout e
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished extends $tea.Model {
   /**
+   * @remarks
+   * The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 12:00
    */
@@ -16703,12 +22499,40 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinishe
 }
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration for an alert of the CycleUnfinished type.
+   */
   cycleUnfinished?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionCycleUnfinished;
+  /**
+   * @remarks
+   * The configuration for an alert of the Error type.
+   */
   error?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionError;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorCount type.
+   */
   instanceErrorCount?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorCount;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorPercentage type.
+   */
   instanceErrorPercentage?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceErrorPercentage;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceTransferFluctuate type.
+   */
   instanceTransferFluctuate?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionInstanceTransferFluctuate;
+  /**
+   * @remarks
+   * The configuration for an alert of the Timeout type.
+   */
   timeout?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionTimeout;
+  /**
+   * @remarks
+   * The configuration for an alert of the UnFinished type.
+   */
   unFinished?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtensionUnFinished;
   static names(): { [key: string]: string } {
     return {
@@ -16740,9 +22564,25 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension extends 
 }
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The nodes that are not to be monitored.
+   */
   allowTasks?: number[];
+  /**
+   * @remarks
+   * The IDs of monitored objects.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored objects. Valid values:
+   * 
+   * *   Task: node
+   * *   Baseline: baseline
+   * *   Project: workspace
+   * *   BizProcess: workflow
+   * 
    * @example
    * Task
    */
@@ -16769,9 +22609,34 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget extends $te
 }
 
 export class GetAlertRuleResponseBodyAlertRuleTriggerCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information about the rule. This parameter is required for specific types of alerts.
+   */
   extension?: GetAlertRuleResponseBodyAlertRuleTriggerConditionExtension;
+  /**
+   * @remarks
+   * The monitored objects.
+   */
   target?: GetAlertRuleResponseBodyAlertRuleTriggerConditionTarget;
   /**
+   * @remarks
+   * The alert type. Valid values:
+   * 
+   * *   Finished: An instance is successfully run.
+   * *   UnFinished: An instance does not finish running before a specified point in time.
+   * *   Error: An error occurs on an instance.
+   * *   CycleUnfinished: An instance does not finish running as expected within a specific cycle.
+   * *   Timeout: An instance times out.
+   * *   InstanceTransferComplete: An instance is generated by the auto triggered node.
+   * *   InstanceTransferFluctuate: The number of generated instances fluctuates.
+   * *   ExhaustedError: An error persists after an instance is automatically rerun.
+   * *   InstanceKeyword: An instance with errors contains specified keywords.
+   * *   InstanceErrorCount: The number of instances on which an error occurs reaches a specified threshold.
+   * *   InstanceErrorPercentage: The proportion of instances on which an error occurs in the workspace to the total number of instances reaches a specified threshold.
+   * *   ResourceGroupPercentage: The usage rate of the resource group reaches a specified threshold.
+   * *   ResourceGroupWaitCount: The number of instances that are waiting for resources in the resource group reaches a specified threshold.
+   * 
    * @example
    * Error
    */
@@ -16799,26 +22664,46 @@ export class GetAlertRuleResponseBodyAlertRuleTriggerCondition extends $tea.Mode
 
 export class GetAlertRuleResponseBodyAlertRule extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 16035
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * error_rule
    */
   name?: string;
+  /**
+   * @remarks
+   * The configuration for the alert notification.
+   */
   notification?: GetAlertRuleResponseBodyAlertRuleNotification;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 279961421580845157
    */
   owner?: string;
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   triggerCondition?: GetAlertRuleResponseBodyAlertRuleTriggerCondition;
   static names(): { [key: string]: string } {
     return {
@@ -16849,6 +22734,9 @@ export class GetAlertRuleResponseBodyAlertRule extends $tea.Model {
 
 export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * dw_mysql
    */
@@ -16872,11 +22760,17 @@ export class GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings extends
 
 export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The data type of the destination field.
+   * 
    * @example
    * text
    */
   destinationDataType?: string;
   /**
+   * @remarks
+   * The data type of the source field.
+   * 
    * @example
    * bigint
    */
@@ -16902,11 +22796,20 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings ext
 
 export class GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings extends $tea.Model {
   /**
+   * @remarks
+   * The synchronization type that requires periodic scheduling. Valid values:
+   * 
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * 
    * @example
    * Full
    */
   cycleMigrationType?: string;
   /**
+   * @remarks
+   * The scheduling parameters.
+   * 
    * @example
    * bizdate=$bizdate
    */
@@ -16932,11 +22835,27 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings exte
 
 export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extends $tea.Model {
   /**
+   * @remarks
+   * The processing policy for a specific type of DDL message. Valid values:
+   * 
+   * *   Ignore: ignores a DDL message.
+   * *   Critical: reports an error for a DDL message.
+   * *   Normal: normally processes a DDL message.
+   * 
    * @example
    * Ignore
    */
   action?: string;
   /**
+   * @remarks
+   * The DDL operation type. Valid values:
+   * 
+   * *   RenameColumn
+   * *   ModifyColumn
+   * *   CreateTable
+   * *   TruncateTable
+   * *   DropTable
+   * 
    * @example
    * CreateTable
    */
@@ -16962,11 +22881,26 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings extend
 
 export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the configuration item. Valid values:
+   * 
+   * *   runtime.offline.speed.limit.mb: indicates the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
+   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
+   * *   dst.offline.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
+   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   dst.realtime.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
+   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
+   * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * 
    * @example
    * runtime.offline.concurrent
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * 1
    */
@@ -16992,13 +22926,40 @@ export class GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings extends $t
 
 export class GetDIJobResponseBodyPagingInfoJobSettings extends $tea.Model {
   /**
+   * @remarks
+   * The channel control settings for the synchronization task. The value of this parameter is a JSON string.
+   * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
    */
   channelSettings?: string;
+  /**
+   * @remarks
+   * The data type mappings between source fields and destination fields.
+   */
   columnDataTypeSettings?: GetDIJobResponseBodyPagingInfoJobSettingsColumnDataTypeSettings[];
+  /**
+   * @remarks
+   * The settings for periodic scheduling.
+   */
   cycleScheduleSettings?: GetDIJobResponseBodyPagingInfoJobSettingsCycleScheduleSettings;
+  /**
+   * @remarks
+   * The DDL operation types. Valid values:
+   * 
+   * *   RenameColumn
+   * *   ModifyColumn
+   * *   CreateTable
+   * *   TruncateTable
+   * *   DropTable
+   * *   DropColumn
+   * *   AddColumn
+   */
   ddlHandlingSettings?: GetDIJobResponseBodyPagingInfoJobSettingsDdlHandlingSettings[];
+  /**
+   * @remarks
+   * The runtime settings.
+   */
   runtimeSettings?: GetDIJobResponseBodyPagingInfoJobSettingsRuntimeSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -17027,11 +22988,17 @@ export class GetDIJobResponseBodyPagingInfoJobSettings extends $tea.Model {
 
 export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of compute units (CUs) in the resource group for scheduling that are used for batch synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * 
    * @example
    * S_res_group_7708_1667792816832
    */
@@ -17057,11 +23024,17 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettin
 
 export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for Data Integration that are used for real-time synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * 
    * @example
    * S_res_group_235454102432001_1579085295030
    */
@@ -17087,11 +23060,17 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSetti
 
 export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for Data Integration that are used for scheduling.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for scheduling used by the synchronization task.
+   * 
    * @example
    * S_res_group_235454102432001_1718359176885
    */
@@ -17116,8 +23095,20 @@ export class GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSetti
 }
 
 export class GetDIJobResponseBodyPagingInfoResourceSettings extends $tea.Model {
+  /**
+   * @remarks
+   * The resource used for batch synchronization.
+   */
   offlineResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsOfflineResourceSettings;
+  /**
+   * @remarks
+   * The resource used for real-time synchronization.
+   */
   realtimeResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsRealtimeResourceSettings;
+  /**
+   * @remarks
+   * The resource used for scheduling.
+   */
   scheduleResourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
     return {
@@ -17142,11 +23133,17 @@ export class GetDIJobResponseBodyPagingInfoResourceSettings extends $tea.Model {
 
 export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties extends $tea.Model {
   /**
+   * @remarks
+   * The encoding format of the database.
+   * 
    * @example
    * UTF-8
    */
   encoding?: string;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * GMT+8
    */
@@ -17172,10 +23169,17 @@ export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourcePro
 
 export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * dw_mysql
    */
   dataSourceName?: string;
+  /**
+   * @remarks
+   * The properties of the data source.
+   */
   dataSourceProperties?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettingsDataSourceProperties;
   static names(): { [key: string]: string } {
     return {
@@ -17198,21 +23202,36 @@ export class GetDIJobResponseBodyPagingInfoSourceDataSourceSettings extends $tea
 
 export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules extends $tea.Model {
   /**
+   * @remarks
+   * The operation that is performed to select objects. Valid values: Include and Exclude.
+   * 
    * @example
    * Include
    */
   action?: string;
   /**
+   * @remarks
+   * The expression.
+   * 
    * @example
    * mysql_table_1
    */
   expression?: string;
   /**
+   * @remarks
+   * The expression type. Valid values: Exact and Regex.
+   * 
    * @example
    * Exact
    */
   expressionType?: string;
   /**
+   * @remarks
+   * The object type. Valid values:
+   * 
+   * *   Table
+   * *   Database
+   * 
    * @example
    * Table
    */
@@ -17242,16 +23261,33 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRul
 
 export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * 
    * @example
    * AddColumn
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which the action is performed. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -17278,7 +23314,15 @@ export class GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules exte
 }
 
 export class GetDIJobResponseBodyPagingInfoTableMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   */
   sourceObjectSelectionRules?: GetDIJobResponseBodyPagingInfoTableMappingsSourceObjectSelectionRules[];
+  /**
+   * @remarks
+   * The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: GetDIJobResponseBodyPagingInfoTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -17301,21 +23345,55 @@ export class GetDIJobResponseBodyPagingInfoTableMappings extends $tea.Model {
 
 export class GetDIJobResponseBodyPagingInfoTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * *   DefineIncrementalCondition
+   * *   DefineCycleScheduleSettings
+   * *   DefineRuntimeSettings
+   * *   DefinePartitionKey
+   * 
    * @example
    * Rename
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The expression of the rule. The expression is a JSON string.
+   * 
+   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}.
+   * 
+   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name is not enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from indicates the original string. to indicates the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
+   * 
+   * If no rule of this type is configured, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that is added. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field. If the value of the columnValueType parameter is Constant, the value of the columnValue parameter is a constant of the STRING data type. If the value of the columnValueType parameter is Variable, the value of the columnValue parameter is a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME indicates the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC indicates the name of the source. TABLE_NAME_SRC indicates the name of a source table. DB_NAME_DEST indicates the name of a destination database. DATASOURCE_NAME_DEST indicates the name of the destination. TABLE_NAME_DEST indicates the name of a destination table. DB_NAME_SRC_TRANSED indicates the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
+   * 
+   * If no rule of this type is configured, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * 
+   * If no rule of this type is configured, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. The value Filter is returned for the dmlAction parameter only when the value of the dmlType parameter is Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is returned only when the value of the dmlAction parameter is Filter.
+   * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
    */
   ruleExpression?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which the action is performed. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -17345,46 +23423,113 @@ export class GetDIJobResponseBodyPagingInfoTransformationRules extends $tea.Mode
 
 export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 32601
    */
   DIJobId?: string;
   /**
+   * @remarks
+   * The description of the synchronization task.
+   * 
    * @example
    * description
    */
   description?: string;
+  /**
+   * @remarks
+   * The properties of the destination.
+   */
   destinationDataSourceSettings?: GetDIJobResponseBodyPagingInfoDestinationDataSourceSettings[];
   /**
+   * @remarks
+   * The destination type. The value Hologres is returned.
+   * 
    * @example
    * Hologres
    */
   destinationDataSourceType?: string;
   /**
+   * @remarks
+   * The name of the synchronization task.
+   * 
    * @example
    * imp_ods_dms_det_dealer_info_df
    */
   jobName?: string;
+  /**
+   * @remarks
+   * The runtime settings.
+   */
   jobSettings?: GetDIJobResponseBodyPagingInfoJobSettings;
+  /**
+   * @remarks
+   * 任务状态。
+   * 同步状态，取值范围：
+   * - Finished：运行成功已结束
+   * - Failed：运行失败
+   * - Running：运行中
+   * - Initialized：初始化完成(未启动）
+   * - Stopping：停止中
+   * - Stop：停止
+   * 
+   * @example
+   * Running
+   */
   jobStatus?: string;
   /**
+   * @remarks
+   * The synchronization type. Valid values:
+   * 
+   * *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+   * *   RealtimeIncremental: real-time incremental synchronization
+   * *   Full: full synchronization
+   * *   OfflineIncremental: batch incremental synchronization
+   * *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+   * 
    * @example
    * FullAndRealtimeIncremental
    */
   migrationType?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+   * 
+   * This parameter indicates the DataWorks workspace to which the API operation is applied.
+   * 
    * @example
    * 98330
    */
   projectId?: number;
+  /**
+   * @remarks
+   * The resource settings.
+   */
   resourceSettings?: GetDIJobResponseBodyPagingInfoResourceSettings;
+  /**
+   * @remarks
+   * The settings of the source. Only a single source is supported.
+   */
   sourceDataSourceSettings?: GetDIJobResponseBodyPagingInfoSourceDataSourceSettings[];
   /**
+   * @remarks
+   * The source type. The value MySQL is returned.
+   * 
    * @example
    * Mysql
    */
   sourceDataSourceType?: string;
+  /**
+   * @remarks
+   * The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+   */
   tableMappings?: GetDIJobResponseBodyPagingInfoTableMappings[];
+  /**
+   * @remarks
+   * The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: GetDIJobResponseBodyPagingInfoTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -17429,10 +23574,1200 @@ export class GetDIJobResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks extends $tea.Model {
+  /**
+   * @remarks
+   * Hook触发条件
+   * 
+   * @example
+   * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * Hook类型
+   * 
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * 
+   * @example
+   * {  "atAll": true }
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * 告警接收人类型
+   * 
+   * @example
+   * DingdingUrl
+   */
+  receiverType?: string;
+  /**
+   * @remarks
+   * 告警接收人
+   */
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  notificationChannels?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * 告警接收人设置
+   */
+  notificationReceivers?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知触发条件
+   * 
+   * @example
+   * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * 具体的消息通知设置
+   */
+  notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget extends $tea.Model {
+  /**
+   * @remarks
+   * 表所属的数据库类型
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * pt=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * 表在数据地图中的唯一ID
+   * 
+   * @example
+   * odps.meta_open_api_test_sz.test_partition_tbl
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * 监控对象类型
+   * 
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 具体指明哪些调度节点的实例执行成功后可以触发
+   */
+  taskIds?: number[];
+  /**
+   * @remarks
+   * 何种事件可以触发质量校验任务执行
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTask extends $tea.Model {
+  /**
+   * @remarks
+   * 质量监控任务描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+   */
+  hooks?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks[];
+  /**
+   * @remarks
+   * 代表资源一级ID的资源属性字段
+   * 
+   * @example
+   * 2178
+   */
+  id?: number;
+  /**
+   * @remarks
+   * 质量监控任务名称
+   * 
+   * This parameter is required.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 数据质量校验任务通知订阅配置
+   */
+  notifications?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications;
+  /**
+   * @remarks
+   * 项目空间Id
+   * 
+   * @example
+   * 2626
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+   * 
+   * @example
+   * { "queue": "default", "sqlEngine": "SPARK_SQL" }
+   */
+  runtimeConf?: string;
+  /**
+   * @remarks
+   * 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+   */
+  target?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget;
+  /**
+   * @remarks
+   * 数据质量校验任务的触发配置
+   */
+  trigger?: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskHooks },
+      id: 'number',
+      name: 'string',
+      notifications: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskNotifications,
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTarget,
+      trigger: GetDataQualityEvaluationTaskResponseBodyDataQualityEvaluationTaskTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks extends $tea.Model {
+  /**
+   * @example
+   * (${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")
+   */
+  condition?: string;
+  /**
+   * @example
+   * BlockTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels extends $tea.Model {
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @example
+   * { "atAll": true }
+   */
+  extension?: string;
+  /**
+   * @example
+   * DingdingUrl
+   */
+  receiverType?: string;
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications extends $tea.Model {
+  notificationChannels?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels[];
+  notificationReceivers?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications extends $tea.Model {
+  /**
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * pt=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.api_trace.ods_d_api_log
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger extends $tea.Model {
+  taskIds?: number[];
+  /**
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask extends $tea.Model {
+  description?: string;
+  hooks?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks[];
+  /**
+   * @example
+   * 28544990
+   */
+  id?: number;
+  name?: string;
+  notifications?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications;
+  /**
+   * @example
+   * 20629
+   */
+  projectId?: number;
+  /**
+   * @example
+   * { "queue": "default" }
+   */
+  runtimeConf?: string;
+  target?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget;
+  trigger?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      hooks: 'Hooks',
+      id: 'Id',
+      name: 'Name',
+      notifications: 'Notifications',
+      projectId: 'ProjectId',
+      runtimeConf: 'RuntimeConf',
+      target: 'Target',
+      trigger: 'Trigger',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      hooks: { 'type': 'array', 'itemType': GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskHooks },
+      id: 'number',
+      name: 'string',
+      notifications: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskNotifications,
+      projectId: 'number',
+      runtimeConf: 'string',
+      target: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTarget,
+      trigger: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTaskTrigger,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstance extends $tea.Model {
+  /**
+   * @example
+   * 1716344665000
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 1716344665000
+   */
+  finishTime?: number;
+  /**
+   * @example
+   * 7234231689
+   */
+  id?: number;
+  /**
+   * @example
+   * { "triggerTime": 1733284062000 }
+   */
+  parameters?: string;
+  /**
+   * @example
+   * 98330
+   */
+  projectId?: number;
+  /**
+   * @example
+   * Passed
+   */
+  status?: string;
+  task?: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask;
+  /**
+   * @example
+   * { "triggerClient": "CWF2", "triggerClientId": 70001238945 }
+   */
+  triggerContext?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      finishTime: 'FinishTime',
+      id: 'Id',
+      parameters: 'Parameters',
+      projectId: 'ProjectId',
+      status: 'Status',
+      task: 'Task',
+      triggerContext: 'TriggerContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'number',
+      finishTime: 'number',
+      id: 'number',
+      parameters: 'string',
+      projectId: 'number',
+      status: 'string',
+      task: GetDataQualityEvaluationTaskInstanceResponseBodyDataQualityEvaluationTaskInstanceTask,
+      triggerContext: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * @example
+   * $checkValue > 0.05
+   */
+  expression?: string;
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * @example
+   * $checkValue <= 0.01
+   */
+  expression?: string;
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold expression.
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholds extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
+  critical?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
+  expected?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
+  warned?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsCritical,
+      expected: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsExpected,
+      warned: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
+  thresholds?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * Max
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRuleTarget extends $tea.Model {
+  /**
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleResponseBodyDataQualityRule extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig;
+  /**
+   * @example
+   * this is a odps _sql task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers[];
+  /**
+   * @example
+   * 16033
+   */
+  id?: number;
+  name?: string;
+  /**
+   * @example
+   * 1948
+   */
+  projectId?: number;
+  samplingConfig?: GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig;
+  /**
+   * @example
+   * High
+   */
+  severity?: string;
+  target?: GetDataQualityRuleResponseBodyDataQualityRuleTarget;
+  /**
+   * @example
+   * system::user_defined
+   */
+  templateCode?: string;
+  /**
+   * @example
+   * 228248921215042
+   */
+  tenantId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      target: 'Target',
+      templateCode: 'TemplateCode',
+      tenantId: 'TenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: GetDataQualityRuleResponseBodyDataQualityRuleCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': GetDataQualityRuleResponseBodyDataQualityRuleErrorHandlers },
+      id: 'number',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: GetDataQualityRuleResponseBodyDataQualityRuleSamplingConfig,
+      severity: 'string',
+      target: GetDataQualityRuleResponseBodyDataQualityRuleTarget,
+      templateCode: 'string',
+      tenantId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * Max
+   */
+  metric?: string;
+  /**
+   * @example
+   * {"SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplate extends $tea.Model {
+  checkingConfig?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateCheckingConfig;
+  /**
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  directoryPath?: string;
+  name?: string;
+  /**
+   * @example
+   * 4020
+   */
+  projectId?: number;
+  samplingConfig?: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSamplingConfig;
+  /**
+   * @example
+   * 195820716552192
+   */
+  tenantId?: number;
+  /**
+   * @example
+   * Project
+   */
+  visibleScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      code: 'Code',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      tenantId: 'TenantId',
+      visibleScope: 'VisibleScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateCheckingConfig,
+      code: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: GetDataQualityRuleTemplateResponseBodyDataQualityRuleTemplateSamplingConfig,
+      tenantId: 'number',
+      visibleScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDataSourceResponseBodyDataSource extends $tea.Model {
   /**
    * @remarks
-   * The connection properties of the data source.
+   * The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
+   * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/zh/dataworks/developer-reference/data-source-connection-information-connectionproperties/?spm=a2c4g.11186623.0.0.3fbb6fe7fo5AMK).
    * 
    * @example
    * {
@@ -17524,7 +24859,7 @@ export class GetDataSourceResponseBodyDataSource extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
-   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the `${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database}` format.
    * 
    * @example
    * 1107550004253538:cn-beijing:holo:hgprecn-cn-x0r3oun4k001:testdb
@@ -17859,31 +25194,58 @@ export class GetFunctionResponseBodyFunction extends $tea.Model {
 
 export class GetJobStatusResponseBodyJobStatus extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the asynchronous task is complete. Valid values: True False
+   * 
    * @example
    * False
    */
   completed?: string;
   /**
+   * @remarks
+   * The time when the asynchronous task was created.
+   * 
    * @example
    * 1729063449802
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error message returned if the asynchronous task fails.
+   * 
    * @example
    * Not Found
    */
   error?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
    * @example
    * C664CDE3-9C0B-5792-B17F-6C543783BBBC
    */
   jobId?: string;
   /**
+   * @remarks
+   * The type of the asynchronous task. Valid values:
+   * 
+   * *   **Create**: The asynchronous task is used to create an object.
+   * *   **Update**: The asynchronous task is used to update an object.
+   * *   **Cancel**: The asynchronous task is used to cancel an operation.
+   * 
    * @example
    * Create
    */
   jobType?: string;
   /**
+   * @remarks
+   * The status of the asynchronous task. Valid values:
+   * 
+   * *   **Success**
+   * *   **Fail**
+   * *   **Cancel**
+   * *   **Running**
+   * 
    * @example
    * Success
    */
@@ -18366,17 +25728,48 @@ export class GetProjectMemberResponseBodyProjectMember extends $tea.Model {
 
 export class GetProjectRoleResponseBodyProjectRole extends $tea.Model {
   /**
+   * @remarks
+   * The code of the role in the DataWorks workspace.
+   * 
+   * Valid values:
+   * 
+   * *   role_project_admin: workspace administrator
+   * *   role_project_dev: developer
+   * *   role_project_dg_admin: data governance administrator
+   * *   role_project_guest: visitor
+   * *   role_project_security: security administrator
+   * *   role_project_deploy: deployer
+   * *   role_project_owner: workspace owner
+   * *   role_project_data_analyst: data analyst
+   * *   role_project_pe: O\\&M engineer
+   * *   role_project_erd: model designer
+   * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The name of the role in the DataWorks workspace.
+   */
   name?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 10002
    */
   projectId?: number;
   /**
+   * @remarks
+   * The type of the role in the DataWorks workspace.
+   * 
+   * Valid values:
+   * 
+   * *   UserCustom: user-defined role
+   * *   System: system role
+   * 
    * @example
    * System
    */
@@ -18486,6 +25879,9 @@ export class GetResourceResponseBodyResource extends $tea.Model {
 
 export class GetResourceGroupResponseBodyResourceGroupSpec extends $tea.Model {
   /**
+   * @remarks
+   * The number of resources in the resource group.
+   * 
    * @example
    * 1
    */
@@ -18561,12 +25957,38 @@ export class GetResourceGroupResponseBodyResourceGroup extends $tea.Model {
    */
   remark?: string;
   /**
+   * @remarks
+   * The type the resource group. Valid values:
+   * 
+   * *   CommonV2: serverless resource group
+   * *   ExclusiveDataIntegration: exclusive resource group for Data Integration
+   * *   ExclusiveScheduler: exclusive resource group for scheduling
+   * *   ExclusiveDataService: exclusive resource group for DataService Studio
+   * 
    * @example
    * CommonV2
    */
   resourceGroupType?: string;
+  /**
+   * @remarks
+   * The specifications of the resource group.
+   */
   spec?: GetResourceGroupResponseBodyResourceGroupSpec;
   /**
+   * @remarks
+   * The status of the resource group. Valid values:
+   * 
+   * *   Normal: The resource group is running or in use.
+   * *   Stop: The resource group is expired.
+   * *   Deleted: The resource group is released or destroyed.
+   * *   Creating: The resource group is being started.
+   * *   CreateFailed: The resource group fails to be started.
+   * *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
+   * *   UpdateFailed: The resource group fails to be scaled out or upgraded.
+   * *   Deleting: The resource group is being released or destroyed.
+   * *   DeleteFailed: The resource group fails to be released or destroyed.
+   * *   Timeout: The operations that are performed on the resource group time out.
+   * 
    * @example
    * Normal
    */
@@ -18627,6 +26049,9 @@ export class GetRouteResponseBodyRoute extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
@@ -18670,6 +26095,9 @@ export class GetRouteResponseBodyRoute extends $tea.Model {
 
 export class GetTaskResponseBodyTaskDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -18693,11 +26121,35 @@ export class GetTaskResponseBodyTaskDataSource extends $tea.Model {
 
 export class GetTaskResponseBodyTaskDependencies extends $tea.Model {
   /**
+   * @remarks
+   * The dependency type.
+   * 
+   * Valid values:
+   * 
+   * *   CrossCycleDependsOnChildren: cross-cycle dependency on the level-1 descendant nodes of a node
+   * *   CrossCycleDependsOnSelf: cross-cycle dependency on the current node
+   * *   CrossCycleDependsOnOtherNode: cross-cycle dependency on other nodes
+   * *   Normal: same-cycle dependency
+   * 
    * @example
    * Normal
    */
   type?: string;
+  /**
+   * @remarks
+   * 上游任务的输出标识符。（`同周期依赖`返回此字段）
+   * 
+   * @example
+   * pre.odps_sql_demo_0
+   */
   upstreamOutput?: string;
+  /**
+   * @remarks
+   * 上游任务的Id。（`跨周期依赖其他节点`依赖返回此字段，其他跨周期依赖类型不返回）
+   * 
+   * @example
+   * 1234
+   */
   upstreamTaskId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -18722,16 +26174,32 @@ export class GetTaskResponseBodyTaskDependencies extends $tea.Model {
 
 export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
+   * @remarks
+   * The type.
+   * 
+   * Valid values:
+   * 
+   * *   Constant: constant
+   * *   PassThrough: parameter pass-through
+   * *   System: variable
+   * *   NodeOutput: script output
+   * 
    * @example
    * Constant
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * Value1
    */
@@ -18758,6 +26226,10 @@ export class GetTaskResponseBodyTaskInputsVariables extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTaskInputs extends $tea.Model {
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: GetTaskResponseBodyTaskInputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -18778,6 +26250,9 @@ export class GetTaskResponseBodyTaskInputs extends $tea.Model {
 
 export class GetTaskResponseBodyTaskOutputsTaskOutputs extends $tea.Model {
   /**
+   * @remarks
+   * The identifier of the output.
+   * 
    * @example
    * pre.odps_sql_demo_0
    */
@@ -18801,16 +26276,32 @@ export class GetTaskResponseBodyTaskOutputsTaskOutputs extends $tea.Model {
 
 export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
   /**
+   * @remarks
+   * The name of the variable.
+   * 
    * @example
    * key1
    */
   name?: string;
   /**
+   * @remarks
+   * The type.
+   * 
+   * Valid values:
+   * 
+   * *   Constant: constant
+   * *   PassThrough: parameter pass-through
+   * *   System: system variable
+   * *   NodeOutput: script output
+   * 
    * @example
    * Constant
    */
   type?: string;
   /**
+   * @remarks
+   * The value of the variable.
+   * 
    * @example
    * value1
    */
@@ -18837,7 +26328,15 @@ export class GetTaskResponseBodyTaskOutputsVariables extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTaskOutputs extends $tea.Model {
+  /**
+   * @remarks
+   * The task outputs.
+   */
   taskOutputs?: GetTaskResponseBodyTaskOutputsTaskOutputs[];
+  /**
+   * @remarks
+   * The variables.
+   */
   variables?: GetTaskResponseBodyTaskOutputsVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -18860,16 +26359,25 @@ export class GetTaskResponseBodyTaskOutputs extends $tea.Model {
 
 export class GetTaskResponseBodyTaskRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -18897,11 +26405,17 @@ export class GetTaskResponseBodyTaskRuntimeResource extends $tea.Model {
 
 export class GetTaskResponseBodyTaskScript extends $tea.Model {
   /**
+   * @remarks
+   * The script content.
+   * 
    * @example
    * echo "helloWorld"
    */
   content?: string;
   /**
+   * @remarks
+   * The script parameters.
+   * 
    * @example
    * para1=$bizdate
    */
@@ -18927,6 +26441,9 @@ export class GetTaskResponseBodyTaskScript extends $tea.Model {
 
 export class GetTaskResponseBodyTaskSubTasksSubTasksDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -18950,16 +26467,25 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksDataSource extends $tea.Mode
 
 export class GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of CUs configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -18987,26 +26513,52 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource extends $tea
 
 export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $tea.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -19037,92 +26589,174 @@ export class GetTaskResponseBodyTaskSubTasksSubTasksTrigger extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTaskSubTasksSubTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The baseline ID.
+   */
   baselineId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: GetTaskResponseBodyTaskSubTasksSubTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 180
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The runtime environment configuration of the task, such as the resource group.
+   */
   runtimeResource?: GetTaskResponseBodyTaskSubTasksSubTasksRuntimeResource;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The method to trigger task scheduling.
+   */
   trigger?: GetTaskResponseBodyTaskSubTasksSubTasksTrigger;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -19187,8 +26821,21 @@ export class GetTaskResponseBodyTaskSubTasksSubTasks extends $tea.Model {
 }
 
 export class GetTaskResponseBodyTaskSubTasks extends $tea.Model {
+  /**
+   * @remarks
+   * The subtasks.
+   */
   subTasks?: GetTaskResponseBodyTaskSubTasksSubTasks[];
   /**
+   * @remarks
+   * The type of the subtask.
+   * 
+   * Valid values:
+   * 
+   * *   DoWhile: do-while node
+   * *   Combined: node group
+   * *   ForEach: for-each node
+   * 
    * @example
    * Combined
    */
@@ -19214,11 +26861,17 @@ export class GetTaskResponseBodyTaskSubTasks extends $tea.Model {
 
 export class GetTaskResponseBodyTaskTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * value1
    */
@@ -19244,26 +26897,52 @@ export class GetTaskResponseBodyTaskTags extends $tea.Model {
 
 export class GetTaskResponseBodyTaskTrigger extends $tea.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -19295,102 +26974,218 @@ export class GetTaskResponseBodyTaskTrigger extends $tea.Model {
 
 export class GetTaskResponseBodyTask extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: GetTaskResponseBodyTaskDataSource;
+  /**
+   * @remarks
+   * The dependency information.
+   */
   dependencies?: GetTaskResponseBodyTaskDependencies[];
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * The input information.
+   */
   inputs?: GetTaskResponseBodyTaskInputs;
+  /**
+   * @remarks
+   * 实例生成模式。
+   * 
+   * T+1（第二天生成）
+   * 
+   * Immediately（立即生成）
+   * 
+   * @example
+   * T+1
+   */
   instanceMode?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   */
   name?: string;
+  /**
+   * @remarks
+   * The output information.
+   */
   outputs?: GetTaskResponseBodyTaskOutputs;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: GetTaskResponseBodyTaskRuntimeResource;
+  /**
+   * @remarks
+   * The script information.
+   */
   script?: GetTaskResponseBodyTaskScript;
+  /**
+   * @remarks
+   * The configurations of the subtasks, such as a do-while node.
+   */
   subTasks?: GetTaskResponseBodyTaskSubTasks;
+  /**
+   * @remarks
+   * The tags.
+   */
   tags?: GetTaskResponseBodyTaskTags[];
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The method to trigger task scheduling.
+   */
   trigger?: GetTaskResponseBodyTaskTrigger;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The workflow ID.
+   * 
    * @example
    * 1234
    */
@@ -19925,6 +27720,10 @@ export class GetTaskInstanceResponseBodyTaskInstance extends $tea.Model {
    * 1000
    */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   periodNumber?: number;
   /**
    * @remarks
@@ -20293,41 +28092,79 @@ export class GetWorkflowDefinitionResponseBodyWorkflowDefinition extends $tea.Mo
 
 export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the asynchronous task is complete.
+   * 
    * @example
    * false
    */
   completed?: boolean;
   /**
+   * @remarks
+   * The time when the asynchronous task was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1706581425000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The error message returned if the asynchronous task fails.
+   * 
    * @example
    * target folder already exists: XXXX
    */
   error?: string;
   /**
+   * @remarks
+   * The ID of the asynchronous task.
+   * 
    * @example
    * 1234567691239009XXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The progress of the asynchronous task. Valid values: 0 to 100.
+   * 
    * @example
    * 0
    */
   progress?: number;
   /**
+   * @remarks
+   * The response.
+   * 
+   * >  The workflow ID is returned.
+   * 
    * @example
    * 632647691239009XXXX
    */
   response?: string;
   /**
+   * @remarks
+   * The status of the asynchronous task.
+   * 
+   * Valid values:
+   * 
+   * *   Running: The asynchronous task is running.
+   * *   Success: The asynchronous task is complete.
+   * *   Fail: The asynchronous task fails.
+   * *   Cancel: The asynchronous task is canceled.
+   * 
    * @example
    * Running
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the asynchronous task.
+   * 
+   * Valid values:
+   * 
+   * *   Create: The asynchronous task is used to create an object.
+   * *   Cancel: The asynchronous task is used to cancel an operation.
+   * 
    * @example
    * Create
    */
@@ -20365,11 +28202,17 @@ export class ImportWorkflowDefinitionResponseBodyAsyncJob extends $tea.Model {
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the scheduling cycle of the instance. Valid values: [1,288].
+   * 
    * @example
    * 1
    */
   cycleId?: number;
   /**
+   * @remarks
+   * The latest completion time of the instance within the scheduling cycle. The time is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 01:00
    */
@@ -20394,6 +28237,10 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 }
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the scheduling cycle and timeout period of the instance.
+   */
   cycleAndTime?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
   static names(): { [key: string]: string } {
     return {
@@ -20414,10 +28261,17 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
+   * 
    * @example
    * false
    */
   autoRerunAlert?: boolean;
+  /**
+   * @remarks
+   * The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+   */
   streamTaskIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -20440,6 +28294,9 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of instances on which an error occurs. Valid values: [1,10000].
+   * 
    * @example
    * 10
    */
@@ -20463,6 +28320,9 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
@@ -20486,11 +28346,21 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
   percentage?: number;
   /**
+   * @remarks
+   * The way in which the number of auto triggered node instances that are generated in your workspace fluctuates. Valid values:
+   * 
+   * *   abs: the absolute value. The number of instances increases or decreases.
+   * *   increase: The number of instances increases.
+   * *   decrease: The number of instances decreases.
+   * 
    * @example
    * abs
    */
@@ -20516,6 +28386,9 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period. Unit: minutes.
+   * 
    * @example
    * 10
    */
@@ -20539,6 +28412,9 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished extends $tea.Model {
   /**
+   * @remarks
+   * The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 12:00
    */
@@ -20561,12 +28437,40 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 }
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration for an alert of the CycleUnfinished type.
+   */
   cycleUnfinished?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionCycleUnfinished;
+  /**
+   * @remarks
+   * The configuration for an alert of the Error type.
+   */
   error?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionError;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorCount type.
+   */
   instanceErrorCount?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorCount;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorPercentage type.
+   */
   instanceErrorPercentage?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceErrorPercentage;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceTransferFluctuate type.
+   */
   instanceTransferFluctuate?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionInstanceTransferFluctuate;
+  /**
+   * @remarks
+   * The configuration for an alert of the Timeout type.
+   */
   timeout?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionTimeout;
+  /**
+   * @remarks
+   * The configuration for an alert of the UnFinished type.
+   */
   unFinished?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtensionUnFinished;
   static names(): { [key: string]: string } {
     return {
@@ -20598,9 +28502,25 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExten
 }
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The nodes that are not to be monitored.
+   */
   allowTasks?: number[];
+  /**
+   * @remarks
+   * The IDs of monitored objects.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored objects. Valid values:
+   * 
+   * *   Task: node
+   * *   Baseline: baseline
+   * *   Projec: workspace
+   * *   BizProcess: workflow
+   * 
    * @example
    * Task
    */
@@ -20627,9 +28547,34 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarge
 }
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information about the rule. This parameter is required for specific types of alerts.
+   */
   extension?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionExtension;
+  /**
+   * @remarks
+   * The monitored objects.
+   */
   target?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerConditionTarget;
   /**
+   * @remarks
+   * The alert type. Valid values:
+   * 
+   * *   Finished: An instance is successfully run.
+   * *   UnFinished: An instance does not finish running before a specified point in time.
+   * *   Error: An error occurs on an instance.
+   * *   CycleUnfinished: An instance does not finish running as expected within a specific cycle.
+   * *   Timeout: An instance times out.
+   * *   InstanceTransferComplete: An instance is generated by the auto triggered node.
+   * *   InstanceTransferFluctuate: The number of generated instances fluctuates.
+   * *   ExhaustedError: An error persists after an instance is automatically rerun.
+   * *   InstanceKeyword: An instance with errors contains specified keywords.
+   * *   InstanceErrorCount: The number of instances on which an error occurs reaches a specified threshold.
+   * *   InstanceErrorPercentage: The proportion of instances on which an error occurs in the workspace to the total number of instances reaches a specified threshold.
+   * *   ResourceGroupPercentage: The usage rate of the resource group reaches a specified threshold.
+   * *   ResourceGroupWaitCount: The number of instances that are waiting for resources in the resource group reaches a specified threshold.
+   * 
    * @example
    * Error
    */
@@ -20657,25 +28602,41 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition exte
 
 export class ListAlertRulesResponseBodyPagingInfoAlertRules extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the rule is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 22125
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the rule.
+   * 
    * @example
    * error_test
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account used by the owner of the rule.
+   * 
    * @example
    * 1933790683****
    */
   owner?: string;
+  /**
+   * @remarks
+   * The alert triggering condition.
+   */
   triggerCondition?: ListAlertRulesResponseBodyPagingInfoAlertRulesTriggerCondition;
   static names(): { [key: string]: string } {
     return {
@@ -20703,18 +28664,31 @@ export class ListAlertRulesResponseBodyPagingInfoAlertRules extends $tea.Model {
 }
 
 export class ListAlertRulesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The rules.
+   */
   alertRules?: ListAlertRulesResponseBodyPagingInfoAlertRules[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 5
    */
@@ -20743,8 +28717,23 @@ export class ListAlertRulesResponseBodyPagingInfo extends $tea.Model {
 }
 
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification method. Valid values:
+   * 
+   * *   Mail
+   * *   Phone
+   * *   Sms
+   * *   Ding
+   */
   channels?: string[];
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Critical
    */
@@ -20770,10 +28759,20 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+   * 
    * @example
    * DingToken
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The recipient.
+   * 
+   * *   If the value of the ReceiverType parameter is AliyunUid, the value of this parameter is the Alibaba Cloud account ID of a user.
+   * *   If the value of the ReceiverType parameter is DingToken, the value of this parameter is the token of a DingTalk chatbot.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -20796,11 +28795,22 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the alert suppression interval. Unit: minutes.
+   * 
    * @example
    * 5
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notificationChannels?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels[];
+  /**
+   * @remarks
+   * The settings of alert notification recipients.
+   */
   notificationReceivers?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -20824,18 +28834,38 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 }
 
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The types of DDL operations for which the alert rule takes effect.
+   */
   ddlReportTags?: string[];
   /**
+   * @remarks
+   * The time interval for alert calculation. Unit: minutes.
+   * 
    * @example
    * 1
    */
   duration?: number;
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Critical
    */
   severity?: string;
   /**
+   * @remarks
+   * The alert threshold.
+   * 
+   * *   If the alert rule is for task status, no threshold is used.
+   * *   If the alert rule is for failovers, the threshold is the number of failovers.
+   * *   If the alert rule is for latency, the threshold is the latency duration, in seconds.
+   * 
    * @example
    * 5
    */
@@ -20865,36 +28895,68 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditi
 
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the alert rule.
+   * 
    * @example
    * 72402
    */
   DIAlarmRuleId?: number;
   /**
+   * @remarks
+   * The ID of the synchronization task.
+   * 
    * @example
    * 32594
    */
   DIJobId?: number;
   /**
+   * @remarks
+   * The description of the alert rule.
+   * 
    * @example
    * rule descrition
    */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the alert rule is enabled. Valid values: True and False.
+   * 
    * @example
    * True
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The metric type in the alert rule. Valid values:
+   * 
+   * *   Heartbeat
+   * *   FailoverCount
+   * *   Delay
+   * *   DdlReport
+   * *   ResourceUtilization
+   * 
    * @example
    * Heartbeat
    */
   metricType?: string;
   /**
+   * @remarks
+   * The name of the alert rule.
+   * 
    * @example
    * rule_name
    */
   name?: string;
+  /**
+   * @remarks
+   * The alert notification settings.
+   */
   notificationSettings?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings;
+  /**
+   * @remarks
+   * The conditions that are used to trigger the alert rule.
+   */
   triggerConditions?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions[];
   static names(): { [key: string]: string } {
     return {
@@ -20928,18 +28990,31 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $tea.
 }
 
 export class ListDIAlarmRulesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The alert rules returned.
+   */
   DIJobAlarmRules?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules[];
   /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 90
    */
@@ -20969,32 +29044,54 @@ export class ListDIAlarmRulesResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $tea.Model {
   /**
+   * @remarks
+   * The processing result of the DDL event. Valid values: Critical, Ignore, Normal, and Warning.
+   * 
    * @example
    * Ignore
    */
   action?: string;
   /**
+   * @remarks
+   * The alert notification method. Valid values: Phone, Mail, Sms, Ding, and Webhook.
+   * 
    * @example
    * Phone
    */
   channels?: string;
   /**
+   * @remarks
+   * The time when the event was created.
+   * 
    * @example
    * 1663573162
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The alert details.
+   */
   detail?: string;
   /**
+   * @remarks
+   * The DDL statement of the destination table.
+   * 
    * @example
    * alter table table2 ***
    */
   dstSql?: string;
   /**
+   * @remarks
+   * The name of the destination table.
+   * 
    * @example
    * table2
    */
   dstTable?: string;
   /**
+   * @remarks
+   * The error logs for failovers.
+   * 
    * @example
    * 2024-05-29 15:11:31,377 [main] INFO com.*.**.di.core.metrics.:21 []  {****} 
    * 2024-05-29 15:11:31,384 [main] INFO *.aliyun.*.di.*.*.metrics.*:27 [] - Open MarioDiReporter 
@@ -21002,31 +29099,55 @@ export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $tea.Model 
    */
   failoverMessage?: string;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * 1
    */
   id?: string;
   /**
+   * @remarks
+   * The severity level of the alert. Valid values: Warning and Critical.
+   * 
    * @example
    * Warning
    */
   severity?: string;
   /**
+   * @remarks
+   * The DDL statement of the source table.
+   * 
    * @example
    * alter table table1 ***
    */
   srcSql?: string;
   /**
+   * @remarks
+   * The name of the source table.
+   * 
    * @example
    * table1
    */
   srcTable?: string;
   /**
+   * @remarks
+   * The sending status of an alert notification. Valid values: Success, Fail, and Silence.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the alert event.
+   * 
+   * *   Heartbeat
+   * *   Delay
+   * *   FailoverCount
+   * *   DdlReport
+   * *   ResourceUtilization
+   * 
    * @example
    * Delay
    */
@@ -21073,18 +29194,31 @@ export class ListDIJobEventsResponseBodyPagingInfoDIJobEvent extends $tea.Model 
 }
 
 export class ListDIJobEventsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The events returned. The value of this parameter is an array.
+   */
   DIJobEvent?: ListDIJobEventsResponseBodyPagingInfoDIJobEvent[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2524
    */
@@ -21114,11 +29248,17 @@ export class ListDIJobEventsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList extends $tea.Model {
   /**
+   * @remarks
+   * The point in time at which data is sampled based on the metric.
+   * 
    * @example
    * 1716881141
    */
   time?: number;
   /**
+   * @remarks
+   * The sample value.
+   * 
    * @example
    * 10
    */
@@ -21144,10 +29284,17 @@ export class ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList extends 
 
 export class ListDIJobMetricsResponseBodyPagingInfoJobMetrics extends $tea.Model {
   /**
+   * @remarks
+   * The name of the metric.
+   * 
    * @example
    * JobDelay
    */
   name?: string;
+  /**
+   * @remarks
+   * The metric data.
+   */
   seriesList?: ListDIJobMetricsResponseBodyPagingInfoJobMetricsSeriesList[];
   static names(): { [key: string]: string } {
     return {
@@ -21169,6 +29316,10 @@ export class ListDIJobMetricsResponseBodyPagingInfoJobMetrics extends $tea.Model
 }
 
 export class ListDIJobMetricsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics returned.
+   */
   jobMetrics?: ListDIJobMetricsResponseBodyPagingInfoJobMetrics[];
   static names(): { [key: string]: string } {
     return {
@@ -21189,86 +29340,137 @@ export class ListDIJobMetricsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos extends $tea.Model {
   /**
+   * @remarks
+   * The name of the database in the destination.
+   * 
    * @example
    * dst_db
    */
   destinationDatabaseName?: string;
   /**
+   * @remarks
+   * The name of the destination.
+   * 
    * @example
    * dst_name
    */
   destinationDatasourceName?: string;
   /**
+   * @remarks
+   * The name of the schema of the destination.
+   * 
    * @example
    * dst_schema
    */
   destinationSchemaName?: string;
   /**
+   * @remarks
+   * The name of the table in the destination.
+   * 
    * @example
    * dst_name
    */
   destinationTableName?: string;
   /**
+   * @remarks
+   * The error message that is returned if an error occurs during full batch synchronization. If no error occurs, no value is returned for this parameter.
+   * 
    * @example
    * sync table t1 fail.
    */
   fullMigrationErrorMessage?: string;
   /**
+   * @remarks
+   * The status of full batch synchronization.
+   * 
    * @example
    * Finished
    */
   fullMigrationStatus?: string;
   /**
+   * @remarks
+   * The total number of errors that occur during full synchronization.
+   * 
    * @example
    * 0
    */
   offlineErrorRecords?: number;
   /**
+   * @remarks
+   * The total number of bytes that are synchronized during full synchronization.
+   * 
    * @example
    * 100
    */
   offlineTotalBytes?: number;
   /**
+   * @remarks
+   * The total number of data records that are synchronized during full synchronization.
+   * 
    * @example
    * 10
    */
   offlineTotalRecords?: number;
   /**
+   * @remarks
+   * The error message that is returned if an error occurs during real-time synchronization. If no error occurs, no value is returned for this parameter.
+   * 
    * @example
    * sync table t1 fail.
    */
   realtimeMigrationErrorMessage?: string;
   /**
+   * @remarks
+   * The status of real-time synchronization.
+   * 
    * @example
    * Running
    */
   realtimeMigrationStatus?: string;
   /**
+   * @remarks
+   * The name of the database in the source.
+   * 
    * @example
    * db_name
    */
   sourceDatabaseName?: string;
   /**
+   * @remarks
+   * The name of the source.
+   * 
    * @example
    * ds_name
    */
   sourceDatasourceName?: string;
   /**
+   * @remarks
+   * The name of the schema of the source.
+   * 
    * @example
    * schema_name
    */
   sourceSchemaName?: string;
   /**
+   * @remarks
+   * The name of the table in the source.
+   * 
    * @example
    * table_name
    */
   sourceTableName?: string;
   /**
+   * @remarks
+   * The error message that is returned if an error occurs during schema synchronization. If no error occurs, no value is returned for this parameter.
+   * 
    * @example
    * create table t1 fail.
    */
   structureMigrationErrorMessage?: string;
   /**
+   * @remarks
+   * The synchronization status of the schema.
+   * 
    * @example
    * Finished
    */
@@ -21323,18 +29525,31 @@ export class ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos extends $tea.M
 }
 
 export class ListDIJobRunDetailsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The running information about the synchronization task.
+   */
   jobRunInfos?: ListDIJobRunDetailsResponseBodyPagingInfoJobRunInfos[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 131
    */
@@ -21525,9 +29740,9 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   condition?: string;
   /**
    * @remarks
-   * The type of the callback event.
+   * The type of the callback event. Valid values:
    * 
-   * *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+   * *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
    * 
    * @example
    * BlockTaskInstance
@@ -21761,9 +29976,9 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger condition of the task.
+   * The trigger condition of the task. Valid values:
    * 
-   * *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+   * *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -21840,7 +30055,7 @@ export class ListDataQualityEvaluationTaskInstancesResponseBodyPagingInfoDataQua
   regionId?: string;
   /**
    * @remarks
-   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
+   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK-SQL" }
@@ -22070,9 +30285,9 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   condition?: string;
   /**
    * @remarks
-   * The type of the callback event.
+   * The type of the callback event. Valid values:
    * 
-   * *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+   * *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
    * 
    * @example
    * BlockTaskInstance
@@ -22306,9 +30521,9 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger condition of the task.
+   * The trigger condition of the task. Valid values:
    * 
-   * *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+   * *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -22375,7 +30590,7 @@ export class ListDataQualityEvaluationTasksResponseBodyPagingInfoDataQualityEval
   projectId?: number;
   /**
    * @remarks
-   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
+   * The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK-SQL" }
@@ -22926,6 +31141,9 @@ export class ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRule 
    */
   target?: ListDataQualityResultsResponseBodyPagingInfoDataQualityResultsRuleTarget;
   /**
+   * @remarks
+   * The code of the template that is referenced when you create a rule.
+   * 
    * @example
    * system::user_defined
    */
@@ -23100,7 +31318,254 @@ export class ListDataQualityResultsResponseBodyPagingInfo extends $tea.Model {
   }
 }
 
+export class ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to indicate the query method of referenced samples.
+   * 
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * Max
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * {"SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplates extends $tea.Model {
+  /**
+   * @remarks
+   * The check settings for sample data.
+   */
+  checkingConfig?: ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig;
+  /**
+   * @remarks
+   * The code for the template.
+   * 
+   * @example
+   * USER_DEFINED:123
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The path of the template. The backslash is used as the separator character in the path name. Each directory name can be up to 1024 characters in length. It cannot contain whitespace characters or slashes.
+   */
+  directoryPath?: string;
+  /**
+   * @remarks
+   * The name of the template. The name can be up to 512 characters in length and can contain digits, letters, and punctuation marks.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
+   * @example
+   * 2043
+   */
+  projectId?: number;
+  /**
+   * @remarks
+   * The sampling settings.
+   */
+  samplingConfig?: ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig;
+  /**
+   * @remarks
+   * The ID of the DataWorks tenant.
+   * 
+   * @example
+   * 195820716552192
+   */
+  tenantId?: number;
+  /**
+   * @remarks
+   * The applicable scope of the template. Valid values:
+   * 
+   * *   Tenant: The template is available in all workspaces in the current tenant.
+   * *   Project: The template is available only in the current workspace.
+   * 
+   * @example
+   * Project
+   */
+  visibleScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      code: 'Code',
+      directoryPath: 'DirectoryPath',
+      name: 'Name',
+      projectId: 'ProjectId',
+      samplingConfig: 'SamplingConfig',
+      tenantId: 'TenantId',
+      visibleScope: 'VisibleScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesCheckingConfig,
+      code: 'string',
+      directoryPath: 'string',
+      name: 'string',
+      projectId: 'number',
+      samplingConfig: ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplatesSamplingConfig,
+      tenantId: 'number',
+      visibleScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDataQualityRuleTemplateResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The templates.
+   */
+  dataQualityRuleTemplates?: ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplates[];
+  /**
+   * @remarks
+   * The page number.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 42
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataQualityRuleTemplates: 'DataQualityRuleTemplates',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataQualityRuleTemplates: { 'type': 'array', 'itemType': ListDataQualityRuleTemplateResponseBodyPagingInfoDataQualityRuleTemplates },
+      pageNumber: 'number',
+      pageSize: 'number',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsCritical extends $tea.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -23126,6 +31591,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -23133,6 +31599,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -23144,6 +31611,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsExpected extends $tea.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -23169,6 +31637,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -23176,6 +31645,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -23187,6 +31657,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 }
 
 export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingConfigThresholdsWarned extends $tea.Model {
+  expression?: string;
   /**
    * @remarks
    * The comparison operator. Valid values:
@@ -23212,6 +31683,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
   value?: string;
   static names(): { [key: string]: string } {
     return {
+      expression: 'Expression',
       operator: 'Operator',
       value: 'Value',
     };
@@ -23219,6 +31691,7 @@ export class ListDataQualityRulesResponseBodyPagingInfoDataQualityRulesCheckingC
 
   static types(): { [key: string]: any } {
     return {
+      expression: 'string',
       operator: 'string',
       value: 'string',
     };
@@ -23672,16 +32145,25 @@ export class ListDataQualityRulesResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends $tea.Model {
   /**
+   * @remarks
+   * The time when the rule was created. This value is a UNIX timestamp.
+   * 
    * @example
    * 1724379762000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who creates the rule.
+   * 
    * @example
    * 1
    */
   createUser?: string;
   /**
+   * @remarks
+   * The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+   * 
    * @example
    * 1
    */
@@ -23692,26 +32174,41 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
    */
   envType?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the data source in the destination workspace.
+   * 
    * @example
    * targetProject.datasource
    */
   sharedDataSourceName?: string;
   /**
+   * @remarks
+   * The user in the workspace to which the data source is shared. If the data source is shared to the entire workspace, this parameter is left empty.
+   * 
    * @example
    * 1
    */
   sharedUser?: string;
   /**
+   * @remarks
+   * The ID of the workspace with which the data source is associated.
+   * 
    * @example
    * 1
    */
   sourceProjectId?: number;
   /**
+   * @remarks
+   * The ID of the workspace to which the data source is shared.
+   * 
    * @example
    * 1
    */
@@ -23751,6 +32248,9 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
 
 export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The connection properties of the data source.
+   * 
    * @example
    * {
    * 	"envType": "Prod",
@@ -23764,41 +32264,65 @@ export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends 
    */
   connectionProperties?: any;
   /**
+   * @remarks
+   * The mode in which the data source is added. The mode varies based on the data source type. Valid values: InstanceMode, UrlMode, and CdhMode. The value InstanceMode indicates the instance mode. The value UrlMode indicates the connection string mode. The value CdhMode indicates the CDH cluster mode.
+   * 
    * @example
    * UrlMode
    */
   connectionPropertiesMode?: string;
   /**
+   * @remarks
+   * The time when the data source was added. This value is a UNIX timestamp.
+   * 
    * @example
    * 1648711113000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the user who adds the data source.
+   * 
    * @example
    * 1624387842781448
    */
   createUser?: string;
   /**
+   * @remarks
+   * The description of the data source.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The ID of the data source.
+   * 
    * @example
    * 16035
    */
   id?: number;
   /**
+   * @remarks
+   * The time when the data source was last modified. This value is a UNIX timestamp.
+   * 
    * @example
    * 1648711113000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The ID of the user who modifies the data source.
+   * 
    * @example
    * 1624387842781448
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+   * 
    * @example
    * 1648711121000:cn-beijing:odps:yongxunQA_beijing_standard
    */
@@ -23839,11 +32363,17 @@ export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends 
 export class ListDataSourcesResponseBodyPagingInfoDataSources extends $tea.Model {
   dataSource?: ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource[];
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * mysql
    */
@@ -23872,16 +32402,25 @@ export class ListDataSourcesResponseBodyPagingInfoDataSources extends $tea.Model
 export class ListDataSourcesResponseBodyPagingInfo extends $tea.Model {
   dataSources?: ListDataSourcesResponseBodyPagingInfoDataSources[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 131
    */
@@ -24164,6 +32703,9 @@ export class ListDeploymentsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -24187,11 +32729,17 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataS
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
   /**
+   * @remarks
+   * The host for running.
+   * 
    * @example
    * cn-shanghai.1.2
    */
   gateway?: string;
   /**
+   * @remarks
+   * The instance run ID.
+   * 
    * @example
    * T3_123
    */
@@ -24217,16 +32765,25 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRunti
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -24254,145 +32811,292 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRunti
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The data timestamp.
+   * 
    * @example
    * 1710239005403
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 100
    */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   periodNumber?: number;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times the instance is run. By default, the value starts from 1.
+   * 
    * @example
    * 1
    */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  /**
+   * @remarks
+   * The information about the resource group with which the instance is associated.
+   */
   runtimeResource?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
+   * @remarks
+   * The status of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 1
    */
   timeout?: number;
   /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The scheduling time.
+   * 
    * @example
    * 1710239005403
    */
   triggerTime?: number;
   /**
+   * @remarks
+   * The method to trigger instance scheduling.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance.
+   * 
+   * Valid values:
+   * 
+   * *   SmokeTest
+   * *   SupplementData
+   * *   Manual
+   * *   ManualWorkflow
+   * *   Normal
+   * *   ManualFlow
+   * 
    * @example
    * Normal
    */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24477,17 +33181,30 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances exte
 
 export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The instances.
+   */
   taskInstances?: ListDownstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -24517,6 +33234,9 @@ export class ListDownstreamTaskInstancesResponseBodyPagingInfo extends $tea.Mode
 
 export class ListDownstreamTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -24540,16 +33260,25 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksDataSource extends $t
 
 export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -24577,31 +33306,60 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource exten
 
 export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * Asia/Shanghai
    */
   timezone?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -24635,97 +33393,186 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.
 
 export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListDownstreamTasksResponseBodyPagingInfoTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @example
+   * T+1
+   */
   instanceMode?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: ListDownstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  /**
+   * @example
+   * Normal
+   */
   stepType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The method to trigger task scheduling.
+   */
   trigger?: ListDownstreamTasksResponseBodyPagingInfoTasksTrigger;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -24795,17 +33642,30 @@ export class ListDownstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
 
 export class ListDownstreamTasksResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: ListDownstreamTasksResponseBodyPagingInfoTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -27398,17 +36258,30 @@ export class ListProjectMembersResponseBodyPagingInfo extends $tea.Model {
 
 export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $tea.Model {
   /**
+   * @remarks
+   * The code of the role in the DataWorks workspace.
+   * 
    * @example
    * role_project_guest
    */
   code?: string;
+  /**
+   * @remarks
+   * The name of the role in the DataWorks workspace.
+   */
   name?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 21229
    */
   projectId?: number;
   /**
+   * @remarks
+   * The type of the role in the DataWorks workspace.
+   * 
    * @example
    * System
    */
@@ -27438,17 +36311,30 @@ export class ListProjectRolesResponseBodyPagingInfoProjectRoles extends $tea.Mod
 
 export class ListProjectRolesResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: string;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: string;
+  /**
+   * @remarks
+   * The roles in the DataWorks workspace.
+   */
   projectRoles?: ListProjectRolesResponseBodyPagingInfoProjectRoles[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 42
    */
@@ -27478,11 +36364,17 @@ export class ListProjectRolesResponseBodyPagingInfo extends $tea.Model {
 
 export class ListProjectsRequestAliyunResourceTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * batch
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * blue
    */
@@ -27508,11 +36400,17 @@ export class ListProjectsRequestAliyunResourceTags extends $tea.Model {
 
 export class ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * batch
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * blue
    */
@@ -27538,44 +36436,99 @@ export class ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags extend
 
 export class ListProjectsResponseBodyPagingInfoProjects extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud resource group to which the workspace belongs.
+   * 
    * @example
    * rg-acfmzbn7pti3zfa
    */
   aliyunResourceGroupId?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
   aliyunResourceTags?: ListProjectsResponseBodyPagingInfoProjectsAliyunResourceTags[];
+  /**
+   * @remarks
+   * The description of the workspace.
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the development environment is enabled. Valid values:
+   * 
+   * *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in the workspace.
+   * *   false: The development environment is disabled. In this case, only the production environment is used in the workspace.
+   * 
    * @example
    * true
    */
   devEnvironmentEnabled?: boolean;
   /**
+   * @remarks
+   * Indicates whether the Develop role is disabled. Valid values:
+   * 
+   * *   false (default)
+   * *   true
+   * 
    * @example
    * false
    */
   devRoleDisabled?: boolean;
+  /**
+   * @remarks
+   * The display name of the workspace.
+   */
   displayName?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 123456
    */
   id?: number;
   /**
+   * @remarks
+   * The name of the workspace.
+   * 
    * @example
    * sora_finance
    */
   name?: string;
   /**
+   * @remarks
+   * The ID of the Alibaba Cloud account to which the workspace belongs.
+   * 
    * @example
    * 123532153125
    */
   owner?: string;
   /**
+   * @remarks
+   * Indicates whether scheduling of PAI tasks is enabled. Valid values:
+   * 
+   * *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+   * *   false: Scheduling of PAI tasks is disabled.
+   * 
    * @example
    * true
    */
   paiTaskEnabled?: boolean;
   /**
+   * @remarks
+   * The status of the workspace. Valid values:
+   * 
+   * *   Available
+   * *   Initializing
+   * *   InitFailed
+   * *   Forbidden
+   * *   Deleting
+   * *   DeleteFailed
+   * *   Frozen
+   * *   Updating
+   * *   UpdateFailed
+   * 
    * @example
    * Available
    */
@@ -27619,17 +36572,30 @@ export class ListProjectsResponseBodyPagingInfoProjects extends $tea.Model {
 
 export class ListProjectsResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 1
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The workspaces.
+   */
   projects?: ListProjectsResponseBodyPagingInfoProjects[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -27659,11 +36625,17 @@ export class ListProjectsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListResourceGroupsResponseBodyResourceGroupListSpec extends $tea.Model {
   /**
+   * @remarks
+   * The number of resources in the resource group.
+   * 
    * @example
    * 1
    */
   amount?: number;
   /**
+   * @remarks
+   * The details about the specifications.
+   * 
    * @example
    * 2CU
    */
@@ -27689,57 +36661,110 @@ export class ListResourceGroupsResponseBodyResourceGroupListSpec extends $tea.Mo
 
 export class ListResourceGroupsResponseBodyResourceGroupList extends $tea.Model {
   /**
+   * @remarks
+   * The time when the resource group was created. The value is a 64-bit timestamp.
+   * 
    * @example
    * 1727055811000
    */
   createTime?: number;
   /**
+   * @remarks
+   * The ID of the account that is used to create the resource group.
+   * 
    * @example
    * 11075500042XXXXX
    */
   createUser?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) with which the resource group is associated by default.
+   * 
    * @example
    * vpc-m2et4f3oc8msfbccXXXXX
    */
   defaultVpcId?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch with which the resource group is associated by default.
+   * 
    * @example
    * vsw-uf8usrhs7hjd9amsXXXXX
    */
   defaultVswicthId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * Serverless_res_group_524257424564736_6831777003XXXXX
    */
   id?: string;
   /**
+   * @remarks
+   * The name of the resource group.
+   * 
    * @example
    * common_resource_group
    */
   name?: string;
   /**
+   * @remarks
+   * The instance ID of the order that is used to create the resource group.
+   * 
    * @example
    * c442b330-3b10-4584-959e-736e4edXXXXX
    */
   orderInstanceId?: string;
   /**
+   * @remarks
+   * The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+   * 
    * @example
    * PrePaid
    */
   paymentType?: string;
   /**
+   * @remarks
+   * The description of the resource group.
+   * 
    * @example
    * 创建用于普通任务的通用资源组
    */
   remark?: string;
   /**
+   * @remarks
+   * The type the resource group. Valid values:
+   * 
+   * *   CommonV2: serverless resource group
+   * *   ExclusiveDataIntegration: exclusive resource group for Data Integration
+   * *   ExclusiveScheduler: exclusive resource group for scheduling
+   * *   ExclusiveDataService: exclusive resource group for DataService Studio
+   * 
    * @example
    * CommonV2
    */
   resourceGroupType?: string;
+  /**
+   * @remarks
+   * The specifications of the resource group.
+   */
   spec?: ListResourceGroupsResponseBodyResourceGroupListSpec;
   /**
+   * @remarks
+   * The status of the resource group. Valid values:
+   * 
+   * *   Normal: The resource group is running or in use.
+   * *   Stop: The resource group is expired.
+   * *   Deleted: The resource group is released or destroyed.
+   * *   Creating: The resource group is being started.
+   * *   CreateFailed: The resource group fails to be started.
+   * *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
+   * *   UpdateFailed: The resource group fails to be scaled out or upgraded.
+   * *   Deleting: The resource group is being released or destroyed.
+   * *   DeleteFailed: The resource group fails to be released or destroyed.
+   * *   Timeout: The operations that are performed on the resource group time out.
+   * 
    * @example
    * Normal
    */
@@ -28116,6 +37141,9 @@ export class ListRoutesResponseBodyRouteList extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The network ID.
+   * 
    * @example
    * 1000
    */
@@ -28159,22 +37187,38 @@ export class ListRoutesResponseBodyRouteList extends $tea.Model {
 
 export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs extends $tea.Model {
   /**
+   * @remarks
+   * The time when the operation log was generated.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The operation content.
+   */
   operationContent?: string;
   /**
+   * @remarks
+   * The serial number of the operation.
+   * 
    * @example
    * 1111
    */
   operationSeq?: number;
   /**
+   * @remarks
+   * The ID of the instance on which the operation was performed.
+   * 
    * @example
    * 1234
    */
   taskInstanceId?: number;
   /**
+   * @remarks
+   * The account ID of the operator.
+   * 
    * @example
    * 1000
    */
@@ -28205,18 +37249,31 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs ex
 }
 
 export class ListTaskInstanceOperationLogsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The operation logs.
+   */
   operationLogs?: ListTaskInstanceOperationLogsResponseBodyPagingInfoOperationLogs[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -28246,6 +37303,9 @@ export class ListTaskInstanceOperationLogsResponseBodyPagingInfo extends $tea.Mo
 
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -28269,11 +37329,17 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource exte
 
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
   /**
+   * @remarks
+   * The host for running.
+   * 
    * @example
    * cn-shanghai.1.2
    */
   gateway?: string;
   /**
+   * @remarks
+   * The instance run ID.
+   * 
    * @example
    * T3_123
    */
@@ -28299,16 +37365,25 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends
 
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of CUs configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -28336,145 +37411,292 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource
 
 export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The data timestamp.
+   * 
    * @example
    * 1710239005403
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the user who creates the instance.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the user who modifies the instance.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   periodNumber?: number;
   /**
+   * @remarks
+   * The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The DataWorks workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun mode
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times the task is run. By default, the value starts from 1.
+   * 
    * @example
    * 1
    */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  /**
+   * @remarks
+   * The information about the resource group with which the instance is associated.
+   */
   runtimeResource?: ListTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
+   * @remarks
+   * The status of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 1
    */
   timeout?: number;
   /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The scheduling time.
+   * 
    * @example
    * 1710239005403
    */
   triggerTime?: number;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance.
+   * 
+   * Valid values:
+   * 
+   * *   SmokeTest
+   * *   SupplementData
+   * *   Manual
+   * *   ManualWorkflow
+   * *   Normal
+   * *   ManualFlow
+   * 
    * @example
    * Normal
    */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28559,17 +37781,30 @@ export class ListTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.M
 
 export class ListTaskInstancesResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The instances.
+   */
   taskInstances?: ListTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -28599,22 +37834,38 @@ export class ListTaskInstancesResponseBodyPagingInfo extends $tea.Model {
 
 export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $tea.Model {
   /**
+   * @remarks
+   * The time when the operation log was generated.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
+  /**
+   * @remarks
+   * The operation content.
+   */
   operationContent?: string;
   /**
+   * @remarks
+   * The serial number of the operation.
+   * 
    * @example
    * 1111
    */
   operationSeq?: number;
   /**
+   * @remarks
+   * The ID of the task on which the operation was performed.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
   /**
+   * @remarks
+   * The account ID of the operator.
+   * 
    * @example
    * 1000
    */
@@ -28645,18 +37896,31 @@ export class ListTaskOperationLogsResponseBodyPagingInfoOperationLogs extends $t
 }
 
 export class ListTaskOperationLogsResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The operation logs.
+   */
   operationLogs?: ListTaskOperationLogsResponseBodyPagingInfoOperationLogs[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -28686,6 +37950,9 @@ export class ListTaskOperationLogsResponseBodyPagingInfo extends $tea.Model {
 
 export class ListTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -28709,16 +37976,25 @@ export class ListTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
 
 export class ListTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -28746,26 +38022,52 @@ export class ListTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Mo
 
 export class ListTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -28797,96 +38099,188 @@ export class ListTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
 
 export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListTasksResponseBodyPagingInfoTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @remarks
+   * 实例生成模式。
+   * 
+   * T+1（第二天生成）
+   * 
+   * Immediately（立即生成）
+   * 
+   * @example
+   * T+1
+   */
   instanceMode?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: ListTasksResponseBodyPagingInfoTasksRuntimeResource;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The method to trigger task scheduling.
+   */
   trigger?: ListTasksResponseBodyPagingInfoTasksTrigger;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -28954,17 +38348,30 @@ export class ListTasksResponseBodyPagingInfoTasks extends $tea.Model {
 
 export class ListTasksResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: ListTasksResponseBodyPagingInfoTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -28994,6 +38401,9 @@ export class ListTasksResponseBodyPagingInfo extends $tea.Model {
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -29017,11 +38427,17 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSou
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime extends $tea.Model {
   /**
+   * @remarks
+   * The host for running.
+   * 
    * @example
    * cn-shanghai.1.2
    */
   gateway?: string;
   /**
+   * @remarks
+   * The instance run ID.
+   * 
    * @example
    * T3_123
    */
@@ -29047,16 +38463,25 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -29084,145 +38509,292 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The data timestamp.
+   * 
    * @example
    * 1710239005403
    */
   bizdate?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesDataSource;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the instance finished running.
+   * 
    * @example
    * 1710239005403
    */
   finishedTime?: number;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
+  /**
+   * @example
+   * 1
+   */
   periodNumber?: number;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times the instance is run. By default, the value starts from 1.
+   * 
    * @example
    * 1
    */
   runNumber?: number;
+  /**
+   * @remarks
+   * The runtime information about the instance.
+   */
   runtime?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntime;
+  /**
+   * @remarks
+   * The information about the resource group with which the instance is associated.
+   */
   runtimeResource?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstancesRuntimeResource;
   /**
+   * @remarks
+   * The time when the instance started to run.
+   * 
    * @example
    * 1710239005403
    */
   startedTime?: number;
   /**
+   * @remarks
+   * The status of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   NotRun: The instance is not run.
+   * *   Running: The instance is running.
+   * *   WaitTime: The instance is waiting for the scheduling time to arrive.
+   * *   CheckingCondition: Branch conditions are being checked for the instance.
+   * *   WaitResource: The instance is waiting for resources.
+   * *   Failure: The instance fails to be run.
+   * *   Success: The instance is successfully run.
+   * *   Checking: Data quality is being checked for the instance.
+   * 
    * @example
    * Success
    */
   status?: string;
   /**
+   * @remarks
+   * The ID of the task for which the instance is generated.
+   * 
    * @example
    * 1234
    */
   taskId?: number;
+  /**
+   * @remarks
+   * The name of the task for which the instance is generated.
+   */
   taskName?: string;
   /**
+   * @remarks
+   * The type of the task for which the instance is generated.
+   * 
    * @example
    * ODPS_SQL
    */
   taskType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 1
    */
   timeout?: number;
   /**
+   * @remarks
+   * The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   triggerRecurrence?: string;
   /**
+   * @remarks
+   * The scheduling time.
+   * 
    * @example
    * 1710239005403
    */
   triggerTime?: number;
   /**
+   * @remarks
+   * The method to trigger instance scheduling.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
   triggerType?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the instance belongs.
+   * 
    * @example
    * 1234
    */
   workflowId?: number;
   /**
+   * @remarks
+   * The workflow instance ID.
+   * 
    * @example
    * 1234
    */
   workflowInstanceId?: number;
   /**
+   * @remarks
+   * The type of the workflow instance.
+   * 
+   * Valid values:
+   * 
+   * *   SmokeTest
+   * *   SupplementData
+   * *   Manual
+   * *   ManualWorkflow
+   * *   Normal
+   * *   ManualFlow
+   * 
    * @example
    * Normal
    */
   workflowInstanceType?: string;
+  /**
+   * @remarks
+   * The name of the workflow to which the instance belongs.
+   */
   workflowName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29307,17 +38879,30 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances extend
 
 export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The instances.
+   */
   taskInstances?: ListUpstreamTaskInstancesResponseBodyPagingInfoTaskInstances[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -29347,6 +38932,9 @@ export class ListUpstreamTaskInstancesResponseBodyPagingInfo extends $tea.Model 
 
 export class ListUpstreamTasksResponseBodyPagingInfoTasksDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -29370,16 +38958,25 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasksDataSource extends $tea
 
 export class ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends $tea.Model {
   /**
+   * @remarks
+   * The default number of compute units (CUs) configured for task running.
+   * 
    * @example
    * 0.25
    */
   cu?: string;
   /**
+   * @remarks
+   * The ID of the image configured for task running.
+   * 
    * @example
    * i-xxxxxx
    */
   image?: string;
   /**
+   * @remarks
+   * The ID of the resource group for scheduling configured for task running.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -29407,31 +39004,60 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource extends
 
 export class ListUpstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.Model {
   /**
+   * @remarks
+   * The CRON expression of the task. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 00 00 00 * * ?
    */
   cron?: string;
   /**
+   * @remarks
+   * The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 9999-01-01 00:00:00
    */
   endTime?: string;
   /**
+   * @remarks
+   * The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
+   * Valid values:
+   * 
+   * *   Pause
+   * *   Skip
+   * *   Normal
+   * 
    * @example
    * Normal
    */
   recurrence?: string;
   /**
+   * @remarks
+   * The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
+   * 
    * @example
    * 1970-01-01 00:00:00
    */
   startTime?: string;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * Asia/Shanghai
    */
   timezone?: string;
   /**
+   * @remarks
+   * The trigger type.
+   * 
+   * Valid values:
+   * 
+   * *   Scheduler: scheduling cycle-based trigger
+   * *   Manual: manual trigger
+   * 
    * @example
    * Scheduler
    */
@@ -29465,97 +39091,186 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasksTrigger extends $tea.Mo
 
 export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
   /**
+   * @remarks
+   * The baseline ID.
+   * 
    * @example
    * 1234
    */
   baselineId?: number;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 1710239005403
    */
   createTime?: number;
   /**
+   * @remarks
+   * The account ID of the creator.
+   * 
    * @example
    * 1000
    */
   createUser?: string;
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: ListUpstreamTasksResponseBodyPagingInfoTasksDataSource;
   /**
+   * @remarks
+   * The description of the task.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * 1234
    */
   id?: number;
+  /**
+   * @example
+   * T+1
+   */
   instanceMode?: string;
   /**
+   * @remarks
+   * The modification time.
+   * 
    * @example
    * 1710239005403
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The account ID of the modifier.
+   * 
    * @example
    * 1000
    */
   modifyUser?: string;
+  /**
+   * @remarks
+   * The name of the task.
+   */
   name?: string;
   /**
+   * @remarks
+   * The account ID of the task owner.
+   * 
    * @example
    * 1000
    */
   owner?: string;
   /**
+   * @remarks
+   * The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The environment of the workspace.
+   * 
+   * Valid values:
+   * 
+   * *   Prod: production environment
+   * *   Dev: development environment
+   * 
    * @example
    * Prod
    */
   projectEnv?: string;
   /**
+   * @remarks
+   * The workspace ID.
+   * 
    * @example
    * 100
    */
   projectId?: number;
   /**
+   * @remarks
+   * The rerun interval. Unit: seconds.
+   * 
    * @example
    * 60
    */
   rerunInterval?: number;
   /**
+   * @remarks
+   * The rerun mode.
+   * 
+   * Valid values:
+   * 
+   * *   AllDenied: The task cannot be rerun regardless of whether it is successfully run or fails to run.
+   * *   FailureAllowed: The task can be rerun only after it fails to run.
+   * *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+   * 
    * @example
    * AllAllowed
    */
   rerunMode?: string;
   /**
+   * @remarks
+   * The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+   * 
    * @example
    * 3
    */
   rerunTimes?: number;
+  /**
+   * @remarks
+   * The configurations of the runtime environment, such as the resource group information.
+   */
   runtimeResource?: ListUpstreamTasksResponseBodyPagingInfoTasksRuntimeResource;
+  /**
+   * @example
+   * Normal
+   */
   stepType?: string;
   /**
+   * @remarks
+   * The tenant ID.
+   * 
    * @example
    * 1
    */
   tenantId?: number;
   /**
+   * @remarks
+   * The timeout period of task running. Unit: seconds.
+   * 
    * @example
    * 3600
    */
   timeout?: number;
+  /**
+   * @remarks
+   * The method to trigger task scheduling.
+   */
   trigger?: ListUpstreamTasksResponseBodyPagingInfoTasksTrigger;
   /**
+   * @remarks
+   * The type of the task.
+   * 
    * @example
    * ODPS_SQL
    */
   type?: string;
   /**
+   * @remarks
+   * The ID of the workflow to which the task belongs.
+   * 
    * @example
    * 1234
    */
@@ -29625,17 +39340,30 @@ export class ListUpstreamTasksResponseBodyPagingInfoTasks extends $tea.Model {
 
 export class ListUpstreamTasksResponseBodyPagingInfo extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The tasks.
+   */
   tasks?: ListUpstreamTasksResponseBodyPagingInfoTasks[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 100
    */
@@ -29944,15 +39672,34 @@ export class StartDIJobRequestRealtimeStartSettings extends $tea.Model {
 
 export class UpdateAlertRuleRequestNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
+   * 
    * @example
    * {"atAll":true}
    */
   extension?: string;
   /**
+   * @remarks
+   * The type of the alert recipient. Valid valves:
+   * 
+   * *   AliUid: Alibaba Cloud account ID.
+   * *   Shift Schedules: the personnel in a shift schedule.
+   * *   TaskOwner: the task owner. The task owner can receive custom alerts and event alerts.
+   * *   Owner: the baseline owner. The baseline owner can receive baseline alerts.
+   * *   WebhookUrl: URL of a custom webhook.
+   * *   DingdingUrl: DingTalk webhook URL.
+   * *   FeishuUrl: Lark webhook URL.
+   * *   WeixinUrl: WeCom webhook URL.
+   * 
    * @example
    * TaskOwner
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -29976,24 +39723,44 @@ export class UpdateAlertRuleRequestNotificationReceivers extends $tea.Model {
 }
 
 export class UpdateAlertRuleRequestNotification extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification channels.
+   */
   channels?: string[];
   /**
+   * @remarks
+   * The interval at which an alert notification is sent. Unit: minutes. Valid values: [5,10000].
+   * 
    * @example
    * 30
    */
   intervalInMinutes?: number;
   /**
+   * @remarks
+   * The maximum number of times an alert notification can be sent within a calendar day. Valid values: [1, 10000].
+   * 
    * @example
    * 3
    */
   maximum?: number;
+  /**
+   * @remarks
+   * The alert recipients.
+   */
   receivers?: UpdateAlertRuleRequestNotificationReceivers[];
   /**
+   * @remarks
+   * The end time for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
   silenceEndTime?: string;
   /**
+   * @remarks
+   * The start time for silence. The time is in the HH:mm:ss format.
+   * 
    * @example
    * 00:00:00
    */
@@ -30027,11 +39794,17 @@ export class UpdateAlertRuleRequestNotification extends $tea.Model {
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the scheduling cycle of the instance. Valid values: [1,288].
+   * 
    * @example
    * 1
    */
   cycleId?: number;
   /**
+   * @remarks
+   * The latest completion time of the instance within the scheduling cycle. The time is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 01:00
    */
@@ -30056,6 +39829,10 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycle
 }
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the scheduling cycle and timeout period of the instance.
+   */
   cycleAndTime?: UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinishedCycleAndTime[];
   static names(): { [key: string]: string } {
     return {
@@ -30076,10 +39853,17 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished exte
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionError extends $tea.Model {
   /**
+   * @remarks
+   * Specifies whether to trigger an alert if a batch synchronization task is automatically rerun upon a failure.
+   * 
    * @example
    * true
    */
   autoRerunAlert?: boolean;
+  /**
+   * @remarks
+   * The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+   */
   streamTaskIds?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -30102,6 +39886,9 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionError extends $tea.M
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of instances on which an error occurs. Valid values: [1,10000].
+   * 
    * @example
    * 10
    */
@@ -30125,6 +39912,9 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount e
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
@@ -30148,11 +39938,21 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercent
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate extends $tea.Model {
   /**
+   * @remarks
+   * The maximum percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: [1-100].
+   * 
    * @example
    * 10
    */
   percentage?: number;
   /**
+   * @remarks
+   * The way in which the number of auto triggered node instances that are generated in your workspace fluctuates. Valid values:
+   * 
+   * *   abs: the absolute value. The number of instances increases or decreases.
+   * *   increase: The number of instances increases.
+   * *   decrease: The number of instances decreases.
+   * 
    * @example
    * abs
    */
@@ -30178,6 +39978,9 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluc
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea.Model {
   /**
+   * @remarks
+   * The timeout period. Unit: minutes. Valid values: [1, 21600].
+   * 
    * @example
    * 10
    */
@@ -30201,6 +40004,9 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionTimeout extends $tea
 
 export class UpdateAlertRuleRequestTriggerConditionExtensionUnFinished extends $tea.Model {
   /**
+   * @remarks
+   * The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+   * 
    * @example
    * 12:00
    */
@@ -30223,12 +40029,40 @@ export class UpdateAlertRuleRequestTriggerConditionExtensionUnFinished extends $
 }
 
 export class UpdateAlertRuleRequestTriggerConditionExtension extends $tea.Model {
+  /**
+   * @remarks
+   * The configuration for an alert of the CycleUnfinished type.
+   */
   cycleUnfinished?: UpdateAlertRuleRequestTriggerConditionExtensionCycleUnfinished;
+  /**
+   * @remarks
+   * The configuration for an alert of the Error type.
+   */
   error?: UpdateAlertRuleRequestTriggerConditionExtensionError;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorCount type.
+   */
   instanceErrorCount?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorCount;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceErrorPercentage type.
+   */
   instanceErrorPercentage?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceErrorPercentage;
+  /**
+   * @remarks
+   * The configuration for an alert of the InstanceTransferFluctuate type.
+   */
   instanceTransferFluctuate?: UpdateAlertRuleRequestTriggerConditionExtensionInstanceTransferFluctuate;
+  /**
+   * @remarks
+   * The configuration for an alert of the Timeout type.
+   */
   timeout?: UpdateAlertRuleRequestTriggerConditionExtensionTimeout;
+  /**
+   * @remarks
+   * The configuration for an alert of the UnFinished type.
+   */
   unFinished?: UpdateAlertRuleRequestTriggerConditionExtensionUnFinished;
   static names(): { [key: string]: string } {
     return {
@@ -30260,9 +40094,25 @@ export class UpdateAlertRuleRequestTriggerConditionExtension extends $tea.Model 
 }
 
 export class UpdateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The nodes that are not to be monitored.
+   */
   allowTasks?: number[];
+  /**
+   * @remarks
+   * The IDs of monitored objects.
+   */
   ids?: number[];
   /**
+   * @remarks
+   * The type of the monitored objects. Valid values:
+   * 
+   * *   Task: node
+   * *   Baseline: baseline
+   * *   Project: workspace
+   * *   BizProcess: workflow
+   * 
    * @example
    * Task
    */
@@ -30289,9 +40139,34 @@ export class UpdateAlertRuleRequestTriggerConditionTarget extends $tea.Model {
 }
 
 export class UpdateAlertRuleRequestTriggerCondition extends $tea.Model {
+  /**
+   * @remarks
+   * The extended information about the rule. This parameter is required for specific types of alerts.
+   */
   extension?: UpdateAlertRuleRequestTriggerConditionExtension;
+  /**
+   * @remarks
+   * The monitored objects.
+   */
   target?: UpdateAlertRuleRequestTriggerConditionTarget;
   /**
+   * @remarks
+   * The alert type. Valid values:
+   * 
+   * *   Finished: An instance is successfully run.
+   * *   UnFinished:An instance does not finish running before a specified point in time.
+   * *   Error: An error occurs on an instance.
+   * *   CycleUnfinished: An instance does not finish running as expected within a specific cycle.
+   * *   Timeout: An instance times out.
+   * *   InstanceTransferComplete: An instance is generated by the auto triggered node.
+   * *   InstanceTransferFluctuate: The number of generated instances fluctuates.
+   * *   ExhaustedError: An error persists after an instance is automatically rerun.
+   * *   InstanceKeyword: An instance with errors contains specified keywords.
+   * *   InstanceErrorCount: The number of instances on which an error occurs reaches a specified threshold.
+   * *   InstanceErrorPercentage: The proportion of instances on which an error occurs in the workspace to the total number of instances reaches a specified threshold.
+   * *   ResourceGroupPercentage: The usage rate of the resource group reaches a specified threshold.
+   * *   ResourceGroupWaitCount: The number of instances that are waiting for resources in the resource group reaches a specified threshold.
+   * 
    * @example
    * ERROR
    */
@@ -30318,8 +40193,23 @@ export class UpdateAlertRuleRequestTriggerCondition extends $tea.Model {
 }
 
 export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * The alert notification method. Valid values:
+   * 
+   * *   Mail
+   * *   Phone
+   * *   Sms
+   * *   Ding
+   */
   channels?: string[];
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Warning
    */
@@ -30345,10 +40235,20 @@ export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels ex
 
 export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers extends $tea.Model {
   /**
+   * @remarks
+   * The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+   * 
    * @example
    * DingToken
    */
   receiverType?: string;
+  /**
+   * @remarks
+   * The recipient.
+   * 
+   * *   If the ReceiverType parameter is set to AliyunUid, set this parameter to the Alibaba Cloud account ID of a user.
+   * *   If the ReceiverType parameter is set to DingToken, set this parameter to the token of a DingTalk chatbot.
+   */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -30371,11 +40271,22 @@ export class UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers e
 
 export class UpdateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
   /**
+   * @remarks
+   * The duration of the alert suppression interval. Default value: 5. Unit: minutes.
+   * 
    * @example
    * 5
    */
   inhibitionInterval?: number;
+  /**
+   * @remarks
+   * The alert notification methods.
+   */
   notificationChannels?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationChannels[];
+  /**
+   * @remarks
+   * The settings of alert notification recipients.
+   */
   notificationReceivers?: UpdateDIAlarmRuleRequestNotificationSettingsNotificationReceivers[];
   static names(): { [key: string]: string } {
     return {
@@ -30399,18 +40310,38 @@ export class UpdateDIAlarmRuleRequestNotificationSettings extends $tea.Model {
 }
 
 export class UpdateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
+  /**
+   * @remarks
+   * The types of DDL operations for which the alert rule takes effect.
+   */
   ddlReportTags?: string[];
   /**
+   * @remarks
+   * The time interval for alert calculation. Unit: minutes.
+   * 
    * @example
    * 15
    */
   duration?: number;
   /**
+   * @remarks
+   * The severity level. Valid values:
+   * 
+   * *   Warning
+   * *   Critical
+   * 
    * @example
    * Warning
    */
   severity?: string;
   /**
+   * @remarks
+   * The alert threshold.
+   * 
+   * *   If the alert rule is for task status, you do not need to specify a threshold.
+   * *   If the alert rule is for failovers, you must specify the number of failovers.
+   * *   If the alert rule is for latency, you must specify the latency duration, in seconds.
+   * 
    * @example
    * 5
    */
@@ -30440,11 +40371,17 @@ export class UpdateDIAlarmRuleRequestTriggerConditions extends $tea.Model {
 
 export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The data type of the destination field.
+   * 
    * @example
    * text
    */
   destinationDataType?: string;
   /**
+   * @remarks
+   * The data type of the source field.
+   * 
    * @example
    * bigint
    */
@@ -30470,6 +40407,9 @@ export class UpdateDIJobRequestJobSettingsColumnDataTypeSettings extends $tea.Mo
 
 export class UpdateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Model {
   /**
+   * @remarks
+   * The scheduling parameters.
+   * 
    * @example
    * bizdate=$bizdate
    */
@@ -30493,11 +40433,29 @@ export class UpdateDIJobRequestJobSettingsCycleScheduleSettings extends $tea.Mod
 
 export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model {
   /**
+   * @remarks
+   * The processing policy. Valid values:
+   * 
+   * *   Ignore: ignores a DDL message.
+   * *   Critical: reports an error for a DDL message.
+   * *   Normal: normally processes a DDL message.
+   * 
    * @example
    * Critical
    */
   action?: string;
   /**
+   * @remarks
+   * The type of the DDL operation. Valid values:
+   * 
+   * *   RenameColumn
+   * *   ModifyColumn
+   * *   CreateTable
+   * *   TruncateTable
+   * *   DropTable
+   * *   DropColumn
+   * *   AddColumn
+   * 
    * @example
    * AddColumn
    */
@@ -30523,11 +40481,26 @@ export class UpdateDIJobRequestJobSettingsDdlHandlingSettings extends $tea.Model
 
 export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
   /**
+   * @remarks
+   * The name of the configuration item. Valid values:
+   * 
+   * *   runtime.offline.speed.limit.mb: indicates the maximum transmission rate that is allowed for a batch synchronization task. This configuration item takes effect only when runtime.offline.speed.limit.enable is set to true.
+   * *   runtime.offline.speed.limit.enable: indicates whether throttling is enabled for a batch synchronization task.
+   * *   dst.offline.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a batch synchronization task.
+   * *   runtime.offline.concurrent: indicates the maximum number of parallel threads that are allowed for a batch synchronization task.
+   * *   dst.realtime.connection.max: indicates the maximum number of connections that are allowed for writing data to the destination of a real-time synchronization task.
+   * *   runtime.enable.auto.create.schema: indicates whether schemas are automatically created in the destination of a synchronization task.
+   * *   src.offline.datasource.max.connection: indicates the maximum number of connections that are allowed for reading data from the source of a batch synchronization task.
+   * *   runtime.realtime.concurrent: indicates the maximum number of parallel threads that are allowed for a real-time synchronization task.
+   * 
    * @example
    * runtime.offline.concurrent
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the configuration item.
+   * 
    * @example
    * 1
    */
@@ -30553,13 +40526,32 @@ export class UpdateDIJobRequestJobSettingsRuntimeSettings extends $tea.Model {
 
 export class UpdateDIJobRequestJobSettings extends $tea.Model {
   /**
+   * @remarks
+   * The channel control settings for the synchronization task. The value of this parameter must be a JSON string.
+   * 
    * @example
    * {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
    */
   channelSettings?: string;
+  /**
+   * @remarks
+   * The data type mappings between source fields and destination fields.
+   */
   columnDataTypeSettings?: UpdateDIJobRequestJobSettingsColumnDataTypeSettings[];
+  /**
+   * @remarks
+   * The settings for periodic scheduling.
+   */
   cycleScheduleSettings?: UpdateDIJobRequestJobSettingsCycleScheduleSettings;
+  /**
+   * @remarks
+   * The processing settings for DDL messages.
+   */
   ddlHandlingSettings?: UpdateDIJobRequestJobSettingsDdlHandlingSettings[];
+  /**
+   * @remarks
+   * The runtime settings.
+   */
   runtimeSettings?: UpdateDIJobRequestJobSettingsRuntimeSettings[];
   static names(): { [key: string]: string } {
     return {
@@ -30588,11 +40580,17 @@ export class UpdateDIJobRequestJobSettings extends $tea.Model {
 
 export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of compute units (CUs) in the resource group for Data Integration that are used for batch synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for batch synchronization.
+   * 
    * @example
    * S_res_group_111_222
    */
@@ -30618,11 +40616,17 @@ export class UpdateDIJobRequestResourceSettingsOfflineResourceSettings extends $
 
 export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for Data Integration that are used for real-time synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for Data Integration used for real-time synchronization.
+   * 
    * @example
    * S_res_group_111_222
    */
@@ -30648,11 +40652,17 @@ export class UpdateDIJobRequestResourceSettingsRealtimeResourceSettings extends 
 
 export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends $tea.Model {
   /**
+   * @remarks
+   * The number of CUs in the resource group for scheduling that are used for batch synchronization.
+   * 
    * @example
    * 2.0
    */
   requestedCu?: number;
   /**
+   * @remarks
+   * The identifier of the resource group for scheduling used for batch synchronization.
+   * 
    * @example
    * S_res_group_235454102432001_1721021993437
    */
@@ -30677,8 +40687,20 @@ export class UpdateDIJobRequestResourceSettingsScheduleResourceSettings extends 
 }
 
 export class UpdateDIJobRequestResourceSettings extends $tea.Model {
+  /**
+   * @remarks
+   * The resource used for batch synchronization.
+   */
   offlineResourceSettings?: UpdateDIJobRequestResourceSettingsOfflineResourceSettings;
+  /**
+   * @remarks
+   * The resource used for real-time synchronization.
+   */
   realtimeResourceSettings?: UpdateDIJobRequestResourceSettingsRealtimeResourceSettings;
+  /**
+   * @remarks
+   * The resource used for scheduling.
+   */
   scheduleResourceSettings?: UpdateDIJobRequestResourceSettingsScheduleResourceSettings;
   static names(): { [key: string]: string } {
     return {
@@ -30703,21 +40725,36 @@ export class UpdateDIJobRequestResourceSettings extends $tea.Model {
 
 export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $tea.Model {
   /**
+   * @remarks
+   * The operation that is performed to select objects. Valid values: Include and Exclude.
+   * 
    * @example
    * Include
    */
   action?: string;
   /**
+   * @remarks
+   * The expression.
+   * 
    * @example
    * mysql_table_1
    */
   expression?: string;
   /**
+   * @remarks
+   * The expression type. Valid values: Exact and Regex.
+   * 
    * @example
    * Exact
    */
   expressionType?: string;
   /**
+   * @remarks
+   * The object type. Valid values:
+   * 
+   * *   Table
+   * *   Database
+   * 
    * @example
    * Table
    */
@@ -30747,16 +40784,33 @@ export class UpdateDIJobRequestTableMappingsSourceObjectSelectionRules extends $
 
 export class UpdateDIJobRequestTableMappingsTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * 
    * @example
    * Rename
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which you want to perform the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -30783,7 +40837,15 @@ export class UpdateDIJobRequestTableMappingsTransformationRules extends $tea.Mod
 }
 
 export class UpdateDIJobRequestTableMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+   */
   sourceObjectSelectionRules?: UpdateDIJobRequestTableMappingsSourceObjectSelectionRules[];
+  /**
+   * @remarks
+   * The list of transformation rules that you want to apply to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+   */
   transformationRules?: UpdateDIJobRequestTableMappingsTransformationRules[];
   static names(): { [key: string]: string } {
     return {
@@ -30806,21 +40868,51 @@ export class UpdateDIJobRequestTableMappings extends $tea.Model {
 
 export class UpdateDIJobRequestTransformationRules extends $tea.Model {
   /**
+   * @remarks
+   * The action type. Valid values:
+   * 
+   * *   DefinePrimaryKey
+   * *   Rename
+   * *   AddColumn
+   * *   HandleDml
+   * 
    * @example
    * Rename
    */
   ruleActionType?: string;
   /**
+   * @remarks
+   * The expression of the rule. The expression must be a JSON string.
+   * 
+   * Example of a renaming rule: {"expression":"${srcDatasourceName}_${srcDatabaseName}_0922","variables":[{"variableName":"srcDatabaseName","variableRules":[{"from":"fromdb","to":"todb"}]}]}.
+   * 
+   * expression: the expression of the renaming rule. The expression may contain the following variables: ${srcDatasourceName}, ${srcDatabaseName}, and ${srcTableName}. ${srcDatasourceName} indicates the name of the source. ${srcDatabaseName} indicates the name of a source database. ${srcTableName} indicates the name of a source table. variables: the generation rule for a variable used in the expression of the renaming rule. The default value of the specified variable is the original value of the object indicated by the variable. You can define a group of string replacement rules to change the original values based on your business requirements. variableName: the name of the variable. The variable name cannot be enclosed in ${}. variableRules: the string replacement rules for variables. The system runs the string replacement rules in sequence. from specifies the original string. to specifies the new string. Example of a rule used to add a specific field to the destination and assign a value to the field: {"columns":[{"columnName":"my_add_column","columnValueType":"Constant","columnValue":"123"}]}.
+   * 
+   * If you do not configure such a rule, no fields are added to the destination and no values are assigned by default. columnName: the name of the field that you want to add. columnValueType: the value type of the field. Valid values: Constant and Variable. columnValue: the value of the field. If you set the valueType parameter to Constant, set the columnValue parameter to a custom constant of the STRING type. If you set the valueType parameter to Variable, set the columnValue to a built-in variable. The following built-in variables are supported: EXECUTE_TIME (LONG data type), DB_NAME_SRC (STRING data type), DATASOURCE_NAME_SRC (STRING data type), TABLE_NAME_SRC (STRING data type), DB_NAME_DEST (STRING data type), DATASOURCE_NAME_DEST (STRING data type), TABLE_NAME_DEST (STRING data type), and DB_NAME_SRC_TRANSED (STRING data type). EXECUTE_TIME specifies the execution time. DB_NAME_SRC indicates the name of a source database. DATASOURCE_NAME_SRC specifies the name of the source. TABLE_NAME_SRC specifies the name of a source table. DB_NAME_DEST specifies the name of a destination database. DATASOURCE_NAME_DEST specifies the name of the destination. TABLE_NAME_DEST specifies the name of a destination table. DB_NAME_SRC_TRANSED specifies the database name obtained after a transformation. Example of a rule used to specify primary key fields for a destination table: {"columns":["ukcolumn1","ukcolumn2"]}.
+   * 
+   * If you do not configure such a rule, the primary key fields in the mapped source table are used for the destination table by default. If the destination table is an existing table, Data Integration does not modify the schema of the destination table. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. If the destination table is automatically created by the system, Data Integration automatically creates the schema of the destination table. The schema contains the primary key fields that you specify. If the specified primary key fields do not exist in the destination table, an error is reported when the synchronization task starts to run. Example of a rule used to process DML messages: {"dmlPolicies":[{"dmlType":"Delete","dmlAction":"Filter","filterCondition":"id > 1"}]}.
+   * 
+   * If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
+   * 
    * @example
    * {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
    */
   ruleExpression?: string;
   /**
+   * @remarks
+   * The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+   * 
    * @example
    * rename_rule_1
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The type of the object on which you want to perform the action. Valid values:
+   * 
+   * *   Table
+   * *   Schema
+   * 
    * @example
    * Table
    */
@@ -30848,8 +40940,1084 @@ export class UpdateDIJobRequestTransformationRules extends $tea.Model {
   }
 }
 
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0.01
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @example
+   * =
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @example
+   * 0.001
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds extends $tea.Model {
+  critical?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical;
+  expected?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected;
+  warned?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsCritical,
+      expected: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsExpected,
+      warned: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig extends $tea.Model {
+  /**
+   * @example
+   * {"bizdate": ["-1"]}
+   */
+  referencedSamplesFilter?: string;
+  thresholds?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds;
+  /**
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers extends $tea.Model {
+  /**
+   * @example
+   * SELECT * FROM ods_d_openapi_log WHERE status = \\"Error\\"
+   */
+  errorDataFilter?: string;
+  /**
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * CountNotIn
+   */
+  metric?: string;
+  /**
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @example
+   * status != \\"Succeeded\\"
+   */
+  samplingFilter?: string;
+  /**
+   * @example
+   * odps.sql.type.system.odps2=True,odps.sql.hive.compatible=True
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestDataQualityRules extends $tea.Model {
+  checkingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig;
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  enabled?: boolean;
+  errorHandlers?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers[];
+  /**
+   * @example
+   * 1022171560
+   */
+  id?: number;
+  name?: string;
+  samplingConfig?: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig;
+  /**
+   * @example
+   * Normal
+   */
+  severity?: string;
+  /**
+   * @example
+   * SYSTEM:field:null_value:fixed:0
+   */
+  templateCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkingConfig: 'CheckingConfig',
+      description: 'Description',
+      enabled: 'Enabled',
+      errorHandlers: 'ErrorHandlers',
+      id: 'Id',
+      name: 'Name',
+      samplingConfig: 'SamplingConfig',
+      severity: 'Severity',
+      templateCode: 'TemplateCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkingConfig: UpdateDataQualityEvaluationTaskRequestDataQualityRulesCheckingConfig,
+      description: 'string',
+      enabled: 'boolean',
+      errorHandlers: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestDataQualityRulesErrorHandlers },
+      id: 'number',
+      name: 'string',
+      samplingConfig: UpdateDataQualityEvaluationTaskRequestDataQualityRulesSamplingConfig,
+      severity: 'string',
+      templateCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestHooks extends $tea.Model {
+  /**
+   * @remarks
+   * Hook触发条件
+   * 
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * Hook类型
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  channels?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      channels: 'Channels',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channels: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers extends $tea.Model {
+  /**
+   * @remarks
+   * 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+   * 
+   * @example
+   * {  "atAll": true }
+   */
+  extension?: string;
+  /**
+   * @remarks
+   * 告警接收人类型
+   * 
+   * @example
+   * DingdingUrl
+   */
+  receiverType?: string;
+  /**
+   * @remarks
+   * 告警接收人
+   */
+  receiverValues?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      extension: 'Extension',
+      receiverType: 'ReceiverType',
+      receiverValues: 'ReceiverValues',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      extension: 'string',
+      receiverType: 'string',
+      receiverValues: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotificationsNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知方式
+   */
+  notificationChannels?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels[];
+  /**
+   * @remarks
+   * 告警接收人设置
+   */
+  notificationReceivers?: UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers[];
+  static names(): { [key: string]: string } {
+    return {
+      notificationChannels: 'NotificationChannels',
+      notificationReceivers: 'NotificationReceivers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      notificationChannels: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationChannels },
+      notificationReceivers: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotificationsNotificationReceivers },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestNotifications extends $tea.Model {
+  /**
+   * @remarks
+   * 通知触发条件
+   * 
+   * @example
+   * ${severity} == "High" AND ${status} == "Critical"
+   */
+  condition?: string;
+  /**
+   * @remarks
+   * 具体的消息通知设置
+   */
+  notifications?: UpdateDataQualityEvaluationTaskRequestNotificationsNotifications[];
+  static names(): { [key: string]: string } {
+    return {
+      condition: 'Condition',
+      notifications: 'Notifications',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      condition: 'string',
+      notifications: { 'type': 'array', 'itemType': UpdateDataQualityEvaluationTaskRequestNotificationsNotifications },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestTarget extends $tea.Model {
+  /**
+   * @remarks
+   * 表所属的数据库类型
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * 分区表的分区设置
+   * 
+   * @example
+   * dt=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * 表在数据地图中的唯一ID
+   * 
+   * @example
+   * odsp.openapi.ods_d_openapi_log
+   */
+  tableGuid?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityEvaluationTaskRequestTrigger extends $tea.Model {
+  /**
+   * @remarks
+   * 具体指明哪些调度节点的实例执行成功后可以触发
+   */
+  taskIds?: number[];
+  /**
+   * @remarks
+   * 何种事件可以触发质量校验任务执行
+   * 
+   * @example
+   * ByScheduledTaskInstance
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskIds: 'TaskIds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskIds: { 'type': 'array', 'itemType': 'number' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.05
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue <= 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestCheckingConfigThresholdsWarned extends $tea.Model {
+  /**
+   * @remarks
+   * 阈值表达式。
+   * 
+   * 波动率类型规则必须使用表达式方式表示波动阈值。如：
+   * 
+   * - 波动上升大于0.01： $checkValue > 0.01 
+   * - 波动下降大于0.01：$checkValue < -0.01 
+   * - 波动率绝对值：abs($checkValue) > 0.01
+   * 
+   * 固定值类型规则也可以使用表达式方式配置阈值，如果同时配置，表达式优先级高于Operator和Value
+   * 
+   * @example
+   * $checkValue > 0.01
+   */
+  expression?: string;
+  /**
+   * @remarks
+   * The comparison operator. Valid values:
+   * 
+   * *   \\>
+   * *   \\>=
+   * *   <
+   * *   <=
+   * *   !=
+   * *   \\=
+   * 
+   * @example
+   * >
+   */
+  operator?: string;
+  /**
+   * @remarks
+   * The threshold value.
+   * 
+   * @example
+   * 100.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expression: 'Expression',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expression: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestCheckingConfigThresholds extends $tea.Model {
+  /**
+   * @remarks
+   * The threshold settings for critical alerts.
+   */
+  critical?: UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical;
+  /**
+   * @remarks
+   * The expected threshold setting.
+   */
+  expected?: UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected;
+  /**
+   * @remarks
+   * The threshold settings for normal alerts.
+   */
+  warned?: UpdateDataQualityRuleRequestCheckingConfigThresholdsWarned;
+  static names(): { [key: string]: string } {
+    return {
+      critical: 'Critical',
+      expected: 'Expected',
+      warned: 'Warned',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      critical: UpdateDataQualityRuleRequestCheckingConfigThresholdsCritical,
+      expected: UpdateDataQualityRuleRequestCheckingConfigThresholdsExpected,
+      warned: UpdateDataQualityRuleRequestCheckingConfigThresholdsWarned,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestCheckingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * 
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The threshold settings.
+   */
+  thresholds?: UpdateDataQualityRuleRequestCheckingConfigThresholds;
+  /**
+   * @remarks
+   * The threshold calculation method. Valid values:
+   * 
+   * *   Fixed
+   * *   Fluctation
+   * *   FluctationDiscreate
+   * *   Auto
+   * *   Average
+   * *   Variance
+   * 
+   * @example
+   * Fixed
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      thresholds: 'Thresholds',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      thresholds: UpdateDataQualityRuleRequestCheckingConfigThresholds,
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestErrorHandlers extends $tea.Model {
+  /**
+   * @remarks
+   * The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+   * 
+   * @example
+   * SELECT * FROM tb_api_log WHERE id IS NULL
+   */
+  errorDataFilter?: string;
+  /**
+   * @remarks
+   * The type of the operation. Valid values:
+   * 
+   * *   SaveErrorData
+   * 
+   * @example
+   * SaveErrorData
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorDataFilter: 'ErrorDataFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorDataFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. You can leave this parameter empty if you use a rule template. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * Min
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * { "Columns": [ "id", "name" ] , "SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to filter unnecessary data during sampling. The statements can be up to 16,777,215 characters in length.
+   * 
+   * @example
+   * id IS NULL
+   */
+  samplingFilter?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      samplingFilter: 'SamplingFilter',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      samplingFilter: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleRequestTarget extends $tea.Model {
+  /**
+   * @remarks
+   * The type of the database to which the table belongs. Valid values:
+   * 
+   * *   maxcompute
+   * *   emr
+   * *   cdh
+   * *   hologres
+   * *   analyticdb_for_postgresql
+   * *   analyticdb_for_mysql
+   * *   starrocks
+   * 
+   * @example
+   * maxcompute
+   */
+  databaseType?: string;
+  /**
+   * @remarks
+   * The configuration of the partitioned table.
+   * 
+   * @example
+   * ds=$[yyyymmdd-1]
+   */
+  partitionSpec?: string;
+  /**
+   * @remarks
+   * The ID of the table that is limited by the rule in Data Map.
+   * 
+   * @example
+   * odps.unit_test.tb_unit_test
+   */
+  tableGuid?: string;
+  /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      databaseType: 'DatabaseType',
+      partitionSpec: 'PartitionSpec',
+      tableGuid: 'TableGuid',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      databaseType: 'string',
+      partitionSpec: 'string',
+      tableGuid: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateRequestCheckingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference samples and perform aggregate operations on the reference values. In this example, an expression is used to specify the query method of referenced samples.
+   * 
+   * @example
+   * { "bizdate": [ "-1", "-7", "-1m" ] }
+   */
+  referencedSamplesFilter?: string;
+  /**
+   * @remarks
+   * The type of the monitored object. Valid values:
+   * 
+   * *   Table
+   * 
+   * @example
+   * Table
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      referencedSamplesFilter: 'ReferencedSamplesFilter',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      referencedSamplesFilter: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDataQualityRuleTemplateRequestSamplingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * The metrics used for sampling. Valid values:
+   * 
+   * *   Count: the number of rows in the table.
+   * *   Min: the minimum value of the field.
+   * *   Max: the maximum value of the field.
+   * *   Avg: the average value of the field.
+   * *   DistinctCount: the number of unique values of the field after deduplication.
+   * *   DistinctPercent: the proportion of the number of unique values of the field after deduplication to the number of rows in the table.
+   * *   DuplicatedCount: the number of duplicated values of the field.
+   * *   DuplicatedPercent: the proportion of the number of duplicated values of the field to the number of rows in the table.
+   * *   TableSize: the table size.
+   * *   NullValueCount: the number of rows in which the field value is null.
+   * *   NullValuePercent: the proportion of the number of rows in which the field value is null to the number of rows in the table.
+   * *   GroupCount: the field value and the number of rows for each field value.
+   * *   CountNotIn: the number of rows in which the field values are different from the referenced values that you specified in the rule.
+   * *   CountDistinctNotIn: the number of unique values that are different from the referenced values that you specified in the rule after deduplication.
+   * *   UserDefinedSql: indicates that data is sampled by executing custom SQL statements.
+   * 
+   * @example
+   * Max
+   */
+  metric?: string;
+  /**
+   * @remarks
+   * The parameters required for sampling.
+   * 
+   * @example
+   * {"SQL": "select count(1) from table;"}
+   */
+  metricParameters?: string;
+  /**
+   * @remarks
+   * The statements that are used to configure the parameters required for sampling before you execute the sampling statements. The statements can be up to 1,000 characters in length. Only the MaxCompute database is supported.
+   * 
+   * @example
+   * SET odps.sql.udf.timeout=600s; 
+   * SET odps.sql.python.version=cp27;
+   */
+  settingConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      metric: 'Metric',
+      metricParameters: 'MetricParameters',
+      settingConfig: 'SettingConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      metric: 'string',
+      metricParameters: 'string',
+      settingConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateTaskInstancesRequestTaskInstancesDataSource extends $tea.Model {
   /**
+   * @remarks
+   * The name of the data source.
+   * 
    * @example
    * mysql_test
    */
@@ -30872,9 +42040,15 @@ export class UpdateTaskInstancesRequestTaskInstancesDataSource extends $tea.Mode
 }
 
 export class UpdateTaskInstancesRequestTaskInstances extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the associated data source.
+   */
   dataSource?: UpdateTaskInstancesRequestTaskInstancesDataSource;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30882,11 +42056,19 @@ export class UpdateTaskInstancesRequestTaskInstances extends $tea.Model {
    */
   id?: number;
   /**
+   * @remarks
+   * The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
+   * 
+   * A larger value indicates a higher priority. Default value: 1.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The resource group information. Set this parameter to the ID of a resource group for scheduling.
+   * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
    */
@@ -31012,6 +42194,11 @@ export default class Client extends OpenApi {
   /**
    * Associates a resource group with a workspace.
    * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+   * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AssociateProjectToResourceGroupResponse
@@ -31047,6 +42234,11 @@ export default class Client extends OpenApi {
   /**
    * Associates a resource group with a workspace.
    * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+   * 
    * @param request - AssociateProjectToResourceGroupRequest
    * @returns AssociateProjectToResourceGroupResponse
    */
@@ -31056,7 +42248,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * 把数据质量规则关联到数据质量校验任务上
+   * 
+   * @param tmpReq - AttachDataQualityRulesToEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachDataQualityRulesToEvaluationTaskResponse
+   */
+  async attachDataQualityRulesToEvaluationTaskWithOptions(tmpReq: AttachDataQualityRulesToEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<AttachDataQualityRulesToEvaluationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AttachDataQualityRulesToEvaluationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataQualityRuleIds)) {
+      request.dataQualityRuleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRuleIds, "DataQualityRuleIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataQualityEvaluationTaskId)) {
+      body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId;
+    }
+
+    if (!Util.isUnset(request.dataQualityRuleIdsShrink)) {
+      body["DataQualityRuleIds"] = request.dataQualityRuleIdsShrink;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AttachDataQualityRulesToEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AttachDataQualityRulesToEvaluationTaskResponse>(await this.callApi(params, req, runtime), new AttachDataQualityRulesToEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 把数据质量规则关联到数据质量校验任务上
+   * 
+   * @param request - AttachDataQualityRulesToEvaluationTaskRequest
+   * @returns AttachDataQualityRulesToEvaluationTaskResponse
+   */
+  async attachDataQualityRulesToEvaluationTask(request: AttachDataQualityRulesToEvaluationTaskRequest): Promise<AttachDataQualityRulesToEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.attachDataQualityRulesToEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Clones an existing data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - CloneDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31091,7 +42344,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Clones an existing data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - CloneDataSourceRequest
    * @returns CloneDataSourceResponse
@@ -31102,7 +42360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义监控报警规则
+   * Creates a custom monitoring alert rule.
    * 
    * @param tmpReq - CreateAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31159,7 +42417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义监控报警规则
+   * Creates a custom monitoring alert rule.
    * 
    * @param request - CreateAlertRuleRequest
    * @returns CreateAlertRuleResponse
@@ -31170,7 +42428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集成报警规则
+   * Creates an alert rule for a synchronization task.
    * 
    * @param tmpReq - CreateDIAlarmRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31207,7 +42465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集成报警规则
+   * Creates an alert rule for a synchronization task.
    * 
    * @param request - CreateDIAlarmRuleRequest
    * @returns CreateDIAlarmRuleResponse
@@ -31218,7 +42476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集成任务
+   * Creates a new-version synchronization task.
    * 
    * @param tmpReq - CreateDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31271,7 +42529,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据集成任务
+   * Creates a new-version synchronization task.
    * 
    * @param request - CreateDIJobRequest
    * @returns CreateDIJobResponse
@@ -31282,7 +42540,340 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * 创建DataWorks数据质量监控
+   * 
+   * @param tmpReq - CreateDataQualityEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityEvaluationTaskResponse
+   */
+  async createDataQualityEvaluationTaskWithOptions(tmpReq: CreateDataQualityEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataQualityEvaluationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataQualityEvaluationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataQualityRules)) {
+      request.dataQualityRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRules, "DataQualityRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.hooks)) {
+      request.hooksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hooks, "Hooks", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notifications)) {
+      request.notificationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifications, "Notifications", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataQualityRulesShrink)) {
+      body["DataQualityRules"] = request.dataQualityRulesShrink;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.hooksShrink)) {
+      body["Hooks"] = request.hooksShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.notificationsShrink)) {
+      body["Notifications"] = request.notificationsShrink;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.runtimeConf)) {
+      body["RuntimeConf"] = request.runtimeConf;
+    }
+
+    if (!Util.isUnset(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    if (!Util.isUnset(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataQualityEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 创建DataWorks数据质量监控
+   * 
+   * @param request - CreateDataQualityEvaluationTaskRequest
+   * @returns CreateDataQualityEvaluationTaskResponse
+   */
+  async createDataQualityEvaluationTask(request: CreateDataQualityEvaluationTaskRequest): Promise<CreateDataQualityEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataQualityEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建数据质量校验任务实例
+   * 
+   * @param tmpReq - CreateDataQualityEvaluationTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityEvaluationTaskInstanceResponse
+   */
+  async createDataQualityEvaluationTaskInstanceWithOptions(tmpReq: CreateDataQualityEvaluationTaskInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataQualityEvaluationTaskInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataQualityEvaluationTaskInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataQualityEvaluationTaskId)) {
+      body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      body["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataQualityEvaluationTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new CreateDataQualityEvaluationTaskInstanceResponse({}));
+  }
+
+  /**
+   * 创建数据质量校验任务实例
+   * 
+   * @param request - CreateDataQualityEvaluationTaskInstanceRequest
+   * @returns CreateDataQualityEvaluationTaskInstanceResponse
+   */
+  async createDataQualityEvaluationTaskInstance(request: CreateDataQualityEvaluationTaskInstanceRequest): Promise<CreateDataQualityEvaluationTaskInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataQualityEvaluationTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a data quality monitoring rule.
+   * 
+   * @param tmpReq - CreateDataQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityRuleResponse
+   */
+  async createDataQualityRuleWithOptions(tmpReq: CreateDataQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataQualityRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataQualityRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.checkingConfig)) {
+      request.checkingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig, "CheckingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.errorHandlers)) {
+      request.errorHandlersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.errorHandlers, "ErrorHandlers", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.samplingConfig)) {
+      request.samplingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig, "SamplingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkingConfigShrink)) {
+      body["CheckingConfig"] = request.checkingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.errorHandlersShrink)) {
+      body["ErrorHandlers"] = request.errorHandlersShrink;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.samplingConfigShrink)) {
+      body["SamplingConfig"] = request.samplingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      body["Severity"] = request.severity;
+    }
+
+    if (!Util.isUnset(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataQualityRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleResponse({}));
+  }
+
+  /**
+   * Creates a data quality monitoring rule.
+   * 
+   * @param request - CreateDataQualityRuleRequest
+   * @returns CreateDataQualityRuleResponse
+   */
+  async createDataQualityRule(request: CreateDataQualityRuleRequest): Promise<CreateDataQualityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a data quality monitoring rule template.
+   * 
+   * @param tmpReq - CreateDataQualityRuleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDataQualityRuleTemplateResponse
+   */
+  async createDataQualityRuleTemplateWithOptions(tmpReq: CreateDataQualityRuleTemplateRequest, runtime: $Util.RuntimeOptions): Promise<CreateDataQualityRuleTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDataQualityRuleTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.checkingConfig)) {
+      request.checkingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig, "CheckingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.samplingConfig)) {
+      request.samplingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig, "SamplingConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkingConfigShrink)) {
+      body["CheckingConfig"] = request.checkingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.directoryPath)) {
+      body["DirectoryPath"] = request.directoryPath;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.samplingConfigShrink)) {
+      body["SamplingConfig"] = request.samplingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.visibleScope)) {
+      body["VisibleScope"] = request.visibleScope;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataQualityRuleTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new CreateDataQualityRuleTemplateResponse({}));
+  }
+
+  /**
+   * Creates a data quality monitoring rule template.
+   * 
+   * @param request - CreateDataQualityRuleTemplateRequest
+   * @returns CreateDataQualityRuleTemplateResponse
+   */
+  async createDataQualityRuleTemplate(request: CreateDataQualityRuleTemplateRequest): Promise<CreateDataQualityRuleTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds a data source to the development environment or production environment of a workspace.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - CreateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31333,7 +42924,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Adds a data source to the development environment or production environment of a workspace.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - CreateDataSourceRequest
    * @returns CreateDataSourceResponse
@@ -31344,7 +42940,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Creates a rule for sharing a data source to other workspaces or RAM users.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - CreateDataSourceSharedRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31387,7 +42988,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Creates a rule for sharing a data source to other workspaces or RAM users.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - CreateDataSourceSharedRuleRequest
    * @returns CreateDataSourceSharedRuleResponse
@@ -31516,7 +43122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建并绑定通用资源组网络资源。
+   * Creates a network and associates the network with a general resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31559,7 +43168,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建并绑定通用资源组网络资源。
+   * Creates a network and associates the network with a general resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateNetworkRequest
    * @returns CreateNetworkResponse
@@ -31630,7 +43242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @param tmpReq - CreateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31695,7 +43307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建工作空间
+   * Creates a workspace.
    * 
    * @param request - CreateProjectRequest
    * @returns CreateProjectResponse
@@ -31706,7 +43318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加工作空间成员
+   * Adds a member to a workspace.
    * 
    * @param tmpReq - CreateProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31751,7 +43363,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加工作空间成员
+   * Adds a member to a workspace.
    * 
    * @param request - CreateProjectMemberRequest
    * @returns CreateProjectMemberResponse
@@ -31814,7 +43426,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建通用资源组。
+   * Creates a serverless resource group.
+   * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
    * 
    * @param request - CreateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31881,7 +43497,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建通用资源组。
+   * Creates a serverless resource group.
+   * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -31892,7 +43512,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络资源的路由。
+   * Creates a route for a network.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -31927,7 +43550,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网络资源的路由。
+   * Creates a route for a network.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - CreateRouteRequest
    * @returns CreateRouteResponse
@@ -31990,7 +43616,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义监控报警规则
+   * Deletes a custom alert monitoring rule.
    * 
    * @param request - DeleteAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32021,7 +43647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义监控报警规则
+   * Deletes a custom alert monitoring rule.
    * 
    * @param request - DeleteAlertRuleRequest
    * @returns DeleteAlertRuleResponse
@@ -32070,7 +43696,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集成任务
+   * Deletes a new-version synchronization task.
    * 
    * @param request - DeleteDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32097,7 +43723,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除数据集成任务
+   * Deletes a new-version synchronization task.
    * 
    * @param request - DeleteDIJobRequest
    * @returns DeleteDIJobResponse
@@ -32108,7 +43734,150 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * 删除数据质量校验任务
+   * 
+   * @param request - DeleteDataQualityEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityEvaluationTaskResponse
+   */
+  async deleteDataQualityEvaluationTaskWithOptions(request: DeleteDataQualityEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataQualityEvaluationTaskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataQualityEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 删除数据质量校验任务
+   * 
+   * @param request - DeleteDataQualityEvaluationTaskRequest
+   * @returns DeleteDataQualityEvaluationTaskResponse
+   */
+  async deleteDataQualityEvaluationTask(request: DeleteDataQualityEvaluationTaskRequest): Promise<DeleteDataQualityEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataQualityEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a data quality monitoring rule.
+   * 
+   * @param request - DeleteDataQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityRuleResponse
+   */
+  async deleteDataQualityRuleWithOptions(request: DeleteDataQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataQualityRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.id)) {
+      query["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataQualityRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleResponse({}));
+  }
+
+  /**
+   * Deletes a data quality monitoring rule.
+   * 
+   * @param request - DeleteDataQualityRuleRequest
+   * @returns DeleteDataQualityRuleResponse
+   */
+  async deleteDataQualityRule(request: DeleteDataQualityRuleRequest): Promise<DeleteDataQualityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a data quality monitoring rule template.
+   * 
+   * @param request - DeleteDataQualityRuleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDataQualityRuleTemplateResponse
+   */
+  async deleteDataQualityRuleTemplateWithOptions(request: DeleteDataQualityRuleTemplateRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDataQualityRuleTemplateResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataQualityRuleTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new DeleteDataQualityRuleTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a data quality monitoring rule template.
+   * 
+   * @param request - DeleteDataQualityRuleTemplateRequest
+   * @returns DeleteDataQualityRuleTemplateResponse
+   */
+  async deleteDataQualityRuleTemplate(request: DeleteDataQualityRuleTemplateRequest): Promise<DeleteDataQualityRuleTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all Dataworks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - DeleteDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32135,7 +43904,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Removes a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all Dataworks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - DeleteDataSourceRequest
    * @returns DeleteDataSourceResponse
@@ -32146,7 +43920,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Deletes a sharing rule of a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - DeleteDataSourceSharedRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32177,7 +43956,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Deletes a sharing rule of a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - DeleteDataSourceSharedRuleRequest
    * @returns DeleteDataSourceSharedRuleResponse
@@ -32240,7 +44024,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑并删除通用资源组网络资源。
+   * Disassociates and deletes a network from a general resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32271,7 +44058,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 解绑并删除通用资源组网络资源。
+   * Disassociates and deletes a network from a general resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteNetworkRequest
    * @returns DeleteNetworkResponse
@@ -32334,7 +44124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 销毁工作空间
+   * Deletes a DataWorks workspace.
    * 
    * @param request - DeleteProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32365,7 +44155,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 销毁工作空间
+   * Deletes a DataWorks workspace.
    * 
    * @param request - DeleteProjectRequest
    * @returns DeleteProjectResponse
@@ -32476,6 +44266,10 @@ export default class Client extends OpenApi {
   /**
    * Deletes a serverless resource group.
    * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
+   * 
    * @param request - DeleteResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteResourceGroupResponse
@@ -32507,6 +44301,10 @@ export default class Client extends OpenApi {
   /**
    * Deletes a serverless resource group.
    * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
+   * 
    * @param request - DeleteResourceGroupRequest
    * @returns DeleteResourceGroupResponse
    */
@@ -32516,7 +44314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网络资源的路由。
+   * Deletes a route from a network resource.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32547,7 +44348,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网络资源的路由。
+   * Deletes a route from a network resource.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - DeleteRouteRequest
    * @returns DeleteRouteResponse
@@ -32558,6 +44362,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a task.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - DeleteTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteTaskResponse
@@ -32591,6 +44400,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a task.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - DeleteTaskRequest
    * @returns DeleteTaskResponse
    */
@@ -32652,7 +44466,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 取消数据质量规则和数据质量校验任务的关联
+   * 
+   * @param tmpReq - DetachDataQualityRulesFromEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DetachDataQualityRulesFromEvaluationTaskResponse
+   */
+  async detachDataQualityRulesFromEvaluationTaskWithOptions(tmpReq: DetachDataQualityRulesFromEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<DetachDataQualityRulesFromEvaluationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DetachDataQualityRulesFromEvaluationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataQualityRuleIds)) {
+      request.dataQualityRuleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRuleIds, "DataQualityRuleIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataQualityEvaluationTaskId)) {
+      body["DataQualityEvaluationTaskId"] = request.dataQualityEvaluationTaskId;
+    }
+
+    if (!Util.isUnset(request.dataQualityRuleIdsShrink)) {
+      body["DataQualityRuleIds"] = request.dataQualityRuleIdsShrink;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DetachDataQualityRulesFromEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DetachDataQualityRulesFromEvaluationTaskResponse>(await this.callApi(params, req, runtime), new DetachDataQualityRulesFromEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 取消数据质量规则和数据质量校验任务的关联
+   * 
+   * @param request - DetachDataQualityRulesFromEvaluationTaskRequest
+   * @returns DetachDataQualityRulesFromEvaluationTaskResponse
+   */
+  async detachDataQualityRulesFromEvaluationTask(request: DetachDataQualityRulesFromEvaluationTaskRequest): Promise<DetachDataQualityRulesFromEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.detachDataQualityRulesFromEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
    * Disassociates a resource group from a workspace.
+   * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - DissociateProjectFromResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32688,6 +44563,11 @@ export default class Client extends OpenApi {
 
   /**
    * Disassociates a resource group from a workspace.
+   * 
+   * @remarks
+   * 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 2.  Your account must be assigned one of the following roles of the desired workspace:
+   * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - DissociateProjectFromResourceGroupRequest
    * @returns DissociateProjectFromResourceGroupResponse
@@ -32758,7 +44638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义监控报警规则
+   * Queries a list of custom alert monitoring rules.
    * 
    * @param request - GetAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32785,7 +44665,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取自定义监控报警规则
+   * Queries a list of custom alert monitoring rules.
    * 
    * @param request - GetAlertRuleRequest
    * @returns GetAlertRuleResponse
@@ -32796,7 +44676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据集成任务
+   * Queries the information about a synchronization task.
    * 
    * @param request - GetDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32823,7 +44703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据集成任务
+   * Queries the information about a synchronization task.
    * 
    * @param request - GetDIJobRequest
    * @returns GetDIJobResponse
@@ -32872,10 +44752,175 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询数据质量校验任务详情
+   * 
+   * @param request - GetDataQualityEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityEvaluationTaskResponse
+   */
+  async getDataQualityEvaluationTaskWithOptions(request: GetDataQualityEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetDataQualityEvaluationTaskResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataQualityEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 查询数据质量校验任务详情
+   * 
+   * @param request - GetDataQualityEvaluationTaskRequest
+   * @returns GetDataQualityEvaluationTaskResponse
+   */
+  async getDataQualityEvaluationTask(request: GetDataQualityEvaluationTaskRequest): Promise<GetDataQualityEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataQualityEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据质量校验任务实例详情
+   * 
+   * @param request - GetDataQualityEvaluationTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityEvaluationTaskInstanceResponse
+   */
+  async getDataQualityEvaluationTaskInstanceWithOptions(request: GetDataQualityEvaluationTaskInstanceRequest, runtime: $Util.RuntimeOptions): Promise<GetDataQualityEvaluationTaskInstanceResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataQualityEvaluationTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataQualityEvaluationTaskInstanceResponse>(await this.callApi(params, req, runtime), new GetDataQualityEvaluationTaskInstanceResponse({}));
+  }
+
+  /**
+   * 获取数据质量校验任务实例详情
+   * 
+   * @param request - GetDataQualityEvaluationTaskInstanceRequest
+   * @returns GetDataQualityEvaluationTaskInstanceResponse
+   */
+  async getDataQualityEvaluationTaskInstance(request: GetDataQualityEvaluationTaskInstanceRequest): Promise<GetDataQualityEvaluationTaskInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataQualityEvaluationTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询质量规则详情
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetDataQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityRuleResponse
+   */
+  async getDataQualityRuleWithOptions(request: GetDataQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetDataQualityRuleResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataQualityRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataQualityRuleResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleResponse({}));
+  }
+
+  /**
+   * 查询质量规则详情
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetDataQualityRuleRequest
+   * @returns GetDataQualityRuleResponse
+   */
+  async getDataQualityRule(request: GetDataQualityRuleRequest): Promise<GetDataQualityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取质量规则模版详情
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetDataQualityRuleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataQualityRuleTemplateResponse
+   */
+  async getDataQualityRuleTemplateWithOptions(request: GetDataQualityRuleTemplateRequest, runtime: $Util.RuntimeOptions): Promise<GetDataQualityRuleTemplateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataQualityRuleTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new GetDataQualityRuleTemplateResponse({}));
+  }
+
+  /**
+   * 获取质量规则模版详情
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
+   * @param request - GetDataQualityRuleTemplateRequest
+   * @returns GetDataQualityRuleTemplateResponse
+   */
+  async getDataQualityRuleTemplate(request: GetDataQualityRuleTemplateRequest): Promise<GetDataQualityRuleTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a data source by ID.
    * 
    * @remarks
-   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
    * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
    * 
    * @param request - GetDataSourceRequest
@@ -32906,7 +44951,8 @@ export default class Client extends OpenApi {
    * Queries a data source by ID.
    * 
    * @remarks
-   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
    * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
    * 
    * @param request - GetDataSourceRequest
@@ -32994,7 +45040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 返回异步任务的状态信息
+   * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - GetJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33021,7 +45067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 返回异步任务的状态信息
+   * Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - GetJobStatusRequest
    * @returns GetJobStatusResponse
@@ -33032,7 +45078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个网络资源详细信息。
+   * Queries the information about a network resource.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33059,7 +45108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取某个网络资源详细信息。
+   * Queries the information about a network resource.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetNetworkRequest
    * @returns GetNetworkResponse
@@ -33192,7 +45244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间角色详情
+   * Queries the information about a role in a DataWorks workspace.
    * 
    * @param request - GetProjectRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33227,7 +45279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询工作空间角色详情
+   * Queries the information about a role in a DataWorks workspace.
    * 
    * @param request - GetProjectRoleRequest
    * @returns GetProjectRoleResponse
@@ -33278,6 +45330,9 @@ export default class Client extends OpenApi {
   /**
    * 根据id获取指定资源组。
    * 
+   * @remarks
+   * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 
    * @param request - GetResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupResponse
@@ -33305,6 +45360,9 @@ export default class Client extends OpenApi {
   /**
    * 根据id获取指定资源组。
    * 
+   * @remarks
+   * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 
    * @param request - GetResourceGroupRequest
    * @returns GetResourceGroupResponse
    */
@@ -33314,7 +45372,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据id获取指定路由。
+   * Queries the information about a route based on its ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33341,7 +45402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据id获取指定路由。
+   * Queries the information about a route based on its ID.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetRouteRequest
    * @returns GetRouteResponse
@@ -33352,6 +45416,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a task.
+   * 
    * @param request - GetTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResponse
@@ -33377,6 +45443,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a task.
+   * 
    * @param request - GetTaskRequest
    * @returns GetTaskResponse
    */
@@ -33424,6 +45492,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the run log generated during a specific run of an instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetTaskInstanceLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskInstanceLogResponse
@@ -33449,6 +45522,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the run log generated during a specific run of an instance.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetTaskInstanceLogRequest
    * @returns GetTaskInstanceLogResponse
    */
@@ -33552,7 +45630,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+   * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+   * 
+   * @remarks
+   * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+   * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33587,7 +45669,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+   * Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+   * 
+   * @remarks
+   * > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+   * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
    * 
    * @param request - ImportWorkflowDefinitionRequest
    * @returns ImportWorkflowDefinitionResponse
@@ -33598,7 +45684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取自定义监控报警规则
+   * Queries a list of custom monitoring alert rule by page.
    * 
    * @param tmpReq - ListAlertRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33663,7 +45749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页获取自定义监控报警规则
+   * Queries a list of custom monitoring alert rule by page.
    * 
    * @param request - ListAlertRulesRequest
    * @returns ListAlertRulesResponse
@@ -33674,7 +45760,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据集成报警规则
+   * Views alert rules configured for a synchronization task.
    * 
    * @param request - ListDIAlarmRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33701,7 +45787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看数据集成报警规则
+   * Views alert rules configured for a synchronization task.
    * 
    * @param request - ListDIAlarmRulesRequest
    * @returns ListDIAlarmRulesResponse
@@ -33712,7 +45798,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务事件
+   * Queries events for a synchronization task.
    * 
    * @param request - ListDIJobEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33739,7 +45825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务事件
+   * Queries events for a synchronization task.
    * 
    * @param request - ListDIJobEventsRequest
    * @returns ListDIJobEventsResponse
@@ -33750,7 +45836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务指标
+   * Queries metrics for a synchronization task.
    * 
    * @param tmpReq - ListDIJobMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33783,7 +45869,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成任务指标
+   * Queries metrics for a synchronization task.
    * 
    * @param request - ListDIJobMetricsRequest
    * @returns ListDIJobMetricsResponse
@@ -33794,7 +45880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成运行信息
+   * Queries the running information about a synchronization task.
    * 
    * @param request - ListDIJobRunDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33821,7 +45907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取数据集成运行信息
+   * Queries the running information about a synchronization task.
    * 
    * @param request - ListDIJobRunDetailsRequest
    * @returns ListDIJobRunDetailsResponse
@@ -33872,6 +45958,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of instances generated by a data quality monitoring task by page.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataQualityEvaluationTaskInstancesResponse
@@ -33899,6 +45988,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of instances generated by a data quality monitoring task by page.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityEvaluationTaskInstancesRequest
    * @returns ListDataQualityEvaluationTaskInstancesResponse
    */
@@ -33909,6 +46001,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries a list of data quality monitoring tasks by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33937,6 +46032,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of data quality monitoring tasks by page.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityEvaluationTasksRequest
    * @returns ListDataQualityEvaluationTasksResponse
    */
@@ -33946,6 +46044,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityResultsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDataQualityResultsResponse
@@ -33971,6 +46072,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityResultsRequest
    * @returns ListDataQualityResultsResponse
    */
@@ -33980,7 +46084,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of data quality monitoring rule templates.
+   * 
+   * @param request - ListDataQualityRuleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDataQualityRuleTemplateResponse
+   */
+  async listDataQualityRuleTemplateWithOptions(request: ListDataQualityRuleTemplateRequest, runtime: $Util.RuntimeOptions): Promise<ListDataQualityRuleTemplateResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDataQualityRuleTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new ListDataQualityRuleTemplateResponse({}));
+  }
+
+  /**
+   * Queries a list of data quality monitoring rule templates.
+   * 
+   * @param request - ListDataQualityRuleTemplateRequest
+   * @returns ListDataQualityRuleTemplateResponse
+   */
+  async listDataQualityRuleTemplate(request: ListDataQualityRuleTemplateRequest): Promise<ListDataQualityRuleTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of data quality monitoring rules by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListDataQualityRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34009,6 +46154,9 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of data quality monitoring rules by page.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListDataQualityRulesRequest
    * @returns ListDataQualityRulesResponse
    */
@@ -34018,7 +46166,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a list of sharing rules of a data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - ListDataSourceSharedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34045,7 +46198,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a list of sharing rules of a data source.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
    * 
    * @param request - ListDataSourceSharedRulesRequest
    * @returns ListDataSourceSharedRulesResponse
@@ -34056,7 +46214,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a list of data sources based on the business information of data sources.
+   * 
+   * @remarks
+   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param tmpReq - ListDataSourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34089,7 +46251,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Queries a list of data sources based on the business information of data sources.
+   * 
+   * @remarks
+   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param request - ListDataSourcesRequest
    * @returns ListDataSourcesResponse
@@ -34138,6 +46304,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of descendant instances of an instance by page.
+   * 
    * @param request - ListDownstreamTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDownstreamTaskInstancesResponse
@@ -34163,6 +46331,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of descendant instances of an instance by page.
+   * 
    * @param request - ListDownstreamTaskInstancesRequest
    * @returns ListDownstreamTaskInstancesResponse
    */
@@ -34172,6 +46342,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of descendant tasks of a task by page.
+   * 
    * @param request - ListDownstreamTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDownstreamTasksResponse
@@ -34197,6 +46369,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of descendant tasks of a task by page.
+   * 
    * @param request - ListDownstreamTasksRequest
    * @returns ListDownstreamTasksResponse
    */
@@ -34244,7 +46418,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取通用资源组网络资源列表。
+   * Queries a list of network resources of a serverless resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListNetworksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34271,7 +46448,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取通用资源组网络资源列表。
+   * Queries a list of network resources of a serverless resource group.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListNetworksRequest
    * @returns ListNetworksResponse
@@ -34426,7 +46606,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间角色详情
+   * Queries the information about roles in a DataWorks workspace by page.
    * 
    * @param tmpReq - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34487,7 +46667,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间角色详情
+   * Queries the information about roles in a DataWorks workspace by page.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
@@ -34498,7 +46678,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间详情
+   * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
    * 
    * @param tmpReq - ListProjectsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34579,7 +46759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询工作空间详情
+   * Queries a list of DataWorks workspaces of the tenant to which your account belongs.
    * 
    * @param request - ListProjectsRequest
    * @returns ListProjectsResponse
@@ -34590,7 +46770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源组列表。
+   * Queries a list of resource groups.
    * 
    * @param tmpReq - ListResourceGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34627,7 +46807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取资源组列表。
+   * Queries a list of resource groups.
    * 
    * @param request - ListResourceGroupsRequest
    * @returns ListResourceGroupsResponse
@@ -34678,6 +46858,9 @@ export default class Client extends OpenApi {
   /**
    * 获取网络资源的路由列表。
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListRoutesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRoutesResponse
@@ -34705,6 +46888,9 @@ export default class Client extends OpenApi {
   /**
    * 获取网络资源的路由列表。
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListRoutesRequest
    * @returns ListRoutesResponse
    */
@@ -34714,6 +46900,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of operation logs of an instance by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * You can call this operation to query only the operation logs generated within the previous 31 days.
+   * 
    * @param request - ListTaskInstanceOperationLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskInstanceOperationLogsResponse
@@ -34739,6 +46931,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of operation logs of an instance by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * You can call this operation to query only the operation logs generated within the previous 31 days.
+   * 
    * @param request - ListTaskInstanceOperationLogsRequest
    * @returns ListTaskInstanceOperationLogsResponse
    */
@@ -34748,6 +46946,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of instances. You can also specify filter conditions to query specific instances.
+   * 
    * @param tmpReq - ListTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskInstancesResponse
@@ -34859,6 +47059,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of instances. You can also specify filter conditions to query specific instances.
+   * 
    * @param request - ListTaskInstancesRequest
    * @returns ListTaskInstancesResponse
    */
@@ -34868,6 +47070,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of operation logs of a task by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * You can call this operation to query only the operation logs generated within the previous 31 days.
+   * 
    * @param request - ListTaskOperationLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTaskOperationLogsResponse
@@ -34893,6 +47101,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of operation logs of a task by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * You can call this operation to query only the operation logs generated within the previous 31 days.
+   * 
    * @param request - ListTaskOperationLogsRequest
    * @returns ListTaskOperationLogsResponse
    */
@@ -34902,6 +47116,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of tasks by page. You can also specify filter conditions to query tasks.
+   * 
    * @param request - ListTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTasksResponse
@@ -34975,6 +47191,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of tasks by page. You can also specify filter conditions to query tasks.
+   * 
    * @param request - ListTasksRequest
    * @returns ListTasksResponse
    */
@@ -34984,6 +47202,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of ancestor instances of an instance by page.
+   * 
    * @param request - ListUpstreamTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUpstreamTaskInstancesResponse
@@ -35009,6 +47229,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of ancestor instances of an instance by page.
+   * 
    * @param request - ListUpstreamTaskInstancesRequest
    * @returns ListUpstreamTaskInstancesResponse
    */
@@ -35018,6 +47240,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of ancestor tasks of a task by page.
+   * 
    * @param request - ListUpstreamTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListUpstreamTasksResponse
@@ -35043,6 +47267,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of ancestor tasks of a task by page.
+   * 
    * @param request - ListUpstreamTasksRequest
    * @returns ListUpstreamTasksResponse
    */
@@ -35290,6 +47516,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes multiple upstream dependencies of an instance at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - RemoveTaskInstanceDependenciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RemoveTaskInstanceDependenciesResponse
@@ -35335,6 +47566,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes multiple upstream dependencies of an instance at a time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - RemoveTaskInstanceDependenciesRequest
    * @returns RemoveTaskInstanceDependenciesResponse
    */
@@ -35544,6 +47780,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - RerunTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns RerunTaskInstancesResponse
@@ -35583,6 +47822,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - RerunTaskInstancesRequest
    * @returns RerunTaskInstancesResponse
    */
@@ -35592,6 +47834,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - ResumeTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ResumeTaskInstancesResponse
@@ -35631,6 +47876,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ResumeTaskInstancesRequest
    * @returns ResumeTaskInstancesResponse
    */
@@ -35696,6 +47944,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - SetSuccessTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetSuccessTaskInstancesResponse
@@ -35735,6 +47986,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - SetSuccessTaskInstancesRequest
    * @returns SetSuccessTaskInstancesResponse
    */
@@ -35744,7 +47998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动数据集成任务
+   * Starts a new-version synchronization task.
    * 
    * @param tmpReq - StartDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35777,7 +48031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 启动数据集成任务
+   * Starts a new-version synchronization task.
    * 
    * @param request - StartDIJobRequest
    * @returns StartDIJobResponse
@@ -35826,6 +48080,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - StopTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StopTaskInstancesResponse
@@ -35865,6 +48122,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - StopTaskInstancesRequest
    * @returns StopTaskInstancesResponse
    */
@@ -35874,6 +48134,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - SuspendTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SuspendTaskInstancesResponse
@@ -35913,6 +48176,9 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - SuspendTaskInstancesRequest
    * @returns SuspendTaskInstancesResponse
    */
@@ -35922,6 +48188,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Triggers a task to run by using an HTTP Trigger node at a specified time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - TriggerSchedulerTaskInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns TriggerSchedulerTaskInstanceResponse
@@ -35955,6 +48226,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Triggers a task to run by using an HTTP Trigger node at a specified time.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - TriggerSchedulerTaskInstanceRequest
    * @returns TriggerSchedulerTaskInstanceResponse
    */
@@ -35964,7 +48240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义监控报警规则
+   * Updates a custom alert monitoring rule.
    * 
    * @param tmpReq - UpdateAlertRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36025,7 +48301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建自定义监控报警规则
+   * Updates a custom alert monitoring rule.
    * 
    * @param request - UpdateAlertRuleRequest
    * @returns UpdateAlertRuleResponse
@@ -36036,7 +48312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集成报警规则
+   * Updates an alert rule configured for a synchronization task.
    * 
    * @param tmpReq - UpdateDIAlarmRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36073,7 +48349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集成报警规则
+   * Updates an alert rule configured for a synchronization task.
    * 
    * @param request - UpdateDIAlarmRuleRequest
    * @returns UpdateDIAlarmRuleResponse
@@ -36084,7 +48360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集成任务
+   * Updates a synchronization task.
    * 
    * @param tmpReq - UpdateDIJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36129,7 +48405,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新数据集成任务
+   * Updates a synchronization task.
    * 
    * @param request - UpdateDIJobRequest
    * @returns UpdateDIJobResponse
@@ -36140,7 +48416,292 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * 更新数据质量校验任务
+   * 
+   * @param tmpReq - UpdateDataQualityEvaluationTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityEvaluationTaskResponse
+   */
+  async updateDataQualityEvaluationTaskWithOptions(tmpReq: UpdateDataQualityEvaluationTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataQualityEvaluationTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataQualityEvaluationTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataQualityRules)) {
+      request.dataQualityRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataQualityRules, "DataQualityRules", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.hooks)) {
+      request.hooksShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hooks, "Hooks", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.notifications)) {
+      request.notificationsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.notifications, "Notifications", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dataQualityRulesShrink)) {
+      body["DataQualityRules"] = request.dataQualityRulesShrink;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      body["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.hooksShrink)) {
+      body["Hooks"] = request.hooksShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.notificationsShrink)) {
+      body["Notifications"] = request.notificationsShrink;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.runtimeConf)) {
+      body["RuntimeConf"] = request.runtimeConf;
+    }
+
+    if (!Util.isUnset(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    if (!Util.isUnset(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataQualityEvaluationTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataQualityEvaluationTaskResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityEvaluationTaskResponse({}));
+  }
+
+  /**
+   * 更新数据质量校验任务
+   * 
+   * @param request - UpdateDataQualityEvaluationTaskRequest
+   * @returns UpdateDataQualityEvaluationTaskResponse
+   */
+  async updateDataQualityEvaluationTask(request: UpdateDataQualityEvaluationTaskRequest): Promise<UpdateDataQualityEvaluationTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataQualityEvaluationTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a data quality monitoring rule.
+   * 
+   * @param tmpReq - UpdateDataQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityRuleResponse
+   */
+  async updateDataQualityRuleWithOptions(tmpReq: UpdateDataQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataQualityRuleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataQualityRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.checkingConfig)) {
+      request.checkingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig, "CheckingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.errorHandlers)) {
+      request.errorHandlersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.errorHandlers, "ErrorHandlers", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.samplingConfig)) {
+      request.samplingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig, "SamplingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.target)) {
+      request.targetShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.target, "Target", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkingConfigShrink)) {
+      body["CheckingConfig"] = request.checkingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    if (!Util.isUnset(request.errorHandlersShrink)) {
+      body["ErrorHandlers"] = request.errorHandlersShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.samplingConfigShrink)) {
+      body["SamplingConfig"] = request.samplingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.severity)) {
+      body["Severity"] = request.severity;
+    }
+
+    if (!Util.isUnset(request.targetShrink)) {
+      body["Target"] = request.targetShrink;
+    }
+
+    if (!Util.isUnset(request.templateCode)) {
+      body["TemplateCode"] = request.templateCode;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataQualityRule",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataQualityRuleResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleResponse({}));
+  }
+
+  /**
+   * Updates a data quality monitoring rule.
+   * 
+   * @param request - UpdateDataQualityRuleRequest
+   * @returns UpdateDataQualityRuleResponse
+   */
+  async updateDataQualityRule(request: UpdateDataQualityRuleRequest): Promise<UpdateDataQualityRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataQualityRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates a data quality monitoring rule template.
+   * 
+   * @param tmpReq - UpdateDataQualityRuleTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDataQualityRuleTemplateResponse
+   */
+  async updateDataQualityRuleTemplateWithOptions(tmpReq: UpdateDataQualityRuleTemplateRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDataQualityRuleTemplateResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDataQualityRuleTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.checkingConfig)) {
+      request.checkingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.checkingConfig, "CheckingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.samplingConfig)) {
+      request.samplingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.samplingConfig, "SamplingConfig", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.checkingConfigShrink)) {
+      body["CheckingConfig"] = request.checkingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.directoryPath)) {
+      body["DirectoryPath"] = request.directoryPath;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.samplingConfigShrink)) {
+      body["SamplingConfig"] = request.samplingConfigShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataQualityRuleTemplate",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDataQualityRuleTemplateResponse>(await this.callApi(params, req, runtime), new UpdateDataQualityRuleTemplateResponse({}));
+  }
+
+  /**
+   * Updates a data quality monitoring rule template.
+   * 
+   * @param request - UpdateDataQualityRuleTemplateRequest
+   * @returns UpdateDataQualityRuleTemplateResponse
+   */
+  async updateDataQualityRuleTemplate(request: UpdateDataQualityRuleTemplateRequest): Promise<UpdateDataQualityRuleTemplateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDataQualityRuleTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - UpdateDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36187,7 +48748,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 验证用
+   * Modifies a data source by ID.
+   * 
+   * @remarks
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
    * 
    * @param request - UpdateDataSourceRequest
    * @returns UpdateDataSourceResponse
@@ -36298,7 +48864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates a DataWorks workspace.
    * 
    * @param request - UpdateProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36353,7 +48919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新工作空间
+   * Updates a DataWorks workspace.
    * 
    * @param request - UpdateProjectRequest
    * @returns UpdateProjectResponse
@@ -36416,6 +48982,9 @@ export default class Client extends OpenApi {
   /**
    * Updates basic information about a resource group.
    * 
+   * @remarks
+   * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 
    * @param request - UpdateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateResourceGroupResponse
@@ -36455,6 +49024,9 @@ export default class Client extends OpenApi {
   /**
    * Updates basic information about a resource group.
    * 
+   * @remarks
+   * You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+   * 
    * @param request - UpdateResourceGroupRequest
    * @returns UpdateResourceGroupResponse
    */
@@ -36464,7 +49036,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络资源的路由。
+   * Updates the information about a route.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36499,7 +49074,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网络资源的路由。
+   * Updates the information about a route.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - UpdateRouteRequest
    * @returns UpdateRouteResponse
@@ -36510,6 +49088,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - UpdateTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateTaskInstancesResponse
@@ -36549,6 +49132,11 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - UpdateTaskInstancesRequest
    * @returns UpdateTaskInstancesResponse
    */
