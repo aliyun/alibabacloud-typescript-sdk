@@ -3773,7 +3773,7 @@ export class GetFileRequest extends $tea.Model {
 export class GetFileResponseBody extends $tea.Model {
   /**
    * @remarks
-   * id of request
+   * The request ID.
    * 
    * @example
    * 2AE63638-5420-56DC-BF59-37D8174039A0
@@ -3831,7 +3831,7 @@ export class GetFileResponse extends $tea.Model {
 export class GetIndexResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4FB0325E-8C37-5525-96AC-0333523170A3
@@ -4005,7 +4005,7 @@ export class GetIndexVersionResponse extends $tea.Model {
 export class GetInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * E7B7D598-B080-5C8E-AA35-D43EC0D5F886
@@ -4013,7 +4013,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results returned.
+   * Response parameters
    */
   result?: GetInstanceResponseBodyResult;
   static names(): { [key: string]: string } {
@@ -10944,6 +10944,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
    * https://oss-cn-hangzhou.aliyuncs.com
    */
   endpoint?: string;
+  format?: string;
   /**
    * @remarks
    * The namespace name.
@@ -11001,6 +11002,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
       catalog: 'catalog',
       database: 'database',
       endpoint: 'endpoint',
+      format: 'format',
       namespace: 'namespace',
       ossPath: 'ossPath',
       partition: 'partition',
@@ -11019,6 +11021,7 @@ export class CreateIndexRequestDataSourceInfoConfig extends $tea.Model {
       catalog: 'string',
       database: 'string',
       endpoint: 'string',
+      format: 'string',
       namespace: 'string',
       ossPath: 'string',
       partition: 'string',
@@ -13887,6 +13890,10 @@ export class GetFileResponseBodyResult extends $tea.Model {
    * ha-cn-2r42p5oi202_xijie_test
    */
   dataSource?: string;
+  /**
+   * @remarks
+   * Extended information
+   */
   extend?: { [key: string]: string[] };
   /**
    * @remarks
@@ -13984,6 +13991,7 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
+  format?: string;
   /**
    * @remarks
    * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
@@ -14041,6 +14049,7 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
       catalog: 'catalog',
       database: 'database',
       endpoint: 'endpoint',
+      format: 'format',
       namespace: 'namespace',
       ossPath: 'ossPath',
       partition: 'partition',
@@ -14059,6 +14068,7 @@ export class GetIndexResponseBodyResultDataSourceInfoConfig extends $tea.Model {
       catalog: 'string',
       database: 'string',
       endpoint: 'string',
+      format: 'string',
       namespace: 'string',
       ossPath: 'string',
       partition: 'string',
@@ -14361,6 +14371,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
    * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
    */
   content?: string;
+  createTime?: string;
   /**
    * @remarks
    * The name of the data source.
@@ -14390,6 +14401,10 @@ export class GetIndexResponseBodyResult extends $tea.Model {
    * sz_vpc_domain_1
    */
   domain?: string;
+  /**
+   * @remarks
+   * Extended information
+   */
   extend?: { [key: string]: string[] };
   /**
    * @remarks
@@ -14455,6 +14470,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
    * 2
    */
   partition?: number;
+  updateTime?: string;
   /**
    * @remarks
    * The information about the versions.
@@ -14466,6 +14482,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       config: 'config',
       configWhenBuild: 'configWhenBuild',
       content: 'content',
+      createTime: 'createTime',
       dataSource: 'dataSource',
       dataSourceInfo: 'dataSourceInfo',
       description: 'description',
@@ -14478,6 +14495,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       indexStatus: 'indexStatus',
       name: 'name',
       partition: 'partition',
+      updateTime: 'updateTime',
       versions: 'versions',
     };
   }
@@ -14488,6 +14506,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       config: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       configWhenBuild: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
       content: 'string',
+      createTime: 'string',
       dataSource: 'string',
       dataSourceInfo: GetIndexResponseBodyResultDataSourceInfo,
       description: 'string',
@@ -14500,6 +14519,7 @@ export class GetIndexResponseBodyResult extends $tea.Model {
       indexStatus: 'string',
       name: 'string',
       partition: 'number',
+      updateTime: 'string',
       versions: { 'type': 'array', 'itemType': GetIndexResponseBodyResultVersions },
     };
   }
@@ -14622,10 +14642,45 @@ export class GetIndexVersionResponseBodyResult extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResultNetwork extends $tea.Model {
+  /**
+   * @remarks
+   * The public domain name whitelist.
+   * 
+   * @example
+   * 127.0.0.1
+   */
   allow?: string;
+  /**
+   * @remarks
+   * The instance endpoint.
+   * 
+   * @example
+   * ha-cn-35t3r****.ha.aliyuncs.com
+   */
   endpoint?: string;
+  /**
+   * @remarks
+   * The public endpoint.
+   * 
+   * @example
+   * ha-cn-35t3ni****.public.ha.aliyuncs.com
+   */
   publicEndpoint?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp11ldcf59q2n****
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-wz9axk41d9vff****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14653,10 +14708,45 @@ export class GetInstanceResponseBodyResultNetwork extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResultSpecQrsResource extends $tea.Model {
+  /**
+   * @remarks
+   * The category. Valid values: local_ssd, SSD, and cloud.
+   * 
+   * @example
+   * local_ssd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The number of vCPUs.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The storage capacity. Unit: GB.
+   * 
+   * @example
+   * 100
+   */
   disk?: number;
+  /**
+   * @remarks
+   * The memory of the instance. Unit: GB.
+   * 
+   * @example
+   * 10
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 1
+   */
   nodeCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14684,10 +14774,45 @@ export class GetInstanceResponseBodyResultSpecQrsResource extends $tea.Model {
 }
 
 export class GetInstanceResponseBodyResultSpecSearchResource extends $tea.Model {
+  /**
+   * @remarks
+   * The category. Valid values: local_ssd, SSD, and cloud.
+   * 
+   * @example
+   * local_ssd
+   */
   category?: string;
+  /**
+   * @remarks
+   * The number of vCPUs.
+   * 
+   * @example
+   * 2
+   */
   cpu?: number;
+  /**
+   * @remarks
+   * The storage capacity. Unit: GB.
+   * 
+   * @example
+   * 100
+   */
   disk?: number;
+  /**
+   * @remarks
+   * The memory of the instance. Unit: GB.
+   * 
+   * @example
+   * 10
+   */
   mem?: number;
+  /**
+   * @remarks
+   * The number of nodes.
+   * 
+   * @example
+   * 1
+   */
   nodeCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14715,7 +14840,15 @@ export class GetInstanceResponseBodyResultSpecSearchResource extends $tea.Model 
 }
 
 export class GetInstanceResponseBodyResultSpec extends $tea.Model {
+  /**
+   * @remarks
+   * The QRS worker specifications.
+   */
   qrsResource?: GetInstanceResponseBodyResultSpecQrsResource;
+  /**
+   * @remarks
+   * The searcher worker specifications.
+   */
   searchResource?: GetInstanceResponseBodyResultSpecSearchResource;
   static names(): { [key: string]: string } {
     return {
@@ -14805,6 +14938,13 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
    * ha3_test
    */
   description?: string;
+  /**
+   * @remarks
+   * The edition of the instance. Valid values: vector and engine.
+   * 
+   * @example
+   * vector
+   */
   edition?: string;
   /**
    * @remarks
@@ -14838,8 +14978,26 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
    * Unlock
    */
   lockMode?: string;
+  /**
+   * @remarks
+   * The network information of the instance.
+   */
   network?: GetInstanceResponseBodyResultNetwork;
+  /**
+   * @remarks
+   * Specifies whether the instance is of the new version.
+   * 
+   * @example
+   * true
+   */
   newMode?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the instance has only one node.
+   * 
+   * @example
+   * false
+   */
   noQrs?: boolean;
   /**
    * @remarks
@@ -14849,6 +15007,10 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
    * rg-aekzjvw24el5lma
    */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The node specifications.
+   */
   spec?: GetInstanceResponseBodyResultSpec;
   /**
    * @remarks
@@ -14876,7 +15038,21 @@ export class GetInstanceResponseBodyResult extends $tea.Model {
    * 1634609702
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * admin
+   */
   userName?: string;
+  /**
+   * @remarks
+   * The version of the engine.
+   * 
+   * @example
+   * ha3_3.10.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17236,6 +17412,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
+  format?: string;
   /**
    * @remarks
    * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
@@ -17293,6 +17470,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
       catalog: 'catalog',
       database: 'database',
       endpoint: 'endpoint',
+      format: 'format',
       namespace: 'namespace',
       ossPath: 'ossPath',
       partition: 'partition',
@@ -17311,6 +17489,7 @@ export class ListIndexesResponseBodyResultDataSourceInfoConfig extends $tea.Mode
       catalog: 'string',
       database: 'string',
       endpoint: 'string',
+      format: 'string',
       namespace: 'string',
       ossPath: 'string',
       partition: 'string',
@@ -17588,6 +17767,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
    * {"summarys":{"parameter":{"file_compressor":"zstd"},"summary_fields":["id"]},"file_compress":[{"name":"file_compressor","type":"zstd"},{"name":"no_compressor","type":""}],"indexs":[{"index_fields":"name","index_name":"ids","index_type":"STRING"},{"has_primary_key_attribute":true,"index_fields":"id","is_primary_key_sorted":false,"index_name":"id","index_type":"PRIMARYKEY64"}],"attributes":[{"file_compress":"no_compressor","field_name":"id"}],"fields":[{"user_defined_param":{},"compress_type":"uniq","field_type":"STRING","field_name":"id"},{"compress_type":"uniq","field_type":"STRING","field_name":"name"}],"table_name":"api"}
    */
   content?: string;
+  createTime?: string;
   /**
    * @remarks
    * The name of the data source.
@@ -17673,6 +17853,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
    * 2
    */
   partition?: number;
+  updateTime?: string;
   /**
    * @remarks
    * The index versions.
@@ -17681,6 +17862,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       content: 'content',
+      createTime: 'createTime',
       dataSource: 'dataSource',
       dataSourceInfo: 'dataSourceInfo',
       description: 'description',
@@ -17692,6 +17874,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
       indexStatus: 'indexStatus',
       name: 'name',
       partition: 'partition',
+      updateTime: 'updateTime',
       versions: 'versions',
     };
   }
@@ -17699,6 +17882,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       content: 'string',
+      createTime: 'string',
       dataSource: 'string',
       dataSourceInfo: ListIndexesResponseBodyResultDataSourceInfo,
       description: 'string',
@@ -17710,6 +17894,7 @@ export class ListIndexesResponseBodyResult extends $tea.Model {
       indexStatus: 'string',
       name: 'string',
       partition: 'number',
+      updateTime: 'string',
       versions: { 'type': 'array', 'itemType': ListIndexesResponseBodyResultVersions },
     };
   }
@@ -18876,6 +19061,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
    * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   endpoint?: string;
+  format?: string;
   /**
    * @remarks
    * The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
@@ -18933,6 +19119,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
       catalog: 'catalog',
       database: 'database',
       endpoint: 'endpoint',
+      format: 'format',
       namespace: 'namespace',
       ossPath: 'ossPath',
       partition: 'partition',
@@ -18951,6 +19138,7 @@ export class ModifyIndexRequestDataSourceInfoConfig extends $tea.Model {
       catalog: 'string',
       database: 'string',
       endpoint: 'string',
+      format: 'string',
       namespace: 'string',
       ossPath: 'string',
       partition: 'string',
@@ -19056,6 +19244,8 @@ export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
    * ha-cn-35t3n1yuj0d_index_1
    */
   name?: string;
+  ossDataPath?: string;
+  partition?: string;
   /**
    * @remarks
    * The maximum number of full indexes that can be concurrently processed.
@@ -19094,6 +19284,8 @@ export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
       domain: 'domain',
       generation: 'generation',
       name: 'name',
+      ossDataPath: 'ossDataPath',
+      partition: 'partition',
       processParallelNum: 'processParallelNum',
       processPartitionCount: 'processPartitionCount',
       saroConfig: 'saroConfig',
@@ -19110,6 +19302,8 @@ export class ModifyIndexRequestDataSourceInfo extends $tea.Model {
       domain: 'string',
       generation: 'number',
       name: 'string',
+      ossDataPath: 'string',
+      partition: 'string',
       processParallelNum: 'number',
       processPartitionCount: 'number',
       saroConfig: ModifyIndexRequestDataSourceInfoSaroConfig,
@@ -22243,10 +22437,10 @@ export default class Client extends OpenApi {
    * Queries the details of an index table version.
    * 
    * @remarks
-   * ## Method
+   * ## [](#)Method
    *     GET
-   * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   * ## [](#uri)URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
    * 
    * @param request - GetFileRequest
    * @param headers - map
@@ -22282,10 +22476,10 @@ export default class Client extends OpenApi {
    * Queries the details of an index table version.
    * 
    * @remarks
-   * ## Method
+   * ## [](#)Method
    *     GET
-   * ## URI
-   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+   * ## [](#uri)URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
    * 
    * @param request - GetFileRequest
    * @returns GetFileResponse
@@ -22298,6 +22492,12 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about an index version.
+   * 
+   * @remarks
+   * ## [](#)Method
+   *     GET
+   * ## [](#uri)URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22323,6 +22523,12 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about an index version.
+   * 
+   * @remarks
+   * ## [](#)Method
+   *     GET
+   * ## [](#uri)URI
+   *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
    * @returns GetIndexResponse
    */
   async getIndex(instanceId: string, indexName: string): Promise<GetIndexResponse> {
@@ -22417,10 +22623,14 @@ export default class Client extends OpenApi {
    * Queries the details of an instance based on the instance ID.
    * 
    * @remarks
-   * ### Method
-   * `GET`
-   * ### URI
-   * `/openapi/ha3/instances/{instanceId}`
+   * ### [](#)Method
+   * ```java
+   * GET
+   * ```
+   * ### [](#uri)URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}
+   * ```
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22448,10 +22658,14 @@ export default class Client extends OpenApi {
    * Queries the details of an instance based on the instance ID.
    * 
    * @remarks
-   * ### Method
-   * `GET`
-   * ### URI
-   * `/openapi/ha3/instances/{instanceId}`
+   * ### [](#)Method
+   * ```java
+   * GET
+   * ```
+   * ### [](#uri)URI
+   * ```java
+   * /openapi/ha3/instances/{instanceId}
+   * ```
    * @returns GetInstanceResponse
    */
   async getInstance(instanceId: string): Promise<GetInstanceResponse> {
