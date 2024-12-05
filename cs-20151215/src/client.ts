@@ -1610,6 +1610,11 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
    */
   scaleUpFromZero?: boolean;
   /**
+   * @example
+   * cluster-autoscaler
+   */
+  scalerType?: string;
+  /**
    * @remarks
    * The interval at which the system scans for events that trigger scaling activities. Unit: seconds. Default value: 60.
    * 
@@ -1668,6 +1673,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
       recycleNodeDeletionEnabled: 'recycle_node_deletion_enabled',
       scaleDownEnabled: 'scale_down_enabled',
       scaleUpFromZero: 'scale_up_from_zero',
+      scalerType: 'scaler_type',
       scanInterval: 'scan_interval',
       skipNodesWithLocalStorage: 'skip_nodes_with_local_storage',
       skipNodesWithSystemPods: 'skip_nodes_with_system_pods',
@@ -1687,6 +1693,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
       recycleNodeDeletionEnabled: 'boolean',
       scaleDownEnabled: 'boolean',
       scaleUpFromZero: 'boolean',
+      scalerType: 'string',
       scanInterval: 'string',
       skipNodesWithLocalStorage: 'boolean',
       skipNodesWithSystemPods: 'boolean',
@@ -1700,13 +1707,52 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
   }
 }
 
+export class CreateAutoscalingConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * cc212d04dfe184547bffaa596********
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * AF8BE105-C32B-1269-9774-5510********
+   */
+  requestId?: string;
+  /**
+   * @example
+   * T-5fd211e924e1d007********
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAutoscalingConfigResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: CreateAutoscalingConfigResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -1714,6 +1760,7 @@ export class CreateAutoscalingConfigResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: CreateAutoscalingConfigResponseBody,
     };
   }
 
@@ -1781,6 +1828,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * true
+   * 
+   * @deprecated
    */
   autoRenew?: boolean;
   /**
@@ -1793,6 +1842,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   autoRenewPeriod?: number;
   /**
@@ -1813,6 +1864,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * 1
+   * 
+   * @deprecated
    */
   chargeType?: string;
   /**
@@ -2411,6 +2464,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * FY2023
+   * 
+   * @deprecated
    */
   period?: number;
   /**
@@ -2423,6 +2478,8 @@ export class CreateClusterRequest extends $tea.Model {
    * 
    * @example
    * Month
+   * 
+   * @deprecated
    */
   periodUnit?: string;
   /**
@@ -3286,6 +3343,16 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
    * @deprecated
    */
   count?: number;
+  /**
+   * @remarks
+   * Specifies whether set the network type of the pod to host network.
+   * 
+   * *   `true`: sets to host network.
+   * *   `false`: sets to container network.
+   * 
+   * @example
+   * true
+   */
   hostNetwork?: boolean;
   /**
    * @remarks
@@ -3300,13 +3367,23 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
    * @remarks
    * The network type of the edge node pool. This parameter takes effect only when the `type` of the node pool is set to `edge`. Valid values:
    * 
-   * *   `basic`: basic.
-   * *   `private`: dedicated. Only clusters that run Kubernetes 1.22 and later support this value.
+   * *   `basic`: Internet.
+   * *   `private`: private network.
    * 
    * @example
    * basic
    */
   interconnectMode?: string;
+  /**
+   * @remarks
+   * Specifies whether all nodes in the edge node pool can communicate with each other at Layer 3.
+   * 
+   * *   `true`: The nodes in the edge node pool can communicate with each other at Layer 3.
+   * *   `false`: The nodes in the edge node pool cannot communicate with each other at Layer 3.
+   * 
+   * @example
+   * true
+   */
   intranet?: boolean;
   /**
    * @remarks
@@ -3320,10 +3397,9 @@ export class CreateClusterNodePoolRequest extends $tea.Model {
   management?: CreateClusterNodePoolRequestManagement;
   /**
    * @remarks
-   * The maximum number of nodes that can be contained in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster.
+   * This parameter is deprecated.
    * 
-   * *   In most cases, this parameter is set to a value greater than 0 for edge node pools.
-   * *   This parameter is set to 0 for node pools whose types are ess or default edge node pools.
+   * The maximum number of nodes that can be contained in the edge node pool.
    * 
    * @example
    * 10
@@ -5570,7 +5646,7 @@ export class DescribeClusterAttachScriptsRequest extends $tea.Model {
    * *   `true`: retains the instance name.
    * *   `false`: does not retain the instance name.
    * 
-   * Default value: `true`
+   * Default value: `true`.
    * 
    * @example
    * true
@@ -5578,9 +5654,9 @@ export class DescribeClusterAttachScriptsRequest extends $tea.Model {
   keepInstanceName?: boolean;
   /**
    * @remarks
-   * The ID of the node pool to which you want to add an existing node. This parameter allows you to add an existing node to a specified node pool.
+   * The ID of the node pool to which you want to add an existing node.
    * 
-   * >  If you do not specify a node pool ID, the node is added to the default node pool.
+   * >  If you do not specify a node pool ID, the node is added to a default node pool.
    * 
    * @example
    * np1c9229d9be2d432c93f77a88fca0****
@@ -5598,7 +5674,7 @@ export class DescribeClusterAttachScriptsRequest extends $tea.Model {
   options?: string;
   /**
    * @remarks
-   * After you specify the list of RDS instances, the ECS instances in the cluster are automatically added to the whitelist of the RDS instances.
+   * The ApsaraDB RDS instances. If you specify a list of ApsaraDB RDS instances, ECS instances in the cluster are automatically added to the whitelist of the ApsaraDB RDS instances.
    */
   rdsInstances?: string[];
   static names(): { [key: string]: string } {
@@ -6254,6 +6330,13 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
    * The auto scaling configuration of the node pool.
    */
   autoScaling?: DescribeClusterNodePoolDetailResponseBodyAutoScaling;
+  /**
+   * @remarks
+   * Indicates whether the pods in the edge node pool can use the host network.
+   * 
+   * @example
+   * true
+   */
   hostNetwork?: boolean;
   /**
    * @remarks
@@ -6268,10 +6351,17 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
    * improved
    */
   interconnectMode?: string;
+  /**
+   * @remarks
+   * Indicates whether all nodes in the edge node pool can communicate with each other at Layer 3.
+   * 
+   * @example
+   * true
+   */
   intranet?: boolean;
   /**
    * @remarks
-   * The configurations of the cluster in which the node pool is deployed.
+   * The configurations of the cluster.
    */
   kubernetesConfig?: DescribeClusterNodePoolDetailResponseBodyKubernetesConfig;
   /**
@@ -6289,7 +6379,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
   maxNodes?: number;
   /**
    * @remarks
-   * Node configuration.
+   * The node configurations.
    */
   nodeConfig?: DescribeClusterNodePoolDetailResponseBodyNodeConfig;
   /**
@@ -6299,7 +6389,7 @@ export class DescribeClusterNodePoolDetailResponseBody extends $tea.Model {
   nodepoolInfo?: DescribeClusterNodePoolDetailResponseBodyNodepoolInfo;
   /**
    * @remarks
-   * The configurations of the scaling group.
+   * The configurations of the scaling group used by the node pool.
    */
   scalingGroup?: DescribeClusterNodePoolDetailResponseBodyScalingGroup;
   /**
@@ -7015,36 +7105,57 @@ export class DescribeClustersResponse extends $tea.Model {
 
 export class DescribeClustersForRegionRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c8155823d057948c69a****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The specification of the cluster.
+   * 
    * @example
    * ack.standard
    */
   clusterSpec?: string;
   /**
+   * @remarks
+   * The type of the cluster.
+   * 
    * @example
    * Kubernetes
    */
   clusterType?: string;
   /**
+   * @remarks
+   * Perform a fuzzy search by using the cluster name.
+   * 
    * @example
    * test-cluster
    */
   name?: string;
   /**
+   * @remarks
+   * The number of pages.
+   * 
    * @example
    * 10
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page.
+   * 
    * @example
    * 3
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The identifier of the cluster.
+   * 
    * @example
    * Serverless
    */
@@ -7079,7 +7190,15 @@ export class DescribeClustersForRegionRequest extends $tea.Model {
 }
 
 export class DescribeClustersForRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details of the clusters.
+   */
   clusters?: DescribeClustersForRegionResponseBodyClusters[];
+  /**
+   * @remarks
+   * The pagination details.
+   */
   pageInfo?: DescribeClustersForRegionResponseBodyPageInfo;
   static names(): { [key: string]: string } {
     return {
@@ -7802,16 +7921,25 @@ export class DescribeEventsResponse extends $tea.Model {
 
 export class DescribeEventsForRegionRequest extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cf62854ac2130470897be7a27ed1f****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The number of pages.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page.
+   * 
    * @example
    * 50
    */
@@ -7838,7 +7966,15 @@ export class DescribeEventsForRegionRequest extends $tea.Model {
 }
 
 export class DescribeEventsForRegionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The events.
+   */
   events?: DescribeEventsForRegionResponseBodyEvents[];
+  /**
+   * @remarks
+   * The pagination details.
+   */
   pageInfo?: DescribeEventsForRegionResponseBodyPageInfo;
   static names(): { [key: string]: string } {
     return {
@@ -11671,17 +11807,17 @@ export class ModifyClusterTagsResponse extends $tea.Model {
 export class ModifyNodePoolNodeConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The parameters of the kubelet.
+   * The kubelet configuration.
    */
   kubeletConfig?: KubeletConfig;
   /**
    * @remarks
-   * Operating system parameter configuration.
+   * The OS configuration.
    */
   osConfig?: ModifyNodePoolNodeConfigRequestOsConfig;
   /**
    * @remarks
-   * The rotation configurations.
+   * The rotation configuration.
    */
   rollingPolicy?: ModifyNodePoolNodeConfigRequestRollingPolicy;
   static names(): { [key: string]: string } {
@@ -16242,7 +16378,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
    * *   `true`: installs the CloudMonitor agent on ECS nodes.
    * *   `false`: does not install the CloudMonitor agent on ECS nodes.
    * 
-   * Default value: `false`.
+   * Default value: `false`
    * 
    * @example
    * true
@@ -16311,7 +16447,7 @@ export class CreateClusterNodePoolRequestKubernetesConfig extends $tea.Model {
   runtimeVersion?: string;
   /**
    * @remarks
-   * The taints.
+   * The configuration of the taint.
    */
   taints?: Taint[];
   /**
@@ -16518,7 +16654,7 @@ export class CreateClusterNodePoolRequestManagementUpgradeConfig extends $tea.Mo
    * @remarks
    * The maximum number of nodes that can be in the Unavailable state. Valid values: 1 to 1000.
    * 
-   * Default value: 1.
+   * Default value: 1
    * 
    * @example
    * 1
@@ -16823,7 +16959,7 @@ export class CreateClusterNodePoolRequestScalingGroupSpotPriceLimit extends $tea
 export class CreateClusterNodePoolRequestScalingGroupTags extends $tea.Model {
   /**
    * @remarks
-   * The label key.
+   * The tag key.
    * 
    * @example
    * node-k-1
@@ -16831,7 +16967,7 @@ export class CreateClusterNodePoolRequestScalingGroupTags extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The label value.
+   * The tag value.
    * 
    * @example
    * node-v-1
@@ -16864,7 +17000,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
    * *   `true`: enables auto-renewal.
    * *   `false`: disables auto-renewal.
    * 
-   * Default value: `false`.
+   * Default value: `false`
    * 
    * @example
    * true
@@ -16872,9 +17008,12 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration of nodes in the node pool. This parameter is available and required only if you set instance_charge_type to PrePaid and auto_renew to true. If `PeriodUnit=Month` is configured, the valid values are 1, 2, 3, 6, and 12.
+   * The auto-renewal period. Valid values:
    * 
-   * Default value: 1.
+   * *   Valid values when PeriodUnit is set to Week: 1, 2, and 3
+   * *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
+   * 
+   * Default value: 1
    * 
    * @example
    * 1
@@ -18285,10 +18424,10 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   cpuPolicy?: string;
   /**
    * @remarks
-   * The labels of the nodes in the node pool. You can add labels to the nodes in the cluster. You must add labels based on the following rules:
+   * The labels that you want to add to the nodes in the cluster. You must add labels based on the following rules:
    * 
-   * *   Each label is a case-sensitive key-value pair. You can add up to 20 labels.
-   * *   A key must be unique and cannot exceed 64 characters in length. A value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
+   * *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
+   * *   The key must be unique and cannot exceed 64 characters in length. The value can be empty and cannot exceed 128 characters in length. Keys and values cannot start with `aliyun`, `acs:`, `https://`, or `http://`. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
    */
   labels?: Tag[];
   /**
@@ -18307,6 +18446,9 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   /**
    * @remarks
    * The custom script to be executed before nodes in the node pool are initialized. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+   * 
+   * @example
+   * dGhpcyBpcyBhIGV4YW1wbGU
    */
   preUserData?: string;
   /**
@@ -18327,7 +18469,7 @@ export class DescribeClusterNodePoolDetailResponseBodyKubernetesConfig extends $
   runtimeVersion?: string;
   /**
    * @remarks
-   * The taints of the nodes in the node pool. Taints are added to nodes to prevent pods from being scheduled to inappropriate nodes. However, tolerations allow pods to be scheduled to nodes with matching taints. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+   * The taints that you want to add to nodes. Taints can be used together with tolerations to prevent pods from being scheduled to specific nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
    */
   taints?: Taint[];
   /**
@@ -18623,7 +18765,7 @@ export class DescribeClusterNodePoolDetailResponseBodyManagement extends $tea.Mo
 export class DescribeClusterNodePoolDetailResponseBodyNodeConfig extends $tea.Model {
   /**
    * @remarks
-   * Kubelet parameter configuration.
+   * The configurations of the kubelet.
    */
   kubeletConfiguration?: KubeletConfig;
   static names(): { [key: string]: string } {
@@ -18864,7 +19006,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   compensateWithOnDemand?: boolean;
   /**
    * @remarks
-   * The configurations of the data disks that are attached to the nodes in the node pool. The configurations include the disk type and disk size.
+   * The configurations of the data disks that are attached to the nodes in the node pool. The configurations include the disk category and disk size.
    */
   dataDisks?: DataDisk[];
   /**
@@ -18912,7 +19054,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   instanceChargeType?: string;
   /**
    * @remarks
-   * Instance attributes
+   * The instance properties.
    */
   instancePatterns?: InstancePatterns[];
   /**
@@ -19157,14 +19299,14 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   systemDiskBurstingEnabled?: boolean;
   /**
    * @remarks
-   * The system disk types. The system attempts to create system disks from a disk type with a lower priority when the disk type with a higher priority is unavailable. Valid values: Valid values:
+   * The categories of the system disk for nodes. The system attempts to create system disks of a disk category with a lower priority if the disk category with a higher priority is unavailable. Valid values: Valid values:
    * 
-   * *   `cloud`: basic disk
-   * *   `cloud_efficiency`: ultra disk
-   * *   `cloud_ssd`: standard SSD
-   * *   `cloud_essd`: ESSD
-   * *   `cloud_auto`: ESSD AutoPL disk
-   * *   `cloud_essd_entry`: ESSD Entry disk
+   * *   `cloud`: basic disk.
+   * *   `cloud_efficiency`: ultra disk.
+   * *   `cloud_ssd`: standard SSD.
+   * *   `cloud_essd`: Enterprise SSD (ESSD).
+   * *   `cloud_auto`: ESSD AutoPL disk.
+   * *   `cloud_essd_entry`: ESSD Entry disk.
    * 
    * Default value: `cloud_efficiency`.
    */
@@ -19188,7 +19330,7 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   systemDiskCategory?: string;
   /**
    * @remarks
-   * Encryption algorithm used for the system disk. Valid values: aes-256.
+   * The encryption algorithm that is used to encrypt the system disk. Set the value to aes-256.
    * 
    * @example
    * aes-256
@@ -19241,9 +19383,9 @@ export class DescribeClusterNodePoolDetailResponseBodyScalingGroup extends $tea.
   systemDiskSize?: number;
   /**
    * @remarks
-   * The labels that you want to add to the ECS instances.
+   * The labels that you want to add only to ECS instances.
    * 
-   * A key must be unique and cannot exceed 128 characters in length. Neither keys nor values can start with aliyun or acs:. Neither keys nor values can contain https:// or http://.
+   * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
    */
   tags?: Tag[];
   /**
@@ -21927,92 +22069,165 @@ export class DescribeClustersResponseBody extends $tea.Model {
 
 export class DescribeClustersForRegionResponseBodyClusters extends $tea.Model {
   /**
+   * @remarks
+   * The domain name of the cluster.
+   * 
    * @example
    * cluster.local
    */
   clusterDomain?: string;
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * c905d1364c2dd4b6284a3f41790c4****
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The types of ACK managed clusters:
+   * 
+   * *   ack.pro.small: ACK Pro cluster
+   * *   ack.standard: ACK Basic cluster
+   * 
    * @example
    * ack.standard
    */
   clusterSpec?: string;
   /**
+   * @remarks
+   * The type of the cluster. Valid values:
+   * 
+   * *   Kubernetes: ACK dedicated cluster
+   * *   ManagedKubernetes: ACK managed clusters. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
+   * *   ExternalKubernetes: registered cluster
+   * 
    * @example
    * ManagedKubernetes
    */
   clusterType?: string;
   /**
+   * @remarks
+   * The CIDR block of pods in the cluster.
+   * 
    * @example
    * 172.20.0.0/16
    */
   containerCidr?: string;
   /**
+   * @remarks
+   * The time at which the instance is created.
+   * 
    * @example
    * 2020-12-01T20:40:40+08:00
    */
   created?: string;
   /**
+   * @remarks
+   * The current Kubernetes version of the cluster.
+   * 
    * @example
    * 1.16.6-aliyun.1
    */
   currentVersion?: string;
   /**
+   * @remarks
+   * Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. You can obtain the terminal ID by calling one of the following operations:
+   * 
+   * *   true: enables deletion protection for the cluster. This way, the cluster cannot be deleted in the ACK console or by calling API operations.
+   * *   false: disables deletion protection for the cluster. This way, the cluster can be deleted in the ACK console or by calling API operations.
+   * 
    * @example
    * false
    */
   deletionProtection?: boolean;
   /**
+   * @remarks
+   * The initial Kubernetes version of the cluster.
+   * 
    * @example
    * 1.16.6-aliyun.1
    */
   initVersion?: string;
   /**
+   * @remarks
+   * The IP protocol stack of the cluster.
+   * 
    * @example
    * ipv4
    */
   ipStack?: string;
   /**
+   * @remarks
+   * The name of the cluster.
+   * 
    * @example
    * test-cluster
    */
   name?: string;
   /**
+   * @remarks
+   * The Kubernetes version to which the cluster can be updated.
+   * 
    * @example
    * 1.18.8-aliyun.1
    */
   nextVersion?: string;
   /**
+   * @remarks
+   * The subtype of the cluster. Valid values:
+   * 
+   * *   Default: ACK managed clusters. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
+   * *   Edge: ACK Edge clusters. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
+   * *   Serverless: ACK Serverless clusters. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
+   * *   Lingjun: ACK Lingjun Pro clusters.
+   * 
    * @example
    * Default
    */
   profile?: string;
   /**
+   * @remarks
+   * The kube-proxy mode of the cluster.
+   * 
+   * Valid value:
+   * 
+   * *   iptables: iptables.
+   * *   ipvs: ipvs.
+   * 
    * @example
    * ipvs
    */
   proxyMode?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing-a
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the cluster resource group.
+   * 
    * @example
    * rg-acfmyvw3wjm****
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the security group of the cluster.
+   * 
    * @example
    * sg-2zeihch86ooz9io4****
    */
   securityGroupId?: string;
   /**
    * @remarks
+   * The CIDR block of the service network.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22020,31 +22235,67 @@ export class DescribeClustersForRegionResponseBodyClusters extends $tea.Model {
    */
   serviceCidr?: string;
   /**
+   * @remarks
+   * The number of nodes in the ACK cluster.
+   * 
    * @example
    * 2
    */
   size?: number;
   /**
+   * @remarks
+   * The status of the cluster. Valid values:
+   * 
+   * *   initial: The cluster is being created.
+   * *   failed: The cluster failed to be created.
+   * *   running: The cluster is running.
+   * *   Upgrading: The cluster is being updated.
+   * *   scaling: The cluster is being scaled.
+   * *   waiting: The cluster is waiting for connection requests.
+   * *   disconnected: The cluster is disconnected.
+   * *   inactive: The cluster is inactive.
+   * *   unavailable: The cluster is unavailable.
+   * *   deleting: The cluster is being deleted.
+   * *   deleted: The ACK cluster is deleted.
+   * *   delete_failed: The cluster failed to be deleted.
+   * 
    * @example
    * running
    */
   state?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: Tag[];
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * Asia/Shanghai
    */
   timezone?: string;
   /**
+   * @remarks
+   * The time when the cluster was updated.
+   * 
    * @example
    * 2020-12-08T15:37:00+08:00
    */
   updated?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) to which the cluster belongs.
+   * 
    * @example
    * vpc-2zeg8nf1ukc0fcmvq****
    */
   vpcId?: string;
+  /**
+   * @remarks
+   * The vSwitches for the control plane of the cluster.
+   */
   vswitchIds?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -22113,16 +22364,25 @@ export class DescribeClustersForRegionResponseBodyClusters extends $tea.Model {
 
 export class DescribeClustersForRegionResponseBodyPageInfo extends $tea.Model {
   /**
+   * @remarks
+   * The number of pages.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -23145,16 +23405,25 @@ export class DescribeEventsResponseBodyPageInfo extends $tea.Model {
 
 export class DescribeEventsForRegionResponseBodyEventsData extends $tea.Model {
   /**
+   * @remarks
+   * The severity level of the event.
+   * 
    * @example
    * info
    */
   level?: string;
   /**
+   * @remarks
+   * The details of the event.
+   * 
    * @example
    * Start to upgrade NodePool nodePool/nodePool-A
    */
   message?: string;
   /**
+   * @remarks
+   * The event status.
+   * 
    * @example
    * Started
    */
@@ -23182,28 +23451,51 @@ export class DescribeEventsForRegionResponseBodyEventsData extends $tea.Model {
 
 export class DescribeEventsForRegionResponseBodyEvents extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cluster-id
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The description of the event.
+   */
   data?: DescribeEventsForRegionResponseBodyEventsData;
   /**
+   * @remarks
+   * The event ID.
+   * 
    * @example
    * A234-1234-1234
    */
   eventId?: string;
+  /**
+   * @remarks
+   * The event source.
+   */
   source?: string;
   /**
+   * @remarks
+   * The object associated with the event.
+   * 
    * @example
    * nodePool-id
    */
   subject?: string;
   /**
+   * @remarks
+   * The time when the event was generated.
+   * 
    * @example
    * 2020-12-01T17:31:00Z
    */
   time?: string;
   /**
+   * @remarks
+   * The event type.
+   * 
    * @example
    * nodePool_upgrade
    */
@@ -23239,16 +23531,25 @@ export class DescribeEventsForRegionResponseBodyEvents extends $tea.Model {
 
 export class DescribeEventsForRegionResponseBodyPageInfo extends $tea.Model {
   /**
+   * @remarks
+   * The number of pages.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of records on each page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 3
    */
@@ -27690,7 +27991,7 @@ export class ModifyClusterNodePoolRequestTeeConfig extends $tea.Model {
 export class ModifyNodePoolNodeConfigRequestOsConfig extends $tea.Model {
   /**
    * @remarks
-   * sysctl parameter configuration
+   * The sysctl configuration.
    */
   sysctl?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -28770,6 +29071,10 @@ export default class Client extends OpenApi {
       body["scale_up_from_zero"] = request.scaleUpFromZero;
     }
 
+    if (!Util.isUnset(request.scalerType)) {
+      body["scaler_type"] = request.scalerType;
+    }
+
     if (!Util.isUnset(request.scanInterval)) {
       body["scan_interval"] = request.scanInterval;
     }
@@ -28803,7 +29108,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<CreateAutoscalingConfigResponse>(await this.callApi(params, req, runtime), new CreateAutoscalingConfigResponse({}));
   }
@@ -31159,7 +31464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定地域内全部集群列表
+   * Queries all clusters in a specified region.
    * 
    * @param request - DescribeClustersForRegionRequest
    * @param headers - map
@@ -31216,7 +31521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定地域内全部集群列表
+   * Queries all clusters in a specified region.
    * 
    * @param request - DescribeClustersForRegionRequest
    * @returns DescribeClustersForRegionResponse
@@ -31528,7 +31833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定地域内全部事件列表
+   * Queries all events in a specified region.
    * 
    * @param request - DescribeEventsForRegionRequest
    * @param headers - map
@@ -31569,7 +31874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询指定地域内全部事件列表
+   * Queries all events in a specified region.
    * 
    * @param request - DescribeEventsForRegionRequest
    * @returns DescribeEventsForRegionResponse
@@ -33945,9 +34250,10 @@ export default class Client extends OpenApi {
    * Removes nodes from a node pool.
    * 
    * @remarks
-   * *
-   * ****
-   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   * - When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. 
+   * - The operation may have unexpected risks. Back up the data before you perform this operation. 
+   * - When the system removes a node, it sets the status of the node to Unschedulable. 
+   * - The system removes only worker nodes. It does not remove master nodes.
    * 
    * @param tmpReq - RemoveNodePoolNodesRequest
    * @param headers - map
@@ -34009,9 +34315,10 @@ export default class Client extends OpenApi {
    * Removes nodes from a node pool.
    * 
    * @remarks
-   * *
-   * ****
-   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. - The operation may have unexpected risks. Back up the data before you perform this operation. - When the system removes a node, it sets the status of the node to Unschedulable. - The system removes only worker nodes. It does not remove master nodes.
+   * - When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours. 
+   * - The operation may have unexpected risks. Back up the data before you perform this operation. 
+   * - When the system removes a node, it sets the status of the node to Unschedulable. 
+   * - The system removes only worker nodes. It does not remove master nodes.
    * 
    * @param request - RemoveNodePoolNodesRequest
    * @returns RemoveNodePoolNodesResponse
