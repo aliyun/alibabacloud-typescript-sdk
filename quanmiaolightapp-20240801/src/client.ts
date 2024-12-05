@@ -260,92 +260,6 @@ export class ListHotTopicSummariesResponse extends $tea.Model {
   }
 }
 
-export class RunCommentGenerationRequest extends $tea.Model {
-  /**
-   * @example
-   * 20
-   */
-  length?: string;
-  /**
-   * @example
-   * 10
-   */
-  numComments?: string;
-  sourceMaterial?: string;
-  style?: string;
-  static names(): { [key: string]: string } {
-    return {
-      length: 'length',
-      numComments: 'numComments',
-      sourceMaterial: 'sourceMaterial',
-      style: 'style',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      length: 'string',
-      numComments: 'string',
-      sourceMaterial: 'string',
-      style: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommentGenerationResponseBody extends $tea.Model {
-  end?: boolean;
-  header?: RunCommentGenerationResponseBodyHeader;
-  payload?: RunCommentGenerationResponseBodyPayload;
-  static names(): { [key: string]: string } {
-    return {
-      end: 'end',
-      header: 'header',
-      payload: 'payload',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      end: 'boolean',
-      header: RunCommentGenerationResponseBodyHeader,
-      payload: RunCommentGenerationResponseBodyPayload,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommentGenerationResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RunCommentGenerationResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RunCommentGenerationResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RunHotTopicChatRequest extends $tea.Model {
   category?: string;
   generateOptions?: string[];
@@ -1777,138 +1691,6 @@ export class ListHotTopicSummariesResponseBodyData extends $tea.Model {
   }
 }
 
-export class RunCommentGenerationResponseBodyHeader extends $tea.Model {
-  /**
-   * @example
-   * result-generated
-   */
-  event?: string;
-  eventInfo?: string;
-  /**
-   * @example
-   * F8A35034-EDCF-5C50-95A5-1044316F36E3
-   */
-  requestId?: string;
-  /**
-   * @example
-   * tcm9xac9dsfbfgm8hf5k94l3cqybwh9o3mn0iuyytdgd9qoejxf1crxsdvuvr8fu0zuhbe8anhdaoeif2wbkmebagnezh23cuhkiazx2tmjh4eml791eak7t95sshvtkz14bh2lnbktzvdhialzd8reoaem0pktw41slinwyoabe75xlnxsqb5eo1i6ly70
-   */
-  sessionId?: string;
-  /**
-   * @example
-   * task-fu1918oghtodbis3chgpfr
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 21507c3517074446017046500ed5f1
-   */
-  traceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      event: 'event',
-      eventInfo: 'eventInfo',
-      requestId: 'requestId',
-      sessionId: 'sessionId',
-      taskId: 'taskId',
-      traceId: 'traceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      event: 'string',
-      eventInfo: 'string',
-      requestId: 'string',
-      sessionId: 'string',
-      taskId: 'string',
-      traceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommentGenerationResponseBodyPayloadOutput extends $tea.Model {
-  text?: string;
-  static names(): { [key: string]: string } {
-    return {
-      text: 'text',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      text: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommentGenerationResponseBodyPayloadUsage extends $tea.Model {
-  /**
-   * @example
-   * 100
-   */
-  inputTokens?: number;
-  /**
-   * @example
-   * 100
-   */
-  outputTokens?: number;
-  /**
-   * @example
-   * 200
-   */
-  totalTokens?: number;
-  static names(): { [key: string]: string } {
-    return {
-      inputTokens: 'inputTokens',
-      outputTokens: 'outputTokens',
-      totalTokens: 'totalTokens',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      inputTokens: 'number',
-      outputTokens: 'number',
-      totalTokens: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RunCommentGenerationResponseBodyPayload extends $tea.Model {
-  output?: RunCommentGenerationResponseBodyPayloadOutput;
-  usage?: RunCommentGenerationResponseBodyPayloadUsage;
-  static names(): { [key: string]: string } {
-    return {
-      output: 'output',
-      usage: 'usage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      output: RunCommentGenerationResponseBodyPayloadOutput,
-      usage: RunCommentGenerationResponseBodyPayloadUsage,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class RunHotTopicChatRequestStepForBroadcastContentConfigCustomHotValueWeights extends $tea.Model {
   /**
    * @example
@@ -2093,12 +1875,70 @@ export class RunHotTopicChatResponseBodyPayloadOutputArticles extends $tea.Model
   }
 }
 
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages extends $tea.Model {
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  title?: string;
+  /**
+   * @example
+   * http://xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'title',
+      url: 'url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $tea.Model {
   /**
    * @example
    * 100000
    */
   customHotValue?: number;
+  /**
+   * @example
+   * xxx
+   */
+  customTextSummary?: string;
   /**
    * @example
    * xx
@@ -2114,21 +1954,36 @@ export class RunHotTopicChatResponseBodyPayloadOutputHotTopicSummaries extends $
    * 100000
    */
   hotValue?: number;
+  images?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages[];
+  news?: RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews[];
+  /**
+   * @example
+   * xxx
+   */
+  textSummary?: string;
   static names(): { [key: string]: string } {
     return {
       customHotValue: 'customHotValue',
+      customTextSummary: 'customTextSummary',
       hotTopic: 'hotTopic',
       hotTopicVersion: 'hotTopicVersion',
       hotValue: 'hotValue',
+      images: 'images',
+      news: 'news',
+      textSummary: 'textSummary',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       customHotValue: 'number',
+      customTextSummary: 'string',
       hotTopic: 'string',
       hotTopicVersion: 'string',
       hotValue: 'number',
+      images: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesImages },
+      news: { 'type': 'array', 'itemType': RunHotTopicChatResponseBodyPayloadOutputHotTopicSummariesNews },
+      textSummary: 'string',
     };
   }
 
@@ -3881,63 +3736,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listHotTopicSummariesWithOptions(workspaceId, request, headers, runtime);
-  }
-
-  /**
-   * 评论生成服务
-   * 
-   * @param request - RunCommentGenerationRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RunCommentGenerationResponse
-   */
-  async runCommentGenerationWithOptions(workspaceId: string, request: RunCommentGenerationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunCommentGenerationResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.length)) {
-      body["length"] = request.length;
-    }
-
-    if (!Util.isUnset(request.numComments)) {
-      body["numComments"] = request.numComments;
-    }
-
-    if (!Util.isUnset(request.sourceMaterial)) {
-      body["sourceMaterial"] = request.sourceMaterial;
-    }
-
-    if (!Util.isUnset(request.style)) {
-      body["style"] = request.style;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "RunCommentGeneration",
-      version: "2024-08-01",
-      protocol: "HTTPS",
-      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runCommentGeneration`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RunCommentGenerationResponse>(await this.callApi(params, req, runtime), new RunCommentGenerationResponse({}));
-  }
-
-  /**
-   * 评论生成服务
-   * 
-   * @param request - RunCommentGenerationRequest
-   * @returns RunCommentGenerationResponse
-   */
-  async runCommentGeneration(workspaceId: string, request: RunCommentGenerationRequest): Promise<RunCommentGenerationResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.runCommentGenerationWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
