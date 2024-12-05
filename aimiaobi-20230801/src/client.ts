@@ -4649,6 +4649,121 @@ export class GetPropertiesResponse extends $tea.Model {
   }
 }
 
+export class GetSmartClipTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * task-03d46184ee7d8749
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartClipTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetSmartClipTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetSmartClipTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartClipTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSmartClipTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSmartClipTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTopicByIdRequest extends $tea.Model {
   /**
    * @remarks
@@ -13054,6 +13169,157 @@ export class SubmitEnterpriseVocAnalysisTaskResponse extends $tea.Model {
   }
 }
 
+export class SubmitSmartClipTaskRequest extends $tea.Model {
+  editingConfig?: SubmitSmartClipTaskRequestEditingConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputConfig?: SubmitSmartClipTaskRequestInputConfig;
+  outputConfig?: SubmitSmartClipTaskRequestOutputConfig;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingConfig: 'EditingConfig',
+      inputConfig: 'InputConfig',
+      outputConfig: 'OutputConfig',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingConfig: SubmitSmartClipTaskRequestEditingConfig,
+      inputConfig: SubmitSmartClipTaskRequestInputConfig,
+      outputConfig: SubmitSmartClipTaskRequestOutputConfig,
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskShrinkRequest extends $tea.Model {
+  editingConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputConfigShrink?: string;
+  outputConfigShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      editingConfigShrink: 'EditingConfig',
+      inputConfigShrink: 'InputConfig',
+      outputConfigShrink: 'OutputConfig',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      editingConfigShrink: 'string',
+      inputConfigShrink: 'string',
+      outputConfigShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SubmitSmartClipTaskResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SubmitSmartClipTaskResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitSmartClipTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitSmartClipTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -16445,6 +16711,140 @@ export class GetPropertiesResponseBodyData extends $tea.Model {
       userInfo: GetPropertiesResponseBodyDataUserInfo,
       wanxiangImageSizeConfig: { 'type': 'array', 'itemType': GetPropertiesResponseBodyDataWanxiangImageSizeConfig },
       wanxiangImageStyleConfig: { 'type': 'array', 'itemType': GetPropertiesResponseBodyDataWanxiangImageStyleConfig },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartClipTaskResponseBodyDataSubJobsFileAttr extends $tea.Model {
+  /**
+   * @example
+   * 120
+   */
+  duration?: number;
+  /**
+   * @example
+   * 290804
+   */
+  fileLength?: string;
+  /**
+   * @example
+   * 2024-12-12.mp4
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 1080
+   */
+  height?: number;
+  /**
+   * @example
+   * http://www.example.com/tmp.mp4
+   */
+  tmpUrl?: string;
+  /**
+   * @example
+   * 1920
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      duration: 'Duration',
+      fileLength: 'FileLength',
+      fileName: 'FileName',
+      height: 'Height',
+      tmpUrl: 'TmpUrl',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      duration: 'number',
+      fileLength: 'string',
+      fileName: 'string',
+      height: 'number',
+      tmpUrl: 'string',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartClipTaskResponseBodyDataSubJobs extends $tea.Model {
+  /**
+   * @example
+   * x\"x\"x\"x
+   */
+  errorMessage?: string;
+  fileAttr?: GetSmartClipTaskResponseBodyDataSubJobsFileAttr;
+  /**
+   * @example
+   * oss://default/bucket-name/path-xxx/xxx-1.mp4
+   */
+  fileKey?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  subJobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      fileAttr: 'FileAttr',
+      fileKey: 'FileKey',
+      status: 'Status',
+      subJobId: 'SubJobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      fileAttr: GetSmartClipTaskResponseBodyDataSubJobsFileAttr,
+      fileKey: 'string',
+      status: 'string',
+      subJobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSmartClipTaskResponseBodyData extends $tea.Model {
+  errorMessage?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  status?: string;
+  subJobs?: GetSmartClipTaskResponseBodyDataSubJobs[];
+  static names(): { [key: string]: string } {
+    return {
+      errorMessage: 'ErrorMessage',
+      status: 'Status',
+      subJobs: 'SubJobs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorMessage: 'string',
+      status: 'string',
+      subJobs: { 'type': 'array', 'itemType': GetSmartClipTaskResponseBodyDataSubJobs },
     };
   }
 
@@ -23618,6 +24018,363 @@ export class SubmitEnterpriseVocAnalysisTaskResponseBodyData extends $tea.Model 
   }
 }
 
+export class SubmitSmartClipTaskRequestEditingConfigTitleConfig extends $tea.Model {
+  /**
+   * @example
+   * TopLeft
+   */
+  alignment?: string;
+  /**
+   * @example
+   * 2
+   */
+  timelineIn?: number;
+  /**
+   * @example
+   * 3
+   */
+  timelineOut?: number;
+  /**
+   * @example
+   * 100
+   */
+  x?: number;
+  /**
+   * @example
+   * 100
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alignment: 'Alignment',
+      timelineIn: 'TimelineIn',
+      timelineOut: 'TimelineOut',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alignment: 'string',
+      timelineIn: 'number',
+      timelineOut: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestEditingConfig extends $tea.Model {
+  titleConfig?: SubmitSmartClipTaskRequestEditingConfigTitleConfig;
+  static names(): { [key: string]: string } {
+    return {
+      titleConfig: 'TitleConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      titleConfig: SubmitSmartClipTaskRequestEditingConfigTitleConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestInputConfigBackgroundMusics extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://default/bucket-name/filepath/video.mp3
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fileKey
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestInputConfigStickersStickerId extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://default/bucket-name/filepath/sticker.png
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fileKey
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestInputConfigStickers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.5
+   */
+  height?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  stickerId?: SubmitSmartClipTaskRequestInputConfigStickersStickerId;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.5
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.5
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.5
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      height: 'Height',
+      stickerId: 'StickerId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      height: 'number',
+      stickerId: SubmitSmartClipTaskRequestInputConfigStickersStickerId,
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestInputConfigVideoIds extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://default/bucket-name/filepath/video.mp4
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fileKey
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestInputConfig extends $tea.Model {
+  backgroundMusics?: SubmitSmartClipTaskRequestInputConfigBackgroundMusics[];
+  speechTexts?: string[];
+  stickers?: SubmitSmartClipTaskRequestInputConfigStickers[];
+  titles?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  videoIds?: SubmitSmartClipTaskRequestInputConfigVideoIds[];
+  static names(): { [key: string]: string } {
+    return {
+      backgroundMusics: 'BackgroundMusics',
+      speechTexts: 'SpeechTexts',
+      stickers: 'Stickers',
+      titles: 'Titles',
+      videoIds: 'VideoIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backgroundMusics: { 'type': 'array', 'itemType': SubmitSmartClipTaskRequestInputConfigBackgroundMusics },
+      speechTexts: { 'type': 'array', 'itemType': 'string' },
+      stickers: { 'type': 'array', 'itemType': SubmitSmartClipTaskRequestInputConfigStickers },
+      titles: { 'type': 'array', 'itemType': 'string' },
+      videoIds: { 'type': 'array', 'itemType': SubmitSmartClipTaskRequestInputConfigVideoIds },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskRequestOutputConfig extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  count?: number;
+  /**
+   * @example
+   * test_{index}.mp4
+   */
+  fileName?: string;
+  /**
+   * @example
+   * 1080
+   */
+  height?: number;
+  /**
+   * @example
+   * 120
+   */
+  maxDuration?: number;
+  /**
+   * @example
+   * true
+   */
+  saveToGeneratedContent?: boolean;
+  /**
+   * @example
+   * 1920
+   */
+  width?: number;
+  static names(): { [key: string]: string } {
+    return {
+      count: 'Count',
+      fileName: 'FileName',
+      height: 'Height',
+      maxDuration: 'MaxDuration',
+      saveToGeneratedContent: 'SaveToGeneratedContent',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      count: 'number',
+      fileName: 'string',
+      height: 'number',
+      maxDuration: 'number',
+      saveToGeneratedContent: 'boolean',
+      width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitSmartClipTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTopicSelectionPerspectiveAnalysisTaskRequestDocumentsComments extends $tea.Model {
   text?: string;
   username?: string;
@@ -25631,6 +26388,52 @@ export default class Client extends OpenApi {
   async getProperties(request: GetPropertiesRequest): Promise<GetPropertiesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getPropertiesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询一键成片剪辑任务
+   * 
+   * @param request - GetSmartClipTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSmartClipTaskResponse
+   */
+  async getSmartClipTaskWithOptions(request: GetSmartClipTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetSmartClipTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSmartClipTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSmartClipTaskResponse>(await this.callApi(params, req, runtime), new GetSmartClipTaskResponse({}));
+  }
+
+  /**
+   * 查询一键成片剪辑任务
+   * 
+   * @param request - GetSmartClipTaskRequest
+   * @returns GetSmartClipTaskResponse
+   */
+  async getSmartClipTask(request: GetSmartClipTaskRequest): Promise<GetSmartClipTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSmartClipTaskWithOptions(request, runtime);
   }
 
   /**
@@ -28965,6 +29768,74 @@ export default class Client extends OpenApi {
   async submitEnterpriseVocAnalysisTask(request: SubmitEnterpriseVocAnalysisTaskRequest): Promise<SubmitEnterpriseVocAnalysisTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitEnterpriseVocAnalysisTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交一键成片剪辑任务
+   * 
+   * @param tmpReq - SubmitSmartClipTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitSmartClipTaskResponse
+   */
+  async submitSmartClipTaskWithOptions(tmpReq: SubmitSmartClipTaskRequest, runtime: $Util.RuntimeOptions): Promise<SubmitSmartClipTaskResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitSmartClipTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.editingConfig)) {
+      request.editingConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.editingConfig, "EditingConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.inputConfig)) {
+      request.inputConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.inputConfig, "InputConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.outputConfig)) {
+      request.outputConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.outputConfig, "OutputConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.editingConfigShrink)) {
+      body["EditingConfig"] = request.editingConfigShrink;
+    }
+
+    if (!Util.isUnset(request.inputConfigShrink)) {
+      body["InputConfig"] = request.inputConfigShrink;
+    }
+
+    if (!Util.isUnset(request.outputConfigShrink)) {
+      body["OutputConfig"] = request.outputConfigShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitSmartClipTask",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitSmartClipTaskResponse>(await this.callApi(params, req, runtime), new SubmitSmartClipTaskResponse({}));
+  }
+
+  /**
+   * 提交一键成片剪辑任务
+   * 
+   * @param request - SubmitSmartClipTaskRequest
+   * @returns SubmitSmartClipTaskResponse
+   */
+  async submitSmartClipTask(request: SubmitSmartClipTaskRequest): Promise<SubmitSmartClipTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitSmartClipTaskWithOptions(request, runtime);
   }
 
   /**
