@@ -2465,6 +2465,7 @@ export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
    * 010-83847583
    */
   phone?: string;
+  score?: string;
   /**
    * @example
    * [{\\"value\\":\\"nttd\\",\\"key\\":\\"owner\\"}]
@@ -2478,6 +2479,7 @@ export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
       dailyOpeningHours: 'dailyOpeningHours',
       mainTag: 'mainTag',
       phone: 'phone',
+      score: 'score',
       tag: 'tag',
       weeklyOpeningDays: 'weeklyOpeningDays',
     };
@@ -2490,6 +2492,7 @@ export class PlaceSearchNovaResponseBodyDataMetadata extends $tea.Model {
       dailyOpeningHours: 'string',
       mainTag: 'string',
       phone: 'string',
+      score: 'string',
       tag: 'string',
       weeklyOpeningDays: 'string',
     };
