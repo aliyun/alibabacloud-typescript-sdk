@@ -28,6 +28,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
   resultTypes?: string[];
   sceneName?: string;
   serviceInspection?: AnalyzeConversationRequestServiceInspection;
+  sourceCallerUid?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -48,6 +49,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
       resultTypes: 'resultTypes',
       sceneName: 'sceneName',
       serviceInspection: 'serviceInspection',
+      sourceCallerUid: 'sourceCallerUid',
       stream: 'stream',
       timeConstraintList: 'timeConstraintList',
       userProfiles: 'userProfiles',
@@ -64,6 +66,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
       resultTypes: { 'type': 'array', 'itemType': 'string' },
       sceneName: 'string',
       serviceInspection: AnalyzeConversationRequestServiceInspection,
+      sourceCallerUid: 'string',
       stream: 'boolean',
       timeConstraintList: { 'type': 'array', 'itemType': 'string' },
       userProfiles: { 'type': 'array', 'itemType': AnalyzeConversationRequestUserProfiles },
@@ -393,6 +396,7 @@ export class CreateTaskResponse extends $tea.Model {
 }
 
 export class GetTaskResultRequest extends $tea.Model {
+  requiredFieldList?: string[];
   /**
    * @example
    * 20240905-********-93E9-5D45-B4EF-045743A34071
@@ -400,12 +404,40 @@ export class GetTaskResultRequest extends $tea.Model {
   taskId?: string;
   static names(): { [key: string]: string } {
     return {
+      requiredFieldList: 'requiredFieldList',
       taskId: 'taskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      requiredFieldList: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTaskResultShrinkRequest extends $tea.Model {
+  requiredFieldListShrink?: string;
+  /**
+   * @example
+   * 20240905-********-93E9-5D45-B4EF-045743A34071
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requiredFieldListShrink: 'requiredFieldList',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requiredFieldListShrink: 'string',
       taskId: 'string',
     };
   }
@@ -1339,7 +1371,43 @@ export class CreateTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetTaskResultResponseBodyDataAsrResult extends $tea.Model {
+  begin?: number;
+  emotionValue?: number;
+  end?: number;
+  role?: string;
+  speechRate?: number;
+  words?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      emotionValue: 'emotionValue',
+      end: 'end',
+      role: 'role',
+      speechRate: 'speechRate',
+      words: 'words',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      emotionValue: 'number',
+      end: 'number',
+      role: 'string',
+      speechRate: 'number',
+      words: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTaskResultResponseBodyData extends $tea.Model {
+  asrResult?: GetTaskResultResponseBodyDataAsrResult[];
+  taskErrorMessage?: string;
   /**
    * @example
    * 20240905-********-93E9-5D45-B4EF-045743A34071
@@ -1353,6 +1421,8 @@ export class GetTaskResultResponseBodyData extends $tea.Model {
   text?: string;
   static names(): { [key: string]: string } {
     return {
+      asrResult: 'asrResult',
+      taskErrorMessage: 'taskErrorMessage',
       taskId: 'taskId',
       taskStatus: 'taskStatus',
       text: 'text',
@@ -1361,6 +1431,8 @@ export class GetTaskResultResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      asrResult: { 'type': 'array', 'itemType': GetTaskResultResponseBodyDataAsrResult },
+      taskErrorMessage: 'string',
       taskId: 'string',
       taskStatus: 'string',
       text: 'string',
@@ -1646,6 +1718,10 @@ export default class Client extends OpenApi {
       body["serviceInspection"] = request.serviceInspection;
     }
 
+    if (!Util.isUnset(request.sourceCallerUid)) {
+      body["sourceCallerUid"] = request.sourceCallerUid;
+    }
+
     if (!Util.isUnset(request.stream)) {
       body["stream"] = request.stream;
     }
@@ -1821,14 +1897,24 @@ export default class Client extends OpenApi {
   /**
    * 语音文件调用大模型获取结果
    * 
-   * @param request - GetTaskResultRequest
+   * @param tmpReq - GetTaskResultRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetTaskResultResponse
    */
-  async getTaskResultWithOptions(request: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
-    Util.validateModel(request);
+  async getTaskResultWithOptions(tmpReq: GetTaskResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetTaskResultResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetTaskResultShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.requiredFieldList)) {
+      request.requiredFieldListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.requiredFieldList, "requiredFieldList", "simple");
+    }
+
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.requiredFieldListShrink)) {
+      query["requiredFieldList"] = request.requiredFieldListShrink;
+    }
+
     if (!Util.isUnset(request.taskId)) {
       query["taskId"] = request.taskId;
     }
