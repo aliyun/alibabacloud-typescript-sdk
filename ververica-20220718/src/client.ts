@@ -1589,11 +1589,15 @@ export class JobStatus extends $tea.Model {
    */
   currentJobStatus?: string;
   failure?: JobFailure;
+  healthScore?: number;
+  riskLevel?: string;
   running?: JobStatusRunning;
   static names(): { [key: string]: string } {
     return {
       currentJobStatus: 'currentJobStatus',
       failure: 'failure',
+      healthScore: 'healthScore',
+      riskLevel: 'riskLevel',
       running: 'running',
     };
   }
@@ -1602,6 +1606,8 @@ export class JobStatus extends $tea.Model {
     return {
       currentJobStatus: 'string',
       failure: JobFailure,
+      healthScore: 'number',
+      riskLevel: 'string',
       running: JobStatusRunning,
     };
   }
