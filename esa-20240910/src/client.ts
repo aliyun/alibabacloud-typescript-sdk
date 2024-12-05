@@ -2466,6 +2466,8 @@ export class CommitRoutineStagingCodeRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * CommitRoutineStagingCode
    */
@@ -3803,6 +3805,8 @@ export class CreateListResponse extends $tea.Model {
 export class CreateOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3828,6 +3832,9 @@ export class CreateOriginProtectionRequest extends $tea.Model {
 
 export class CreateOriginProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
@@ -4374,6 +4381,8 @@ export class CreateRoutineRequest extends $tea.Model {
    * @remarks
    * The routine name, which must be unique in the same account.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test-routine1
    */
@@ -4381,6 +4390,8 @@ export class CreateRoutineRequest extends $tea.Model {
   /**
    * @remarks
    * The specification of the routine.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 5ms
@@ -4473,6 +4484,8 @@ export class CreateRoutineRelatedRecordRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * CreateRoutineRelatedRecord
    */
@@ -4481,6 +4494,8 @@ export class CreateRoutineRelatedRecordRequest extends $tea.Model {
    * @remarks
    * The record name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test-record-1.example.com
    */
@@ -4488,6 +4503,8 @@ export class CreateRoutineRelatedRecordRequest extends $tea.Model {
   /**
    * @remarks
    * The website ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 54362329990032
@@ -4576,9 +4593,12 @@ export class CreateRoutineRelatedRecordResponse extends $tea.Model {
 }
 
 export class CreateRoutineRelatedRouteRequest extends $tea.Model {
+  byPass?: string;
   /**
    * @remarks
    * The routine name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * CreateRoutineRelatedRoute
@@ -4588,6 +4608,8 @@ export class CreateRoutineRelatedRouteRequest extends $tea.Model {
    * @remarks
    * The route.
    * 
+   * This parameter is required.
+   * 
    * @example
    * *.example.com/path1*
    */
@@ -4596,12 +4618,15 @@ export class CreateRoutineRelatedRouteRequest extends $tea.Model {
    * @remarks
    * The website ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 54362329990032
    */
   siteId?: number;
   static names(): { [key: string]: string } {
     return {
+      byPass: 'ByPass',
       name: 'Name',
       route: 'Route',
       siteId: 'SiteId',
@@ -4610,6 +4635,7 @@ export class CreateRoutineRelatedRouteRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      byPass: 'string',
       name: 'string',
       route: 'string',
       siteId: 'number',
@@ -5797,414 +5823,6 @@ export class CreateSiteDeliveryTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateSiteDeliveryTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequest extends $tea.Model {
-  cacheReserve?: CreateSiteFunctionRequestCacheReserve[];
-  /**
-   * @remarks
-   * The cache rules.
-   */
-  cacheRules?: CreateSiteFunctionRequestCacheRules[];
-  /**
-   * @remarks
-   * The cache tags.
-   */
-  cacheTags?: CreateSiteFunctionRequestCacheTags[];
-  /**
-   * @remarks
-   * The configuration of CNAME flattening.
-   */
-  cnameFlattening?: CreateSiteFunctionRequestCnameFlattening[];
-  /**
-   * @remarks
-   * The configuration of a compression rule.
-   */
-  compressionRules?: CreateSiteFunctionRequestCompressionRules[];
-  crossBorderOptimization?: CreateSiteFunctionRequestCrossBorderOptimization[];
-  /**
-   * @remarks
-   * The configuration of development mode.
-   */
-  developmentMode?: CreateSiteFunctionRequestDevelopmentMode[];
-  /**
-   * @remarks
-   * The configuration of a request header modification rule.
-   */
-  httpRequestHeaderModificationRules?: CreateSiteFunctionRequestHttpRequestHeaderModificationRules[];
-  /**
-   * @remarks
-   * The configuration of a response header modification rule.
-   */
-  httpResponseHeaderModificationRules?: CreateSiteFunctionRequestHttpResponseHeaderModificationRules[];
-  httpsApplicationConfiguration?: CreateSiteFunctionRequestHttpsApplicationConfiguration[];
-  httpsBasicConfiguration?: CreateSiteFunctionRequestHttpsBasicConfiguration[];
-  /**
-   * @remarks
-   * The configuration of image transformations.
-   */
-  imageTransform?: CreateSiteFunctionRequestImageTransform[];
-  /**
-   * @remarks
-   * The IPv6 configuration.
-   */
-  ipv6?: CreateSiteFunctionRequestIpv6[];
-  /**
-   * @remarks
-   * The configuration of managed transforms.
-   */
-  managedTransforms?: CreateSiteFunctionRequestManagedTransforms[];
-  networkOptimization?: CreateSiteFunctionRequestNetworkOptimization[];
-  /**
-   * @remarks
-   * The configuration of origin protection.
-   */
-  originProtection?: CreateSiteFunctionRequestOriginProtection[];
-  /**
-   * @remarks
-   * The configuration of an origin rule.
-   */
-  originRules?: CreateSiteFunctionRequestOriginRules[];
-  /**
-   * @remarks
-   * The configuration of a redirect rule.
-   */
-  redirectRules?: CreateSiteFunctionRequestRedirectRules[];
-  /**
-   * @remarks
-   * The configuration of a URL rewrite rule.
-   */
-  rewriteUrlRules?: CreateSiteFunctionRequestRewriteUrlRules[];
-  /**
-   * @remarks
-   * The configuration of SEO crawler bypassing.
-   */
-  seoBypass?: CreateSiteFunctionRequestSeoBypass[];
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CreateSiteFunction
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The configuration of site hold. After this feature is enabled, other accounts cannot add your website domain or its subdomains to ESA.
-   */
-  siteNameExclusive?: CreateSiteFunctionRequestSiteNameExclusive[];
-  /**
-   * @remarks
-   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
-   */
-  sitePause?: CreateSiteFunctionRequestSitePause[];
-  /**
-   * @remarks
-   * The version number of the website. You can use this parameter to specify a version of your website to apply the new feature settings. By default, version 0 is used.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  tieredCache?: CreateSiteFunctionRequestTieredCache[];
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserve: 'CacheReserve',
-      cacheRules: 'CacheRules',
-      cacheTags: 'CacheTags',
-      cnameFlattening: 'CnameFlattening',
-      compressionRules: 'CompressionRules',
-      crossBorderOptimization: 'CrossBorderOptimization',
-      developmentMode: 'DevelopmentMode',
-      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
-      httpsBasicConfiguration: 'HttpsBasicConfiguration',
-      imageTransform: 'ImageTransform',
-      ipv6: 'Ipv6',
-      managedTransforms: 'ManagedTransforms',
-      networkOptimization: 'NetworkOptimization',
-      originProtection: 'OriginProtection',
-      originRules: 'OriginRules',
-      redirectRules: 'RedirectRules',
-      rewriteUrlRules: 'RewriteUrlRules',
-      seoBypass: 'SeoBypass',
-      siteId: 'SiteId',
-      siteNameExclusive: 'SiteNameExclusive',
-      sitePause: 'SitePause',
-      siteVersion: 'SiteVersion',
-      tieredCache: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserve: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheReserve },
-      cacheRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheRules },
-      cacheTags: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCacheTags },
-      cnameFlattening: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCnameFlattening },
-      compressionRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCompressionRules },
-      crossBorderOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionRequestCrossBorderOptimization },
-      developmentMode: { 'type': 'array', 'itemType': CreateSiteFunctionRequestDevelopmentMode },
-      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpRequestHeaderModificationRules },
-      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpResponseHeaderModificationRules },
-      httpsApplicationConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpsApplicationConfiguration },
-      httpsBasicConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpsBasicConfiguration },
-      imageTransform: { 'type': 'array', 'itemType': CreateSiteFunctionRequestImageTransform },
-      ipv6: { 'type': 'array', 'itemType': CreateSiteFunctionRequestIpv6 },
-      managedTransforms: { 'type': 'array', 'itemType': CreateSiteFunctionRequestManagedTransforms },
-      networkOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionRequestNetworkOptimization },
-      originProtection: { 'type': 'array', 'itemType': CreateSiteFunctionRequestOriginProtection },
-      originRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestOriginRules },
-      redirectRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestRedirectRules },
-      rewriteUrlRules: { 'type': 'array', 'itemType': CreateSiteFunctionRequestRewriteUrlRules },
-      seoBypass: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSeoBypass },
-      siteId: 'number',
-      siteNameExclusive: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSiteNameExclusive },
-      sitePause: { 'type': 'array', 'itemType': CreateSiteFunctionRequestSitePause },
-      siteVersion: 'number',
-      tieredCache: { 'type': 'array', 'itemType': CreateSiteFunctionRequestTieredCache },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionShrinkRequest extends $tea.Model {
-  cacheReserveShrink?: string;
-  /**
-   * @remarks
-   * The cache rules.
-   */
-  cacheRulesShrink?: string;
-  /**
-   * @remarks
-   * The cache tags.
-   */
-  cacheTagsShrink?: string;
-  /**
-   * @remarks
-   * The configuration of CNAME flattening.
-   */
-  cnameFlatteningShrink?: string;
-  /**
-   * @remarks
-   * The configuration of a compression rule.
-   */
-  compressionRulesShrink?: string;
-  crossBorderOptimizationShrink?: string;
-  /**
-   * @remarks
-   * The configuration of development mode.
-   */
-  developmentModeShrink?: string;
-  /**
-   * @remarks
-   * The configuration of a request header modification rule.
-   */
-  httpRequestHeaderModificationRulesShrink?: string;
-  /**
-   * @remarks
-   * The configuration of a response header modification rule.
-   */
-  httpResponseHeaderModificationRulesShrink?: string;
-  httpsApplicationConfigurationShrink?: string;
-  httpsBasicConfigurationShrink?: string;
-  /**
-   * @remarks
-   * The configuration of image transformations.
-   */
-  imageTransformShrink?: string;
-  /**
-   * @remarks
-   * The IPv6 configuration.
-   */
-  ipv6Shrink?: string;
-  /**
-   * @remarks
-   * The configuration of managed transforms.
-   */
-  managedTransformsShrink?: string;
-  networkOptimizationShrink?: string;
-  /**
-   * @remarks
-   * The configuration of origin protection.
-   */
-  originProtectionShrink?: string;
-  /**
-   * @remarks
-   * The configuration of an origin rule.
-   */
-  originRulesShrink?: string;
-  /**
-   * @remarks
-   * The configuration of a redirect rule.
-   */
-  redirectRulesShrink?: string;
-  /**
-   * @remarks
-   * The configuration of a URL rewrite rule.
-   */
-  rewriteUrlRulesShrink?: string;
-  /**
-   * @remarks
-   * The configuration of SEO crawler bypassing.
-   */
-  seoBypassShrink?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * CreateSiteFunction
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The configuration of site hold. After this feature is enabled, other accounts cannot add your website domain or its subdomains to ESA.
-   */
-  siteNameExclusiveShrink?: string;
-  /**
-   * @remarks
-   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
-   */
-  sitePauseShrink?: string;
-  /**
-   * @remarks
-   * The version number of the website. You can use this parameter to specify a version of your website to apply the new feature settings. By default, version 0 is used.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  tieredCacheShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserveShrink: 'CacheReserve',
-      cacheRulesShrink: 'CacheRules',
-      cacheTagsShrink: 'CacheTags',
-      cnameFlatteningShrink: 'CnameFlattening',
-      compressionRulesShrink: 'CompressionRules',
-      crossBorderOptimizationShrink: 'CrossBorderOptimization',
-      developmentModeShrink: 'DevelopmentMode',
-      httpRequestHeaderModificationRulesShrink: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRulesShrink: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfigurationShrink: 'HttpsApplicationConfiguration',
-      httpsBasicConfigurationShrink: 'HttpsBasicConfiguration',
-      imageTransformShrink: 'ImageTransform',
-      ipv6Shrink: 'Ipv6',
-      managedTransformsShrink: 'ManagedTransforms',
-      networkOptimizationShrink: 'NetworkOptimization',
-      originProtectionShrink: 'OriginProtection',
-      originRulesShrink: 'OriginRules',
-      redirectRulesShrink: 'RedirectRules',
-      rewriteUrlRulesShrink: 'RewriteUrlRules',
-      seoBypassShrink: 'SeoBypass',
-      siteId: 'SiteId',
-      siteNameExclusiveShrink: 'SiteNameExclusive',
-      sitePauseShrink: 'SitePause',
-      siteVersion: 'SiteVersion',
-      tieredCacheShrink: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserveShrink: 'string',
-      cacheRulesShrink: 'string',
-      cacheTagsShrink: 'string',
-      cnameFlatteningShrink: 'string',
-      compressionRulesShrink: 'string',
-      crossBorderOptimizationShrink: 'string',
-      developmentModeShrink: 'string',
-      httpRequestHeaderModificationRulesShrink: 'string',
-      httpResponseHeaderModificationRulesShrink: 'string',
-      httpsApplicationConfigurationShrink: 'string',
-      httpsBasicConfigurationShrink: 'string',
-      imageTransformShrink: 'string',
-      ipv6Shrink: 'string',
-      managedTransformsShrink: 'string',
-      networkOptimizationShrink: 'string',
-      originProtectionShrink: 'string',
-      originRulesShrink: 'string',
-      redirectRulesShrink: 'string',
-      rewriteUrlRulesShrink: 'string',
-      seoBypassShrink: 'string',
-      siteId: 'number',
-      siteNameExclusiveShrink: 'string',
-      sitePauseShrink: 'string',
-      siteVersion: 'number',
-      tieredCacheShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The returned configurations.
-   */
-  configs?: CreateSiteFunctionResponseBodyConfigs;
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: CreateSiteFunctionResponseBodyConfigs,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateSiteFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateSiteFunctionResponseBody,
     };
   }
 
@@ -8647,6 +8265,8 @@ export class DeleteListResponse extends $tea.Model {
 export class DeleteOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -8672,6 +8292,9 @@ export class DeleteOriginProtectionRequest extends $tea.Model {
 
 export class DeleteOriginProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
@@ -8891,6 +8514,8 @@ export class DeleteRoutineRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test-routine1
    */
@@ -8978,6 +8603,8 @@ export class DeleteRoutineCodeVersionRequest extends $tea.Model {
    * @remarks
    * The code version.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 1710120201067203242
    */
@@ -8985,6 +8612,8 @@ export class DeleteRoutineCodeVersionRequest extends $tea.Model {
   /**
    * @remarks
    * The routine name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * test-routine1
@@ -9075,6 +8704,8 @@ export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * DeleteRoutineRelatedRecord
    */
@@ -9082,6 +8713,8 @@ export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
   /**
    * @remarks
    * The record ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 12345
@@ -9091,6 +8724,8 @@ export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
    * @remarks
    * The record name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test-xxx.example.com
    */
@@ -9098,6 +8733,8 @@ export class DeleteRoutineRelatedRecordRequest extends $tea.Model {
   /**
    * @remarks
    * The website ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 12345
@@ -9195,6 +8832,8 @@ export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * DeleteRoutineRelatedRoute
    */
@@ -9202,6 +8841,8 @@ export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
   /**
    * @remarks
    * The route URL.
+   * 
+   * This parameter is required.
    * 
    * @example
    * *.example.com/path1*
@@ -9211,6 +8852,8 @@ export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
    * @remarks
    * The route ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 0c3b82a3d1524e9f750da11d0cc0be0a
    */
@@ -9218,6 +8861,8 @@ export class DeleteRoutineRelatedRouteRequest extends $tea.Model {
   /**
    * @remarks
    * The website ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 54362329990032
@@ -9631,93 +9276,6 @@ export class DeleteSiteDeliveryTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteSiteDeliveryTaskResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSiteFunctionRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 33793140540****,33793140540****
-   */
-  configIds?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * 611133661****
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configIds: 'ConfigIds',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configIds: 'string',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSiteFunctionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   * 
-   * @example
-   * 04F0F334-1335-436C-A1D7-6C044FE73368
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteSiteFunctionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteSiteFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteSiteFunctionResponseBody,
     };
   }
 
@@ -12086,6 +11644,111 @@ export class GetClientCertificateResponse extends $tea.Model {
   }
 }
 
+export class GetClientCertificateHostnamesRequest extends $tea.Model {
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateHostnamesResponseBody extends $tea.Model {
+  hostnames?: string[];
+  /**
+   * @example
+   * baba39055622c008b90285a8838ed09a
+   */
+  id?: string;
+  /**
+   * @example
+   * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetClientCertificateHostnamesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetClientCertificateHostnamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetClientCertificateHostnamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEdgeContainerAppRequest extends $tea.Model {
   /**
    * @remarks
@@ -13498,6 +13161,9 @@ export class GetListResponse extends $tea.Model {
 
 export class GetOriginProtectionRequest extends $tea.Model {
   /**
+   * @remarks
+   * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
    * @example
    * 123456789****
    */
@@ -13520,30 +13186,66 @@ export class GetOriginProtectionRequest extends $tea.Model {
 }
 
 export class GetOriginProtectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website.
+   */
   currentIPWhitelist?: GetOriginProtectionResponseBodyCurrentIPWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that has been updated.
+   */
   diffIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelist;
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection.
+   */
   latestIPWhitelist?: GetOriginProtectionResponseBodyLatestIPWhitelist;
   /**
+   * @remarks
+   * Indicates whether the IP whitelist for origin protection needs to be updated. If the currently used IP whitelist is different from the latest IP whitelist, it needs to be updated, and the value is true.
+   * 
+   * *   true: The update is required.
+   * *   false: No update is required.
+   * 
    * @example
    * true
    */
   needUpdate?: boolean;
   /**
+   * @remarks
+   * Indicates whether IP convergence is enabled.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   originConverge?: string;
   /**
+   * @remarks
+   * Indicates whether origin protection is enabled.
+   * 
+   * *   on
+   * *   off
+   * 
    * @example
    * on
    */
   originProtection?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 123456****
    */
@@ -14053,6 +13755,8 @@ export class GetRoutineRequest extends $tea.Model {
    * @remarks
    * The routine name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * GetRoutine
    */
@@ -14195,6 +13899,8 @@ export class GetRoutineStagingCodeUploadInfoRequest extends $tea.Model {
   /**
    * @remarks
    * The routine name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * GetRoutineStagingCodeUploadInfo
@@ -19684,116 +19390,6 @@ export class ListSiteDeliveryTasksResponse extends $tea.Model {
   }
 }
 
-export class ListSiteFunctionsRequest extends $tea.Model {
-  configId?: number;
-  configType?: string;
-  functionName?: string;
-  pageNumber?: number;
-  pageSize?: number;
-  ruleName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * ListSiteFunctions
-   */
-  siteId?: number;
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      configType: 'ConfigType',
-      functionName: 'FunctionName',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      ruleName: 'RuleName',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      configType: 'string',
-      functionName: 'string',
-      pageNumber: 'number',
-      pageSize: 'number',
-      ruleName: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBody extends $tea.Model {
-  configs?: ListSiteFunctionsResponseBodyConfigs;
-  pageNumber?: number;
-  pageSize?: number;
-  /**
-   * @remarks
-   * Id of the request
-   */
-  requestId?: string;
-  totalCount?: number;
-  totalPage?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      totalCount: 'TotalCount',
-      totalPage: 'TotalPage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: ListSiteFunctionsResponseBodyConfigs,
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      totalCount: 'number',
-      totalPage: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListSiteFunctionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListSiteFunctionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSitesRequest extends $tea.Model {
   /**
    * @remarks
@@ -22732,6 +22328,8 @@ export class PublishRoutineCodeVersionRequest extends $tea.Model {
    * @remarks
    * The environment name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * production
    */
@@ -22739,6 +22337,8 @@ export class PublishRoutineCodeVersionRequest extends $tea.Model {
   /**
    * @remarks
    * The routine name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * PublishRoutineCodeVersion
@@ -22795,6 +22395,8 @@ export class PublishRoutineCodeVersionShrinkRequest extends $tea.Model {
    * @remarks
    * The environment name.
    * 
+   * This parameter is required.
+   * 
    * @example
    * production
    */
@@ -22802,6 +22404,8 @@ export class PublishRoutineCodeVersionShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The routine name.
+   * 
+   * This parameter is required.
    * 
    * @example
    * PublishRoutineCodeVersion
@@ -24106,6 +23710,155 @@ export class SetCertificateResponse extends $tea.Model {
   }
 }
 
+export class SetClientCertificateHostnamesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  hostnames?: string[];
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hostnames: 'Hostnames',
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnames: { 'type': 'array', 'itemType': 'string' },
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetClientCertificateHostnamesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  hostnamesShrink?: string;
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      hostnamesShrink: 'Hostnames',
+      id: 'Id',
+      siteId: 'SiteId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hostnamesShrink: 'string',
+      id: 'string',
+      siteId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetClientCertificateHostnamesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * babab9db65ee5efcca9f3d41d4b50d66
+   */
+  id?: string;
+  /**
+   * @example
+   * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1234567890123
+   */
+  siteId?: number;
+  /**
+   * @example
+   * example.com
+   */
+  siteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      id: 'Id',
+      requestId: 'RequestId',
+      siteId: 'SiteId',
+      siteName: 'SiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      id: 'string',
+      requestId: 'string',
+      siteId: 'number',
+      siteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetClientCertificateHostnamesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetClientCertificateHostnamesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetClientCertificateHostnamesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetHttpDDoSAttackIntelligentProtectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -25341,6 +25094,11 @@ export class UpdateListResponse extends $tea.Model {
 export class UpdateOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The IP convergence status.
+   * 
+   * *   on
+   * *   off
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25349,6 +25107,8 @@ export class UpdateOriginProtectionRequest extends $tea.Model {
   originConverge?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25376,6 +25136,9 @@ export class UpdateOriginProtectionRequest extends $tea.Model {
 
 export class UpdateOriginProtectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4C6B5E5A-42FC-5DF2-986C-4DAAE3C55086
    */
@@ -25425,6 +25188,8 @@ export class UpdateOriginProtectionResponse extends $tea.Model {
 export class UpdateOriginProtectionIpWhiteListRequest extends $tea.Model {
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25450,6 +25215,9 @@ export class UpdateOriginProtectionIpWhiteListRequest extends $tea.Model {
 
 export class UpdateOriginProtectionIpWhiteListResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
    */
@@ -26710,238 +26478,6 @@ export class UpdateSiteDeliveryTaskStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateSiteDeliveryTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequest extends $tea.Model {
-  cacheReserve?: UpdateSiteFunctionRequestCacheReserve[];
-  cacheRules?: UpdateSiteFunctionRequestCacheRules[];
-  cacheTags?: UpdateSiteFunctionRequestCacheTags[];
-  cnameFlattening?: UpdateSiteFunctionRequestCnameFlattening[];
-  compressionRules?: UpdateSiteFunctionRequestCompressionRules[];
-  crossBorderOptimization?: UpdateSiteFunctionRequestCrossBorderOptimization[];
-  developmentMode?: UpdateSiteFunctionRequestDevelopmentMode[];
-  httpRequestHeaderModificationRules?: UpdateSiteFunctionRequestHttpRequestHeaderModificationRules[];
-  httpResponseHeaderModificationRules?: UpdateSiteFunctionRequestHttpResponseHeaderModificationRules[];
-  httpsApplicationConfiguration?: UpdateSiteFunctionRequestHttpsApplicationConfiguration[];
-  httpsBasicConfiguration?: UpdateSiteFunctionRequestHttpsBasicConfiguration[];
-  imageTransform?: UpdateSiteFunctionRequestImageTransform[];
-  ipv6?: UpdateSiteFunctionRequestIpv6[];
-  managedTransforms?: UpdateSiteFunctionRequestManagedTransforms[];
-  networkOptimization?: UpdateSiteFunctionRequestNetworkOptimization[];
-  originRules?: UpdateSiteFunctionRequestOriginRules[];
-  redirectRules?: UpdateSiteFunctionRequestRedirectRules[];
-  rewriteUrlRules?: UpdateSiteFunctionRequestRewriteUrlRules[];
-  seoBypass?: UpdateSiteFunctionRequestSeoBypass[];
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * UpdateSiteFunction
-   */
-  siteId?: number;
-  siteNameExclusive?: UpdateSiteFunctionRequestSiteNameExclusive[];
-  sitePause?: UpdateSiteFunctionRequestSitePause[];
-  tieredCache?: UpdateSiteFunctionRequestTieredCache[];
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserve: 'CacheReserve',
-      cacheRules: 'CacheRules',
-      cacheTags: 'CacheTags',
-      cnameFlattening: 'CnameFlattening',
-      compressionRules: 'CompressionRules',
-      crossBorderOptimization: 'CrossBorderOptimization',
-      developmentMode: 'DevelopmentMode',
-      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
-      httpsBasicConfiguration: 'HttpsBasicConfiguration',
-      imageTransform: 'ImageTransform',
-      ipv6: 'Ipv6',
-      managedTransforms: 'ManagedTransforms',
-      networkOptimization: 'NetworkOptimization',
-      originRules: 'OriginRules',
-      redirectRules: 'RedirectRules',
-      rewriteUrlRules: 'RewriteUrlRules',
-      seoBypass: 'SeoBypass',
-      siteId: 'SiteId',
-      siteNameExclusive: 'SiteNameExclusive',
-      sitePause: 'SitePause',
-      tieredCache: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserve: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheReserve },
-      cacheRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheRules },
-      cacheTags: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCacheTags },
-      cnameFlattening: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCnameFlattening },
-      compressionRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCompressionRules },
-      crossBorderOptimization: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestCrossBorderOptimization },
-      developmentMode: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestDevelopmentMode },
-      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpRequestHeaderModificationRules },
-      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpResponseHeaderModificationRules },
-      httpsApplicationConfiguration: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpsApplicationConfiguration },
-      httpsBasicConfiguration: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpsBasicConfiguration },
-      imageTransform: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestImageTransform },
-      ipv6: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestIpv6 },
-      managedTransforms: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestManagedTransforms },
-      networkOptimization: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestNetworkOptimization },
-      originRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestOriginRules },
-      redirectRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestRedirectRules },
-      rewriteUrlRules: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestRewriteUrlRules },
-      seoBypass: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSeoBypass },
-      siteId: 'number',
-      siteNameExclusive: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSiteNameExclusive },
-      sitePause: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestSitePause },
-      tieredCache: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestTieredCache },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionShrinkRequest extends $tea.Model {
-  cacheReserveShrink?: string;
-  cacheRulesShrink?: string;
-  cacheTagsShrink?: string;
-  cnameFlatteningShrink?: string;
-  compressionRulesShrink?: string;
-  crossBorderOptimizationShrink?: string;
-  developmentModeShrink?: string;
-  httpRequestHeaderModificationRulesShrink?: string;
-  httpResponseHeaderModificationRulesShrink?: string;
-  httpsApplicationConfigurationShrink?: string;
-  httpsBasicConfigurationShrink?: string;
-  imageTransformShrink?: string;
-  ipv6Shrink?: string;
-  managedTransformsShrink?: string;
-  networkOptimizationShrink?: string;
-  originRulesShrink?: string;
-  redirectRulesShrink?: string;
-  rewriteUrlRulesShrink?: string;
-  seoBypassShrink?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * UpdateSiteFunction
-   */
-  siteId?: number;
-  siteNameExclusiveShrink?: string;
-  sitePauseShrink?: string;
-  tieredCacheShrink?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserveShrink: 'CacheReserve',
-      cacheRulesShrink: 'CacheRules',
-      cacheTagsShrink: 'CacheTags',
-      cnameFlatteningShrink: 'CnameFlattening',
-      compressionRulesShrink: 'CompressionRules',
-      crossBorderOptimizationShrink: 'CrossBorderOptimization',
-      developmentModeShrink: 'DevelopmentMode',
-      httpRequestHeaderModificationRulesShrink: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRulesShrink: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfigurationShrink: 'HttpsApplicationConfiguration',
-      httpsBasicConfigurationShrink: 'HttpsBasicConfiguration',
-      imageTransformShrink: 'ImageTransform',
-      ipv6Shrink: 'Ipv6',
-      managedTransformsShrink: 'ManagedTransforms',
-      networkOptimizationShrink: 'NetworkOptimization',
-      originRulesShrink: 'OriginRules',
-      redirectRulesShrink: 'RedirectRules',
-      rewriteUrlRulesShrink: 'RewriteUrlRules',
-      seoBypassShrink: 'SeoBypass',
-      siteId: 'SiteId',
-      siteNameExclusiveShrink: 'SiteNameExclusive',
-      sitePauseShrink: 'SitePause',
-      tieredCacheShrink: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserveShrink: 'string',
-      cacheRulesShrink: 'string',
-      cacheTagsShrink: 'string',
-      cnameFlatteningShrink: 'string',
-      compressionRulesShrink: 'string',
-      crossBorderOptimizationShrink: 'string',
-      developmentModeShrink: 'string',
-      httpRequestHeaderModificationRulesShrink: 'string',
-      httpResponseHeaderModificationRulesShrink: 'string',
-      httpsApplicationConfigurationShrink: 'string',
-      httpsBasicConfigurationShrink: 'string',
-      imageTransformShrink: 'string',
-      ipv6Shrink: 'string',
-      managedTransformsShrink: 'string',
-      networkOptimizationShrink: 'string',
-      originRulesShrink: 'string',
-      redirectRulesShrink: 'string',
-      rewriteUrlRulesShrink: 'string',
-      seoBypassShrink: 'string',
-      siteId: 'number',
-      siteNameExclusiveShrink: 'string',
-      sitePauseShrink: 'string',
-      tieredCacheShrink: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * Id of the request
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateSiteFunctionResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateSiteFunctionResponseBody,
     };
   }
 
@@ -32034,3471 +31570,6 @@ export class CreateSiteDeliveryTaskRequestSlsDelivery extends $tea.Model {
   }
 }
 
-export class CreateSiteFunctionRequestCacheReserve extends $tea.Model {
-  /**
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @example
-   * cr_hk_123456789
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestCacheRules extends $tea.Model {
-  /**
-   * @example
-   * 8880
-   */
-  additionalCacheablePorts?: string;
-  /**
-   * @remarks
-   * The browser cache configuration. Valid values:
-   * 
-   * *   no_cache: does not cache resources.
-   * *   follow_origin: follows the origin\\"s cache rule.
-   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
-   * 
-   * @example
-   * follow_origin
-   */
-  browserCacheMode?: string;
-  /**
-   * @remarks
-   * The browser cache TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  browserCacheTtl?: string;
-  /**
-   * @remarks
-   * The configuration of bypass cache. Valid values:
-   * 
-   * *   cache_all: Responses of all requests are cached.
-   * *   default_cache (default): Resources are cached only based on supported file extensions.
-   * *   bypass_all: All requests bypass the cache component.
-   * 
-   * @example
-   * default_cache
-   */
-  bypassCache?: string;
-  /**
-   * @example
-   * on
-   */
-  cacheDeceptionArmor?: string;
-  /**
-   * @example
-   * bypass_cache_reserve
-   */
-  cacheReserveEligibility?: string;
-  /**
-   * @example
-   * cookiename
-   */
-  checkPresenceCookie?: string;
-  /**
-   * @example
-   * headername
-   */
-  checkPresenceHeader?: string;
-  /**
-   * @remarks
-   * The edge cache configuration. Valid values:
-   * 
-   * *   follow_origin: follows the origin\\"s cache rule. If the origin does not have a cache rule, the default cache rule is used.
-   * *   no-cache: does not cache resources.
-   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
-   * *   follow_origin_bypass: follows the origin\\"s cache rule. If the origin does not have a cache rule, no resources are cached.
-   * 
-   * @example
-   * follow_origin
-   */
-  edgeCacheMode?: string;
-  /**
-   * @remarks
-   * The edge cache TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  edgeCacheTtl?: string;
-  /**
-   * @remarks
-   * The status code TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  edgeStatusCodeCacheTtl?: string;
-  /**
-   * @remarks
-   * The cookie names and values included in the cache key. Separate multiple combinations with spaces.
-   * 
-   * @example
-   * cookie_exapmle
-   */
-  includeCookie?: string;
-  /**
-   * @remarks
-   * The header names and values included in the cache key. Separate multiple combinations with spaces.
-   * 
-   * @example
-   * example
-   */
-  includeHeader?: string;
-  /**
-   * @remarks
-   * The parameters to be retained or ignored in the query string. Separate multiple values with spaces.
-   * 
-   * @example
-   * example
-   */
-  queryString?: string;
-  /**
-   * @remarks
-   * Specifies how to process the query string when cache keys are generated. Valid values:
-   * 
-   * *   ignore_all: ignores the entire query string.
-   * *   exclude_query_string: ignores specified parameters in the query string.
-   * *   reserve_all (default): retains the entire query string.
-   * *   include_query_string: retains specified parameters in the query string.
-   * 
-   * @example
-   * reserve_all
-   */
-  queryStringMode?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * on
-   */
-  serveStale?: string;
-  /**
-   * @remarks
-   * Specifies whether to sort query strings. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  sortQueryStringForCache?: string;
-  /**
-   * @example
-   * on
-   */
-  userDeviceType?: string;
-  /**
-   * @example
-   * on
-   */
-  userGeo?: string;
-  /**
-   * @example
-   * on
-   */
-  userLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalCacheablePorts: 'AdditionalCacheablePorts',
-      browserCacheMode: 'BrowserCacheMode',
-      browserCacheTtl: 'BrowserCacheTtl',
-      bypassCache: 'BypassCache',
-      cacheDeceptionArmor: 'CacheDeceptionArmor',
-      cacheReserveEligibility: 'CacheReserveEligibility',
-      checkPresenceCookie: 'CheckPresenceCookie',
-      checkPresenceHeader: 'CheckPresenceHeader',
-      edgeCacheMode: 'EdgeCacheMode',
-      edgeCacheTtl: 'EdgeCacheTtl',
-      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
-      includeCookie: 'IncludeCookie',
-      includeHeader: 'IncludeHeader',
-      queryString: 'QueryString',
-      queryStringMode: 'QueryStringMode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      serveStale: 'ServeStale',
-      sortQueryStringForCache: 'SortQueryStringForCache',
-      userDeviceType: 'UserDeviceType',
-      userGeo: 'UserGeo',
-      userLanguage: 'UserLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalCacheablePorts: 'string',
-      browserCacheMode: 'string',
-      browserCacheTtl: 'string',
-      bypassCache: 'string',
-      cacheDeceptionArmor: 'string',
-      cacheReserveEligibility: 'string',
-      checkPresenceCookie: 'string',
-      checkPresenceHeader: 'string',
-      edgeCacheMode: 'string',
-      edgeCacheTtl: 'string',
-      edgeStatusCodeCacheTtl: 'string',
-      includeCookie: 'string',
-      includeHeader: 'string',
-      queryString: 'string',
-      queryStringMode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      serveStale: 'string',
-      sortQueryStringForCache: 'string',
-      userDeviceType: 'string',
-      userGeo: 'string',
-      userLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestCacheTags extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether the matching is not case-sensitive. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  caseInsensitive?: string;
-  /**
-   * @remarks
-   * The name of the custom cache tag.
-   * 
-   * @example
-   * example
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseInsensitive: 'CaseInsensitive',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseInsensitive: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestCnameFlattening extends $tea.Model {
-  /**
-   * @remarks
-   * The CNAME flattening mode. Valid values:
-   * 
-   * *   flatten_all: flattens all CNAMEs.
-   * *   flatten_all (default): flattens only the root domain.
-   * 
-   * @example
-   * on
-   */
-  flattenMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      flattenMode: 'FlattenMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      flattenMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestCompressionRules extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable Brotli compression. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  brotli?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable Gzip compression. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  gzip?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      brotli: 'Brotli',
-      gzip: 'Gzip',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      brotli: 'string',
-      gzip: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestCrossBorderOptimization extends $tea.Model {
-  /**
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestDevelopmentMode extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable the development mode. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
-  /**
-   * @example
-   * headername
-   */
-  name?: string;
-  /**
-   * @example
-   * add
-   */
-  operation?: string;
-  /**
-   * @example
-   * headervalue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpRequestHeaderModificationRules extends $tea.Model {
-  /**
-   * @remarks
-   * Modifies a request header. You can add, delete, or modify a response header.
-   * 
-   * @example
-   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
-   */
-  requestHeaderModification?: CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification[];
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestHeaderModification: 'RequestHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
-  /**
-   * @example
-   * headername
-   */
-  name?: string;
-  /**
-   * @example
-   * add
-   */
-  operation?: string;
-  /**
-   * @example
-   * headervalue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpResponseHeaderModificationRules extends $tea.Model {
-  /**
-   * @remarks
-   * Modifies a response header. You can add, delete, or modify a request header.
-   * 
-   * @example
-   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
-   */
-  responseHeaderModification?: CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification[];
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      responseHeaderModification: 'ResponseHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      responseHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpsApplicationConfiguration extends $tea.Model {
-  /**
-   * @example
-   * on
-   */
-  altSvc?: string;
-  /**
-   * @example
-   * on
-   */
-  altSvcClear?: string;
-  /**
-   * @example
-   * 86400
-   */
-  altSvcMa?: string;
-  /**
-   * @example
-   * on
-   */
-  altSvcPersist?: string;
-  /**
-   * @example
-   * on
-   */
-  hsts?: string;
-  /**
-   * @example
-   * on
-   */
-  hstsIncludeSubdomains?: string;
-  /**
-   * @example
-   * 3600
-   */
-  hstsMaxAge?: string;
-  /**
-   * @example
-   * on
-   */
-  hstsPreload?: string;
-  /**
-   * @example
-   * on
-   */
-  httpsForce?: string;
-  /**
-   * @example
-   * 301
-   */
-  httpsForceCode?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      altSvc: 'AltSvc',
-      altSvcClear: 'AltSvcClear',
-      altSvcMa: 'AltSvcMa',
-      altSvcPersist: 'AltSvcPersist',
-      hsts: 'Hsts',
-      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
-      hstsMaxAge: 'HstsMaxAge',
-      hstsPreload: 'HstsPreload',
-      httpsForce: 'HttpsForce',
-      httpsForceCode: 'HttpsForceCode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      altSvc: 'string',
-      altSvcClear: 'string',
-      altSvcMa: 'string',
-      altSvcPersist: 'string',
-      hsts: 'string',
-      hstsIncludeSubdomains: 'string',
-      hstsMaxAge: 'string',
-      hstsPreload: 'string',
-      httpsForce: 'string',
-      httpsForceCode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model {
-  /**
-   * @example
-   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-   */
-  ciphersuite?: string;
-  /**
-   * @example
-   * all
-   */
-  ciphersuiteGroup?: string;
-  /**
-   * @example
-   * on
-   */
-  http2?: string;
-  /**
-   * @example
-   * on
-   */
-  http3?: string;
-  /**
-   * @example
-   * on
-   */
-  https?: string;
-  /**
-   * @example
-   * on
-   */
-  ocspStapling?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * on
-   */
-  tls10?: string;
-  /**
-   * @example
-   * on
-   */
-  tls11?: string;
-  /**
-   * @example
-   * on
-   */
-  tls12?: string;
-  /**
-   * @example
-   * on
-   */
-  tls13?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ciphersuite: 'Ciphersuite',
-      ciphersuiteGroup: 'CiphersuiteGroup',
-      http2: 'Http2',
-      http3: 'Http3',
-      https: 'Https',
-      ocspStapling: 'OcspStapling',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      tls10: 'Tls10',
-      tls11: 'Tls11',
-      tls12: 'Tls12',
-      tls13: 'Tls13',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ciphersuite: 'string',
-      ciphersuiteGroup: 'string',
-      http2: 'string',
-      http3: 'string',
-      https: 'string',
-      ocspStapling: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      tls10: 'string',
-      tls11: 'string',
-      tls12: 'string',
-      tls13: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestImageTransform extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable image transformations. Valid values:
-   * 
-   * *   on
-   * *   off (default)
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestIpv6 extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable IPv6. Valid values:
-   * 
-   * *   on (default)
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestManagedTransforms extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to include the header that indicates the geographical location of a client in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  addClientGeolocationHeaders?: string;
-  /**
-   * @remarks
-   * Specifies whether to include the "ali-real-client-ip" header that contains the client\\"s real IP address in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  addRealClientIpHeader?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
-      addRealClientIpHeader: 'AddRealClientIpHeader',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addClientGeolocationHeaders: 'string',
-      addRealClientIpHeader: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestNetworkOptimization extends $tea.Model {
-  /**
-   * @example
-   * on
-   */
-  grpc?: string;
-  /**
-   * @example
-   * on
-   */
-  http2Origin?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * on
-   */
-  smartRouting?: string;
-  /**
-   * @example
-   * on
-   */
-  uploadMaxFilesize?: string;
-  /**
-   * @example
-   * on
-   */
-  websocket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      grpc: 'Grpc',
-      http2Origin: 'Http2Origin',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      smartRouting: 'SmartRouting',
-      uploadMaxFilesize: 'UploadMaxFilesize',
-      websocket: 'Websocket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      grpc: 'string',
-      http2Origin: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      smartRouting: 'string',
-      uploadMaxFilesize: 'string',
-      websocket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestOriginProtection extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable origin protection. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestOriginRules extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname that overrides the resolved hostname of an incoming request.
-   * 
-   * @example
-   * test.example.com
-   */
-  dnsRecord?: string;
-  /**
-   * @remarks
-   * The Host header in origin requests.
-   * 
-   * @example
-   * origin.example.com
-   */
-  originHost?: string;
-  /**
-   * @example
-   * 8080
-   */
-  originHttpPort?: string;
-  /**
-   * @example
-   * 4433
-   */
-  originHttpsPort?: string;
-  /**
-   * @remarks
-   * The protocol used for origin requests. Valid values:
-   * 
-   * *   http: HTTP.
-   * *   https: HTTPS.
-   * *   follow: follows the protocol used by the client.
-   * 
-   * @example
-   * http
-   */
-  originScheme?: string;
-  /**
-   * @remarks
-   * The SNI in origin requests.
-   * 
-   * @example
-   * origin.example.com
-   */
-  originSni?: string;
-  /**
-   * @example
-   * on
-   */
-  range?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      dnsRecord: 'DnsRecord',
-      originHost: 'OriginHost',
-      originHttpPort: 'OriginHttpPort',
-      originHttpsPort: 'OriginHttpsPort',
-      originScheme: 'OriginScheme',
-      originSni: 'OriginSni',
-      range: 'Range',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      dnsRecord: 'string',
-      originHost: 'string',
-      originHttpPort: 'string',
-      originHttpsPort: 'string',
-      originScheme: 'string',
-      originSni: 'string',
-      range: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestRedirectRules extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to retain the query string. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  reserveQueryString?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The response code that you want to use to indicate URL redirection. Valid value:
-   * 
-   * *   301
-   * *   302
-   * *   303
-   * *   307
-   * *   308
-   * 
-   * @example
-   * 301
-   */
-  statusCode?: string;
-  /**
-   * @remarks
-   * The destination URL to which requests are redirected.
-   * 
-   * @example
-   * http://www.exapmle.com/index.html
-   */
-  targetUrl?: string;
-  /**
-   * @remarks
-   * The redirect type. Valid value:
-   * 
-   * *   static
-   * 
-   * @example
-   * static
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      reserveQueryString: 'ReserveQueryString',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      statusCode: 'StatusCode',
-      targetUrl: 'TargetUrl',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      reserveQueryString: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      statusCode: 'string',
-      targetUrl: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
-  /**
-   * @remarks
-   * The desired query string to which you want to rewrite the query string in the original request.
-   * 
-   * @example
-   * ?example=123
-   */
-  queryString?: string;
-  /**
-   * @remarks
-   * The query string rewrite method. Valid values:
-   * 
-   * *   static
-   * *   dynamic
-   * 
-   * @example
-   * static
-   */
-  rewriteQueryStringType?: string;
-  /**
-   * @remarks
-   * The path rewrite method. Valid values:
-   * 
-   * *   static
-   * *   dynamic
-   * 
-   * @example
-   * static
-   */
-  rewriteUriType?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Specifies whether to enable the rule. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The desired URI to which you want to rewrite the path in the original request.
-   * 
-   * @example
-   * /image.example.com/index.html
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      queryString: 'QueryString',
-      rewriteQueryStringType: 'RewriteQueryStringType',
-      rewriteUriType: 'RewriteUriType',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      queryString: 'string',
-      rewriteQueryStringType: 'string',
-      rewriteUriType: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestSeoBypass extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable SEO crawler bypassing. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable site hold. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestSitePause extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether ESA is paused on the website. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * true
-   */
-  paused?: string;
-  static names(): { [key: string]: string } {
-    return {
-      paused: 'Paused',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      paused: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionRequestTieredCache extends $tea.Model {
-  /**
-   * @example
-   * edge_smart
-   */
-  cacheArchitectureMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cacheArchitectureMode: 'CacheArchitectureMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheArchitectureMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCacheReserve extends $tea.Model {
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @example
-   * cr_hk_123456789
-   */
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCacheRules extends $tea.Model {
-  /**
-   * @example
-   * 8880
-   */
-  additionalCacheablePorts?: string;
-  /**
-   * @remarks
-   * The browser cache configuration. Valid values:
-   * 
-   * *   no_cache: does not cache resources.
-   * *   follow_origin: follows the origin\\"s cache rule.
-   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
-   * 
-   * @example
-   * follow_origin
-   */
-  browserCacheMode?: string;
-  /**
-   * @remarks
-   * The browser cache TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  browserCacheTtl?: string;
-  /**
-   * @remarks
-   * The configuration of bypass cache. Valid values:
-   * 
-   * *   cache_all: Responses of all requests are cached.
-   * *   default_cache (default): Resources are cached only based on supported file extensions.
-   * *   bypass_all: All requests bypass the cache component.
-   * 
-   * @example
-   * default_cache
-   */
-  bypassCache?: string;
-  /**
-   * @example
-   * on
-   */
-  cacheDeceptionArmor?: string;
-  /**
-   * @example
-   * bypass_cache_reserve
-   */
-  cacheReserveEligibility?: string;
-  /**
-   * @example
-   * cookiename
-   */
-  checkPresenceCookie?: string;
-  /**
-   * @example
-   * headername
-   */
-  checkPresenceHeader?: string;
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The edge cache configuration. Valid values:
-   * 
-   * *   follow_origin: follows the origin\\"s cache rule. If the origin does not have a cache rule, the default cache rule is used.
-   * *   no-cache: does not cache resources.
-   * *   override_origin: uses a custom cache rule instead of the origin\\"s.
-   * *   follow_origin_bypass: follows the origin\\"s cache rule. If the origin does not have a cache rule, no resources are cached.
-   * 
-   * @example
-   * follow_origin
-   */
-  edgeCacheMode?: string;
-  /**
-   * @remarks
-   * The edge cache TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  edgeCacheTtl?: string;
-  /**
-   * @remarks
-   * The status code TTL. Unit: seconds.
-   * 
-   * @example
-   * 300
-   */
-  edgeStatusCodeCacheTtl?: string;
-  /**
-   * @remarks
-   * The cookie names and values included in the cache key. Multiple combinations are separated by spaces.
-   * 
-   * @example
-   * cookie_exapmle
-   */
-  includeCookie?: string;
-  /**
-   * @remarks
-   * The header names and values included in the cache key. Multiple combinations are separated by spaces.
-   * 
-   * @example
-   * example
-   */
-  includeHeader?: string;
-  /**
-   * @remarks
-   * The parameters to be retained or ignored in the query string. Multiple values are separated by spaces.
-   * 
-   * @example
-   * example
-   */
-  queryString?: string;
-  /**
-   * @remarks
-   * The method to process the query string when cache keys are generated. Valid values:
-   * 
-   * *   ignore_all: ignores the entire query string.
-   * *   exclude_query_string: ignores specified parameters in the query string.
-   * *   reserve_all (default): retains the entire query string.
-   * *   include_query_string: retains specified parameters in the query string.
-   * 
-   * @example
-   * reserve_all
-   */
-  queryStringMode?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @example
-   * on
-   */
-  serveStale?: string;
-  /**
-   * @remarks
-   * Indicates whether query string sorting is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  sortQueryStringForCache?: string;
-  /**
-   * @example
-   * on
-   */
-  userDeviceType?: string;
-  /**
-   * @example
-   * on
-   */
-  userGeo?: string;
-  /**
-   * @example
-   * on
-   */
-  userLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalCacheablePorts: 'AdditionalCacheablePorts',
-      browserCacheMode: 'BrowserCacheMode',
-      browserCacheTtl: 'BrowserCacheTtl',
-      bypassCache: 'BypassCache',
-      cacheDeceptionArmor: 'CacheDeceptionArmor',
-      cacheReserveEligibility: 'CacheReserveEligibility',
-      checkPresenceCookie: 'CheckPresenceCookie',
-      checkPresenceHeader: 'CheckPresenceHeader',
-      configId: 'ConfigId',
-      edgeCacheMode: 'EdgeCacheMode',
-      edgeCacheTtl: 'EdgeCacheTtl',
-      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
-      includeCookie: 'IncludeCookie',
-      includeHeader: 'IncludeHeader',
-      queryString: 'QueryString',
-      queryStringMode: 'QueryStringMode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      serveStale: 'ServeStale',
-      sortQueryStringForCache: 'SortQueryStringForCache',
-      userDeviceType: 'UserDeviceType',
-      userGeo: 'UserGeo',
-      userLanguage: 'UserLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalCacheablePorts: 'string',
-      browserCacheMode: 'string',
-      browserCacheTtl: 'string',
-      bypassCache: 'string',
-      cacheDeceptionArmor: 'string',
-      cacheReserveEligibility: 'string',
-      checkPresenceCookie: 'string',
-      checkPresenceHeader: 'string',
-      configId: 'number',
-      edgeCacheMode: 'string',
-      edgeCacheTtl: 'string',
-      edgeStatusCodeCacheTtl: 'string',
-      includeCookie: 'string',
-      includeHeader: 'string',
-      queryString: 'string',
-      queryStringMode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      serveStale: 'string',
-      sortQueryStringForCache: 'string',
-      userDeviceType: 'string',
-      userGeo: 'string',
-      userLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCacheTags extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether the matching is not case-sensitive. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  caseInsensitive?: string;
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @remarks
-   * The name of the custom cache tag.
-   * 
-   * @example
-   * example
-   */
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseInsensitive: 'CaseInsensitive',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseInsensitive: 'string',
-      configId: 'number',
-      sequence: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCnameFlattening extends $tea.Model {
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * flatten_all
-   */
-  flattenMode?: string;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      flattenMode: 'FlattenMode',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      flattenMode: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCompressionRules extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether Brotli compression is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  brotli?: string;
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether Gzip compression is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  gzip?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      brotli: 'Brotli',
-      configId: 'ConfigId',
-      gzip: 'Gzip',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      brotli: 'string',
-      configId: 'number',
-      gzip: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization extends $tea.Model {
-  /**
-   * @example
-   * 395227502417920
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsDevelopmentMode extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether the development mode is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
-  /**
-   * @example
-   * headername
-   */
-  name?: string;
-  /**
-   * @example
-   * add
-   */
-  operation?: string;
-  /**
-   * @example
-   * headervalue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Modifies a request header. You can add, delete, or modify a request header.
-   * 
-   * @example
-   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
-   */
-  requestHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification[];
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      requestHeaderModification: 'RequestHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      requestHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
-  /**
-   * @example
-   * headername
-   */
-  name?: string;
-  /**
-   * @example
-   * add
-   */
-  operation?: string;
-  /**
-   * @example
-   * headervalue
-   */
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Modifies a response header. You can add, delete, or modify a request header.
-   * 
-   * @example
-   * [{"operation":"add","name":"header_example_add","value":"value_exapme_add"},{"operation":"del","name":"header_example_delete","value":"value_exapme_delete"},{"operation":"modify","name":"header_example_update","value":"value_exapme_example"}]
-   */
-  responseHeaderModification?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification[];
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      responseHeaderModification: 'ResponseHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      responseHeaderModification: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration extends $tea.Model {
-  /**
-   * @example
-   * on
-   */
-  altSvc?: string;
-  /**
-   * @example
-   * on
-   */
-  altSvcClear?: string;
-  /**
-   * @example
-   * 86400
-   */
-  altSvcMa?: string;
-  /**
-   * @example
-   * on
-   */
-  altSvcPersist?: string;
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  hsts?: string;
-  /**
-   * @example
-   * on
-   */
-  hstsIncludeSubdomains?: string;
-  /**
-   * @example
-   * 3600
-   */
-  hstsMaxAge?: string;
-  /**
-   * @example
-   * on
-   */
-  hstsPreload?: string;
-  /**
-   * @example
-   * on
-   */
-  httpsForce?: string;
-  /**
-   * @example
-   * 301
-   */
-  httpsForceCode?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      altSvc: 'AltSvc',
-      altSvcClear: 'AltSvcClear',
-      altSvcMa: 'AltSvcMa',
-      altSvcPersist: 'AltSvcPersist',
-      configId: 'ConfigId',
-      hsts: 'Hsts',
-      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
-      hstsMaxAge: 'HstsMaxAge',
-      hstsPreload: 'HstsPreload',
-      httpsForce: 'HttpsForce',
-      httpsForceCode: 'HttpsForceCode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      altSvc: 'string',
-      altSvcClear: 'string',
-      altSvcMa: 'string',
-      altSvcPersist: 'string',
-      configId: 'number',
-      hsts: 'string',
-      hstsIncludeSubdomains: 'string',
-      hstsMaxAge: 'string',
-      hstsPreload: 'string',
-      httpsForce: 'string',
-      httpsForceCode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration extends $tea.Model {
-  /**
-   * @example
-   * TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-   */
-  ciphersuite?: string;
-  /**
-   * @example
-   * all
-   */
-  ciphersuiteGroup?: string;
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  http2?: string;
-  /**
-   * @example
-   * on
-   */
-  http3?: string;
-  /**
-   * @example
-   * on
-   */
-  https?: string;
-  /**
-   * @example
-   * on
-   */
-  ocspStapling?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @example
-   * on
-   */
-  tls10?: string;
-  /**
-   * @example
-   * on
-   */
-  tls11?: string;
-  /**
-   * @example
-   * on
-   */
-  tls12?: string;
-  /**
-   * @example
-   * on
-   */
-  tls13?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ciphersuite: 'Ciphersuite',
-      ciphersuiteGroup: 'CiphersuiteGroup',
-      configId: 'ConfigId',
-      http2: 'Http2',
-      http3: 'Http3',
-      https: 'Https',
-      ocspStapling: 'OcspStapling',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      tls10: 'Tls10',
-      tls11: 'Tls11',
-      tls12: 'Tls12',
-      tls13: 'Tls13',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ciphersuite: 'string',
-      ciphersuiteGroup: 'string',
-      configId: 'number',
-      http2: 'string',
-      http3: 'string',
-      https: 'string',
-      ocspStapling: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      tls10: 'string',
-      tls11: 'string',
-      tls12: 'string',
-      tls13: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsImageTransform extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether the image transformations feature is enabled. Valid values:
-   * 
-   * on
-   * 
-   * off (default)
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsIpv6 extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether IPv6 is enabled. Valid values:
-   * 
-   * on (default)
-   * 
-   * off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsManagedTransforms extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the header that indicates the geographical location of a client is included in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  addClientGeolocationHeaders?: string;
-  /**
-   * @remarks
-   * Indicates whether the "ali-real-client-ip" header that contains the client\\"s real IP address is included in an origin request. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  addRealClientIpHeader?: string;
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
-      addRealClientIpHeader: 'AddRealClientIpHeader',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addClientGeolocationHeaders: 'string',
-      addRealClientIpHeader: 'string',
-      configId: 'number',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsNetworkOptimization extends $tea.Model {
-  /**
-   * @example
-   * 390286182395904
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  grpc?: string;
-  /**
-   * @example
-   * on
-   */
-  http2Origin?: string;
-  /**
-   * @example
-   * (http.host eq \\"video.example.com\\")
-   */
-  rule?: string;
-  /**
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @example
-   * on
-   */
-  smartRouting?: string;
-  /**
-   * @example
-   * 300
-   */
-  uploadMaxFilesize?: string;
-  /**
-   * @example
-   * on
-   */
-  websocket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      grpc: 'Grpc',
-      http2Origin: 'Http2Origin',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      smartRouting: 'SmartRouting',
-      uploadMaxFilesize: 'UploadMaxFilesize',
-      websocket: 'Websocket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      grpc: 'string',
-      http2Origin: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      smartRouting: 'string',
-      uploadMaxFilesize: 'string',
-      websocket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsOriginRules extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The hostname that overrides the resolved hostname of an incoming request.
-   * 
-   * @example
-   * test.example.com
-   */
-  dnsRecord?: string;
-  /**
-   * @remarks
-   * The Host header in origin requests.
-   * 
-   * @example
-   * origin.example.com
-   */
-  originHost?: string;
-  /**
-   * @example
-   * 8080
-   */
-  originHttpPort?: string;
-  /**
-   * @example
-   * 4433
-   */
-  originHttpsPort?: string;
-  /**
-   * @remarks
-   * The protocol used for origin requests. Valid values:
-   * 
-   * *   http: HTTP.
-   * *   https: HTTPS.
-   * *   follow: follows the protocol used by the client.
-   * 
-   * @example
-   * http
-   */
-  originScheme?: string;
-  /**
-   * @remarks
-   * The SNI in origin requests.
-   * 
-   * @example
-   * origin.example.com
-   */
-  originSni?: string;
-  /**
-   * @example
-   * on
-   */
-  range?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      dnsRecord: 'DnsRecord',
-      originHost: 'OriginHost',
-      originHttpPort: 'OriginHttpPort',
-      originHttpsPort: 'OriginHttpsPort',
-      originScheme: 'OriginScheme',
-      originSni: 'OriginSni',
-      range: 'Range',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      dnsRecord: 'string',
-      originHost: 'string',
-      originHttpPort: 'string',
-      originHttpsPort: 'string',
-      originScheme: 'string',
-      originSni: 'string',
-      range: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsRedirectRules extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether the feature of retaining the query string is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  reserveQueryString?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @remarks
-   * The response code that you want to use to indicate URL redirection. Valid values:
-   * 
-   * *   301
-   * *   302
-   * *   303
-   * *   307
-   * *   308
-   * 
-   * @example
-   * 301
-   */
-  statusCode?: string;
-  /**
-   * @remarks
-   * The destination URL to which requests are redirected.
-   * 
-   * @example
-   * http://www.exapmle.com/index.html
-   */
-  targetUrl?: string;
-  /**
-   * @remarks
-   * The redirect type. Valid value:
-   * 
-   * *   static
-   * 
-   * @example
-   * static
-   */
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      reserveQueryString: 'ReserveQueryString',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      statusCode: 'StatusCode',
-      targetUrl: 'TargetUrl',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      reserveQueryString: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      statusCode: 'string',
-      targetUrl: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsRewriteUrlRules extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * The desired query string to which you want to rewrite the query string in the original request.
-   * 
-   * @example
-   * ?example=123
-   */
-  queryString?: string;
-  /**
-   * @remarks
-   * The query string rewrite method. Valid values:
-   * 
-   * *   static
-   * *   dynamic
-   * 
-   * @example
-   * static
-   */
-  rewriteQueryStringType?: string;
-  /**
-   * @remarks
-   * The path rewrite method. Valid values:
-   * 
-   * *   static
-   * *   dynamic
-   * 
-   * @example
-   * static
-   */
-  rewriteUriType?: string;
-  /**
-   * @remarks
-   * The rule content.
-   * 
-   * @example
-   * [{"MatchType":"http.request.method","MatchOperator":"eq","MatchValue":"GET","Negate":false}]
-   */
-  rule?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  ruleEnable?: string;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * rule_example
-   */
-  ruleName?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  /**
-   * @remarks
-   * The desired URI to which you want to rewrite the path in the original request.
-   * 
-   * @example
-   * /image.example.com/index.html
-   */
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      queryString: 'QueryString',
-      rewriteQueryStringType: 'RewriteQueryStringType',
-      rewriteUriType: 'RewriteUriType',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      queryString: 'string',
-      rewriteQueryStringType: 'string',
-      rewriteUriType: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsSeoBypass extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether SEO crawler bypassing is enabled. Valid values:
-   * 
-   * *   on
-   * *   off
-   * 
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsSiteNameExclusive extends $tea.Model {
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * on
-   */
-  enable?: string;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsSitePause extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration ID.
-   * 
-   * @example
-   * 344147756398592
-   */
-  configId?: number;
-  /**
-   * @remarks
-   * Indicates whether ESA is paused on the website. Valid values:
-   * 
-   * *   true
-   * *   false
-   * 
-   * @example
-   * false
-   */
-  paused?: string;
-  /**
-   * @remarks
-   * The order in which the rule is executed.
-   * 
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      paused: 'Paused',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      paused: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigsTieredCache extends $tea.Model {
-  /**
-   * @example
-   * edge_smart
-   */
-  cacheArchitectureMode?: string;
-  /**
-   * @example
-   * 352816096987136
-   */
-  configId?: number;
-  /**
-   * @example
-   * 1
-   */
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cacheArchitectureMode: 'CacheArchitectureMode',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheArchitectureMode: 'string',
-      configId: 'number',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateSiteFunctionResponseBodyConfigs extends $tea.Model {
-  cacheReserve?: CreateSiteFunctionResponseBodyConfigsCacheReserve[];
-  /**
-   * @remarks
-   * The cache rules.
-   */
-  cacheRules?: CreateSiteFunctionResponseBodyConfigsCacheRules[];
-  /**
-   * @remarks
-   * The cache tags.
-   */
-  cacheTags?: CreateSiteFunctionResponseBodyConfigsCacheTags[];
-  cnameFlattening?: CreateSiteFunctionResponseBodyConfigsCnameFlattening[];
-  /**
-   * @remarks
-   * The configuration of a compression rule.
-   */
-  compressionRules?: CreateSiteFunctionResponseBodyConfigsCompressionRules[];
-  crossBorderOptimization?: CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization[];
-  /**
-   * @remarks
-   * The configuration of development mode.
-   */
-  developmentMode?: CreateSiteFunctionResponseBodyConfigsDevelopmentMode[];
-  /**
-   * @remarks
-   * The configuration of a request header modification rule.
-   */
-  httpRequestHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules[];
-  /**
-   * @remarks
-   * The configuration of a response header modification rule.
-   */
-  httpResponseHeaderModificationRules?: CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules[];
-  httpsApplicationConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration[];
-  httpsBasicConfiguration?: CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration[];
-  /**
-   * @remarks
-   * The configuration of image transformations.
-   */
-  imageTransform?: CreateSiteFunctionResponseBodyConfigsImageTransform[];
-  /**
-   * @remarks
-   * The IPv6 configuration.
-   */
-  ipv6?: CreateSiteFunctionResponseBodyConfigsIpv6[];
-  /**
-   * @remarks
-   * The configuration of managed transforms.
-   */
-  managedTransforms?: CreateSiteFunctionResponseBodyConfigsManagedTransforms[];
-  networkOptimization?: CreateSiteFunctionResponseBodyConfigsNetworkOptimization[];
-  /**
-   * @remarks
-   * The configuration of an origin rule.
-   */
-  originRules?: CreateSiteFunctionResponseBodyConfigsOriginRules[];
-  /**
-   * @remarks
-   * The configuration of a redirect rule.
-   */
-  redirectRules?: CreateSiteFunctionResponseBodyConfigsRedirectRules[];
-  /**
-   * @remarks
-   * The configuration of a URL rewrite rule.
-   */
-  rewriteUrlRules?: CreateSiteFunctionResponseBodyConfigsRewriteUrlRules[];
-  /**
-   * @remarks
-   * The configuration of SEO crawler bypassing.
-   */
-  seoBypass?: CreateSiteFunctionResponseBodyConfigsSeoBypass[];
-  siteNameExclusive?: CreateSiteFunctionResponseBodyConfigsSiteNameExclusive[];
-  /**
-   * @remarks
-   * The configuration of temporarily pausing ESA proxy on the website. If you pause ESA proxy, all requests to the domains in your DNS records go directly to your origin server.
-   */
-  sitePause?: CreateSiteFunctionResponseBodyConfigsSitePause[];
-  tieredCache?: CreateSiteFunctionResponseBodyConfigsTieredCache[];
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserve: 'CacheReserve',
-      cacheRules: 'CacheRules',
-      cacheTags: 'CacheTags',
-      cnameFlattening: 'CnameFlattening',
-      compressionRules: 'CompressionRules',
-      crossBorderOptimization: 'CrossBorderOptimization',
-      developmentMode: 'DevelopmentMode',
-      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
-      httpsBasicConfiguration: 'HttpsBasicConfiguration',
-      imageTransform: 'ImageTransform',
-      ipv6: 'Ipv6',
-      managedTransforms: 'ManagedTransforms',
-      networkOptimization: 'NetworkOptimization',
-      originRules: 'OriginRules',
-      redirectRules: 'RedirectRules',
-      rewriteUrlRules: 'RewriteUrlRules',
-      seoBypass: 'SeoBypass',
-      siteNameExclusive: 'SiteNameExclusive',
-      sitePause: 'SitePause',
-      tieredCache: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserve: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheReserve },
-      cacheRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheRules },
-      cacheTags: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCacheTags },
-      cnameFlattening: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCnameFlattening },
-      compressionRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCompressionRules },
-      crossBorderOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsCrossBorderOptimization },
-      developmentMode: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsDevelopmentMode },
-      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpRequestHeaderModificationRules },
-      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpResponseHeaderModificationRules },
-      httpsApplicationConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpsApplicationConfiguration },
-      httpsBasicConfiguration: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsHttpsBasicConfiguration },
-      imageTransform: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsImageTransform },
-      ipv6: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsIpv6 },
-      managedTransforms: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsManagedTransforms },
-      networkOptimization: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsNetworkOptimization },
-      originRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsOriginRules },
-      redirectRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsRedirectRules },
-      rewriteUrlRules: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsRewriteUrlRules },
-      seoBypass: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSeoBypass },
-      siteNameExclusive: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSiteNameExclusive },
-      sitePause: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsSitePause },
-      tieredCache: { 'type': 'array', 'itemType': CreateSiteFunctionResponseBodyConfigsTieredCache },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateUserDeliveryTaskRequestHttpDeliveryStandardAuthParam extends $tea.Model {
   /**
    * @remarks
@@ -37837,7 +33908,15 @@ export class GetKvAccountResponseBodyNamespaceList extends $tea.Model {
 }
 
 export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection used by the website, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37859,7 +33938,15 @@ export class GetOriginProtectionResponseBodyCurrentIPWhitelist extends $tea.Mode
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37881,7 +33968,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist exte
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37903,7 +33998,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist e
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -37925,8 +34028,20 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist ex
 }
 
 export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The new IP whitelist for origin protection.
+   */
   addedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistAddedIPWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that remains unchanged.
+   */
   noChangeIpWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistNoChangeIpWhitelist;
+  /**
+   * @remarks
+   * The IP whitelist for origin protection that has been deleted.
+   */
   removedIPWhitelist?: GetOriginProtectionResponseBodyDiffIPWhitelistRemovedIPWhitelist;
   static names(): { [key: string]: string } {
     return {
@@ -37950,7 +34065,15 @@ export class GetOriginProtectionResponseBodyDiffIPWhitelist extends $tea.Model {
 }
 
 export class GetOriginProtectionResponseBodyLatestIPWhitelist extends $tea.Model {
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection, specified as IPv4 addresses or CIDR blocks.
+   */
   IPv4?: string[];
+  /**
+   * @remarks
+   * The latest IP whitelist for origin protection, specified as IPv6 addresses or CIDR blocks.
+   */
   IPv6?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -38569,6 +34692,7 @@ export class GetRoutineResponseBodyRelatedRecords extends $tea.Model {
 }
 
 export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
+  byPass?: string;
   /**
    * @remarks
    * The route.
@@ -38603,6 +34727,7 @@ export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
   siteName?: string;
   static names(): { [key: string]: string } {
     return {
+      byPass: 'ByPass',
       route: 'Route',
       routeId: 'RouteId',
       siteId: 'SiteId',
@@ -38612,6 +34737,7 @@ export class GetRoutineResponseBodyRelatedRoutes extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      byPass: 'string',
       route: 'string',
       routeId: 'string',
       siteId: 'number',
@@ -42155,946 +38281,6 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $tea.Model {
   }
 }
 
-export class ListSiteFunctionsResponseBodyConfigsCacheReserve extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $tea.Model {
-  additionalCacheablePorts?: string;
-  browserCacheMode?: string;
-  browserCacheTtl?: string;
-  bypassCache?: string;
-  cacheDeceptionArmor?: string;
-  cacheReserveEligibility?: string;
-  checkPresenceCookie?: string;
-  checkPresenceHeader?: string;
-  configId?: number;
-  edgeCacheMode?: string;
-  edgeCacheTtl?: string;
-  edgeStatusCodeCacheTtl?: string;
-  includeCookie?: string;
-  includeHeader?: string;
-  queryString?: string;
-  queryStringMode?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  serveStale?: string;
-  sortQueryStringForCache?: string;
-  userDeviceType?: string;
-  userGeo?: string;
-  userLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalCacheablePorts: 'AdditionalCacheablePorts',
-      browserCacheMode: 'BrowserCacheMode',
-      browserCacheTtl: 'BrowserCacheTtl',
-      bypassCache: 'BypassCache',
-      cacheDeceptionArmor: 'CacheDeceptionArmor',
-      cacheReserveEligibility: 'CacheReserveEligibility',
-      checkPresenceCookie: 'CheckPresenceCookie',
-      checkPresenceHeader: 'CheckPresenceHeader',
-      configId: 'ConfigId',
-      edgeCacheMode: 'EdgeCacheMode',
-      edgeCacheTtl: 'EdgeCacheTtl',
-      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
-      includeCookie: 'IncludeCookie',
-      includeHeader: 'IncludeHeader',
-      queryString: 'QueryString',
-      queryStringMode: 'QueryStringMode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      serveStale: 'ServeStale',
-      sortQueryStringForCache: 'SortQueryStringForCache',
-      userDeviceType: 'UserDeviceType',
-      userGeo: 'UserGeo',
-      userLanguage: 'UserLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalCacheablePorts: 'string',
-      browserCacheMode: 'string',
-      browserCacheTtl: 'string',
-      bypassCache: 'string',
-      cacheDeceptionArmor: 'string',
-      cacheReserveEligibility: 'string',
-      checkPresenceCookie: 'string',
-      checkPresenceHeader: 'string',
-      configId: 'number',
-      edgeCacheMode: 'string',
-      edgeCacheTtl: 'string',
-      edgeStatusCodeCacheTtl: 'string',
-      includeCookie: 'string',
-      includeHeader: 'string',
-      queryString: 'string',
-      queryStringMode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      serveStale: 'string',
-      sortQueryStringForCache: 'string',
-      userDeviceType: 'string',
-      userGeo: 'string',
-      userLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsCacheTags extends $tea.Model {
-  caseInsensitive?: string;
-  configId?: number;
-  sequence?: string;
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseInsensitive: 'CaseInsensitive',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseInsensitive: 'string',
-      configId: 'number',
-      sequence: 'string',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsCnameFlattening extends $tea.Model {
-  configId?: number;
-  flattenMode?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      flattenMode: 'FlattenMode',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      flattenMode: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsCompressionRules extends $tea.Model {
-  brotli?: string;
-  configId?: number;
-  gzip?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      brotli: 'Brotli',
-      configId: 'ConfigId',
-      gzip: 'Gzip',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      brotli: 'string',
-      configId: 'number',
-      gzip: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
-  name?: string;
-  operation?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules extends $tea.Model {
-  configId?: number;
-  requestHeaderModification?: ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification[];
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      requestHeaderModification: 'RequestHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      requestHeaderModification: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRulesRequestHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
-  name?: string;
-  operation?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules extends $tea.Model {
-  configId?: number;
-  responseHeaderModification?: ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification[];
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      responseHeaderModification: 'ResponseHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      responseHeaderModification: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRulesResponseHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration extends $tea.Model {
-  altSvc?: string;
-  altSvcClear?: string;
-  altSvcMa?: string;
-  altSvcPersist?: string;
-  configId?: number;
-  hsts?: string;
-  hstsIncludeSubdomains?: string;
-  hstsMaxAge?: string;
-  hstsPreload?: string;
-  httpsForce?: string;
-  httpsForceCode?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      altSvc: 'AltSvc',
-      altSvcClear: 'AltSvcClear',
-      altSvcMa: 'AltSvcMa',
-      altSvcPersist: 'AltSvcPersist',
-      configId: 'ConfigId',
-      hsts: 'Hsts',
-      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
-      hstsMaxAge: 'HstsMaxAge',
-      hstsPreload: 'HstsPreload',
-      httpsForce: 'HttpsForce',
-      httpsForceCode: 'HttpsForceCode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      altSvc: 'string',
-      altSvcClear: 'string',
-      altSvcMa: 'string',
-      altSvcPersist: 'string',
-      configId: 'number',
-      hsts: 'string',
-      hstsIncludeSubdomains: 'string',
-      hstsMaxAge: 'string',
-      hstsPreload: 'string',
-      httpsForce: 'string',
-      httpsForceCode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration extends $tea.Model {
-  ciphersuite?: string;
-  ciphersuiteGroup?: string;
-  configId?: number;
-  http2?: string;
-  http3?: string;
-  https?: string;
-  ocspStapling?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  tls10?: string;
-  tls11?: string;
-  tls12?: string;
-  tls13?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ciphersuite: 'Ciphersuite',
-      ciphersuiteGroup: 'CiphersuiteGroup',
-      configId: 'ConfigId',
-      http2: 'Http2',
-      http3: 'Http3',
-      https: 'Https',
-      ocspStapling: 'OcspStapling',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      tls10: 'Tls10',
-      tls11: 'Tls11',
-      tls12: 'Tls12',
-      tls13: 'Tls13',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ciphersuite: 'string',
-      ciphersuiteGroup: 'string',
-      configId: 'number',
-      http2: 'string',
-      http3: 'string',
-      https: 'string',
-      ocspStapling: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      tls10: 'string',
-      tls11: 'string',
-      tls12: 'string',
-      tls13: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsImageTransform extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsIpv6 extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $tea.Model {
-  addClientGeolocationHeaders?: string;
-  addRealClientIpHeader?: string;
-  configId?: number;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
-      addRealClientIpHeader: 'AddRealClientIpHeader',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addClientGeolocationHeaders: 'string',
-      addRealClientIpHeader: 'string',
-      configId: 'number',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $tea.Model {
-  configId?: number;
-  grpc?: string;
-  http2Origin?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  smartRouting?: string;
-  uploadMaxFilesize?: string;
-  websocket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      grpc: 'Grpc',
-      http2Origin: 'Http2Origin',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      smartRouting: 'SmartRouting',
-      uploadMaxFilesize: 'UploadMaxFilesize',
-      websocket: 'Websocket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      grpc: 'string',
-      http2Origin: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      smartRouting: 'string',
-      uploadMaxFilesize: 'string',
-      websocket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $tea.Model {
-  configId?: number;
-  dnsRecord?: string;
-  originHost?: string;
-  originHttpPort?: string;
-  originHttpsPort?: string;
-  originScheme?: string;
-  originSni?: string;
-  range?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      dnsRecord: 'DnsRecord',
-      originHost: 'OriginHost',
-      originHttpPort: 'OriginHttpPort',
-      originHttpsPort: 'OriginHttpsPort',
-      originScheme: 'OriginScheme',
-      originSni: 'OriginSni',
-      range: 'Range',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      dnsRecord: 'string',
-      originHost: 'string',
-      originHttpPort: 'string',
-      originHttpsPort: 'string',
-      originScheme: 'string',
-      originSni: 'string',
-      range: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $tea.Model {
-  configId?: number;
-  reserveQueryString?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  statusCode?: string;
-  targetUrl?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      reserveQueryString: 'ReserveQueryString',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      statusCode: 'StatusCode',
-      targetUrl: 'TargetUrl',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      reserveQueryString: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      statusCode: 'string',
-      targetUrl: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsRewriteUrlRules extends $tea.Model {
-  configId?: number;
-  queryString?: string;
-  rewriteQueryStringType?: string;
-  rewriteUriType?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  sequence?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      queryString: 'QueryString',
-      rewriteQueryStringType: 'RewriteQueryStringType',
-      rewriteUriType: 'RewriteUriType',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      sequence: 'Sequence',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      queryString: 'string',
-      rewriteQueryStringType: 'string',
-      rewriteUriType: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      sequence: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsSeoBypass extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsSiteNameExclusive extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsSitePause extends $tea.Model {
-  configId?: number;
-  paused?: string;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      paused: 'Paused',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      paused: 'string',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigsTieredCache extends $tea.Model {
-  cacheArchitectureMode?: string;
-  configId?: number;
-  sequence?: string;
-  static names(): { [key: string]: string } {
-    return {
-      cacheArchitectureMode: 'CacheArchitectureMode',
-      configId: 'ConfigId',
-      sequence: 'Sequence',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheArchitectureMode: 'string',
-      configId: 'number',
-      sequence: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListSiteFunctionsResponseBodyConfigs extends $tea.Model {
-  cacheReserve?: ListSiteFunctionsResponseBodyConfigsCacheReserve[];
-  cacheRules?: ListSiteFunctionsResponseBodyConfigsCacheRules[];
-  cacheTags?: ListSiteFunctionsResponseBodyConfigsCacheTags[];
-  cnameFlattening?: ListSiteFunctionsResponseBodyConfigsCnameFlattening[];
-  compressionRules?: ListSiteFunctionsResponseBodyConfigsCompressionRules[];
-  crossBorderOptimization?: ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization[];
-  developmentMode?: ListSiteFunctionsResponseBodyConfigsDevelopmentMode[];
-  httpRequestHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules[];
-  httpResponseHeaderModificationRules?: ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules[];
-  httpsApplicationConfiguration?: ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration[];
-  httpsBasicConfiguration?: ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration[];
-  imageTransform?: ListSiteFunctionsResponseBodyConfigsImageTransform[];
-  ipv6?: ListSiteFunctionsResponseBodyConfigsIpv6[];
-  managedTransforms?: ListSiteFunctionsResponseBodyConfigsManagedTransforms[];
-  networkOptimization?: ListSiteFunctionsResponseBodyConfigsNetworkOptimization[];
-  originRules?: ListSiteFunctionsResponseBodyConfigsOriginRules[];
-  redirectRules?: ListSiteFunctionsResponseBodyConfigsRedirectRules[];
-  rewriteUrlRules?: ListSiteFunctionsResponseBodyConfigsRewriteUrlRules[];
-  seoBypass?: ListSiteFunctionsResponseBodyConfigsSeoBypass[];
-  siteNameExclusive?: ListSiteFunctionsResponseBodyConfigsSiteNameExclusive[];
-  sitePause?: ListSiteFunctionsResponseBodyConfigsSitePause[];
-  tieredCache?: ListSiteFunctionsResponseBodyConfigsTieredCache[];
-  static names(): { [key: string]: string } {
-    return {
-      cacheReserve: 'CacheReserve',
-      cacheRules: 'CacheRules',
-      cacheTags: 'CacheTags',
-      cnameFlattening: 'CnameFlattening',
-      compressionRules: 'CompressionRules',
-      crossBorderOptimization: 'CrossBorderOptimization',
-      developmentMode: 'DevelopmentMode',
-      httpRequestHeaderModificationRules: 'HttpRequestHeaderModificationRules',
-      httpResponseHeaderModificationRules: 'HttpResponseHeaderModificationRules',
-      httpsApplicationConfiguration: 'HttpsApplicationConfiguration',
-      httpsBasicConfiguration: 'HttpsBasicConfiguration',
-      imageTransform: 'ImageTransform',
-      ipv6: 'Ipv6',
-      managedTransforms: 'ManagedTransforms',
-      networkOptimization: 'NetworkOptimization',
-      originRules: 'OriginRules',
-      redirectRules: 'RedirectRules',
-      rewriteUrlRules: 'RewriteUrlRules',
-      seoBypass: 'SeoBypass',
-      siteNameExclusive: 'SiteNameExclusive',
-      sitePause: 'SitePause',
-      tieredCache: 'TieredCache',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheReserve: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheReserve },
-      cacheRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheRules },
-      cacheTags: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCacheTags },
-      cnameFlattening: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCnameFlattening },
-      compressionRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCompressionRules },
-      crossBorderOptimization: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsCrossBorderOptimization },
-      developmentMode: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsDevelopmentMode },
-      httpRequestHeaderModificationRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRules },
-      httpResponseHeaderModificationRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationRules },
-      httpsApplicationConfiguration: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration },
-      httpsBasicConfiguration: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsHttpsBasicConfiguration },
-      imageTransform: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsImageTransform },
-      ipv6: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsIpv6 },
-      managedTransforms: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsManagedTransforms },
-      networkOptimization: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsNetworkOptimization },
-      originRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsOriginRules },
-      redirectRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsRedirectRules },
-      rewriteUrlRules: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsRewriteUrlRules },
-      seoBypass: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSeoBypass },
-      siteNameExclusive: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSiteNameExclusive },
-      sitePause: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsSitePause },
-      tieredCache: { 'type': 'array', 'itemType': ListSiteFunctionsResponseBodyConfigsTieredCache },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListSitesRequestTagFilter extends $tea.Model {
   /**
    * @remarks
@@ -45363,801 +40549,6 @@ export class UpdateRecordRequestData extends $tea.Model {
   }
 }
 
-export class UpdateSiteFunctionRequestCacheReserve extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-      instanceId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestCacheRules extends $tea.Model {
-  additionalCacheablePorts?: string;
-  browserCacheMode?: string;
-  browserCacheTtl?: string;
-  bypassCache?: string;
-  cacheDeceptionArmor?: string;
-  cacheReserveEligibility?: string;
-  checkPresenceCookie?: string;
-  checkPresenceHeader?: string;
-  configId?: number;
-  edgeCacheMode?: string;
-  edgeCacheTtl?: string;
-  edgeStatusCodeCacheTtl?: string;
-  includeCookie?: string;
-  includeHeader?: string;
-  queryString?: string;
-  queryStringMode?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  serveStale?: string;
-  sortQueryStringForCache?: string;
-  userDeviceType?: string;
-  userGeo?: string;
-  userLanguage?: string;
-  static names(): { [key: string]: string } {
-    return {
-      additionalCacheablePorts: 'AdditionalCacheablePorts',
-      browserCacheMode: 'BrowserCacheMode',
-      browserCacheTtl: 'BrowserCacheTtl',
-      bypassCache: 'BypassCache',
-      cacheDeceptionArmor: 'CacheDeceptionArmor',
-      cacheReserveEligibility: 'CacheReserveEligibility',
-      checkPresenceCookie: 'CheckPresenceCookie',
-      checkPresenceHeader: 'CheckPresenceHeader',
-      configId: 'ConfigId',
-      edgeCacheMode: 'EdgeCacheMode',
-      edgeCacheTtl: 'EdgeCacheTtl',
-      edgeStatusCodeCacheTtl: 'EdgeStatusCodeCacheTtl',
-      includeCookie: 'IncludeCookie',
-      includeHeader: 'IncludeHeader',
-      queryString: 'QueryString',
-      queryStringMode: 'QueryStringMode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      serveStale: 'ServeStale',
-      sortQueryStringForCache: 'SortQueryStringForCache',
-      userDeviceType: 'UserDeviceType',
-      userGeo: 'UserGeo',
-      userLanguage: 'UserLanguage',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      additionalCacheablePorts: 'string',
-      browserCacheMode: 'string',
-      browserCacheTtl: 'string',
-      bypassCache: 'string',
-      cacheDeceptionArmor: 'string',
-      cacheReserveEligibility: 'string',
-      checkPresenceCookie: 'string',
-      checkPresenceHeader: 'string',
-      configId: 'number',
-      edgeCacheMode: 'string',
-      edgeCacheTtl: 'string',
-      edgeStatusCodeCacheTtl: 'string',
-      includeCookie: 'string',
-      includeHeader: 'string',
-      queryString: 'string',
-      queryStringMode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      serveStale: 'string',
-      sortQueryStringForCache: 'string',
-      userDeviceType: 'string',
-      userGeo: 'string',
-      userLanguage: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestCacheTags extends $tea.Model {
-  caseInsensitive?: string;
-  configId?: number;
-  tagName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      caseInsensitive: 'CaseInsensitive',
-      configId: 'ConfigId',
-      tagName: 'TagName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      caseInsensitive: 'string',
-      configId: 'number',
-      tagName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestCnameFlattening extends $tea.Model {
-  configId?: number;
-  flattenMode?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      flattenMode: 'FlattenMode',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      flattenMode: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestCompressionRules extends $tea.Model {
-  brotli?: string;
-  configId?: number;
-  gzip?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      brotli: 'Brotli',
-      configId: 'ConfigId',
-      gzip: 'Gzip',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      brotli: 'string',
-      configId: 'number',
-      gzip: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestCrossBorderOptimization extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestDevelopmentMode extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification extends $tea.Model {
-  name?: string;
-  operation?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpRequestHeaderModificationRules extends $tea.Model {
-  configId?: number;
-  requestHeaderModification?: UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification[];
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      requestHeaderModification: 'RequestHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      requestHeaderModification: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpRequestHeaderModificationRulesRequestHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification extends $tea.Model {
-  name?: string;
-  operation?: string;
-  value?: string;
-  static names(): { [key: string]: string } {
-    return {
-      name: 'Name',
-      operation: 'Operation',
-      value: 'Value',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      name: 'string',
-      operation: 'string',
-      value: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpResponseHeaderModificationRules extends $tea.Model {
-  configId?: number;
-  responseHeaderModification?: UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification[];
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      responseHeaderModification: 'ResponseHeaderModification',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      responseHeaderModification: { 'type': 'array', 'itemType': UpdateSiteFunctionRequestHttpResponseHeaderModificationRulesResponseHeaderModification },
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpsApplicationConfiguration extends $tea.Model {
-  altSvc?: string;
-  altSvcClear?: string;
-  altSvcMa?: string;
-  altSvcPersist?: string;
-  configId?: number;
-  hsts?: string;
-  hstsIncludeSubdomains?: string;
-  hstsMaxAge?: string;
-  hstsPreload?: string;
-  httpsForce?: string;
-  httpsForceCode?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      altSvc: 'AltSvc',
-      altSvcClear: 'AltSvcClear',
-      altSvcMa: 'AltSvcMa',
-      altSvcPersist: 'AltSvcPersist',
-      configId: 'ConfigId',
-      hsts: 'Hsts',
-      hstsIncludeSubdomains: 'HstsIncludeSubdomains',
-      hstsMaxAge: 'HstsMaxAge',
-      hstsPreload: 'HstsPreload',
-      httpsForce: 'HttpsForce',
-      httpsForceCode: 'HttpsForceCode',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      altSvc: 'string',
-      altSvcClear: 'string',
-      altSvcMa: 'string',
-      altSvcPersist: 'string',
-      configId: 'number',
-      hsts: 'string',
-      hstsIncludeSubdomains: 'string',
-      hstsMaxAge: 'string',
-      hstsPreload: 'string',
-      httpsForce: 'string',
-      httpsForceCode: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestHttpsBasicConfiguration extends $tea.Model {
-  ciphersuite?: string;
-  ciphersuiteGroup?: string;
-  configId?: number;
-  http2?: string;
-  http3?: string;
-  https?: string;
-  ocspStapling?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  tls10?: string;
-  tls11?: string;
-  tls12?: string;
-  tls13?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ciphersuite: 'Ciphersuite',
-      ciphersuiteGroup: 'CiphersuiteGroup',
-      configId: 'ConfigId',
-      http2: 'Http2',
-      http3: 'Http3',
-      https: 'Https',
-      ocspStapling: 'OcspStapling',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      tls10: 'Tls10',
-      tls11: 'Tls11',
-      tls12: 'Tls12',
-      tls13: 'Tls13',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ciphersuite: 'string',
-      ciphersuiteGroup: 'string',
-      configId: 'number',
-      http2: 'string',
-      http3: 'string',
-      https: 'string',
-      ocspStapling: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      tls10: 'string',
-      tls11: 'string',
-      tls12: 'string',
-      tls13: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestImageTransform extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestIpv6 extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestManagedTransforms extends $tea.Model {
-  addClientGeolocationHeaders?: string;
-  addRealClientIpHeader?: string;
-  configId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      addClientGeolocationHeaders: 'AddClientGeolocationHeaders',
-      addRealClientIpHeader: 'AddRealClientIpHeader',
-      configId: 'ConfigId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      addClientGeolocationHeaders: 'string',
-      addRealClientIpHeader: 'string',
-      configId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestNetworkOptimization extends $tea.Model {
-  configId?: number;
-  grpc?: string;
-  http2Origin?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  smartRouting?: string;
-  uploadMaxFilesize?: string;
-  websocket?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      grpc: 'Grpc',
-      http2Origin: 'Http2Origin',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      smartRouting: 'SmartRouting',
-      uploadMaxFilesize: 'UploadMaxFilesize',
-      websocket: 'Websocket',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      grpc: 'string',
-      http2Origin: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      smartRouting: 'string',
-      uploadMaxFilesize: 'string',
-      websocket: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestOriginRules extends $tea.Model {
-  configId?: number;
-  dnsRecord?: string;
-  originHost?: string;
-  originHttpPort?: string;
-  originHttpsPort?: string;
-  originScheme?: string;
-  originSni?: string;
-  range?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      dnsRecord: 'DnsRecord',
-      originHost: 'OriginHost',
-      originHttpPort: 'OriginHttpPort',
-      originHttpsPort: 'OriginHttpsPort',
-      originScheme: 'OriginScheme',
-      originSni: 'OriginSni',
-      range: 'Range',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      dnsRecord: 'string',
-      originHost: 'string',
-      originHttpPort: 'string',
-      originHttpsPort: 'string',
-      originScheme: 'string',
-      originSni: 'string',
-      range: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestRedirectRules extends $tea.Model {
-  configId?: number;
-  reserveQueryString?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  statusCode?: string;
-  targetUrl?: string;
-  type?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      reserveQueryString: 'ReserveQueryString',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      statusCode: 'StatusCode',
-      targetUrl: 'TargetUrl',
-      type: 'Type',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      reserveQueryString: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      statusCode: 'string',
-      targetUrl: 'string',
-      type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestRewriteUrlRules extends $tea.Model {
-  configId?: number;
-  queryString?: string;
-  rewriteQueryStringType?: string;
-  rewriteUriType?: string;
-  rule?: string;
-  ruleEnable?: string;
-  ruleName?: string;
-  uri?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      queryString: 'QueryString',
-      rewriteQueryStringType: 'RewriteQueryStringType',
-      rewriteUriType: 'RewriteUriType',
-      rule: 'Rule',
-      ruleEnable: 'RuleEnable',
-      ruleName: 'RuleName',
-      uri: 'Uri',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      queryString: 'string',
-      rewriteQueryStringType: 'string',
-      rewriteUriType: 'string',
-      rule: 'string',
-      ruleEnable: 'string',
-      ruleName: 'string',
-      uri: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestSeoBypass extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestSiteNameExclusive extends $tea.Model {
-  configId?: number;
-  enable?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      enable: 'Enable',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      enable: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestSitePause extends $tea.Model {
-  configId?: number;
-  paused?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configId: 'ConfigId',
-      paused: 'Paused',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configId: 'number',
-      paused: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateSiteFunctionRequestTieredCache extends $tea.Model {
-  cacheArchitectureMode?: string;
-  configId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      cacheArchitectureMode: 'CacheArchitectureMode',
-      configId: 'ConfigId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      cacheArchitectureMode: 'string',
-      configId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateWaitingRoomRequestHostNameAndPath extends $tea.Model {
   /**
    * @remarks
@@ -47748,7 +42139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启源站防护
+   * Enables origin protection.
    * 
    * @param request - CreateOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47779,7 +42170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 开启源站防护
+   * Enables origin protection.
    * 
    * @param request - CreateOriginProtectionRequest
    * @returns CreateOriginProtectionResponse
@@ -48045,6 +42436,10 @@ export default class Client extends OpenApi {
   async createRoutineRelatedRouteWithOptions(request: CreateRoutineRelatedRouteRequest, runtime: $Util.RuntimeOptions): Promise<CreateRoutineRelatedRouteResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.byPass)) {
+      body["ByPass"] = request.byPass;
+    }
+
     if (!Util.isUnset(request.name)) {
       body["Name"] = request.name;
     }
@@ -48447,244 +42842,6 @@ export default class Client extends OpenApi {
   async createSiteDeliveryTask(request: CreateSiteDeliveryTaskRequest): Promise<CreateSiteDeliveryTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSiteDeliveryTaskWithOptions(request, runtime);
-  }
-
-  /**
-   * Configures one or more feature settings for a website.
-   * 
-   * @remarks
-   * This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
-   * 
-   * @param tmpReq - CreateSiteFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateSiteFunctionResponse
-   */
-  async createSiteFunctionWithOptions(tmpReq: CreateSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<CreateSiteFunctionResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateSiteFunctionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.cacheReserve)) {
-      request.cacheReserveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheReserve, "CacheReserve", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cacheRules)) {
-      request.cacheRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRules, "CacheRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cacheTags)) {
-      request.cacheTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheTags, "CacheTags", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cnameFlattening)) {
-      request.cnameFlatteningShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cnameFlattening, "CnameFlattening", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.compressionRules)) {
-      request.compressionRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.compressionRules, "CompressionRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.crossBorderOptimization)) {
-      request.crossBorderOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossBorderOptimization, "CrossBorderOptimization", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.developmentMode)) {
-      request.developmentModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.developmentMode, "DevelopmentMode", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpRequestHeaderModificationRules)) {
-      request.httpRequestHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpRequestHeaderModificationRules, "HttpRequestHeaderModificationRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpResponseHeaderModificationRules)) {
-      request.httpResponseHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpResponseHeaderModificationRules, "HttpResponseHeaderModificationRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpsApplicationConfiguration)) {
-      request.httpsApplicationConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsApplicationConfiguration, "HttpsApplicationConfiguration", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpsBasicConfiguration)) {
-      request.httpsBasicConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsBasicConfiguration, "HttpsBasicConfiguration", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.imageTransform)) {
-      request.imageTransformShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageTransform, "ImageTransform", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.ipv6)) {
-      request.ipv6Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipv6, "Ipv6", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.managedTransforms)) {
-      request.managedTransformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managedTransforms, "ManagedTransforms", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.networkOptimization)) {
-      request.networkOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkOptimization, "NetworkOptimization", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.originProtection)) {
-      request.originProtectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originProtection, "OriginProtection", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.originRules)) {
-      request.originRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originRules, "OriginRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.redirectRules)) {
-      request.redirectRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectRules, "RedirectRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.rewriteUrlRules)) {
-      request.rewriteUrlRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewriteUrlRules, "RewriteUrlRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.seoBypass)) {
-      request.seoBypassShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.seoBypass, "SeoBypass", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.siteNameExclusive)) {
-      request.siteNameExclusiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteNameExclusive, "SiteNameExclusive", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sitePause)) {
-      request.sitePauseShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sitePause, "SitePause", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tieredCache)) {
-      request.tieredCacheShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tieredCache, "TieredCache", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.cacheReserveShrink)) {
-      query["CacheReserve"] = request.cacheReserveShrink;
-    }
-
-    if (!Util.isUnset(request.cacheRulesShrink)) {
-      query["CacheRules"] = request.cacheRulesShrink;
-    }
-
-    if (!Util.isUnset(request.cacheTagsShrink)) {
-      query["CacheTags"] = request.cacheTagsShrink;
-    }
-
-    if (!Util.isUnset(request.cnameFlatteningShrink)) {
-      query["CnameFlattening"] = request.cnameFlatteningShrink;
-    }
-
-    if (!Util.isUnset(request.compressionRulesShrink)) {
-      query["CompressionRules"] = request.compressionRulesShrink;
-    }
-
-    if (!Util.isUnset(request.crossBorderOptimizationShrink)) {
-      query["CrossBorderOptimization"] = request.crossBorderOptimizationShrink;
-    }
-
-    if (!Util.isUnset(request.developmentModeShrink)) {
-      query["DevelopmentMode"] = request.developmentModeShrink;
-    }
-
-    if (!Util.isUnset(request.httpRequestHeaderModificationRulesShrink)) {
-      query["HttpRequestHeaderModificationRules"] = request.httpRequestHeaderModificationRulesShrink;
-    }
-
-    if (!Util.isUnset(request.httpResponseHeaderModificationRulesShrink)) {
-      query["HttpResponseHeaderModificationRules"] = request.httpResponseHeaderModificationRulesShrink;
-    }
-
-    if (!Util.isUnset(request.httpsApplicationConfigurationShrink)) {
-      query["HttpsApplicationConfiguration"] = request.httpsApplicationConfigurationShrink;
-    }
-
-    if (!Util.isUnset(request.httpsBasicConfigurationShrink)) {
-      query["HttpsBasicConfiguration"] = request.httpsBasicConfigurationShrink;
-    }
-
-    if (!Util.isUnset(request.imageTransformShrink)) {
-      query["ImageTransform"] = request.imageTransformShrink;
-    }
-
-    if (!Util.isUnset(request.ipv6Shrink)) {
-      query["Ipv6"] = request.ipv6Shrink;
-    }
-
-    if (!Util.isUnset(request.managedTransformsShrink)) {
-      query["ManagedTransforms"] = request.managedTransformsShrink;
-    }
-
-    if (!Util.isUnset(request.networkOptimizationShrink)) {
-      query["NetworkOptimization"] = request.networkOptimizationShrink;
-    }
-
-    if (!Util.isUnset(request.originProtectionShrink)) {
-      query["OriginProtection"] = request.originProtectionShrink;
-    }
-
-    if (!Util.isUnset(request.originRulesShrink)) {
-      query["OriginRules"] = request.originRulesShrink;
-    }
-
-    if (!Util.isUnset(request.redirectRulesShrink)) {
-      query["RedirectRules"] = request.redirectRulesShrink;
-    }
-
-    if (!Util.isUnset(request.rewriteUrlRulesShrink)) {
-      query["RewriteUrlRules"] = request.rewriteUrlRulesShrink;
-    }
-
-    if (!Util.isUnset(request.seoBypassShrink)) {
-      query["SeoBypass"] = request.seoBypassShrink;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteNameExclusiveShrink)) {
-      query["SiteNameExclusive"] = request.siteNameExclusiveShrink;
-    }
-
-    if (!Util.isUnset(request.sitePauseShrink)) {
-      query["SitePause"] = request.sitePauseShrink;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    if (!Util.isUnset(request.tieredCacheShrink)) {
-      query["TieredCache"] = request.tieredCacheShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateSiteFunction",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateSiteFunctionResponse>(await this.callApi(params, req, runtime), new CreateSiteFunctionResponse({}));
-  }
-
-  /**
-   * Configures one or more feature settings for a website.
-   * 
-   * @remarks
-   * This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
-   * 
-   * @param request - CreateSiteFunctionRequest
-   * @returns CreateSiteFunctionResponse
-   */
-  async createSiteFunction(request: CreateSiteFunctionRequest): Promise<CreateSiteFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createSiteFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -49580,7 +43737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭源站防护功能
+   * Disables origin protection.
    * 
    * @param request - DeleteOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49611,7 +43768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭源站防护功能
+   * Disables origin protection.
    * 
    * @param request - DeleteOriginProtectionRequest
    * @returns DeleteOriginProtectionResponse
@@ -50081,52 +44238,6 @@ export default class Client extends OpenApi {
   async deleteSiteDeliveryTask(request: DeleteSiteDeliveryTaskRequest): Promise<DeleteSiteDeliveryTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSiteDeliveryTaskWithOptions(request, runtime);
-  }
-
-  /**
-   * 删除站点配置
-   * 
-   * @param request - DeleteSiteFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteSiteFunctionResponse
-   */
-  async deleteSiteFunctionWithOptions(request: DeleteSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSiteFunctionResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.configIds)) {
-      query["ConfigIds"] = request.configIds;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteSiteFunction",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteSiteFunctionResponse>(await this.callApi(params, req, runtime), new DeleteSiteFunctionResponse({}));
-  }
-
-  /**
-   * 删除站点配置
-   * 
-   * @param request - DeleteSiteFunctionRequest
-   * @returns DeleteSiteFunctionResponse
-   */
-  async deleteSiteFunction(request: DeleteSiteFunctionRequest): Promise<DeleteSiteFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteSiteFunctionWithOptions(request, runtime);
   }
 
   /**
@@ -51056,6 +45167,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取客户端证书绑定的域名列表
+   * 
+   * @param request - GetClientCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetClientCertificateHostnamesResponse
+   */
+  async getClientCertificateHostnamesWithOptions(request: GetClientCertificateHostnamesRequest, runtime: $Util.RuntimeOptions): Promise<GetClientCertificateHostnamesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetClientCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetClientCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new GetClientCertificateHostnamesResponse({}));
+  }
+
+  /**
+   * 获取客户端证书绑定的域名列表
+   * 
+   * @param request - GetClientCertificateHostnamesRequest
+   * @returns GetClientCertificateHostnamesResponse
+   */
+  async getClientCertificateHostnames(request: GetClientCertificateHostnamesRequest): Promise<GetClientCertificateHostnamesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getClientCertificateHostnamesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about a containerized application, including basic application configurations and health check configurations.
    * 
    * @param request - GetEdgeContainerAppRequest
@@ -51526,7 +45675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点源站防护相关配置，查看回源IP白名单信息
+   * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
    * 
    * @param request - GetOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51553,7 +45702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点源站防护相关配置，查看回源IP白名单信息
+   * Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
    * 
    * @param request - GetOriginProtectionRequest
    * @returns GetOriginProtectionResponse
@@ -53474,44 +47623,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点配置
-   * 
-   * @param request - ListSiteFunctionsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListSiteFunctionsResponse
-   */
-  async listSiteFunctionsWithOptions(request: ListSiteFunctionsRequest, runtime: $Util.RuntimeOptions): Promise<ListSiteFunctionsResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListSiteFunctions",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListSiteFunctionsResponse>(await this.callApi(params, req, runtime), new ListSiteFunctionsResponse({}));
-  }
-
-  /**
-   * 查询站点配置
-   * 
-   * @param request - ListSiteFunctionsRequest
-   * @returns ListSiteFunctionsResponse
-   */
-  async listSiteFunctions(request: ListSiteFunctionsRequest): Promise<ListSiteFunctionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listSiteFunctionsWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the information about websites in your account, such as the name, status, and configuration of each website.
    * 
    * @param tmpReq - ListSitesRequest
@@ -55025,6 +49136,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 为客户端证书绑定域名
+   * 
+   * @param tmpReq - SetClientCertificateHostnamesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetClientCertificateHostnamesResponse
+   */
+  async setClientCertificateHostnamesWithOptions(tmpReq: SetClientCertificateHostnamesRequest, runtime: $Util.RuntimeOptions): Promise<SetClientCertificateHostnamesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SetClientCertificateHostnamesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.hostnames)) {
+      request.hostnamesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hostnames, "Hostnames", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.hostnamesShrink)) {
+      body["Hostnames"] = request.hostnamesShrink;
+    }
+
+    if (!Util.isUnset(request.id)) {
+      body["Id"] = request.id;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetClientCertificateHostnames",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetClientCertificateHostnamesResponse>(await this.callApi(params, req, runtime), new SetClientCertificateHostnamesResponse({}));
+  }
+
+  /**
+   * 为客户端证书绑定域名
+   * 
+   * @param request - SetClientCertificateHostnamesRequest
+   * @returns SetClientCertificateHostnamesResponse
+   */
+  async setClientCertificateHostnames(request: SetClientCertificateHostnamesRequest): Promise<SetClientCertificateHostnamesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setClientCertificateHostnamesWithOptions(request, runtime);
+  }
+
+  /**
    * Configures smart HTTP DDoS protection.
    * 
    * @param request - SetHttpDDoSAttackIntelligentProtectionRequest
@@ -55439,7 +49608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改源站防护
+   * Enables or disables IP convergence.
    * 
    * @param request - UpdateOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55474,7 +49643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改源站防护
+   * Enables or disables IP convergence.
    * 
    * @param request - UpdateOriginProtectionRequest
    * @returns UpdateOriginProtectionResponse
@@ -55485,7 +49654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认更新站点回源IP白名单到最新版本
+   * Updates the IP whitelist for origin protection used by a website to the latest version.
    * 
    * @param request - UpdateOriginProtectionIpWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55516,7 +49685,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 确认更新站点回源IP白名单到最新版本
+   * Updates the IP whitelist for origin protection used by a website to the latest version.
    * 
    * @param request - UpdateOriginProtectionIpWhiteListRequest
    * @returns UpdateOriginProtectionIpWhiteListResponse
@@ -56010,226 +50179,6 @@ export default class Client extends OpenApi {
   async updateSiteDeliveryTaskStatus(request: UpdateSiteDeliveryTaskStatusRequest): Promise<UpdateSiteDeliveryTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSiteDeliveryTaskStatusWithOptions(request, runtime);
-  }
-
-  /**
-   * 修改站点配置
-   * 
-   * @param tmpReq - UpdateSiteFunctionRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateSiteFunctionResponse
-   */
-  async updateSiteFunctionWithOptions(tmpReq: UpdateSiteFunctionRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSiteFunctionResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateSiteFunctionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.cacheReserve)) {
-      request.cacheReserveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheReserve, "CacheReserve", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cacheRules)) {
-      request.cacheRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheRules, "CacheRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cacheTags)) {
-      request.cacheTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cacheTags, "CacheTags", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.cnameFlattening)) {
-      request.cnameFlatteningShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.cnameFlattening, "CnameFlattening", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.compressionRules)) {
-      request.compressionRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.compressionRules, "CompressionRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.crossBorderOptimization)) {
-      request.crossBorderOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.crossBorderOptimization, "CrossBorderOptimization", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.developmentMode)) {
-      request.developmentModeShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.developmentMode, "DevelopmentMode", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpRequestHeaderModificationRules)) {
-      request.httpRequestHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpRequestHeaderModificationRules, "HttpRequestHeaderModificationRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpResponseHeaderModificationRules)) {
-      request.httpResponseHeaderModificationRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpResponseHeaderModificationRules, "HttpResponseHeaderModificationRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpsApplicationConfiguration)) {
-      request.httpsApplicationConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsApplicationConfiguration, "HttpsApplicationConfiguration", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.httpsBasicConfiguration)) {
-      request.httpsBasicConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.httpsBasicConfiguration, "HttpsBasicConfiguration", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.imageTransform)) {
-      request.imageTransformShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.imageTransform, "ImageTransform", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.ipv6)) {
-      request.ipv6Shrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ipv6, "Ipv6", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.managedTransforms)) {
-      request.managedTransformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.managedTransforms, "ManagedTransforms", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.networkOptimization)) {
-      request.networkOptimizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.networkOptimization, "NetworkOptimization", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.originRules)) {
-      request.originRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.originRules, "OriginRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.redirectRules)) {
-      request.redirectRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.redirectRules, "RedirectRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.rewriteUrlRules)) {
-      request.rewriteUrlRulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rewriteUrlRules, "RewriteUrlRules", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.seoBypass)) {
-      request.seoBypassShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.seoBypass, "SeoBypass", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.siteNameExclusive)) {
-      request.siteNameExclusiveShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.siteNameExclusive, "SiteNameExclusive", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.sitePause)) {
-      request.sitePauseShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sitePause, "SitePause", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.tieredCache)) {
-      request.tieredCacheShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tieredCache, "TieredCache", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.cacheReserveShrink)) {
-      query["CacheReserve"] = request.cacheReserveShrink;
-    }
-
-    if (!Util.isUnset(request.cacheRulesShrink)) {
-      query["CacheRules"] = request.cacheRulesShrink;
-    }
-
-    if (!Util.isUnset(request.cacheTagsShrink)) {
-      query["CacheTags"] = request.cacheTagsShrink;
-    }
-
-    if (!Util.isUnset(request.cnameFlatteningShrink)) {
-      query["CnameFlattening"] = request.cnameFlatteningShrink;
-    }
-
-    if (!Util.isUnset(request.compressionRulesShrink)) {
-      query["CompressionRules"] = request.compressionRulesShrink;
-    }
-
-    if (!Util.isUnset(request.crossBorderOptimizationShrink)) {
-      query["CrossBorderOptimization"] = request.crossBorderOptimizationShrink;
-    }
-
-    if (!Util.isUnset(request.developmentModeShrink)) {
-      query["DevelopmentMode"] = request.developmentModeShrink;
-    }
-
-    if (!Util.isUnset(request.httpRequestHeaderModificationRulesShrink)) {
-      query["HttpRequestHeaderModificationRules"] = request.httpRequestHeaderModificationRulesShrink;
-    }
-
-    if (!Util.isUnset(request.httpResponseHeaderModificationRulesShrink)) {
-      query["HttpResponseHeaderModificationRules"] = request.httpResponseHeaderModificationRulesShrink;
-    }
-
-    if (!Util.isUnset(request.httpsApplicationConfigurationShrink)) {
-      query["HttpsApplicationConfiguration"] = request.httpsApplicationConfigurationShrink;
-    }
-
-    if (!Util.isUnset(request.httpsBasicConfigurationShrink)) {
-      query["HttpsBasicConfiguration"] = request.httpsBasicConfigurationShrink;
-    }
-
-    if (!Util.isUnset(request.imageTransformShrink)) {
-      query["ImageTransform"] = request.imageTransformShrink;
-    }
-
-    if (!Util.isUnset(request.ipv6Shrink)) {
-      query["Ipv6"] = request.ipv6Shrink;
-    }
-
-    if (!Util.isUnset(request.managedTransformsShrink)) {
-      query["ManagedTransforms"] = request.managedTransformsShrink;
-    }
-
-    if (!Util.isUnset(request.networkOptimizationShrink)) {
-      query["NetworkOptimization"] = request.networkOptimizationShrink;
-    }
-
-    if (!Util.isUnset(request.originRulesShrink)) {
-      query["OriginRules"] = request.originRulesShrink;
-    }
-
-    if (!Util.isUnset(request.redirectRulesShrink)) {
-      query["RedirectRules"] = request.redirectRulesShrink;
-    }
-
-    if (!Util.isUnset(request.rewriteUrlRulesShrink)) {
-      query["RewriteUrlRules"] = request.rewriteUrlRulesShrink;
-    }
-
-    if (!Util.isUnset(request.seoBypassShrink)) {
-      query["SeoBypass"] = request.seoBypassShrink;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteNameExclusiveShrink)) {
-      query["SiteNameExclusive"] = request.siteNameExclusiveShrink;
-    }
-
-    if (!Util.isUnset(request.sitePauseShrink)) {
-      query["SitePause"] = request.sitePauseShrink;
-    }
-
-    if (!Util.isUnset(request.tieredCacheShrink)) {
-      query["TieredCache"] = request.tieredCacheShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateSiteFunction",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateSiteFunctionResponse>(await this.callApi(params, req, runtime), new UpdateSiteFunctionResponse({}));
-  }
-
-  /**
-   * 修改站点配置
-   * 
-   * @param request - UpdateSiteFunctionRequest
-   * @returns UpdateSiteFunctionResponse
-   */
-  async updateSiteFunction(request: UpdateSiteFunctionRequest): Promise<UpdateSiteFunctionResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateSiteFunctionWithOptions(request, runtime);
   }
 
   /**
