@@ -758,6 +758,11 @@ export class EcsSpec extends $tea.Model {
   gpu?: number;
   /**
    * @example
+   * 80
+   */
+  gpuMemory?: number;
+  /**
+   * @example
    * NVIDIA v100
    */
   gpuType?: string;
@@ -799,6 +804,7 @@ export class EcsSpec extends $tea.Model {
       cpu: 'Cpu',
       defaultGPUDriver: 'DefaultGPUDriver',
       gpu: 'Gpu',
+      gpuMemory: 'GpuMemory',
       gpuType: 'GpuType',
       instanceType: 'InstanceType',
       isAvailable: 'IsAvailable',
@@ -817,6 +823,7 @@ export class EcsSpec extends $tea.Model {
       cpu: 'number',
       defaultGPUDriver: 'string',
       gpu: 'number',
+      gpuMemory: 'number',
       gpuType: 'string',
       instanceType: 'string',
       isAvailable: 'boolean',
