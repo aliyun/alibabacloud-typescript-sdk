@@ -204,6 +204,7 @@ export class BackupFileRequest extends $tea.Model {
    * This parameter is required.
    */
   androidInstanceIdList?: string[];
+  backupFileName?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -225,6 +226,7 @@ export class BackupFileRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidInstanceIdList: 'AndroidInstanceIdList',
+      backupFileName: 'BackupFileName',
       backupFilePath: 'BackupFilePath',
       description: 'Description',
       sourceAppList: 'SourceAppList',
@@ -237,6 +239,7 @@ export class BackupFileRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidInstanceIdList: { 'type': 'array', 'itemType': 'string' },
+      backupFileName: 'string',
       backupFilePath: 'string',
       description: 'string',
       sourceAppList: { 'type': 'array', 'itemType': 'string' },
@@ -5058,6 +5061,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
    * ARM
    */
   architectureType?: string;
+  availableInstanceAmount?: number;
   /**
    * @example
    * PrePaid
@@ -5167,6 +5171,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
     return {
       appInstanceGroupId: 'AppInstanceGroupId',
       architectureType: 'ArchitectureType',
+      availableInstanceAmount: 'AvailableInstanceAmount',
       chargeType: 'ChargeType',
       cpu: 'Cpu',
       disks: 'Disks',
@@ -5199,6 +5204,7 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
     return {
       appInstanceGroupId: 'string',
       architectureType: 'string',
+      availableInstanceAmount: 'number',
       chargeType: 'string',
       cpu: 'string',
       disks: { 'type': 'array', 'itemType': DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModelDisks },
@@ -6402,6 +6408,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.androidInstanceIdList)) {
       query["AndroidInstanceIdList"] = request.androidInstanceIdList;
+    }
+
+    if (!Util.isUnset(request.backupFileName)) {
+      query["BackupFileName"] = request.backupFileName;
     }
 
     if (!Util.isUnset(request.backupFilePath)) {
