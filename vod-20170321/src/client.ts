@@ -12410,6 +12410,106 @@ export class GetImageInfosResponse extends $tea.Model {
   }
 }
 
+export class GetJobDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5c9dff***************59d50a967f5
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * transcode
+   */
+  jobType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      jobType: 'JobType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      jobType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDetailResponseBody extends $tea.Model {
+  AIJobDetail?: GetJobDetailResponseBodyAIJobDetail;
+  /**
+   * @example
+   * transcode
+   */
+  jobType?: string;
+  /**
+   * @example
+   * 6708D849-F109-1A6C-AC91-************
+   */
+  requestId?: string;
+  snapshotJobDetail?: GetJobDetailResponseBodySnapshotJobDetail;
+  transcodeJobDetail?: GetJobDetailResponseBodyTranscodeJobDetail;
+  static names(): { [key: string]: string } {
+    return {
+      AIJobDetail: 'AIJobDetail',
+      jobType: 'JobType',
+      requestId: 'RequestId',
+      snapshotJobDetail: 'SnapshotJobDetail',
+      transcodeJobDetail: 'TranscodeJobDetail',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      AIJobDetail: GetJobDetailResponseBodyAIJobDetail,
+      jobType: 'string',
+      requestId: 'string',
+      snapshotJobDetail: GetJobDetailResponseBodySnapshotJobDetail,
+      transcodeJobDetail: GetJobDetailResponseBodyTranscodeJobDetail,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetJobDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetJobDetailResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaAuditAudioResultDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -13575,6 +13675,7 @@ export class GetTranscodeSummaryResponse extends $tea.Model {
 }
 
 export class GetTranscodeTaskRequest extends $tea.Model {
+  jobIds?: string;
   /**
    * @remarks
    * The ID of the transcoding task. You can use one of the following methods to obtain the ID:
@@ -13582,20 +13683,20 @@ export class GetTranscodeTaskRequest extends $tea.Model {
    * *   Obtain the value of TranscodeTaskId from the response to the [SubmitTranscodeJobs](https://help.aliyun.com/document_detail/68570.html) operation.
    * *   Obtain the value of TranscodeTaskId from the response to the [ListTranscodeTask](https://help.aliyun.com/document_detail/109120.html) operation.
    * 
-   * This parameter is required.
-   * 
    * @example
    * b1b65ab107e14*****3dbb900f6c1fe0
    */
   transcodeTaskId?: string;
   static names(): { [key: string]: string } {
     return {
+      jobIds: 'JobIds',
       transcodeTaskId: 'TranscodeTaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      jobIds: 'string',
       transcodeTaskId: 'string',
     };
   }
@@ -13606,6 +13707,7 @@ export class GetTranscodeTaskRequest extends $tea.Model {
 }
 
 export class GetTranscodeTaskResponseBody extends $tea.Model {
+  nonExistJobIds?: string[];
   /**
    * @remarks
    * The ID of the request.
@@ -13614,6 +13716,7 @@ export class GetTranscodeTaskResponseBody extends $tea.Model {
    * F4C6D5BE-BF13-45*****6C-516EA8906DCD
    */
   requestId?: string;
+  transcodeJobInfoList?: GetTranscodeTaskResponseBodyTranscodeJobInfoList[];
   /**
    * @remarks
    * Details about transcoding tasks.
@@ -13621,14 +13724,18 @@ export class GetTranscodeTaskResponseBody extends $tea.Model {
   transcodeTask?: GetTranscodeTaskResponseBodyTranscodeTask;
   static names(): { [key: string]: string } {
     return {
+      nonExistJobIds: 'NonExistJobIds',
       requestId: 'RequestId',
+      transcodeJobInfoList: 'TranscodeJobInfoList',
       transcodeTask: 'TranscodeTask',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      nonExistJobIds: { 'type': 'array', 'itemType': 'string' },
       requestId: 'string',
+      transcodeJobInfoList: { 'type': 'array', 'itemType': GetTranscodeTaskResponseBodyTranscodeJobInfoList },
       transcodeTask: GetTranscodeTaskResponseBodyTranscodeTask,
     };
   }
@@ -15323,6 +15430,107 @@ export class ListDynamicImageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDynamicImageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * transcode
+   */
+  jobType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 30e5d7**********bd900764de7c0102
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobType: 'JobType',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobType: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfoResponseBody extends $tea.Model {
+  jobInfoList?: ListJobInfoResponseBodyJobInfoList[];
+  /**
+   * @example
+   * transcode
+   */
+  jobType?: string;
+  /**
+   * @example
+   * 30e5d7**********bd900764de7c0102
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 6708D849-F109-1A6C-AC91-************
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobInfoList: 'JobInfoList',
+      jobType: 'JobType',
+      mediaId: 'MediaId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobInfoList: { 'type': 'array', 'itemType': ListJobInfoResponseBodyJobInfoList },
+      jobType: 'string',
+      mediaId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListJobInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListJobInfoResponseBody,
     };
   }
 
@@ -29898,6 +30106,236 @@ export class GetImageInfosResponseBodyImageInfo extends $tea.Model {
   }
 }
 
+export class GetJobDetailResponseBodyAIJobDetail extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-14T07:39:46Z
+   */
+  completeTime?: string;
+  /**
+   * @example
+   * 2024-10-14T07:39:25Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 5c9dff751ba**********59d50a967f5
+   */
+  jobId?: string;
+  /**
+   * @example
+   * AIVideoCensor
+   */
+  jobType?: string;
+  /**
+   * @example
+   * 30e5d7**********bd900764de7c0102
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * {"AuditRange":["video","image-cover","text-title"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"no"}
+   */
+  templateConfig?: string;
+  /**
+   * @example
+   * Auto
+   */
+  trigger?: string;
+  /**
+   * @example
+   * 139109*****84930
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      jobId: 'JobId',
+      jobType: 'JobType',
+      mediaId: 'MediaId',
+      status: 'Status',
+      templateConfig: 'TemplateConfig',
+      trigger: 'Trigger',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      createTime: 'string',
+      jobId: 'string',
+      jobType: 'string',
+      mediaId: 'string',
+      status: 'string',
+      templateConfig: 'string',
+      trigger: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDetailResponseBodySnapshotJobDetail extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-14T07:39:45Z
+   */
+  completeTime?: string;
+  /**
+   * @example
+   * 2024-10-14T07:39:25Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 63df12s0**********4hdq249t82kr91
+   */
+  jobId?: string;
+  /**
+   * @example
+   * {"inl":0,"num":32,"tm":5,"wd":"352","ft":"normal","hg":"640"}
+   */
+  normalConfig?: string;
+  /**
+   * @example
+   * {"pad":"0","lines":"10","mgin":"0","cols":"10","ikcp":"false","hg":"68"}
+   */
+  spriteConfig?: string;
+  /**
+   * @example
+   * Success
+   */
+  status?: string;
+  /**
+   * @example
+   * Auto
+   */
+  trigger?: string;
+  /**
+   * @example
+   * 139109*****84930
+   */
+  userId?: number;
+  /**
+   * @example
+   * 30e5d7**********bd900764de7c0102
+   */
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      jobId: 'JobId',
+      normalConfig: 'NormalConfig',
+      spriteConfig: 'SpriteConfig',
+      status: 'Status',
+      trigger: 'Trigger',
+      userId: 'UserId',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      createTime: 'string',
+      jobId: 'string',
+      normalConfig: 'string',
+      spriteConfig: 'string',
+      status: 'string',
+      trigger: 'string',
+      userId: 'number',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetJobDetailResponseBodyTranscodeJobDetail extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-14T07:39:34Z
+   */
+  completeTime?: string;
+  /**
+   * @example
+   * 2024-10-14T07:39:25Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * HD
+   */
+  definition?: string;
+  /**
+   * @example
+   * 2dc1634e**********3f1d22d1a0174e
+   */
+  jobId?: string;
+  /**
+   * @example
+   * TranscodeSuccess
+   */
+  status?: string;
+  /**
+   * @example
+   * dbfaaec9e**********bf0b81219244c
+   */
+  templateId?: string;
+  /**
+   * @example
+   * 139109*****84930
+   */
+  userId?: number;
+  /**
+   * @example
+   * 30e5d7**********bd900764de7c0102
+   */
+  videoId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      definition: 'Definition',
+      jobId: 'JobId',
+      status: 'Status',
+      templateId: 'TemplateId',
+      userId: 'UserId',
+      videoId: 'VideoId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      createTime: 'string',
+      definition: 'string',
+      jobId: 'string',
+      status: 'string',
+      templateId: 'string',
+      userId: 'number',
+      videoId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetMediaAuditAudioResultDetailResponseBodyMediaAuditAudioResultDetailList extends $tea.Model {
   /**
    * @remarks
@@ -33668,6 +34106,113 @@ export class GetTranscodeSummaryResponseBodyTranscodeSummaryList extends $tea.Mo
   }
 }
 
+export class GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile extends $tea.Model {
+  audioStreamList?: string;
+  bitrate?: string;
+  duration?: string;
+  encryption?: string;
+  filesize?: number;
+  format?: string;
+  fps?: string;
+  height?: string;
+  outputFileUrl?: string;
+  subtitleStreamList?: string;
+  videoStreamList?: string;
+  watermarkIdList?: string[];
+  width?: string;
+  static names(): { [key: string]: string } {
+    return {
+      audioStreamList: 'AudioStreamList',
+      bitrate: 'Bitrate',
+      duration: 'Duration',
+      encryption: 'Encryption',
+      filesize: 'Filesize',
+      format: 'Format',
+      fps: 'Fps',
+      height: 'Height',
+      outputFileUrl: 'OutputFileUrl',
+      subtitleStreamList: 'SubtitleStreamList',
+      videoStreamList: 'VideoStreamList',
+      watermarkIdList: 'WatermarkIdList',
+      width: 'Width',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      audioStreamList: 'string',
+      bitrate: 'string',
+      duration: 'string',
+      encryption: 'string',
+      filesize: 'number',
+      format: 'string',
+      fps: 'string',
+      height: 'string',
+      outputFileUrl: 'string',
+      subtitleStreamList: 'string',
+      videoStreamList: 'string',
+      watermarkIdList: { 'type': 'array', 'itemType': 'string' },
+      width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTranscodeTaskResponseBodyTranscodeJobInfoList extends $tea.Model {
+  completeTime?: string;
+  creationTime?: string;
+  definition?: string;
+  errorCode?: string;
+  errorMessage?: string;
+  inputFileUrl?: string;
+  outputFile?: GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile;
+  priority?: string;
+  transcodeJobId?: string;
+  transcodeJobStatus?: string;
+  transcodeProgress?: number;
+  transcodeTemplateId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      creationTime: 'CreationTime',
+      definition: 'Definition',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      inputFileUrl: 'InputFileUrl',
+      outputFile: 'OutputFile',
+      priority: 'Priority',
+      transcodeJobId: 'TranscodeJobId',
+      transcodeJobStatus: 'TranscodeJobStatus',
+      transcodeProgress: 'TranscodeProgress',
+      transcodeTemplateId: 'TranscodeTemplateId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      creationTime: 'string',
+      definition: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      inputFileUrl: 'string',
+      outputFile: GetTranscodeTaskResponseBodyTranscodeJobInfoListOutputFile,
+      priority: 'string',
+      transcodeJobId: 'string',
+      transcodeJobStatus: 'string',
+      transcodeProgress: 'number',
+      transcodeTemplateId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetTranscodeTaskResponseBodyTranscodeTaskTranscodeJobInfoListOutputFile extends $tea.Model {
   /**
    * @remarks
@@ -36431,6 +36976,57 @@ export class ListDynamicImageResponseBodyDynamicImageList extends $tea.Model {
       jobId: 'string',
       videoId: 'string',
       width: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListJobInfoResponseBodyJobInfoList extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-14T07:39:34Z
+   */
+  completeTime?: string;
+  /**
+   * @example
+   * 2024-10-14T07:39:25Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 5c9dff751ba**********59d50a967f5
+   */
+  jobId?: string;
+  /**
+   * @example
+   * TranscodeSuccess
+   */
+  status?: string;
+  /**
+   * @example
+   * 139109*****84930
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      completeTime: 'CompleteTime',
+      createTime: 'CreateTime',
+      jobId: 'JobId',
+      status: 'Status',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      completeTime: 'string',
+      createTime: 'string',
+      jobId: 'string',
+      status: 'string',
+      userId: 'number',
     };
   }
 
@@ -45321,6 +45917,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 异步任务管理能力建设
+   * 
+   * @param request - GetJobDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetJobDetailResponse
+   */
+  async getJobDetailWithOptions(request: GetJobDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetJobDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetJobDetail",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetJobDetailResponse>(await this.callApi(params, req, runtime), new GetJobDetailResponse({}));
+  }
+
+  /**
+   * 异步任务管理能力建设
+   * 
+   * @param request - GetJobDetailRequest
+   * @returns GetJobDetailResponse
+   */
+  async getJobDetail(request: GetJobDetailRequest): Promise<GetJobDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getJobDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of audio review results.
    * 
    * @remarks
@@ -45923,6 +46565,10 @@ export default class Client extends OpenApi {
   async getTranscodeTaskWithOptions(request: GetTranscodeTaskRequest, runtime: $Util.RuntimeOptions): Promise<GetTranscodeTaskResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.jobIds)) {
+      query["JobIds"] = request.jobIds;
+    }
+
     if (!Util.isUnset(request.transcodeTaskId)) {
       query["TranscodeTaskId"] = request.transcodeTaskId;
     }
@@ -46814,6 +47460,52 @@ export default class Client extends OpenApi {
   async listDynamicImage(request: ListDynamicImageRequest): Promise<ListDynamicImageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDynamicImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 异步任务管理能力建设
+   * 
+   * @param request - ListJobInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListJobInfoResponse
+   */
+  async listJobInfoWithOptions(request: ListJobInfoRequest, runtime: $Util.RuntimeOptions): Promise<ListJobInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobType)) {
+      query["JobType"] = request.jobType;
+    }
+
+    if (!Util.isUnset(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListJobInfo",
+      version: "2017-03-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListJobInfoResponse>(await this.callApi(params, req, runtime), new ListJobInfoResponse({}));
+  }
+
+  /**
+   * 异步任务管理能力建设
+   * 
+   * @param request - ListJobInfoRequest
+   * @returns ListJobInfoResponse
+   */
+  async listJobInfo(request: ListJobInfoRequest): Promise<ListJobInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listJobInfoWithOptions(request, runtime);
   }
 
   /**
