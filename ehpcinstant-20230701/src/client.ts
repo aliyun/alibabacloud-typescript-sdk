@@ -660,6 +660,139 @@ export class DescribeJobMetricLastResponse extends $tea.Model {
   }
 }
 
+export class GetAppVersionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * V-Ray
+   */
+  appName?: string;
+  /**
+   * @example
+   * Public
+   */
+  imageCategory?: string;
+  /**
+   * @example
+   * VM
+   */
+  imageType?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appName: 'AppName',
+      imageCategory: 'ImageCategory',
+      imageType: 'ImageType',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appName: 'string',
+      imageCategory: 'string',
+      imageType: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppVersionsResponseBody extends $tea.Model {
+  appVersions?: GetAppVersionsResponseBodyAppVersions[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appVersions: 'AppVersions',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appVersions: { 'type': 'array', 'itemType': GetAppVersionsResponseBodyAppVersions },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAppVersionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAppVersionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAppVersionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageRequest extends $tea.Model {
   imageCategory?: string;
   /**
@@ -974,6 +1107,7 @@ export class ListImagesRequest extends $tea.Model {
   imageIds?: string[];
   imageNames?: string[];
   imageType?: string;
+  mode?: string;
   /**
    * @example
    * 1
@@ -990,6 +1124,7 @@ export class ListImagesRequest extends $tea.Model {
       imageIds: 'ImageIds',
       imageNames: 'ImageNames',
       imageType: 'ImageType',
+      mode: 'Mode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -1001,6 +1136,7 @@ export class ListImagesRequest extends $tea.Model {
       imageIds: { 'type': 'array', 'itemType': 'string' },
       imageNames: { 'type': 'array', 'itemType': 'string' },
       imageType: 'string',
+      mode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -1016,6 +1152,7 @@ export class ListImagesShrinkRequest extends $tea.Model {
   imageIdsShrink?: string;
   imageNamesShrink?: string;
   imageType?: string;
+  mode?: string;
   /**
    * @example
    * 1
@@ -1032,6 +1169,7 @@ export class ListImagesShrinkRequest extends $tea.Model {
       imageIdsShrink: 'ImageIds',
       imageNamesShrink: 'ImageNames',
       imageType: 'ImageType',
+      mode: 'Mode',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
     };
@@ -1043,6 +1181,7 @@ export class ListImagesShrinkRequest extends $tea.Model {
       imageIdsShrink: 'string',
       imageNamesShrink: 'string',
       imageType: 'string',
+      mode: 'string',
       pageNumber: 'number',
       pageSize: 'number',
     };
@@ -2429,6 +2568,46 @@ export class DescribeJobMetricLastResponseBodyMetrics extends $tea.Model {
   }
 }
 
+export class GetAppVersionsResponseBodyAppVersions extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * m-f8z0dfa96luomqly****
+   */
+  imageId?: string;
+  /**
+   * @example
+   * V-Ray
+   */
+  name?: string;
+  /**
+   * @example
+   * v1.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      imageId: 'ImageId',
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageId: 'string',
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetImageResponseBodyImageContainerImageSpecRegistryCredential extends $tea.Model {
   /**
    * @example
@@ -2467,6 +2646,7 @@ export class GetImageResponseBodyImageContainerImageSpecRegistryCredential exten
 }
 
 export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
+  architecture?: string;
   /**
    * @example
    * True
@@ -2477,6 +2657,8 @@ export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
    * True
    */
   isACRRegistry?: boolean;
+  osTag?: string;
+  platform?: string;
   registryCredential?: GetImageResponseBodyImageContainerImageSpecRegistryCredential;
   /**
    * @example
@@ -2490,8 +2672,11 @@ export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
   registryUrl?: string;
   static names(): { [key: string]: string } {
     return {
+      architecture: 'Architecture',
       isACREnterprise: 'IsACREnterprise',
       isACRRegistry: 'IsACRRegistry',
+      osTag: 'OsTag',
+      platform: 'Platform',
       registryCredential: 'RegistryCredential',
       registryCriId: 'RegistryCriId',
       registryUrl: 'RegistryUrl',
@@ -2500,11 +2685,39 @@ export class GetImageResponseBodyImageContainerImageSpec extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      architecture: 'string',
       isACREnterprise: 'boolean',
       isACRRegistry: 'boolean',
+      osTag: 'string',
+      platform: 'string',
       registryCredential: GetImageResponseBodyImageContainerImageSpecRegistryCredential,
       registryCriId: 'string',
       registryUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetImageResponseBodyImageDocumentInfo extends $tea.Model {
+  document?: string;
+  documentId?: string;
+  encodingMode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      document: 'Document',
+      documentId: 'DocumentId',
+      encodingMode: 'EncodingMode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      document: 'string',
+      documentId: 'string',
+      encodingMode: 'string',
     };
   }
 
@@ -2566,6 +2779,7 @@ export class GetImageResponseBodyImage extends $tea.Model {
    */
   createTime?: string;
   description?: string;
+  documentInfo?: GetImageResponseBodyImageDocumentInfo;
   /**
    * @remarks
    * This parameter is required.
@@ -2597,6 +2811,7 @@ export class GetImageResponseBodyImage extends $tea.Model {
       containerImageSpec: 'ContainerImageSpec',
       createTime: 'CreateTime',
       description: 'Description',
+      documentInfo: 'DocumentInfo',
       imageType: 'ImageType',
       name: 'Name',
       size: 'Size',
@@ -2612,6 +2827,7 @@ export class GetImageResponseBodyImage extends $tea.Model {
       containerImageSpec: GetImageResponseBodyImageContainerImageSpec,
       createTime: 'string',
       description: 'string',
+      documentInfo: GetImageResponseBodyImageDocumentInfo,
       imageType: 'string',
       name: 'string',
       size: 'string',
@@ -3310,6 +3526,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
    */
   createTime?: string;
   description?: string;
+  documentId?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -3332,6 +3549,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
    */
   name?: string;
   osTag?: string;
+  updateTime?: string;
   /**
    * @example
    * v1.0
@@ -3342,10 +3560,12 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       appId: 'AppId',
       createTime: 'CreateTime',
       description: 'Description',
+      documentId: 'DocumentId',
       imageId: 'ImageId',
       imageType: 'ImageType',
       name: 'Name',
       osTag: 'OsTag',
+      updateTime: 'UpdateTime',
       version: 'Version',
     };
   }
@@ -3355,10 +3575,12 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       appId: 'string',
       createTime: 'string',
       description: 'string',
+      documentId: 'number',
       imageId: 'string',
       imageType: 'string',
       name: 'string',
       osTag: 'string',
+      updateTime: 'string',
       version: 'string',
     };
   }
@@ -4157,6 +4379,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看应用版本列表
+   * 
+   * @param request - GetAppVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAppVersionsResponse
+   */
+  async getAppVersionsWithOptions(request: GetAppVersionsRequest, runtime: $Util.RuntimeOptions): Promise<GetAppVersionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appName)) {
+      query["AppName"] = request.appName;
+    }
+
+    if (!Util.isUnset(request.imageCategory)) {
+      query["ImageCategory"] = request.imageCategory;
+    }
+
+    if (!Util.isUnset(request.imageType)) {
+      query["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAppVersions",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAppVersionsResponse>(await this.callApi(params, req, runtime), new GetAppVersionsResponse({}));
+  }
+
+  /**
+   * 查看应用版本列表
+   * 
+   * @param request - GetAppVersionsRequest
+   * @returns GetAppVersionsResponse
+   */
+  async getAppVersions(request: GetAppVersionsRequest): Promise<GetAppVersionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAppVersionsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询托管侧镜像详情。
    * 
    * @param request - GetImageRequest
@@ -4338,6 +4618,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageType)) {
       query["ImageType"] = request.imageType;
+    }
+
+    if (!Util.isUnset(request.mode)) {
+      query["Mode"] = request.mode;
     }
 
     if (!Util.isUnset(request.pageNumber)) {
