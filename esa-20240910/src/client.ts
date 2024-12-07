@@ -22528,6 +22528,8 @@ export class PurgeCachesRequest extends $tea.Model {
    * @remarks
    * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
    * 
+   * This parameter is required.
+   * 
    * @example
    * 123456789****
    */
@@ -22604,6 +22606,8 @@ export class PurgeCachesShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 123456789****
