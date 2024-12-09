@@ -556,78 +556,172 @@ export class AttachSharedStoragesResponse extends $tea.Model {
 }
 
 export class CreateClusterRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
+   */
   additionalPackages?: CreateClusterRequestAdditionalPackages[];
+  /**
+   * @remarks
+   * The configurations of the custom addons in the cluster. Only one addon is supported.
+   */
   addons?: CreateClusterRequestAddons[];
   /**
+   * @remarks
+   * The client version. By default, the latest version is used.
+   * 
    * @example
    * 2.1.0
    */
   clientVersion?: string;
   /**
+   * @remarks
+   * The cluster type. Valid values:
+   * 
+   * *   Standard
+   * *   Serverless
+   * 
    * @example
    * Standard
    */
   clusterCategory?: string;
+  /**
+   * @remarks
+   * The access credentials of the cluster.
+   */
   clusterCredentials?: CreateClusterRequestClusterCredentials;
+  /**
+   * @remarks
+   * The post-processing script of the cluster.
+   */
   clusterCustomConfiguration?: CreateClusterRequestClusterCustomConfiguration;
   /**
+   * @remarks
+   * The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
    * @example
    * slurm22.05.8-cluster-20240718
    */
   clusterDescription?: string;
   /**
+   * @remarks
+   * The deployment mode of the cluster. Valid values:
+   * 
+   * *   Integrated
+   * *   Hybrid
+   * *   Custom
+   * 
    * @example
    * Integrated
    */
   clusterMode?: string;
   /**
+   * @remarks
+   * The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
    * @example
    * slurm22.05.8-cluster-20240718
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch that you want the cluster to use. The vSwitch must reside in the VPC that is specified by the `ClusterVpcId` parameter.
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to query information about the created VPCs and vSwitches.
+   * 
    * @example
    * vsw-f8za5p0mwzgdu3wgx****
    */
   clusterVSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which the cluster resides.
+   * 
    * @example
    * vpc-m5efjevmclc0xdmys****
    */
   clusterVpcId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   deletionProtection?: boolean;
   /**
+   * @remarks
+   * Specifies whether to use an advanced security group. Valid values:
+   * 
+   * *   true: automatically creates and uses an advanced security group.
+   * *   false: automatically creates and uses a basic security group.
+   * 
+   * For more information, see [Basic security groups and advanced security groups](https://help.aliyun.com/document_detail/605897.html).
+   * 
    * @example
    * false
    */
   isEnterpriseSecurityGroup?: boolean;
+  /**
+   * @remarks
+   * The configurations of the cluster management node.
+   */
   manager?: CreateClusterRequestManager;
   /**
+   * @remarks
+   * The maximum number of vCPUs that can be used by compute nodes in the cluster. Valid values: 0 to 100,000.
+   * 
    * @example
    * 10000
    */
   maxCoreCount?: number;
   /**
+   * @remarks
+   * The maximum number of compute nodes that the cluster can manage. Valid values: 0 to 5,000.
+   * 
    * @example
    * 500
    */
   maxCount?: number;
+  /**
+   * @remarks
+   * The configurations of the queues in the cluster. The number of queues can be 0 to 8.
+   */
   queues?: QueueTemplate[];
   /**
+   * @remarks
+   * The ID of the resource group to which the cluster belongs.
+   * 
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the IDs of the resource groups.
+   * 
    * @example
    * rg-acfmxazb4******
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the security group to which the cluster belongs.
+   * 
+   * You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query available security groups in the current region.
+   * 
    * @example
    * sg-bp13n61xsydodfyg****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The configurations of shared storage in the cluster.
+   */
   sharedStorages?: SharedStorageTemplate[];
+  /**
+   * @remarks
+   * The tags of the cluster.
+   */
   tags?: CreateClusterRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -687,78 +781,172 @@ export class CreateClusterRequest extends $tea.Model {
 }
 
 export class CreateClusterShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
+   */
   additionalPackagesShrink?: string;
+  /**
+   * @remarks
+   * The configurations of the custom addons in the cluster. Only one addon is supported.
+   */
   addonsShrink?: string;
   /**
+   * @remarks
+   * The client version. By default, the latest version is used.
+   * 
    * @example
    * 2.1.0
    */
   clientVersion?: string;
   /**
+   * @remarks
+   * The cluster type. Valid values:
+   * 
+   * *   Standard
+   * *   Serverless
+   * 
    * @example
    * Standard
    */
   clusterCategory?: string;
+  /**
+   * @remarks
+   * The access credentials of the cluster.
+   */
   clusterCredentialsShrink?: string;
+  /**
+   * @remarks
+   * The post-processing script of the cluster.
+   */
   clusterCustomConfigurationShrink?: string;
   /**
+   * @remarks
+   * The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
    * @example
    * slurm22.05.8-cluster-20240718
    */
   clusterDescription?: string;
   /**
+   * @remarks
+   * The deployment mode of the cluster. Valid values:
+   * 
+   * *   Integrated
+   * *   Hybrid
+   * *   Custom
+   * 
    * @example
    * Integrated
    */
   clusterMode?: string;
   /**
+   * @remarks
+   * The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+   * 
    * @example
    * slurm22.05.8-cluster-20240718
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The ID of the vSwitch that you want the cluster to use. The vSwitch must reside in the VPC that is specified by the `ClusterVpcId` parameter.
+   * 
+   * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to query information about the created VPCs and vSwitches.
+   * 
    * @example
    * vsw-f8za5p0mwzgdu3wgx****
    */
   clusterVSwitchId?: string;
   /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC) in which the cluster resides.
+   * 
    * @example
    * vpc-m5efjevmclc0xdmys****
    */
   clusterVpcId?: string;
   /**
+   * @remarks
+   * Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
    * @example
    * false
    */
   deletionProtection?: boolean;
   /**
+   * @remarks
+   * Specifies whether to use an advanced security group. Valid values:
+   * 
+   * *   true: automatically creates and uses an advanced security group.
+   * *   false: automatically creates and uses a basic security group.
+   * 
+   * For more information, see [Basic security groups and advanced security groups](https://help.aliyun.com/document_detail/605897.html).
+   * 
    * @example
    * false
    */
   isEnterpriseSecurityGroup?: boolean;
+  /**
+   * @remarks
+   * The configurations of the cluster management node.
+   */
   managerShrink?: string;
   /**
+   * @remarks
+   * The maximum number of vCPUs that can be used by compute nodes in the cluster. Valid values: 0 to 100,000.
+   * 
    * @example
    * 10000
    */
   maxCoreCount?: number;
   /**
+   * @remarks
+   * The maximum number of compute nodes that the cluster can manage. Valid values: 0 to 5,000.
+   * 
    * @example
    * 500
    */
   maxCount?: number;
+  /**
+   * @remarks
+   * The configurations of the queues in the cluster. The number of queues can be 0 to 8.
+   */
   queuesShrink?: string;
   /**
+   * @remarks
+   * The ID of the resource group to which the cluster belongs.
+   * 
+   * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the IDs of the resource groups.
+   * 
    * @example
    * rg-acfmxazb4******
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the security group to which the cluster belongs.
+   * 
+   * You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query available security groups in the current region.
+   * 
    * @example
    * sg-bp13n61xsydodfyg****
    */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The configurations of shared storage in the cluster.
+   */
   sharedStoragesShrink?: string;
+  /**
+   * @remarks
+   * The tags of the cluster.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -819,21 +1007,36 @@ export class CreateClusterShrinkRequest extends $tea.Model {
 
 export class CreateClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * ehpc-hz-FYUr******
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F6757FA4-8FED-4602-B7F5-3550C0******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result. Valid values:
+   * 
+   * *   true: The request was successful.
+   * *   false: The request failed.
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * F6757FA4-8FED-4602-B7F5-3550C0******
    */
@@ -1079,6 +1282,7 @@ export class CreateNodesRequest extends $tea.Model {
    * 10
    */
   count?: number;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The type of the network between compute nodes. Valid values:
@@ -1143,6 +1347,7 @@ export class CreateNodesRequest extends $tea.Model {
       clusterId: 'ClusterId',
       computeNode: 'ComputeNode',
       count: 'Count',
+      deploymentSetId: 'DeploymentSetId',
       HPCInterConnect: 'HPCInterConnect',
       hostnamePrefix: 'HostnamePrefix',
       hostnameSuffix: 'HostnameSuffix',
@@ -1158,6 +1363,7 @@ export class CreateNodesRequest extends $tea.Model {
       clusterId: 'string',
       computeNode: NodeTemplate,
       count: 'number',
+      deploymentSetId: 'string',
       HPCInterConnect: 'string',
       hostnamePrefix: 'string',
       hostnameSuffix: 'string',
@@ -1201,6 +1407,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
    * 10
    */
   count?: number;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The type of the network between compute nodes. Valid values:
@@ -1265,6 +1472,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
       clusterId: 'ClusterId',
       computeNodeShrink: 'ComputeNode',
       count: 'Count',
+      deploymentSetId: 'DeploymentSetId',
       HPCInterConnect: 'HPCInterConnect',
       hostnamePrefix: 'HostnamePrefix',
       hostnameSuffix: 'HostnameSuffix',
@@ -1280,6 +1488,7 @@ export class CreateNodesShrinkRequest extends $tea.Model {
       clusterId: 'string',
       computeNodeShrink: 'string',
       count: 'number',
+      deploymentSetId: 'string',
       HPCInterConnect: 'string',
       hostnamePrefix: 'string',
       hostnameSuffix: 'string',
@@ -1617,7 +1826,7 @@ export class CreateUsersResponse extends $tea.Model {
 export class DeleteClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the E-HPC cluster to be released.
    * 
    * @example
    * ehpc-hz-QKKVqO****
@@ -2717,7 +2926,7 @@ export class GetClusterResponseBody extends $tea.Model {
   idleInterval?: number;
   /**
    * @remarks
-   * The configurations of the cluster management node.
+   * The management node configurations.
    */
   manager?: GetClusterResponseBodyManager;
   /**
@@ -2736,6 +2945,7 @@ export class GetClusterResponseBody extends $tea.Model {
    * 100
    */
   maxCount?: string;
+  monitorSpec?: GetClusterResponseBodyMonitorSpec;
   /**
    * @remarks
    * The request ID.
@@ -2782,6 +2992,7 @@ export class GetClusterResponseBody extends $tea.Model {
       manager: 'Manager',
       maxCoreCount: 'MaxCoreCount',
       maxCount: 'MaxCount',
+      monitorSpec: 'MonitorSpec',
       requestId: 'RequestId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
@@ -2810,6 +3021,7 @@ export class GetClusterResponseBody extends $tea.Model {
       manager: GetClusterResponseBodyManager,
       maxCoreCount: 'string',
       maxCount: 'string',
+      monitorSpec: GetClusterResponseBodyMonitorSpec,
       requestId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
@@ -2945,7 +3157,7 @@ export class GetCommonLogDetailResponseBody extends $tea.Model {
   logType?: string;
   /**
    * @remarks
-   * The ID of the user who performed the action.
+   * The account ID of the operator.
    * 
    * @example
    * 239***
@@ -3024,6 +3236,8 @@ export class GetCommonLogDetailResponse extends $tea.Model {
 export class GetJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3032,6 +3246,8 @@ export class GetJobRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
+   * The job ID. You can call the ListJobs operation to query the job ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3058,13 +3274,26 @@ export class GetJobRequest extends $tea.Model {
 }
 
 export class GetJobResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The job details.
+   */
   jobInfo?: GetJobResponseBodyJobInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 04F0****-1335-****-A1D7-6C044FE7****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -3354,7 +3583,7 @@ export class GetQueueRequest extends $tea.Model {
 export class GetQueueResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The information about the queue.
+   * The queue configurations.
    */
   queue?: GetQueueResponseBodyQueue;
   /**
@@ -4177,9 +4406,9 @@ export class ListAvailableImagesRequest extends $tea.Model {
    * @remarks
    * The image source. Valid values:
    * 
-   * *   system: system images
-   * *   self: custom images
-   * *   others: shared images
+   * *   system: system image.
+   * *   self: custom image.
+   * *   others: shared image.
    * 
    * @example
    * self
@@ -4187,7 +4416,9 @@ export class ListAvailableImagesRequest extends $tea.Model {
   imageOwnerAlias?: string;
   /**
    * @remarks
-   * The instance type for which you want to query available images. If you do not specify the instance type, all available images are returned, regardless of the supported instance types.
+   * The instance type.
+   * 
+   * >  By default, if you do not specify an instance type, the list of images that are supported by all instance types are queried. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.c7.large
@@ -4197,8 +4428,8 @@ export class ListAvailableImagesRequest extends $tea.Model {
    * @remarks
    * Specifies whether to return published community images. Valid values:
    * 
-   * *   true: returns published community images. If you set the value of this parameter to true, the ImageOwnerAlias parameter must be set to others.
-   * *   false: returns non-community images. The value of the ImageOwnerAlias parameter prevails.
+   * *   true: returns published community images. If you set the value of this parameter to `true`, the `ImageOwnerAlias` parameter must be set to `others`.
+   * *   false: returns non-community images. The value of the `ImageOwnerAlias` parameter prevails.
    * 
    * Default value: false.
    * 
@@ -4286,9 +4517,9 @@ export class ListAvailableImagesShrinkRequest extends $tea.Model {
    * @remarks
    * The image source. Valid values:
    * 
-   * *   system: system images
-   * *   self: custom images
-   * *   others: shared images
+   * *   system: system image.
+   * *   self: custom image.
+   * *   others: shared image.
    * 
    * @example
    * self
@@ -4296,7 +4527,9 @@ export class ListAvailableImagesShrinkRequest extends $tea.Model {
   imageOwnerAlias?: string;
   /**
    * @remarks
-   * The instance type for which you want to query available images. If you do not specify the instance type, all available images are returned, regardless of the supported instance types.
+   * The instance type.
+   * 
+   * >  By default, if you do not specify an instance type, the list of images that are supported by all instance types are queried. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * @example
    * ecs.c7.large
@@ -4306,8 +4539,8 @@ export class ListAvailableImagesShrinkRequest extends $tea.Model {
    * @remarks
    * Specifies whether to return published community images. Valid values:
    * 
-   * *   true: returns published community images. If you set the value of this parameter to true, the ImageOwnerAlias parameter must be set to others.
-   * *   false: returns non-community images. The value of the ImageOwnerAlias parameter prevails.
+   * *   true: returns published community images. If you set the value of this parameter to `true`, the `ImageOwnerAlias` parameter must be set to `others`.
+   * *   false: returns non-community images. The value of the `ImageOwnerAlias` parameter prevails.
    * 
    * Default value: false.
    * 
@@ -4377,7 +4610,10 @@ export class ListAvailableImagesResponseBody extends $tea.Model {
   images?: ListAvailableImagesResponseBodyImages[];
   /**
    * @remarks
-   * Id of the request
+   * The page number of the returned page.
+   * 
+   * *   Pages start from page 1.
+   * *   Default value: 1.
    * 
    * @example
    * 1
@@ -4385,7 +4621,7 @@ export class ListAvailableImagesResponseBody extends $tea.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * Id of the request
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -4403,8 +4639,8 @@ export class ListAvailableImagesResponseBody extends $tea.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   true
-   * *   false
+   * *   true: The request was successful.
+   * *   false: The request failed.
    * 
    * @example
    * true
@@ -4412,7 +4648,7 @@ export class ListAvailableImagesResponseBody extends $tea.Model {
   success?: boolean;
   /**
    * @remarks
-   * Id of the request
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -4724,7 +4960,7 @@ export class ListCommonLogsRequest extends $tea.Model {
   logType?: string;
   /**
    * @remarks
-   * The ID of the user who performed the action.
+   * The account ID of the operator.
    * 
    * @example
    * 137***
@@ -4875,7 +5111,7 @@ export class ListCommonLogsShrinkRequest extends $tea.Model {
   logType?: string;
   /**
    * @remarks
-   * The ID of the user who performed the action.
+   * The account ID of the operator.
    * 
    * @example
    * 137***
@@ -4963,7 +5199,7 @@ export class ListCommonLogsShrinkRequest extends $tea.Model {
 export class ListCommonLogsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The information about the returned logs.
+   * The brief information of operation logs.
    */
   logs?: ListCommonLogsResponseBodyLogs[];
   /**
@@ -5069,7 +5305,7 @@ export class ListInstalledSoftwaresRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -5321,7 +5557,7 @@ export class ListJobsShrinkRequest extends $tea.Model {
 export class ListJobsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned jobs.
+   * The jobs.
    */
   jobs?: ListJobsResponseBodyJobs[];
   /**
@@ -5461,7 +5697,12 @@ export class ListNodesRequest extends $tea.Model {
   queueNames?: string[];
   /**
    * @remarks
-   * Specifies whether the results are sorted in ascending or descending order. Valid values: forward (ascending) and backward (descending).
+   * Specifies whether the results are sorted in ascending or descending order. Valid values:
+   * 
+   * *   Forward: ascending
+   * *   Backward: descending
+   * 
+   * Default value: Forward.
    * 
    * @example
    * Forward
@@ -5469,7 +5710,12 @@ export class ListNodesRequest extends $tea.Model {
   sequence?: string;
   /**
    * @remarks
-   * The sorting method of the node list. Valid values: addedtime: sorted by the time when the node was added. hostname: sorted by hostname. Default value: addedtime.
+   * The sorting method of the node list. Valid values:
+   * 
+   * *   AddedTime: sorts the nodes by the time that they were added.
+   * *   HostName: sorts the nodes by their hostnames.
+   * 
+   * Default value: addedtime.
    * 
    * @example
    * AddedTime
@@ -5555,7 +5801,12 @@ export class ListNodesShrinkRequest extends $tea.Model {
   queueNamesShrink?: string;
   /**
    * @remarks
-   * Specifies whether the results are sorted in ascending or descending order. Valid values: forward (ascending) and backward (descending).
+   * Specifies whether the results are sorted in ascending or descending order. Valid values:
+   * 
+   * *   Forward: ascending
+   * *   Backward: descending
+   * 
+   * Default value: Forward.
    * 
    * @example
    * Forward
@@ -5563,7 +5814,12 @@ export class ListNodesShrinkRequest extends $tea.Model {
   sequence?: string;
   /**
    * @remarks
-   * The sorting method of the node list. Valid values: addedtime: sorted by the time when the node was added. hostname: sorted by hostname. Default value: addedtime.
+   * The sorting method of the node list. Valid values:
+   * 
+   * *   AddedTime: sorts the nodes by the time that they were added.
+   * *   HostName: sorts the nodes by their hostnames.
+   * 
+   * Default value: addedtime.
    * 
    * @example
    * AddedTime
@@ -6017,7 +6273,7 @@ export class ListSoftwaresRequest extends $tea.Model {
   osInfos?: ListSoftwaresRequestOsInfos[];
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the page to return.
    * 
    * @example
    * 1
@@ -6159,7 +6415,7 @@ export class ListUsersRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The page number.
+   * The page number of the page to return.
    * 
    * Pages start from page 1.
    * 
@@ -6747,6 +7003,7 @@ export class UpdateClusterRequest extends $tea.Model {
    * 500
    */
   maxCount?: number;
+  monitorSpec?: UpdateClusterRequestMonitorSpec;
   static names(): { [key: string]: string } {
     return {
       clientVersion: 'ClientVersion',
@@ -6761,6 +7018,7 @@ export class UpdateClusterRequest extends $tea.Model {
       idleInterval: 'IdleInterval',
       maxCoreCount: 'MaxCoreCount',
       maxCount: 'MaxCount',
+      monitorSpec: 'MonitorSpec',
     };
   }
 
@@ -6778,6 +7036,7 @@ export class UpdateClusterRequest extends $tea.Model {
       idleInterval: 'number',
       maxCoreCount: 'number',
       maxCount: 'number',
+      monitorSpec: UpdateClusterRequestMonitorSpec,
     };
   }
 
@@ -6893,6 +7152,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
    * 500
    */
   maxCount?: number;
+  monitorSpecShrink?: string;
   static names(): { [key: string]: string } {
     return {
       clientVersion: 'ClientVersion',
@@ -6907,6 +7167,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
       idleInterval: 'IdleInterval',
       maxCoreCount: 'MaxCoreCount',
       maxCount: 'MaxCount',
+      monitorSpecShrink: 'MonitorSpec',
     };
   }
 
@@ -6924,6 +7185,7 @@ export class UpdateClusterShrinkRequest extends $tea.Model {
       idleInterval: 'number',
       maxCoreCount: 'number',
       maxCount: 'number',
+      monitorSpecShrink: 'string',
     };
   }
 
@@ -7687,11 +7949,17 @@ export class AttachSharedStoragesRequestSharedStorages extends $tea.Model {
 
 export class CreateClusterRequestAdditionalPackages extends $tea.Model {
   /**
+   * @remarks
+   * The name of the software that you want to install in the cluster.
+   * 
    * @example
    * mpich
    */
   name?: string;
   /**
+   * @remarks
+   * The version of the software that you want to install in the cluster.
+   * 
    * @example
    * 4.0.3
    */
@@ -7718,6 +7986,8 @@ export class CreateClusterRequestAdditionalPackages extends $tea.Model {
 export class CreateClusterRequestAddons extends $tea.Model {
   /**
    * @remarks
+   * The addon name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7725,17 +7995,25 @@ export class CreateClusterRequestAddons extends $tea.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The resource configurations of the addon.
+   * 
    * @example
    * "{\\\\"EipResource\\\\": {\\\\"AutoCreate\\\\": true}, \\\\"EcsResources\\\\": [{\\\\"InstanceType\\\\": \\\\"ecs.c7.xlarge\\\\", \\\\"ImageId\\\\": \\\\"centos_7_6_x64_20G_alibase_20211130.vhd\\\\", \\\\"SystemDisk\\\\": {\\\\"Category\\\\": \\\\"cloud_essd\\\\", \\\\"Size\\\\": 40, \\\\"Level\\\\": \\\\"PL0\\\\"}, \\\\"EnableHT\\\\": true, \\\\"InstanceChargeType\\\\": \\\\"PostPaid\\\\", \\\\"SpotStrategy\\\\": \\\\"NoSpot\\\\"}]}"
    */
   resourcesSpec?: string;
   /**
+   * @remarks
+   * The service configurations of the addon.
+   * 
    * @example
    * "[{\\\\"ServiceName\\\\": \\\\"SSH\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 22, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"VNC\\\\", \\\\"ServiceAccessType\\\\": null, \\\\"ServiceAccessUrl\\\\": null, \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12016, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}, {\\\\"ServiceName\\\\": \\\\"CLIENT\\\\", \\\\"ServiceAccessType\\\\": \\\\"URL\\\\", \\\\"ServiceAccessUrl\\\\": \\\\"\\\\", \\\\"NetworkACL\\\\": [{\\\\"IpProtocol\\\\": \\\\"TCP\\\\", \\\\"Port\\\\": 12011, \\\\"SourceCidrIp\\\\": \\\\"0.0.0.0/0\\\\"}]}]"
    */
   servicesSpec?: string;
   /**
    * @remarks
+   * The addon version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7767,11 +8045,21 @@ export class CreateClusterRequestAddons extends $tea.Model {
 
 export class CreateClusterRequestClusterCredentials extends $tea.Model {
   /**
+   * @remarks
+   * The name of the key pair. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
+   * 
+   * >  For more information, see [Create a key pair](https://help.aliyun.com/document_detail/51793.html).
+   * 
    * @example
    * ali0824
    */
   keyPairName?: string;
   /**
+   * @remarks
+   * The password for the root user to log on to the node. The password must be 8 to 20 characters in length, and must contain at least 3 of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + { } [ ] : ; \\" < > , . ? /`
+   * 
+   * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
+   * 
    * @example
    * **********
    */
@@ -7797,11 +8085,17 @@ export class CreateClusterRequestClusterCredentials extends $tea.Model {
 
 export class CreateClusterRequestClusterCustomConfiguration extends $tea.Model {
   /**
+   * @remarks
+   * The runtime parameters of the script after the cluster is created.
+   * 
    * @example
    * E-HPC cn-hangzhou
    */
   args?: string;
   /**
+   * @remarks
+   * The URL that is used to download the post-processing script.
+   * 
    * @example
    * http://*****
    */
@@ -7827,11 +8121,21 @@ export class CreateClusterRequestClusterCustomConfiguration extends $tea.Model {
 
 export class CreateClusterRequestManagerDNS extends $tea.Model {
   /**
+   * @remarks
+   * The domain name resolution type.
+   * 
+   * Valid values:
+   * 
+   * *   NIS: NIS.
+   * 
    * @example
    * NIS
    */
   type?: string;
   /**
+   * @remarks
+   * The version of the domain name resolution service.
+   * 
    * @example
    * 2.31
    */
@@ -7857,11 +8161,21 @@ export class CreateClusterRequestManagerDNS extends $tea.Model {
 
 export class CreateClusterRequestManagerDirectoryService extends $tea.Model {
   /**
+   * @remarks
+   * The type of the domain account.
+   * 
+   * Valid values:
+   * 
+   * *   NIS: NIS.
+   * 
    * @example
    * NIS
    */
   type?: string;
   /**
+   * @remarks
+   * The version of the domain account service.
+   * 
    * @example
    * 2.31
    */
@@ -7887,11 +8201,23 @@ export class CreateClusterRequestManagerDirectoryService extends $tea.Model {
 
 export class CreateClusterRequestManagerScheduler extends $tea.Model {
   /**
+   * @remarks
+   * The scheduler type. Valid values:
+   * 
+   * *   SLURM
+   * *   PBS
+   * *   OPENGRIDSCHEDULER
+   * *   LSF_PLUGIN
+   * *   PBS_PLUGIN
+   * 
    * @example
    * SLURM
    */
   type?: string;
   /**
+   * @remarks
+   * The scheduler version.
+   * 
    * @example
    * 22.05.8
    */
@@ -7916,9 +8242,25 @@ export class CreateClusterRequestManagerScheduler extends $tea.Model {
 }
 
 export class CreateClusterRequestManager extends $tea.Model {
+  /**
+   * @remarks
+   * The configurations of the domain name resolution service.
+   */
   DNS?: CreateClusterRequestManagerDNS;
+  /**
+   * @remarks
+   * The configurations of the directory service.
+   */
   directoryService?: CreateClusterRequestManagerDirectoryService;
+  /**
+   * @remarks
+   * The hardware configurations of the management node.
+   */
   managerNode?: NodeTemplate;
+  /**
+   * @remarks
+   * The configurations of the scheduler service.
+   */
   scheduler?: CreateClusterRequestManagerScheduler;
   static names(): { [key: string]: string } {
     return {
@@ -7945,11 +8287,17 @@ export class CreateClusterRequestManager extends $tea.Model {
 
 export class CreateClusterRequestTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
+   * 
    * @example
    * ClusterId
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
+   * 
    * @example
    * ehpc-hz-******
    */
@@ -8042,9 +8390,9 @@ export class CreateJobRequestJobSpec extends $tea.Model {
   arrayRequest?: string;
   /**
    * @remarks
-   * The command or script to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
+   * The command or script that is used to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
    * 
-   * If you want to use a script, you must make sure that you have the execution permissions on it. By default, the user root directory ~/ is used as the default script path on the cluster side. If your script is not in that directory, you must specify the full path in this parameter, such as /home/xxx/job.sh
+   * If you want to use a script, you must make sure that you have the execution permissions on it. By default, the user root directory ~/ is used as the default script path on the cluster side. If your script is not in that directory, you must specify the full path in this parameter, such as /home/xxx/job.sh Note that in this mode, if requirements on resources such as CPU and memory are specified in the script, the job will be run based on the resource requirements specified in the script. In this case, do not specify resource requirements in the Resource parameter. Otherwise, the job may fail to run.
    * 
    * If you want to run the job directly by using the CLI, you must specify the absolute path of the command and add two hyphens and a space (-- ) before the path, such as -- /bin/ping -c 10 localhost.
    * 
@@ -9398,6 +9746,25 @@ export class GetClusterResponseBodyManager extends $tea.Model {
   }
 }
 
+export class GetClusterResponseBodyMonitorSpec extends $tea.Model {
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetCommonLogDetailResponseBodyLogDetailStages extends $tea.Model {
   /**
    * @remarks
@@ -9529,21 +9896,33 @@ export class GetCommonLogDetailResponseBodyLogDetail extends $tea.Model {
 
 export class GetJobResponseBodyJobInfoResources extends $tea.Model {
   /**
+   * @remarks
+   * The number of vCPUs used by the job on each node.
+   * 
    * @example
    * 2
    */
   cores?: string;
   /**
+   * @remarks
+   * The number of GPUs used by the job on each node.
+   * 
    * @example
    * 1
    */
   gpus?: string;
   /**
+   * @remarks
+   * The memory size used by the job on each node.
+   * 
    * @example
    * 1gb
    */
   memory?: string;
   /**
+   * @remarks
+   * The number of nodes that are used to run the job.
+   * 
    * @example
    * 1
    */
@@ -9573,16 +9952,25 @@ export class GetJobResponseBodyJobInfoResources extends $tea.Model {
 
 export class GetJobResponseBodyJobInfoResourcesUsed extends $tea.Model {
   /**
+   * @remarks
+   * The number of vCPUs used by the job on each node.
+   * 
    * @example
    * 2
    */
   cores?: string;
   /**
+   * @remarks
+   * The memory size used by the job on each node.
+   * 
    * @example
    * 512mb
    */
   memory?: string;
   /**
+   * @remarks
+   * The number of nodes that are used to run the job.
+   * 
    * @example
    * 2
    */
@@ -9610,11 +9998,17 @@ export class GetJobResponseBodyJobInfoResourcesUsed extends $tea.Model {
 
 export class GetJobResponseBodyJobInfoVariables extends $tea.Model {
   /**
+   * @remarks
+   * The name of the environment variable.
+   * 
    * @example
    * ProxyIP
    */
   name?: string;
   /**
+   * @remarks
+   * The value of the environment variable.
+   * 
    * @example
    * 10.x.x.x
    */
@@ -9640,92 +10034,157 @@ export class GetJobResponseBodyJobInfoVariables extends $tea.Model {
 
 export class GetJobResponseBodyJobInfo extends $tea.Model {
   /**
+   * @remarks
+   * The parent job ID. If the return value is a non-empty string, the job is an array job.
+   * 
    * @example
    * 1
    */
   arrayJobId?: string;
   /**
+   * @remarks
+   * The sub-job ID. This parameter is valid when the ArrayJobId parameter is a non-empty string.
+   * 
    * @example
    * 3
    */
   arrayJobSubId?: string;
   /**
+   * @remarks
+   * The job queue. If the job is not in a queue, the output is empty.
+   * 
+   * The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
+   * 
    * @example
    * 1-5:2
    */
   arrayRequest?: string;
   /**
+   * @remarks
+   * The command that is used to run the job.
+   * 
    * @example
    * /home/huangsf/ehpc/job_meta.pbs
    */
   commandLine?: string;
   /**
+   * @remarks
+   * The time when the job was submitted.
+   * 
    * @example
    * 2024-08-16T10:52:48
    */
   createTime?: string;
   /**
+   * @remarks
+   * The error log file of the job.
+   * 
    * @example
    * /home/xxx/STDIN.e1
    */
   errorLog?: string;
   /**
+   * @remarks
+   * Additional information.
+   * 
    * @example
    * {}
    */
   extraInfo?: string;
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 1.manager
    */
   jobId?: string;
   /**
+   * @remarks
+   * The job name.
+   * 
    * @example
    * testJob
    */
   jobName?: string;
   /**
+   * @remarks
+   * The queue to which the job belongs.
+   * 
    * @example
    * workq
    */
   jobQueue?: string;
   /**
+   * @remarks
+   * The time when the job was last modified.
+   * 
    * @example
    * 2024-08-16T10:52:48
    */
   lastModifyTime?: string;
   /**
+   * @remarks
+   * The compute nodes that are used to run the job.
+   * 
    * @example
    * compute000
    */
   nodeList?: string;
   /**
+   * @remarks
+   * The standard output log file of the job.
+   * 
    * @example
    * /home/xxx/STDIN.o1
    */
   outputLog?: string;
   /**
+   * @remarks
+   * The priority of the job.
+   * 
    * @example
    * 0
    */
   priority?: string;
+  /**
+   * @remarks
+   * The resources that were requested when the job was submitted.
+   */
   resources?: GetJobResponseBodyJobInfoResources;
+  /**
+   * @remarks
+   * The resources that are actually used by the job.
+   */
   resourcesUsed?: GetJobResponseBodyJobInfoResourcesUsed;
   /**
+   * @remarks
+   * The user to which the job belongs or that is used to submit the job. This user is a cluster-side user.
+   * 
    * @example
    * testuser
    */
   runasUser?: string;
   /**
+   * @remarks
+   * The time when the job was started.
+   * 
    * @example
    * 2024-08-16T10:52:48
    */
   startTime?: string;
   /**
+   * @remarks
+   * The job state.
+   * 
    * @example
    * Running
    */
   state?: string;
+  /**
+   * @remarks
+   * The variables of the job.
+   */
   variables?: GetJobResponseBodyJobInfoVariables[];
   static names(): { [key: string]: string } {
     return {
@@ -10397,8 +10856,8 @@ export class ListAvailableImagesResponseBodyImages extends $tea.Model {
    * @remarks
    * The boot mode of the image. Valid values:
    * 
-   * *   BIOS: Basic Input/Output System (BIOS)
-   * *   UEFI: Unified Extensible Firmware Interface (UEFI)
+   * *   BIOS: Basic Input/Output System (BIOS).
+   * *   UEFI: Unified Extensible Firmware Interface (UEFI).
    * 
    * >  When you change the OS boot mode of an instance, you must make sure that the boot mode matches the boot mode of the associated image. Otherwise, the instance fails to be booted.
    * 
@@ -10434,9 +10893,9 @@ export class ListAvailableImagesResponseBodyImages extends $tea.Model {
    * @remarks
    * The image source. Valid values:
    * 
-   * *   system: system images
-   * *   self: custom images
-   * *   others: shared images
+   * *   system: system image.
+   * *   self: custom image.
+   * *   others: shared image.
    * 
    * @example
    * self
@@ -11273,7 +11732,7 @@ export class ListCommonLogsResponseBodyLogs extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the user who performed the action.
+   * The account ID of the operator.
    * 
    * @example
    * 137***
@@ -11457,6 +11916,31 @@ export class ListInstalledSoftwaresResponseBodyAdditionalPackages extends $tea.M
   }
 }
 
+export class ListJobsRequestJobFilterDiagnosis extends $tea.Model {
+  operator?: string;
+  option?: string;
+  threshold?: string;
+  static names(): { [key: string]: string } {
+    return {
+      operator: 'Operator',
+      option: 'Option',
+      threshold: 'Threshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      operator: 'string',
+      option: 'string',
+      threshold: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsRequestJobFilterSortBy extends $tea.Model {
   /**
    * @remarks
@@ -11535,6 +12019,7 @@ export class ListJobsRequestJobFilter extends $tea.Model {
    * 1724122486
    */
   createTimeStart?: string;
+  diagnosis?: ListJobsRequestJobFilterDiagnosis[];
   /**
    * @remarks
    * The job name. Fuzzy match is supported.
@@ -11581,6 +12066,7 @@ export class ListJobsRequestJobFilter extends $tea.Model {
     return {
       createTimeEnd: 'CreateTimeEnd',
       createTimeStart: 'CreateTimeStart',
+      diagnosis: 'Diagnosis',
       jobName: 'JobName',
       jobStatus: 'JobStatus',
       nodes: 'Nodes',
@@ -11594,6 +12080,7 @@ export class ListJobsRequestJobFilter extends $tea.Model {
     return {
       createTimeEnd: 'string',
       createTimeStart: 'string',
+      diagnosis: { 'type': 'array', 'itemType': ListJobsRequestJobFilterDiagnosis },
       jobName: 'string',
       jobStatus: 'string',
       nodes: { 'type': 'array', 'itemType': 'string' },
@@ -11664,10 +12151,38 @@ export class ListJobsResponseBodyJobsJobSpecResources extends $tea.Model {
   }
 }
 
+export class ListJobsResponseBodyJobsJobSpecResourcesActualOccupied extends $tea.Model {
+  cores?: string;
+  gpus?: string;
+  memory?: string;
+  nodes?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cores: 'Cores',
+      gpus: 'Gpus',
+      memory: 'Memory',
+      nodes: 'Nodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cores: 'string',
+      gpus: 'string',
+      memory: 'string',
+      nodes: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
   /**
    * @remarks
-   * 数组作业ID。
+   * The array job ID.
    * 
    * @example
    * 4
@@ -11675,7 +12190,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
   arrayJobId?: string;
   /**
    * @remarks
-   * 数组子作业ID。
+   * The ID of the job in the array.
    * 
    * @example
    * 1
@@ -11745,6 +12260,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
    * The information about the resources required to run the job.
    */
   resources?: ListJobsResponseBodyJobsJobSpecResources;
+  resourcesActualOccupied?: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied;
   /**
    * @remarks
    * The user that ran the job.
@@ -11753,6 +12269,7 @@ export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
    * testuser1
    */
   runasUser?: string;
+  startTime?: string;
   /**
    * @remarks
    * The job state. Valid values: (PBS cluster and Slurm cluster)
@@ -11810,7 +12327,9 @@ export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
       nodeList: 'NodeList',
       priority: 'Priority',
       resources: 'Resources',
+      resourcesActualOccupied: 'ResourcesActualOccupied',
       runasUser: 'RunasUser',
+      startTime: 'StartTime',
       state: 'State',
       stderrPath: 'StderrPath',
       stdoutPath: 'StdoutPath',
@@ -11831,7 +12350,9 @@ export class ListJobsResponseBodyJobsJobSpec extends $tea.Model {
       nodeList: 'string',
       priority: 'string',
       resources: ListJobsResponseBodyJobsJobSpecResources,
+      resourcesActualOccupied: ListJobsResponseBodyJobsJobSpecResourcesActualOccupied,
       runasUser: 'string',
+      startTime: 'string',
       state: 'string',
       stderrPath: 'string',
       stdoutPath: 'string',
@@ -11933,6 +12454,7 @@ export class ListNodesResponseBodyNodes extends $tea.Model {
    * 2020-06-09T06:22:02.000Z
    */
   addTime?: string;
+  deploymentSetId?: string;
   /**
    * @remarks
    * The time when the node expires.
@@ -12084,6 +12606,7 @@ export class ListNodesResponseBodyNodes extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       addTime: 'AddTime',
+      deploymentSetId: 'DeploymentSetId',
       expiredTime: 'ExpiredTime',
       hostname: 'Hostname',
       htEnabled: 'HtEnabled',
@@ -12107,6 +12630,7 @@ export class ListNodesResponseBodyNodes extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       addTime: 'string',
+      deploymentSetId: 'string',
       expiredTime: 'string',
       hostname: 'string',
       htEnabled: 'boolean',
@@ -12843,6 +13367,25 @@ export class UpdateClusterRequestClusterCustomConfiguration extends $tea.Model {
   }
 }
 
+export class UpdateClusterRequestMonitorSpec extends $tea.Model {
+  enableComputeLoadMonitor?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableComputeLoadMonitor: 'EnableComputeLoadMonitor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableComputeLoadMonitor: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateNodesRequestInstances extends $tea.Model {
   /**
    * @remarks
@@ -13072,6 +13615,12 @@ export default class Client extends OpenApi {
   /**
    * Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
    * 
+   * @remarks
+   * ## [](#)Usage notes
+   * When you call this operation, take note of the following items:
+   * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
+   * *   E-HPC clusters support Apsara File Storage NAS file systems.
+   * 
    * @param tmpReq - AttachSharedStoragesRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AttachSharedStoragesResponse
@@ -13113,6 +13662,12 @@ export default class Client extends OpenApi {
   /**
    * Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
    * 
+   * @remarks
+   * ## [](#)Usage notes
+   * When you call this operation, take note of the following items:
+   * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
+   * *   E-HPC clusters support Apsara File Storage NAS file systems.
+   * 
    * @param request - AttachSharedStoragesRequest
    * @returns AttachSharedStoragesResponse
    */
@@ -13122,7 +13677,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个按量付费或者预付费（包年包月） 集群
+   * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
    * 
    * @param tmpReq - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13267,7 +13826,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个按量付费或者预付费（包年包月） 集群
+   * Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -13368,6 +13931,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.count)) {
       query["Count"] = request.count;
+    }
+
+    if (!Util.isUnset(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
     }
 
     if (!Util.isUnset(request.HPCInterConnect)) {
@@ -13536,6 +14103,11 @@ export default class Client extends OpenApi {
   /**
    * Releases an Enterprise High Performance Computing (E-HPC) cluster.
    * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Make sure that data of the cluster to be deleted is backed up before you call this operation.
+   * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
+   * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteClusterResponse
@@ -13566,6 +14138,11 @@ export default class Client extends OpenApi {
 
   /**
    * Releases an Enterprise High Performance Computing (E-HPC) cluster.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Make sure that data of the cluster to be deleted is backed up before you call this operation.
+   * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
    * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
@@ -13996,7 +14573,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业详情
+   * Obtains the details of a job.
    * 
    * @param request - GetJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14031,7 +14608,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取作业详情
+   * Obtains the details of a job.
    * 
    * @param request - GetJobRequest
    * @returns GetJobResponse
@@ -14156,6 +14733,14 @@ export default class Client extends OpenApi {
   /**
    * Installs an addon.
    * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Take note of the following items when you call this operation:
+   * *   The cluster must be in the `Running` state.
+   * *   Clusters fall into two types:
+   *     *   Regular clusters on Alibaba Cloud Public Cloud
+   *     *   Managed clusters on Alibaba Cloud Public Cloud
+   * 
    * @param request - InstallAddonRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InstallAddonResponse
@@ -14202,6 +14787,14 @@ export default class Client extends OpenApi {
 
   /**
    * Installs an addon.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Take note of the following items when you call this operation:
+   * *   The cluster must be in the `Running` state.
+   * *   Clusters fall into two types:
+   *     *   Regular clusters on Alibaba Cloud Public Cloud
+   *     *   Managed clusters on Alibaba Cloud Public Cloud
    * 
    * @param request - InstallAddonRequest
    * @returns InstallAddonResponse
@@ -15046,6 +15639,14 @@ export default class Client extends OpenApi {
   /**
    * Uninstalls an addon.
    * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Take note of the following items when you call this operation:
+   * *   The cluster must be in the `Running` state.
+   * *   Clusters fall into the following types:
+   *     *   Regular clusters on Alibaba Cloud Public Cloud
+   *     *   Managed clusters on Alibaba Cloud Public Cloud
+   * 
    * @param request - UnInstallAddonRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UnInstallAddonResponse
@@ -15080,6 +15681,14 @@ export default class Client extends OpenApi {
 
   /**
    * Uninstalls an addon.
+   * 
+   * @remarks
+   * ## [](#)Usage notes
+   * Take note of the following items when you call this operation:
+   * *   The cluster must be in the `Running` state.
+   * *   Clusters fall into the following types:
+   *     *   Regular clusters on Alibaba Cloud Public Cloud
+   *     *   Managed clusters on Alibaba Cloud Public Cloud
    * 
    * @param request - UnInstallAddonRequest
    * @returns UnInstallAddonResponse
@@ -15148,6 +15757,10 @@ export default class Client extends OpenApi {
       request.clusterCustomConfigurationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.clusterCustomConfiguration, "ClusterCustomConfiguration", "json");
     }
 
+    if (!Util.isUnset(tmpReq.monitorSpec)) {
+      request.monitorSpecShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.monitorSpec, "MonitorSpec", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.clientVersion)) {
       query["ClientVersion"] = request.clientVersion;
@@ -15195,6 +15808,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.maxCount)) {
       query["MaxCount"] = request.maxCount;
+    }
+
+    if (!Util.isUnset(request.monitorSpecShrink)) {
+      query["MonitorSpec"] = request.monitorSpecShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
