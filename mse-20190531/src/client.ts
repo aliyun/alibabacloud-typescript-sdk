@@ -9077,6 +9077,107 @@ export class CreateNacosServiceResponse extends $tea.Model {
   }
 }
 
+export class CreateNamespaceRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  describe?: string;
+  /**
+   * @example
+   * myNamespace
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      describe: 'Describe',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      describe: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponseBody extends $tea.Model {
+  data?: CreateNamespaceResponseBodyData;
+  /**
+   * @example
+   * mse-100-000
+   */
+  errorCode?: string;
+  message?: string;
+  /**
+   * @example
+   * D1F1A6F3-7E03-5EAD-B3F1-123456789ABC
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateNamespaceResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateNamespaceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateNamespaceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateSwimmingLaneRequest extends $tea.Model {
   /**
    * @remarks
@@ -29903,6 +30004,111 @@ export class ListNacosHistoryConfigsResponse extends $tea.Model {
   }
 }
 
+export class ListNamespacesRequest extends $tea.Model {
+  /**
+   * @example
+   * zh
+   */
+  acceptLanguage?: string;
+  /**
+   * @example
+   * myNamespace
+   */
+  name?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acceptLanguage: 'AcceptLanguage',
+      name: 'Name',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acceptLanguage: 'string',
+      name: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBody extends $tea.Model {
+  data?: ListNamespacesResponseBodyData;
+  /**
+   * @example
+   * D1F1A6F3-7E03-5EAD-B3F1-123456789ABC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ListNamespacesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListNamespacesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListNamespacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNamingTrackRequest extends $tea.Model {
   /**
    * @remarks
@@ -50183,6 +50389,36 @@ export class CreateMseServiceApplicationResponseBodyData extends $tea.Model {
   }
 }
 
+export class CreateNamespaceResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * myNamespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  static names(): { [key: string]: string } {
+    return {
+      namespace: 'Namespace',
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      namespace: 'string',
+      region: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $tea.Model {
   cond?: string;
   datum?: string;
@@ -66955,6 +67191,199 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $tea.Model 
   }
 }
 
+export class ListNamespacesResponseBodyDataResult extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  appCount?: number;
+  /**
+   * @example
+   * 2024-09-02T09:49:48.000+0000
+   */
+  createTime?: number;
+  describe?: string;
+  /**
+   * @example
+   * 6
+   */
+  instanceCount?: number;
+  /**
+   * @example
+   * myNamespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * 2024-09-02T09:49:48.000+0000
+   */
+  updateTime?: number;
+  /**
+   * @example
+   * 178*******
+   */
+  userId?: string;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appCount: 'AppCount',
+      createTime: 'CreateTime',
+      describe: 'Describe',
+      instanceCount: 'InstanceCount',
+      namespace: 'Namespace',
+      region: 'Region',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCount: 'number',
+      createTime: 'number',
+      describe: 'string',
+      instanceCount: 'number',
+      namespace: 'string',
+      region: 'string',
+      updateTime: 'number',
+      userId: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBodyDataResults extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  appCount?: number;
+  /**
+   * @example
+   * 2024-09-02T09:49:48.000+0000
+   */
+  createTime?: number;
+  describe?: string;
+  /**
+   * @example
+   * 6
+   */
+  instanceCount?: number;
+  /**
+   * @example
+   * myNamespace
+   */
+  namespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * 2024-09-02T09:49:48.000+0000
+   */
+  updateTime?: number;
+  /**
+   * @example
+   * 178*******
+   */
+  userId?: string;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appCount: 'AppCount',
+      createTime: 'CreateTime',
+      describe: 'Describe',
+      instanceCount: 'InstanceCount',
+      namespace: 'Namespace',
+      region: 'Region',
+      updateTime: 'UpdateTime',
+      userId: 'UserId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appCount: 'number',
+      createTime: 'number',
+      describe: 'string',
+      instanceCount: 'number',
+      namespace: 'string',
+      region: 'string',
+      updateTime: 'number',
+      userId: 'string',
+      version: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListNamespacesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  result?: ListNamespacesResponseBodyDataResult[];
+  results?: ListNamespacesResponseBodyDataResults[];
+  /**
+   * @example
+   * 7
+   */
+  totalSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      result: 'Result',
+      results: 'Results',
+      totalSize: 'TotalSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      result: { 'type': 'array', 'itemType': ListNamespacesResponseBodyDataResult },
+      results: { 'type': 'array', 'itemType': ListNamespacesResponseBodyDataResults },
+      totalSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListNamingTrackResponseBodyTraces extends $tea.Model {
   /**
    * @remarks
@@ -76669,6 +77098,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateNamespace
+   * 
+   * @param request - CreateNamespaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespaceWithOptions(request: CreateNamespaceRequest, runtime: $Util.RuntimeOptions): Promise<CreateNamespaceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.describe)) {
+      query["Describe"] = request.describe;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateNamespace",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+  }
+
+  /**
+   * CreateNamespace
+   * 
+   * @param request - CreateNamespaceRequest
+   * @returns CreateNamespaceResponse
+   */
+  async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createNamespaceWithOptions(request, runtime);
+  }
+
+  /**
    * Creates or updates a lane for end-to-end canary release.
    * 
    * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
@@ -83386,6 +83865,64 @@ export default class Client extends OpenApi {
   async listNacosHistoryConfigs(request: ListNacosHistoryConfigsRequest): Promise<ListNacosHistoryConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listNacosHistoryConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * 展示命名空间列表
+   * 
+   * @param request - ListNamespacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNamespacesResponse
+   */
+  async listNamespacesWithOptions(request: ListNamespacesRequest, runtime: $Util.RuntimeOptions): Promise<ListNamespacesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.acceptLanguage)) {
+      query["AcceptLanguage"] = request.acceptLanguage;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListNamespaces",
+      version: "2019-05-31",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListNamespacesResponse>(await this.callApi(params, req, runtime), new ListNamespacesResponse({}));
+  }
+
+  /**
+   * 展示命名空间列表
+   * 
+   * @param request - ListNamespacesRequest
+   * @returns ListNamespacesResponse
+   */
+  async listNamespaces(request: ListNamespacesRequest): Promise<ListNamespacesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listNamespacesWithOptions(request, runtime);
   }
 
   /**
