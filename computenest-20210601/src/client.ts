@@ -226,6 +226,121 @@ export class ChangeResourceGroupResponse extends $tea.Model {
   }
 }
 
+export class CheckServiceDeployableRequest extends $tea.Model {
+  /**
+   * @example
+   * 1.29
+   */
+  postPaidAmount?: string;
+  /**
+   * @example
+   * 0.0
+   */
+  prePaidAmount?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @example
+   * 1
+   */
+  serviceVersion?: string;
+  /**
+   * @example
+   * NotTrial
+   */
+  trialType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      postPaidAmount: 'PostPaidAmount',
+      prePaidAmount: 'PrePaidAmount',
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceVersion: 'ServiceVersion',
+      trialType: 'TrialType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      postPaidAmount: 'string',
+      prePaidAmount: 'string',
+      regionId: 'string',
+      serviceId: 'string',
+      serviceVersion: 'string',
+      trialType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceDeployableResponseBody extends $tea.Model {
+  checkResults?: CheckServiceDeployableResponseBodyCheckResults[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      checkResults: 'CheckResults',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      checkResults: { 'type': 'array', 'itemType': CheckServiceDeployableResponseBodyCheckResults },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceDeployableResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckServiceDeployableResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckServiceDeployableResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContinueDeployServiceInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -393,15 +508,15 @@ export class CreateServiceInstanceRequest extends $tea.Model {
    * The alert contact group.
    * 
    * @example
-   * 云账号报警联系人
+   * Default Group
    */
   contactGroup?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. 
-   * *   **false** (default): sends the request.
+   * *   **true**: performs a dry run for the request, but does not create a service instance.
+   * *   **false**: performs a dry run for the request, and creates a service instance if the request passes the dry run.
    * 
    * @example
    * false
@@ -409,7 +524,10 @@ export class CreateServiceInstanceRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Indicates whether the service instance supports the operation feature.
+   * Specifies whether the service instance supports the hosted O\\&M feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -417,7 +535,10 @@ export class CreateServiceInstanceRequest extends $tea.Model {
   enableInstanceOps?: boolean;
   /**
    * @remarks
-   * Whether to enable Prometheus monitoring.
+   * Specifies whether to enable the Prometheus monitoring feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -461,9 +582,13 @@ export class CreateServiceInstanceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * Whether the resource pays automatically.Valid values:
-   * - true
-   * - false
+   * Specifies whether to automatically deduct the resource fees from the account balance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
    */
   resourceAutoPay?: boolean;
   /**
@@ -505,7 +630,7 @@ export class CreateServiceInstanceRequest extends $tea.Model {
    * The package name.
    * 
    * @example
-   * 套餐一
+   * Default Ppackage
    */
   specificationName?: string;
   /**
@@ -518,18 +643,15 @@ export class CreateServiceInstanceRequest extends $tea.Model {
    * The name of the template.
    * 
    * @example
-   * 模板1
+   * ECS Template
    */
   templateName?: string;
   /**
    * @remarks
-   * The trial type of serviceInstance. 
-   * Valid values:
+   * The trial type of the service instance. Valid values:
    * 
-   * - Created: 
-   * - Deploying
-   * - DeployedFailed
-   * - Deployed
+   * *   **Trial**: Trials are supported.
+   * *   **NotTrial**: Trials are not supported.
    * 
    * @example
    * Trial
@@ -607,15 +729,15 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
    * The alert contact group.
    * 
    * @example
-   * 云账号报警联系人
+   * Default Group
    */
   contactGroup?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
    * 
-   * *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. 
-   * *   **false** (default): sends the request.
+   * *   **true**: performs a dry run for the request, but does not create a service instance.
+   * *   **false**: performs a dry run for the request, and creates a service instance if the request passes the dry run.
    * 
    * @example
    * false
@@ -623,7 +745,10 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Indicates whether the service instance supports the operation feature.
+   * Specifies whether the service instance supports the hosted O\\&M feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -631,7 +756,10 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   enableInstanceOps?: boolean;
   /**
    * @remarks
-   * Whether to enable Prometheus monitoring.
+   * Specifies whether to enable the Prometheus monitoring feature. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
    * 
    * @example
    * true
@@ -675,9 +803,13 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * Whether the resource pays automatically.Valid values:
-   * - true
-   * - false
+   * Specifies whether to automatically deduct the resource fees from the account balance. Valid values:
+   * 
+   * *   **true**
+   * *   **false**
+   * 
+   * @example
+   * true
    */
   resourceAutoPay?: boolean;
   /**
@@ -719,7 +851,7 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
    * The package name.
    * 
    * @example
-   * 套餐一
+   * Default Ppackage
    */
   specificationName?: string;
   /**
@@ -732,18 +864,15 @@ export class CreateServiceInstanceShrinkRequest extends $tea.Model {
    * The name of the template.
    * 
    * @example
-   * 模板1
+   * ECS Template
    */
   templateName?: string;
   /**
    * @remarks
-   * The trial type of serviceInstance. 
-   * Valid values:
+   * The trial type of the service instance. Valid values:
    * 
-   * - Created: 
-   * - Deploying
-   * - DeployedFailed
-   * - Deployed
+   * *   **Trial**: Trials are supported.
+   * *   **NotTrial**: Trials are not supported.
    * 
    * @example
    * Trial
@@ -837,11 +966,16 @@ export class CreateServiceInstanceResponseBody extends $tea.Model {
   serviceInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether the synchronization task was created. Valid values:
+   * The status of the service instance. Valid values:
    * 
-   * *   **1**: Created.
-   * *   **0**: Creation failed. The tables in the synchronization task are duplicate. The duplicate tables are returned for the **RepeatedDbs** parameter.
-   * *   **-1**: Creation failed. The cause why the creation failed is returned for the **ErrorMsg** parameter.
+   * *   **Created**
+   * *   **Deploying**
+   * *   **DeployedFailed**
+   * *   **Deployed**
+   * *   **Upgrading**
+   * *   **Deleting**
+   * *   **Deleted**
+   * *   **DeletedFailed**
    * 
    * @example
    * Created
@@ -1263,6 +1397,486 @@ export class GenerateServicePolicyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GenerateServicePolicyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Region Id.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The service instance id.
+   * 
+   * @example
+   * si-b58c874912fc4294****
+   */
+  serviceInstanceId?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Wordpress
+   */
+  serviceName?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * 1.0
+   */
+  serviceVersion?: string;
+  /**
+   * @remarks
+   * Whether to disclose service details.
+   */
+  showDetails?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      serviceId: 'ServiceId',
+      serviceInstanceId: 'ServiceInstanceId',
+      serviceName: 'ServiceName',
+      serviceVersion: 'ServiceVersion',
+      showDetails: 'ShowDetails',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      serviceId: 'string',
+      serviceInstanceId: 'string',
+      serviceName: 'string',
+      serviceVersion: 'string',
+      showDetails: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The alert configurations of the service.
+   * 
+   * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+   * 
+   * @example
+   * { "TemplateUrl": "http://template.file.url", // 应用分组级别告警元数据 "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
+   */
+  alarmMetadata?: string;
+  /**
+   * @remarks
+   * The categories of the Flow.
+   * 
+   * @example
+   * AI
+   */
+  categories?: string;
+  /**
+   * @remarks
+   * The information about the order placed in Alibaba Cloud Marketplace.
+   */
+  commodity?: GetServiceResponseBodyCommodity;
+  /**
+   * @remarks
+   * Service deployment approach, Valid values：
+   * 
+   * - NoWhere
+   * - Marketplace
+   * - ComputeNest
+   * 
+   * @example
+   * Marketplace
+   */
+  deployFrom?: string;
+  /**
+   * @remarks
+   * The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+   * 
+   * @example
+   * {\\"TemplateUrl\\": \\"http://tidbRosFile\\"}
+   */
+  deployMetadata?: string;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * The duration for which hosted O\\&M is implemented. Unit: seconds.
+   * 
+   * @example
+   * 259200
+   */
+  duration?: number;
+  /**
+   * @remarks
+   * Information about the ram role created in the service template.
+   */
+  instanceRoleInfos?: GetServiceResponseBodyInstanceRoleInfos[];
+  /**
+   * @remarks
+   * Indicates whether the hosted O\\&M feature is enabled for the service. Default value: false. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * >  This parameter is returned if you set **ServiceType** to **private**.
+   * 
+   * @example
+   * false
+   */
+  isSupportOperated?: boolean;
+  /**
+   * @remarks
+   * The license metadata.
+   * 
+   * @example
+   * {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\"模板1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
+   */
+  licenseMetadata?: string;
+  /**
+   * @remarks
+   * The logging configurations.
+   * 
+   * @example
+   * {\\"Logstores\\":[]}
+   */
+  logMetadata?: string;
+  /**
+   * @remarks
+   * The operation metadata.
+   * 
+   * @example
+   * {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
+   */
+  operationMetadata?: string;
+  /**
+   * @remarks
+   * The permissions on the service. Valid values:
+   * 
+   * *   Deployable: Permissions to deploy the service.
+   * *   Accessible: Permissions to access the service.
+   * 
+   * @example
+   * Deployable
+   */
+  permission?: string;
+  /**
+   * @remarks
+   * The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+   * 
+   * @example
+   * policyName1, policyName2
+   */
+  policyNames?: string;
+  /**
+   * @remarks
+   * The time when the service was published.
+   * 
+   * @example
+   * 2021-05-21T00:00:00Z
+   */
+  publishTime?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Service document information.
+   */
+  serviceDocumentInfos?: GetServiceResponseBodyServiceDocumentInfos[];
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-0e6fca6a51a544xxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  serviceInfos?: GetServiceResponseBodyServiceInfos[];
+  /**
+   * @remarks
+   * The URL of the service page.
+   * 
+   * @example
+   * http://example1.com
+   */
+  serviceProductUrl?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * - private: The service is a private service and is deployed within the account of a customer.
+   * - managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * - operation: The service is a hosted O&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The permission type of the deployment URL. Valid values:
+   * 
+   * *   Public: All users can go to the URL to create a service instance or a trial service instance.
+   * *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
+   * *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
+   * *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+   * *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+   * 
+   * @example
+   * Public
+   */
+  shareType?: string;
+  /**
+   * @remarks
+   * The deploy status of the service. Valid values:
+   * - Draft
+   * - Beta
+   * - Submitted
+   * - Approved
+   * - Launching
+   * - Online
+   * - Offline
+   * - Creating
+   * 
+   * @example
+   * Online
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The description of service provider.
+   * 
+   * @example
+   * Computing Nest Community service
+   */
+  supplierDesc?: string;
+  /**
+   * @remarks
+   * The Logo of service provider.
+   * 
+   * @example
+   * https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-image/xxx.png
+   */
+  supplierLogo?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the service provider.
+   * 
+   * @example
+   * 158927391332*****
+   */
+  supplierUid?: number;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://example.com
+   */
+  supplierUrl?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tags?: GetServiceResponseBodyTags[];
+  /**
+   * @remarks
+   * The type of the tenant. Valid values:
+   * 
+   * *   SingleTenant
+   * *   MultiTenant
+   * 
+   * @example
+   * SingleTenant
+   */
+  tenantType?: string;
+  /**
+   * @remarks
+   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * 
+   * @example
+   * 7
+   */
+  trialDuration?: number;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The service version.
+   * 
+   * @example
+   * 1.0
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v1
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alarmMetadata: 'AlarmMetadata',
+      categories: 'Categories',
+      commodity: 'Commodity',
+      deployFrom: 'DeployFrom',
+      deployMetadata: 'DeployMetadata',
+      deployType: 'DeployType',
+      duration: 'Duration',
+      instanceRoleInfos: 'InstanceRoleInfos',
+      isSupportOperated: 'IsSupportOperated',
+      licenseMetadata: 'LicenseMetadata',
+      logMetadata: 'LogMetadata',
+      operationMetadata: 'OperationMetadata',
+      permission: 'Permission',
+      policyNames: 'PolicyNames',
+      publishTime: 'PublishTime',
+      requestId: 'RequestId',
+      serviceDocumentInfos: 'ServiceDocumentInfos',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceProductUrl: 'ServiceProductUrl',
+      serviceType: 'ServiceType',
+      shareType: 'ShareType',
+      status: 'Status',
+      supplierDesc: 'SupplierDesc',
+      supplierLogo: 'SupplierLogo',
+      supplierName: 'SupplierName',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+      tags: 'Tags',
+      tenantType: 'TenantType',
+      trialDuration: 'TrialDuration',
+      trialType: 'TrialType',
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alarmMetadata: 'string',
+      categories: 'string',
+      commodity: GetServiceResponseBodyCommodity,
+      deployFrom: 'string',
+      deployMetadata: 'string',
+      deployType: 'string',
+      duration: 'number',
+      instanceRoleInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyInstanceRoleInfos },
+      isSupportOperated: 'boolean',
+      licenseMetadata: 'string',
+      logMetadata: 'string',
+      operationMetadata: 'string',
+      permission: 'string',
+      policyNames: 'string',
+      publishTime: 'string',
+      requestId: 'string',
+      serviceDocumentInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceDocumentInfos },
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfos },
+      serviceProductUrl: 'string',
+      serviceType: 'string',
+      shareType: 'string',
+      status: 'string',
+      supplierDesc: 'string',
+      supplierLogo: 'string',
+      supplierName: 'string',
+      supplierUid: 'number',
+      supplierUrl: 'string',
+      tags: { 'type': 'array', 'itemType': GetServiceResponseBodyTags },
+      tenantType: 'string',
+      trialDuration: 'number',
+      trialType: 'string',
+      version: 'string',
+      versionName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetServiceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetServiceResponseBody,
     };
   }
 
@@ -1890,7 +2504,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
    * The package name.
    * 
    * @example
-   * 套餐一
+   * Package one
    */
   predefinedParameterName?: string;
   /**
@@ -2003,7 +2617,7 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
    * The template name.
    * 
    * @example
-   * 模板1
+   * Template one
    */
   templateName?: string;
   /**
@@ -2552,6 +3166,83 @@ export class GetServiceTemplateParameterConstraintsResponse extends $tea.Model {
   }
 }
 
+export class GetUserInformationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInformationResponseBody extends $tea.Model {
+  deliverySettings?: GetUserInformationResponseBodyDeliverySettings;
+  /**
+   * @example
+   * 52EBAF16-22F6-53DB-AE1E-44764FC62AF0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverySettings: 'DeliverySettings',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverySettings: GetUserInformationResponseBodyDeliverySettings,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetUserInformationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetUserInformationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetUserInformationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceCategoriesResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -2611,6 +3302,10 @@ export class ListServiceCategoriesResponse extends $tea.Model {
 }
 
 export class ListServiceInstanceLogsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filters.
+   */
   filter?: ListServiceInstanceLogsRequestFilter[];
   /**
    * @remarks
@@ -2618,6 +3313,7 @@ export class ListServiceInstanceLogsRequest extends $tea.Model {
    * 
    * *   computeNest (default): logs of the deployment and upgrade of the service instance.
    * *   application: logs generated by the application.
+   * *   actionTrail: logs generated by ActionTrail.
    * 
    * @example
    * computeNest
@@ -2798,6 +3494,29 @@ export class ListServiceInstanceResourcesRequest extends $tea.Model {
   expireTimeStart?: string;
   /**
    * @remarks
+   * The filter conditions. Vaild values:
+   * 
+   * - ExpireTimeStart：
+   * Query start time for Subscription resource expiration.
+   * <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+   * 
+   * - ExpireTimeEnd：Query end time for Subscription resource expiration.
+   * <notice>Notice Note: Only supports querying service instances on private deployments.>Notice: 
+   * 
+   * - PayType：The billing method of the read-only instance. 
+   * <notice>Notice Note: Only supports querying service instances on private deployments.<notice> 
+   * 
+   *    Valid values:
+   * 
+   *    - PayAsYouGo
+   * 
+   *    - Subscription
+   * 
+   * - ResourceARN：The Alibaba Cloud Resource Name (ARN) of a resource.
+   */
+  filters?: ListServiceInstanceResourcesRequestFilters[];
+  /**
+   * @remarks
    * The number of entries per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
@@ -2869,6 +3588,7 @@ export class ListServiceInstanceResourcesRequest extends $tea.Model {
     return {
       expireTimeEnd: 'ExpireTimeEnd',
       expireTimeStart: 'ExpireTimeStart',
+      filters: 'Filters',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       payType: 'PayType',
@@ -2884,6 +3604,7 @@ export class ListServiceInstanceResourcesRequest extends $tea.Model {
     return {
       expireTimeEnd: 'string',
       expireTimeStart: 'string',
+      filters: { 'type': 'array', 'itemType': ListServiceInstanceResourcesRequestFilters },
       maxResults: 'number',
       nextToken: 'string',
       payType: 'string',
@@ -3358,6 +4079,204 @@ export class ListServiceUsagesResponse extends $tea.Model {
   }
 }
 
+export class ListServicesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The filter.
+   */
+  filter?: ListServicesRequestFilter[];
+  /**
+   * @remarks
+   * Keyword fuzzy query.
+   * 
+   * @example
+   * name
+   */
+  fuzzyKeyword?: string;
+  /**
+   * @remarks
+   * Whether it is used. Optional values:
+   * 
+   * 
+   * 
+   * - false: not being used.
+   * 
+   * 
+   * 
+   * - true: already in use.
+   * 
+   * @example
+   * false
+   */
+  inUsed?: boolean;
+  /**
+   * @remarks
+   * The number of entries page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
+   * @example
+   * BBBAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * Service ordering type.
+   * 
+   * @example
+   * UpdateTime
+   */
+  orderByType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Service access type.
+   * 
+   * @example
+   * All
+   */
+  serviceAccessType?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tag?: ListServicesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      fuzzyKeyword: 'FuzzyKeyword',
+      inUsed: 'InUsed',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      orderByType: 'OrderByType',
+      regionId: 'RegionId',
+      serviceAccessType: 'ServiceAccessType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: { 'type': 'array', 'itemType': ListServicesRequestFilter },
+      fuzzyKeyword: 'string',
+      inUsed: 'boolean',
+      maxResults: 'number',
+      nextToken: 'string',
+      orderByType: 'string',
+      regionId: 'string',
+      serviceAccessType: 'string',
+      tag: { 'type': 'array', 'itemType': ListServicesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * A pagination token.
+   * 
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI41
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 3F976EF8-C10A-57DC-917C-BB7BEB508FFB
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The services.
+   */
+  services?: ListServicesResponseBodyServices[];
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      services: 'Services',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      services: { 'type': 'array', 'itemType': ListServicesResponseBodyServices },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListServicesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListServicesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagKeysRequest extends $tea.Model {
   /**
    * @remarks
@@ -3473,6 +4392,113 @@ export class ListTagKeysResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTagKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * AAAAAfu+XtuBE55iRLHEYYuojI4=
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * service
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AAAAAVz7BQqj2xtiNSC3d3RAD38=
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 06BF8F22-02DC-4750-83DF-3FFC11C065EA
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -4733,6 +5759,83 @@ export class UpdateServiceUsageResponse extends $tea.Model {
   }
 }
 
+export class UpdateUserInformationRequest extends $tea.Model {
+  deliverySettings?: UpdateUserInformationRequestDeliverySettings;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deliverySettings: 'DeliverySettings',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deliverySettings: UpdateUserInformationRequestDeliverySettings,
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserInformationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 51945B04-6AA6-410D-93BA-236E0248B104
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserInformationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateUserInformationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateUserInformationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpgradeServiceInstanceRequest extends $tea.Model {
   /**
    * @example
@@ -5105,6 +6208,43 @@ export class CommodityValueResult extends $tea.Model {
   }
 }
 
+export class CheckServiceDeployableResponseBodyCheckResults extends $tea.Model {
+  /**
+   * @example
+   * ""
+   */
+  message?: string;
+  /**
+   * @example
+   * Balance
+   */
+  type?: string;
+  /**
+   * @example
+   * true
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.Model {
   /**
    * @remarks
@@ -5162,7 +6302,7 @@ export class CreateServiceInstanceRequestCommodity extends $tea.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * Specifies whether to enable auto-renewal for the service instance. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -5171,6 +6311,13 @@ export class CreateServiceInstanceRequestCommodity extends $tea.Model {
    * false
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * 302070970220
+   */
   couponId?: string;
   /**
    * @remarks
@@ -5184,9 +6331,9 @@ export class CreateServiceInstanceRequestCommodity extends $tea.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Year
-   * *   Month
-   * *   Day
+   * *   **Year**
+   * *   **Month**
+   * *   **Day**
    * 
    * @example
    * Year
@@ -5344,7 +6491,7 @@ export class CreateServiceInstanceShrinkRequestCommodity extends $tea.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. Valid values:
+   * Specifies whether to enable auto-renewal for the service instance. Valid values:
    * 
    * *   **true**
    * *   **false**
@@ -5353,6 +6500,13 @@ export class CreateServiceInstanceShrinkRequestCommodity extends $tea.Model {
    * false
    */
   autoRenew?: boolean;
+  /**
+   * @remarks
+   * The coupon ID.
+   * 
+   * @example
+   * 302070970220
+   */
   couponId?: string;
   /**
    * @remarks
@@ -5366,9 +6520,9 @@ export class CreateServiceInstanceShrinkRequestCommodity extends $tea.Model {
    * @remarks
    * The unit of the subscription duration. Valid values:
    * 
-   * *   Year
-   * *   Month
-   * *   Day
+   * *   **Year**
+   * *   **Month**
+   * *   **Day**
    * 
    * @example
    * Year
@@ -5547,6 +6701,557 @@ export class GenerateServicePolicyResponseBodyMissingPolicy extends $tea.Model {
       action: { 'type': 'array', 'itemType': 'string' },
       resource: 'string',
       serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadataComponentsMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The mappings.
+   */
+  mappings?: { [key: string]: string };
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mappings: 'Mappings',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mappings: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityCssMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The mapping information about the billing items.
+   */
+  componentsMappings?: GetServiceResponseBodyCommodityCssMetadataComponentsMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      componentsMappings: 'ComponentsMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      componentsMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityCssMetadataComponentsMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings extends $tea.Model {
+  /**
+   * @remarks
+   * The specification code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00****
+   */
+  specificationCode?: string;
+  /**
+   * @remarks
+   * The package name.
+   * 
+   * @example
+   * Package one.
+   */
+  specificationName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      specificationCode: 'SpecificationCode',
+      specificationName: 'SpecificationName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationCode: 'string',
+      specificationName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodityMarketplaceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The mappings between the service specifications and the template or package.
+   */
+  specificationMappings?: GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings[];
+  static names(): { [key: string]: string } {
+    return {
+      specificationMappings: 'SpecificationMappings',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      specificationMappings: { 'type': 'array', 'itemType': GetServiceResponseBodyCommodityMarketplaceMetadataSpecificationMappings },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommoditySpecifications extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00****
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The specification name.
+   * 
+   * @example
+   * specifications1
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The subscription duration. Unit: week or year.
+   */
+  times?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      name: 'Name',
+      times: 'Times',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      name: 'string',
+      times: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * The billing method of the service. Valid values:
+   * 
+   * *   **PREPAY** (default): subscription.
+   * *   **POSTPAY**: pay-as-you-go.
+   * 
+   * @example
+   * POSTPAY
+   */
+  chargeType?: string;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00****
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * The configuration metadata related to Lingxiao.
+   */
+  cssMetadata?: GetServiceResponseBodyCommodityCssMetadata;
+  /**
+   * @remarks
+   * The deploy page.
+   * 
+   * @example
+   * Order： Order page
+   * Detail： Detail page
+   */
+  deployPage?: string;
+  /**
+   * @remarks
+   * The metadata of Alibaba Cloud Marketplace.
+   */
+  marketplaceMetadata?: GetServiceResponseBodyCommodityMarketplaceMetadata;
+  /**
+   * @remarks
+   * The order time.
+   */
+  orderTime?: { [key: string]: string[] };
+  /**
+   * @remarks
+   * The configuration metadata related to Saas Boost.
+   * 
+   * @example
+   * {
+   *     "Enabled":false    "PublicAccessUrl":"https://example.com"
+   * }
+   */
+  saasBoostMetadata?: string;
+  /**
+   * @remarks
+   * The specification details of the service in Alibaba Cloud Marketplace.
+   */
+  specifications?: GetServiceResponseBodyCommoditySpecifications[];
+  /**
+   * @remarks
+   * The service type. Valid values:
+   * 
+   * *   marketplace: Alibaba Cloud Marketplace.
+   * *   Css: Lingxiao.
+   * 
+   * @example
+   * Marketplace
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      commodityCode: 'CommodityCode',
+      cssMetadata: 'CssMetadata',
+      deployPage: 'DeployPage',
+      marketplaceMetadata: 'MarketplaceMetadata',
+      orderTime: 'OrderTime',
+      saasBoostMetadata: 'SaasBoostMetadata',
+      specifications: 'Specifications',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      commodityCode: 'string',
+      cssMetadata: GetServiceResponseBodyCommodityCssMetadata,
+      deployPage: 'string',
+      marketplaceMetadata: GetServiceResponseBodyCommodityMarketplaceMetadata,
+      orderTime: { 'type': 'map', 'keyType': 'string', 'valueType': { 'type': 'array', 'itemType': 'string' } },
+      saasBoostMetadata: 'string',
+      specifications: { 'type': 'array', 'itemType': GetServiceResponseBodyCommoditySpecifications },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyInstanceRoleInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The content of the policy.
+   * 
+   * @example
+   * {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
+   */
+  policyDocument?: string;
+  /**
+   * @remarks
+   * The information of the RAM entity.
+   */
+  principals?: string[];
+  /**
+   * @remarks
+   * The ram role name.
+   * 
+   * @example
+   * ram-for-dts
+   */
+  roleName?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      policyDocument: 'PolicyDocument',
+      principals: 'Principals',
+      roleName: 'RoleName',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      policyDocument: 'string',
+      principals: { 'type': 'array', 'itemType': 'string' },
+      roleName: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceDocumentInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL that is used to access the document.
+   * 
+   * @example
+   * https://help.aliyun.com/zh/compute-nest/use-cases/deploy-an-sd-painting-service-instance?spm=a2c4g.11186623.0.i2
+   */
+  documentUrl?: string;
+  /**
+   * @remarks
+   * The language that you use for the query. Valid values: zh-CN and en-US.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Template one.
+   */
+  templateName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      documentUrl: 'DocumentUrl',
+      locale: 'Locale',
+      templateName: 'TemplateName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documentUrl: 'string',
+      locale: 'string',
+      templateName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosAgreements extends $tea.Model {
+  /**
+   * @remarks
+   * The agreement name.
+   * 
+   * @example
+   * User agreement
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The agreement URL.
+   * 
+   * @example
+   * https://url
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfosSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the Software.
+   * 
+   * @example
+   * wordpress
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 6.0.1
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The agreement information about the service.
+   */
+  agreements?: GetServiceResponseBodyServiceInfosAgreements[];
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * https://example.com/service-image/c1c4a559-cc60-4af1-b976-98f356602462.png
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese
+   * *   en-US: English
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The service name.
+   * 
+   * @example
+   * Service document information.
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   */
+  shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the software in the service.
+   */
+  softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
+  static names(): { [key: string]: string } {
+    return {
+      agreements: 'Agreements',
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+      softwares: 'Softwares',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agreements: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosAgreements },
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+      softwares: { 'type': 'array', 'itemType': GetServiceResponseBodyServiceInfosSoftwares },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceResponseBodyTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5870,7 +7575,7 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
    * The name of the service.
    * 
    * @example
-   * B数据库
+   * Docker Community Edition
    */
   name?: string;
   /**
@@ -5878,7 +7583,7 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
    * The description of the service.
    * 
    * @example
-   * B是A公司自主设计并研发的开源分布式的关系型数据库
+   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
    */
   shortDescription?: string;
   static names(): { [key: string]: string } {
@@ -5896,6 +7601,42 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
       locale: 'string',
       name: 'string',
       shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * An upgradable service version.
+   * 
+   * @example
+   * draft
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The version name of an upgradable service version.
+   * 
+   * @example
+   * 0.1.0
+   */
+  versionName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      version: 'Version',
+      versionName: 'VersionName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      version: 'string',
+      versionName: 'string',
     };
   }
 
@@ -5995,7 +7736,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
    * The name of the service provider.
    * 
    * @example
-   * A公司
+   * Alibaba Cloud
    */
   supplierName?: string;
   /**
@@ -6008,6 +7749,11 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
   supplierUrl?: string;
   /**
    * @remarks
+   * The upgradable service version.
+   */
+  upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
+  /**
+   * @remarks
    * The service version that can be updated.
    */
   upgradableServiceVersions?: string[];
@@ -6016,7 +7762,35 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
    * The metadata about the upgrade.
    * 
    * @example
-   * {\\"Description\\":\\"开启服务升级\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\",\\"Resource\\"]}
+   * {
+   *   "Type": "OOS",
+   *   "Description": "Changelog or something description",
+   *   "SupportUpgradeFromVersions": [1, 2],
+   *   "UpgradeSteps": {
+   *     "PreUpgradeStage": {
+   *       "Description": "初始化数据库",
+   *       "Type": "RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     },
+   *     "UpgradeStage": [{
+   *       "Description": "更新EcsRole1实例",
+   *       "Type": "RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "ArtifactsDownloadDirectory": "/home/admin",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     }],
+   *     "PostUpgradeStage": {
+   *       "Description": "部署后post check",
+   *       "Type": "None/RunCommand",
+   *       "ResourceName": "EcsRole1",
+   *       "CommandType": "runShellScript",
+   *       "CommandContent": "echo hello"
+   *     }
+   *   }
+   * }
    */
   upgradeMetadata?: string;
   /**
@@ -6048,6 +7822,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
       status: 'Status',
       supplierName: 'SupplierName',
       supplierUrl: 'SupplierUrl',
+      upgradableServiceInfos: 'UpgradableServiceInfos',
       upgradableServiceVersions: 'UpgradableServiceVersions',
       upgradeMetadata: 'UpgradeMetadata',
       version: 'Version',
@@ -6068,6 +7843,7 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
       status: 'string',
       supplierName: 'string',
       supplierUrl: 'string',
+      upgradableServiceInfos: { 'type': 'array', 'itemType': GetServiceInstanceResponseBodyServiceUpgradableServiceInfos },
       upgradableServiceVersions: { 'type': 'array', 'itemType': 'string' },
       upgradeMetadata: 'string',
       version: 'string',
@@ -6579,8 +8355,80 @@ export class GetServiceTemplateParameterConstraintsResponseBodyParameterConstrai
   }
 }
 
+export class GetUserInformationResponseBodyDeliverySettings extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  actiontrailDeliveryToOssEnabled?: boolean;
+  /**
+   * @example
+   * 0101data
+   */
+  ossBucketName?: string;
+  /**
+   * @example
+   * true
+   */
+  ossEnabled?: boolean;
+  /**
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @example
+   * /test
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actiontrailDeliveryToOssEnabled: 'ActiontrailDeliveryToOssEnabled',
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actiontrailDeliveryToOssEnabled: 'boolean',
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListServiceInstanceLogsRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more filters. Valid values:
+   * 
+   * *   StartTime: the start time of the log event.
+   * *   EndTime: the end time of the ActionTrail event.
+   * *   EventName: the name of the ActionTrail event.
+   * *   ResourceName: the name of the ActionTrail resource.
+   * *   ApplicationGroupName: the name of the application group.
+   * 
+   * @example
+   * - StartTime
+   * - EndTime
+   * - EventName
+   * - ResourceName
+   * - ApplicationGroupName
+   */
   name?: string;
+  /**
+   * @remarks
+   * The parameter value N of the filter. Valid values of N: 1 to 10.
+   */
   value?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -6602,6 +8450,22 @@ export class ListServiceInstanceLogsRequestFilter extends $tea.Model {
 }
 
 export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $tea.Model {
+  /**
+   * @remarks
+   * Compliance package risk types. For example, data security checks within a VPC, such as VpcDataRisk
+   * 
+   * @example
+   * VpcDataRisk
+   */
+  compliancePackType?: string;
+  /**
+   * @remarks
+   * Specific risk rule names for the compliance package. For example, ECS instance migration out of VPC - ecs-move-out-vpc.
+   * 
+   * @example
+   * ecs-move-out-vpc
+   */
+  complianceRuleName?: string;
   /**
    * @remarks
    * The log content.
@@ -6641,11 +8505,14 @@ export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $te
    * @remarks
    * The source of the service instance log. Valid values:
    * 
-   * *   ros: The log is generated by Resource Orchestration Service (ROS).
-   * *   computeNest: The log is generated by Compute Nest.
+   * computeNest: logs of the deployment and upgrade of the service instance.
+   * 
+   * application: logs generated by the application.
+   * 
+   * actionTrail: logs generated by ActionTrail.
    * 
    * @example
-   * ros
+   * computeNest
    */
   source?: string;
   /**
@@ -6676,6 +8543,8 @@ export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $te
   timestamp?: string;
   static names(): { [key: string]: string } {
     return {
+      compliancePackType: 'CompliancePackType',
+      complianceRuleName: 'ComplianceRuleName',
       content: 'Content',
       logType: 'LogType',
       resourceId: 'ResourceId',
@@ -6688,6 +8557,8 @@ export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $te
 
   static types(): { [key: string]: any } {
     return {
+      compliancePackType: 'string',
+      complianceRuleName: 'string',
       content: 'string',
       logType: 'string',
       resourceId: 'string',
@@ -6695,6 +8566,43 @@ export class ListServiceInstanceLogsResponseBodyServiceInstancesLogs extends $te
       source: 'string',
       status: 'string',
       timestamp: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServiceInstanceResourcesRequestFilters extends $tea.Model {
+  /**
+   * @remarks
+   * Vaild values:
+   * - ExpireTimeStart
+   * - ExpireTimeEnd
+   * - PayType
+   * - ResourceARN
+   * 
+   * @example
+   * ExpireTimeStart
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The value of the filter condition.
+   */
+  values?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      values: 'Values',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      values: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -7659,6 +9567,553 @@ export class ListServiceUsagesResponseBodyServiceUsages extends $tea.Model {
   }
 }
 
+export class ListServicesRequestFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+   * 
+   * *   ServiceId: the ID of the service.
+   * *   Name: the name of the service.
+   * *   Status: the state of the service.
+   * *   SupplierName: the name of the service provider.
+   * 
+   * @example
+   * Status
+   */
+  name?: string;
+  /**
+   * @remarks
+   * A value of the filter condition.
+   */
+  value?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesCommodity extends $tea.Model {
+  /**
+   * @remarks
+   * The commodity code.
+   * 
+   * @example
+   * cmjj00****
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * Deploy Page.
+   * 
+   * @example
+   * Order： Order Page
+   * Detail： Detail Page
+   */
+  deployPage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commodityCode: 'CommodityCode',
+      deployPage: 'DeployPage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commodityCode: 'string',
+      deployPage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL of the service icon.
+   * 
+   * @example
+   * http://img.tidb.oss.url
+   */
+  image?: string;
+  /**
+   * @remarks
+   * The language of the service. Valid values:
+   * 
+   * *   zh-CN: Chinese.
+   * *   en-US: English.
+   * 
+   * @example
+   * zh-CN
+   */
+  locale?: string;
+  /**
+   * @remarks
+   * The name of the service.
+   * 
+   * @example
+   * Docker Community Edition
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The description of the service.
+   * 
+   * @example
+   * Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+   */
+  shortDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      image: 'Image',
+      locale: 'Locale',
+      name: 'Name',
+      shortDescription: 'ShortDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      image: 'string',
+      locale: 'string',
+      name: 'string',
+      shortDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServicesTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * >  This parameter is required.
+   * 
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListServicesResponseBodyServices extends $tea.Model {
+  /**
+   * @remarks
+   * The category of the service.
+   * 
+   * @example
+   * cloud_ssd
+   */
+  categories?: string;
+  /**
+   * @remarks
+   * The commodity details.
+   */
+  commodity?: ListServicesResponseBodyServicesCommodity;
+  /**
+   * @remarks
+   * The commodity code of the service in Alibaba Cloud Marketplace.
+   * 
+   * @example
+   * cmjj00xxxx
+   */
+  commodityCode?: string;
+  /**
+   * @remarks
+   * Service deployment approach. Valid values:
+   * - NoWhere
+   * 
+   * - Marketplace
+   * 
+   * - ComputeNest
+   * 
+   * @example
+   * ComputeNest
+   */
+  deployFrom?: string;
+  /**
+   * @remarks
+   * The deployment type of the service. Valid values:
+   * 
+   * *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+   * *   terraform: The service is deployed by using Terraform.
+   * 
+   * @example
+   * ros
+   */
+  deployType?: string;
+  /**
+   * @remarks
+   * The time when the service was published.
+   * 
+   * @example
+   * 2022-01-21T10:35:44Z
+   */
+  publishTime?: string;
+  /**
+   * @remarks
+   * Service recommendation score.
+   * 
+   * @example
+   * 5
+   */
+  score?: number;
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * @example
+   * service-6b5d632edd394dxxxxxx
+   */
+  serviceId?: string;
+  /**
+   * @remarks
+   * The information about the service.
+   */
+  serviceInfos?: ListServicesResponseBodyServicesServiceInfos[];
+  /**
+   * @remarks
+   * The URL of the service page.
+   * 
+   * @example
+   * http://example1.com
+   */
+  serviceProductUrl?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * - private: The service is a private service and is deployed within the account of a customer.
+   * - managed: The service is a fully managed service and is deployed within the account of a service provider.
+   * - operation: The service is a hosted O&M service.
+   * 
+   * @example
+   * private
+   */
+  serviceType?: string;
+  /**
+   * @remarks
+   * The state of the service. Valid values:
+   * 
+   * *   Draft: The service is a draft.
+   * *   Submitted: The service is submitted for review. You cannot modify services in this state.
+   * *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
+   * *   Launching: The service is being published.
+   * *   Online: The service is published.
+   * *   Offline: The service is unpublished.
+   * 
+   * @example
+   * Online
+   */
+  status?: string;
+  /**
+   * @remarks
+   * The name of the service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierName?: string;
+  /**
+   * @remarks
+   * The name of service provider.
+   * 
+   * @example
+   * Alibaba Cloud
+   */
+  supplierNameEng?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud account ID of the service provider.
+   * 
+   * @example
+   * 1436322xxxxx
+   */
+  supplierUid?: number;
+  /**
+   * @remarks
+   * The URL of the service provider.
+   * 
+   * @example
+   * http://example.com
+   */
+  supplierUrl?: string;
+  /**
+   * @remarks
+   * The tags.
+   */
+  tags?: ListServicesResponseBodyServicesTags[];
+  /**
+   * @remarks
+   * The tenant type of the managed service. Valid values:
+   * 
+   * *   SingleTenant
+   * *   MultiTenant
+   * 
+   * @example
+   * SingleTenant
+   */
+  tenantType?: string;
+  /**
+   * @remarks
+   * The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+   * 
+   * @example
+   * 7
+   */
+  trialDuration?: string;
+  /**
+   * @remarks
+   * The trial policy. Valid values:
+   * 
+   * *   Trial: Trials are supported.
+   * *   NotTrial: Trials are not supported.
+   * 
+   * @example
+   * Trial
+   */
+  trialType?: string;
+  /**
+   * @remarks
+   * The version of the service.
+   * 
+   * @example
+   * 4
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The custom version name defined by the service provider.
+   * 
+   * @example
+   * v2.0.0
+   */
+  versionName?: string;
+  /**
+   * @remarks
+   * Indicates whether the service is a virtual Internet service. Valid values:
+   * 
+   * *   false
+   * *   true
+   * 
+   * @example
+   * false
+   */
+  virtualInternetService?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      commodity: 'Commodity',
+      commodityCode: 'CommodityCode',
+      deployFrom: 'DeployFrom',
+      deployType: 'DeployType',
+      publishTime: 'PublishTime',
+      score: 'Score',
+      serviceId: 'ServiceId',
+      serviceInfos: 'ServiceInfos',
+      serviceProductUrl: 'ServiceProductUrl',
+      serviceType: 'ServiceType',
+      status: 'Status',
+      supplierName: 'SupplierName',
+      supplierNameEng: 'SupplierNameEng',
+      supplierUid: 'SupplierUid',
+      supplierUrl: 'SupplierUrl',
+      tags: 'Tags',
+      tenantType: 'TenantType',
+      trialDuration: 'TrialDuration',
+      trialType: 'TrialType',
+      version: 'Version',
+      versionName: 'VersionName',
+      virtualInternetService: 'VirtualInternetService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: 'string',
+      commodity: ListServicesResponseBodyServicesCommodity,
+      commodityCode: 'string',
+      deployFrom: 'string',
+      deployType: 'string',
+      publishTime: 'string',
+      score: 'number',
+      serviceId: 'string',
+      serviceInfos: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesServiceInfos },
+      serviceProductUrl: 'string',
+      serviceType: 'string',
+      status: 'string',
+      supplierName: 'string',
+      supplierNameEng: 'string',
+      supplierUid: 'number',
+      supplierUrl: 'string',
+      tags: { 'type': 'array', 'itemType': ListServicesResponseBodyServicesTags },
+      tenantType: 'string',
+      trialDuration: 'string',
+      trialType: 'string',
+      version: 'string',
+      versionName: 'string',
+      virtualInternetService: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  /**
+   * @example
+   * si-44b9923be2d048eb8f5f
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * serviceinstance
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * test
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * major
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -7745,6 +10200,57 @@ export class UpdateServiceInstanceSpecShrinkRequestCommodity extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateUserInformationRequestDeliverySettings extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  actiontrailDeliveryToOssEnabled?: boolean;
+  /**
+   * @example
+   * "mybucket"
+   */
+  ossBucketName?: string;
+  /**
+   * @example
+   * true
+   */
+  ossEnabled?: boolean;
+  /**
+   * @example
+   * 7
+   */
+  ossExpirationDays?: number;
+  /**
+   * @example
+   * "path1/path2/"
+   */
+  ossPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actiontrailDeliveryToOssEnabled: 'ActiontrailDeliveryToOssEnabled',
+      ossBucketName: 'OssBucketName',
+      ossEnabled: 'OssEnabled',
+      ossExpirationDays: 'OssExpirationDays',
+      ossPath: 'OssPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actiontrailDeliveryToOssEnabled: 'boolean',
+      ossBucketName: 'string',
+      ossEnabled: 'boolean',
+      ossExpirationDays: 'number',
+      ossPath: 'string',
     };
   }
 
@@ -7878,6 +10384,68 @@ export default class Client extends OpenApi {
   async changeResourceGroup(request: ChangeResourceGroupRequest): Promise<ChangeResourceGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 服务实例部署前的预检查
+   * 
+   * @param request - CheckServiceDeployableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckServiceDeployableResponse
+   */
+  async checkServiceDeployableWithOptions(request: CheckServiceDeployableRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceDeployableResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.postPaidAmount)) {
+      query["PostPaidAmount"] = request.postPaidAmount;
+    }
+
+    if (!Util.isUnset(request.prePaidAmount)) {
+      query["PrePaidAmount"] = request.prePaidAmount;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.trialType)) {
+      query["TrialType"] = request.trialType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckServiceDeployable",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckServiceDeployableResponse>(await this.callApi(params, req, runtime), new CheckServiceDeployableResponse({}));
+  }
+
+  /**
+   * 服务实例部署前的预检查
+   * 
+   * @param request - CheckServiceDeployableRequest
+   * @returns CheckServiceDeployableResponse
+   */
+  async checkServiceDeployable(request: CheckServiceDeployableRequest): Promise<CheckServiceDeployableResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkServiceDeployableWithOptions(request, runtime);
   }
 
   /**
@@ -8237,6 +10805,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the information about a service.
+   * 
+   * @param request - GetServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetServiceResponse
+   */
+  async getServiceWithOptions(request: GetServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    if (!Util.isUnset(request.serviceInstanceId)) {
+      query["ServiceInstanceId"] = request.serviceInstanceId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    if (!Util.isUnset(request.serviceVersion)) {
+      query["ServiceVersion"] = request.serviceVersion;
+    }
+
+    if (!Util.isUnset(request.showDetails)) {
+      query["ShowDetails"] = request.showDetails;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetService",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+  }
+
+  /**
+   * Queries the information about a service.
+   * 
+   * @param request - GetServiceRequest
+   * @returns GetServiceResponse
+   */
+  async getService(request: GetServiceRequest): Promise<GetServiceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getServiceWithOptions(request, runtime);
+  }
+
+  /**
    * 计算巢服务部署询价
    * 
    * @param tmpReq - GetServiceEstimateCostRequest
@@ -8329,7 +10959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service instance.
+   * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
    * 
    * @param request - GetServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8368,7 +10998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a service instance.
+   * Queries the information about a service instance based on the region ID and the ID of the service instance or the Alibaba Cloud Marketplace instance. Information including the service status, template name, and involved resources are returned.
    * 
    * @param request - GetServiceInstanceRequest
    * @returns GetServiceInstanceResponse
@@ -8529,6 +11159,47 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 
+   *  * @param request GetUserInformationRequest
+   * 
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUserInformationResponse
+   */
+  async getUserInformationWithOptions(request: GetUserInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetUserInformationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetUserInformation",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetUserInformationResponse>(await this.callApi(params, req, runtime), new GetUserInformationResponse({}));
+  }
+
+  /**
+   * 
+   *  * @param request GetUserInformationRequest
+   * @returns GetUserInformationResponse
+   */
+  async getUserInformation(request: GetUserInformationRequest): Promise<GetUserInformationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getUserInformationWithOptions(request, runtime);
+  }
+
+  /**
    * 查询服务类别
    * 
    * @param request - ListServiceCategoriesRequest
@@ -8642,6 +11313,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.expireTimeStart)) {
       query["ExpireTimeStart"] = request.expireTimeStart;
+    }
+
+    if (!Util.isUnset(request.filters)) {
+      query["Filters"] = request.filters;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -8871,6 +11546,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a list of services.
+   * 
+   * @param request - ListServicesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListServicesResponse
+   */
+  async listServicesWithOptions(request: ListServicesRequest, runtime: $Util.RuntimeOptions): Promise<ListServicesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.fuzzyKeyword)) {
+      query["FuzzyKeyword"] = request.fuzzyKeyword;
+    }
+
+    if (!Util.isUnset(request.inUsed)) {
+      query["InUsed"] = request.inUsed;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.orderByType)) {
+      query["OrderByType"] = request.orderByType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.serviceAccessType)) {
+      query["ServiceAccessType"] = request.serviceAccessType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListServices",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+  }
+
+  /**
+   * Queries a list of services.
+   * 
+   * @param request - ListServicesRequest
+   * @returns ListServicesResponse
+   */
+  async listServices(request: ListServicesRequest): Promise<ListServicesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listServicesWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - ListTagKeysRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTagKeysResponse
@@ -8914,6 +11663,60 @@ export default class Client extends OpenApi {
   async listTagKeys(request: ListTagKeysRequest): Promise<ListTagKeysResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTagKeysWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -9449,6 +12252,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 更新用户全局信息
+   * 
+   * @param request - UpdateUserInformationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateUserInformationResponse
+   */
+  async updateUserInformationWithOptions(request: UpdateUserInformationRequest, runtime: $Util.RuntimeOptions): Promise<UpdateUserInformationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.deliverySettings)) {
+      query["DeliverySettings"] = request.deliverySettings;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateUserInformation",
+      version: "2021-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateUserInformationResponse>(await this.callApi(params, req, runtime), new UpdateUserInformationResponse({}));
+  }
+
+  /**
+   * 更新用户全局信息
+   * 
+   * @param request - UpdateUserInformationRequest
+   * @returns UpdateUserInformationResponse
+   */
+  async updateUserInformation(request: UpdateUserInformationRequest): Promise<UpdateUserInformationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateUserInformationWithOptions(request, runtime);
+  }
+
+  /**
+   * 升级服务实例
+   * 
    * @param tmpReq - UpgradeServiceInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpgradeServiceInstanceResponse
@@ -9504,6 +12355,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 升级服务实例
+   * 
    * @param request - UpgradeServiceInstanceRequest
    * @returns UpgradeServiceInstanceResponse
    */
