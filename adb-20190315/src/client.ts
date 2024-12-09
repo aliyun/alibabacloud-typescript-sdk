@@ -243,6 +243,7 @@ export class ApplyAdviceByIdResponse extends $tea.Model {
 }
 
 export class AttachUserENIRequest extends $tea.Model {
+  accessKeyIdCopy?: string;
   /**
    * @remarks
    * The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
@@ -261,6 +262,7 @@ export class AttachUserENIRequest extends $tea.Model {
   resourceOwnerId?: number;
   static names(): { [key: string]: string } {
     return {
+      accessKeyIdCopy: 'AccessKeyId-copy',
       DBClusterId: 'DBClusterId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -271,6 +273,7 @@ export class AttachUserENIRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessKeyIdCopy: 'string',
       DBClusterId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -687,6 +690,203 @@ export class BindDBResourcePoolWithUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BindDBResourcePoolWithUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * am-xxxxxxxx
+   */
+  ids?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * am-xxxxxxxx
+   */
+  ids?: string;
+  /**
+   * @example
+   * 642F3512-C628-5D0C-8815-F6670CEA00D4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * ads.aliyuncs.com
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  hasServiceLinkedRole?: boolean;
+  /**
+   * @example
+   * BA0F6761-7A8C-59F8-9624-FB56788C0EDF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      hasServiceLinkedRole: 'HasServiceLinkedRole',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hasServiceLinkedRole: 'boolean',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CheckServiceLinkedRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CheckServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CheckServiceLinkedRoleResponseBody,
     };
   }
 
@@ -1865,6 +2065,96 @@ export class CreateElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class CreateServiceLinkedRoleRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * ads.aliyuncs.com
+   */
+  serviceName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      serviceName: 'ServiceName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      serviceName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 051D7910-3547-5316-AB48-02BE2090B148
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateServiceLinkedRoleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateServiceLinkedRoleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateServiceLinkedRoleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAccountRequest extends $tea.Model {
   /**
    * @remarks
@@ -2637,6 +2927,303 @@ export class DescribeAccountsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfRequest extends $tea.Model {
+  /**
+   * @example
+   * am-xxxxxxxx
+   */
+  ids?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmzuemxkbvwqq
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfResponseBody extends $tea.Model {
+  config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
+  /**
+   * @example
+   * 1
+   */
+  hasConfig?: number;
+  /**
+   * @example
+   * 92B3D2F0-B5E3-5592-9A6F-D0A6C34ACBA9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      hasConfig: 'HasConfig',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: DescribeActiveOperationMaintainConfResponseBodyConfig,
+      hasConfig: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationMaintainConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationMaintainConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * -1
+   */
+  allowCancel?: number;
+  /**
+   * @example
+   * -1
+   */
+  allowChange?: number;
+  /**
+   * @example
+   * all
+   */
+  changeLevel?: string;
+  /**
+   * @example
+   * analyticdb
+   */
+  dbType?: string;
+  /**
+   * @example
+   * am-2ze307ym37t762hnl
+   */
+  insName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 25
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ads
+   */
+  productId?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  region?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * -1
+   */
+  status?: number;
+  /**
+   * @example
+   * all
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      dbType: 'DbType',
+      insName: 'InsName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      productId: 'ProductId',
+      region: 'Region',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      dbType: 'string',
+      insName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      productId: 'string',
+      region: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
+  /**
+   * @example
+   * 12
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 421794A3-72A5-5D27-9E8B-A75A4C503E17
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTasksResponseBody,
     };
   }
 
@@ -8867,6 +9454,123 @@ export class DescribeExcessivePrimaryKeysResponse extends $tea.Model {
   }
 }
 
+export class DescribeHistoryEventsStatRequest extends $tea.Model {
+  /**
+   * @example
+   * All
+   */
+  archiveStatus?: string;
+  /**
+   * @example
+   * 2022-01-02T11:31:03Z
+   */
+  fromStartTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * adb
+   */
+  productId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * 2022-03-02T11:31:03Z
+   */
+  toStartTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      archiveStatus: 'ArchiveStatus',
+      fromStartTime: 'FromStartTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      productId: 'ProductId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      toStartTime: 'ToStartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      archiveStatus: 'string',
+      fromStartTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      productId: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      toStartTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryEventsStatResponseBody extends $tea.Model {
+  items?: DescribeHistoryEventsStatResponseBodyItems[];
+  /**
+   * @example
+   * BA0F6761-7A8C-59F8-9624-FB56788C0EDF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeHistoryEventsStatResponseBodyItems },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeHistoryEventsStatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeHistoryEventsStatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeHistoryEventsStatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInclinedTablesRequest extends $tea.Model {
   /**
    * @remarks
@@ -9208,6 +9912,102 @@ export class DescribeKernelVersionResponse extends $tea.Model {
   }
 }
 
+export class DescribeKmsKeysRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKmsKeysResponseBody extends $tea.Model {
+  kmsKeys?: DescribeKmsKeysResponseBodyKmsKeys;
+  /**
+   * @example
+   * 8F91F25F-8BCF-59E3-AF67-3806DB41FD09
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      kmsKeys: 'KmsKeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsKeys: DescribeKmsKeysResponseBodyKmsKeys,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKmsKeysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKmsKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeKmsKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadTasksRecordsRequest extends $tea.Model {
   /**
    * @remarks
@@ -9443,6 +10243,122 @@ export class DescribeLoadTasksRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeLoadTasksRecordsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wap_log_full_to_adb
+   */
+  exportName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sls-hz-php-ad
+   */
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-4690g37929****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      exportName: 'ExportName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exportName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      projectName: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailResponseBody extends $tea.Model {
+  loghubInfo?: DescribeLoghubDetailResponseBodyLoghubInfo;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loghubInfo: 'LoghubInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loghubInfo: DescribeLoghubDetailResponseBodyLoghubInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLoghubDetailResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLoghubDetailResponseBody,
     };
   }
 
@@ -10279,6 +11195,92 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsMixedRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsMixedResponseBody extends $tea.Model {
+  regions?: DescribeRegionsMixedResponseBodyRegions;
+  /**
+   * @example
+   * 2E9450FF-F8AD-54C6-B3C3-009FBD7C0700
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regions: 'Regions',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regions: DescribeRegionsMixedResponseBodyRegions,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsMixedResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRegionsMixedResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRegionsMixedResponseBody,
     };
   }
 
@@ -11680,6 +12682,291 @@ export class DescribeSqlPatternResponse extends $tea.Model {
   }
 }
 
+export class DescribeSyncAvailableDBClusterListRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Source
+   */
+  queryType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-4690g37929****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  sourceDBCluster?: DescribeSyncAvailableDBClusterListRequestSourceDBCluster[];
+  /**
+   * @example
+   * ADB-CDC
+   */
+  syncPlatform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      queryType: 'QueryType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceDBCluster: 'SourceDBCluster',
+      syncPlatform: 'SyncPlatform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      queryType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceDBCluster: { 'type': 'array', 'itemType': DescribeSyncAvailableDBClusterListRequestSourceDBCluster },
+      syncPlatform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncAvailableDBClusterListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * FBD1DD96-AD1D-516C-9D9A-60BA081F66EE
+   */
+  requestId?: string;
+  syncAvailableDBClusters?: DescribeSyncAvailableDBClusterListResponseBodySyncAvailableDBClusters[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      syncAvailableDBClusters: 'SyncAvailableDBClusters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      syncAvailableDBClusters: { 'type': 'array', 'itemType': DescribeSyncAvailableDBClusterListResponseBodySyncAvailableDBClusters },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncAvailableDBClusterListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSyncAvailableDBClusterListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSyncAvailableDBClusterListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncJobListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-8vb39udfi356l9psq
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * true
+   */
+  getSourceDetail?: boolean;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * test
+   */
+  sourceDBClusterDescription?: string;
+  /**
+   * @example
+   * pc-t4n766v2llx852n81
+   */
+  sourceDBClusterId?: string;
+  /**
+   * @example
+   * sls
+   */
+  sourceDBType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      getSourceDetail: 'GetSourceDetail',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceDBClusterDescription: 'SourceDBClusterDescription',
+      sourceDBClusterId: 'SourceDBClusterId',
+      sourceDBType: 'SourceDBType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      getSourceDetail: 'boolean',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceDBClusterDescription: 'string',
+      sourceDBClusterId: 'string',
+      sourceDBType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncJobListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * am-j6c22lubl8d9l3989
+   */
+  DBClusterId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 482B8BAE-6EC0-5C0E-B2AF-FD42A3FC5B67
+   */
+  requestId?: string;
+  syncJobs?: DescribeSyncJobListResponseBodySyncJobs[];
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      syncJobs: 'SyncJobs',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      syncJobs: { 'type': 'array', 'itemType': DescribeSyncJobListResponseBodySyncJobs },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncJobListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSyncJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSyncJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTableAccessCountRequest extends $tea.Model {
   /**
    * @remarks
@@ -12828,6 +14115,215 @@ export class DescribeVSwitchesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeVSwitchesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchsRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * vpc-2ze1lz7nk4pn4zwy1j7pm
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1B892DA2-9ABC-5CC0-AD73-405479C3FA53
+   */
+  requestId?: string;
+  vSwitches?: DescribeVSwitchsResponseBodyVSwitches;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vSwitches: 'VSwitches',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vSwitches: DescribeVSwitchsResponseBodyVSwitches,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVSwitchsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVSwitchsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @remarks
+   * VPC ID。
+   * 
+   * @example
+   * vpc-bp13h7uzhulpuxvnp****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 78BDC895-F7C0-5961-92BE-F1C3D12B4BB5
+   */
+  requestId?: string;
+  vpcs?: DescribeVpcsResponseBodyVpcs;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      vpcs: 'Vpcs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      vpcs: DescribeVpcsResponseBodyVpcs,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeVpcsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeVpcsResponseBody,
     };
   }
 
@@ -13996,6 +15492,241 @@ export class ModifyAccountDescriptionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyAccountDescriptionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfRequest extends $tea.Model {
+  /**
+   * @example
+   * 1,2,3,4,5,6,7
+   */
+  cycleTime?: string;
+  /**
+   * @example
+   * Week
+   */
+  cycleType?: string;
+  /**
+   * @example
+   * 02:00:00Z
+   */
+  maintainEndTime?: string;
+  /**
+   * @example
+   * 02:00:00Z
+   */
+  maintainStartTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cycleTime: 'CycleTime',
+      cycleType: 'CycleType',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cycleTime: 'string',
+      cycleType: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0A156332-D2AC-5C98-8872-9779EA1CC022
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationMaintainConfResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationMaintainConfResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationMaintainConfResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 1482487
+   */
+  ids?: string;
+  /**
+   * @example
+   * 1
+   */
+  immediateStart?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * 2021-08-15T12:00:00Z
+   */
+  switchTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      immediateStart: 'ImmediateStart',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      switchTime: 'SwitchTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      immediateStart: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      switchTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  ids?: string;
+  /**
+   * @example
+   * 8B709A33-5E8D-511F-A225-AFC0B6AAAD76
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
     };
   }
 
@@ -15634,6 +17365,133 @@ export class ModifyDBClusterSSLResponse extends $tea.Model {
   }
 }
 
+export class ModifyDBClusterVipRequest extends $tea.Model {
+  /**
+   * @example
+   * am-2ze8mbuai974s4y2500000169.ads.aliyuncs.com
+   */
+  connectionString?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-2ze8mbuai97*****
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1at5ze0t5u3xtqn****
+   */
+  VPCId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1aadw9k19x6cis9****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectionString: 'ConnectionString',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectionString: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      VPCId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterVipResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1AD222E9-****-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1564657730
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterVipResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBClusterVipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterVipResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBResourceGroupRequest extends $tea.Model {
   /**
    * @remarks
@@ -16373,6 +18231,132 @@ export class ModifyLogBackupPolicyResponse extends $tea.Model {
   }
 }
 
+export class ModifyLogHubStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6j8370er80m6wf3
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * loghub-mnp-report
+   */
+  deliverName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pay-notify-wx
+   */
+  logStoreName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-adb
+   */
+  projectName?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Pause
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      deliverName: 'DeliverName',
+      logStoreName: 'LogStoreName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      deliverName: 'string',
+      logStoreName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      projectName: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLogHubStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0AA1F421-395B-5BC4-BDDC-762C508A952B
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLogHubStatusResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLogHubStatusResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyLogHubStatusResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyMaintenanceActionRequest extends $tea.Model {
   /**
    * @remarks
@@ -16811,6 +18795,323 @@ export class ModifySQAConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifySQAConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySyncJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-bp12bh6z59nh8497f
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * **if can be null:**
+   * true
+   */
+  sourceDBCluster?: ModifySyncJobRequestSourceDBCluster[];
+  /**
+   * @example
+   * ADB-CDC
+   */
+  syncPlatform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      sourceDBCluster: 'SourceDBCluster',
+      syncPlatform: 'SyncPlatform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      sourceDBCluster: { 'type': 'array', 'itemType': ModifySyncJobRequestSourceDBCluster },
+      syncPlatform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySyncJobResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 5AD3D9DF-614F-5B97-9522-A2406A432012
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySyncJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifySyncJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifySyncJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateLogHubRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  create?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-uf6rtqaj25491628z
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xhxsblz_limited_gift_pay
+   */
+  deliverName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-10-24\\"T\\"13:10\\"Z\\"
+   */
+  deliverTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @example
+   * false
+   */
+  filterDirtyData?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  logHubStores?: OperateLogHubRequestLogHubStores[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * beta-game-mjxb-ham-pool-export
+   */
+  logStoreName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ads_123
+   */
+  password?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-adb
+   */
+  projectName?: string;
+  /**
+   * @example
+   * SLS
+   */
+  provider?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wddata
+   */
+  schemaName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rest_action_latest
+   */
+  tableName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * admin
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      create: 'Create',
+      DBClusterId: 'DBClusterId',
+      deliverName: 'DeliverName',
+      deliverTime: 'DeliverTime',
+      description: 'Description',
+      filterDirtyData: 'FilterDirtyData',
+      logHubStores: 'LogHubStores',
+      logStoreName: 'LogStoreName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      password: 'Password',
+      projectName: 'ProjectName',
+      provider: 'Provider',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      create: 'boolean',
+      DBClusterId: 'string',
+      deliverName: 'string',
+      deliverTime: 'string',
+      description: 'string',
+      filterDirtyData: 'boolean',
+      logHubStores: { 'type': 'array', 'itemType': OperateLogHubRequestLogHubStores },
+      logStoreName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      password: 'string',
+      projectName: 'string',
+      provider: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemaName: 'string',
+      tableName: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateLogHubResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 71B41FF9-1275-5F75-973D-8BC3C60236E6
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateLogHubResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: OperateLogHubResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: OperateLogHubResponseBody,
     };
   }
 
@@ -17891,6 +20192,267 @@ export class DescribeAccountsResponseBodyAccountList extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBAccount: { 'type': 'array', 'itemType': DescribeAccountsResponseBodyAccountListDBAccount },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $tea.Model {
+  /**
+   * @example
+   * 2023-06-08T02:23:13Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * 0
+   */
+  cycleTime?: string;
+  /**
+   * @example
+   * Month
+   */
+  cycleType?: string;
+  /**
+   * @example
+   * 20:00:00Z
+   */
+  maintainEndTime?: string;
+  /**
+   * @example
+   * 18:00:00Z
+   */
+  maintainStartTime?: string;
+  /**
+   * @example
+   * 2023-05-12T12:34:40Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * 2
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      cycleTime: 'CycleTime',
+      cycleType: 'CycleType',
+      maintainEndTime: 'MaintainEndTime',
+      maintainStartTime: 'MaintainStartTime',
+      modifiedTime: 'ModifiedTime',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      cycleTime: 'string',
+      cycleType: 'string',
+      maintainEndTime: 'string',
+      maintainStartTime: 'string',
+      modifiedTime: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  allowCancel?: string;
+  /**
+   * @example
+   * 0
+   */
+  allowChange?: string;
+  /**
+   * @example
+   * all
+   */
+  changeLevel?: string;
+  /**
+   * @example
+   * Risk repairment
+   */
+  changeLevelEn?: string;
+  changeLevelZh?: string;
+  /**
+   * @example
+   * 2021-06-15T16:00:00Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * cn-beijing-k
+   */
+  currentAVZ?: string;
+  /**
+   * @example
+   * analyticdb
+   */
+  dbType?: string;
+  /**
+   * @example
+   * 3.0
+   */
+  dbVersion?: string;
+  /**
+   * @example
+   * 2021-06-15T16:00:00Z
+   */
+  deadline?: string;
+  /**
+   * @example
+   * 2389899
+   */
+  id?: number;
+  /**
+   * @example
+   * TransientDisconnectionAndMinorVersionUpgrade
+   */
+  impact?: string;
+  /**
+   * @example
+   * Transient instance disconnection, minor version upgrade
+   */
+  impactEn?: string;
+  impactZh?: string;
+  /**
+   * @example
+   * xxx
+   */
+  insComment?: string;
+  /**
+   * @example
+   * am-2ze307ym37t762hnl
+   */
+  insName?: string;
+  /**
+   * @example
+   * 2021-06-15T16:00:00Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * 03:00:00
+   */
+  prepareInterval?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * xxx
+   */
+  resultInfo?: string;
+  /**
+   * @example
+   * 2021-06-15T16:00:00Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 3
+   */
+  status?: number;
+  subInsNames?: string[];
+  /**
+   * @example
+   * 2021-06-15T16:00:00Z
+   */
+  switchTime?: string;
+  /**
+   * @example
+   * {\\"outer_user_params\\":{\\"TargetMinorVersion\\":\\"3.2.2.6\\",\\"detailCode\\":\\"OldKernelVersionUpgrade\\",\\"cancelCode\\":\\"OutOfNewFeatureAndStability\\"},\\"params\\":{},\\"internal_params\\":{\\"instanceInfo\\":[],\\"destHostInfo\\":[]}}
+   */
+  taskParams?: string;
+  /**
+   * @example
+   * rds_apsaradb_upgrade
+   */
+  taskType?: string;
+  /**
+   * @example
+   * Minor version update
+   */
+  taskTypeEn?: string;
+  taskTypeZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      changeLevelEn: 'ChangeLevelEn',
+      changeLevelZh: 'ChangeLevelZh',
+      createdTime: 'CreatedTime',
+      currentAVZ: 'CurrentAVZ',
+      dbType: 'DbType',
+      dbVersion: 'DbVersion',
+      deadline: 'Deadline',
+      id: 'Id',
+      impact: 'Impact',
+      impactEn: 'ImpactEn',
+      impactZh: 'ImpactZh',
+      insComment: 'InsComment',
+      insName: 'InsName',
+      modifiedTime: 'ModifiedTime',
+      prepareInterval: 'PrepareInterval',
+      region: 'Region',
+      resultInfo: 'ResultInfo',
+      startTime: 'StartTime',
+      status: 'Status',
+      subInsNames: 'SubInsNames',
+      switchTime: 'SwitchTime',
+      taskParams: 'TaskParams',
+      taskType: 'TaskType',
+      taskTypeEn: 'TaskTypeEn',
+      taskTypeZh: 'TaskTypeZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'string',
+      allowChange: 'string',
+      changeLevel: 'string',
+      changeLevelEn: 'string',
+      changeLevelZh: 'string',
+      createdTime: 'string',
+      currentAVZ: 'string',
+      dbType: 'string',
+      dbVersion: 'string',
+      deadline: 'string',
+      id: 'number',
+      impact: 'string',
+      impactEn: 'string',
+      impactZh: 'string',
+      insComment: 'string',
+      insName: 'string',
+      modifiedTime: 'string',
+      prepareInterval: 'string',
+      region: 'string',
+      resultInfo: 'string',
+      startTime: 'string',
+      status: 'number',
+      subInsNames: { 'type': 'array', 'itemType': 'string' },
+      switchTime: 'string',
+      taskParams: 'string',
+      taskType: 'string',
+      taskTypeEn: 'string',
+      taskTypeZh: 'string',
     };
   }
 
@@ -23398,6 +25960,36 @@ export class DescribeExcessivePrimaryKeysResponseBodyTables extends $tea.Model {
   }
 }
 
+export class DescribeHistoryEventsStatResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * Exception
+   */
+  eventCategory?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      eventCategory: 'EventCategory',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      eventCategory: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeInclinedTablesResponseBodyDetectionItems extends $tea.Model {
   message?: string;
   name?: string;
@@ -23528,6 +26120,55 @@ export class DescribeKernelVersionResponseBodyAvailableKernelVersions extends $t
   }
 }
 
+export class DescribeKmsKeysResponseBodyKmsKeysKmsKey extends $tea.Model {
+  /**
+   * @example
+   * mykey
+   */
+  keyAlias?: string;
+  /**
+   * @example
+   * 2e81355b-f8e7-4090-8082-a8f8124a621c
+   */
+  keyId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyAlias: 'KeyAlias',
+      keyId: 'KeyId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyAlias: 'string',
+      keyId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKmsKeysResponseBodyKmsKeys extends $tea.Model {
+  kmsKey?: DescribeKmsKeysResponseBodyKmsKeysKmsKey[];
+  static names(): { [key: string]: string } {
+    return {
+      kmsKey: 'KmsKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      kmsKey: { 'type': 'array', 'itemType': DescribeKmsKeysResponseBodyKmsKeysKmsKey },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $tea.Model {
   /**
    * @remarks
@@ -23616,6 +26257,172 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $tea.M
       sql: 'string',
       state: 'string',
       updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailResponseBodyLoghubInfoLogHubStoresLogHubStore extends $tea.Model {
+  /**
+   * @example
+   * channel_id
+   */
+  fieldKey?: string;
+  /**
+   * @example
+   * put_request
+   */
+  logKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'FieldKey',
+      logKey: 'LogKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      logKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailResponseBodyLoghubInfoLogHubStores extends $tea.Model {
+  logHubStore?: DescribeLoghubDetailResponseBodyLoghubInfoLogHubStoresLogHubStore[];
+  static names(): { [key: string]: string } {
+    return {
+      logHubStore: 'LogHubStore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logHubStore: { 'type': 'array', 'itemType': DescribeLoghubDetailResponseBodyLoghubInfoLogHubStoresLogHubStore },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLoghubDetailResponseBodyLoghubInfo extends $tea.Model {
+  /**
+   * @example
+   * am-8vbs48m7553du1gz2
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * rds
+   */
+  DBType?: string;
+  /**
+   * @example
+   * hub-pay-callback-ykt
+   */
+  deliverName?: string;
+  /**
+   * @example
+   * 2024-12-06\\"T\\"10:15\\"Z\\"
+   */
+  deliverTime?: string;
+  /**
+   * @example
+   * aaa
+   */
+  description?: string;
+  /**
+   * @example
+   * am-bp1p38m2c26s7hpk690650.ads.aliyuncs.com
+   */
+  domainUrl?: string;
+  /**
+   * @example
+   * true
+   */
+  filterDirtyData?: boolean;
+  logHubStores?: DescribeLoghubDetailResponseBodyLoghubInfoLogHubStores;
+  /**
+   * @example
+   * device_login
+   */
+  logStoreName?: string;
+  /**
+   * @example
+   * test-adb
+   */
+  projectName?: string;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  /**
+   * @example
+   * cbd_bi
+   */
+  schemaName?: string;
+  /**
+   * @example
+   * test2
+   */
+  tableName?: string;
+  /**
+   * @example
+   * test
+   */
+  userName?: string;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      DBType: 'DBType',
+      deliverName: 'DeliverName',
+      deliverTime: 'DeliverTime',
+      description: 'Description',
+      domainUrl: 'DomainUrl',
+      filterDirtyData: 'FilterDirtyData',
+      logHubStores: 'LogHubStores',
+      logStoreName: 'LogStoreName',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+      userName: 'UserName',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      DBType: 'string',
+      deliverName: 'string',
+      deliverTime: 'string',
+      description: 'string',
+      domainUrl: 'string',
+      filterDirtyData: 'boolean',
+      logHubStores: DescribeLoghubDetailResponseBodyLoghubInfoLogHubStores,
+      logStoreName: 'string',
+      projectName: 'string',
+      regionId: 'string',
+      schemaName: 'string',
+      tableName: 'string',
+      userName: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -24160,6 +26967,55 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       region: { 'type': 'array', 'itemType': DescribeRegionsResponseBodyRegionsRegion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsMixedResponseBodyRegionsRegion extends $tea.Model {
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 3.0
+   */
+  version?: string;
+  static names(): { [key: string]: string } {
+    return {
+      regionId: 'RegionId',
+      version: 'Version',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      regionId: 'string',
+      version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRegionsMixedResponseBodyRegions extends $tea.Model {
+  region?: DescribeRegionsMixedResponseBodyRegionsRegion[];
+  static names(): { [key: string]: string } {
+    return {
+      region: 'Region',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      region: { 'type': 'array', 'itemType': DescribeRegionsMixedResponseBodyRegionsRegion },
     };
   }
 
@@ -25506,6 +28362,166 @@ export class DescribeSqlPatternResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeSyncAvailableDBClusterListRequestSourceDBCluster extends $tea.Model {
+  /**
+   * @example
+   * rm-bp1l3yh04y7us147n
+   */
+  clusterIds?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rds
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterIds: 'ClusterIds',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIds: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncAvailableDBClusterListResponseBodySyncAvailableDBClusters extends $tea.Model {
+  /**
+   * @example
+   * DB1
+   */
+  DBClusterDescription?: string;
+  /**
+   * @example
+   * rm-bp1l3yh04y7us147n
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * rds
+   */
+  DBType?: string;
+  /**
+   * @example
+   * 1000
+   */
+  storageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  tableNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterDescription: 'DBClusterDescription',
+      DBClusterId: 'DBClusterId',
+      DBType: 'DBType',
+      storageSize: 'StorageSize',
+      tableNumber: 'TableNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterDescription: 'string',
+      DBClusterId: 'string',
+      DBType: 'string',
+      storageSize: 'number',
+      tableNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSyncJobListResponseBodySyncJobs extends $tea.Model {
+  /**
+   * @example
+   * dts-xxxxx
+   */
+  jobId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * test
+   */
+  sourceDBClusterDescription?: string;
+  /**
+   * @example
+   * pc-t4n766v2llx852n81
+   */
+  sourceDBClusterId?: string;
+  /**
+   * @example
+   * polardb
+   */
+  sourceDBType?: string;
+  /**
+   * @example
+   * 100
+   */
+  sourceStorageSize?: number;
+  /**
+   * @example
+   * 100
+   */
+  sourceTableNumber?: number;
+  /**
+   * @example
+   * ADB-CDC
+   */
+  syncPlatform?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      regionId: 'RegionId',
+      sourceDBClusterDescription: 'SourceDBClusterDescription',
+      sourceDBClusterId: 'SourceDBClusterId',
+      sourceDBType: 'SourceDBType',
+      sourceStorageSize: 'SourceStorageSize',
+      sourceTableNumber: 'SourceTableNumber',
+      syncPlatform: 'SyncPlatform',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      regionId: 'string',
+      sourceDBClusterDescription: 'string',
+      sourceDBClusterId: 'string',
+      sourceDBType: 'string',
+      sourceStorageSize: 'number',
+      sourceTableNumber: 'number',
+      syncPlatform: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTableAccessCountResponseBodyItems extends $tea.Model {
   /**
    * @remarks
@@ -26194,6 +29210,294 @@ export class DescribeVSwitchesResponseBodyVSwitches extends $tea.Model {
   }
 }
 
+export class DescribeVSwitchsResponseBodyVSwitchesVSwitch extends $tea.Model {
+  /**
+   * @example
+   * 195813423043****
+   */
+  aliUid?: string;
+  /**
+   * @example
+   * 26842
+   */
+  bid?: string;
+  /**
+   * @example
+   * 172.16.0.0/24
+   */
+  cidrBlock?: string;
+  /**
+   * @example
+   * 2022-01-18T12:43:57Z
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 2022-01-22T12:43:57Z
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
+  izNo?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionNo?: string;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @example
+   * vsw-25bcdxs7pv1****
+   */
+  vSwitchId?: string;
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bid: 'Bid',
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      izNo: 'IzNo',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      bid: 'string',
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      izNo: 'string',
+      regionNo: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVSwitchsResponseBodyVSwitches extends $tea.Model {
+  vSwitch?: DescribeVSwitchsResponseBodyVSwitchesVSwitch[];
+  static names(): { [key: string]: string } {
+    return {
+      vSwitch: 'VSwitch',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vSwitch: { 'type': 'array', 'itemType': DescribeVSwitchsResponseBodyVSwitchesVSwitch },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBodyVpcsVpcVSwitchs extends $tea.Model {
+  /**
+   * @example
+   * 172.17.0.0/24
+   */
+  cidrBlock?: string;
+  /**
+   * @example
+   * 1549012834000
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 1731031910000
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * false
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * cn-hangzhou-j
+   */
+  izNo?: string;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  /**
+   * @example
+   * vsw-8vbxk6ij0yz16bu4l3ijj
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vs1
+   */
+  vSwitchName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      izNo: 'IzNo',
+      status: 'Status',
+      vSwitchId: 'VSwitchId',
+      vSwitchName: 'VSwitchName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      izNo: 'string',
+      status: 'string',
+      vSwitchId: 'string',
+      vSwitchName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
+  /**
+   * @example
+   * 1431771514176727
+   */
+  aliUid?: string;
+  /**
+   * @example
+   * 26842
+   */
+  bid?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
+  cidrBlock?: string;
+  /**
+   * @example
+   * 1693217052000
+   */
+  gmtCreate?: string;
+  /**
+   * @example
+   * 1724639118000
+   */
+  gmtModified?: string;
+  /**
+   * @example
+   * false
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionNo?: string;
+  /**
+   * @example
+   * Available
+   */
+  status?: string;
+  vSwitchs?: DescribeVpcsResponseBodyVpcsVpcVSwitchs[];
+  /**
+   * @example
+   * vpc-uf6m0r5pihw1r79od6990
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * vpc1
+   */
+  vpcName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliUid: 'AliUid',
+      bid: 'Bid',
+      cidrBlock: 'CidrBlock',
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      isDefault: 'IsDefault',
+      regionNo: 'RegionNo',
+      status: 'Status',
+      vSwitchs: 'VSwitchs',
+      vpcId: 'VpcId',
+      vpcName: 'VpcName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliUid: 'string',
+      bid: 'string',
+      cidrBlock: 'string',
+      gmtCreate: 'string',
+      gmtModified: 'string',
+      isDefault: 'boolean',
+      regionNo: 'string',
+      status: 'string',
+      vSwitchs: { 'type': 'array', 'itemType': DescribeVpcsResponseBodyVpcsVpcVSwitchs },
+      vpcId: 'string',
+      vpcName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeVpcsResponseBodyVpcs extends $tea.Model {
+  vpc?: DescribeVpcsResponseBodyVpcsVpc[];
+  static names(): { [key: string]: string } {
+    return {
+      vpc: 'Vpc',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      vpc: { 'type': 'array', 'itemType': DescribeVpcsResponseBodyVpcsVpc },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -26365,6 +29669,105 @@ export class ModifyResubmitConfigRequestRules extends $tea.Model {
       peakMemory: 'string',
       queryTime: 'string',
       targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifySyncJobRequestSourceDBCluster extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rm-2zepqn129i9s3l2z3,rm-2zea4dj583129ksp6
+   */
+  clusterIds?: string;
+  /**
+   * @example
+   * dts-xxxxxx
+   */
+  jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Create
+   */
+  operateType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sls
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterIds: 'ClusterIds',
+      jobId: 'JobId',
+      operateType: 'OperateType',
+      regionId: 'RegionId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterIds: 'string',
+      jobId: 'string',
+      operateType: 'string',
+      regionId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class OperateLogHubRequestLogHubStores extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testValue
+   */
+  fieldKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testKey
+   */
+  logKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'FieldKey',
+      logKey: 'LogKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      logKey: 'string',
     };
   }
 
@@ -26595,6 +29998,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打通用户ENI
+   * 
    * @remarks
    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
    * 
@@ -26605,6 +30010,10 @@ export default class Client extends OpenApi {
   async attachUserENIWithOptions(request: AttachUserENIRequest, runtime: $Util.RuntimeOptions): Promise<AttachUserENIResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.accessKeyIdCopy)) {
+      query["AccessKeyId-copy"] = request.accessKeyIdCopy;
+    }
+
     if (!Util.isUnset(request.DBClusterId)) {
       query["DBClusterId"] = request.DBClusterId;
     }
@@ -26643,6 +30052,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 打通用户ENI
+   * 
    * @remarks
    * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
    * 
@@ -26852,6 +30263,130 @@ export default class Client extends OpenApi {
   async bindDBResourcePoolWithUser(request: BindDBResourcePoolWithUserRequest): Promise<BindDBResourcePoolWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDBResourcePoolWithUserWithOptions(request, runtime);
+  }
+
+  /**
+   * CancelActiveOperationTasks
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * CancelActiveOperationTasks
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - CheckServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CheckServiceLinkedRoleResponse
+   */
+  async checkServiceLinkedRoleWithOptions(request: CheckServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CheckServiceLinkedRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CheckServiceLinkedRole",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CheckServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CheckServiceLinkedRoleResponse({}));
+  }
+
+  /**
+   * @param request - CheckServiceLinkedRoleRequest
+   * @returns CheckServiceLinkedRoleResponse
+   */
+  async checkServiceLinkedRole(request: CheckServiceLinkedRoleRequest): Promise<CheckServiceLinkedRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.checkServiceLinkedRoleWithOptions(request, runtime);
   }
 
   /**
@@ -27373,6 +30908,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - CreateServiceLinkedRoleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRoleWithOptions(request: CreateServiceLinkedRoleRequest, runtime: $Util.RuntimeOptions): Promise<CreateServiceLinkedRoleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.serviceName)) {
+      query["ServiceName"] = request.serviceName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateServiceLinkedRole",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateServiceLinkedRoleResponse>(await this.callApi(params, req, runtime), new CreateServiceLinkedRoleResponse({}));
+  }
+
+  /**
+   * @param request - CreateServiceLinkedRoleRequest
+   * @returns CreateServiceLinkedRoleResponse
+   */
+  async createServiceLinkedRole(request: CreateServiceLinkedRoleRequest): Promise<CreateServiceLinkedRoleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createServiceLinkedRoleWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteAccountResponse
@@ -27814,6 +31407,182 @@ export default class Client extends OpenApi {
   async describeAccounts(request: DescribeAccountsRequest): Promise<DescribeAccountsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountsWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeActiveOperationMaintainConf
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConfWithOptions(request: DescribeActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationMaintainConfResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveOperationMaintainConf",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * DescribeActiveOperationMaintainConf
+   * 
+   * @param request - DescribeActiveOperationMaintainConfRequest
+   * @returns DescribeActiveOperationMaintainConfResponse
+   */
+  async describeActiveOperationMaintainConf(request: DescribeActiveOperationMaintainConfRequest): Promise<DescribeActiveOperationMaintainConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
+   * DescribeActiveOperationTasks
+   * 
+   * @param request - DescribeActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!Util.isUnset(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!Util.isUnset(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!Util.isUnset(request.dbType)) {
+      query["DbType"] = request.dbType;
+    }
+
+    if (!Util.isUnset(request.insName)) {
+      query["InsName"] = request.insName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.region)) {
+      query["Region"] = request.region;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveOperationTasks",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * DescribeActiveOperationTasks
+   * 
+   * @param request - DescribeActiveOperationTasksRequest
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -30367,6 +34136,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DescribeHistoryEventsStat
+   * 
+   * @param request - DescribeHistoryEventsStatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeHistoryEventsStatResponse
+   */
+  async describeHistoryEventsStatWithOptions(request: DescribeHistoryEventsStatRequest, runtime: $Util.RuntimeOptions): Promise<DescribeHistoryEventsStatResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.archiveStatus)) {
+      query["ArchiveStatus"] = request.archiveStatus;
+    }
+
+    if (!Util.isUnset(request.fromStartTime)) {
+      query["FromStartTime"] = request.fromStartTime;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.productId)) {
+      query["ProductId"] = request.productId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.toStartTime)) {
+      query["ToStartTime"] = request.toStartTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeHistoryEventsStat",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeHistoryEventsStatResponse>(await this.callApi(params, req, runtime), new DescribeHistoryEventsStatResponse({}));
+  }
+
+  /**
+   * DescribeHistoryEventsStat
+   * 
+   * @param request - DescribeHistoryEventsStatRequest
+   * @returns DescribeHistoryEventsStatResponse
+   */
+  async describeHistoryEventsStat(request: DescribeHistoryEventsStatRequest): Promise<DescribeHistoryEventsStatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeHistoryEventsStatWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the monitoring information about tables.
    * 
    * @param request - DescribeInclinedTablesRequest
@@ -30511,6 +34358,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 枚举当前账号kms服务key
+   * 
+   * @param request - DescribeKmsKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKmsKeysResponse
+   */
+  async describeKmsKeysWithOptions(request: DescribeKmsKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKmsKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeKmsKeys",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKmsKeysResponse>(await this.callApi(params, req, runtime), new DescribeKmsKeysResponse({}));
+  }
+
+  /**
+   * 枚举当前账号kms服务key
+   * 
+   * @param request - DescribeKmsKeysRequest
+   * @returns DescribeKmsKeysResponse
+   */
+  async describeKmsKeys(request: DescribeKmsKeysRequest): Promise<DescribeKmsKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeKmsKeysWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about asynchronous import and export tasks of an AnalyticDB for MySQL cluster.
    * 
    * @remarks
@@ -30604,6 +34513,72 @@ export default class Client extends OpenApi {
   async describeLoadTasksRecords(request: DescribeLoadTasksRecordsRequest): Promise<DescribeLoadTasksRecordsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeLoadTasksRecordsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeLoghubDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLoghubDetailResponse
+   */
+  async describeLoghubDetailWithOptions(request: DescribeLoghubDetailRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLoghubDetailResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.exportName)) {
+      query["ExportName"] = request.exportName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLoghubDetail",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLoghubDetailResponse>(await this.callApi(params, req, runtime), new DescribeLoghubDetailResponse({}));
+  }
+
+  /**
+   * @param request - DescribeLoghubDetailRequest
+   * @returns DescribeLoghubDetailResponse
+   */
+  async describeLoghubDetail(request: DescribeLoghubDetailRequest): Promise<DescribeLoghubDetailResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLoghubDetailWithOptions(request, runtime);
   }
 
   /**
@@ -30942,6 +34917,60 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRegionsMixedRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRegionsMixedResponse
+   */
+  async describeRegionsMixedWithOptions(request: DescribeRegionsMixedRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRegionsMixedResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRegionsMixed",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRegionsMixedResponse>(await this.callApi(params, req, runtime), new DescribeRegionsMixedResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRegionsMixedRequest
+   * @returns DescribeRegionsMixedResponse
+   */
+  async describeRegionsMixed(request: DescribeRegionsMixedRequest): Promise<DescribeRegionsMixedResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRegionsMixedWithOptions(request, runtime);
   }
 
   /**
@@ -31493,6 +35522,158 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeSyncAvailableDBClusterListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSyncAvailableDBClusterListResponse
+   */
+  async describeSyncAvailableDBClusterListWithOptions(request: DescribeSyncAvailableDBClusterListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSyncAvailableDBClusterListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.queryType)) {
+      query["QueryType"] = request.queryType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceDBCluster)) {
+      query["SourceDBCluster"] = request.sourceDBCluster;
+    }
+
+    if (!Util.isUnset(request.syncPlatform)) {
+      query["SyncPlatform"] = request.syncPlatform;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSyncAvailableDBClusterList",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSyncAvailableDBClusterListResponse>(await this.callApi(params, req, runtime), new DescribeSyncAvailableDBClusterListResponse({}));
+  }
+
+  /**
+   * @param request - DescribeSyncAvailableDBClusterListRequest
+   * @returns DescribeSyncAvailableDBClusterListResponse
+   */
+  async describeSyncAvailableDBClusterList(request: DescribeSyncAvailableDBClusterListRequest): Promise<DescribeSyncAvailableDBClusterListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSyncAvailableDBClusterListWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeSyncJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSyncJobListResponse
+   */
+  async describeSyncJobListWithOptions(request: DescribeSyncJobListRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSyncJobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.getSourceDetail)) {
+      query["GetSourceDetail"] = request.getSourceDetail;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceDBClusterDescription)) {
+      query["SourceDBClusterDescription"] = request.sourceDBClusterDescription;
+    }
+
+    if (!Util.isUnset(request.sourceDBClusterId)) {
+      query["SourceDBClusterId"] = request.sourceDBClusterId;
+    }
+
+    if (!Util.isUnset(request.sourceDBType)) {
+      query["SourceDBType"] = request.sourceDBType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSyncJobList",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSyncJobListResponse>(await this.callApi(params, req, runtime), new DescribeSyncJobListResponse({}));
+  }
+
+  /**
+   * @param request - DescribeSyncJobListRequest
+   * @returns DescribeSyncJobListResponse
+   */
+  async describeSyncJobList(request: DescribeSyncJobListRequest): Promise<DescribeSyncJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSyncJobListWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeTableAccessCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeTableAccessCountResponse
@@ -31980,6 +36161,138 @@ export default class Client extends OpenApi {
   async describeVSwitches(request: DescribeVSwitchesRequest): Promise<DescribeVSwitchesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeVSwitchesWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeVSwitchsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVSwitchsResponse
+   */
+  async describeVSwitchsWithOptions(request: DescribeVSwitchsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVSwitchsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVSwitchs",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVSwitchsResponse>(await this.callApi(params, req, runtime), new DescribeVSwitchsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeVSwitchsRequest
+   * @returns DescribeVSwitchsResponse
+   */
+  async describeVSwitchs(request: DescribeVSwitchsRequest): Promise<DescribeVSwitchsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVSwitchsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeVpcsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcsWithOptions(request: DescribeVpcsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeVpcsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeVpcs",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeVpcsResponse>(await this.callApi(params, req, runtime), new DescribeVpcsResponse({}));
+  }
+
+  /**
+   * @param request - DescribeVpcsRequest
+   * @returns DescribeVpcsResponse
+   */
+  async describeVpcs(request: DescribeVpcsRequest): Promise<DescribeVpcsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeVpcsWithOptions(request, runtime);
   }
 
   /**
@@ -32572,6 +36885,162 @@ export default class Client extends OpenApi {
   async modifyAccountDescription(request: ModifyAccountDescriptionRequest): Promise<ModifyAccountDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyAccountDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyActiveOperationMaintainConf
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConfWithOptions(request: ModifyActiveOperationMaintainConfRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationMaintainConfResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.cycleTime)) {
+      query["CycleTime"] = request.cycleTime;
+    }
+
+    if (!Util.isUnset(request.cycleType)) {
+      query["CycleType"] = request.cycleType;
+    }
+
+    if (!Util.isUnset(request.maintainEndTime)) {
+      query["MaintainEndTime"] = request.maintainEndTime;
+    }
+
+    if (!Util.isUnset(request.maintainStartTime)) {
+      query["MaintainStartTime"] = request.maintainStartTime;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationMaintainConf",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationMaintainConfResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationMaintainConfResponse({}));
+  }
+
+  /**
+   * ModifyActiveOperationMaintainConf
+   * 
+   * @param request - ModifyActiveOperationMaintainConfRequest
+   * @returns ModifyActiveOperationMaintainConfResponse
+   */
+  async modifyActiveOperationMaintainConf(request: ModifyActiveOperationMaintainConfRequest): Promise<ModifyActiveOperationMaintainConfResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationMaintainConfWithOptions(request, runtime);
+  }
+
+  /**
+   * ModifyActiveOperationTasks
+   * 
+   * @param request - ModifyActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * ModifyActiveOperationTasks
+   * 
+   * @param request - ModifyActiveOperationTasksRequest
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -33351,6 +37820,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改访问VIP
+   * 
+   * @param request - ModifyDBClusterVipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterVipResponse
+   */
+  async modifyDBClusterVipWithOptions(request: ModifyDBClusterVipRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterVipResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.connectionString)) {
+      query["ConnectionString"] = request.connectionString;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterVip",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterVipResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterVipResponse({}));
+  }
+
+  /**
+   * 修改访问VIP
+   * 
+   * @param request - ModifyDBClusterVipRequest
+   * @returns ModifyDBClusterVipResponse
+   */
+  async modifyDBClusterVip(request: ModifyDBClusterVipRequest): Promise<ModifyDBClusterVipResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterVipWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
    * 
    * @remarks
@@ -33703,6 +38246,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - ModifyLogHubStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLogHubStatusResponse
+   */
+  async modifyLogHubStatusWithOptions(request: ModifyLogHubStatusRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLogHubStatusResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.deliverName)) {
+      query["DeliverName"] = request.deliverName;
+    }
+
+    if (!Util.isUnset(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyLogHubStatus",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLogHubStatusResponse>(await this.callApi(params, req, runtime), new ModifyLogHubStatusResponse({}));
+  }
+
+  /**
+   * @param request - ModifyLogHubStatusRequest
+   * @returns ModifyLogHubStatusResponse
+   */
+  async modifyLogHubStatus(request: ModifyLogHubStatusRequest): Promise<ModifyLogHubStatusResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyLogHubStatusWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the switchover time of O&M events.
    * 
    * @param request - ModifyMaintenanceActionRequest
@@ -33912,6 +38525,178 @@ export default class Client extends OpenApi {
   async modifySQAConfig(request: ModifySQAConfigRequest): Promise<ModifySQAConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifySQAConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ModifySyncJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifySyncJobResponse
+   */
+  async modifySyncJobWithOptions(request: ModifySyncJobRequest, runtime: $Util.RuntimeOptions): Promise<ModifySyncJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.sourceDBCluster)) {
+      query["SourceDBCluster"] = request.sourceDBCluster;
+    }
+
+    if (!Util.isUnset(request.syncPlatform)) {
+      query["SyncPlatform"] = request.syncPlatform;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifySyncJob",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifySyncJobResponse>(await this.callApi(params, req, runtime), new ModifySyncJobResponse({}));
+  }
+
+  /**
+   * @param request - ModifySyncJobRequest
+   * @returns ModifySyncJobResponse
+   */
+  async modifySyncJob(request: ModifySyncJobRequest): Promise<ModifySyncJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifySyncJobWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - OperateLogHubRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns OperateLogHubResponse
+   */
+  async operateLogHubWithOptions(request: OperateLogHubRequest, runtime: $Util.RuntimeOptions): Promise<OperateLogHubResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.create)) {
+      query["Create"] = request.create;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.deliverName)) {
+      query["DeliverName"] = request.deliverName;
+    }
+
+    if (!Util.isUnset(request.deliverTime)) {
+      query["DeliverTime"] = request.deliverTime;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.filterDirtyData)) {
+      query["FilterDirtyData"] = request.filterDirtyData;
+    }
+
+    if (!Util.isUnset(request.logHubStores)) {
+      query["LogHubStores"] = request.logHubStores;
+    }
+
+    if (!Util.isUnset(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.provider)) {
+      query["Provider"] = request.provider;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "OperateLogHub",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<OperateLogHubResponse>(await this.callApi(params, req, runtime), new OperateLogHubResponse({}));
+  }
+
+  /**
+   * @param request - OperateLogHubRequest
+   * @returns OperateLogHubResponse
+   */
+  async operateLogHub(request: OperateLogHubRequest): Promise<OperateLogHubResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.operateLogHubWithOptions(request, runtime);
   }
 
   /**
