@@ -1782,10 +1782,14 @@ export class MaxComputeExport extends $tea.Model {
    * This parameter is required.
    */
   configuration?: MaxComputeExportConfiguration;
+  /**
+   * @example
+   * 1714284115
+   */
   createTime?: number;
   /**
    * @example
-   * MaxComputeExport
+   * odpsexport-demo
    */
   description?: string;
   /**
@@ -1793,18 +1797,27 @@ export class MaxComputeExport extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * MaxComputeExport
+   * odpsexport-test
    */
   displayName?: string;
+  /**
+   * @example
+   * 1714284589
+   */
   lastModifiedTime?: number;
   /**
    * @remarks
    * This parameter is required.
    * 
    * @example
-   * MaxComputeExport
+   * export-general-1714033191-584993-hcl
    */
   name?: string;
+  /**
+   * @example
+   * c7f01719d9feb105fc9d8df92af62010
+   */
+  scheduleId?: string;
   /**
    * @example
    * RUNNING
@@ -1818,6 +1831,7 @@ export class MaxComputeExport extends $tea.Model {
       displayName: 'displayName',
       lastModifiedTime: 'lastModifiedTime',
       name: 'name',
+      scheduleId: 'scheduleId',
       status: 'status',
     };
   }
@@ -1830,6 +1844,7 @@ export class MaxComputeExport extends $tea.Model {
       displayName: 'string',
       lastModifiedTime: 'number',
       name: 'string',
+      scheduleId: 'string',
       status: 'string',
     };
   }
@@ -1843,16 +1858,25 @@ export class MaxComputeExportConfiguration extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 1
    */
   fromTime?: number;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * sls-logstore-demo
    */
   logstore?: string;
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * acs:ram::123456789:role/aliyunlogdefaultrole
    */
   roleArn?: string;
   /**
@@ -1863,6 +1887,9 @@ export class MaxComputeExportConfiguration extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * 0
    */
   toTime?: number;
   static names(): { [key: string]: string } {
@@ -1897,10 +1924,16 @@ export class MaxComputeExportConfigurationSink extends $tea.Model {
    */
   fields?: string[];
   /**
+   * @example
+   * asdfghjk
+   * 
    * @deprecated
    */
   odpsAccessKeyId?: string;
   /**
+   * @example
+   * esasdfghjkl
+   * 
    * @deprecated
    */
   odpsAccessSecret?: string;
@@ -1909,7 +1942,7 @@ export class MaxComputeExportConfigurationSink extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * http://xxxxxxxx
+   * http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
    */
   odpsEndpoint?: string;
   /**
@@ -1921,8 +1954,11 @@ export class MaxComputeExportConfigurationSink extends $tea.Model {
    */
   odpsProject?: string;
   /**
+   * @remarks
+   * This parameter is required.
+   * 
    * @example
-   * acs:ram::xxxxxxx
+   * acs:ram::123456789:role/aliyunlogdefaultrole
    */
   odpsRolearn?: string;
   /**
@@ -1936,6 +1972,9 @@ export class MaxComputeExportConfigurationSink extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
+   * 
+   * @example
+   * http://dt.cn-hangzhou.maxcompute.aliyun-inc.com
    */
   odpsTunnelEndpoint?: string;
   /**
@@ -4082,6 +4121,68 @@ export class ConsumerGroupUpdateCheckPointResponse extends $tea.Model {
   }
 }
 
+export class CreateAgentInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  configMatcher?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  configName?: string;
+  isGray?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      configMatcher: 'configMatcher',
+      configName: 'configName',
+      isGray: 'isGray',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      configMatcher: 'string',
+      configName: 'string',
+      isGray: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAgentInstanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateAlertRequest extends $tea.Model {
   /**
    * @remarks
@@ -6096,6 +6197,47 @@ export class CreateTicketResponse extends $tea.Model {
   }
 }
 
+export class DeleteAgentInstanceConfigRequest extends $tea.Model {
+  isGray?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      isGray: 'isGray',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isGray: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAgentInstanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteAlertResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
@@ -6841,6 +6983,65 @@ export class EnableScheduledSQLResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentInstanceConfigResponseBody extends $tea.Model {
+  config?: string;
+  configMatcher?: string;
+  configName?: string;
+  createTime?: number;
+  isGray?: boolean;
+  lastModifyTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      configMatcher: 'configMatcher',
+      configName: 'configName',
+      createTime: 'createTime',
+      isGray: 'isGray',
+      lastModifyTime: 'lastModifyTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      configMatcher: 'string',
+      configName: 'string',
+      createTime: 'number',
+      isGray: 'boolean',
+      lastModifyTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAgentInstanceConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentInstanceConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAgentInstanceConfigResponseBody,
     };
   }
 
@@ -9137,6 +9338,78 @@ export class GetStoreViewIndexResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetStoreViewIndexResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentInstanceConfigsRequest extends $tea.Model {
+  offset?: number;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      offset: 'offset',
+      size: 'size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      offset: 'number',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentInstanceConfigsResponseBody extends $tea.Model {
+  configs?: string[];
+  size?: number;
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      configs: 'configs',
+      size: 'size',
+      total: 'total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configs: { 'type': 'array', 'itemType': 'string' },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentInstanceConfigsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAgentInstanceConfigsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListAgentInstanceConfigsResponseBody,
     };
   }
 
@@ -12684,6 +12957,61 @@ export class UntagResourcesRequest extends $tea.Model {
 }
 
 export class UntagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAgentInstanceConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  configMatcher?: string;
+  isGray?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'config',
+      configMatcher: 'configMatcher',
+      isGray: 'isGray',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      configMatcher: 'string',
+      isGray: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAgentInstanceConfigResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
   static names(): { [key: string]: string } {
@@ -18079,6 +18407,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * CreateAgentInstanceConfig
+   * 
+   * @param request - CreateAgentInstanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentInstanceConfigResponse
+   */
+  async createAgentInstanceConfigWithOptions(request: CreateAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAgentInstanceConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.configMatcher)) {
+      body["configMatcher"] = request.configMatcher;
+    }
+
+    if (!Util.isUnset(request.configName)) {
+      body["configName"] = request.configName;
+    }
+
+    if (!Util.isUnset(request.isGray)) {
+      body["isGray"] = request.isGray;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAgentInstanceConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/agentinstanceconfigs`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<CreateAgentInstanceConfigResponse>(await this.execute(params, req, runtime), new CreateAgentInstanceConfigResponse({}));
+  }
+
+  /**
+   * CreateAgentInstanceConfig
+   * 
+   * @param request - CreateAgentInstanceConfigRequest
+   * @returns CreateAgentInstanceConfigResponse
+   */
+  async createAgentInstanceConfig(request: CreateAgentInstanceConfigRequest): Promise<CreateAgentInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAgentInstanceConfigWithOptions(request, headers, runtime);
+  }
+
+  /**
    * CreateAlert
    * 
    * @param request - CreateAlertRequest
@@ -19742,6 +20127,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * DeleteAgentInstanceConfig
+   * 
+   * @param request - DeleteAgentInstanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentInstanceConfigResponse
+   */
+  async deleteAgentInstanceConfigWithOptions(configName: string, request: DeleteAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteAgentInstanceConfigResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isGray)) {
+      query["isGray"] = request.isGray;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAgentInstanceConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/agentinstanceconfigs/${configName}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<DeleteAgentInstanceConfigResponse>(await this.execute(params, req, runtime), new DeleteAgentInstanceConfigResponse({}));
+  }
+
+  /**
+   * DeleteAgentInstanceConfig
+   * 
+   * @param request - DeleteAgentInstanceConfigRequest
+   * @returns DeleteAgentInstanceConfigResponse
+   */
+  async deleteAgentInstanceConfig(configName: string, request: DeleteAgentInstanceConfigRequest): Promise<DeleteAgentInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAgentInstanceConfigWithOptions(configName, request, headers, runtime);
+  }
+
+  /**
    * Deletes an alert rule.
    * 
    * @param headers - map
@@ -21128,6 +21558,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.enableScheduledSQLWithOptions(project, scheduledSQLName, headers, runtime);
+  }
+
+  /**
+   * GetAgentInstanceConfig
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentInstanceConfigResponse
+   */
+  async getAgentInstanceConfigWithOptions(configName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAgentInstanceConfigResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAgentInstanceConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/agentinstanceconfigs/${configName}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAgentInstanceConfigResponse>(await this.execute(params, req, runtime), new GetAgentInstanceConfigResponse({}));
+  }
+
+  /**
+   * GetAgentInstanceConfig
+   * @returns GetAgentInstanceConfigResponse
+   */
+  async getAgentInstanceConfig(configName: string): Promise<GetAgentInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAgentInstanceConfigWithOptions(configName, headers, runtime);
   }
 
   /**
@@ -23158,6 +23623,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getStoreViewIndexWithOptions(project, name, headers, runtime);
+  }
+
+  /**
+   * ListAgentInstanceConfigs
+   * 
+   * @param request - ListAgentInstanceConfigsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentInstanceConfigsResponse
+   */
+  async listAgentInstanceConfigsWithOptions(request: ListAgentInstanceConfigsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAgentInstanceConfigsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.offset)) {
+      query["offset"] = request.offset;
+    }
+
+    if (!Util.isUnset(request.size)) {
+      query["size"] = request.size;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListAgentInstanceConfigs",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/agentinstanceconfigs`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListAgentInstanceConfigsResponse>(await this.execute(params, req, runtime), new ListAgentInstanceConfigsResponse({}));
+  }
+
+  /**
+   * ListAgentInstanceConfigs
+   * 
+   * @param request - ListAgentInstanceConfigsRequest
+   * @returns ListAgentInstanceConfigsResponse
+   */
+  async listAgentInstanceConfigs(request: ListAgentInstanceConfigsRequest): Promise<ListAgentInstanceConfigsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAgentInstanceConfigsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -25764,6 +26278,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.untagResourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * UpdateAgentInstanceConfig
+   * 
+   * @param request - UpdateAgentInstanceConfigRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentInstanceConfigResponse
+   */
+  async updateAgentInstanceConfigWithOptions(configName: string, request: UpdateAgentInstanceConfigRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAgentInstanceConfigResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.config)) {
+      body["config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.configMatcher)) {
+      body["configMatcher"] = request.configMatcher;
+    }
+
+    if (!Util.isUnset(request.isGray)) {
+      body["isGray"] = request.isGray;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAgentInstanceConfig",
+      version: "2020-12-30",
+      protocol: "HTTPS",
+      pathname: `/agentinstanceconfigs/${configName}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $tea.cast<UpdateAgentInstanceConfigResponse>(await this.execute(params, req, runtime), new UpdateAgentInstanceConfigResponse({}));
+  }
+
+  /**
+   * UpdateAgentInstanceConfig
+   * 
+   * @param request - UpdateAgentInstanceConfigRequest
+   * @returns UpdateAgentInstanceConfigResponse
+   */
+  async updateAgentInstanceConfig(configName: string, request: UpdateAgentInstanceConfigRequest): Promise<UpdateAgentInstanceConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAgentInstanceConfigWithOptions(configName, request, headers, runtime);
   }
 
   /**
