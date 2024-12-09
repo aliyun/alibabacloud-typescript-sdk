@@ -33443,6 +33443,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
    * 450.878
    */
   bitrate?: string;
+  codecName?: string;
   /**
    * @remarks
    * The time when the audio or video stream was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
@@ -33663,6 +33664,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
     return {
       bitDepth: 'BitDepth',
       bitrate: 'Bitrate',
+      codecName: 'CodecName',
       creationTime: 'CreationTime',
       definition: 'Definition',
       duration: 'Duration',
@@ -33692,6 +33694,7 @@ export class GetPlayInfoResponseBodyPlayInfoListPlayInfo extends $tea.Model {
     return {
       bitDepth: 'number',
       bitrate: 'string',
+      codecName: 'string',
       creationTime: 'string',
       definition: 'string',
       duration: 'string',
