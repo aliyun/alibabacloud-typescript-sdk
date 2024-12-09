@@ -3297,7 +3297,7 @@ export class GetLoginProfileRequest extends $tea.Model {
 export class GetLoginProfileResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The logon information.
+   * The console logon configurations.
    */
   loginProfile?: GetLoginProfileResponseBodyLoginProfile;
   /**
@@ -6404,11 +6404,13 @@ export class SetUserSsoSettingsRequest extends $tea.Model {
    * true
    */
   ssoEnabled?: boolean;
+  ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
       auxiliaryDomain: 'AuxiliaryDomain',
       metadataDocument: 'MetadataDocument',
       ssoEnabled: 'SsoEnabled',
+      ssoLoginWithDomain: 'SsoLoginWithDomain',
     };
   }
 
@@ -6417,6 +6419,7 @@ export class SetUserSsoSettingsRequest extends $tea.Model {
       auxiliaryDomain: 'string',
       metadataDocument: 'string',
       ssoEnabled: 'boolean',
+      ssoLoginWithDomain: 'boolean',
     };
   }
 
@@ -9788,7 +9791,7 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
 export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   /**
    * @remarks
-   * The last time when the RAM user logged on to the console.
+   * The time of the most recent logon. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-14T07:25:25Z
@@ -9796,7 +9799,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   lastLoginTime?: string;
   /**
    * @remarks
-   * Indicates whether multi-factor authentication (MFA) must be enabled.
+   * Indicates whether multi-factor authentication (MFA) must be enabled. Valid values:
+   * 
+   * *   false
+   * *   true
    * 
    * @example
    * false
@@ -9804,7 +9810,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   MFABindRequired?: boolean;
   /**
    * @remarks
-   * Indicates whether the RAM user must reset the password at the next logon.
+   * Indicates whether the RAM user is required to reset the password upon the next logon. Valid values:
+   * 
+   * *   false
+   * *   true
    * 
    * @example
    * false
@@ -9812,7 +9821,10 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   passwordResetRequired?: boolean;
   /**
    * @remarks
-   * The status of password-based logon.
+   * Indicates whether console logon is enabled. Valid values:
+   * 
+   * *   Active: enabled.
+   * *   Inactive: disabled.
    * 
    * @example
    * Active
@@ -9820,7 +9832,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * The update time.
+   * The modification time. The time is displayed in UTC.
    * 
    * @example
    * 2020-10-14T06:56:45Z
@@ -10689,11 +10701,13 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
    * false
    */
   ssoEnabled?: boolean;
+  ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
       auxiliaryDomain: 'AuxiliaryDomain',
       metadataDocument: 'MetadataDocument',
       ssoEnabled: 'SsoEnabled',
+      ssoLoginWithDomain: 'SsoLoginWithDomain',
     };
   }
 
@@ -10702,6 +10716,7 @@ export class GetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
       auxiliaryDomain: 'string',
       metadataDocument: 'string',
       ssoEnabled: 'boolean',
+      ssoLoginWithDomain: 'boolean',
     };
   }
 
@@ -12947,11 +12962,13 @@ export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
    * true
    */
   ssoEnabled?: boolean;
+  ssoLoginWithDomain?: boolean;
   static names(): { [key: string]: string } {
     return {
       auxiliaryDomain: 'AuxiliaryDomain',
       metadataDocument: 'MetadataDocument',
       ssoEnabled: 'SsoEnabled',
+      ssoLoginWithDomain: 'SsoLoginWithDomain',
     };
   }
 
@@ -12960,6 +12977,7 @@ export class SetUserSsoSettingsResponseBodyUserSsoSettings extends $tea.Model {
       auxiliaryDomain: 'string',
       metadataDocument: 'string',
       ssoEnabled: 'boolean',
+      ssoLoginWithDomain: 'boolean',
     };
   }
 
@@ -15366,7 +15384,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the console logon settings of a RAM user.
+   * Queries the logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15397,7 +15415,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the console logon settings of a RAM user.
+   * Queries the logon configurations of a Resource Access Management (RAM) user.
    * 
    * @param request - GetLoginProfileRequest
    * @returns GetLoginProfileResponse
@@ -16760,8 +16778,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置用户SSO身份提供商信息
-   * 
    * @param request - SetUserSsoSettingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetUserSsoSettingsResponse
@@ -16779,6 +16795,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ssoEnabled)) {
       query["SsoEnabled"] = request.ssoEnabled;
+    }
+
+    if (!Util.isUnset(request.ssoLoginWithDomain)) {
+      query["SsoLoginWithDomain"] = request.ssoLoginWithDomain;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -16799,8 +16819,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置用户SSO身份提供商信息
-   * 
    * @param request - SetUserSsoSettingsRequest
    * @returns SetUserSsoSettingsResponse
    */
