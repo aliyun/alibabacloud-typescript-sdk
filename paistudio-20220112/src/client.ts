@@ -29,6 +29,25 @@ export class ACS extends $tea.Model {
   }
 }
 
+export class Action extends $tea.Model {
+  actionType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionType: 'ActionType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AlgorithmSpec extends $tea.Model {
   codeDir?: Location;
   /**
@@ -54,9 +73,6 @@ export class AlgorithmSpec extends $tea.Model {
   outputChannels?: Channel[];
   progressDefinitions?: AlgorithmSpecProgressDefinitions;
   resourceRequirements?: ConditionExpression[];
-  /**
-   * @deprecated
-   */
   supportedInstanceTypes?: string[];
   supportsDistributedTraining?: boolean;
   static names(): { [key: string]: string } {
@@ -843,6 +859,7 @@ export class Node extends $tea.Model {
   CPU?: string;
   creatorId?: string;
   GPU?: string;
+  GPUMemory?: string;
   GPUType?: string;
   gmtCreateTime?: string;
   gmtExpiredTime?: string;
@@ -874,6 +891,7 @@ export class Node extends $tea.Model {
       CPU: 'CPU',
       creatorId: 'CreatorId',
       GPU: 'GPU',
+      GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
       gmtCreateTime: 'GmtCreateTime',
       gmtExpiredTime: 'GmtExpiredTime',
@@ -908,6 +926,7 @@ export class Node extends $tea.Model {
       CPU: 'string',
       creatorId: 'string',
       GPU: 'string',
+      GPUMemory: 'string',
       GPUType: 'string',
       gmtCreateTime: 'string',
       gmtExpiredTime: 'string',
@@ -1166,6 +1185,11 @@ export class NodeType extends $tea.Model {
    * 0
    */
   GPU?: string;
+  /**
+   * @example
+   * 80G
+   */
+  GPUMemory?: string;
   GPUType?: string;
   /**
    * @example
@@ -1182,6 +1206,7 @@ export class NodeType extends $tea.Model {
       acceleratorType: 'AcceleratorType',
       CPU: 'CPU',
       GPU: 'GPU',
+      GPUMemory: 'GPUMemory',
       GPUType: 'GPUType',
       memory: 'Memory',
       nodeType: 'NodeType',
@@ -1193,6 +1218,7 @@ export class NodeType extends $tea.Model {
       acceleratorType: 'string',
       CPU: 'string',
       GPU: 'string',
+      GPUMemory: 'string',
       GPUType: 'string',
       memory: 'string',
       nodeType: 'string',
@@ -1412,11 +1438,6 @@ export class QueueInfo extends $tea.Model {
    * Enqueued
    */
   status?: string;
-  /**
-   * @example
-   * PreAllocation
-   */
-  subStatus?: string;
   userId?: string;
   userName?: string;
   /**
@@ -1425,6 +1446,11 @@ export class QueueInfo extends $tea.Model {
    */
   workloadId?: string;
   workloadName?: string;
+  /**
+   * @example
+   * PreAllocation
+   */
+  workloadStatus?: string;
   /**
    * @example
    * dlc
@@ -1451,11 +1477,11 @@ export class QueueInfo extends $tea.Model {
       reason: 'Reason',
       resource: 'Resource',
       status: 'Status',
-      subStatus: 'SubStatus',
       userId: 'UserId',
       userName: 'UserName',
       workloadId: 'WorkloadId',
       workloadName: 'WorkloadName',
+      workloadStatus: 'WorkloadStatus',
       workloadType: 'WorkloadType',
       workspaceId: 'WorkspaceId',
     };
@@ -1477,11 +1503,11 @@ export class QueueInfo extends $tea.Model {
       reason: 'string',
       resource: ResourceAmount,
       status: 'string',
-      subStatus: 'string',
       userId: 'string',
       userName: 'string',
       workloadId: 'string',
       workloadName: 'string',
+      workloadStatus: 'string',
       workloadType: 'string',
       workspaceId: 'string',
     };
@@ -1633,14 +1659,22 @@ export class QuotaConfig extends $tea.Model {
 
 export class QuotaDetails extends $tea.Model {
   actualMinQuota?: ResourceAmount;
+  allocatedQuota?: ResourceAmount;
+  ancestorsAllocatedQuota?: ResourceAmount;
+  descendantsAllocatedQuota?: ResourceAmount;
   desiredMinQuota?: ResourceAmount;
   requestedQuota?: ResourceAmount;
+  selfAllocatedQuota?: ResourceAmount;
   usedQuota?: ResourceAmount;
   static names(): { [key: string]: string } {
     return {
       actualMinQuota: 'ActualMinQuota',
+      allocatedQuota: 'AllocatedQuota',
+      ancestorsAllocatedQuota: 'AncestorsAllocatedQuota',
+      descendantsAllocatedQuota: 'DescendantsAllocatedQuota',
       desiredMinQuota: 'DesiredMinQuota',
       requestedQuota: 'RequestedQuota',
+      selfAllocatedQuota: 'SelfAllocatedQuota',
       usedQuota: 'UsedQuota',
     };
   }
@@ -1648,8 +1682,12 @@ export class QuotaDetails extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       actualMinQuota: ResourceAmount,
+      allocatedQuota: ResourceAmount,
+      ancestorsAllocatedQuota: ResourceAmount,
+      descendantsAllocatedQuota: ResourceAmount,
       desiredMinQuota: ResourceAmount,
       requestedQuota: ResourceAmount,
+      selfAllocatedQuota: ResourceAmount,
       usedQuota: ResourceAmount,
     };
   }
@@ -2277,6 +2315,69 @@ export class ResourceSpec extends $tea.Model {
   }
 }
 
+export class Rules extends $tea.Model {
+  schedulingRule?: SchedulingRule;
+  static names(): { [key: string]: string } {
+    return {
+      schedulingRule: 'SchedulingRule',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      schedulingRule: SchedulingRule,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SchedulingRule extends $tea.Model {
+  /**
+   * **if can be null:**
+   * true
+   */
+  cronTab?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  endAt?: string;
+  /**
+   * **if can be null:**
+   * true
+   */
+  executeOnce?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  startAt?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cronTab: 'CronTab',
+      endAt: 'EndAt',
+      executeOnce: 'ExecuteOnce',
+      startAt: 'StartAt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cronTab: 'string',
+      endAt: 'string',
+      executeOnce: 'boolean',
+      startAt: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SpotPriceItem extends $tea.Model {
   /**
    * @example
@@ -2350,6 +2451,132 @@ export class SpotStockPreview extends $tea.Model {
       instanceType: 'string',
       spotDiscount: 'number',
       stockStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class Task extends $tea.Model {
+  actions?: Action[];
+  description?: string;
+  gmtActivatedTime?: string;
+  gmtCreatedTime?: string;
+  gmtModifiedTime?: string;
+  gmtStoppedTime?: string;
+  quotaId?: string;
+  rules?: Rules;
+  status?: string;
+  taskId?: string;
+  taskName?: string;
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actions: 'Actions',
+      description: 'Description',
+      gmtActivatedTime: 'GmtActivatedTime',
+      gmtCreatedTime: 'GmtCreatedTime',
+      gmtModifiedTime: 'GmtModifiedTime',
+      gmtStoppedTime: 'GmtStoppedTime',
+      quotaId: 'QuotaId',
+      rules: 'Rules',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      userId: 'UserId',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actions: { 'type': 'array', 'itemType': Action },
+      description: 'string',
+      gmtActivatedTime: 'string',
+      gmtCreatedTime: 'string',
+      gmtModifiedTime: 'string',
+      gmtStoppedTime: 'string',
+      quotaId: 'string',
+      rules: Rules,
+      status: 'string',
+      taskId: 'string',
+      taskName: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskInstance extends $tea.Model {
+  gmtCreatedTime?: string;
+  gmtEndTime?: string;
+  status?: string;
+  taskId?: string;
+  taskInstanceId?: string;
+  tenantId?: string;
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreatedTime: 'GmtCreatedTime',
+      gmtEndTime: 'GmtEndTime',
+      status: 'Status',
+      taskId: 'TaskId',
+      taskInstanceId: 'TaskInstanceId',
+      tenantId: 'TenantId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreatedTime: 'string',
+      gmtEndTime: 'string',
+      status: 'string',
+      taskId: 'string',
+      taskInstanceId: 'string',
+      tenantId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TaskInstanceEvent extends $tea.Model {
+  gmtEndTime?: string;
+  gmtStartTime?: string;
+  message?: string;
+  podName?: string;
+  status?: string;
+  workloadType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtEndTime: 'GmtEndTime',
+      gmtStartTime: 'GmtStartTime',
+      message: 'Message',
+      podName: 'PodName',
+      status: 'Status',
+      workloadType: 'WorkloadType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtEndTime: 'string',
+      gmtStartTime: 'string',
+      message: 'string',
+      podName: 'string',
+      status: 'string',
+      workloadType: 'string',
     };
   }
 
@@ -3264,6 +3491,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
   inputChannels?: CreateTrainingJobRequestInputChannels[];
   labels?: CreateTrainingJobRequestLabels[];
   outputChannels?: CreateTrainingJobRequestOutputChannels[];
+  priority?: number;
   pythonRequirements?: string[];
   /**
    * @example
@@ -3271,7 +3499,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
    */
   roleArn?: string;
   scheduler?: CreateTrainingJobRequestScheduler;
-  settings?: CreateTrainingJobRequestSettings;
+  settings?: JobSettings;
   /**
    * @example
    * qwen large language model training
@@ -3308,6 +3536,7 @@ export class CreateTrainingJobRequest extends $tea.Model {
       inputChannels: 'InputChannels',
       labels: 'Labels',
       outputChannels: 'OutputChannels',
+      priority: 'Priority',
       pythonRequirements: 'PythonRequirements',
       roleArn: 'RoleArn',
       scheduler: 'Scheduler',
@@ -3333,10 +3562,11 @@ export class CreateTrainingJobRequest extends $tea.Model {
       inputChannels: { 'type': 'array', 'itemType': CreateTrainingJobRequestInputChannels },
       labels: { 'type': 'array', 'itemType': CreateTrainingJobRequestLabels },
       outputChannels: { 'type': 'array', 'itemType': CreateTrainingJobRequestOutputChannels },
+      priority: 'number',
       pythonRequirements: { 'type': 'array', 'itemType': 'string' },
       roleArn: 'string',
       scheduler: CreateTrainingJobRequestScheduler,
-      settings: CreateTrainingJobRequestSettings,
+      settings: JobSettings,
       trainingJobDescription: 'string',
       trainingJobName: 'string',
       userVpc: CreateTrainingJobRequestUserVpc,
@@ -5167,6 +5397,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
   latestProgress?: GetTrainingJobResponseBodyLatestProgress;
   outputChannels?: GetTrainingJobResponseBodyOutputChannels[];
   outputModel?: GetTrainingJobResponseBodyOutputModel;
+  priority?: number;
   pythonRequirements?: string[];
   /**
    * @example
@@ -5189,7 +5420,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
    */
   roleArn?: string;
   scheduler?: GetTrainingJobResponseBodyScheduler;
-  settings?: GetTrainingJobResponseBodySettings;
+  settings?: JobSettings;
   /**
    * @example
    * Running
@@ -5245,6 +5476,7 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       latestProgress: 'LatestProgress',
       outputChannels: 'OutputChannels',
       outputModel: 'OutputModel',
+      priority: 'Priority',
       pythonRequirements: 'PythonRequirements',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
@@ -5286,13 +5518,14 @@ export class GetTrainingJobResponseBody extends $tea.Model {
       latestProgress: GetTrainingJobResponseBodyLatestProgress,
       outputChannels: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyOutputChannels },
       outputModel: GetTrainingJobResponseBodyOutputModel,
+      priority: 'number',
       pythonRequirements: { 'type': 'array', 'itemType': 'string' },
       reasonCode: 'string',
       reasonMessage: 'string',
       requestId: 'string',
       roleArn: 'string',
       scheduler: GetTrainingJobResponseBodyScheduler,
-      settings: GetTrainingJobResponseBodySettings,
+      settings: JobSettings,
       status: 'string',
       statusTransitions: { 'type': 'array', 'itemType': GetTrainingJobResponseBodyStatusTransitions },
       trainingJobDescription: 'string',
@@ -5967,6 +6200,193 @@ export class ListNodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaWorkloadsRequest extends $tea.Model {
+  /**
+   * @example
+   * dsw65443322
+   */
+  beforeWorkloadId?: string;
+  gmtDequeuedTimeRange?: TimeRangeFilter;
+  gmtEnqueuedTimeRange?: TimeRangeFilter;
+  gmtPositionModifiedTimeRange?: TimeRangeFilter;
+  /**
+   * @example
+   * lrn48278127617
+   */
+  nodeName?: string;
+  /**
+   * @example
+   * desc
+   */
+  order?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * true
+   */
+  showOwn?: boolean;
+  /**
+   * @example
+   * GmtCreatedTime
+   */
+  sortBy?: string;
+  /**
+   * @example
+   * Enqueued
+   */
+  status?: string;
+  /**
+   * @example
+   * quota12344666,quota64432233
+   */
+  subQuotaIds?: string;
+  /**
+   * @example
+   * 29043893812,23829093093
+   */
+  userIds?: string;
+  workloadCreatedTimeRange?: TimeRangeFilter;
+  /**
+   * @example
+   * dlc12344556
+   */
+  workloadIds?: string;
+  /**
+   * @example
+   * Pending
+   */
+  workloadStatuses?: string;
+  /**
+   * @example
+   * dlc
+   */
+  workloadType?: string;
+  /**
+   * @example
+   * 186692
+   */
+  workspaceIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      beforeWorkloadId: 'BeforeWorkloadId',
+      gmtDequeuedTimeRange: 'GmtDequeuedTimeRange',
+      gmtEnqueuedTimeRange: 'GmtEnqueuedTimeRange',
+      gmtPositionModifiedTimeRange: 'GmtPositionModifiedTimeRange',
+      nodeName: 'NodeName',
+      order: 'Order',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      showOwn: 'ShowOwn',
+      sortBy: 'SortBy',
+      status: 'Status',
+      subQuotaIds: 'SubQuotaIds',
+      userIds: 'UserIds',
+      workloadCreatedTimeRange: 'WorkloadCreatedTimeRange',
+      workloadIds: 'WorkloadIds',
+      workloadStatuses: 'WorkloadStatuses',
+      workloadType: 'WorkloadType',
+      workspaceIds: 'WorkspaceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beforeWorkloadId: 'string',
+      gmtDequeuedTimeRange: TimeRangeFilter,
+      gmtEnqueuedTimeRange: TimeRangeFilter,
+      gmtPositionModifiedTimeRange: TimeRangeFilter,
+      nodeName: 'string',
+      order: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      showOwn: 'boolean',
+      sortBy: 'string',
+      status: 'string',
+      subQuotaIds: 'string',
+      userIds: 'string',
+      workloadCreatedTimeRange: TimeRangeFilter,
+      workloadIds: 'string',
+      workloadStatuses: 'string',
+      workloadType: 'string',
+      workspaceIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaWorkloadsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 42F23B58-3684-5443-848A-8DA81FF99712
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 23
+   */
+  totalCount?: number;
+  workloads?: QueueInfo[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+      workloads: 'Workloads',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      totalCount: 'number',
+      workloads: { 'type': 'array', 'itemType': QueueInfo },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListQuotaWorkloadsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListQuotaWorkloadsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListQuotaWorkloadsResponseBody,
     };
   }
 
@@ -6953,10 +7373,12 @@ export class ListTrainingJobMetricsResponseBody extends $tea.Model {
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
+  totalCount?: number;
   static names(): { [key: string]: string } {
     return {
       metrics: 'Metrics',
       requestId: 'RequestId',
+      totalCount: 'TotalCount',
     };
   }
 
@@ -6964,6 +7386,7 @@ export class ListTrainingJobMetricsResponseBody extends $tea.Model {
     return {
       metrics: { 'type': 'array', 'itemType': ListTrainingJobMetricsResponseBodyMetrics },
       requestId: 'string',
+      totalCount: 'number',
     };
   }
 
@@ -8340,12 +8763,14 @@ export class CreateTrainingJobRequestInputChannels extends $tea.Model {
    */
   name?: string;
   options?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       inputUri: 'InputUri',
       name: 'Name',
       options: 'Options',
+      versionName: 'VersionName',
     };
   }
 
@@ -8355,6 +8780,7 @@ export class CreateTrainingJobRequestInputChannels extends $tea.Model {
       inputUri: 'string',
       name: 'string',
       options: 'string',
+      versionName: 'string',
     };
   }
 
@@ -8409,11 +8835,13 @@ export class CreateTrainingJobRequestOutputChannels extends $tea.Model {
    * oss://pai-quickstart-cn-hangzhou.oss-cn-hangzhou-internal.aliyuncs.com/modelscope/models/qwen2-0.5b/main/
    */
   outputUri?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       name: 'Name',
       outputUri: 'OutputUri',
+      versionName: 'VersionName',
     };
   }
 
@@ -8422,6 +8850,7 @@ export class CreateTrainingJobRequestOutputChannels extends $tea.Model {
       datasetId: 'string',
       name: 'string',
       outputUri: 'string',
+      versionName: 'string',
     };
   }
 
@@ -8431,6 +8860,7 @@ export class CreateTrainingJobRequestOutputChannels extends $tea.Model {
 }
 
 export class CreateTrainingJobRequestScheduler extends $tea.Model {
+  maxRunningTimeInMinutes?: number;
   /**
    * @example
    * 0
@@ -8438,57 +8868,15 @@ export class CreateTrainingJobRequestScheduler extends $tea.Model {
   maxRunningTimeInSeconds?: number;
   static names(): { [key: string]: string } {
     return {
+      maxRunningTimeInMinutes: 'MaxRunningTimeInMinutes',
       maxRunningTimeInSeconds: 'MaxRunningTimeInSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxRunningTimeInMinutes: 'number',
       maxRunningTimeInSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateTrainingJobRequestSettings extends $tea.Model {
-  /**
-   * @example
-   * ecs.c6.large
-   */
-  AIMasterType?: string;
-  /**
-   * @example
-   * true
-   */
-  enableErrorMonitoringInAIMaster?: boolean;
-  /**
-   * @example
-   * --enable-log-hang-detection true
-   */
-  errorMonitoringArgs?: string;
-  /**
-   * @example
-   * 1
-   */
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      AIMasterType: 'AIMasterType',
-      enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
-      errorMonitoringArgs: 'ErrorMonitoringArgs',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      AIMasterType: 'string',
-      enableErrorMonitoringInAIMaster: 'boolean',
-      errorMonitoringArgs: 'string',
-      priority: 'number',
     };
   }
 
@@ -8885,12 +9273,14 @@ export class GetTrainingJobResponseBodyInputChannels extends $tea.Model {
    */
   name?: string;
   options?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       inputUri: 'InputUri',
       name: 'Name',
       options: 'Options',
+      versionName: 'VersionName',
     };
   }
 
@@ -8900,6 +9290,7 @@ export class GetTrainingJobResponseBodyInputChannels extends $tea.Model {
       inputUri: 'string',
       name: 'string',
       options: 'string',
+      versionName: 'string',
     };
   }
 
@@ -9110,11 +9501,13 @@ export class GetTrainingJobResponseBodyOutputChannels extends $tea.Model {
    * oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/output/model/
    */
   outputUri?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       name: 'Name',
       outputUri: 'OutputUri',
+      versionName: 'VersionName',
     };
   }
 
@@ -9123,6 +9516,7 @@ export class GetTrainingJobResponseBodyOutputChannels extends $tea.Model {
       datasetId: 'string',
       name: 'string',
       outputUri: 'string',
+      versionName: 'string',
     };
   }
 
@@ -9162,64 +9556,23 @@ export class GetTrainingJobResponseBodyOutputModel extends $tea.Model {
 }
 
 export class GetTrainingJobResponseBodyScheduler extends $tea.Model {
+  maxRunningTimeInMinutes?: string;
   /**
    * @example
    * 0
    */
-  maxRunningTimeInSeconds?: number;
+  maxRunningTimeInSeconds?: string;
   static names(): { [key: string]: string } {
     return {
+      maxRunningTimeInMinutes: 'MaxRunningTimeInMinutes',
       maxRunningTimeInSeconds: 'MaxRunningTimeInSeconds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      maxRunningTimeInSeconds: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetTrainingJobResponseBodySettings extends $tea.Model {
-  /**
-   * @example
-   * ecs.c6.large
-   */
-  AIMasterType?: string;
-  /**
-   * @example
-   * true
-   */
-  enableErrorMonitoringInAIMaster?: boolean;
-  /**
-   * @example
-   * --enable-log-hang-detection true
-   */
-  errorMonitoringArgs?: string;
-  /**
-   * @example
-   * 1
-   */
-  priority?: number;
-  static names(): { [key: string]: string } {
-    return {
-      AIMasterType: 'AIMasterType',
-      enableErrorMonitoringInAIMaster: 'EnableErrorMonitoringInAIMaster',
-      errorMonitoringArgs: 'ErrorMonitoringArgs',
-      priority: 'Priority',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      AIMasterType: 'string',
-      enableErrorMonitoringInAIMaster: 'boolean',
-      errorMonitoringArgs: 'string',
-      priority: 'number',
+      maxRunningTimeInMinutes: 'string',
+      maxRunningTimeInSeconds: 'string',
     };
   }
 
@@ -9917,11 +10270,13 @@ export class ListTrainingJobsResponseBodyTrainingJobsInputChannels extends $tea.
    * model
    */
   name?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       inputUri: 'InputUri',
       name: 'Name',
+      versionName: 'VersionName',
     };
   }
 
@@ -9930,6 +10285,7 @@ export class ListTrainingJobsResponseBodyTrainingJobsInputChannels extends $tea.
       datasetId: 'string',
       inputUri: 'string',
       name: 'string',
+      versionName: 'string',
     };
   }
 
@@ -9984,11 +10340,13 @@ export class ListTrainingJobsResponseBodyTrainingJobsOutputChannels extends $tea
    * oss://test-bucket.oss-cn-hangzhou-internal.aliyuncs.com/path/to/output/channel/
    */
   outputUri?: string;
+  versionName?: string;
   static names(): { [key: string]: string } {
     return {
       datasetId: 'DatasetId',
       name: 'Name',
       outputUri: 'OutputUri',
+      versionName: 'VersionName',
     };
   }
 
@@ -9997,6 +10355,7 @@ export class ListTrainingJobsResponseBodyTrainingJobsOutputChannels extends $tea
       datasetId: 'string',
       name: 'string',
       outputUri: 'string',
+      versionName: 'string',
     };
   }
 
@@ -10743,6 +11102,10 @@ export default class Client extends OpenApi {
       body["OutputChannels"] = request.outputChannels;
     }
 
+    if (!Util.isUnset(request.priority)) {
+      body["Priority"] = request.priority;
+    }
+
     if (!Util.isUnset(request.pythonRequirements)) {
       body["PythonRequirements"] = request.pythonRequirements;
     }
@@ -11221,11 +11584,14 @@ export default class Client extends OpenApi {
   /**
    * get resource group node metrics
    * 
+   * @deprecated OpenAPI GetNodeMetrics is deprecated
+   * 
    * @param request - GetNodeMetricsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetNodeMetricsResponse
    */
+  // Deprecated
   async getNodeMetricsWithOptions(ResourceGroupID: string, MetricType: string, request: GetNodeMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetNodeMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11270,9 +11636,12 @@ export default class Client extends OpenApi {
   /**
    * get resource group node metrics
    * 
+   * @deprecated OpenAPI GetNodeMetrics is deprecated
+   * 
    * @param request - GetNodeMetricsRequest
    * @returns GetNodeMetricsResponse
    */
+  // Deprecated
   async getNodeMetrics(ResourceGroupID: string, MetricType: string, request: GetNodeMetricsRequest): Promise<GetNodeMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11433,11 +11802,14 @@ export default class Client extends OpenApi {
   /**
    * get resource group requested resource by resource group id
    * 
+   * @deprecated OpenAPI GetResourceGroupRequest is deprecated
+   * 
    * @param request - GetResourceGroupRequestRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResourceGroupRequestResponse
    */
+  // Deprecated
   async getResourceGroupRequestWithOptions(request: GetResourceGroupRequestRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetResourceGroupRequestResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11470,9 +11842,12 @@ export default class Client extends OpenApi {
   /**
    * get resource group requested resource by resource group id
    * 
+   * @deprecated OpenAPI GetResourceGroupRequest is deprecated
+   * 
    * @param request - GetResourceGroupRequestRequest
    * @returns GetResourceGroupRequestResponse
    */
+  // Deprecated
   async getResourceGroupRequest(request: GetResourceGroupRequestRequest): Promise<GetResourceGroupRequestResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11691,11 +12066,14 @@ export default class Client extends OpenApi {
   /**
    * get user view  metrics
    * 
+   * @deprecated OpenAPI GetUserViewMetrics is deprecated
+   * 
    * @param request - GetUserViewMetricsRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetUserViewMetricsResponse
    */
+  // Deprecated
   async getUserViewMetricsWithOptions(ResourceGroupID: string, request: GetUserViewMetricsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetUserViewMetricsResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -11748,9 +12126,12 @@ export default class Client extends OpenApi {
   /**
    * get user view  metrics
    * 
+   * @deprecated OpenAPI GetUserViewMetrics is deprecated
+   * 
    * @param request - GetUserViewMetricsRequest
    * @returns GetUserViewMetricsResponse
    */
+  // Deprecated
   async getUserViewMetrics(ResourceGroupID: string, request: GetUserViewMetricsRequest): Promise<GetUserViewMetricsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -11970,6 +12351,119 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listNodesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 您可以通过此API获取Quota上的任务信息列表
+   * 
+   * @param request - ListQuotaWorkloadsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListQuotaWorkloadsResponse
+   */
+  async listQuotaWorkloadsWithOptions(QuotaId: string, request: ListQuotaWorkloadsRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListQuotaWorkloadsResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.beforeWorkloadId)) {
+      query["BeforeWorkloadId"] = request.beforeWorkloadId;
+    }
+
+    if (!Util.isUnset(request.gmtDequeuedTimeRange)) {
+      query["GmtDequeuedTimeRange"] = request.gmtDequeuedTimeRange;
+    }
+
+    if (!Util.isUnset(request.gmtEnqueuedTimeRange)) {
+      query["GmtEnqueuedTimeRange"] = request.gmtEnqueuedTimeRange;
+    }
+
+    if (!Util.isUnset(request.gmtPositionModifiedTimeRange)) {
+      query["GmtPositionModifiedTimeRange"] = request.gmtPositionModifiedTimeRange;
+    }
+
+    if (!Util.isUnset(request.nodeName)) {
+      query["NodeName"] = request.nodeName;
+    }
+
+    if (!Util.isUnset(request.order)) {
+      query["Order"] = request.order;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.showOwn)) {
+      query["ShowOwn"] = request.showOwn;
+    }
+
+    if (!Util.isUnset(request.sortBy)) {
+      query["SortBy"] = request.sortBy;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.subQuotaIds)) {
+      query["SubQuotaIds"] = request.subQuotaIds;
+    }
+
+    if (!Util.isUnset(request.userIds)) {
+      query["UserIds"] = request.userIds;
+    }
+
+    if (!Util.isUnset(request.workloadCreatedTimeRange)) {
+      query["WorkloadCreatedTimeRange"] = request.workloadCreatedTimeRange;
+    }
+
+    if (!Util.isUnset(request.workloadIds)) {
+      query["WorkloadIds"] = request.workloadIds;
+    }
+
+    if (!Util.isUnset(request.workloadStatuses)) {
+      query["WorkloadStatuses"] = request.workloadStatuses;
+    }
+
+    if (!Util.isUnset(request.workloadType)) {
+      query["WorkloadType"] = request.workloadType;
+    }
+
+    if (!Util.isUnset(request.workspaceIds)) {
+      query["WorkspaceIds"] = request.workspaceIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListQuotaWorkloads",
+      version: "2022-01-12",
+      protocol: "HTTPS",
+      pathname: `/api/v1/quotas/${OpenApiUtil.getEncodeParam(QuotaId)}/workloads`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListQuotaWorkloadsResponse>(await this.callApi(params, req, runtime), new ListQuotaWorkloadsResponse({}));
+  }
+
+  /**
+   * 您可以通过此API获取Quota上的任务信息列表
+   * 
+   * @param request - ListQuotaWorkloadsRequest
+   * @returns ListQuotaWorkloadsResponse
+   */
+  async listQuotaWorkloads(QuotaId: string, request: ListQuotaWorkloadsRequest): Promise<ListQuotaWorkloadsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listQuotaWorkloadsWithOptions(QuotaId, request, headers, runtime);
   }
 
   /**
