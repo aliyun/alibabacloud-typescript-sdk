@@ -252,6 +252,7 @@ export class CreateCertificateForPackageRequestRequest extends $tea.Model {
    * symantec-free-1-free
    */
   productCode?: string;
+  tags?: CreateCertificateForPackageRequestRequestTags[];
   /**
    * @remarks
    * The name of the applicant.
@@ -283,6 +284,7 @@ export class CreateCertificateForPackageRequestRequest extends $tea.Model {
       email: 'Email',
       phone: 'Phone',
       productCode: 'ProductCode',
+      tags: 'Tags',
       username: 'Username',
       validateType: 'ValidateType',
     };
@@ -296,6 +298,7 @@ export class CreateCertificateForPackageRequestRequest extends $tea.Model {
       email: 'string',
       phone: 'string',
       productCode: 'string',
+      tags: { 'type': 'array', 'itemType': CreateCertificateForPackageRequestRequestTags },
       username: 'string',
       validateType: 'string',
     };
@@ -418,6 +421,7 @@ export class CreateCertificateRequestRequest extends $tea.Model {
    * symantec-free-1-free
    */
   productCode?: string;
+  tags?: CreateCertificateRequestRequestTags[];
   /**
    * @remarks
    * The name of the applicant.
@@ -449,6 +453,7 @@ export class CreateCertificateRequestRequest extends $tea.Model {
       email: 'Email',
       phone: 'Phone',
       productCode: 'ProductCode',
+      tags: 'Tags',
       username: 'Username',
       validateType: 'ValidateType',
     };
@@ -460,6 +465,7 @@ export class CreateCertificateRequestRequest extends $tea.Model {
       email: 'string',
       phone: 'string',
       productCode: 'string',
+      tags: { 'type': 'array', 'itemType': CreateCertificateRequestRequestTags },
       username: 'string',
       validateType: 'string',
     };
@@ -584,6 +590,7 @@ export class CreateCertificateWithCsrRequestRequest extends $tea.Model {
    * symantec-free-1-free
    */
   productCode?: string;
+  tags?: CreateCertificateWithCsrRequestRequestTags[];
   /**
    * @remarks
    * The name of the applicant.
@@ -615,6 +622,7 @@ export class CreateCertificateWithCsrRequestRequest extends $tea.Model {
       email: 'Email',
       phone: 'Phone',
       productCode: 'ProductCode',
+      tags: 'Tags',
       username: 'Username',
       validateType: 'ValidateType',
     };
@@ -626,6 +634,7 @@ export class CreateCertificateWithCsrRequestRequest extends $tea.Model {
       email: 'string',
       phone: 'string',
       productCode: 'string',
+      tags: { 'type': 'array', 'itemType': CreateCertificateWithCsrRequestRequestTags },
       username: 'string',
       validateType: 'string',
     };
@@ -5263,10 +5272,12 @@ export class RenewCertificateOrderForPackageRequestRequest extends $tea.Model {
    * 123451222
    */
   orderId?: number;
+  tags?: RenewCertificateOrderForPackageRequestRequestTags[];
   static names(): { [key: string]: string } {
     return {
       csr: 'Csr',
       orderId: 'OrderId',
+      tags: 'Tags',
     };
   }
 
@@ -5274,6 +5285,7 @@ export class RenewCertificateOrderForPackageRequestRequest extends $tea.Model {
     return {
       csr: 'string',
       orderId: 'number',
+      tags: { 'type': 'array', 'itemType': RenewCertificateOrderForPackageRequestRequestTags },
     };
   }
 
@@ -6115,6 +6127,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
    * -----END EC PRIVATE KEY-----
    */
   signPrivateKey?: string;
+  tags?: UploadUserCertificateRequestTags[];
   static names(): { [key: string]: string } {
     return {
       cert: 'Cert',
@@ -6125,6 +6138,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       signCert: 'SignCert',
       signPrivateKey: 'SignPrivateKey',
+      tags: 'Tags',
     };
   }
 
@@ -6138,6 +6152,7 @@ export class UploadUserCertificateRequest extends $tea.Model {
       resourceGroupId: 'string',
       signCert: 'string',
       signPrivateKey: 'string',
+      tags: { 'type': 'array', 'itemType': UploadUserCertificateRequestTags },
     };
   }
 
@@ -6354,6 +6369,72 @@ export class VerifyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateForPackageRequestRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateRequestRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCertificateWithCsrRequestRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -8722,6 +8803,50 @@ export class ListWorkerResourceResponseBodyData extends $tea.Model {
   }
 }
 
+export class RenewCertificateOrderForPackageRequestRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadUserCertificateRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -8933,6 +9058,10 @@ export default class Client extends OpenApi {
       query["ProductCode"] = request.productCode;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     if (!Util.isUnset(request.username)) {
       query["Username"] = request.username;
     }
@@ -9004,6 +9133,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.username)) {
@@ -9078,6 +9211,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.productCode)) {
       query["ProductCode"] = request.productCode;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     if (!Util.isUnset(request.username)) {
@@ -10728,6 +10865,10 @@ export default class Client extends OpenApi {
       query["OrderId"] = request.orderId;
     }
 
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -11121,6 +11262,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.signPrivateKey)) {
       query["SignPrivateKey"] = request.signPrivateKey;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
