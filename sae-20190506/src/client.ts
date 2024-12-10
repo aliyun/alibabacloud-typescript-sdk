@@ -1844,6 +1844,111 @@ export class HostAlias extends $tea.Model {
   }
 }
 
+export class HttpApiRoute extends $tea.Model {
+  /**
+   * @example
+   * intranet/internet
+   */
+  addressType?: string;
+  /**
+   * @example
+   * Deploying/NotDeployed/Undeploying/Deployed
+   */
+  deployStatus?: string;
+  /**
+   * @example
+   * Single/Multiple/VersionOriented
+   */
+  destinationType?: string;
+  domains?: HttpApiRouteDomains[];
+  environmentId?: string;
+  gatewayId?: string;
+  httpApiId?: string;
+  /**
+   * @example
+   * Http
+   */
+  httpApiName?: string;
+  /**
+   * @example
+   * Http
+   */
+  httpApiType?: string;
+  /**
+   * @example
+   * 1
+   */
+  ingressId?: number;
+  nacosInstanceId?: string;
+  /**
+   * @example
+   * test
+   */
+  nacosNamespaceId?: string;
+  name?: string;
+  namespaceId?: string;
+  policies?: HttpApiRoutePolicies;
+  predicates?: HttpApiRoutePredicates;
+  routeId?: string;
+  services?: HttpApiRouteServices[];
+  /**
+   * @example
+   * SAE_NACOS/SAE_K8S_SERVICE/MSE_NACOS
+   */
+  sourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addressType: 'AddressType',
+      deployStatus: 'DeployStatus',
+      destinationType: 'DestinationType',
+      domains: 'Domains',
+      environmentId: 'EnvironmentId',
+      gatewayId: 'GatewayId',
+      httpApiId: 'HttpApiId',
+      httpApiName: 'HttpApiName',
+      httpApiType: 'HttpApiType',
+      ingressId: 'IngressId',
+      nacosInstanceId: 'NacosInstanceId',
+      nacosNamespaceId: 'NacosNamespaceId',
+      name: 'Name',
+      namespaceId: 'NamespaceId',
+      policies: 'Policies',
+      predicates: 'Predicates',
+      routeId: 'RouteId',
+      services: 'Services',
+      sourceType: 'SourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addressType: 'string',
+      deployStatus: 'string',
+      destinationType: 'string',
+      domains: { 'type': 'array', 'itemType': HttpApiRouteDomains },
+      environmentId: 'string',
+      gatewayId: 'string',
+      httpApiId: 'string',
+      httpApiName: 'string',
+      httpApiType: 'string',
+      ingressId: 'number',
+      nacosInstanceId: 'string',
+      nacosNamespaceId: 'string',
+      name: 'string',
+      namespaceId: 'string',
+      policies: HttpApiRoutePolicies,
+      predicates: HttpApiRoutePredicates,
+      routeId: 'string',
+      services: { 'type': 'array', 'itemType': HttpApiRouteServices },
+      sourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ImageConfig extends $tea.Model {
   accelerationType?: string;
   image?: string;
@@ -3102,6 +3207,12 @@ export class PriceEstimateFeature extends $tea.Model {
 export class PriceEstimateOutput extends $tea.Model {
   apps?: PriceEstimateOutputApps[];
   items?: PriceEstimateOutputItems[];
+  postPayItems?: PriceEstimateOutputPostPayItems[];
+  /**
+   * @example
+   * 235.66
+   */
+  postPayTotalPrice?: number;
   /**
    * @example
    * 235.66
@@ -3111,6 +3222,8 @@ export class PriceEstimateOutput extends $tea.Model {
     return {
       apps: 'Apps',
       items: 'Items',
+      postPayItems: 'PostPayItems',
+      postPayTotalPrice: 'PostPayTotalPrice',
       totalPrice: 'TotalPrice',
     };
   }
@@ -3119,6 +3232,8 @@ export class PriceEstimateOutput extends $tea.Model {
     return {
       apps: { 'type': 'array', 'itemType': PriceEstimateOutputApps },
       items: { 'type': 'array', 'itemType': PriceEstimateOutputItems },
+      postPayItems: { 'type': 'array', 'itemType': PriceEstimateOutputPostPayItems },
+      postPayTotalPrice: 'number',
       totalPrice: 'number',
     };
   }
@@ -3570,6 +3685,49 @@ export class ScaleConfig extends $tea.Model {
       maximumInstanceCount: 'number',
       minimumInstanceCount: 'number',
       requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SidecarContainerConfig extends $tea.Model {
+  command?: string;
+  commandArgs?: string;
+  configMapMountDesc?: string;
+  cpu?: number;
+  emptyDirDesc?: string;
+  envs?: string;
+  imageUrl?: string;
+  memory?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      cpu: 'Cpu',
+      emptyDirDesc: 'EmptyDirDesc',
+      envs: 'Envs',
+      imageUrl: 'ImageUrl',
+      memory: 'Memory',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: 'string',
+      cpu: 'number',
+      emptyDirDesc: 'string',
+      envs: 'string',
+      imageUrl: 'string',
+      memory: 'number',
+      name: 'string',
     };
   }
 
@@ -6551,6 +6709,7 @@ export class CreateApplicationRequest extends $tea.Model {
    */
   replicas?: number;
   saeVersion?: string;
+  secretMountDesc?: string;
   /**
    * @remarks
    * sg-wz969ngg2e49q5i4\\*\\*\\*\\*
@@ -6681,6 +6840,7 @@ export class CreateApplicationRequest extends $tea.Model {
       readiness: 'Readiness',
       replicas: 'Replicas',
       saeVersion: 'SaeVersion',
+      secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
@@ -6751,6 +6911,7 @@ export class CreateApplicationRequest extends $tea.Model {
       readiness: 'string',
       replicas: 'number',
       saeVersion: 'string',
+      secretMountDesc: 'string',
       securityGroupId: 'string',
       serviceTags: 'string',
       slsConfigs: 'string',
@@ -10961,6 +11122,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * 1
    */
   replicas?: number;
+  secretMountDesc?: string;
   /**
    * @example
    * sg-wz969ngg2e49q5i4****
@@ -11130,6 +11292,7 @@ export class DeployApplicationRequest extends $tea.Model {
       pythonModules: 'PythonModules',
       readiness: 'Readiness',
       replicas: 'Replicas',
+      secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
@@ -11199,6 +11362,7 @@ export class DeployApplicationRequest extends $tea.Model {
       pythonModules: 'string',
       readiness: 'string',
       replicas: 'number',
+      secretMountDesc: 'string',
       securityGroupId: 'string',
       serviceTags: 'string',
       slsConfigs: 'string',
@@ -17354,6 +17518,124 @@ export class GetWarningEventMetricResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetWarningEventMetricResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebshellTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 017f39b8-dfa4-4e16-a84b-1dcee4b1****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello-podsdfsdfsdfsdf
+   */
+  podName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      podName: 'PodName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      podName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebshellTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  data?: GetWebshellTokenResponseBodyData;
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 91F93257-7A4A-4BD3-9A7E-2F6EAE6D****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 0a98a02315955564772843261e****
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      errorCode: 'ErrorCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetWebshellTokenResponseBodyData,
+      errorCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetWebshellTokenResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetWebshellTokenResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetWebshellTokenResponseBody,
     };
   }
 
@@ -26347,6 +26629,330 @@ export class BuildPipelineRunTriggerConfig extends $tea.Model {
   }
 }
 
+export class HttpApiRouteDomains extends $tea.Model {
+  domainId?: string;
+  domainName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainId: 'DomainId',
+      domainName: 'DomainName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainId: 'string',
+      domainName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePoliciesFallbackDestinations extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  serviceId?: string;
+  serviceName?: string;
+  servicePort?: number;
+  serviceProtocol?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
+      serviceProtocol: 'ServiceProtocol',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      servicePort: 'number',
+      serviceProtocol: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePoliciesFallback extends $tea.Model {
+  destinations?: HttpApiRoutePoliciesFallbackDestinations[];
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      destinations: 'Destinations',
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      destinations: { 'type': 'array', 'itemType': HttpApiRoutePoliciesFallbackDestinations },
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePoliciesRetry extends $tea.Model {
+  attempts?: number;
+  /**
+   * @example
+   * true/false
+   */
+  enable?: boolean;
+  httpCodes?: string[];
+  retryOn?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      attempts: 'Attempts',
+      enable: 'Enable',
+      httpCodes: 'HttpCodes',
+      retryOn: 'RetryOn',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      attempts: 'number',
+      enable: 'boolean',
+      httpCodes: { 'type': 'array', 'itemType': 'string' },
+      retryOn: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePoliciesTimeout extends $tea.Model {
+  enable?: boolean;
+  /**
+   * @example
+   * s
+   */
+  timeUnit?: string;
+  unitNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      timeUnit: 'TimeUnit',
+      unitNum: 'UnitNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      timeUnit: 'string',
+      unitNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePolicies extends $tea.Model {
+  fallback?: HttpApiRoutePoliciesFallback;
+  retry?: HttpApiRoutePoliciesRetry;
+  timeout?: HttpApiRoutePoliciesTimeout;
+  static names(): { [key: string]: string } {
+    return {
+      fallback: 'Fallback',
+      retry: 'Retry',
+      timeout: 'Timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fallback: HttpApiRoutePoliciesFallback,
+      retry: HttpApiRoutePoliciesRetry,
+      timeout: HttpApiRoutePoliciesTimeout,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePredicatesHeaderPredicates extends $tea.Model {
+  name?: string;
+  /**
+   * @example
+   * Prefix/Exact/Regex
+   */
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePredicatesPathPredicates extends $tea.Model {
+  ignoreCase?: boolean;
+  path?: string;
+  /**
+   * @example
+   * Prefix/Exact/Regex
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ignoreCase: 'IgnoreCase',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ignoreCase: 'boolean',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePredicatesQueryPredicates extends $tea.Model {
+  name?: string;
+  /**
+   * @example
+   * Prefix/Exact/Regex
+   */
+  type?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      type: 'Type',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      type: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRoutePredicates extends $tea.Model {
+  headerPredicates?: HttpApiRoutePredicatesHeaderPredicates[];
+  methodPredicates?: string[];
+  pathPredicates?: HttpApiRoutePredicatesPathPredicates;
+  queryPredicates?: HttpApiRoutePredicatesQueryPredicates[];
+  static names(): { [key: string]: string } {
+    return {
+      headerPredicates: 'HeaderPredicates',
+      methodPredicates: 'MethodPredicates',
+      pathPredicates: 'PathPredicates',
+      queryPredicates: 'QueryPredicates',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headerPredicates: { 'type': 'array', 'itemType': HttpApiRoutePredicatesHeaderPredicates },
+      methodPredicates: { 'type': 'array', 'itemType': 'string' },
+      pathPredicates: HttpApiRoutePredicatesPathPredicates,
+      queryPredicates: { 'type': 'array', 'itemType': HttpApiRoutePredicatesQueryPredicates },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class HttpApiRouteServices extends $tea.Model {
+  appId?: string;
+  appName?: string;
+  serviceId?: string;
+  serviceName?: string;
+  servicePort?: number;
+  /**
+   * @example
+   * HTTP
+   */
+  serviceProtocol?: string;
+  /**
+   * @example
+   * 90
+   */
+  serviceWeight?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appName: 'AppName',
+      serviceId: 'ServiceId',
+      serviceName: 'ServiceName',
+      servicePort: 'ServicePort',
+      serviceProtocol: 'ServiceProtocol',
+      serviceWeight: 'ServiceWeight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appName: 'string',
+      serviceId: 'string',
+      serviceName: 'string',
+      servicePort: 'number',
+      serviceProtocol: 'string',
+      serviceWeight: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PriceEstimateOutputAppsUsages extends $tea.Model {
   /**
    * @example
@@ -26511,6 +27117,114 @@ export class PriceEstimateOutputItems extends $tea.Model {
       id: 'string',
       price: 'number',
       steps: { 'type': 'array', 'itemType': PriceEstimateOutputItemsSteps },
+      type: 'string',
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PriceEstimateOutputPostPayItemsSteps extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  begin?: number;
+  /**
+   * @example
+   * 10000
+   */
+  end?: number;
+  /**
+   * @example
+   * 0.0001
+   */
+  price?: number;
+  regionIds?: string[];
+  /**
+   * @example
+   * 核*秒
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'Begin',
+      end: 'End',
+      price: 'Price',
+      regionIds: 'RegionIds',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      end: 'number',
+      price: 'number',
+      regionIds: { 'type': 'array', 'itemType': 'string' },
+      unit: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PriceEstimateOutputPostPayItems extends $tea.Model {
+  /**
+   * @example
+   * 3600.00
+   */
+  amount?: number;
+  /**
+   * @example
+   * 1
+   */
+  count?: number;
+  /**
+   * @example
+   * p_micro_service_cpu
+   */
+  id?: string;
+  /**
+   * @example
+   * 1.00
+   */
+  price?: number;
+  steps?: PriceEstimateOutputPostPayItemsSteps[];
+  /**
+   * @example
+   * pack/post
+   */
+  type?: string;
+  /**
+   * @example
+   * 核*秒
+   */
+  unit?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      count: 'Count',
+      id: 'Id',
+      price: 'Price',
+      steps: 'Steps',
+      type: 'Type',
+      unit: 'Unit',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      count: 'number',
+      id: 'string',
+      price: 'number',
+      steps: { 'type': 'array', 'itemType': PriceEstimateOutputPostPayItemsSteps },
       type: 'string',
       unit: 'string',
     };
@@ -27970,6 +28684,34 @@ export class DescribeApplicationConfigResponseBodyDataOssMountDescs extends $tea
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataSecretMountDesc extends $tea.Model {
+  key?: string;
+  mountPath?: string;
+  secretId?: number;
+  secretName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      mountPath: 'MountPath',
+      secretId: 'SecretId',
+      secretName: 'SecretName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      mountPath: 'string',
+      secretId: 'number',
+      secretName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataTags extends $tea.Model {
   /**
    * @remarks
@@ -28536,6 +29278,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * 2
    */
   replicas?: number;
+  secretMountDesc?: DescribeApplicationConfigResponseBodyDataSecretMountDesc[];
   /**
    * @remarks
    * The ID of the security group.
@@ -28724,6 +29467,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       readiness: 'Readiness',
       regionId: 'RegionId',
       replicas: 'Replicas',
+      secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
       slsConfigs: 'SlsConfigs',
@@ -28801,6 +29545,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       readiness: 'string',
       regionId: 'string',
       replicas: 'number',
+      secretMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSecretMountDesc },
       securityGroupId: 'string',
       serviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       slsConfigs: 'string',
@@ -35750,6 +36495,29 @@ export class GetWarningEventMetricResponseBodyData extends $tea.Model {
   }
 }
 
+export class GetWebshellTokenResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * zWWpvRj_5pzof4hfo7-hGynM8oGMmO_7
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAppEventsResponseBodyDataAppEventEntity extends $tea.Model {
   /**
    * @remarks
@@ -40058,6 +40826,10 @@ export default class Client extends OpenApi {
       query["SaeVersion"] = request.saeVersion;
     }
 
+    if (!Util.isUnset(request.secretMountDesc)) {
+      query["SecretMountDesc"] = request.secretMountDesc;
+    }
+
     if (!Util.isUnset(request.securityGroupId)) {
       query["SecurityGroupId"] = request.securityGroupId;
     }
@@ -41708,6 +42480,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.replicas)) {
       query["Replicas"] = request.replicas;
+    }
+
+    if (!Util.isUnset(request.secretMountDesc)) {
+      query["SecretMountDesc"] = request.secretMountDesc;
     }
 
     if (!Util.isUnset(request.securityGroupId)) {
@@ -44021,6 +44797,51 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getWarningEventMetricWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * @param request - GetWebshellTokenRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetWebshellTokenResponse
+   */
+  async getWebshellTokenWithOptions(request: GetWebshellTokenRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetWebshellTokenResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.podName)) {
+      query["PodName"] = request.podName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetWebshellToken",
+      version: "2019-05-06",
+      protocol: "HTTPS",
+      pathname: `/pop/v1/sam/instance/webshellToken`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetWebshellTokenResponse>(await this.callApi(params, req, runtime), new GetWebshellTokenResponse({}));
+  }
+
+  /**
+   * @param request - GetWebshellTokenRequest
+   * @returns GetWebshellTokenResponse
+   */
+  async getWebshellToken(request: GetWebshellTokenRequest): Promise<GetWebshellTokenResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getWebshellTokenWithOptions(request, headers, runtime);
   }
 
   /**
