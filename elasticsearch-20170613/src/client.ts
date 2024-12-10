@@ -27780,6 +27780,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
    * es-cn-abc
    */
   description?: string;
+  domain?: string;
   /**
    * @remarks
    * The configuration of Kibana nodes.
@@ -27913,6 +27914,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       createdAt: 'createdAt',
       dedicateMaster: 'dedicateMaster',
       description: 'description',
+      domain: 'domain',
       elasticDataNodeConfiguration: 'elasticDataNodeConfiguration',
       endTime: 'endTime',
       esVersion: 'esVersion',
@@ -27947,6 +27949,7 @@ export class ListInstanceResponseBodyResult extends $tea.Model {
       createdAt: 'string',
       dedicateMaster: 'boolean',
       description: 'string',
+      domain: 'string',
       elasticDataNodeConfiguration: ListInstanceResponseBodyResultElasticDataNodeConfiguration,
       endTime: 'number',
       esVersion: 'string',
