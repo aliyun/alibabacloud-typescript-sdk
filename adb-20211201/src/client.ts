@@ -3751,6 +3751,119 @@ export class DeleteAccountResponse extends $tea.Model {
   }
 }
 
+export class DeleteBackupsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the backup set that you want to delete. Separate multiple backup set IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 763,764
+   */
+  backupIds?: string;
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-uf6g8w25jacm7****
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backupIds: 'BackupIds',
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backupIds: 'string',
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 771C5FAA-530F-52F7-B84D-EBAD4561D590
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteBackupsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteBackupsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteBackupsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteDBClusterRequest extends $tea.Model {
   /**
    * @remarks
@@ -7413,6 +7526,83 @@ export class DescribeColumnsResponse extends $tea.Model {
   }
 }
 
+export class DescribeCompactionServiceSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp149vz49b36t****
+   */
+  DBClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCompactionServiceSwitchResponseBody extends $tea.Model {
+  data?: DescribeCompactionServiceSwitchResponseBodyData;
+  /**
+   * @example
+   * D761DA51-12F8-5457-AAA9-F52B9F436D2D
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeCompactionServiceSwitchResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCompactionServiceSwitchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCompactionServiceSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCompactionServiceSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeComputeResourceUsageRequest extends $tea.Model {
   /**
    * @remarks
@@ -10107,6 +10297,83 @@ export class DescribeEnabledPrivilegesResponse extends $tea.Model {
   }
 }
 
+export class DescribeEssdCacheConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-uf685u1o987hj6rn
+   */
+  DBClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEssdCacheConfigResponseBody extends $tea.Model {
+  data?: DescribeEssdCacheConfigResponseBodyData;
+  /**
+   * @example
+   * C7EDB8E4-9769-4233-88C7-DCA4C9******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeEssdCacheConfigResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeEssdCacheConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeEssdCacheConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeEssdCacheConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExcessivePrimaryKeysRequest extends $tea.Model {
   /**
    * @remarks
@@ -10497,6 +10764,314 @@ export class DescribeJobResourceUsageResponse extends $tea.Model {
   }
 }
 
+export class DescribeKernelVersionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-2ze918p6qf6h9****
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKernelVersionResponseBody extends $tea.Model {
+  availableKernelVersions?: DescribeKernelVersionResponseBodyAvailableKernelVersions[];
+  /**
+   * @example
+   * 2025-01-12T16:00:00Z
+   */
+  expireDate?: string;
+  /**
+   * @example
+   * 3.1.8
+   */
+  kernelVersion?: string;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      availableKernelVersions: 'AvailableKernelVersions',
+      expireDate: 'ExpireDate',
+      kernelVersion: 'KernelVersion',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      availableKernelVersions: { 'type': 'array', 'itemType': DescribeKernelVersionResponseBodyAvailableKernelVersions },
+      expireDate: 'string',
+      kernelVersion: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKernelVersionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeKernelVersionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeKernelVersionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLakeCacheSizeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp10b6646l07akdt
+   */
+  DBClusterId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLakeCacheSizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: DescribeLakeCacheSizeResponseBodyData;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: DescribeLakeCacheSizeResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLakeCacheSizeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLakeCacheSizeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLakeCacheSizeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOperatorPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-uf6wjk5xxxxxxxxxx
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOperatorPermissionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2024-02-25T03:35:02Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * amv-uf6wjk5xxxxxxxxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 2024-01-10T02:19:00Z
+   */
+  expiredTime?: string;
+  /**
+   * @example
+   * Control,Data
+   */
+  privileges?: string;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createdTime: 'CreatedTime',
+      DBClusterId: 'DBClusterId',
+      expiredTime: 'ExpiredTime',
+      privileges: 'Privileges',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createdTime: 'string',
+      DBClusterId: 'string',
+      expiredTime: 'string',
+      privileges: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeOperatorPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeOperatorPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeOperatorPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribePatternPerformanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -10580,6 +11155,7 @@ export class DescribePatternPerformanceRequest extends $tea.Model {
 }
 
 export class DescribePatternPerformanceResponseBody extends $tea.Model {
+  accessIp?: string;
   /**
    * @remarks
    * The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
@@ -10588,11 +11164,13 @@ export class DescribePatternPerformanceResponseBody extends $tea.Model {
    * 2022-08-22T01:06:00Z
    */
   endTime?: string;
+  failedCount?: number;
   /**
    * @remarks
    * The queried performance metrics.
    */
   performances?: DescribePatternPerformanceResponseBodyPerformances[];
+  queryCount?: number;
   /**
    * @remarks
    * The request ID.
@@ -10601,6 +11179,7 @@ export class DescribePatternPerformanceResponseBody extends $tea.Model {
    * F21AF487-B8C9-57E0-8E3A-A92BC3611FB6
    */
   requestId?: string;
+  SQLPattern?: string;
   /**
    * @remarks
    * The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time is displayed in UTC.
@@ -10609,21 +11188,35 @@ export class DescribePatternPerformanceResponseBody extends $tea.Model {
    * 2022-08-21T02:15:00Z
    */
   startTime?: string;
+  tables?: string;
+  user?: string;
   static names(): { [key: string]: string } {
     return {
+      accessIp: 'AccessIp',
       endTime: 'EndTime',
+      failedCount: 'FailedCount',
       performances: 'Performances',
+      queryCount: 'QueryCount',
       requestId: 'RequestId',
+      SQLPattern: 'SQLPattern',
       startTime: 'StartTime',
+      tables: 'Tables',
+      user: 'User',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      accessIp: 'string',
       endTime: 'string',
+      failedCount: 'number',
       performances: { 'type': 'array', 'itemType': DescribePatternPerformanceResponseBodyPerformances },
+      queryCount: 'number',
       requestId: 'string',
+      SQLPattern: 'string',
       startTime: 'string',
+      tables: 'string',
+      user: 'string',
     };
   }
 
@@ -14226,114 +14819,6 @@ export class GetSparkConfigLogPathResponse extends $tea.Model {
   }
 }
 
-export class GetSparkDefinitionsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * @example
-   * amv-clusterxxx
-   */
-  DBClusterId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSparkDefinitionsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The common definitions of Spark applications.
-   * 
-   * @example
-   * {"SQLTemplateExample": "-- Here is just an example of SparkSQL. Modify the content and run your spark program.
-   * conf spark.driver.resourceSpec=medium;
-   * conf spark.executor.instances=2;
-   * conf spark.executor.resourceSpec=medium;
-   * conf spark.app.name=Spark SQL Test;
-   * conf spark.adb.connectors=oss;
-   * 
-   * -- Here are your sql statements
-   * show databases;",
-   *                  "BatchTemplateExample": "{
-   *     "comments": [
-   *         "-- Here is just an example of SparkPi. Modify the content and run your spark program."
-   *     ],
-   *     "args": ["1000"],
-   *   "file":"local:///tmp/spark-examples.jar",
-   *     "name": "SparkPi",
-   *     "className": "org.apache.spark.examples.SparkPi",
-   *     "conf": {      "spark.driver.resourceSpec": "medium",
-   *         "spark.executor.instances": 2,
-   *         "spark.executor.resourceSpec": "medium"
-   *     }
-   * }"
-   */
-  data?: string;
-  /**
-   * @remarks
-   * The ID of the request.
-   * 
-   * @example
-   * D65A809F-34CE-4550-9BC1-0ED21ETG380
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetSparkDefinitionsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetSparkDefinitionsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetSparkDefinitionsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetSparkLogAnalyzeTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -15891,6 +16376,112 @@ export class GetViewObjectsResponse extends $tea.Model {
   }
 }
 
+export class GrantOperatorPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp1565u55p32****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2022-11-30T00:00:00Z
+   */
+  expiredTime?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Control
+   */
+  privileges?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      expiredTime: 'ExpiredTime',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      privileges: 'Privileges',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      expiredTime: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      privileges: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantOperatorPermissionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * A438072A-E2E7-5509-9A3F-66293512A820
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GrantOperatorPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GrantOperatorPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GrantOperatorPermissionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class KillSparkAppRequest extends $tea.Model {
   /**
    * @remarks
@@ -16636,6 +17227,125 @@ export class ListSparkTemplateFileIdsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListSparkTemplateFileIdsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesRequest extends $tea.Model {
+  /**
+   * @example
+   * 212db86sca4384811e0b5e8707ec21345
+   */
+  nextToken?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceId?: string[];
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dbclusterlakeversion
+   */
+  resourceType?: string;
+  tag?: ListTagResourcesRequestTag[];
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceId: 'ResourceId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceId: { 'type': 'array', 'itemType': 'string' },
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      resourceType: 'string',
+      tag: { 'type': 'array', 'itemType': ListTagResourcesRequestTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 212db86sca4384811e0b5e8707ec21345
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 184DE106-CB2C-4DD2-B57F-396652E6C8F8
+   */
+  requestId?: string;
+  tagResources?: ListTagResourcesResponseBodyTagResources;
+  static names(): { [key: string]: string } {
+    return {
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      tagResources: 'TagResources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nextToken: 'string',
+      requestId: 'string',
+      tagResources: ListTagResourcesResponseBodyTagResources,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTagResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListTagResourcesResponseBody,
     };
   }
 
@@ -17602,6 +18312,90 @@ export class ModifyClusterConnectionStringResponse extends $tea.Model {
   }
 }
 
+export class ModifyCompactionServiceSwitchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp14t95lun0w****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableCompactionService?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      enableCompactionService: 'EnableCompactionService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      enableCompactionService: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCompactionServiceSwitchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 21ABF219-10E0-571B-94B8-9C9AE5022BF8
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyCompactionServiceSwitchResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyCompactionServiceSwitchResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyCompactionServiceSwitchResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyDBClusterRequest extends $tea.Model {
   /**
    * @remarks
@@ -17957,6 +18751,222 @@ export class ModifyDBClusterMaintainTimeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBClusterMaintainTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bpxxxxx
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acxxxxx
+   */
+  newResourceGroupId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      newResourceGroupId: 'NewResourceGroupId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      newResourceGroupId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 65BDA532-28AF-4122-AA39-B382721EEE64
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBClusterResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterVipRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The endpoint of the cluster.
+   */
+  connectString?: string;
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Lakehouse Edition (V3.0) clusters within a region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-2ze8mbuai97*****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * > 
+   * 
+   * *   The new **VPC** must reside in the same region as the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vpc-bp1at5ze0t5u3xtqn****
+   */
+  VPCId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * > 
+   * 
+   * *   The new vSwitch must reside in the same zone as the cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-bp1aadw9k19x6cis9****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      connectString: 'ConnectString',
+      DBClusterId: 'DBClusterId',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      connectString: 'string',
+      DBClusterId: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterVipResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 1AD222E9-****-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBClusterVipResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBClusterVipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBClusterVipResponseBody,
     };
   }
 
@@ -18517,6 +19527,198 @@ export class ModifyElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class ModifyEssdCacheConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp10yt0gva71ei7d
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableEssdCache?: boolean;
+  /**
+   * @example
+   * 500
+   */
+  essdCacheSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      enableEssdCache: 'EnableEssdCache',
+      essdCacheSize: 'EssdCacheSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      enableEssdCache: 'boolean',
+      essdCacheSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEssdCacheConfigResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 115F9CCA-EF2E-5F91-AB60-4961D52FEAB4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyEssdCacheConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyEssdCacheConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyEssdCacheConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLakeCacheSizeRequest extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  capacity?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp10yt0gva71ei7d
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  enableLakeCache?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      DBClusterId: 'DBClusterId',
+      enableLakeCache: 'EnableLakeCache',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      DBClusterId: 'string',
+      enableLakeCache: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLakeCacheSizeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ModifyLakeCacheSizeResponseBodyData;
+  /**
+   * @example
+   * 494486CE-6F49-574E-B304-29127EA12E36
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ModifyLakeCacheSizeResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLakeCacheSizeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyLakeCacheSizeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyLakeCacheSizeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyPerformanceViewRequest extends $tea.Model {
   /**
    * @remarks
@@ -18943,116 +20145,6 @@ export class ReleaseClusterPublicConnectionResponse extends $tea.Model {
   }
 }
 
-export class RenameSparkTemplateFileRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * amv-d*****
-   */
-  DBClusterId?: string;
-  /**
-   * @remarks
-   * The template file ID.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The name of the template file that you want to rename.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * new_template_name
-   */
-  name?: string;
-  static names(): { [key: string]: string } {
-    return {
-      DBClusterId: 'DBClusterId',
-      id: 'Id',
-      name: 'Name',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      DBClusterId: 'string',
-      id: 'number',
-      name: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameSparkTemplateFileResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The data returned.
-   */
-  data?: RenameSparkTemplateFileResponseBodyData;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 16D332C4-ACEB-526A-9B53-2B708FED594A
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      data: 'Data',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      data: RenameSparkTemplateFileResponseBodyData,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameSparkTemplateFileResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: RenameSparkTemplateFileResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: RenameSparkTemplateFileResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ResetAccountPasswordRequest extends $tea.Model {
   /**
    * @remarks
@@ -19180,6 +20272,92 @@ export class ResetAccountPasswordResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ResetAccountPasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeOperatorPermissionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp1mfe9qmsw1dzyg
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeOperatorPermissionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RevokeOperatorPermissionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RevokeOperatorPermissionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RevokeOperatorPermissionResponseBody,
     };
   }
 
@@ -22241,6 +23419,29 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeCompactionServiceSwitchResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableCompactionService?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enableCompactionService: 'EnableCompactionService',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableCompactionService: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeComputeResourceUsageResponseBodyDataAcuInfo extends $tea.Model {
   /**
    * @remarks
@@ -22400,6 +23601,87 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTags extends $t
   static types(): { [key: string]: any } {
     return {
       tag: { 'type': 'array', 'itemType': DescribeDBClusterAttributeResponseBodyItemsDBClusterTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepListStepList extends $tea.Model {
+  endTime?: string;
+  startTime?: string;
+  stepDesc?: string;
+  stepName?: string;
+  stepProgress?: string;
+  stepStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      startTime: 'StartTime',
+      stepDesc: 'StepDesc',
+      stepName: 'StepName',
+      stepProgress: 'StepProgress',
+      stepStatus: 'StepStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      startTime: 'string',
+      stepDesc: 'string',
+      stepName: 'string',
+      stepProgress: 'string',
+      stepStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepList extends $tea.Model {
+  stepList?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepListStepList[];
+  static names(): { [key: string]: string } {
+    return {
+      stepList: 'StepList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      stepList: { 'type': 'array', 'itemType': DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepListStepList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo extends $tea.Model {
+  name?: string;
+  progress?: string;
+  status?: string;
+  stepList?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepList;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      progress: 'Progress',
+      status: 'Status',
+      stepList: 'StepList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      progress: 'string',
+      status: 'string',
+      stepList: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfoStepList,
     };
   }
 
@@ -22727,6 +24009,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
    * The tags that are added to the cluster.
    */
   tags?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags;
+  taskInfo?: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo;
   /**
    * @remarks
    * Indicates whether Elastic Network Interface (ENI) is enabled. Valid values:
@@ -22799,6 +24082,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       storageResourceTotal: 'StorageResourceTotal',
       supportedFeatures: 'SupportedFeatures',
       tags: 'Tags',
+      taskInfo: 'TaskInfo',
       userENIStatus: 'UserENIStatus',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -22843,6 +24127,7 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       storageResourceTotal: 'string',
       supportedFeatures: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       tags: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags,
+      taskInfo: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo,
       userENIStatus: 'boolean',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -24482,6 +25767,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
    * 1
    */
   outputRows?: number;
+  patternId?: string;
   /**
    * @remarks
    * The peak memory. Unit: bytes.
@@ -24631,6 +25917,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
       executionTime: 'ExecutionTime',
       outputDataSize: 'OutputDataSize',
       outputRows: 'OutputRows',
+      patternId: 'PatternId',
       peakMemory: 'PeakMemory',
       processId: 'ProcessId',
       queryProperties: 'QueryProperties',
@@ -24660,6 +25947,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $tea.Model {
       executionTime: 'number',
       outputDataSize: 'number',
       outputRows: 'number',
+      patternId: 'string',
       peakMemory: 'number',
       processId: 'string',
       queryProperties: { 'type': 'array', 'itemType': DescribeDiagnosisRecordsResponseBodyQuerysQueryProperties },
@@ -25305,6 +26593,36 @@ export class DescribeEnabledPrivilegesResponseBodyData extends $tea.Model {
   }
 }
 
+export class DescribeEssdCacheConfigResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  enableEssdCache?: boolean;
+  /**
+   * @example
+   * 500
+   */
+  essdCacheSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableEssdCache: 'EnableEssdCache',
+      essdCacheSize: 'EssdCacheSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableEssdCache: 'boolean',
+      essdCacheSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExcessivePrimaryKeysResponseBodyDetectionItems extends $tea.Model {
   /**
    * @remarks
@@ -25627,6 +26945,90 @@ export class DescribeJobResourceUsageResponseBodyData extends $tea.Model {
       endTime: 'string',
       jobAcuUsage: { 'type': 'array', 'itemType': DescribeJobResourceUsageResponseBodyDataJobAcuUsage },
       startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeKernelVersionResponseBodyAvailableKernelVersions extends $tea.Model {
+  /**
+   * @example
+   * 2025-07-17T16:00:00Z
+   */
+  expireDate?: string;
+  /**
+   * @example
+   * 3.1.9
+   */
+  kernelVersion?: string;
+  /**
+   * @example
+   * 2024-07-17T16:00:00Z
+   */
+  releaseDate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expireDate: 'ExpireDate',
+      kernelVersion: 'KernelVersion',
+      releaseDate: 'ReleaseDate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expireDate: 'string',
+      kernelVersion: 'string',
+      releaseDate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLakeCacheSizeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  capacity?: number;
+  /**
+   * @example
+   * amv-bp10b6646l07akdt
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * 100
+   */
+  dataSize?: number;
+  /**
+   * @example
+   * true
+   */
+  enableLakeCache?: boolean;
+  instances?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      DBClusterId: 'DBClusterId',
+      dataSize: 'DataSize',
+      enableLakeCache: 'EnableLakeCache',
+      instances: 'Instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      DBClusterId: 'string',
+      dataSize: 'number',
+      enableLakeCache: 'boolean',
+      instances: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -27877,6 +29279,99 @@ export class ListSparkLogAnalyzeTasksResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListTagResourcesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * testkey1
+   */
+  key?: string;
+  /**
+   * @example
+   * testvalue1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResourcesTagResource extends $tea.Model {
+  /**
+   * @example
+   * amv-bp1l20nxxxxxxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * dbclusterlakeversion
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * testkey1
+   */
+  tagKey?: string;
+  /**
+   * @example
+   * testvalue1
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListTagResourcesResponseBodyTagResources extends $tea.Model {
+  tagResource?: ListTagResourcesResponseBodyTagResourcesTagResource[];
+  static names(): { [key: string]: string } {
+    return {
+      tagResource: 'TagResource',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagResource: { 'type': 'array', 'itemType': ListTagResourcesResponseBodyTagResourcesTagResource },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAccountPrivilegesRequestAccountPrivilegesPrivilegeObject extends $tea.Model {
   /**
    * @remarks
@@ -28001,6 +29496,39 @@ export class ModifyDBResourceGroupRequestRules extends $tea.Model {
       groupName: 'string',
       queryTime: 'string',
       targetGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyLakeCacheSizeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  capacity?: number;
+  /**
+   * @example
+   * 100
+   */
+  dataSize?: number;
+  instances?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      capacity: 'Capacity',
+      dataSize: 'DataSize',
+      instances: 'Instances',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      capacity: 'number',
+      dataSize: 'number',
+      instances: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -28226,35 +29754,6 @@ export class PreloadSparkAppMetricsResponseBodyData extends $tea.Model {
       eventLogPath: 'string',
       finished: 'boolean',
       scanMetrics: PreloadSparkAppMetricsResponseBodyDataScanMetrics,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class RenameSparkTemplateFileResponseBodyData extends $tea.Model {
-  /**
-   * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   True
-   * *   False
-   * 
-   * @example
-   * True
-   */
-  succeeded?: boolean;
-  static names(): { [key: string]: string } {
-    return {
-      succeeded: 'Succeeded',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      succeeded: 'boolean',
     };
   }
 
@@ -29546,6 +31045,80 @@ export default class Client extends OpenApi {
   async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAccountWithOptions(request, runtime);
+  }
+
+  /**
+   * Manually deletes backup sets.
+   * 
+   * @remarks
+   *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
+   * 
+   * @param request - DeleteBackupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteBackupsResponse
+   */
+  async deleteBackupsWithOptions(request: DeleteBackupsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteBackupsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.backupIds)) {
+      query["BackupIds"] = request.backupIds;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteBackups",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteBackupsResponse>(await this.callApi(params, req, runtime), new DeleteBackupsResponse({}));
+  }
+
+  /**
+   * Manually deletes backup sets.
+   * 
+   * @remarks
+   *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+   * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
+   * 
+   * @param request - DeleteBackupsRequest
+   * @returns DeleteBackupsResponse
+   */
+  async deleteBackups(request: DeleteBackupsRequest): Promise<DeleteBackupsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteBackupsWithOptions(request, runtime);
   }
 
   /**
@@ -31135,6 +32708,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询CompactionService开关
+   * 
+   * @param request - DescribeCompactionServiceSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCompactionServiceSwitchResponse
+   */
+  async describeCompactionServiceSwitchWithOptions(request: DescribeCompactionServiceSwitchRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCompactionServiceSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCompactionServiceSwitch",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCompactionServiceSwitchResponse>(await this.callApi(params, req, runtime), new DescribeCompactionServiceSwitchResponse({}));
+  }
+
+  /**
+   * 查询CompactionService开关
+   * 
+   * @param request - DescribeCompactionServiceSwitchRequest
+   * @returns DescribeCompactionServiceSwitchResponse
+   */
+  async describeCompactionServiceSwitch(request: DescribeCompactionServiceSwitchRequest): Promise<DescribeCompactionServiceSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCompactionServiceSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * 获取实例计算资源使用统计
    * 
    * @remarks
@@ -32205,6 +33820,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询EssdCache配置
+   * 
+   * @param request - DescribeEssdCacheConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeEssdCacheConfigResponse
+   */
+  async describeEssdCacheConfigWithOptions(request: DescribeEssdCacheConfigRequest, runtime: $Util.RuntimeOptions): Promise<DescribeEssdCacheConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeEssdCacheConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeEssdCacheConfigResponse>(await this.callApi(params, req, runtime), new DescribeEssdCacheConfigResponse({}));
+  }
+
+  /**
+   * 查询EssdCache配置
+   * 
+   * @param request - DescribeEssdCacheConfigRequest
+   * @returns DescribeEssdCacheConfigResponse
+   */
+  async describeEssdCacheConfig(request: DescribeEssdCacheConfigRequest): Promise<DescribeEssdCacheConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeEssdCacheConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about tables that have excessive primary key fields in an AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
    * 
    * @param request - DescribeExcessivePrimaryKeysRequest
@@ -32344,6 +34001,164 @@ export default class Client extends OpenApi {
   async describeJobResourceUsage(request: DescribeJobResourceUsageRequest): Promise<DescribeJobResourceUsageResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeJobResourceUsageWithOptions(request, runtime);
+  }
+
+  /**
+   * 枚举实例版本信息
+   * 
+   * @param request - DescribeKernelVersionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeKernelVersionResponse
+   */
+  async describeKernelVersionWithOptions(request: DescribeKernelVersionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeKernelVersionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeKernelVersion",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeKernelVersionResponse>(await this.callApi(params, req, runtime), new DescribeKernelVersionResponse({}));
+  }
+
+  /**
+   * 枚举实例版本信息
+   * 
+   * @param request - DescribeKernelVersionRequest
+   * @returns DescribeKernelVersionResponse
+   */
+  async describeKernelVersion(request: DescribeKernelVersionRequest): Promise<DescribeKernelVersionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeKernelVersionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取实例LakeCache容量
+   * 
+   * @param request - DescribeLakeCacheSizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLakeCacheSizeResponse
+   */
+  async describeLakeCacheSizeWithOptions(request: DescribeLakeCacheSizeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLakeCacheSizeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLakeCacheSize",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLakeCacheSizeResponse>(await this.callApi(params, req, runtime), new DescribeLakeCacheSizeResponse({}));
+  }
+
+  /**
+   * 获取实例LakeCache容量
+   * 
+   * @param request - DescribeLakeCacheSizeRequest
+   * @returns DescribeLakeCacheSizeResponse
+   */
+  async describeLakeCacheSize(request: DescribeLakeCacheSizeRequest): Promise<DescribeLakeCacheSizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLakeCacheSizeWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeOperatorPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeOperatorPermissionResponse
+   */
+  async describeOperatorPermissionWithOptions(request: DescribeOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<DescribeOperatorPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeOperatorPermission",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeOperatorPermissionResponse>(await this.callApi(params, req, runtime), new DescribeOperatorPermissionResponse({}));
+  }
+
+  /**
+   * @param request - DescribeOperatorPermissionRequest
+   * @returns DescribeOperatorPermissionResponse
+   */
+  async describeOperatorPermission(request: DescribeOperatorPermissionRequest): Promise<DescribeOperatorPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeOperatorPermissionWithOptions(request, runtime);
   }
 
   /**
@@ -34031,58 +35846,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the common definitions of Spark applications.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-   * 
-   * @param request - GetSparkDefinitionsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetSparkDefinitionsResponse
-   */
-  async getSparkDefinitionsWithOptions(request: GetSparkDefinitionsRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkDefinitionsResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.DBClusterId)) {
-      body["DBClusterId"] = request.DBClusterId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetSparkDefinitions",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetSparkDefinitionsResponse>(await this.callApi(params, req, runtime), new GetSparkDefinitionsResponse({}));
-  }
-
-  /**
-   * Queries the common definitions of Spark applications.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-   * 
-   * @param request - GetSparkDefinitionsRequest
-   * @returns GetSparkDefinitionsResponse
-   */
-  async getSparkDefinitions(request: GetSparkDefinitionsRequest): Promise<GetSparkDefinitionsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getSparkDefinitionsWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the results of a Spark log analysis task.
    * 
    * @remarks
@@ -34763,6 +36526,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - GrantOperatorPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantOperatorPermissionResponse
+   */
+  async grantOperatorPermissionWithOptions(request: GrantOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<GrantOperatorPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.expiredTime)) {
+      query["ExpiredTime"] = request.expiredTime;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.privileges)) {
+      query["Privileges"] = request.privileges;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GrantOperatorPermission",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GrantOperatorPermissionResponse>(await this.callApi(params, req, runtime), new GrantOperatorPermissionResponse({}));
+  }
+
+  /**
+   * @param request - GrantOperatorPermissionRequest
+   * @returns GrantOperatorPermissionResponse
+   */
+  async grantOperatorPermission(request: GrantOperatorPermissionRequest): Promise<GrantOperatorPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.grantOperatorPermissionWithOptions(request, runtime);
+  }
+
+  /**
    * Terminates a Spark application.
    * 
    * @remarks
@@ -35156,6 +36981,76 @@ export default class Client extends OpenApi {
   async listSparkTemplateFileIds(request: ListSparkTemplateFileIdsRequest): Promise<ListSparkTemplateFileIdsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSparkTemplateFileIdsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - ListTagResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResourcesWithOptions(request: ListTagResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListTagResourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListTagResources",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+  }
+
+  /**
+   * @param request - ListTagResourcesRequest
+   * @returns ListTagResourcesResponse
+   */
+  async listTagResources(request: ListTagResourcesRequest): Promise<ListTagResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listTagResourcesWithOptions(request, runtime);
   }
 
   /**
@@ -35617,6 +37512,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改CompactionService开关
+   * 
+   * @param request - ModifyCompactionServiceSwitchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyCompactionServiceSwitchResponse
+   */
+  async modifyCompactionServiceSwitchWithOptions(request: ModifyCompactionServiceSwitchRequest, runtime: $Util.RuntimeOptions): Promise<ModifyCompactionServiceSwitchResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.enableCompactionService)) {
+      query["EnableCompactionService"] = request.enableCompactionService;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyCompactionServiceSwitch",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyCompactionServiceSwitchResponse>(await this.callApi(params, req, runtime), new ModifyCompactionServiceSwitchResponse({}));
+  }
+
+  /**
+   * 修改CompactionService开关
+   * 
+   * @param request - ModifyCompactionServiceSwitchRequest
+   * @returns ModifyCompactionServiceSwitchResponse
+   */
+  async modifyCompactionServiceSwitch(request: ModifyCompactionServiceSwitchRequest): Promise<ModifyCompactionServiceSwitchResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyCompactionServiceSwitchWithOptions(request, runtime);
+  }
+
+  /**
    * Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
    * 
    * @remarks
@@ -35821,6 +37762,122 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改资源组
+   * 
+   * @param request - ModifyDBClusterResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterResourceGroupResponse
+   */
+  async modifyDBClusterResourceGroupWithOptions(request: ModifyDBClusterResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.newResourceGroupId)) {
+      query["NewResourceGroupId"] = request.newResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterResourceGroup",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterResourceGroupResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterResourceGroupResponse({}));
+  }
+
+  /**
+   * 修改资源组
+   * 
+   * @param request - ModifyDBClusterResourceGroupRequest
+   * @returns ModifyDBClusterResourceGroupResponse
+   */
+  async modifyDBClusterResourceGroup(request: ModifyDBClusterResourceGroupRequest): Promise<ModifyDBClusterResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterResourceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the virtual private cloud (VPC) and vSwitch for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * @param request - ModifyDBClusterVipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBClusterVipResponse
+   */
+  async modifyDBClusterVipWithOptions(request: ModifyDBClusterVipRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBClusterVipResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.connectString)) {
+      query["ConnectString"] = request.connectString;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBClusterVip",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBClusterVipResponse>(await this.callApi(params, req, runtime), new ModifyDBClusterVipResponse({}));
+  }
+
+  /**
+   * Changes the virtual private cloud (VPC) and vSwitch for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * @param request - ModifyDBClusterVipRequest
+   * @returns ModifyDBClusterVipResponse
+   */
+  async modifyDBClusterVip(request: ModifyDBClusterVipRequest): Promise<ModifyDBClusterVipResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBClusterVipWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
    * 
    * @remarks
@@ -36019,6 +38076,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改Essd Cache开关
+   * 
+   * @param request - ModifyEssdCacheConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyEssdCacheConfigResponse
+   */
+  async modifyEssdCacheConfigWithOptions(request: ModifyEssdCacheConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyEssdCacheConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.enableEssdCache)) {
+      query["EnableEssdCache"] = request.enableEssdCache;
+    }
+
+    if (!Util.isUnset(request.essdCacheSize)) {
+      query["EssdCacheSize"] = request.essdCacheSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyEssdCacheConfig",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyEssdCacheConfigResponse>(await this.callApi(params, req, runtime), new ModifyEssdCacheConfigResponse({}));
+  }
+
+  /**
+   * 修改Essd Cache开关
+   * 
+   * @param request - ModifyEssdCacheConfigRequest
+   * @returns ModifyEssdCacheConfigResponse
+   */
+  async modifyEssdCacheConfig(request: ModifyEssdCacheConfigRequest): Promise<ModifyEssdCacheConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyEssdCacheConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改实例LakeCache容量
+   * 
+   * @param request - ModifyLakeCacheSizeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLakeCacheSizeResponse
+   */
+  async modifyLakeCacheSizeWithOptions(request: ModifyLakeCacheSizeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLakeCacheSizeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.capacity)) {
+      query["Capacity"] = request.capacity;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.enableLakeCache)) {
+      query["EnableLakeCache"] = request.enableLakeCache;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyLakeCacheSize",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyLakeCacheSizeResponse>(await this.callApi(params, req, runtime), new ModifyLakeCacheSizeResponse({}));
+  }
+
+  /**
+   * 修改实例LakeCache容量
+   * 
+   * @param request - ModifyLakeCacheSizeRequest
+   * @returns ModifyLakeCacheSizeResponse
+   */
+  async modifyLakeCacheSize(request: ModifyLakeCacheSizeRequest): Promise<ModifyLakeCacheSizeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyLakeCacheSizeWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the information about a custom monitoring view.
    * 
    * @param tmpReq - ModifyPerformanceViewRequest
@@ -36205,66 +38362,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Renames a Spark template file.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-   * 
-   * @param request - RenameSparkTemplateFileRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns RenameSparkTemplateFileResponse
-   */
-  async renameSparkTemplateFileWithOptions(request: RenameSparkTemplateFileRequest, runtime: $Util.RuntimeOptions): Promise<RenameSparkTemplateFileResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.DBClusterId)) {
-      query["DBClusterId"] = request.DBClusterId;
-    }
-
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "RenameSparkTemplateFile",
-      version: "2021-12-01",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<RenameSparkTemplateFileResponse>(await this.callApi(params, req, runtime), new RenameSparkTemplateFileResponse({}));
-  }
-
-  /**
-   * Renames a Spark template file.
-   * 
-   * @remarks
-   *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-   * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-   * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-   * 
-   * @param request - RenameSparkTemplateFileRequest
-   * @returns RenameSparkTemplateFileResponse
-   */
-  async renameSparkTemplateFile(request: RenameSparkTemplateFileRequest): Promise<RenameSparkTemplateFileResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.renameSparkTemplateFileWithOptions(request, runtime);
-  }
-
-  /**
    * Resets the password of a database account for an AnalyticDB for MySQL cluster.
    * 
    * @remarks
@@ -36326,6 +38423,60 @@ export default class Client extends OpenApi {
   async resetAccountPassword(request: ResetAccountPasswordRequest): Promise<ResetAccountPasswordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetAccountPasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - RevokeOperatorPermissionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeOperatorPermissionResponse
+   */
+  async revokeOperatorPermissionWithOptions(request: RevokeOperatorPermissionRequest, runtime: $Util.RuntimeOptions): Promise<RevokeOperatorPermissionResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RevokeOperatorPermission",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RevokeOperatorPermissionResponse>(await this.callApi(params, req, runtime), new RevokeOperatorPermissionResponse({}));
+  }
+
+  /**
+   * @param request - RevokeOperatorPermissionRequest
+   * @returns RevokeOperatorPermissionResponse
+   */
+  async revokeOperatorPermission(request: RevokeOperatorPermissionRequest): Promise<RevokeOperatorPermissionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.revokeOperatorPermissionWithOptions(request, runtime);
   }
 
   /**
