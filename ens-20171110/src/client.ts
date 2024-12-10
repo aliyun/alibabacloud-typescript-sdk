@@ -27329,6 +27329,8 @@ export class GetBucketAclRequest extends $tea.Model {
    * @remarks
    * The name of the bucket.
    * 
+   * This parameter is required.
+   * 
    * @example
    * test
    */
