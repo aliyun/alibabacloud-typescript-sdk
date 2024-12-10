@@ -277,6 +277,52 @@ export class JobDriver extends $tea.Model {
   }
 }
 
+export class KerberosConf extends $tea.Model {
+  creator?: string;
+  enabled?: boolean;
+  gmtCreated?: string;
+  gmtModified?: string;
+  kerberosConfId?: string;
+  keytabs?: string[];
+  krb5Conf?: string;
+  name?: string;
+  networkServiceId?: string;
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      creator: 'creator',
+      enabled: 'enabled',
+      gmtCreated: 'gmtCreated',
+      gmtModified: 'gmtModified',
+      kerberosConfId: 'kerberosConfId',
+      keytabs: 'keytabs',
+      krb5Conf: 'krb5Conf',
+      name: 'name',
+      networkServiceId: 'networkServiceId',
+      workspaceId: 'workspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      creator: 'string',
+      enabled: 'boolean',
+      gmtCreated: 'string',
+      gmtModified: 'string',
+      kerberosConfId: 'string',
+      keytabs: { 'type': 'array', 'itemType': 'string' },
+      krb5Conf: 'string',
+      name: 'string',
+      networkServiceId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PrincipalAction extends $tea.Model {
   /**
    * @example
@@ -4167,6 +4213,7 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * 1509789347011222
    */
   creator?: string;
+  cuHours?: number;
   displayReleaseVersion?: string;
   /**
    * @remarks
@@ -4203,6 +4250,7 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * The path where the operational logs are stored.
    */
   log?: RunLog;
+  mbSeconds?: number;
   /**
    * @remarks
    * The job name.
@@ -4245,6 +4293,7 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * The tags of the job.
    */
   tags?: Tag[];
+  vcoreSeconds?: number;
   /**
    * @remarks
    * The web UI of the job.
@@ -4266,6 +4315,7 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
       codeType: 'codeType',
       configurationOverrides: 'configurationOverrides',
       creator: 'creator',
+      cuHours: 'cuHours',
       displayReleaseVersion: 'displayReleaseVersion',
       endTime: 'endTime',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
@@ -4273,12 +4323,14 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
       jobDriver: 'jobDriver',
       jobRunId: 'jobRunId',
       log: 'log',
+      mbSeconds: 'mbSeconds',
       name: 'name',
       releaseVersion: 'releaseVersion',
       state: 'state',
       stateChangeReason: 'stateChangeReason',
       submitTime: 'submitTime',
       tags: 'tags',
+      vcoreSeconds: 'vcoreSeconds',
       webUI: 'webUI',
       workspaceId: 'workspaceId',
     };
@@ -4289,6 +4341,7 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
       codeType: 'string',
       configurationOverrides: ListJobRunsResponseBodyJobRunsConfigurationOverrides,
       creator: 'string',
+      cuHours: 'number',
       displayReleaseVersion: 'string',
       endTime: 'number',
       executionTimeoutSeconds: 'number',
@@ -4296,12 +4349,14 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
       jobDriver: JobDriver,
       jobRunId: 'string',
       log: RunLog,
+      mbSeconds: 'number',
       name: 'string',
       releaseVersion: 'string',
       state: 'string',
       stateChangeReason: ListJobRunsResponseBodyJobRunsStateChangeReason,
       submitTime: 'number',
       tags: { 'type': 'array', 'itemType': Tag },
+      vcoreSeconds: 'number',
       webUI: 'string',
       workspaceId: 'string',
     };
