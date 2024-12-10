@@ -943,17 +943,17 @@ export class SmsConversionRequest extends $tea.Model {
    * @remarks
    * The ID of the OTP message.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1008030300****
    */
   messageId?: string;
+  to?: string;
   static names(): { [key: string]: string } {
     return {
       conversionTime: 'ConversionTime',
       delivered: 'Delivered',
       messageId: 'MessageId',
+      to: 'To',
     };
   }
 
@@ -962,6 +962,7 @@ export class SmsConversionRequest extends $tea.Model {
       conversionTime: 'number',
       delivered: 'boolean',
       messageId: 'string',
+      to: 'string',
     };
   }
 
@@ -1577,6 +1578,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.messageId)) {
       query["MessageId"] = request.messageId;
+    }
+
+    if (!Util.isUnset(request.to)) {
+      query["To"] = request.to;
     }
 
     let req = new $OpenApi.OpenApiRequest({
