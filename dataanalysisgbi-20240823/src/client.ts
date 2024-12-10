@@ -256,6 +256,7 @@ export class CreateVirtualDatasourceInstanceRequest extends $tea.Model {
    * virtual-instance-1
    */
   name?: string;
+  type?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -268,6 +269,7 @@ export class CreateVirtualDatasourceInstanceRequest extends $tea.Model {
     return {
       description: 'description',
       name: 'name',
+      type: 'type',
       workspaceId: 'workspaceId',
     };
   }
@@ -276,6 +278,7 @@ export class CreateVirtualDatasourceInstanceRequest extends $tea.Model {
     return {
       description: 'string',
       name: 'string',
+      type: 'number',
       workspaceId: 'string',
     };
   }
@@ -923,6 +926,7 @@ export class SyncRemoteTablesResponse extends $tea.Model {
 export class UpdateVirtualDatasourceInstanceRequest extends $tea.Model {
   description?: string;
   name?: string;
+  type?: number;
   /**
    * @remarks
    * This parameter is required.
@@ -940,6 +944,7 @@ export class UpdateVirtualDatasourceInstanceRequest extends $tea.Model {
     return {
       description: 'description',
       name: 'name',
+      type: 'type',
       vdbId: 'vdbId',
       workspaceId: 'workspaceId',
     };
@@ -949,6 +954,7 @@ export class UpdateVirtualDatasourceInstanceRequest extends $tea.Model {
     return {
       description: 'string',
       name: 'string',
+      type: 'number',
       vdbId: 'string',
       workspaceId: 'string',
     };
@@ -1343,6 +1349,10 @@ export default class Client extends OpenApi {
       body["name"] = request.name;
     }
 
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -1673,6 +1683,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      body["type"] = request.type;
     }
 
     if (!Util.isUnset(request.vdbId)) {
