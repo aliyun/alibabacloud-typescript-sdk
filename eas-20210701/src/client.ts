@@ -1727,8 +1727,15 @@ export class CreateGatewayIntranetLinkedVpcResponse extends $tea.Model {
 }
 
 export class CreateGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of VPC peers.
+   */
   peerVpcs?: CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs[];
   /**
+   * @remarks
+   * The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -1753,8 +1760,15 @@ export class CreateGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
 }
 
 export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The list of VPC peers.
+   */
   peerVpcsShrink?: string;
   /**
+   * @remarks
+   * The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -1780,16 +1794,25 @@ export class CreateGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model 
 
 export class CreateGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The message that is returned.
+   * 
    * @example
    * Successfully add intranet linked vpc Peer for gateway
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -3493,8 +3516,15 @@ export class DeleteGatewayIntranetLinkedVpcResponse extends $tea.Model {
 }
 
 export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The VPC peer.
+   */
   peerVpcs?: DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs[];
   /**
+   * @remarks
+   * The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -3519,8 +3549,15 @@ export class DeleteGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
 }
 
 export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The VPC peer.
+   */
   peerVpcsShrink?: string;
   /**
+   * @remarks
+   * The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -3546,16 +3583,25 @@ export class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends $tea.Model 
 
 export class DeleteGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The message that is returned.
+   * 
    * @example
    * Successfully delete intranet linked vpc Peer for gateway
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -4913,6 +4959,7 @@ export class DescribeGatewayResponseBody extends $tea.Model {
    * 40325405-579C-4D82****
    */
   requestId?: string;
+  SSLRedirectionEnabled?: boolean;
   /**
    * @remarks
    * The status of the private gateway.
@@ -4953,6 +5000,7 @@ export class DescribeGatewayResponseBody extends $tea.Model {
       isDefault: 'IsDefault',
       replicas: 'Replicas',
       requestId: 'RequestId',
+      SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -4972,6 +5020,7 @@ export class DescribeGatewayResponseBody extends $tea.Model {
       isDefault: 'boolean',
       replicas: 'number',
       requestId: 'string',
+      SSLRedirectionEnabled: 'boolean',
       status: 'string',
       updateTime: 'string',
     };
@@ -5049,6 +5098,7 @@ export class DescribeResourceResponseBody extends $tea.Model {
    * 16
    */
   cpuCount?: number;
+  cpuUsed?: number;
   /**
    * @remarks
    * The time when the resource group was created.
@@ -5073,6 +5123,7 @@ export class DescribeResourceResponseBody extends $tea.Model {
    * 1
    */
   gpuCount?: number;
+  gpuUsed?: number;
   /**
    * @remarks
    * The total number of instances in the resource group.
@@ -5081,6 +5132,8 @@ export class DescribeResourceResponseBody extends $tea.Model {
    * 4
    */
   instanceCount?: number;
+  memory?: number;
+  memoryUsed?: number;
   /**
    * @remarks
    * The returned message.
@@ -5168,10 +5221,14 @@ export class DescribeResourceResponseBody extends $tea.Model {
     return {
       clusterId: 'ClusterId',
       cpuCount: 'CpuCount',
+      cpuUsed: 'CpuUsed',
       createTime: 'CreateTime',
       extraData: 'ExtraData',
       gpuCount: 'GpuCount',
+      gpuUsed: 'GpuUsed',
       instanceCount: 'InstanceCount',
+      memory: 'Memory',
+      memoryUsed: 'MemoryUsed',
       message: 'Message',
       ownerUid: 'OwnerUid',
       postPaidInstanceCount: 'PostPaidInstanceCount',
@@ -5189,10 +5246,14 @@ export class DescribeResourceResponseBody extends $tea.Model {
     return {
       clusterId: 'string',
       cpuCount: 'number',
+      cpuUsed: 'number',
       createTime: 'string',
       extraData: 'string',
       gpuCount: 'number',
+      gpuUsed: 'number',
       instanceCount: 'number',
+      memory: 'number',
+      memoryUsed: 'number',
       message: 'string',
       ownerUid: 'string',
       postPaidInstanceCount: 'number',
@@ -7154,6 +7215,12 @@ export class ListGatewayIntranetLinkedVpcResponse extends $tea.Model {
 
 export class ListGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * 
+   * *   If you specify a VPC ID, only VPC peers corresponding to the ID are queried.
+   * *   Otherwise, all VPC peers are queried.
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -7177,12 +7244,22 @@ export class ListGatewayIntranetLinkedVpcPeerRequest extends $tea.Model {
 
 export class ListGatewayIntranetLinkedVpcPeerResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the private gateway.
+   * 
    * @example
    * gw-1uhcqmsc7x22******
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The list of VPC peers.
+   */
   peerVpcList?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList[];
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
@@ -7225,6 +7302,57 @@ export class ListGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGatewayIntranetLinkedVpcPeerResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetSupportedZoneResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  zones?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      zones: 'Zones',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      zones: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListGatewayIntranetSupportedZoneResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListGatewayIntranetSupportedZoneResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListGatewayIntranetSupportedZoneResponseBody,
     };
   }
 
@@ -10516,6 +10644,7 @@ export class UpdateGatewayRequest extends $tea.Model {
    * true
    */
   enableIntranet?: boolean;
+  enableSSLRedirection?: boolean;
   /**
    * @remarks
    * The instance type used for the private gateway.
@@ -10552,6 +10681,7 @@ export class UpdateGatewayRequest extends $tea.Model {
     return {
       enableInternet: 'EnableInternet',
       enableIntranet: 'EnableIntranet',
+      enableSSLRedirection: 'EnableSSLRedirection',
       instanceType: 'InstanceType',
       isDefault: 'IsDefault',
       name: 'Name',
@@ -10563,6 +10693,7 @@ export class UpdateGatewayRequest extends $tea.Model {
     return {
       enableInternet: 'boolean',
       enableIntranet: 'boolean',
+      enableSSLRedirection: 'boolean',
       instanceType: 'string',
       isDefault: 'boolean',
       name: 'string',
@@ -11946,11 +12077,17 @@ export class CreateAclPolicyRequestAclPolicyList extends $tea.Model {
 
 export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
   /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -12446,11 +12583,17 @@ export class DeleteAclPolicyRequestAclPolicyList extends $tea.Model {
 
 export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Model {
   /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The ID of the VPC peer.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -13370,6 +13513,11 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
    */
   replicas?: number;
   /**
+   * @example
+   * true
+   */
+  SSLRedirectionEnabled?: boolean;
+  /**
    * @remarks
    * The state of the private gateway.
    * 
@@ -13407,6 +13555,7 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
       intranetDomain: 'IntranetDomain',
       isDefault: 'IsDefault',
       replicas: 'Replicas',
+      SSLRedirectionEnabled: 'SSLRedirectionEnabled',
       status: 'Status',
       updateTime: 'UpdateTime',
     };
@@ -13424,6 +13573,7 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
       intranetDomain: 'string',
       isDefault: 'boolean',
       replicas: 'number',
+      SSLRedirectionEnabled: 'boolean',
       status: 'string',
       updateTime: 'string',
     };
@@ -13579,11 +13729,17 @@ export class ListGatewayIntranetLinkedVpcResponseBodyIntranetLinkedVpcList exten
 
 export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs extends $tea.Model {
   /**
+   * @remarks
+   * The region where the VPC peer resides.
+   * 
    * @example
    * cn-shanghai
    */
   region?: string;
   /**
+   * @remarks
+   * The ID of the VPC peer.
+   * 
    * @example
    * vpc-uf66uio7md****
    */
@@ -13608,8 +13764,15 @@ export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs ext
 }
 
 export class ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcList extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the VPC peers.
+   */
   peerVpcs?: ListGatewayIntranetLinkedVpcPeerResponseBodyPeerVpcListPeerVpcs[];
   /**
+   * @remarks
+   * The VPC ID.
+   * 
    * @example
    * vpc-2zetuli9ws0qgjd******
    */
@@ -14694,7 +14857,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关内网访问端点跨VPC连接
+   * Creates a VPC peering connection on an internal endpoint of a gateway.
    * 
    * @param tmpReq - CreateGatewayIntranetLinkedVpcPeerRequest
    * @param headers - map
@@ -14737,7 +14900,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关内网访问端点跨VPC连接
+   * Creates a VPC peering connection on an internal endpoint of a gateway.
    * 
    * @param request - CreateGatewayIntranetLinkedVpcPeerRequest
    * @returns CreateGatewayIntranetLinkedVpcPeerResponse
@@ -15390,7 +15553,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关内网访问端点跨VPC连接
+   * Deletes a VPC peering connection from an internal endpoint of a gateway.
    * 
    * @param tmpReq - DeleteGatewayIntranetLinkedVpcPeerRequest
    * @param headers - map
@@ -15433,7 +15596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关内网访问端点跨VPC连接
+   * Deletes a VPC peering connection from an internal endpoint of a gateway.
    * 
    * @param request - DeleteGatewayIntranetLinkedVpcPeerRequest
    * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
@@ -16898,7 +17061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关内网访问端点跨VPC连接列表
+   * Obtains a list of all VPC peering connections on internal endpoint of a gateway.
    * 
    * @param request - ListGatewayIntranetLinkedVpcPeerRequest
    * @param headers - map
@@ -16931,7 +17094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关内网访问端点跨VPC连接列表
+   * Obtains a list of all VPC peering connections on internal endpoint of a gateway.
    * 
    * @param request - ListGatewayIntranetLinkedVpcPeerRequest
    * @returns ListGatewayIntranetLinkedVpcPeerResponse
@@ -16940,6 +17103,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayIntranetLinkedVpcPeerWithOptions(ClusterId, GatewayId, request, headers, runtime);
+  }
+
+  /**
+   * 获取网关内网支持的可用区
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayIntranetSupportedZoneResponse
+   */
+  async listGatewayIntranetSupportedZoneWithOptions(GatewayId: string, ClusterId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListGatewayIntranetSupportedZoneResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "ListGatewayIntranetSupportedZone",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/gateways/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GatewayId)}/intranet_supported_zone`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<ListGatewayIntranetSupportedZoneResponse>(await this.callApi(params, req, runtime), new ListGatewayIntranetSupportedZoneResponse({}));
+  }
+
+  /**
+   * 获取网关内网支持的可用区
+   * @returns ListGatewayIntranetSupportedZoneResponse
+   */
+  async listGatewayIntranetSupportedZone(GatewayId: string, ClusterId: string): Promise<ListGatewayIntranetSupportedZoneResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayIntranetSupportedZoneWithOptions(GatewayId, ClusterId, headers, runtime);
   }
 
   /**
@@ -18016,6 +18214,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableIntranet)) {
       body["EnableIntranet"] = request.enableIntranet;
+    }
+
+    if (!Util.isUnset(request.enableSSLRedirection)) {
+      body["EnableSSLRedirection"] = request.enableSSLRedirection;
     }
 
     if (!Util.isUnset(request.instanceType)) {
