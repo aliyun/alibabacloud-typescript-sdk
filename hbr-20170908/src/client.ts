@@ -18665,6 +18665,50 @@ export class DescribeBackupPlansRequestFilters extends $tea.Model {
   }
 }
 
+export class DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag extends $tea.Model {
+  key?: string;
+  operator?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      operator: 'Operator',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      operator: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags extends $tea.Model {
+  hitTag?: DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag[];
+  static names(): { [key: string]: string } {
+    return {
+      hitTag: 'HitTag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      hitTag: { 'type': 'array', 'itemType': DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeBackupPlansResponseBodyBackupPlansBackupPlanOtsDetailTableNames extends $tea.Model {
   tableName?: string[];
   static names(): { [key: string]: string } {
@@ -19032,6 +19076,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
    * 1554347313
    */
   createTime?: number;
+  createdByTag?: boolean;
   /**
    * @remarks
    * The time when the backup plan was created. This value is a UNIX timestamp. Unit: seconds.
@@ -19134,6 +19179,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
    * 00594
    */
   fileSystemId?: string;
+  hitTags?: DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags;
   /**
    * @remarks
    * This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are backed up.
@@ -19312,6 +19358,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       clientId: 'ClientId',
       clusterId: 'ClusterId',
       createTime: 'CreateTime',
+      createdByTag: 'CreatedByTag',
       createdTime: 'CreatedTime',
       crossAccountRoleName: 'CrossAccountRoleName',
       crossAccountType: 'CrossAccountType',
@@ -19324,6 +19371,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       disabled: 'Disabled',
       exclude: 'Exclude',
       fileSystemId: 'FileSystemId',
+      hitTags: 'HitTags',
       include: 'Include',
       instanceGroupId: 'InstanceGroupId',
       instanceId: 'InstanceId',
@@ -19357,6 +19405,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       clientId: 'string',
       clusterId: 'string',
       createTime: 'number',
+      createdByTag: 'boolean',
       createdTime: 'number',
       crossAccountRoleName: 'string',
       crossAccountType: 'string',
@@ -19369,6 +19418,7 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
       disabled: 'boolean',
       exclude: 'string',
       fileSystemId: 'string',
+      hitTags: DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags,
       include: 'string',
       instanceGroupId: 'string',
       instanceId: 'string',
@@ -21623,6 +21673,13 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFile
 }
 
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail extends $tea.Model {
+  /**
+   * @remarks
+   * 不在任务统计和失败文件列表中提示归档型对象
+   * 
+   * @example
+   * true
+   */
   ignoreArchiveObject?: boolean;
   /**
    * @remarks
@@ -21846,16 +21903,28 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions ext
 
 export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag-based matching rule.
+   * 
+   * *   **EQUAL**: Both the tag key and tag value are matched.
+   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * 
    * @example
    * EQUAL
    */
   operator?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * prod
    */
@@ -21888,6 +21957,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
    */
   advancedOptions?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions;
   /**
+   * @remarks
+   * Indicates whether the resource is automatically associated with the related resource tag in the backup policy.
+   * 
    * @example
    * false
    */
@@ -21954,6 +22026,10 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
    * [\\"*.doc\\",\\"*.xltm\\"]
    */
   exclude?: string;
+  /**
+   * @remarks
+   * The matched tag rules.
+   */
   hitTags?: DescribePolicyBindingsResponseBodyPolicyBindingsHitTags[];
   /**
    * @remarks
