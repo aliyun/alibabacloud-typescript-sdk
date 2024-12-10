@@ -10251,6 +10251,244 @@ export class DescribeLoadTasksRecordsResponse extends $tea.Model {
   }
 }
 
+export class DescribeLogHubAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-bp1nz6smy07szs58p
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sz_sls2adb_kxdpz_af_data
+   */
+  deliverName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * game2-sms-log
+   */
+  logStoreName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dcsz-af-data
+   */
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      deliverName: 'DeliverName',
+      logStoreName: 'LogStoreName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      deliverName: 'string',
+      logStoreName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      projectName: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogHubAttributeResponseBody extends $tea.Model {
+  loghubInfo?: DescribeLogHubAttributeResponseBodyLoghubInfo;
+  /**
+   * @example
+   * 8A564B7F-8C00-43C0-8EC5-919FBB70573
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      loghubInfo: 'LoghubInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      loghubInfo: DescribeLogHubAttributeResponseBodyLoghubInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogHubAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLogHubAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLogHubAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreKeysRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-hcl2
+   */
+  logStoreName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * nbgame-point
+   */
+  projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      logStoreName: 'LogStoreName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStoreName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      projectName: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreKeysResponseBody extends $tea.Model {
+  logStoreKeys?: DescribeLogStoreKeysResponseBodyLogStoreKeys;
+  /**
+   * @example
+   * 3BB185E9-BB54-1727-B876-13243E4C0EB5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      logStoreKeys: 'LogStoreKeys',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStoreKeys: DescribeLogStoreKeysResponseBodyLogStoreKeys,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreKeysResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeLogStoreKeysResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeLogStoreKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoghubDetailRequest extends $tea.Model {
   /**
    * @remarks
@@ -11081,6 +11319,159 @@ export class DescribeProcessListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeProcessListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasRequest extends $tea.Model {
+  /**
+   * @example
+   * mixed_storage
+   */
+  clusterCategory?: string;
+  /**
+   * @example
+   * flexible
+   */
+  clusterMode?: string;
+  /**
+   * @example
+   * E32
+   */
+  nodeClass?: string;
+  /**
+   * @example
+   * 5
+   */
+  nodeCount?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * rm-2ze09tofcv39h7165
+   */
+  rdsInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-4690g37929****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * cloud_essd
+   */
+  storageType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterCategory: 'ClusterCategory',
+      clusterMode: 'ClusterMode',
+      nodeClass: 'NodeClass',
+      nodeCount: 'NodeCount',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      rdsInstanceId: 'RdsInstanceId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterCategory: 'string',
+      clusterMode: 'string',
+      nodeClass: 'string',
+      nodeCount: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      rdsInstanceId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      storageType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBody extends $tea.Model {
+  DBNodeCategoryList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList;
+  DBNodeClassList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList;
+  DBNodeStorageList?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList;
+  engineVersionList?: DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList;
+  modeList?: DescribeRdsAnalysisResourceQuotasResponseBodyModeList;
+  /**
+   * @example
+   * 1A31D7FA-1826-5843-8807-D2F715E70CB0
+   */
+  requestId?: string;
+  storageTypeList?: DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList;
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeCategoryList: 'DBNodeCategoryList',
+      DBNodeClassList: 'DBNodeClassList',
+      DBNodeStorageList: 'DBNodeStorageList',
+      engineVersionList: 'EngineVersionList',
+      modeList: 'ModeList',
+      requestId: 'RequestId',
+      storageTypeList: 'StorageTypeList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeCategoryList: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList,
+      DBNodeClassList: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList,
+      DBNodeStorageList: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList,
+      engineVersionList: DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList,
+      modeList: DescribeRdsAnalysisResourceQuotasResponseBodyModeList,
+      requestId: 'string',
+      storageTypeList: DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRdsAnalysisResourceQuotasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRdsAnalysisResourceQuotasResponseBody,
     };
   }
 
@@ -18806,6 +19197,10 @@ export class ModifySQAConfigResponse extends $tea.Model {
 export class ModifySyncJobRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+   * 
+   * >  You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/129857.html) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition clusters within a region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18816,6 +19211,8 @@ export class ModifySyncJobRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18825,11 +19222,17 @@ export class ModifySyncJobRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * The source instances or clusters.
+   * 
    * **if can be null:**
    * true
    */
   sourceDBCluster?: ModifySyncJobRequestSourceDBCluster[];
   /**
+   * @remarks
+   * The synchronization platform.
+   * 
    * @example
    * ADB-CDC
    */
@@ -18867,6 +19270,9 @@ export class ModifySyncJobRequest extends $tea.Model {
 
 export class ModifySyncJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5AD3D9DF-614F-5B97-9522-A2406A432012
    */
@@ -26265,6 +26671,205 @@ export class DescribeLoadTasksRecordsResponseBodyLoadTasksRecords extends $tea.M
   }
 }
 
+export class DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStoresLogHubStore extends $tea.Model {
+  /**
+   * @example
+   * 255311
+   */
+  fieldKey?: string;
+  /**
+   * @example
+   * taskid
+   */
+  logKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fieldKey: 'FieldKey',
+      logKey: 'LogKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fieldKey: 'string',
+      logKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStores extends $tea.Model {
+  logHubStore?: DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStoresLogHubStore[];
+  static names(): { [key: string]: string } {
+    return {
+      logHubStore: 'LogHubStore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logHubStore: { 'type': 'array', 'itemType': DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStoresLogHubStore },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogHubAttributeResponseBodyLoghubInfo extends $tea.Model {
+  /**
+   * @example
+   * am-8vbs48m7553du1gz2
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * rds
+   */
+  DBType?: string;
+  /**
+   * @example
+   * 361
+   */
+  delay?: number;
+  /**
+   * @example
+   * loghub-web-login-new
+   */
+  deliverName?: string;
+  /**
+   * @example
+   * 2024-12-06\\"T\\"10:15\\"Z\\"
+   */
+  deliverTime?: string;
+  /**
+   * @example
+   * description
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  filterDirtyData?: boolean;
+  logHubStores?: DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStores;
+  /**
+   * @example
+   * device_login
+   */
+  logStoreName?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @example
+   * test-adb
+   */
+  projectName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * cbd_bi
+   */
+  schemaName?: string;
+  /**
+   * @example
+   * processing
+   */
+  syncStatus?: string;
+  /**
+   * @example
+   * test2
+   */
+  tableName?: string;
+  /**
+   * @example
+   * aaa
+   */
+  userName?: string;
+  /**
+   * @example
+   * cn-hangzhou-k
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      DBType: 'DBType',
+      delay: 'Delay',
+      deliverName: 'DeliverName',
+      deliverTime: 'DeliverTime',
+      description: 'Description',
+      filterDirtyData: 'FilterDirtyData',
+      logHubStores: 'LogHubStores',
+      logStoreName: 'LogStoreName',
+      message: 'Message',
+      projectName: 'ProjectName',
+      regionId: 'RegionId',
+      schemaName: 'SchemaName',
+      syncStatus: 'SyncStatus',
+      tableName: 'TableName',
+      userName: 'UserName',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      DBType: 'string',
+      delay: 'number',
+      deliverName: 'string',
+      deliverTime: 'string',
+      description: 'string',
+      filterDirtyData: 'boolean',
+      logHubStores: DescribeLogHubAttributeResponseBodyLoghubInfoLogHubStores,
+      logStoreName: 'string',
+      message: 'string',
+      projectName: 'string',
+      regionId: 'string',
+      schemaName: 'string',
+      syncStatus: 'string',
+      tableName: 'string',
+      userName: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeLogStoreKeysResponseBodyLogStoreKeys extends $tea.Model {
+  logStoreKey?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      logStoreKey: 'LogStoreKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      logStoreKey: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeLoghubDetailResponseBodyLoghubInfoLogHubStoresLogHubStore extends $tea.Model {
   /**
    * @example
@@ -26827,6 +27432,300 @@ export class DescribeProcessListResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       process: { 'type': 'array', 'itemType': DescribeProcessListResponseBodyItemsProcess },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory extends $tea.Model {
+  /**
+   * @example
+   * mixed_storage
+   */
+  text?: string;
+  /**
+   * @example
+   * mixed_storage
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryList extends $tea.Model {
+  DBNodeCategory?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeCategory: 'DBNodeCategory',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeCategory: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeCategoryListDBNodeCategory },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass extends $tea.Model {
+  /**
+   * @example
+   * E32
+   */
+  text?: string;
+  /**
+   * @example
+   * E32
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassList extends $tea.Model {
+  DBNodeClass?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeClass: 'DBNodeClass',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeClass: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeClassListDBNodeClass },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  text?: string;
+  /**
+   * @example
+   * 100
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageList extends $tea.Model {
+  DBNodeStorage?: DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage[];
+  static names(): { [key: string]: string } {
+    return {
+      DBNodeStorage: 'DBNodeStorage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBNodeStorage: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyDBNodeStorageListDBNodeStorage },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion extends $tea.Model {
+  /**
+   * @example
+   * 3.0
+   */
+  text?: string;
+  /**
+   * @example
+   * 3.0
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionList extends $tea.Model {
+  engineVersion?: DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion[];
+  static names(): { [key: string]: string } {
+    return {
+      engineVersion: 'EngineVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      engineVersion: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyEngineVersionListEngineVersion },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode extends $tea.Model {
+  /**
+   * @example
+   * flexible
+   */
+  text?: string;
+  /**
+   * @example
+   * flexible
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyModeList extends $tea.Model {
+  mode?: DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode[];
+  static names(): { [key: string]: string } {
+    return {
+      mode: 'Mode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mode: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyModeListMode },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType extends $tea.Model {
+  /**
+   * @example
+   * cloud_essd
+   */
+  text?: string;
+  /**
+   * @example
+   * cloud_essd
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'Text',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeList extends $tea.Model {
+  storageType?: DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType[];
+  static names(): { [key: string]: string } {
+    return {
+      storageType: 'StorageType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      storageType: { 'type': 'array', 'itemType': DescribeRdsAnalysisResourceQuotasResponseBodyStorageTypeListStorageType },
     };
   }
 
@@ -29680,6 +30579,8 @@ export class ModifyResubmitConfigRequestRules extends $tea.Model {
 export class ModifySyncJobRequestSourceDBCluster extends $tea.Model {
   /**
    * @remarks
+   * The ID of the source instance or cluster. Separate multiple IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29687,12 +30588,22 @@ export class ModifySyncJobRequestSourceDBCluster extends $tea.Model {
    */
   clusterIds?: string;
   /**
+   * @remarks
+   * The ID of the synchronization job.
+   * 
    * @example
    * dts-xxxxxx
    */
   jobId?: string;
   /**
    * @remarks
+   * The operation type.
+   * 
+   * Valid values:
+   * 
+   * *   Create
+   * *   Modify
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29701,6 +30612,8 @@ export class ModifySyncJobRequestSourceDBCluster extends $tea.Model {
   operateType?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29709,6 +30622,14 @@ export class ModifySyncJobRequestSourceDBCluster extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The source database type.
+   * 
+   * Valid values:
+   * 
+   * *   rds: ApsaraDB RDS.
+   * *   sls: Simple Log Service.
+   * *   polardb: PolarDB.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29886,6 +30807,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 申请公网链接
+   * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AllocateClusterPublicConnectionResponse
@@ -29935,6 +30858,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 申请公网链接
+   * 
    * @param request - AllocateClusterPublicConnectionRequest
    * @returns AllocateClusterPublicConnectionResponse
    */
@@ -34516,6 +35441,138 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeLogHubAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogHubAttributeResponse
+   */
+  async describeLogHubAttributeWithOptions(request: DescribeLogHubAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogHubAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.deliverName)) {
+      query["DeliverName"] = request.deliverName;
+    }
+
+    if (!Util.isUnset(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLogHubAttribute",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogHubAttributeResponse>(await this.callApi(params, req, runtime), new DescribeLogHubAttributeResponse({}));
+  }
+
+  /**
+   * @param request - DescribeLogHubAttributeRequest
+   * @returns DescribeLogHubAttributeResponse
+   */
+  async describeLogHubAttribute(request: DescribeLogHubAttributeRequest): Promise<DescribeLogHubAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLogHubAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeLogStoreKeysRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeLogStoreKeysResponse
+   */
+  async describeLogStoreKeysWithOptions(request: DescribeLogStoreKeysRequest, runtime: $Util.RuntimeOptions): Promise<DescribeLogStoreKeysResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeLogStoreKeys",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeLogStoreKeysResponse>(await this.callApi(params, req, runtime), new DescribeLogStoreKeysResponse({}));
+  }
+
+  /**
+   * @param request - DescribeLogStoreKeysRequest
+   * @returns DescribeLogStoreKeysResponse
+   */
+  async describeLogStoreKeys(request: DescribeLogStoreKeysRequest): Promise<DescribeLogStoreKeysResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeLogStoreKeysWithOptions(request, runtime);
+  }
+
+  /**
    * @param request - DescribeLoghubDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeLoghubDetailResponse
@@ -34855,6 +35912,88 @@ export default class Client extends OpenApi {
   async describeProcessList(request: DescribeProcessListRequest): Promise<DescribeProcessListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeProcessListWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRdsAnalysisResourceQuotasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRdsAnalysisResourceQuotasResponse
+   */
+  async describeRdsAnalysisResourceQuotasWithOptions(request: DescribeRdsAnalysisResourceQuotasRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRdsAnalysisResourceQuotasResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterCategory)) {
+      query["ClusterCategory"] = request.clusterCategory;
+    }
+
+    if (!Util.isUnset(request.clusterMode)) {
+      query["ClusterMode"] = request.clusterMode;
+    }
+
+    if (!Util.isUnset(request.nodeClass)) {
+      query["NodeClass"] = request.nodeClass;
+    }
+
+    if (!Util.isUnset(request.nodeCount)) {
+      query["NodeCount"] = request.nodeCount;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.rdsInstanceId)) {
+      query["RdsInstanceId"] = request.rdsInstanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRdsAnalysisResourceQuotas",
+      version: "2019-03-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRdsAnalysisResourceQuotasResponse>(await this.callApi(params, req, runtime), new DescribeRdsAnalysisResourceQuotasResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRdsAnalysisResourceQuotasRequest
+   * @returns DescribeRdsAnalysisResourceQuotasResponse
+   */
+  async describeRdsAnalysisResourceQuotas(request: DescribeRdsAnalysisResourceQuotasRequest): Promise<DescribeRdsAnalysisResourceQuotasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRdsAnalysisResourceQuotasWithOptions(request, runtime);
   }
 
   /**
@@ -38528,6 +39667,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the synchronization jobs for an AnalyticDB for MySQL cluster.
+   * 
    * @param request - ModifySyncJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifySyncJobResponse
@@ -38585,6 +39726,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the synchronization jobs for an AnalyticDB for MySQL cluster.
+   * 
    * @param request - ModifySyncJobRequest
    * @returns ModifySyncJobResponse
    */
