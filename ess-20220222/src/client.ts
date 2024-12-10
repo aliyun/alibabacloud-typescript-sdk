@@ -17787,6 +17787,7 @@ export class StartInstanceRefreshRequest extends $tea.Model {
    * asg-bp18p2yfxow2dloq****
    */
   scalingGroupId?: string;
+  skipMatching?: boolean;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -17797,6 +17798,7 @@ export class StartInstanceRefreshRequest extends $tea.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       scalingGroupId: 'ScalingGroupId',
+      skipMatching: 'SkipMatching',
     };
   }
 
@@ -17810,6 +17812,7 @@ export class StartInstanceRefreshRequest extends $tea.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       scalingGroupId: 'string',
+      skipMatching: 'boolean',
     };
   }
 
@@ -27958,6 +27961,7 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
    * asg-bp16pbfcr8j9*****
    */
   scalingGroupId?: string;
+  skipMatching?: boolean;
   /**
    * @remarks
    * The start time of the instance refresh task.
@@ -28004,6 +28008,7 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
       minHealthyPercentage: 'MinHealthyPercentage',
       regionId: 'RegionId',
       scalingGroupId: 'ScalingGroupId',
+      skipMatching: 'SkipMatching',
       startTime: 'StartTime',
       status: 'Status',
       totalNeedUpdateCapacity: 'TotalNeedUpdateCapacity',
@@ -28021,6 +28026,7 @@ export class DescribeInstanceRefreshesResponseBodyInstanceRefreshTasks extends $
       minHealthyPercentage: 'number',
       regionId: 'string',
       scalingGroupId: 'string',
+      skipMatching: 'boolean',
       startTime: 'string',
       status: 'string',
       totalNeedUpdateCapacity: 'number',
@@ -45720,6 +45726,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.scalingGroupId)) {
       query["ScalingGroupId"] = request.scalingGroupId;
+    }
+
+    if (!Util.isUnset(request.skipMatching)) {
+      query["SkipMatching"] = request.skipMatching;
     }
 
     let req = new $OpenApi.OpenApiRequest({
