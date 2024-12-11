@@ -32,6 +32,34 @@ export class GroupResources extends $tea.Model {
   }
 }
 
+export class ThirdApp extends $tea.Model {
+  appKey?: string;
+  name?: string;
+  oidcSsoConfig?: ThirdAppOidcSsoConfig;
+  secrets?: ThirdAppSecrets[];
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      name: 'Name',
+      oidcSsoConfig: 'OidcSsoConfig',
+      secrets: 'Secrets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      name: 'string',
+      oidcSsoConfig: ThirdAppOidcSsoConfig,
+      secrets: { 'type': 'array', 'itemType': ThirdAppSecrets },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WaIdPermissions extends $tea.Model {
   code?: string;
   isBasicChild?: boolean;
@@ -1303,6 +1331,7 @@ export class FilterUsersRequest extends $tea.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
    * The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
@@ -1357,6 +1386,7 @@ export class FilterUsersRequest extends $tea.Model {
       filter: 'Filter',
       includeDesktopCount: 'IncludeDesktopCount',
       includeDesktopGroupCount: 'IncludeDesktopGroupCount',
+      isQueryAllSubOrgs: 'IsQueryAllSubOrgs',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderParam: 'OrderParam',
@@ -1374,6 +1404,7 @@ export class FilterUsersRequest extends $tea.Model {
       filter: 'string',
       includeDesktopCount: 'boolean',
       includeDesktopGroupCount: 'boolean',
+      isQueryAllSubOrgs: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       orderParam: FilterUsersRequestOrderParam,
@@ -1456,6 +1487,7 @@ export class FilterUsersShrinkRequest extends $tea.Model {
    * false
    */
   includeDesktopGroupCount?: boolean;
+  isQueryAllSubOrgs?: boolean;
   /**
    * @remarks
    * The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
@@ -1510,6 +1542,7 @@ export class FilterUsersShrinkRequest extends $tea.Model {
       filter: 'Filter',
       includeDesktopCount: 'IncludeDesktopCount',
       includeDesktopGroupCount: 'IncludeDesktopGroupCount',
+      isQueryAllSubOrgs: 'IsQueryAllSubOrgs',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       orderParamShrink: 'OrderParam',
@@ -1527,6 +1560,7 @@ export class FilterUsersShrinkRequest extends $tea.Model {
       filter: 'string',
       includeDesktopCount: 'boolean',
       includeDesktopGroupCount: 'boolean',
+      isQueryAllSubOrgs: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       orderParamShrink: 'string',
@@ -3075,6 +3109,117 @@ export class UpdatePropertyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdatePropertyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThirdAppOidcSsoConfigEndpoints extends $tea.Model {
+  authorizationEndpoint?: string;
+  discoveryEndpoint?: string;
+  guestAuthorizationEndpoint?: string;
+  issuer?: string;
+  jwksEndpoint?: string;
+  logoutEndpoint?: string;
+  revokeEndpoint?: string;
+  tokenEndpoint?: string;
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'AuthorizationEndpoint',
+      discoveryEndpoint: 'DiscoveryEndpoint',
+      guestAuthorizationEndpoint: 'GuestAuthorizationEndpoint',
+      issuer: 'Issuer',
+      jwksEndpoint: 'JwksEndpoint',
+      logoutEndpoint: 'LogoutEndpoint',
+      revokeEndpoint: 'RevokeEndpoint',
+      tokenEndpoint: 'TokenEndpoint',
+      userinfoEndpoint: 'UserinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      discoveryEndpoint: 'string',
+      guestAuthorizationEndpoint: 'string',
+      issuer: 'string',
+      jwksEndpoint: 'string',
+      logoutEndpoint: 'string',
+      revokeEndpoint: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThirdAppOidcSsoConfig extends $tea.Model {
+  accessTokenEffectiveTime?: number;
+  codeEffectiveTime?: number;
+  enableAuthLogin?: boolean;
+  endpoints?: ThirdAppOidcSsoConfigEndpoints;
+  grantScopes?: string[];
+  grantTypes?: string[];
+  idTokenAlgorithmType?: number;
+  idTokenEffectiveTime?: number;
+  redirectUris?: string[];
+  refreshTokenEffective?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessTokenEffectiveTime: 'AccessTokenEffectiveTime',
+      codeEffectiveTime: 'CodeEffectiveTime',
+      enableAuthLogin: 'EnableAuthLogin',
+      endpoints: 'Endpoints',
+      grantScopes: 'GrantScopes',
+      grantTypes: 'GrantTypes',
+      idTokenAlgorithmType: 'IdTokenAlgorithmType',
+      idTokenEffectiveTime: 'IdTokenEffectiveTime',
+      redirectUris: 'RedirectUris',
+      refreshTokenEffective: 'RefreshTokenEffective',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessTokenEffectiveTime: 'number',
+      codeEffectiveTime: 'number',
+      enableAuthLogin: 'boolean',
+      endpoints: ThirdAppOidcSsoConfigEndpoints,
+      grantScopes: { 'type': 'array', 'itemType': 'string' },
+      grantTypes: { 'type': 'array', 'itemType': 'string' },
+      idTokenAlgorithmType: 'number',
+      idTokenEffectiveTime: 'number',
+      redirectUris: { 'type': 'array', 'itemType': 'string' },
+      refreshTokenEffective: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ThirdAppSecrets extends $tea.Model {
+  enable?: boolean;
+  secret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+      secret: 'Secret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+      secret: 'string',
     };
   }
 
@@ -5895,6 +6040,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.includeDesktopGroupCount)) {
       query["IncludeDesktopGroupCount"] = request.includeDesktopGroupCount;
+    }
+
+    if (!Util.isUnset(request.isQueryAllSubOrgs)) {
+      query["IsQueryAllSubOrgs"] = request.isQueryAllSubOrgs;
     }
 
     if (!Util.isUnset(request.maxResults)) {
