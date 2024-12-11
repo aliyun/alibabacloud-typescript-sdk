@@ -2315,12 +2315,13 @@ export class DescribeDdosOriginInstanceBillRequest extends $tea.Model {
    * @remarks
    * The bill type. Valid values:
    * 
-   * *   **flow_cn**: the bill for the clean bandwidth of elastic IP addresses (EIPs) with Anti-DDoS (Enhanced) enabled in the Chinese mainland
-   * *   **flow_ov**: the bill for the clean bandwidth of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
-   * *   **standard_assets_flow_cn**: the bill for the clean bandwidth of regular Alibaba Cloud services in the Chinese mainland
-   * *   **standard_assets_flow_ov**: the bill for the clean bandwidth of regular Alibaba Cloud services outside the Chinese mainland
-   * *   **function**: the bill for the basic fee
-   * *   **ip_count**: the bill for protected IP addresses
+   * *   **flow_cn**: the bill for the clean bandwidth of elastic IP addresses (EIPs) with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+   * *   **flow_ov**: the bill for the clean bandwidth of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+   * *   **standard_assets_flow_cn**: the bill for the clean bandwidth of regular Alibaba Cloud services in the Chinese mainland.
+   * *   **standard_assets_flow_ov**: the bill for the clean bandwidth of regular Alibaba Cloud services outside the Chinese mainland.
+   * *   **function**: the bill for the basic fee.
+   * *   **ip_count**: the bill for protected IP addresses.
+   * *   **monthly_summary**: the monthly summary bill.
    * 
    * @example
    * function
@@ -2419,6 +2420,10 @@ export class DescribeDdosOriginInstanceBillResponseBody extends $tea.Model {
    * {\\"eipCnIpCount\\":6,\\"eipOvIpCount\\":17,\\"standardAssetsCnIpCount\\":2,\\"standardAssetsOvIpCount\\":0}
    */
   ipInfo?: string;
+  /**
+   * @remarks
+   * The information about the monthly summary bills.
+   */
   monthlySummaryList?: DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList[];
   /**
    * @remarks
@@ -5873,6 +5878,110 @@ export class ModifyRemarkResponse extends $tea.Model {
   }
 }
 
+export class MoveResourceGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rg-acfm3peow3k****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ddos_originpre_public_cn-7213kxxxxx
+   */
+  resourceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * instance
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceGroupId: 'ResourceGroupId',
+      resourceId: 'ResourceId',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceGroupId: 'string',
+      resourceId: 'string',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A78396-936F-5481-91D7-591BF7981246
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MoveResourceGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MoveResourceGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MoveResourceGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySchedruleOnDemandRequest extends $tea.Model {
   /**
    * @remarks
@@ -6956,14 +7065,81 @@ export class DescribeDdosOriginInstanceBillResponseBodyIpCountOrFunctionList ext
 }
 
 export class DescribeDdosOriginInstanceBillResponseBodyMonthlySummaryList extends $tea.Model {
+  /**
+   * @remarks
+   * The number of days that the instance is activated.
+   * 
+   * @example
+   * 30
+   */
   enableDays?: number;
+  /**
+   * @remarks
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
   flowCn?: number;
+  /**
+   * @remarks
+   * The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
   flowIntl?: number;
+  /**
+   * @remarks
+   * The total number of protected IP addresses in the Chinese mainland.
+   * 
+   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * 
+   * @example
+   * 28
+   */
   ipCountCn?: number;
+  /**
+   * @remarks
+   * The total number of protected IP addresses outside the Chinese mainland.
+   * 
+   * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+   * 
+   * @example
+   * 30
+   */
   ipCountIntl?: number;
+  /**
+   * @remarks
+   * The ID of the member.
+   * 
+   * @example
+   * 112873971277****
+   */
   memberUid?: string;
+  /**
+   * @remarks
+   * The total traffic of regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
   standardAssetsFlowCn?: number;
+  /**
+   * @remarks
+   * The total traffic of regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
+   * 
+   * @example
+   * 123456
+   */
   standardAssetsFlowIntl?: number;
+  /**
+   * @remarks
+   * The ID of the administrator account.
+   * 
+   * @example
+   * 102518028277****
+   */
   uid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13411,6 +13587,60 @@ export default class Client extends OpenApi {
   async modifyRemark(request: ModifyRemarkRequest): Promise<ModifyRemarkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyRemarkWithOptions(request, runtime);
+  }
+
+  /**
+   * 移动资源组
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MoveResourceGroupResponse
+   */
+  async moveResourceGroupWithOptions(request: MoveResourceGroupRequest, runtime: $Util.RuntimeOptions): Promise<MoveResourceGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MoveResourceGroup",
+      version: "2018-07-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MoveResourceGroupResponse>(await this.callApi(params, req, runtime), new MoveResourceGroupResponse({}));
+  }
+
+  /**
+   * 移动资源组
+   * 
+   * @param request - MoveResourceGroupRequest
+   * @returns MoveResourceGroupResponse
+   */
+  async moveResourceGroup(request: MoveResourceGroupRequest): Promise<MoveResourceGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.moveResourceGroupWithOptions(request, runtime);
   }
 
   /**
