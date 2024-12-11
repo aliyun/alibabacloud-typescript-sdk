@@ -23745,6 +23745,8 @@ export class ListDataLakeDatabaseRequest extends $tea.Model {
    * false
    */
   dataRegion?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @example
    * default
@@ -23762,6 +23764,8 @@ export class ListDataLakeDatabaseRequest extends $tea.Model {
     return {
       catalogName: 'CatalogName',
       dataRegion: 'DataRegion',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       searchKey: 'SearchKey',
       tid: 'Tid',
     };
@@ -23771,6 +23775,8 @@ export class ListDataLakeDatabaseRequest extends $tea.Model {
     return {
       catalogName: 'string',
       dataRegion: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       searchKey: 'string',
       tid: 'number',
     };
@@ -23793,6 +23799,8 @@ export class ListDataLakeDatabaseResponseBody extends $tea.Model {
    * UnknownError
    */
   errorMessage?: string;
+  maxResults?: number;
+  nextToken?: string;
   /**
    * @example
    * 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
@@ -23808,6 +23816,8 @@ export class ListDataLakeDatabaseResponseBody extends $tea.Model {
       databaseList: 'DatabaseList',
       errorCode: 'ErrorCode',
       errorMessage: 'ErrorMessage',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
       requestId: 'RequestId',
       success: 'Success',
     };
@@ -23818,6 +23828,8 @@ export class ListDataLakeDatabaseResponseBody extends $tea.Model {
       databaseList: ListDataLakeDatabaseResponseBodyDatabaseList,
       errorCode: 'string',
       errorMessage: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
       requestId: 'string',
       success: 'boolean',
     };
@@ -70688,6 +70700,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dataRegion)) {
       query["DataRegion"] = request.dataRegion;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
     }
 
     if (!Util.isUnset(request.searchKey)) {
