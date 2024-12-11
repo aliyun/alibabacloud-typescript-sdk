@@ -224,6 +224,7 @@ export class InstancePatterns extends $tea.Model {
 
 export class KubeletConfig extends $tea.Model {
   allowedUnsafeSysctls?: string[];
+  clusterDNS?: string[];
   /**
    * @example
    * 5
@@ -234,6 +235,16 @@ export class KubeletConfig extends $tea.Model {
    * 10Mi
    */
   containerLogMaxSize?: string;
+  /**
+   * @example
+   * true
+   */
+  cpuCFSQuota?: boolean;
+  /**
+   * @example
+   * 100ms
+   */
+  cpuCFSQuotaPeriod?: string;
   /**
    * @example
    * none
@@ -255,6 +266,16 @@ export class KubeletConfig extends $tea.Model {
   featureGates?: { [key: string]: any };
   /**
    * @example
+   * 85
+   */
+  imageGCHighThresholdPercent?: number;
+  /**
+   * @example
+   * 80
+   */
+  imageGCLowThresholdPercent?: number;
+  /**
+   * @example
    * 10
    */
   kubeAPIBurst?: number;
@@ -271,6 +292,16 @@ export class KubeletConfig extends $tea.Model {
   maxPods?: number;
   /**
    * @example
+   * none
+   */
+  memoryManagerPolicy?: string;
+  /**
+   * @example
+   * -1
+   */
+  podPidsLimit?: number;
+  /**
+   * @example
    * 0
    */
   readOnlyPort?: number;
@@ -284,17 +315,27 @@ export class KubeletConfig extends $tea.Model {
    * 5
    */
   registryPullQPS?: number;
+  reservedMemory?: KubeletConfigReservedMemory[];
   /**
    * @example
    * true
    */
   serializeImagePulls?: boolean;
   systemReserved?: { [key: string]: any };
+  /**
+   * @example
+   * restricted
+   */
+  topologyManagerPolicy?: string;
+  tracing?: KubeletConfigTracing;
   static names(): { [key: string]: string } {
     return {
       allowedUnsafeSysctls: 'allowedUnsafeSysctls',
+      clusterDNS: 'clusterDNS',
       containerLogMaxFiles: 'containerLogMaxFiles',
       containerLogMaxSize: 'containerLogMaxSize',
+      cpuCFSQuota: 'cpuCFSQuota',
+      cpuCFSQuotaPeriod: 'cpuCFSQuotaPeriod',
       cpuManagerPolicy: 'cpuManagerPolicy',
       eventBurst: 'eventBurst',
       eventRecordQPS: 'eventRecordQPS',
@@ -302,23 +343,33 @@ export class KubeletConfig extends $tea.Model {
       evictionSoft: 'evictionSoft',
       evictionSoftGracePeriod: 'evictionSoftGracePeriod',
       featureGates: 'featureGates',
+      imageGCHighThresholdPercent: 'imageGCHighThresholdPercent',
+      imageGCLowThresholdPercent: 'imageGCLowThresholdPercent',
       kubeAPIBurst: 'kubeAPIBurst',
       kubeAPIQPS: 'kubeAPIQPS',
       kubeReserved: 'kubeReserved',
       maxPods: 'maxPods',
+      memoryManagerPolicy: 'memoryManagerPolicy',
+      podPidsLimit: 'podPidsLimit',
       readOnlyPort: 'readOnlyPort',
       registryBurst: 'registryBurst',
       registryPullQPS: 'registryPullQPS',
+      reservedMemory: 'reservedMemory',
       serializeImagePulls: 'serializeImagePulls',
       systemReserved: 'systemReserved',
+      topologyManagerPolicy: 'topologyManagerPolicy',
+      tracing: 'tracing',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       allowedUnsafeSysctls: { 'type': 'array', 'itemType': 'string' },
+      clusterDNS: { 'type': 'array', 'itemType': 'string' },
       containerLogMaxFiles: 'number',
       containerLogMaxSize: 'string',
+      cpuCFSQuota: 'boolean',
+      cpuCFSQuotaPeriod: 'string',
       cpuManagerPolicy: 'string',
       eventBurst: 'number',
       eventRecordQPS: 'number',
@@ -326,15 +377,22 @@ export class KubeletConfig extends $tea.Model {
       evictionSoft: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       evictionSoftGracePeriod: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       featureGates: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      imageGCHighThresholdPercent: 'number',
+      imageGCLowThresholdPercent: 'number',
       kubeAPIBurst: 'number',
       kubeAPIQPS: 'number',
       kubeReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maxPods: 'number',
+      memoryManagerPolicy: 'string',
+      podPidsLimit: 'number',
       readOnlyPort: 'number',
       registryBurst: 'number',
       registryPullQPS: 'number',
+      reservedMemory: { 'type': 'array', 'itemType': KubeletConfigReservedMemory },
       serializeImagePulls: 'boolean',
       systemReserved: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      topologyManagerPolicy: 'string',
+      tracing: KubeletConfigTracing,
     };
   }
 
@@ -6930,15 +6988,18 @@ export class DescribeClusterUserKubeconfigResponse extends $tea.Model {
 
 export class DescribeClusterV2UserKubeconfigRequest extends $tea.Model {
   privateIpAddress?: boolean;
+  temporaryDurationMinutes?: number;
   static names(): { [key: string]: string } {
     return {
       privateIpAddress: 'PrivateIpAddress',
+      temporaryDurationMinutes: 'TemporaryDurationMinutes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       privateIpAddress: 'boolean',
+      temporaryDurationMinutes: 'number',
     };
   }
 
@@ -14980,6 +15041,54 @@ export class UpgradeClusterNodepoolResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpgradeClusterNodepoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KubeletConfigReservedMemory extends $tea.Model {
+  limits?: { [key: string]: any };
+  numaNode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      limits: 'limits',
+      numaNode: 'numaNode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      limits: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      numaNode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class KubeletConfigTracing extends $tea.Model {
+  /**
+   * @example
+   * localhost:4317
+   */
+  endpoint?: string;
+  samplingRatePerMillion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endpoint: 'endpoint',
+      samplingRatePerMillion: 'samplingRatePerMillion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endpoint: 'string',
+      samplingRatePerMillion: 'number',
     };
   }
 
@@ -29774,11 +29883,14 @@ export default class Client extends OpenApi {
   /**
    * You can call the CreateKubernetesTrigger operation to create a trigger for an application.
    * 
+   * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+   * 
    * @param request - CreateKubernetesTriggerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateKubernetesTriggerResponse
    */
+  // Deprecated
   async createKubernetesTriggerWithOptions(request: CreateKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateKubernetesTriggerResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -29819,9 +29931,12 @@ export default class Client extends OpenApi {
   /**
    * You can call the CreateKubernetesTrigger operation to create a trigger for an application.
    * 
+   * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+   * 
    * @param request - CreateKubernetesTriggerRequest
    * @returns CreateKubernetesTriggerResponse
    */
+  // Deprecated
   async createKubernetesTrigger(request: CreateKubernetesTriggerRequest): Promise<CreateKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -30273,10 +30388,13 @@ export default class Client extends OpenApi {
   /**
    * You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
    * 
+   * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteKubernetesTriggerResponse
    */
+  // Deprecated
   async deleteKubernetesTriggerWithOptions(Id: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteKubernetesTriggerResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -30297,8 +30415,11 @@ export default class Client extends OpenApi {
 
   /**
    * You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
+   * 
+   * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
    * @returns DeleteKubernetesTriggerResponse
    */
+  // Deprecated
   async deleteKubernetesTrigger(Id: string): Promise<DeleteKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -31336,6 +31457,10 @@ export default class Client extends OpenApi {
       query["PrivateIpAddress"] = request.privateIpAddress;
     }
 
+    if (!Util.isUnset(request.temporaryDurationMinutes)) {
+      query["TemporaryDurationMinutes"] = request.temporaryDurationMinutes;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -31608,10 +31733,13 @@ export default class Client extends OpenApi {
   /**
    * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
    * 
+   * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
+   * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeEdgeMachineActiveProcessResponse
    */
+  // Deprecated
   async describeEdgeMachineActiveProcessWithOptions(edgeMachineid: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeEdgeMachineActiveProcessResponse> {
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
@@ -31632,8 +31760,11 @@ export default class Client extends OpenApi {
 
   /**
    * You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
+   * 
+   * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
    * @returns DescribeEdgeMachineActiveProcessResponse
    */
+  // Deprecated
   async describeEdgeMachineActiveProcess(edgeMachineid: string): Promise<DescribeEdgeMachineActiveProcessResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -31891,11 +32022,14 @@ export default class Client extends OpenApi {
    * @remarks
    * For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
    * 
+   * @deprecated OpenAPI DescribeExternalAgent is deprecated
+   * 
    * @param request - DescribeExternalAgentRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeExternalAgentResponse
    */
+  // Deprecated
   async describeExternalAgentWithOptions(ClusterId: string, request: DescribeExternalAgentRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeExternalAgentResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -31931,9 +32065,12 @@ export default class Client extends OpenApi {
    * @remarks
    * For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
    * 
+   * @deprecated OpenAPI DescribeExternalAgent is deprecated
+   * 
    * @param request - DescribeExternalAgentRequest
    * @returns DescribeExternalAgentResponse
    */
+  // Deprecated
   async describeExternalAgent(ClusterId: string, request: DescribeExternalAgentRequest): Promise<DescribeExternalAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -32655,11 +32792,14 @@ export default class Client extends OpenApi {
   /**
    * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
    * 
+   * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
+   * 
    * @param request - EdgeClusterAddEdgeMachineRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns EdgeClusterAddEdgeMachineResponse
    */
+  // Deprecated
   async edgeClusterAddEdgeMachineWithOptions(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<EdgeClusterAddEdgeMachineResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -32696,9 +32836,12 @@ export default class Client extends OpenApi {
   /**
    * You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
    * 
+   * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
+   * 
    * @param request - EdgeClusterAddEdgeMachineRequest
    * @returns EdgeClusterAddEdgeMachineResponse
    */
+  // Deprecated
   async edgeClusterAddEdgeMachine(clusterid: string, edgeMachineid: string, request: EdgeClusterAddEdgeMachineRequest): Promise<EdgeClusterAddEdgeMachineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -32952,11 +33095,14 @@ export default class Client extends OpenApi {
   /**
    * You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
    * 
+   * @deprecated OpenAPI GetKubernetesTrigger is deprecated
+   * 
    * @param request - GetKubernetesTriggerRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetKubernetesTriggerResponse
    */
+  // Deprecated
   async getKubernetesTriggerWithOptions(ClusterId: string, request: GetKubernetesTriggerRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetKubernetesTriggerResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
@@ -32997,9 +33143,12 @@ export default class Client extends OpenApi {
   /**
    * You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
    * 
+   * @deprecated OpenAPI GetKubernetesTrigger is deprecated
+   * 
    * @param request - GetKubernetesTriggerRequest
    * @returns GetKubernetesTriggerResponse
    */
+  // Deprecated
   async getKubernetesTrigger(ClusterId: string, request: GetKubernetesTriggerRequest): Promise<GetKubernetesTriggerResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
@@ -33732,11 +33881,14 @@ export default class Client extends OpenApi {
   /**
    * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
    * 
+   * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
+   * 
    * @param request - ModifyClusterConfigurationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyClusterConfigurationResponse
    */
+  // Deprecated
   async modifyClusterConfigurationWithOptions(ClusterId: string, request: ModifyClusterConfigurationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ModifyClusterConfigurationResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -33765,9 +33917,12 @@ export default class Client extends OpenApi {
   /**
    * This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
    * 
+   * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
+   * 
    * @param request - ModifyClusterConfigurationRequest
    * @returns ModifyClusterConfigurationResponse
    */
+  // Deprecated
   async modifyClusterConfiguration(ClusterId: string, request: ModifyClusterConfigurationRequest): Promise<ModifyClusterConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
