@@ -2227,8 +2227,6 @@ export class CreateRulesRequest extends $tea.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The forwarding rules. You can specify at most 10 forwarding rules in each call.
-   * 
    * This parameter is required.
    */
   rules?: CreateRulesRequestRules[];
@@ -2500,6 +2498,7 @@ export class CreateServerGroupRequest extends $tea.Model {
    * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
    */
   connectionDrainConfig?: CreateServerGroupRequestConnectionDrainConfig;
+  crossZoneEnabled?: boolean;
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -2513,7 +2512,7 @@ export class CreateServerGroupRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The configuration of health checks.
+   * The configuration of the health check feature.
    * 
    * This parameter is required.
    */
@@ -2633,6 +2632,7 @@ export class CreateServerGroupRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       connectionDrainConfig: 'ConnectionDrainConfig',
+      crossZoneEnabled: 'CrossZoneEnabled',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       protocol: 'Protocol',
@@ -2654,6 +2654,7 @@ export class CreateServerGroupRequest extends $tea.Model {
     return {
       clientToken: 'string',
       connectionDrainConfig: CreateServerGroupRequestConnectionDrainConfig,
+      crossZoneEnabled: 'boolean',
       dryRun: 'boolean',
       healthCheckConfig: CreateServerGroupRequestHealthCheckConfig,
       protocol: 'string',
@@ -5895,7 +5896,7 @@ export class GetLoadBalancerAttributeResponseBody extends $tea.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The zone and the vSwitch in the zone. A maximum of 10 zones is returned. If the current region supports two or more zones, at least two zones are returned.
+   * The mappings between zones and vSwitches. At most 10 zones are returned. If the current region supports two or more zones, at least two zones are returned.
    */
   zoneMappings?: GetLoadBalancerAttributeResponseBodyZoneMappings[];
   static names(): { [key: string]: string } {
@@ -11677,8 +11678,6 @@ export class UpdateRulesAttributeRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The forwarding rules. You can specify at most 10 forwarding rules in each call.
-   * 
    * This parameter is required.
    */
   rules?: UpdateRulesAttributeRequestRules[];
@@ -11932,6 +11931,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
    * *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
    */
   connectionDrainConfig?: UpdateServerGroupAttributeRequestConnectionDrainConfig;
+  crossZoneEnabled?: boolean;
   /**
    * @remarks
    * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
@@ -12018,6 +12018,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
     return {
       clientToken: 'ClientToken',
       connectionDrainConfig: 'ConnectionDrainConfig',
+      crossZoneEnabled: 'CrossZoneEnabled',
       dryRun: 'DryRun',
       healthCheckConfig: 'HealthCheckConfig',
       scheduler: 'Scheduler',
@@ -12035,6 +12036,7 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
     return {
       clientToken: 'string',
       connectionDrainConfig: UpdateServerGroupAttributeRequestConnectionDrainConfig,
+      crossZoneEnabled: 'boolean',
       dryRun: 'boolean',
       healthCheckConfig: UpdateServerGroupAttributeRequestHealthCheckConfig,
       scheduler: 'string',
@@ -14530,49 +14532,11 @@ export class CreateRuleRequestTag extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleActionsCorsConfig extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
-   * 
-   * *   **on**: allows credentials to be carried in CORS requests.
-   * *   **off**: does not allow credentials to be carried in CORS requests.
-   * 
-   * @example
-   * on
-   */
   allowCredentials?: string;
-  /**
-   * @remarks
-   * The trusted headers of CORS requests.
-   */
   allowHeaders?: string[];
-  /**
-   * @remarks
-   * The trusted HTTP methods of CORS requests.
-   */
   allowMethods?: string[];
-  /**
-   * @remarks
-   * The trusted origins of CORS requests. You can specify one or more values, or only an asterisk (`*`).
-   * 
-   * *   Each value must start with `http://` or `https://`, which must be followed by a valid domain name, including top-level domain names. Example: `http://*.test.abc.example.com`.
-   * *   You can specify a port in each value or leave the port empty. Valid values: **1** to **65535**.
-   */
   allowOrigin?: string[];
-  /**
-   * @remarks
-   * The headers that can be exposed.
-   */
   exposeHeaders?: string[];
-  /**
-   * @remarks
-   * The maximum cache time of dry run requests in the browser. Unit: seconds.
-   * 
-   * Valid values: **-1** to **172800**.
-   * 
-   * @example
-   * 1000
-   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14602,35 +14566,8 @@ export class CreateRulesRequestRulesRuleActionsCorsConfig extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the custom response. The content cannot exceed 1 KB in size, and can contain only ASCII characters.
-   * 
-   * @example
-   * dssacav
-   */
   content?: string;
-  /**
-   * @remarks
-   * The format of the content. Valid values:
-   * 
-   * *   **text/plain**
-   * *   **text/css**
-   * *   **text/html**
-   * *   **application/javascript**
-   * *   **application/json**
-   * 
-   * @example
-   * text/plain
-   */
   contentType?: string;
-  /**
-   * @remarks
-   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
-   * 
-   * @example
-   * HTTP_200
-   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14654,24 +14591,7 @@ export class CreateRulesRequestRulesRuleActionsFixedResponseConfig extends $tea.
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable session persistence. Valid values:
-   * 
-   * *   **true**: enables session persistence.
-   * *   **false** (default): disables session persistence.
-   * 
-   * @example
-   * false
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The timeout period of sessions. Unit: seconds Valid values: **1 to 86400**.
-   * 
-   * @example
-   * 2
-   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14693,24 +14613,7 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStic
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
-  /**
-   * @remarks
-   * The server group to which requests are forwarded.
-   * 
-   * @example
-   * sgp-k86c1ov501id6p****
-   */
   serverGroupId?: string;
-  /**
-   * @remarks
-   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
-   * 
-   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
-   * *   If the number of destination server groups is larger than 1, you must specify a weight.
-   * 
-   * @example
-   * 100
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14732,15 +14635,7 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTupl
 }
 
 export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of session persistence for the server groups.
-   */
   serverGroupStickySession?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
-  /**
-   * @remarks
-   * The server groups to which requests are forwarded.
-   */
   serverGroupTuples?: CreateRulesRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -14762,47 +14657,8 @@ export class CreateRulesRequestRulesRuleActionsForwardGroupConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the header. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified by **InsertHeaderConfig** must be unique.
-   * 
-   * >  The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
-   * 
-   * @example
-   * key
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the header to be inserted.
-   * 
-   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
-   * 
-   *     *   **ClientSrcPort**: the client port.
-   *     *   **ClientSrcIp**: the IP address of the client.
-   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
-   *     *   **SLBId**: the ID of the ALB instance.
-   *     *   **SLBPort**: the listener port.
-   * 
-   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
-   * 
-   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * 
-   * @example
-   * UserDefined
-   */
   value?: string;
-  /**
-   * @remarks
-   * The type of the header. Valid values:
-   * 
-   * *   **UserDefined**: a custom header
-   * *   **ReferenceHeader**: a header that references one of the request headers
-   * *   **SystemDefined**: a system-defined header
-   * 
-   * @example
-   * UserDefined
-   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14826,91 +14682,11 @@ export class CreateRulesRequestRulesRuleActionsInsertHeaderConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname to which requests are forwarded. Valid values:
-   * 
-   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
-   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-   *     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
-   *     *   The domain labels cannot start or end with a hyphen (-).
-   *     *   You can use an asterisk (\\*) or a question mark (?) anywhere in a domain label as wildcard characters.
-   * 
-   * @example
-   * www.example.com
-   */
   host?: string;
-  /**
-   * @remarks
-   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
-   * 
-   * @example
-   * 301
-   */
   httpCode?: string;
-  /**
-   * @remarks
-   * The URL to which requests are redirected. Valid values:
-   * 
-   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The URL must be 1 to 128 characters in length.
-   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   The URL is case-sensitive.
-   * 
-   * @example
-   * /test
-   */
   path?: string;
-  /**
-   * @remarks
-   * The port to which requests are distributed. Valid values:
-   * 
-   * *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
-   * *   You can also enter a port number. Valid values: **1 to 63335**.
-   * 
-   * @example
-   * 10
-   */
   port?: string;
-  /**
-   * @remarks
-   * The redirect protocol. Valid values:
-   * 
-   * *   **${protocol}** (default): If you set the value to ${protocol}, you cannot modify the value or append other characters.
-   * *   **HTTP**
-   * *   **HTTPS**
-   * 
-   * > 
-   * 
-   * *   HTTPS listeners support only HTTPS redirection.
-   * 
-   * *   HTTP listeners support HTTP and HTTPS redirection.
-   * 
-   * @example
-   * HTTP
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The query string to which requests are redirected.
-   * 
-   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The query string must be 1 to 128 characters in length.
-   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
-   * 
-   * @example
-   * quert
-   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14940,16 +14716,6 @@ export class CreateRulesRequestRulesRuleActionsRedirectConfig extends $tea.Model
 }
 
 export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the header to be removed. The header key must be 1 to 40 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). The header keys specified in RemoveHeader must be unique.
-   * 
-   * *   If you set Direction to Requests, the following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te`, `host`, `cookie`, `remoteip`, and `authority`. The header keys are not case-sensitive.
-   * *   If Direction is set to Response, the following header keys are not supported: `connection`, `upgrade`, `content-length`, and `transfer-encoding`. The header keys are not case-sensitive.
-   * 
-   * @example
-   * test
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14969,53 +14735,8 @@ export class CreateRulesRequestRulesRuleActionsRemoveHeaderConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname to which requests are rewritten. Valid values:
-   * 
-   * *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), periods (.), asterisks (\\*), and question marks (?).
-   *     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-   *     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
-   *     *   The domain labels cannot start or end with hyphens (-). You can use asterisks (\\*) and question marks (?) anywhere in a domain label as wildcard characters.
-   * 
-   * @example
-   * www.example.com
-   */
   host?: string;
-  /**
-   * @remarks
-   * The URL to which requests are redirected. Valid values:
-   * 
-   * *   Default value: **${path}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The URL must be 1 to 128 characters in length.
-   *     *   The URL must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ]^ , "`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   The URL is case-sensitive.
-   * 
-   * @example
-   * /tsdf
-   */
   path?: string;
-  /**
-   * @remarks
-   * The query string of the URL to which requests are forwarded.
-   * 
-   * *   Default value: **${query}**. **${host}**, **${protocol}**, and **${port}** are also supported. Each variable can be specified only once. The preceding variables can be used at the same time or combined with a custom value.
-   * 
-   * *   If you want to specify a custom value, make sure that the following requirements are met:
-   * 
-   *     *   The query string must be 1 to 128 characters in length.
-   *     *   The query string can contain printable characters, but cannot contain space characters, the special characters `# [ ] { } \\ | < > &`, or uppercase letters.
-   * 
-   * @example
-   * quedsa
-   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15039,23 +14760,7 @@ export class CreateRulesRequestRulesRuleActionsRewriteConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficLimitConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The number of requests per IP address. Value values: **1 to 1000000**.
-   * 
-   * >  If both the **QPS** and **PerIpQps** parameters are specified, the value of the **QPS** parameter is smaller than the value of the PerIpQps parameter.
-   * 
-   * @example
-   * 80
-   */
   perIpQps?: number;
-  /**
-   * @remarks
-   * The number of queries per second (QPS). Valid values: **1 to 1000000**.
-   * 
-   * @example
-   * 100
-   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15077,13 +14782,6 @@ export class CreateRulesRequestRulesRuleActionsTrafficLimitConfig extends $tea.M
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
-  /**
-   * @remarks
-   * The server group ID.
-   * 
-   * @example
-   * srg-00mkgijak0w4qgz9****
-   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15103,10 +14801,6 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The server group to which traffic is mirrored.
-   */
   serverGroupTuples?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -15126,20 +14820,7 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupCon
 }
 
 export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the server group to which traffic is mirrored.
-   */
   mirrorGroupConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
-  /**
-   * @remarks
-   * The type of target to which network traffic is mirrored. Valid values:
-   * 
-   * *   **ForwardGroupMirror**: a server group.
-   * 
-   * @example
-   * ForwardGroupMirror
-   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15161,84 +14842,23 @@ export class CreateRulesRequestRulesRuleActionsTrafficMirrorConfig extends $tea.
 }
 
 export class CreateRulesRequestRulesRuleActions extends $tea.Model {
-  /**
-   * @remarks
-   * The CORS configuration.
-   */
   corsConfig?: CreateRulesRequestRulesRuleActionsCorsConfig;
-  /**
-   * @remarks
-   * The configuration of the custom response. You can specify at most 20 custom responses.
-   */
   fixedResponseConfig?: CreateRulesRequestRulesRuleActionsFixedResponseConfig;
-  /**
-   * @remarks
-   * The configuration of the server group. You can specify at most 20 server groups.
-   */
   forwardGroupConfig?: CreateRulesRequestRulesRuleActionsForwardGroupConfig;
-  /**
-   * @remarks
-   * The key of the header to be inserted. You can specify at most 20 headers.
-   */
   insertHeaderConfig?: CreateRulesRequestRulesRuleActionsInsertHeaderConfig;
   /**
    * @remarks
-   * The priority of the action. Valid values: **1 to 50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 action priorities.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   order?: number;
-  /**
-   * @remarks
-   * The configuration of the redirect action. You can specify at most 20 redirects.
-   */
   redirectConfig?: CreateRulesRequestRulesRuleActionsRedirectConfig;
-  /**
-   * @remarks
-   * The HTTP header to be removed.
-   */
   removeHeaderConfig?: CreateRulesRequestRulesRuleActionsRemoveHeaderConfig;
-  /**
-   * @remarks
-   * The configuration of the rewrite action. You can specify at most 20 rewrites.
-   */
   rewriteConfig?: CreateRulesRequestRulesRuleActionsRewriteConfig;
-  /**
-   * @remarks
-   * The configuration of traffic throttling. You can specify at most 20 traffic throttling rules.
-   */
   trafficLimitConfig?: CreateRulesRequestRulesRuleActionsTrafficLimitConfig;
-  /**
-   * @remarks
-   * The configuration of traffic mirroring. You can specify at most 20 traffic mirroring rules.
-   */
   trafficMirrorConfig?: CreateRulesRequestRulesRuleActionsTrafficMirrorConfig;
   /**
    * @remarks
-   * The action. You can specify at most 11 types of action. Valid values:
-   * 
-   * *   **ForwardGroup**: distributes requests to multiple vServer groups.
-   * *   **Redirect**: redirects requests.
-   * *   **FixedResponse**: returns a custom response.
-   * *   **Rewrite**: rewrites requests.
-   * *   **InsertHeader**: inserts headers.
-   * *   **RemoveHeaderConfig**: deletes a header.
-   * *   **TrafficLimit**: throttles traffic.
-   * *   **TrafficMirror**: mirrors network traffic.
-   * *   **Cors**: enables cross-origin resource sharing (CORS).
-   * 
-   * You can specify the last action and the actions that you want to perform before the last action:
-   * 
-   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
-   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * ForwardGroup
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -15279,29 +14899,7 @@ export class CreateRulesRequestRulesRuleActions extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $tea.Model {
-  /**
-   * @remarks
-   * The cookie key.
-   * 
-   * *   The cookie key must be 1 to 100 characters in length.
-   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   * *   The cookie key can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The cookie value.
-   * 
-   * *   The cookie value must be 1 to 100 characters in length.
-   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   * *   The cookie value can contain printable characters, but cannot contain uppercase letters, space characters, or the following special characters: `; # [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15323,10 +14921,6 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfigValues extends $te
 }
 
 export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The cookie value.
-   */
   values?: CreateRulesRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -15346,22 +14940,7 @@ export class CreateRulesRequestRulesRuleConditionsCookieConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The header key.
-   * 
-   * *   The header key must be 1 to 40 characters in length,
-   * *   The header key can contain letters, digits, hyphens (-), and underscores (_).
-   * *   Cookie and Host are not supported.
-   * 
-   * @example
-   * Port
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the header.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15383,10 +14962,6 @@ export class CreateRulesRequestRulesRuleConditionsHeaderConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsHostConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname. You can specify at most 20 hosts.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15406,10 +14981,6 @@ export class CreateRulesRequestRulesRuleConditionsHostConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The request methods. You can specify at most 20 request methods.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15429,10 +15000,6 @@ export class CreateRulesRequestRulesRuleConditionsMethodConfig extends $tea.Mode
 }
 
 export class CreateRulesRequestRulesRuleConditionsPathConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The forwarding URLs. You can specify at most 20 forwarding URLs.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15452,27 +15019,7 @@ export class CreateRulesRequestRulesRuleConditionsPathConfig extends $tea.Model 
 }
 
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extends $tea.Model {
-  /**
-   * @remarks
-   * They key of the query string.
-   * 
-   * *   The key must be 1 to 100 characters in length.
-   * *   You can use asterisks (\\*) and question marks (?) as wildcard characters. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the query string.
-   * 
-   * *   The value must be 1 to 128 characters in length,
-   * *   The value can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   * 
-   * @example
-   * test
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15494,10 +15041,6 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfigValues extend
 }
 
 export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the query string.
-   */
   values?: CreateRulesRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -15517,22 +15060,7 @@ export class CreateRulesRequestRulesRuleConditionsQueryStringConfig extends $tea
 }
 
 export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the header.
-   * 
-   * *   The header key must be 1 to 40 characters in length.
-   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   Cookie and Host are not supported.
-   * 
-   * @example
-   * Port
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the header.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15554,10 +15082,6 @@ export class CreateRulesRequestRulesRuleConditionsResponseHeaderConfig extends $
 }
 
 export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The response status codes.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15577,10 +15101,6 @@ export class CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig exten
 }
 
 export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $tea.Model {
-  /**
-   * @remarks
-   * Traffic matching based on source IP addresses.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -15600,69 +15120,18 @@ export class CreateRulesRequestRulesRuleConditionsSourceIpConfig extends $tea.Mo
 }
 
 export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
-  /**
-   * @remarks
-   * The key-value pairs of the cookie. You can specify at most 20 cookies.
-   */
   cookieConfig?: CreateRulesRequestRulesRuleConditionsCookieConfig;
-  /**
-   * @remarks
-   * The configuration of the header. You can specify at most 20 headers.
-   */
   headerConfig?: CreateRulesRequestRulesRuleConditionsHeaderConfig;
-  /**
-   * @remarks
-   * The configuration of the hosts.
-   */
   hostConfig?: CreateRulesRequestRulesRuleConditionsHostConfig;
-  /**
-   * @remarks
-   * The configurations of the request methods.
-   */
   methodConfig?: CreateRulesRequestRulesRuleConditionsMethodConfig;
-  /**
-   * @remarks
-   * The configurations of the forwarding URLs.
-   */
   pathConfig?: CreateRulesRequestRulesRuleConditionsPathConfig;
-  /**
-   * @remarks
-   * The configurations of the query strings. You can specify at most 20 query strings.
-   */
   queryStringConfig?: CreateRulesRequestRulesRuleConditionsQueryStringConfig;
-  /**
-   * @remarks
-   * The configuration of the header. You can specify at most 20 headers.
-   */
   responseHeaderConfig?: CreateRulesRequestRulesRuleConditionsResponseHeaderConfig;
-  /**
-   * @remarks
-   * The configurations of the response status codes.
-   */
   responseStatusCodeConfig?: CreateRulesRequestRulesRuleConditionsResponseStatusCodeConfig;
-  /**
-   * @remarks
-   * Traffic matching based on source IP addresses. This parameter is required and valid when **Type** is set to **SourceIP**. You can specify up to five IP addresses or CIDR blocks in the **SourceIpConfig** parameter.
-   */
   sourceIpConfig?: CreateRulesRequestRulesRuleConditionsSourceIpConfig;
   /**
    * @remarks
-   * The type of forwarding rule. You can specify at most seven types of forwarding rules. Valid values:
-   * 
-   * *   **Host**: Requests are forwarded based on hosts.
-   * *   **Path**: Requests are forwarded based on URLs.
-   * *   **Header**: Requests are forwarded based on HTTP headers.
-   * *   **QueryString**: Requests are forwarded based on query strings.
-   * *   **Method**: Requests are forwarded based on request methods.
-   * *   **Cookie**: Requests are forwarded based on cookies.
-   * *   **SourceIp**: Requests are forwarded based on source IP addresses.
-   * *   **ResponseHeader**: Requests are forwarded based on HTTP response headers.
-   * *   **ResponseStatusCode**: Requests are forwarded based on response status codes.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * Host
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -15701,21 +15170,7 @@ export class CreateRulesRequestRulesRuleConditions extends $tea.Model {
 }
 
 export class CreateRulesRequestRulesTag extends $tea.Model {
-  /**
-   * @remarks
-   * The tag key. The tag key can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
-   * 
-   * @example
-   * env
-   */
   key?: string;
-  /**
-   * @remarks
-   * The tag value. The tag value can be up to 128 characters in length. It cannot start with aliyun or acs: and cannot contain http:// or https://.
-   * 
-   * @example
-   * product
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15737,62 +15192,27 @@ export class CreateRulesRequestRulesTag extends $tea.Model {
 }
 
 export class CreateRulesRequestRules extends $tea.Model {
-  /**
-   * @remarks
-   * The direction to which the forwarding rule is applied. You can specify only one direction. Valid values:
-   * 
-   * *   **Request** (default): The forwarding rule applies to requests. Requests sent from clients to ALB are matches against the match conditions and processed based on the rule actions.
-   * *   **Response**: The forwarding rule applies to responses. Responses from backend servers to ALB are matches against the match conditions and processed based on the rule actions.
-   * 
-   * >  Basic ALB instances do not support forwarding rules applied to the **Response** direction.
-   * 
-   * @example
-   * Request
-   */
   direction?: string;
   /**
    * @remarks
-   * The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value specifies a higher priority. You can specify at most 10 priorities.
-   * 
-   * >  The priorities of forwarding rules for the same listener must be unique.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 10
    */
   priority?: number;
   /**
    * @remarks
-   * The actions of the forwarding rule.
-   * 
    * This parameter is required.
    */
   ruleActions?: CreateRulesRequestRulesRuleActions[];
   /**
    * @remarks
-   * The match conditions of the forwarding rule.
-   * 
    * This parameter is required.
    */
   ruleConditions?: CreateRulesRequestRulesRuleConditions[];
   /**
    * @remarks
-   * The name of the forwarding rule. You can specify at most 20 rule names.
-   * 
-   * *   The name must be 2 to 128 characters in length.
-   * *   The name can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * test
    */
   ruleName?: string;
-  /**
-   * @remarks
-   * The tags.
-   */
   tag?: CreateRulesRequestRulesTag[];
   static names(): { [key: string]: string } {
     return {
@@ -15941,7 +15361,7 @@ export class CreateServerGroupRequestConnectionDrainConfig extends $tea.Model {
 export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status codes that are used to indicate whether the backend server passes the health check.
+   * The HTTP status codes that indicate healthy backend servers.
    */
   healthCheckCodes?: string[];
   /**
@@ -15973,15 +15393,19 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The domain name that is used for health checks. The domain name must meet the following requirements:
+   * The domain name that is used for health checks.
    * 
-   * *   The domain name must be 1 to 80 characters in length.
-   * *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-   * *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
-   * *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
-   * *   The domain name cannot start or end with a hyphen (-).
+   * *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
    * 
-   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+   * *   **Custom Domain Name**: Enter a domain name.
+   * 
+   *     *   The domain name must be 1 to 80 characters in length.
+   *     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+   *     *   The domain name can contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+   *     *   The domain name cannot start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * www.example.com
@@ -16025,7 +15449,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthCheckMethod?: string;
   /**
    * @remarks
-   * The URL that is used for health checks.
+   * The path that is used for health checks.
    * 
    * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
    * 
@@ -16041,7 +15465,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
    * 
    * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
    * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
-   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
    * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
    * 
    * @example
@@ -16062,7 +15486,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthCheckTimeout?: number;
   /**
    * @remarks
-   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
+   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
    * 
    * Valid values: **2** to **10**.
    * 
@@ -16074,7 +15498,7 @@ export class CreateServerGroupRequestHealthCheckConfig extends $tea.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
+   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
    * 
    * Valid values: **2** to **10**.
    * 
@@ -17827,7 +17251,23 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
    * 10.0.1.181
    */
   intranetAddress?: string;
+  /**
+   * @remarks
+   * The health status of the private IPv4 address of the ALB instance. 
+   * This parameter is returned only when the Status of the zone is Active.Valid values:
+   * 
+   * - **Healthy**
+   * 
+   * - **Unhealthy**
+   * 
+   * @example
+   * Healthy
+   */
   intranetAddressHcStatus?: string;
+  /**
+   * @remarks
+   * The IPv4 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+   */
   ipv4LocalAddresses?: string[];
   /**
    * @remarks
@@ -17839,7 +17279,23 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddress
    * 2408:XXXX:39d:eb00::/56
    */
   ipv6Address?: string;
+  /**
+   * @remarks
+   * The health status of the private IPv6 address of the ALB instance. 
+   * This parameter is returned only when the Status of the zone is Active.Valid values:
+   * 
+   * - **Healthy**
+   * 
+   * - **Unhealthy**
+   * 
+   * @example
+   * Healthy
+   */
   ipv6AddressHcStatus?: string;
+  /**
+   * @remarks
+   * The IPv6 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+   */
   ipv6LocalAddresses?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -17880,6 +17336,23 @@ export class GetLoadBalancerAttributeResponseBodyZoneMappings extends $tea.Model
    * The address of the ALB instance.
    */
   loadBalancerAddresses?: GetLoadBalancerAttributeResponseBodyZoneMappingsLoadBalancerAddresses[];
+  /**
+   * @remarks
+   * The zone status. Valid values:
+   * 
+   * - **Active**: The ALB instance is running.
+   * 
+   * - **Stopped**: The ALB instance is disabled. 
+   * 
+   * - **Shifted**: The ALB instance is removed.
+   * 
+   * - **Starting**: The ALB instance is starting.
+   * 
+   * - **Stopping**: The ALB instance is stopping.
+   * 
+   * @example
+   * Active
+   */
   status?: string;
   /**
    * @remarks
@@ -21808,15 +21281,19 @@ export class ListServerGroupsResponseBodyServerGroupsHealthCheckConfig extends $
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The domain name that is used for health checks. The domain name meets the following requirements:
+   * The domain name that is used for health checks.
    * 
-   * *   The domain name is 1 to 80 characters in length.
-   * *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
-   * *   The domain name contains at least one period (.) but does not start or end with a period (.).
-   * *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
-   * *   The domain name does not start or end with a hyphen (-).
+   * *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
    * 
-   * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * *   **Custom Domain Name**: Enter a domain name.
+   * 
+   *     *   The domain name is 1 to 80 characters in length.
+   *     *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
+   *     *   The domain name contains at least one period (.) but does not start or end with a period (.).
+   *     *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
+   *     *   The domain name does not start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if HealthCheckProtocol is set to HTTP, HTTPS, or gRPC.
    * 
    * @example
    * www.example.com
@@ -22149,6 +21626,14 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
+   * 是否开启跨可用区转发。（默认开启）
+   * 
+   * @example
+   * true
+   */
+  crossZoneEnabled?: boolean;
+  /**
+   * @remarks
    * The health check configurations.
    */
   healthCheckConfig?: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig;
@@ -22307,6 +21792,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       configManagedEnabled: 'ConfigManagedEnabled',
       connectionDrainConfig: 'ConnectionDrainConfig',
       createTime: 'CreateTime',
+      crossZoneEnabled: 'CrossZoneEnabled',
       healthCheckConfig: 'HealthCheckConfig',
       ipv6Enabled: 'Ipv6Enabled',
       protocol: 'Protocol',
@@ -22333,6 +21819,7 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
       configManagedEnabled: 'boolean',
       connectionDrainConfig: ListServerGroupsResponseBodyServerGroupsConnectionDrainConfig,
       createTime: 'string',
+      crossZoneEnabled: 'boolean',
       healthCheckConfig: ListServerGroupsResponseBodyServerGroupsHealthCheckConfig,
       ipv6Enabled: 'boolean',
       protocol: 'string',
@@ -24806,49 +24293,11 @@ export class UpdateRuleAttributeRequestRuleConditions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to allow credentials to be carried in CORS requests. Valid values:
-   * 
-   * *   **on**: allows credentials to be carried in CORS requests.
-   * *   **off**: does not allow credentials to be carried in CORS requests.
-   * 
-   * @example
-   * on
-   */
   allowCredentials?: string;
-  /**
-   * @remarks
-   * The trusted headers of CORS requests.
-   */
   allowHeaders?: string[];
-  /**
-   * @remarks
-   * The trusted HTTP methods of CORS requests.
-   */
   allowMethods?: string[];
-  /**
-   * @remarks
-   * The trusted origins. You can specify one or more values, or only an asterisk (`*`).
-   * 
-   * *   The value must start with `http://` or `https://`, and be followed by a valid domain name, including top-level wildcard domain names. Example: `http://*.test.abc.example.com`.
-   * *   You can specify ports for a single value. Valid values: **1** to **65535**.
-   */
   allowOrigin?: string[];
-  /**
-   * @remarks
-   * The headers that can be exposed.
-   */
   exposeHeaders?: string[];
-  /**
-   * @remarks
-   * The maximum cache time of dry runs in the browser. Unit: seconds.
-   * 
-   * Valid values: **-1** to **172800**.
-   * 
-   * @example
-   * 1000
-   */
   maxAge?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24878,31 +24327,8 @@ export class UpdateRulesAttributeRequestRulesRuleActionsCorsConfig extends $tea.
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The content of the response. The content can be up to 1 KB in size, and can contain only ASCII characters.
-   * 
-   * @example
-   * dssacav
-   */
   content?: string;
-  /**
-   * @remarks
-   * The content format of the response.
-   * 
-   * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
-   * 
-   * @example
-   * text/plain
-   */
   contentType?: string;
-  /**
-   * @remarks
-   * The HTTP status code in responses. Valid values: **2xx**, **4xx**, **5xx**. The value must be a numeric string. **x** must be a digit.
-   * 
-   * @example
-   * 200
-   */
   httpCode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24926,24 +24352,7 @@ export class UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to enable session persistence. Valid values:
-   * 
-   * *   **true**: enables session persistence.
-   * *   **false** (default): disables session persistence.
-   * 
-   * @example
-   * false
-   */
   enabled?: boolean;
-  /**
-   * @remarks
-   * The timeout period of sessions. Unit: seconds Valid values: **1** to **86400**.
-   * 
-   * @example
-   * 2
-   */
   timeout?: number;
   static names(): { [key: string]: string } {
     return {
@@ -24965,24 +24374,7 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples extends $tea.Model {
-  /**
-   * @remarks
-   * The server group to which requests are forwarded.
-   * 
-   * @example
-   * sg-atstuj3rtoptyui****
-   */
   serverGroupId?: string;
-  /**
-   * @remarks
-   * The weight of the server group. A larger value specifies a higher weight. A server group with a higher weight receives more requests. Valid values: **0** to **100**.
-   * 
-   * *   If the number of destination server groups is 1, the default weight of the server group is **100**, unless you specify a weight.
-   * *   If the number of destination server groups is larger than 1, you must specify a weight.
-   * 
-   * @example
-   * 30
-   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25004,15 +24396,7 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServer
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of session persistence for server groups.
-   */
   serverGroupStickySession?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupStickySession;
-  /**
-   * @remarks
-   * The server groups to which requests are forwarded.
-   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -25034,58 +24418,9 @@ export class UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * Specifies whether to overwrite the header in the request. Valid values:
-   * 
-   * *   **true**: overwrites the request header.
-   * *   **false** (default): does not overwrite the request header.
-   * 
-   * @example
-   * false
-   */
   coverEnabled?: boolean;
-  /**
-   * @remarks
-   * The key of the header. The header key must be 1 to 40 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). The key specified in `InsertHeader` must be unique.
-   * 
-   * > The following header keys are not supported: `slb-id`, `slb-ip`, `x-forwarded-for`, `x-forwarded-proto`, `x-forwarded-eip`, `x-forwarded-port`, `x-forwarded-client-srcport`, `connection`, `upgrade`, `content-length`, `transfer-encoding`, `keep-alive`, `te, host`, `cookie`, `remoteip`, and `authority`. Header keys are not case-sensitive.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the header.
-   * 
-   * *   If **ValueType** is set to **SystemDefined**, you can set the Value parameter to one of the following values:
-   * 
-   *     *   **ClientSrcPort**: the client port.
-   *     *   **ClientSrcIp**: the IP address of the client.
-   *     *   **Protocol**: the request protocol (HTTP or HTTPS).
-   *     *   **SLBId**: the ID of the ALB instance.
-   *     *   **SLBPort**: the listener port of the ALB instance.
-   * 
-   * *   If **ValueType** is set to **UserDefined**, you can specify a custom header value. The header value must be 1 to 128 characters in length, and can contain wildcard characters, such as asterisks (\\*) and question marks (?), and printable characters whose ASCII values are `larger than or equal to 32 and smaller than 127`. The header value cannot start or end with a space character.
-   * 
-   * *   If **ValueType** is set to **ReferenceHeader**, you can reference a value from request headers. The value must be 1 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * 
-   * @example
-   * UserDefined
-   */
   value?: string;
-  /**
-   * @remarks
-   * The type of header. Valid values:
-   * 
-   * *   **UserDefined**: a user-defined header.
-   * *   **ReferenceHeader**: a header that is referenced from a request header.
-   * *   **SystemDefined**: a system-defined header.
-   * 
-   * @example
-   * UserDefined
-   */
   valueType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25111,75 +24446,11 @@ export class UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname to which requests are redirected.
-   * 
-   * The hostname must meet the following requirements:
-   * 
-   * *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
-   * *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-   * *   The rightmost domain label can contain only letters, asterisks (*), and question marks (?), and cannot contain digits or hyphens (-). The leftmost `domain label` can contain asterisks (*).
-   * *   The domain labels cannot start or end with hyphens (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
-   * 
-   * @example
-   * www.example.com
-   */
   host?: string;
-  /**
-   * @remarks
-   * The HTTP status code that indicates the redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
-   * 
-   * @example
-   * 301
-   */
   httpCode?: string;
-  /**
-   * @remarks
-   * The path of the destination to which requests are forwarded. Valid values:
-   * 
-   * *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
-   * 
-   * *   A custom value. You must ensure that the custom value meets the following requirements:
-   * 
-   *     *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   The path can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. It must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
-   * 
-   * @example
-   * /test
-   */
   path?: string;
-  /**
-   * @remarks
-   * The port to which requests are forwarded.
-   * 
-   * Valid values: **1** to **63335**.
-   * 
-   * @example
-   * 10
-   */
   port?: string;
-  /**
-   * @remarks
-   * The protocol of the destination to which requests are forwarded. Valid values:
-   * 
-   * Valid values for HTTP listeners: **HTTP** and **HTTPS**.
-   * 
-   * Valid values for HTTPS listeners: **HTTPS**.
-   * 
-   * @example
-   * HTTP
-   */
   protocol?: string;
-  /**
-   * @remarks
-   * The query string to which requests are redirected.
-   * 
-   * The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * quert
-   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25209,17 +24480,6 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig extends $
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the response header.
-   * 
-   * *   The header key must be 1 to 40 characters in length.
-   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   Cookie and Host are not supported.
-   * 
-   * @example
-   * Port
-   */
   key?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25239,45 +24499,8 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostname of the destination to which requests are forwarded.
-   * 
-   * The hostname must meet the following requirements:
-   * 
-   * *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, and the following special characters: - . \\* = ~ _ + \\ ^ ! $ & | ( ) [ ] ?.
-   * *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
-   * *   The rightmost domain label can contain only letters, asterisks (*), and question marks (?), and cannot contain digits or hyphens (-). The leftmost `domain label` can contain asterisks (*).
-   * *   The domain labels cannot start or end with hyphens (-). You can specify asterisks (∗) and question marks (?) anywhere in a domain label.
-   * 
-   * @example
-   * www.example.com
-   */
   host?: string;
-  /**
-   * @remarks
-   * The path to which requests are forwarded.
-   * 
-   * *   **${path}** (default): You can reference \\*\\*${host}**, **${protocol}** and **${port}\\*\\*. Each variable can be used only once. The preceding variables can be used at the same time or combined with a custom value.
-   * 
-   * *   A custom value. You must ensure that the custom value meets the following requirements:
-   * 
-   *     *   The path must be 1 to 128 characters in length. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-   *     *   The custom value can contain letters, digits, and the following special characters: `$ - _ . + / & ~ @ : \\" * ?`. The custom value must start with a forward slash (/) and cannot contain the following characters: `" % # ; ! ( ) [ ] ^ , "`.
-   * 
-   * @example
-   * /tsdf
-   */
   path?: string;
-  /**
-   * @remarks
-   * The query string of the URL to which requests are forwarded.
-   * 
-   * The query string must be 1 to 128 characters in length, and can contain printable characters, excluding uppercase letters and the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * quedsa
-   */
   query?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25301,23 +24524,7 @@ export class UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The number of requests per IP address. Valid values: **1** to **1000000**.
-   * 
-   * > If both the QPS and PerIpQps properties are specified, make sure that the value of the QPS property is smaller than the value of the PerIpQps property.
-   * 
-   * @example
-   * 80
-   */
   perIpQps?: number;
-  /**
-   * @remarks
-   * The number of queries per second (QPS). Valid values: **1** to **1000000**.
-   * 
-   * @example
-   * 2
-   */
   QPS?: number;
   static names(): { [key: string]: string } {
     return {
@@ -25339,13 +24546,6 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig exten
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples extends $tea.Model {
-  /**
-   * @remarks
-   * The server group ID.
-   * 
-   * @example
-   * srg-00mkgijak0w4qgz9****
-   */
   serverGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25365,10 +24565,6 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The server group to which traffic is mirrored.
-   */
   serverGroupTuples?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfigServerGroupTuples[];
   static names(): { [key: string]: string } {
     return {
@@ -25388,20 +24584,7 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirro
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the server group to which traffic is mirrored.
-   */
   mirrorGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfigMirrorGroupConfig;
-  /**
-   * @remarks
-   * The type of target to which network traffic is mirrored. Valid values:
-   * 
-   * *   **ForwardGroupMirror**: a server group
-   * 
-   * @example
-   * ForwardGroupMirror
-   */
   targetType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25423,84 +24606,23 @@ export class UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig exte
 }
 
 export class UpdateRulesAttributeRequestRulesRuleActions extends $tea.Model {
-  /**
-   * @remarks
-   * The CORS configuration.
-   */
   corsConfig?: UpdateRulesAttributeRequestRulesRuleActionsCorsConfig;
-  /**
-   * @remarks
-   * The configuration of the action to return a custom response. You can specify at most 20 custom responses.
-   */
   fixedResponseConfig?: UpdateRulesAttributeRequestRulesRuleActionsFixedResponseConfig;
-  /**
-   * @remarks
-   * The configuration of the action to forward requests to server groups. You can specify at most 20 actions.
-   */
   forwardGroupConfig?: UpdateRulesAttributeRequestRulesRuleActionsForwardGroupConfig;
-  /**
-   * @remarks
-   * The configuration of the action to insert a header. You can specify at most 20 actions.
-   */
   insertHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsInsertHeaderConfig;
   /**
    * @remarks
-   * The priority of the action. Valid values: **1** to **50000**. A lower value indicates a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify at most 20 forwarding rule priorities.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * 1
    */
   order?: number;
-  /**
-   * @remarks
-   * The configuration of the redirect action. You can specify at most 20 redirect actions.
-   */
   redirectConfig?: UpdateRulesAttributeRequestRulesRuleActionsRedirectConfig;
-  /**
-   * @remarks
-   * The configuration of the HTTP header to be removed. You can remove at most 20 HTTP headers.
-   */
   removeHeaderConfig?: UpdateRulesAttributeRequestRulesRuleActionsRemoveHeaderConfig;
-  /**
-   * @remarks
-   * The configuration of the rewrite action. You can specify at most 20 actions.
-   */
   rewriteConfig?: UpdateRulesAttributeRequestRulesRuleActionsRewriteConfig;
-  /**
-   * @remarks
-   * The configuration of traffic throttling. You can specify at most 20 throttling actions.
-   */
   trafficLimitConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficLimitConfig;
-  /**
-   * @remarks
-   * The configuration of traffic mirroring. You can specify at most 20 traffic mirroring configurations.
-   */
   trafficMirrorConfig?: UpdateRulesAttributeRequestRulesRuleActionsTrafficMirrorConfig;
   /**
    * @remarks
-   * The type of action. You can specify at most 11 types of action. Valid values:
-   * 
-   * *   **ForwardGroup**: forwards a request to multiple vServer groups.
-   * *   **Redirect**: redirects requests.
-   * *   **FixedResponse**: returns a fixed response.
-   * *   **Rewrite**: rewrites requests.
-   * *   **InsertHeader**: inserts a header.
-   * *   **RemoveHeaderConfig**: deletes a header.
-   * *   **TrafficLimit**: throttles traffic.
-   * *   **TrafficMirror**: mirrors network traffic.
-   * *   **Cors**: enables cross-origin resource sharing (CORS).
-   * 
-   * The preceding actions can be classified into two types:
-   * 
-   * *   **FinalType**: Each forwarding rule can contain only one FinalType action, which is performed at the end. You can specify only one of **ForwardGroup**, **Redirect**, and **FixedResponse**.
-   * *   **ExtType**: Each forwarding rule can contain one or more **ExtType** actions, which are performed before the **FinalType** action. If you want to specify an ExtType action, you must also specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * Host
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -25541,21 +24663,7 @@ export class UpdateRulesAttributeRequestRulesRuleActions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues extends $tea.Model {
-  /**
-   * @remarks
-   * The cookie key, which must be 1 to 100 characters in length, and can contain lowercase letters, asterisks (\\*), question marks (?), and printable characters. It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The cookie value, which must be 1 to 128 characters in length, and can contain lowercase letters, asterisks (\\*), question marks (?), and printable characters. It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25577,10 +24685,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues ex
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key-value pairs of cookies.
-   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -25600,18 +24704,7 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the header. The key must be 1 to 40 characters in length. The header key can contain lowercase letters, digits, hyphens (-), and underscores (_). Cookie and Host are not supported.
-   * 
-   * @example
-   * Port
-   */
   key?: string;
-  /**
-   * @remarks
-   * The HTTP header values.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25633,10 +24726,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The hostnames.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25656,10 +24745,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsHostConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The HTTP request methods.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25679,10 +24764,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig extends 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The paths to which requests are forwarded.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25702,25 +24783,7 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsPathConfig extends $t
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the query string.
-   * 
-   * The key must be 1 to 100 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the query string.
-   * 
-   * The value must be 1 to 128 characters in length, and can contain lowercase letters, printable ASCII characters, asterisks (\\*), and question marks (?). It cannot contain space characters or the following special characters: `# [ ] { } \\ | < > &`.
-   * 
-   * @example
-   * test
-   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25742,10 +24805,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValu
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key-value pairs of query strings.
-   */
   values?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfigValues[];
   static names(): { [key: string]: string } {
     return {
@@ -25765,22 +24824,7 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig ext
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The key of the response header.
-   * 
-   * *   The header key must be 1 to 40 characters in length.
-   * *   The header key can contain lowercase letters, digits, hyphens (-), and underscores (_).
-   * *   Cookie and Host are not supported.
-   * 
-   * @example
-   * test
-   */
   key?: string;
-  /**
-   * @remarks
-   * The value of the response header.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25802,10 +24846,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig 
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig extends $tea.Model {
-  /**
-   * @remarks
-   * The match conditions.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25825,10 +24865,6 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeCon
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extends $tea.Model {
-  /**
-   * @remarks
-   * Traffic matching based on source IP addresses.
-   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -25848,73 +24884,15 @@ export class UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig extend
 }
 
 export class UpdateRulesAttributeRequestRulesRuleConditions extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the cookie. You can specify at most 20 conditions.
-   */
   cookieConfig?: UpdateRulesAttributeRequestRulesRuleConditionsCookieConfig;
-  /**
-   * @remarks
-   * The configuration of the HTTP header. You can specify at most 20 HTTP headers.
-   */
   headerConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHeaderConfig;
-  /**
-   * @remarks
-   * The match conditions for hostnames. You can specify at most 20 conditions.
-   */
   hostConfig?: UpdateRulesAttributeRequestRulesRuleConditionsHostConfig;
-  /**
-   * @remarks
-   * The configuration of the HTTP request method. You can configure at most 20 HTTP request methods.
-   */
   methodConfig?: UpdateRulesAttributeRequestRulesRuleConditionsMethodConfig;
-  /**
-   * @remarks
-   * The match conditions for query strings. You can specify at most 20 conditions.
-   */
   pathConfig?: UpdateRulesAttributeRequestRulesRuleConditionsPathConfig;
-  /**
-   * @remarks
-   * The match conditions for query strings. You can specify at most 20 conditions.
-   */
   queryStringConfig?: UpdateRulesAttributeRequestRulesRuleConditionsQueryStringConfig;
-  /**
-   * @remarks
-   * The HTTP response headers. You can specify at most 20 HTTP response headers.
-   */
   responseHeaderConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseHeaderConfig;
-  /**
-   * @remarks
-   * The match conditions for response status codes. This parameter is required and valid when **Type** is set to **ResponseStatusCode**. You can specify at most 20 conditions.
-   */
   responseStatusCodeConfig?: UpdateRulesAttributeRequestRulesRuleConditionsResponseStatusCodeConfig;
-  /**
-   * @remarks
-   * Traffic matching based on source IP addresses. You can specify at most 20 match conditions based on IP addresses.
-   */
   sourceIpConfig?: UpdateRulesAttributeRequestRulesRuleConditionsSourceIpConfig;
-  /**
-   * @remarks
-   * The condition type of the forwarding rule is invalid.
-   * 
-   * You can specify at most seven condition types for inbound forwarding rules. Valid values:
-   * 
-   * *   **Host**: Requests are forwarded based on hosts.
-   * *   **Path**: Requests are forwarded based on paths.
-   * *   **Header**: Requests are forwarded based on HTTP headers.
-   * *   **QueryString**: Requests are forwarded based on query strings.
-   * *   **Method**: Requests are forwarded based on request methods.
-   * *   **Cookie**: Requests are forwarded based on cookies.
-   * *   **SourceIp**: Requests are forwarded based on source IP addresses.
-   * 
-   * You can specify at most two condition types for outbound forwarding rules. Valid values:
-   * 
-   * *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
-   * *   **ResponseStatusCode**: Response are forwarded based on response status codes.
-   * 
-   * @example
-   * ForwardGroup
-   */
   type?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25952,43 +24930,14 @@ export class UpdateRulesAttributeRequestRulesRuleConditions extends $tea.Model {
 }
 
 export class UpdateRulesAttributeRequestRules extends $tea.Model {
-  /**
-   * @remarks
-   * The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value specifies a higher priority. You can specify at most 20 rule priorities.
-   * 
-   * > The priority of each forwarding rule within a listener must be unique.
-   * 
-   * @example
-   * 10
-   */
   priority?: number;
-  /**
-   * @remarks
-   * The action of the forwarding rule.
-   */
   ruleActions?: UpdateRulesAttributeRequestRulesRuleActions[];
-  /**
-   * @remarks
-   * The match conditions of the forwarding rule.
-   */
   ruleConditions?: UpdateRulesAttributeRequestRulesRuleConditions[];
   /**
    * @remarks
-   * The IDs of the forwarding rules. You can specify at most 20 rule IDs.
-   * 
    * This parameter is required.
-   * 
-   * @example
-   * rule-cxjh7vazn2jpnl****
    */
   ruleId?: string;
-  /**
-   * @remarks
-   * The name of the forwarding rule. The name must be 2 to 128 letters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. You can specify at most 20 rule names.
-   * 
-   * @example
-   * rule-instance-test
-   */
   ruleName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26089,15 +25038,19 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The domain name that is used for health checks. The domain name must meet the following requirements:
+   * The domain name that is used for health checks.
    * 
-   * *   The domain name must be 1 to 80 characters in length.
-   * *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-   * *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
-   * *   The rightmost field of the domain name can contain only letters and cannot contain digits or hyphens (-).
-   * *   Other fields cannot start or end with a hyphen (-).
+   * *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
    * 
-   * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+   * *   **Custom Domain Name**: Enter a domain name.
+   * 
+   *     *   The domain name must be 1 to 80 characters in length.
+   *     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+   *     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+   *     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+   *     *   The domain name cannot start or end with a hyphen (-).
+   * 
+   * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
    * 
    * @example
    * example.com
@@ -26160,7 +25113,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $tea.Mod
    * 
    * *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
    * *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
-   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+   * *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
    * *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
    * 
    * @example
@@ -27560,12 +26513,19 @@ export default class Client extends OpenApi {
       query["ListenerId"] = request.listenerId;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset(request.rules)) {
-      query["Rules"] = request.rules;
+      bodyFlat["Rules"] = request.rules;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "CreateRules",
@@ -27690,6 +26650,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.connectionDrainConfig)) {
       query["ConnectionDrainConfig"] = request.connectionDrainConfig;
+    }
+
+    if (!Util.isUnset(request.crossZoneEnabled)) {
+      query["CrossZoneEnabled"] = request.crossZoneEnabled;
     }
 
     if (!Util.isUnset(request.dryRun)) {
@@ -31635,12 +30599,19 @@ export default class Client extends OpenApi {
       query["DryRun"] = request.dryRun;
     }
 
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset(request.rules)) {
-      query["Rules"] = request.rules;
+      bodyFlat["Rules"] = request.rules;
     }
 
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApi.Params({
       action: "UpdateRulesAttribute",
@@ -31771,6 +30742,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.connectionDrainConfig)) {
       query["ConnectionDrainConfig"] = request.connectionDrainConfig;
+    }
+
+    if (!Util.isUnset(request.crossZoneEnabled)) {
+      query["CrossZoneEnabled"] = request.crossZoneEnabled;
     }
 
     if (!Util.isUnset(request.dryRun)) {
