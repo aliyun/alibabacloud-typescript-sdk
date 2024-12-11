@@ -1753,6 +1753,94 @@ export class BindDBResourceGroupWithUserResponse extends $tea.Model {
   }
 }
 
+export class CancelSparkReplStatementRequest extends $tea.Model {
+  /**
+   * @example
+   * s202411071444hzdvk486d9d2001****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 456
+   */
+  sessionId?: number;
+  /**
+   * @example
+   * 123
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      sessionId: 'SessionId',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      sessionId: 'number',
+      statementId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelSparkReplStatementResponseBody extends $tea.Model {
+  data?: CancelSparkReplStatementResponseBodyData;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CancelSparkReplStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelSparkReplStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelSparkReplStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelSparkReplStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckBindRamUserRequest extends $tea.Model {
   /**
    * @remarks
@@ -7529,6 +7617,8 @@ export class DescribeColumnsResponse extends $tea.Model {
 export class DescribeCompactionServiceSwitchRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7553,8 +7643,15 @@ export class DescribeCompactionServiceSwitchRequest extends $tea.Model {
 }
 
 export class DescribeCompactionServiceSwitchResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: DescribeCompactionServiceSwitchResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D761DA51-12F8-5457-AAA9-F52B9F436D2D
    */
@@ -13756,6 +13853,110 @@ export class EnableElasticPlanResponse extends $tea.Model {
   }
 }
 
+export class ExecuteSparkReplStatementRequest extends $tea.Model {
+  /**
+   * @example
+   * s202411071444hzdvk486d9d2001****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * print(1+1)
+   */
+  code?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PYTHON
+   */
+  codeType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  sessionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      code: 'Code',
+      codeType: 'CodeType',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      code: 'string',
+      codeType: 'string',
+      sessionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSparkReplStatementResponseBody extends $tea.Model {
+  data?: ExecuteSparkReplStatementResponseBodyData;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ExecuteSparkReplStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExecuteSparkReplStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExecuteSparkReplStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExecuteSparkReplStatementResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExistRunningSQLEngineRequest extends $tea.Model {
   /**
    * @remarks
@@ -14897,6 +15098,178 @@ export class GetSparkLogAnalyzeTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetSparkLogAnalyzeTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplSessionRequest extends $tea.Model {
+  /**
+   * @example
+   * s202411071444hzdvk486d9d200****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  sessionId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      sessionId: 'SessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      sessionId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplSessionResponseBody extends $tea.Model {
+  data?: GetSparkReplSessionResponseBodyData;
+  /**
+   * @example
+   * 4CE6DF97-AEA4-484F-906F-C407EE3770EB
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetSparkReplSessionResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSparkReplSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSparkReplSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplStatementRequest extends $tea.Model {
+  /**
+   * @example
+   * s202411071444hzdvk486d9d200****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 1
+   */
+  sessionId?: number;
+  /**
+   * @example
+   * 123
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      sessionId: 'SessionId',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      sessionId: 'number',
+      statementId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplStatementResponseBody extends $tea.Model {
+  data?: GetSparkReplStatementResponseBodyData;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: GetSparkReplStatementResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplStatementResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSparkReplStatementResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetSparkReplStatementResponseBody,
     };
   }
 
@@ -18315,6 +18688,8 @@ export class ModifyClusterConnectionStringResponse extends $tea.Model {
 export class ModifyCompactionServiceSwitchRequest extends $tea.Model {
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18323,6 +18698,13 @@ export class ModifyCompactionServiceSwitchRequest extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
+   * Specifies whether to enable the remote build feature.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18350,6 +18732,9 @@ export class ModifyCompactionServiceSwitchRequest extends $tea.Model {
 
 export class ModifyCompactionServiceSwitchResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 21ABF219-10E0-571B-94B8-9C9AE5022BF8
    */
@@ -20472,6 +20857,103 @@ export class SetSparkAppLogRootPathResponse extends $tea.Model {
   }
 }
 
+export class StartSparkReplSessionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * { "spark.shuffle.timeout": ":0s" }
+   */
+  config?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp1mfe9qm****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  resourceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      config: 'Config',
+      DBClusterId: 'DBClusterId',
+      resourceGroupName: 'ResourceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      config: 'string',
+      DBClusterId: 'string',
+      resourceGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSparkReplSessionResponseBody extends $tea.Model {
+  data?: StartSparkReplSessionResponseBodyData;
+  /**
+   * @example
+   * C1797FEA-B7D6-5ED6-A24B-2C8C5F4D7361
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: StartSparkReplSessionResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartSparkReplSessionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartSparkReplSessionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartSparkReplSessionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartSparkSQLEngineRequest extends $tea.Model {
   /**
    * @remarks
@@ -21281,6 +21763,95 @@ export class OperatorNodeStats extends $tea.Model {
       parameters: 'string',
       peakMemory: 'number',
       timeCost: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelSparkReplStatementResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 190063530332****
+   */
+  aliyunUid?: number;
+  /**
+   * @example
+   * print(1+1)
+   */
+  code?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  codeState?: string;
+  /**
+   * @example
+   * PYTHON
+   */
+  codeType?: string;
+  columns?: string[];
+  /**
+   * @example
+   * 1730968056000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * StackOverflow Exception：
+   */
+  error?: string;
+  /**
+   * @example
+   * {"text/plain": "2"}
+   */
+  output?: string;
+  /**
+   * @example
+   * TEXT
+   */
+  outputType?: string;
+  /**
+   * @example
+   * 1730968056000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 123
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      code: 'Code',
+      codeState: 'CodeState',
+      codeType: 'CodeType',
+      columns: 'Columns',
+      endTime: 'EndTime',
+      error: 'Error',
+      output: 'Output',
+      outputType: 'OutputType',
+      startTime: 'StartTime',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'number',
+      code: 'string',
+      codeState: 'string',
+      codeType: 'string',
+      columns: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      error: 'string',
+      output: 'string',
+      outputType: 'string',
+      startTime: 'number',
+      statementId: 'number',
     };
   }
 
@@ -23421,6 +23992,14 @@ export class DescribeColumnsResponseBodyItems extends $tea.Model {
 
 export class DescribeCompactionServiceSwitchResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the remote build feature is enabled.
+   * 
+   * Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -28152,6 +28731,95 @@ export class DescribeTablesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class ExecuteSparkReplStatementResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 17108278707****
+   */
+  aliyunUid?: number;
+  /**
+   * @example
+   * print(1+1)
+   */
+  code?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  codeState?: string;
+  /**
+   * @example
+   * PYTHON
+   */
+  codeType?: string;
+  columns?: string[];
+  /**
+   * @example
+   * 1730968125000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * StackOverflow Exception
+   */
+  error?: string;
+  /**
+   * @example
+   * {"text/plain": 2}
+   */
+  output?: string;
+  /**
+   * @example
+   * TEXT
+   */
+  outputType?: string;
+  /**
+   * @example
+   * 1730968125000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 123
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      code: 'Code',
+      codeState: 'CodeState',
+      codeType: 'CodeType',
+      columns: 'Columns',
+      endTime: 'EndTime',
+      error: 'Error',
+      output: 'Output',
+      outputType: 'OutputType',
+      startTime: 'StartTime',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'number',
+      code: 'string',
+      codeState: 'string',
+      codeType: 'string',
+      columns: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      error: 'string',
+      output: 'string',
+      outputType: 'string',
+      startTime: 'number',
+      statementId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatabaseObjectsResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -28627,6 +29295,160 @@ export class GetSparkConfigLogPathResponseBodyData extends $tea.Model {
       modifiedTimestamp: 'string',
       modifiedUid: 'string',
       recordedLogPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplSessionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  active?: string;
+  /**
+   * @example
+   * 178157466101****
+   */
+  aliyunUid?: string;
+  /**
+   * @example
+   * s202301061000hz57d797b00002****
+   */
+  attemptId?: string;
+  /**
+   * @example
+   * Session timed out
+   */
+  error?: string;
+  /**
+   * @example
+   * 1
+   */
+  sessionId?: number;
+  /**
+   * @example
+   * IDEL
+   */
+  state?: string;
+  /**
+   * @example
+   * https://adbsparkui-cn-hangzhou.aliyuncs.com/?token=****
+   */
+  webUiAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      active: 'Active',
+      aliyunUid: 'AliyunUid',
+      attemptId: 'AttemptId',
+      error: 'Error',
+      sessionId: 'SessionId',
+      state: 'State',
+      webUiAddress: 'WebUiAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      active: 'string',
+      aliyunUid: 'string',
+      attemptId: 'string',
+      error: 'string',
+      sessionId: 'number',
+      state: 'string',
+      webUiAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetSparkReplStatementResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 144740799645****
+   */
+  aliyunUid?: number;
+  /**
+   * @example
+   * print(1+1)
+   */
+  code?: string;
+  /**
+   * @example
+   * RUNNING
+   */
+  codeState?: string;
+  /**
+   * @example
+   * PYTHON
+   */
+  codeType?: string;
+  columns?: string[];
+  /**
+   * @example
+   * 1730968194000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * stackoverflow error
+   */
+  error?: string;
+  /**
+   * @example
+   * {"text/plain": 2}
+   */
+  output?: string;
+  /**
+   * @example
+   * TEXT
+   */
+  outputType?: string;
+  /**
+   * @example
+   * 1730968194000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 123
+   */
+  statementId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      code: 'Code',
+      codeState: 'CodeState',
+      codeType: 'CodeType',
+      columns: 'Columns',
+      endTime: 'EndTime',
+      error: 'Error',
+      output: 'Output',
+      outputType: 'OutputType',
+      startTime: 'StartTime',
+      statementId: 'StatementId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'number',
+      code: 'string',
+      codeState: 'string',
+      codeType: 'string',
+      columns: { 'type': 'array', 'itemType': 'string' },
+      endTime: 'number',
+      error: 'string',
+      output: 'string',
+      outputType: 'string',
+      startTime: 'number',
+      statementId: 'number',
     };
   }
 
@@ -29828,6 +30650,64 @@ export class SetSparkAppLogRootPathResponseBodyData extends $tea.Model {
   }
 }
 
+export class StartSparkReplSessionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 178157466******
+   */
+  aliyunUid?: string;
+  /**
+   * @example
+   * s202301061000h****
+   */
+  attemptId?: string;
+  /**
+   * @example
+   * session time out
+   */
+  error?: string;
+  /**
+   * @example
+   * 1
+   */
+  sessionId?: number;
+  /**
+   * @example
+   * IDLE
+   */
+  state?: string;
+  /**
+   * @example
+   * https://adbsparkui-cn-hangzhou.aliyuncs.com/?token=****
+   */
+  webUiAddress?: string;
+  static names(): { [key: string]: string } {
+    return {
+      aliyunUid: 'AliyunUid',
+      attemptId: 'AttemptId',
+      error: 'Error',
+      sessionId: 'SessionId',
+      state: 'State',
+      webUiAddress: 'WebUiAddress',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aliyunUid: 'string',
+      attemptId: 'string',
+      error: 'string',
+      sessionId: 'number',
+      state: 'string',
+      webUiAddress: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartSparkSQLEngineResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -30259,6 +31139,56 @@ export default class Client extends OpenApi {
   async bindDBResourceGroupWithUser(request: BindDBResourceGroupWithUserRequest): Promise<BindDBResourceGroupWithUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.bindDBResourceGroupWithUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 终止一段代码
+   * 
+   * @param request - CancelSparkReplStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelSparkReplStatementResponse
+   */
+  async cancelSparkReplStatementWithOptions(request: CancelSparkReplStatementRequest, runtime: $Util.RuntimeOptions): Promise<CancelSparkReplStatementResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.statementId)) {
+      body["StatementId"] = request.statementId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelSparkReplStatement",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelSparkReplStatementResponse>(await this.callApi(params, req, runtime), new CancelSparkReplStatementResponse({}));
+  }
+
+  /**
+   * 终止一段代码
+   * 
+   * @param request - CancelSparkReplStatementRequest
+   * @returns CancelSparkReplStatementResponse
+   */
+  async cancelSparkReplStatement(request: CancelSparkReplStatementRequest): Promise<CancelSparkReplStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelSparkReplStatementWithOptions(request, runtime);
   }
 
   /**
@@ -32708,7 +33638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询CompactionService开关
+   * Queries whether the remote build feature is enabled in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeCompactionServiceSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -32739,7 +33669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询CompactionService开关
+   * Queries whether the remote build feature is enabled in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - DescribeCompactionServiceSwitchRequest
    * @returns DescribeCompactionServiceSwitchResponse
@@ -35296,6 +36226,60 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 执行一段代码
+   * 
+   * @param request - ExecuteSparkReplStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExecuteSparkReplStatementResponse
+   */
+  async executeSparkReplStatementWithOptions(request: ExecuteSparkReplStatementRequest, runtime: $Util.RuntimeOptions): Promise<ExecuteSparkReplStatementResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!Util.isUnset(request.codeType)) {
+      body["CodeType"] = request.codeType;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExecuteSparkReplStatement",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExecuteSparkReplStatementResponse>(await this.callApi(params, req, runtime), new ExecuteSparkReplStatementResponse({}));
+  }
+
+  /**
+   * 执行一段代码
+   * 
+   * @param request - ExecuteSparkReplStatementRequest
+   * @returns ExecuteSparkReplStatementResponse
+   */
+  async executeSparkReplStatement(request: ExecuteSparkReplStatementRequest): Promise<ExecuteSparkReplStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.executeSparkReplStatementWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether a running SQL engine exists.
    * 
    * @remarks
@@ -35895,6 +36879,102 @@ export default class Client extends OpenApi {
   async getSparkLogAnalyzeTask(request: GetSparkLogAnalyzeTaskRequest): Promise<GetSparkLogAnalyzeTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSparkLogAnalyzeTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一个可交互Session
+   * 
+   * @param request - GetSparkReplSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSparkReplSessionResponse
+   */
+  async getSparkReplSessionWithOptions(request: GetSparkReplSessionRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkReplSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSparkReplSession",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSparkReplSessionResponse>(await this.callApi(params, req, runtime), new GetSparkReplSessionResponse({}));
+  }
+
+  /**
+   * 获取一个可交互Session
+   * 
+   * @param request - GetSparkReplSessionRequest
+   * @returns GetSparkReplSessionResponse
+   */
+  async getSparkReplSession(request: GetSparkReplSessionRequest): Promise<GetSparkReplSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSparkReplSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取一段代码的执行结果
+   * 
+   * @param request - GetSparkReplStatementRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSparkReplStatementResponse
+   */
+  async getSparkReplStatementWithOptions(request: GetSparkReplStatementRequest, runtime: $Util.RuntimeOptions): Promise<GetSparkReplStatementResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.statementId)) {
+      body["StatementId"] = request.statementId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetSparkReplStatement",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetSparkReplStatementResponse>(await this.callApi(params, req, runtime), new GetSparkReplStatementResponse({}));
+  }
+
+  /**
+   * 获取一段代码的执行结果
+   * 
+   * @param request - GetSparkReplStatementRequest
+   * @returns GetSparkReplStatementResponse
+   */
+  async getSparkReplStatement(request: GetSparkReplStatementRequest): Promise<GetSparkReplStatementResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getSparkReplStatementWithOptions(request, runtime);
   }
 
   /**
@@ -37512,7 +38592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改CompactionService开关
+   * Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - ModifyCompactionServiceSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -37547,7 +38627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改CompactionService开关
+   * Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
    * 
    * @param request - ModifyCompactionServiceSwitchRequest
    * @returns ModifyCompactionServiceSwitchResponse
@@ -38537,6 +39617,56 @@ export default class Client extends OpenApi {
   async setSparkAppLogRootPath(request: SetSparkAppLogRootPathRequest): Promise<SetSparkAppLogRootPathResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setSparkAppLogRootPathWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动一个可交互Session
+   * 
+   * @param request - StartSparkReplSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartSparkReplSessionResponse
+   */
+  async startSparkReplSessionWithOptions(request: StartSparkReplSessionRequest, runtime: $Util.RuntimeOptions): Promise<StartSparkReplSessionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      body["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupName)) {
+      body["ResourceGroupName"] = request.resourceGroupName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartSparkReplSession",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartSparkReplSessionResponse>(await this.callApi(params, req, runtime), new StartSparkReplSessionResponse({}));
+  }
+
+  /**
+   * 启动一个可交互Session
+   * 
+   * @param request - StartSparkReplSessionRequest
+   * @returns StartSparkReplSessionResponse
+   */
+  async startSparkReplSession(request: StartSparkReplSessionRequest): Promise<StartSparkReplSessionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startSparkReplSessionWithOptions(request, runtime);
   }
 
   /**
