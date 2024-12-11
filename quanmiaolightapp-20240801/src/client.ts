@@ -274,6 +274,7 @@ export class RunHotTopicChatRequest extends $tea.Model {
    * 1
    */
   imageCount?: number;
+  messages?: RunHotTopicChatRequestMessages[];
   /**
    * @example
    * xx
@@ -303,6 +304,7 @@ export class RunHotTopicChatRequest extends $tea.Model {
       hotTopicVersion: 'hotTopicVersion',
       hotTopics: 'hotTopics',
       imageCount: 'imageCount',
+      messages: 'messages',
       modelCustomPromptTemplate: 'modelCustomPromptTemplate',
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
@@ -319,6 +321,7 @@ export class RunHotTopicChatRequest extends $tea.Model {
       hotTopicVersion: 'string',
       hotTopics: { 'type': 'array', 'itemType': 'string' },
       imageCount: 'number',
+      messages: { 'type': 'array', 'itemType': RunHotTopicChatRequestMessages },
       modelCustomPromptTemplate: 'string',
       modelId: 'string',
       originalSessionId: 'string',
@@ -347,6 +350,7 @@ export class RunHotTopicChatShrinkRequest extends $tea.Model {
    * 1
    */
   imageCount?: number;
+  messagesShrink?: string;
   /**
    * @example
    * xx
@@ -376,6 +380,7 @@ export class RunHotTopicChatShrinkRequest extends $tea.Model {
       hotTopicVersion: 'hotTopicVersion',
       hotTopicsShrink: 'hotTopics',
       imageCount: 'imageCount',
+      messagesShrink: 'messages',
       modelCustomPromptTemplate: 'modelCustomPromptTemplate',
       modelId: 'modelId',
       originalSessionId: 'originalSessionId',
@@ -392,6 +397,7 @@ export class RunHotTopicChatShrinkRequest extends $tea.Model {
       hotTopicVersion: 'string',
       hotTopicsShrink: 'string',
       imageCount: 'number',
+      messagesShrink: 'string',
       modelCustomPromptTemplate: 'string',
       modelId: 'string',
       originalSessionId: 'string',
@@ -1683,6 +1689,43 @@ export class ListHotTopicSummariesResponseBodyData extends $tea.Model {
       news: { 'type': 'array', 'itemType': ListHotTopicSummariesResponseBodyDataNews },
       summary: ListHotTopicSummariesResponseBodyDataSummary,
       textSummary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunHotTopicChatRequestMessages extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-12-10 18:51:29
+   */
+  createTime?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      role: 'string',
     };
   }
 
@@ -3758,6 +3801,10 @@ export default class Client extends OpenApi {
       request.hotTopicsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.hotTopics, "hotTopics", "json");
     }
 
+    if (!Util.isUnset(tmpReq.messages)) {
+      request.messagesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.messages, "messages", "json");
+    }
+
     if (!Util.isUnset(tmpReq.stepForBroadcastContentConfig)) {
       request.stepForBroadcastContentConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.stepForBroadcastContentConfig, "stepForBroadcastContentConfig", "json");
     }
@@ -3781,6 +3828,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.imageCount)) {
       body["imageCount"] = request.imageCount;
+    }
+
+    if (!Util.isUnset(request.messagesShrink)) {
+      body["messages"] = request.messagesShrink;
     }
 
     if (!Util.isUnset(request.modelCustomPromptTemplate)) {
