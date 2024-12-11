@@ -438,6 +438,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * The configurations of application alerts.
    */
   alarmConfig?: CreateApplicationRequestAlarmConfig;
+  applicationSource?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -499,6 +500,7 @@ export class CreateApplicationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alarmConfig: 'AlarmConfig',
+      applicationSource: 'ApplicationSource',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
@@ -512,6 +514,7 @@ export class CreateApplicationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmConfig: CreateApplicationRequestAlarmConfig,
+      applicationSource: 'string',
       clientToken: 'string',
       description: 'string',
       name: 'string',
@@ -533,6 +536,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
    * The configurations of application alerts.
    */
   alarmConfigShrink?: string;
+  applicationSource?: string;
   /**
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
@@ -594,6 +598,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       alarmConfigShrink: 'AlarmConfig',
+      applicationSource: 'ApplicationSource',
       clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
@@ -607,6 +612,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       alarmConfigShrink: 'string',
+      applicationSource: 'string',
       clientToken: 'string',
       description: 'string',
       name: 'string',
@@ -4498,7 +4504,7 @@ export class GetApplicationGroupRequest extends $tea.Model {
 export class GetApplicationGroupResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the application group.
+   * The information about the application group.
    */
   applicationGroup?: GetApplicationGroupResponseBodyApplicationGroup;
   /**
@@ -5981,6 +5987,165 @@ export class GetTemplateResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetTemplateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsRequest extends $tea.Model {
+  /**
+   * @example
+   * {\\"endDate\\": \\"2022-04-13T03:31:20Z\\", \\"Status\\": \\"Stopped\\"}
+   */
+  parameters?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * {
+   * 	"Description": "Example template, describe instances in some status",
+   * 	"FormatVersion": "OOS-2019-06-01",
+   * 	"Parameters": {},
+   * 	"Tasks": [{
+   * 		"Name": "describeInstances",
+   * 		"Action": "ACS::ExecuteAPI",
+   * 		"Description": "desc-en",
+   * 		"Properties": {
+   * 			"Service": "ECS",
+   * 			"API": "DescribeInstances",
+   * 			"Parameters": {
+   * 				"Status": "Running"
+   * 			}
+   * 		}
+   * 	}]
+   * }
+   */
+  templateContent?: string;
+  /**
+   * @example
+   * MyTemplate
+   */
+  templateName?: string;
+  /**
+   * @example
+   * http://oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-test-template.json
+   */
+  templateURL?: string;
+  /**
+   * @example
+   * v1
+   */
+  templateVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameters: 'Parameters',
+      regionId: 'RegionId',
+      templateContent: 'TemplateContent',
+      templateName: 'TemplateName',
+      templateURL: 'TemplateURL',
+      templateVersion: 'TemplateVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameters: 'string',
+      regionId: 'string',
+      templateContent: 'string',
+      templateName: 'string',
+      templateURL: 'string',
+      templateVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * [
+   *     {
+   *       "Type": "String",
+   *       "AllowedValues": [
+   *         "ecs.n1.tiny",
+   *         "ecs.r8a.4xlarge",
+   *         "ecs.n2.xlarge",
+   *         "ecs.c7.2xlarge",
+   *         "ecs.c8i.4xlarge",
+   *         "ecs.g8i.48xlarge",
+   *         "ecs.c8a.4xlarge",
+   *         "ecs.i2.4xlarge",
+   *         "ecs.r8y.2xlarge"
+   *       ],
+   *       "AssociationParameterNames": [
+   *         "RegionId",
+   *         "zoneId"
+   *       ],
+   *       "ParameterKey": "instanceType"
+   *     },
+   *     {
+   *       "Type": "String",
+   *       "AllowedValues": [],
+   *       "AssociationParameterNames": [
+   *         "RegionId",
+   *         "zoneId",
+   *         "InstanceType"
+   *       ],
+   *       "ParameterKey": "systemDiskCategory"
+   *     }
+   *   ]
+   */
+  parameterConstraints?: { [key: string]: any };
+  /**
+   * @example
+   * CBEC8072-BEC2-478E-8EAE-E723BA79CF19
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parameterConstraints: 'ParameterConstraints',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parameterConstraints: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetTemplateParameterConstraintsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetTemplateParameterConstraintsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetTemplateParameterConstraintsResponseBody,
     };
   }
 
@@ -7696,6 +7861,8 @@ export class ListGitRepositoryContentsResponse extends $tea.Model {
 export class ListInstancePackageStatesRequest extends $tea.Model {
   /**
    * @remarks
+   * ECS instance ID
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7703,21 +7870,33 @@ export class ListInstancePackageStatesRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 50
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Pagination token.
+   * 
    * @example
    * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * List of extension names
+   * 
    * @example
    * ["template1","template2"]
    */
@@ -7749,19 +7928,29 @@ export class ListInstancePackageStatesRequest extends $tea.Model {
 
 export class ListInstancePackageStatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Page size.
+   * 
    * @example
    * 50
    */
   maxResults?: string;
   /**
+   * @remarks
+   * Token string for pagination.
+   * 
    * @example
    * MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * List of extensions
+   */
   packageStates?: ListInstancePackageStatesResponseBodyPackageStates[];
   /**
    * @remarks
-   * Id of the request
+   * ID of the request
    * 
    * @example
    * 1306108F-610C-40FD-AAD5-XXXXXX
@@ -11358,7 +11547,7 @@ export class ListTemplatesRequest extends $tea.Model {
   hasTrigger?: boolean;
   /**
    * @remarks
-   * Specifies whether the template is an example template
+   * Specifies whether the template is an example template.
    * 
    * @example
    * false
@@ -11580,7 +11769,7 @@ export class ListTemplatesShrinkRequest extends $tea.Model {
   hasTrigger?: boolean;
   /**
    * @remarks
-   * Specifies whether the template is an example template
+   * Specifies whether the template is an example template.
    * 
    * @example
    * false
@@ -13567,7 +13756,21 @@ export class UpdateApplicationGroupRequest extends $tea.Model {
    * UpdateMyApplicationGroup
    */
   newName?: string;
+  /**
+   * @remarks
+   * The name of the configuration update operation.
+   * 
+   * @example
+   * /business/v1/product/spus/{spu_id}
+   */
   operationName?: string;
+  /**
+   * @remarks
+   * The JSON string that consists of a set of parameters. Default value: {}.
+   * 
+   * @example
+   * {"username": "xx"}
+   */
   parameters?: { [key: string]: any };
   /**
    * @remarks
@@ -13633,7 +13836,21 @@ export class UpdateApplicationGroupShrinkRequest extends $tea.Model {
    * UpdateMyApplicationGroup
    */
   newName?: string;
+  /**
+   * @remarks
+   * The name of the configuration update operation.
+   * 
+   * @example
+   * /business/v1/product/spus/{spu_id}
+   */
   operationName?: string;
+  /**
+   * @remarks
+   * The JSON string that consists of a set of parameters. Default value: {}.
+   * 
+   * @example
+   * {"username": "xx"}
+   */
   parametersShrink?: string;
   /**
    * @remarks
@@ -13870,6 +14087,13 @@ export class UpdateExecutionResponse extends $tea.Model {
 export class UpdateInstancePackageStateRequest extends $tea.Model {
   /**
    * @remarks
+   * The operation type.
+   * 
+   * Valid values:
+   * 
+   * *   uninstall
+   * *   install
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13878,6 +14102,8 @@ export class UpdateInstancePackageStateRequest extends $tea.Model {
   configureAction?: string;
   /**
    * @remarks
+   * The ID of the Elastic Compute Service (ECS) instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13885,17 +14111,25 @@ export class UpdateInstancePackageStateRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The parameters for installing or uninstalling the extensions.
+   * 
    * @example
    * {"username": "xx"}
    */
   parameters?: { [key: string]: any };
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13903,6 +14137,9 @@ export class UpdateInstancePackageStateRequest extends $tea.Model {
    */
   templateName?: string;
   /**
+   * @remarks
+   * The version of the template.
+   * 
    * @example
    * v1
    */
@@ -13937,6 +14174,13 @@ export class UpdateInstancePackageStateRequest extends $tea.Model {
 export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The operation type.
+   * 
+   * Valid values:
+   * 
+   * *   uninstall
+   * *   install
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13945,6 +14189,8 @@ export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
   configureAction?: string;
   /**
    * @remarks
+   * The ID of the Elastic Compute Service (ECS) instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13952,17 +14198,25 @@ export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The parameters for installing or uninstalling the extensions.
+   * 
    * @example
    * {"username": "xx"}
    */
   parametersShrink?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13970,6 +14224,9 @@ export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
    */
   templateName?: string;
   /**
+   * @remarks
+   * The version of the template.
+   * 
    * @example
    * v1
    */
@@ -14004,7 +14261,7 @@ export class UpdateInstancePackageStateShrinkRequest extends $tea.Model {
 export class UpdateInstancePackageStateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2597E94B-5346-42D1-BB58-XXXXXXXXXXX
@@ -17422,6 +17679,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
    * MyApplication
    */
   applicationName?: string;
+  applicationSource?: string;
   /**
    * @remarks
    * The ID of the application group in CloudMonitor.
@@ -17494,6 +17752,13 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
    * MyApplicationGroup
    */
   name?: string;
+  /**
+   * @remarks
+   * The operation metadata.
+   * 
+   * @example
+   * {\\"PrometheusConfigMap\\":{\\"模板1\\":{\\"EnablePrometheus\\":false}}}
+   */
   operationMetadata?: string;
   /**
    * @remarks
@@ -17530,6 +17795,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       applicationName: 'ApplicationName',
+      applicationSource: 'ApplicationSource',
       cmsGroupId: 'CmsGroupId',
       createDate: 'CreateDate',
       deployOutputs: 'DeployOutputs',
@@ -17550,6 +17816,7 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       applicationName: 'string',
+      applicationSource: 'string',
       cmsGroupId: 'string',
       createDate: 'string',
       deployOutputs: 'string',
@@ -19979,6 +20246,13 @@ export class ListExecutionsResponseBodyExecutions extends $tea.Model {
    * Automatic
    */
   mode?: string;
+  /**
+   * @remarks
+   * The next schedule time for timer trigger execution.
+   * 
+   * @example
+   * 2019-05-16T10:26:14Z
+   */
   nextScheduleTime?: string;
   /**
    * @remarks
@@ -20268,46 +20542,73 @@ export class ListGitRepositoryContentsResponseBodyContents extends $tea.Model {
 
 export class ListInstancePackageStatesResponseBodyPackageStates extends $tea.Model {
   /**
+   * @remarks
+   * Description
+   * 
    * @example
    * template description
    */
   description?: string;
   /**
+   * @remarks
+   * Parameters
+   * 
    * @example
    * {}
    */
   parameters?: string;
   /**
+   * @remarks
+   * Publisher
+   * 
    * @example
    * Alibaba Cloud
    */
   publisher?: string;
   /**
+   * @remarks
+   * Template type
+   * 
    * @example
    * Package
    */
   templateCategory?: string;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * 087b1e11072a40259f6fxxxxxxxxx
    */
   templateId?: string;
   /**
+   * @remarks
+   * Template name.
+   * 
    * @example
    * ACS-ECS-Docker
    */
   templateName?: string;
   /**
+   * @remarks
+   * Template version number
+   * 
    * @example
    * v3
    */
   templateVersion?: string;
   /**
+   * @remarks
+   * Template version name
+   * 
    * @example
    * fix bug
    */
   templateVersionName?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2024-05-04T11:17:28
    */
@@ -22211,6 +22512,13 @@ export class ListTemplatesResponseBodyTemplates extends $tea.Model {
    * 2019-05-16T10:26:14Z
    */
   updatedDate?: string;
+  /**
+   * @remarks
+   * The version name.
+   * 
+   * @example
+   * v2.1
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -24416,6 +24724,10 @@ export default class Client extends OpenApi {
       query["AlarmConfig"] = request.alarmConfigShrink;
     }
 
+    if (!Util.isUnset(request.applicationSource)) {
+      query["ApplicationSource"] = request.applicationSource;
+    }
+
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
     }
@@ -26457,6 +26769,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取参数可用值
+   * 
+   * @param request - GetTemplateParameterConstraintsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTemplateParameterConstraintsResponse
+   */
+  async getTemplateParameterConstraintsWithOptions(request: GetTemplateParameterConstraintsRequest, runtime: $Util.RuntimeOptions): Promise<GetTemplateParameterConstraintsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.parameters)) {
+      query["Parameters"] = request.parameters;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.templateContent)) {
+      query["TemplateContent"] = request.templateContent;
+    }
+
+    if (!Util.isUnset(request.templateName)) {
+      query["TemplateName"] = request.templateName;
+    }
+
+    if (!Util.isUnset(request.templateURL)) {
+      query["TemplateURL"] = request.templateURL;
+    }
+
+    if (!Util.isUnset(request.templateVersion)) {
+      query["TemplateVersion"] = request.templateVersion;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetTemplateParameterConstraints",
+      version: "2019-06-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetTemplateParameterConstraintsResponse({}));
+  }
+
+  /**
+   * 获取参数可用值
+   * 
+   * @param request - GetTemplateParameterConstraintsRequest
+   * @returns GetTemplateParameterConstraintsResponse
+   */
+  async getTemplateParameterConstraints(request: GetTemplateParameterConstraintsRequest): Promise<GetTemplateParameterConstraintsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getTemplateParameterConstraintsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the available actions, including atomic actions and cloud product actions.
    * 
    * @param request - ListActionsRequest
@@ -27059,7 +27433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出实例软件包状态
+   * List Instance Package States
    * 
    * @param request - ListInstancePackageStatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27106,7 +27480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出实例软件包状态
+   * List Instance Package States
    * 
    * @param request - ListInstancePackageStatesRequest
    * @returns ListInstancePackageStatesResponse
@@ -29103,7 +29477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例软件包状态
+   * Updates the installed extensions of an instance.
    * 
    * @param tmpReq - UpdateInstancePackageStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29160,7 +29534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新实例软件包状态
+   * Updates the installed extensions of an instance.
    * 
    * @param request - UpdateInstancePackageStateRequest
    * @returns UpdateInstancePackageStateResponse
