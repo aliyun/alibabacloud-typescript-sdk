@@ -10462,13 +10462,40 @@ export class InstallClusterAddonsRequest extends $tea.Model {
   }
 }
 
+export class InstallClusterAddonsResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstallClusterAddonsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: InstallClusterAddonsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -10476,6 +10503,7 @@ export class InstallClusterAddonsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: InstallClusterAddonsResponseBody,
     };
   }
 
@@ -13767,13 +13795,40 @@ export class UnInstallClusterAddonsRequest extends $tea.Model {
   }
 }
 
+export class UnInstallClusterAddonsResponseBody extends $tea.Model {
+  clusterId?: string;
+  requestId?: string;
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'cluster_id',
+      requestId: 'request_id',
+      taskId: 'task_id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnInstallClusterAddonsResponse extends $tea.Model {
   headers?: { [key: string]: string };
   statusCode?: number;
+  body?: UnInstallClusterAddonsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
       statusCode: 'statusCode',
+      body: 'body',
     };
   }
 
@@ -13781,6 +13836,7 @@ export class UnInstallClusterAddonsResponse extends $tea.Model {
     return {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
+      body: UnInstallClusterAddonsResponseBody,
     };
   }
 
@@ -33269,7 +33325,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<InstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new InstallClusterAddonsResponse({}));
   }
@@ -35287,7 +35343,7 @@ export default class Client extends OpenApi {
       authType: "AK",
       style: "ROA",
       reqBodyType: "json",
-      bodyType: "none",
+      bodyType: "json",
     });
     return $tea.cast<UnInstallClusterAddonsResponse>(await this.callApi(params, req, runtime), new UnInstallClusterAddonsResponse({}));
   }
