@@ -54,12 +54,14 @@ export class GenericSearchResult extends $tea.Model {
    * 123456
    */
   requestId?: string;
+  sceneItems?: SceneItem[];
   searchInformation?: SearchInformation;
   weiboItems?: WeiboItem[];
   static names(): { [key: string]: string } {
     return {
       pageItems: 'pageItems',
       requestId: 'requestId',
+      sceneItems: 'sceneItems',
       searchInformation: 'searchInformation',
       weiboItems: 'weiboItems',
     };
@@ -69,6 +71,7 @@ export class GenericSearchResult extends $tea.Model {
     return {
       pageItems: { 'type': 'array', 'itemType': ScorePageItem },
       requestId: 'string',
+      sceneItems: { 'type': 'array', 'itemType': SceneItem },
       searchInformation: SearchInformation,
       weiboItems: { 'type': 'array', 'itemType': WeiboItem },
     };
@@ -116,6 +119,28 @@ export class IncludeImage extends $tea.Model {
   }
 }
 
+export class SceneItem extends $tea.Model {
+  detail?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      detail: 'detail',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      detail: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ScorePageItem extends $tea.Model {
   /**
    * @remarks
@@ -133,6 +158,16 @@ export class ScorePageItem extends $tea.Model {
    * baijiahao.baidu.com
    */
   displayLink?: string;
+  /**
+   * @example
+   * https://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9ndy5hbGljZG4uY29tL0wxLzcyMy8xNTY1MjU2NjAwLzJhL2YwL2I0LzJhZjBiNDQxMGI5YmVlMDVjOGVlNGJmODk3MTNkNTFjLnBuZw==&sign=yx:CUlNNQVJQjFrk3Kxt2F3KWhTOFU=&tv=400_400
+   */
+  hostLogo?: string;
+  /**
+   * @example
+   * 新华网
+   */
+  hostname?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -187,6 +222,11 @@ export class ScorePageItem extends $tea.Model {
    */
   score?: number;
   /**
+   * @example
+   * 权威媒体
+   */
+  siteLabel?: string;
+  /**
    * @remarks
    * This parameter is required.
    * 
@@ -198,6 +238,8 @@ export class ScorePageItem extends $tea.Model {
     return {
       cardType: 'cardType',
       displayLink: 'displayLink',
+      hostLogo: 'hostLogo',
+      hostname: 'hostname',
       htmlSnippet: 'htmlSnippet',
       htmlTitle: 'htmlTitle',
       images: 'images',
@@ -207,6 +249,7 @@ export class ScorePageItem extends $tea.Model {
       pageMap: 'pageMap',
       publishTime: 'publishTime',
       score: 'score',
+      siteLabel: 'siteLabel',
       title: 'title',
     };
   }
@@ -215,6 +258,8 @@ export class ScorePageItem extends $tea.Model {
     return {
       cardType: 'string',
       displayLink: 'string',
+      hostLogo: 'string',
+      hostname: 'string',
       htmlSnippet: 'string',
       htmlTitle: 'string',
       images: { 'type': 'array', 'itemType': IncludeImage },
@@ -224,6 +269,7 @@ export class ScorePageItem extends $tea.Model {
       pageMap: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       publishTime: 'number',
       score: 'number',
+      siteLabel: 'string',
       title: 'string',
     };
   }
