@@ -1727,6 +1727,28 @@ export class GPUConfig extends $tea.Model {
   }
 }
 
+export class GetInstanceLifecycleEventsOutput extends $tea.Model {
+  events?: InstanceEventItem[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      events: 'events',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      events: { 'type': 'array', 'itemType': InstanceEventItem },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetResourceTagsOutput extends $tea.Model {
   /**
    * @example
@@ -1874,27 +1896,66 @@ export class InputCodeLocation extends $tea.Model {
   }
 }
 
+export class InstanceEventItem extends $tea.Model {
+  children?: InstanceEventItem[];
+  level?: string;
+  message?: string;
+  time?: string;
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      children: 'children',
+      level: 'level',
+      message: 'message',
+      time: 'time',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      children: { 'type': 'array', 'itemType': InstanceEventItem },
+      level: 'string',
+      message: 'string',
+      time: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InstanceInfo extends $tea.Model {
+  createdTimeMs?: number;
+  destroyedTimeMs?: number;
   /**
    * @example
    * 1ef6b6ff-7f7b-485e-ab49-501ac681****
    */
   instanceId?: string;
-  /**
-   * @example
-   * LATEST
-   */
+  qualifier?: string;
+  status?: string;
   versionId?: string;
   static names(): { [key: string]: string } {
     return {
+      createdTimeMs: 'createdTimeMs',
+      destroyedTimeMs: 'destroyedTimeMs',
       instanceId: 'instanceId',
+      qualifier: 'qualifier',
+      status: 'status',
       versionId: 'versionId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      createdTimeMs: 'number',
+      destroyedTimeMs: 'number',
       instanceId: 'string',
+      qualifier: 'string',
+      status: 'string',
       versionId: 'string',
     };
   }
@@ -2258,15 +2319,18 @@ export class ListFunctionsOutput extends $tea.Model {
 
 export class ListInstancesOutput extends $tea.Model {
   instances?: InstanceInfo[];
+  requestId?: string;
   static names(): { [key: string]: string } {
     return {
       instances: 'instances',
+      requestId: 'requestId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       instances: { 'type': 'array', 'itemType': InstanceInfo },
+      requestId: 'string',
     };
   }
 
@@ -6358,6 +6422,10 @@ export class ListFunctionsResponse extends $tea.Model {
 }
 
 export class ListInstancesRequest extends $tea.Model {
+  endTimeMs?: number;
+  instanceIds?: string[];
+  instanceStatus?: string[];
+  limit?: string;
   /**
    * @remarks
    * The function version or alias.
@@ -6366,6 +6434,8 @@ export class ListInstancesRequest extends $tea.Model {
    * LATEST
    */
   qualifier?: string;
+  startKey?: string;
+  startTimeMs?: number;
   /**
    * @remarks
    * Specifies whether to list all instances. Valid values: true and false.
@@ -6376,14 +6446,80 @@ export class ListInstancesRequest extends $tea.Model {
   withAllActive?: boolean;
   static names(): { [key: string]: string } {
     return {
+      endTimeMs: 'endTimeMs',
+      instanceIds: 'instanceIds',
+      instanceStatus: 'instanceStatus',
+      limit: 'limit',
       qualifier: 'qualifier',
+      startKey: 'startKey',
+      startTimeMs: 'startTimeMs',
       withAllActive: 'withAllActive',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      endTimeMs: 'number',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceStatus: { 'type': 'array', 'itemType': 'string' },
+      limit: 'string',
       qualifier: 'string',
+      startKey: 'string',
+      startTimeMs: 'number',
+      withAllActive: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListInstancesShrinkRequest extends $tea.Model {
+  endTimeMs?: number;
+  instanceIdsShrink?: string;
+  instanceStatusShrink?: string;
+  limit?: string;
+  /**
+   * @remarks
+   * The function version or alias.
+   * 
+   * @example
+   * LATEST
+   */
+  qualifier?: string;
+  startKey?: string;
+  startTimeMs?: number;
+  /**
+   * @remarks
+   * Specifies whether to list all instances. Valid values: true and false.
+   * 
+   * @example
+   * true
+   */
+  withAllActive?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      endTimeMs: 'endTimeMs',
+      instanceIdsShrink: 'instanceIds',
+      instanceStatusShrink: 'instanceStatus',
+      limit: 'limit',
+      qualifier: 'qualifier',
+      startKey: 'startKey',
+      startTimeMs: 'startTimeMs',
+      withAllActive: 'withAllActive',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTimeMs: 'number',
+      instanceIdsShrink: 'string',
+      instanceStatusShrink: 'string',
+      limit: 'string',
+      qualifier: 'string',
+      startKey: 'string',
+      startTimeMs: 'number',
       withAllActive: 'boolean',
     };
   }
@@ -9198,16 +9334,50 @@ export default class Client extends OpenApi {
   /**
    * Queries a list of function instances.
    * 
-   * @param request - ListInstancesRequest
+   * @param tmpReq - ListInstancesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInstancesResponse
    */
-  async listInstancesWithOptions(functionName: string, request: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
-    Util.validateModel(request);
+  async listInstancesWithOptions(functionName: string, tmpReq: ListInstancesRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListInstancesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListInstancesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.instanceIds)) {
+      request.instanceIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceIds, "instanceIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.instanceStatus)) {
+      request.instanceStatusShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.instanceStatus, "instanceStatus", "json");
+    }
+
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.endTimeMs)) {
+      query["endTimeMs"] = request.endTimeMs;
+    }
+
+    if (!Util.isUnset(request.instanceIdsShrink)) {
+      query["instanceIds"] = request.instanceIdsShrink;
+    }
+
+    if (!Util.isUnset(request.instanceStatusShrink)) {
+      query["instanceStatus"] = request.instanceStatusShrink;
+    }
+
+    if (!Util.isUnset(request.limit)) {
+      query["limit"] = request.limit;
+    }
+
     if (!Util.isUnset(request.qualifier)) {
       query["qualifier"] = request.qualifier;
+    }
+
+    if (!Util.isUnset(request.startKey)) {
+      query["startKey"] = request.startKey;
+    }
+
+    if (!Util.isUnset(request.startTimeMs)) {
+      query["startTimeMs"] = request.startTimeMs;
     }
 
     if (!Util.isUnset(request.withAllActive)) {
