@@ -611,6 +611,7 @@ export class CreateCloudResourceRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  tag?: CreateCloudResourceRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -619,6 +620,7 @@ export class CreateCloudResourceRequest extends $tea.Model {
       redirect: 'Redirect',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -630,6 +632,7 @@ export class CreateCloudResourceRequest extends $tea.Model {
       redirect: CreateCloudResourceRequestRedirect,
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateCloudResourceRequestTag },
     };
   }
 
@@ -692,6 +695,7 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  tag?: CreateCloudResourceShrinkRequestTag[];
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
@@ -700,6 +704,7 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
       redirectShrink: 'Redirect',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -711,6 +716,7 @@ export class CreateCloudResourceShrinkRequest extends $tea.Model {
       redirectShrink: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateCloudResourceShrinkRequestTag },
     };
   }
 
@@ -1331,6 +1337,7 @@ export class CreateDomainRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  tag?: CreateDomainRequestTag[];
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
@@ -1340,6 +1347,7 @@ export class CreateDomainRequest extends $tea.Model {
       redirect: 'Redirect',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -1352,6 +1360,7 @@ export class CreateDomainRequest extends $tea.Model {
       redirect: CreateDomainRequestRedirect,
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDomainRequestTag },
     };
   }
 
@@ -1429,6 +1438,7 @@ export class CreateDomainShrinkRequest extends $tea.Model {
    * rg-acfm***q
    */
   resourceManagerResourceGroupId?: string;
+  tag?: CreateDomainShrinkRequestTag[];
   static names(): { [key: string]: string } {
     return {
       accessType: 'AccessType',
@@ -1438,6 +1448,7 @@ export class CreateDomainShrinkRequest extends $tea.Model {
       redirectShrink: 'Redirect',
       regionId: 'RegionId',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      tag: 'Tag',
     };
   }
 
@@ -1450,6 +1461,7 @@ export class CreateDomainShrinkRequest extends $tea.Model {
       redirectShrink: 'string',
       regionId: 'string',
       resourceManagerResourceGroupId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDomainShrinkRequestTag },
     };
   }
 
@@ -18555,7 +18567,6 @@ export class DescribeUserWafLogStatusResponseBody extends $tea.Model {
    * *   **us-west-1**: US (Silicon Valley).
    * *   **ap-northeast-1**: Japan (Tokyo).
    * *   **ap-northeast-2**: South Korea (Seoul).
-   * *   **ap-south-1**: India (Mumbai) Closing Down.
    * *   **eu-west-1**: UK (London).
    * *   **cn-hangzhou-finance**: China East 1 Finance.
    * *   **cn-shanghai-finance-1**: China East 2 Finance.
@@ -24626,6 +24637,50 @@ export class CreateCloudResourceRequestRedirect extends $tea.Model {
   }
 }
 
+export class CreateCloudResourceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateCloudResourceShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDomainRequestListen extends $tea.Model {
   /**
    * @remarks
@@ -24890,6 +24945,7 @@ export class CreateDomainRequestRedirect extends $tea.Model {
    * The IP addresses or domain names of the origin server.
    */
   backends?: string[];
+  backupBackends?: string[];
   /**
    * @remarks
    * Specifies whether to enable the public cloud disaster recovery feature. Valid values:
@@ -25054,6 +25110,7 @@ export class CreateDomainRequestRedirect extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       backends: 'Backends',
+      backupBackends: 'BackupBackends',
       cnameEnabled: 'CnameEnabled',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
@@ -25075,6 +25132,7 @@ export class CreateDomainRequestRedirect extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backends: { 'type': 'array', 'itemType': 'string' },
+      backupBackends: { 'type': 'array', 'itemType': 'string' },
       cnameEnabled: 'boolean',
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
@@ -25090,6 +25148,50 @@ export class CreateDomainRequestRedirect extends $tea.Model {
       sniHost: 'string',
       writeTimeout: 'number',
       xffProto: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDomainShrinkRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -25115,10 +25217,12 @@ export class CreateDomainResponseBodyDomainInfo extends $tea.Model {
    * www.aliyundoc.com
    */
   domain?: string;
+  domainId?: string;
   static names(): { [key: string]: string } {
     return {
       cname: 'Cname',
       domain: 'Domain',
+      domainId: 'DomainId',
     };
   }
 
@@ -25126,6 +25230,7 @@ export class CreateDomainResponseBodyDomainInfo extends $tea.Model {
     return {
       cname: 'string',
       domain: 'string',
+      domainId: 'string',
     };
   }
 
@@ -29183,6 +29288,25 @@ export class DescribeDomainDetailResponseBodyRedirectBackends extends $tea.Model
   }
 }
 
+export class DescribeDomainDetailResponseBodyRedirectBackupBackends extends $tea.Model {
+  backend?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backend: 'Backend',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backend: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $tea.Model {
   /**
    * @remarks
@@ -29225,6 +29349,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
    * An array of addresses of origin servers.
    */
   backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
+  backupBackends?: DescribeDomainDetailResponseBodyRedirectBackupBackends[];
   /**
    * @remarks
    * The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
@@ -29352,6 +29477,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       backends: 'Backends',
+      backupBackends: 'BackupBackends',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
       keepalive: 'Keepalive',
@@ -29371,6 +29497,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackends },
+      backupBackends: { 'type': 'array', 'itemType': DescribeDomainDetailResponseBodyRedirectBackupBackends },
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
       keepalive: 'boolean',
@@ -33291,6 +33418,13 @@ export class DescribeSensitiveRequestLogResponseBodyData extends $tea.Model {
    * a.****.com
    */
   matchedHost?: string;
+  /**
+   * @remarks
+   * IP region, formatted as a region code.
+   * 
+   * @example
+   * CN
+   */
   remoteCountryId?: string;
   /**
    * @remarks
@@ -34780,6 +34914,7 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
    * *   If you use the domain name type, specify the value in the ["domain"] format. You can enter up to 20 domain names.
    */
   backends?: string[];
+  backupBackends?: string[];
   /**
    * @remarks
    * Specifies whether to enable the public cloud disaster recovery feature. Valid values:
@@ -34944,6 +35079,7 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       backends: 'Backends',
+      backupBackends: 'BackupBackends',
       cnameEnabled: 'CnameEnabled',
       connectTimeout: 'ConnectTimeout',
       focusHttpBackend: 'FocusHttpBackend',
@@ -34965,6 +35101,7 @@ export class ModifyDomainRequestRedirect extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       backends: { 'type': 'array', 'itemType': 'string' },
+      backupBackends: { 'type': 'array', 'itemType': 'string' },
       cnameEnabled: 'boolean',
       connectTimeout: 'number',
       focusHttpBackend: 'boolean',
@@ -35403,6 +35540,10 @@ export default class Client extends OpenApi {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
     }
 
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -35677,6 +35818,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceManagerResourceGroupId)) {
       query["ResourceManagerResourceGroupId"] = request.resourceManagerResourceGroupId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
