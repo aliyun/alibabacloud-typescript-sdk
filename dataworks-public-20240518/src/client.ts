@@ -448,7 +448,7 @@ export class AssociateProjectToResourceGroupResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -3938,6 +3938,9 @@ export class CreateRouteResponseBody extends $tea.Model {
    */
   routeId?: number;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -4939,6 +4942,9 @@ export class DeleteNetworkResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -5408,7 +5414,7 @@ export class DeleteResourceGroupResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -5491,6 +5497,9 @@ export class DeleteRouteResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -5942,7 +5951,7 @@ export class DissociateProjectFromResourceGroupResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -7112,6 +7121,10 @@ export class GetNetworkRequest extends $tea.Model {
 }
 
 export class GetNetworkResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the network resource.
+   */
   network?: GetNetworkResponseBodyNetwork;
   /**
    * @example
@@ -7119,6 +7132,9 @@ export class GetNetworkResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -7370,7 +7386,7 @@ export class GetProjectMemberRequest extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
-   * The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.39e9281f3mhq4J), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+   * The ID of the account used by the member. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
    * 
    * This parameter is required.
    * 
@@ -7790,6 +7806,9 @@ export class GetRouteResponseBody extends $tea.Model {
    */
   route?: GetRouteResponseBodyRoute;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -8246,7 +8265,7 @@ export class GrantMemberProjectRolesRequest extends $tea.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
    * 
    * This parameter is required.
    * 
@@ -8297,7 +8316,7 @@ export class GrantMemberProjectRolesShrinkRequest extends $tea.Model {
   roleCodesShrink?: string;
   /**
    * @remarks
-   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.51d7281fjgBRmo), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
    * 
    * This parameter is required.
    * 
@@ -8703,7 +8722,7 @@ export class ListAlertRulesResponse extends $tea.Model {
 export class ListDIAlarmRulesRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the alert rule.
+   * The ID of the alert rule. If you leave this parameter empty, all alert rules of the task are queried.
    * 
    * @example
    * 34988
@@ -8711,7 +8730,7 @@ export class ListDIAlarmRulesRequest extends $tea.Model {
   DIAlarmRuleId?: number;
   /**
    * @remarks
-   * The ID of the synchronization task for which alert rules are configured.
+   * The ID of the task for which alert rules are configured.
    * 
    * @example
    * 1000001
@@ -9788,11 +9807,17 @@ export class ListDataQualityResultsRequest extends $tea.Model {
    */
   dataQualityRuleId?: number;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */
@@ -10322,6 +10347,12 @@ export class ListDataSourcesRequest extends $tea.Model {
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The tag of the data source. This parameter specifies a filter condition.
+   * 
+   * *   You can specify multiple tags, which are in the logical AND relation. For example, you can query the data sources that contain the following tags: `["tag1", "tag2", "tag3"]`.
+   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * 
    * @example
    * ["tag1", "tag2", "tag3"]
    */
@@ -10440,6 +10471,12 @@ export class ListDataSourcesShrinkRequest extends $tea.Model {
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The tag of the data source. This parameter specifies a filter condition.
+   * 
+   * *   You can specify multiple tags, which are in the logical AND relation. For example, you can query the data sources that contain the following tags: `["tag1", "tag2", "tag3"]`.
+   * *   If you do not configure this parameter, tag-based filtering is not performed.
+   * 
    * @example
    * ["tag1", "tag2", "tag3"]
    */
@@ -11280,6 +11317,10 @@ export class ListNodesRequest extends $tea.Model {
    * 12345
    */
   projectId?: string;
+  /**
+   * @example
+   * Normal
+   */
   recurrence?: string;
   /**
    * @remarks
@@ -11430,7 +11471,7 @@ export class ListProjectMembersRequest extends $tea.Model {
   roleCodes?: string[];
   /**
    * @remarks
-   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.7f96340a3HFgqS), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -11494,7 +11535,7 @@ export class ListProjectMembersShrinkRequest extends $tea.Model {
   roleCodesShrink?: string;
   /**
    * @remarks
-   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=a2c4g.11186623.0.0.7f96340a3HFgqS), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
+   * The IDs of the accounts used by the members in the workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
    */
   userIdsShrink?: string;
   static names(): { [key: string]: string } {
@@ -12491,6 +12532,9 @@ export class ListRoutesResponseBody extends $tea.Model {
    */
   routeList?: ListRoutesResponseBodyRouteList[];
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -17785,6 +17829,12 @@ export class UpdateProjectRequest extends $tea.Model {
    */
   paiTaskEnabled?: boolean;
   /**
+   * @remarks
+   * Specifies whether to disable or enable the workspace. Valid values:
+   * 
+   * *   Available: enables the workspace.
+   * *   Forbidden: disables the workspace.
+   * 
    * @example
    * Forbidden
    */
@@ -18091,6 +18141,8 @@ export class UpdateResourceGroupResponse extends $tea.Model {
 export class UpdateRouteRequest extends $tea.Model {
   /**
    * @remarks
+   * The destination CIDR block of the route that you want to update.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18131,6 +18183,9 @@ export class UpdateRouteResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -24947,12 +25002,12 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   INIT
-   * *   RUNNING
-   * *   SUCCESS
-   * *   FAIL
-   * *   TERMINATION
-   * *   CANCEL
+   * *   Init
+   * *   Running
+   * *   Success
+   * *   Fail
+   * *   Termination
+   * *   Cancel
    * 
    * @example
    * INIT
@@ -24972,11 +25027,11 @@ export class GetDeploymentResponseBodyPipelineStages extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   DELETE
-   * *   BUILD
-   * *   CHECK
-   * *   DEPLOY
-   * *   OFFLINE
+   * *   Deploy
+   * *   Check
+   * *   Offline
+   * *   Build
+   * *   Delete
    * 
    * @example
    * BUILD
@@ -25070,12 +25125,12 @@ export class GetDeploymentResponseBodyPipeline extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   INIT
-   * *   RUNNING
-   * *   SUCCESS
-   * *   FAIL
-   * *   TERMINATION
-   * *   CANCEL
+   * *   Init
+   * *   Running
+   * *   Success
+   * *   Fail
+   * *   Termination
+   * *   Cancel
    * 
    * @example
    * RUNNING
@@ -25304,6 +25359,15 @@ export class GetNetworkResponseBodyNetwork extends $tea.Model {
    */
   securityGroupId?: string;
   /**
+   * @remarks
+   * The status of the network resource. Valid values:
+   * 
+   * *   Pending: The network resource is waiting to be created.
+   * *   Creating: The network resource is being created.
+   * *   Running: The network resource is running as expected.
+   * *   Deleting: The network resource is being deleted.
+   * *   Deleted: The network resource is deleted.
+   * 
    * @example
    * Running
    */
@@ -28719,12 +28783,7 @@ export class ListAlertRulesResponseBodyPagingInfo extends $tea.Model {
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettingsNotificationChannels extends $tea.Model {
   /**
    * @remarks
-   * The alert notification method. Valid values:
-   * 
-   * *   Mail
-   * *   Phone
-   * *   Sms
-   * *   Ding
+   * The alert notification methods.
    */
   channels?: string[];
   /**
@@ -28836,7 +28895,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSe
 export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesTriggerConditions extends $tea.Model {
   /**
    * @remarks
-   * The types of DDL operations for which the alert rule takes effect.
+   * The types of DDL operations for which the alert rule takes effect. This parameter is returned only if the MetricType parameter is set to DdlReport.
    */
   ddlReportTags?: string[];
   /**
@@ -28950,7 +29009,7 @@ export class ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRules extends $tea.
   name?: string;
   /**
    * @remarks
-   * The alert notification settings.
+   * The alert notification method and recipient settings.
    */
   notificationSettings?: ListDIAlarmRulesResponseBodyPagingInfoDIJobAlarmRulesNotificationSettings;
   /**
@@ -32249,7 +32308,12 @@ export class ListDataSourceSharedRulesResponseBodyDataSourceSharedRules extends 
 export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends $tea.Model {
   /**
    * @remarks
-   * The connection properties of the data source.
+   * The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
+   * 
+   * *   Dev: development environment
+   * *   Prod: production environment
+   * 
+   * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/zh/dataworks/developer-reference/data-source-connection-information-connectionproperties/?spm=a2c4g.11186623.0.0.3fbb6fe7fo5AMK).
    * 
    * @example
    * {
@@ -32321,7 +32385,7 @@ export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends 
   modifyUser?: string;
   /**
    * @remarks
-   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+   * The unique business key of the data source. For example, the unique business key of a Hologres data source is in the `${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database}` format.
    * 
    * @example
    * 1648711121000:cn-beijing:odps:yongxunQA_beijing_standard
@@ -32361,6 +32425,10 @@ export class ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource extends 
 }
 
 export class ListDataSourcesResponseBodyPagingInfoDataSources extends $tea.Model {
+  /**
+   * @remarks
+   * The data sources. Each element is the information of a single data source with a unique data source ID.
+   */
   dataSource?: ListDataSourcesResponseBodyPagingInfoDataSourcesDataSource[];
   /**
    * @remarks
@@ -32400,6 +32468,10 @@ export class ListDataSourcesResponseBodyPagingInfoDataSources extends $tea.Model
 }
 
 export class ListDataSourcesResponseBodyPagingInfo extends $tea.Model {
+  /**
+   * @remarks
+   * The data source groups. Each element in the array indicates a data source group. Each data source group contains data sources in the development environment (if any) and the production environment.
+   */
   dataSources?: ListDataSourcesResponseBodyPagingInfoDataSources[];
   /**
    * @remarks
@@ -32483,12 +32555,12 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
    * 
    * Valid values:
    * 
-   * *   INIT
-   * *   RUNNING
-   * *   SUCCESS
-   * *   FAIL
-   * *   TERMINATION
-   * *   CANCEL
+   * *   Init
+   * *   Running
+   * *   Success
+   * *   Fail
+   * *   Termination
+   * *   Cancel
    * 
    * @example
    * RUNNING
@@ -32508,11 +32580,11 @@ export class ListDeploymentsResponseBodyPagingInfoDeploymentsStages extends $tea
    * 
    * Valid values:
    * 
-   * *   DEPLOY
-   * *   CHECK
-   * *   OFFLINE.
-   * *   BUILD
-   * *   DELETE
+   * *   Deploy
+   * *   Check
+   * *   Offline
+   * *   Build
+   * *   Delete
    * 
    * @example
    * CHECK
@@ -32606,12 +32678,12 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
    * 
    * Valid values:
    * 
-   * *   INIT
-   * *   RUNNING
-   * *   FAIL
-   * *   SUCCESS
-   * *   TERMINATION
-   * *   CANCEL
+   * *   Init
+   * *   Running
+   * *   Success
+   * *   Fail
+   * *   Termination
+   * *   Cancel
    * 
    * @example
    * RUNNING
@@ -32651,7 +32723,7 @@ export class ListDeploymentsResponseBodyPagingInfoDeployments extends $tea.Model
 export class ListDeploymentsResponseBodyPagingInfo extends $tea.Model {
   /**
    * @remarks
-   * The processes.
+   * The deployment processes.
    */
   deployments?: ListDeploymentsResponseBodyPagingInfoDeployments[];
   /**
@@ -33985,12 +34057,12 @@ export class ListFunctionsResponseBodyPagingInfoFunctions extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   MATH: mathematical operation function
-   * *   AGGREGATE: aggregate function
-   * *   STRING: string processing function
-   * *   DATE: date function
-   * *   ANALYTIC: window function
-   * *   OTHER: others
+   * *   Math: mathematical operation function
+   * *   Aggregate: aggregate function
+   * *   String: string processing function
+   * *   Date: date function
+   * *   Analytic: window function
+   * *   Other: other functions
    * 
    * @example
    * MATH
@@ -44872,7 +44944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质量规则模版详情
+   * Queries the information about a data quality monitoring rule template.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -44902,7 +44974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取质量规则模版详情
+   * Queries the information about a data quality monitoring rule template.
    * 
    * @remarks
    * This API operation is available for all DataWorks editions.
@@ -45200,6 +45272,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the details about a member in a workspace.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetProjectMemberRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetProjectMemberResponse
@@ -45235,6 +45310,9 @@ export default class Client extends OpenApi {
   /**
    * Queries the details about a member in a workspace.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - GetProjectMemberRequest
    * @returns GetProjectMemberResponse
    */
@@ -45245,6 +45323,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a role in a DataWorks workspace.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetProjectRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45280,6 +45361,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about a role in a DataWorks workspace.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GetProjectRoleRequest
    * @returns GetProjectRoleResponse
@@ -45536,7 +45620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the infomation about a workflow.
+   * Queries the information about a workflow.
    * 
    * @param request - GetWorkflowDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45563,7 +45647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the infomation about a workflow.
+   * Queries the information about a workflow.
    * 
    * @param request - GetWorkflowDefinitionRequest
    * @returns GetWorkflowDefinitionResponse
@@ -45575,6 +45659,9 @@ export default class Client extends OpenApi {
 
   /**
    * Assigns roles to members in a workspace.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - GrantMemberProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45620,6 +45707,9 @@ export default class Client extends OpenApi {
 
   /**
    * Assigns roles to members in a workspace.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - GrantMemberProjectRolesRequest
    * @returns GrantMemberProjectRolesResponse
@@ -46217,7 +46307,8 @@ export default class Client extends OpenApi {
    * Queries a list of data sources based on the business information of data sources.
    * 
    * @remarks
-   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
    * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param tmpReq - ListDataSourcesRequest
@@ -46254,7 +46345,8 @@ export default class Client extends OpenApi {
    * Queries a list of data sources based on the business information of data sources.
    * 
    * @remarks
-   * You can call this operation only if you are assigned one of the following roles in DataWorks:
+   * 1.  This API operation is available for all DataWorks editions.
+   * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
    * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
    * 
    * @param request - ListDataSourcesRequest
@@ -46540,6 +46632,9 @@ export default class Client extends OpenApi {
   /**
    * Queries details about members in a workspace.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param tmpReq - ListProjectMembersRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProjectMembersResponse
@@ -46597,6 +46692,9 @@ export default class Client extends OpenApi {
   /**
    * Queries details about members in a workspace.
    * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
+   * 
    * @param request - ListProjectMembersRequest
    * @returns ListProjectMembersResponse
    */
@@ -46607,6 +46705,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about roles in a DataWorks workspace by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param tmpReq - ListProjectRolesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46668,6 +46769,9 @@ export default class Client extends OpenApi {
 
   /**
    * Queries the information about roles in a DataWorks workspace by page.
+   * 
+   * @remarks
+   * This API operation is available for all DataWorks editions.
    * 
    * @param request - ListProjectRolesRequest
    * @returns ListProjectRolesResponse
