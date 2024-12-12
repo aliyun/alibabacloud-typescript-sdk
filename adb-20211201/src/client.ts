@@ -12110,6 +12110,314 @@ export class DescribeSchemasResponse extends $tea.Model {
   }
 }
 
+export class DescribeSparkAppDiagnosisInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * s202411061017sh0ad564b000****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-uf663j39b0jd2***
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PYTHON
+   */
+  language?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      DBClusterId: 'DBClusterId',
+      language: 'Language',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      DBClusterId: 'string',
+      language: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSparkAppDiagnosisInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "AccountLevelIdentityBasedPolicy",
+   *     "AuthPrincipalOwnerId": "1*****************7",
+   *     "EncodedDiagnosticMessage": "AQIBIAAAAOPdwKY2QLOvgMEc7SkkoJfj1kvZwsaRqNYMh10Tv0wTe0fCzaCdrvgazfNb0EnJKETgXyhR+3BIQjx9WAqZryejBsp1Bl4qI5En/D9dEhcXAtKCxCmE2kZCiEzpy8BoEUt+bs0DmlaGWO5xkEpttypLIB4rUhDvZd+zwPg4EXk4KSSWSWsurxtqDkKEMshKlQFBTKvJcKwyhk62IeYly4hQ+5IpXjkh1GQXuDRCQ==",
+   *     "AuthPrincipalType": "SubUser",
+   *     "AuthPrincipalDisplayName": "2***************9",
+   *     "NoPermissionType": "ImplicitDeny",
+   *     "AuthAction": "adb:DescribeExcessivePrimaryKeys"
+   * }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * s202404141952sz6a1391200****
+   */
+  appId?: string;
+  /**
+   * @example
+   * 100
+   */
+  cpuUtilization?: number;
+  diagnosisInfoList?: Adb4MysqlSparkDiagnosisInfo[];
+  /**
+   * @example
+   * 281063
+   */
+  durationInMillis?: number;
+  /**
+   * @example
+   * 81055
+   */
+  JVMGcCostInMillis?: number;
+  /**
+   * @example
+   * 4096000
+   */
+  peakMemoryInByte?: number;
+  /**
+   * @example
+   * FB5AC339-91F6-5000-8E5A-F47065B01B87
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 4096000
+   */
+  shuffleReadInByte?: number;
+  /**
+   * @example
+   * 4096000
+   */
+  shuffleWriteInByte?: number;
+  /**
+   * @example
+   * 0
+   */
+  spillInByte?: number;
+  /**
+   * @example
+   * 1718329831000
+   */
+  startedTime?: number;
+  /**
+   * @example
+   * FINISHED
+   */
+  state?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      appId: 'AppId',
+      cpuUtilization: 'CpuUtilization',
+      diagnosisInfoList: 'DiagnosisInfoList',
+      durationInMillis: 'DurationInMillis',
+      JVMGcCostInMillis: 'JVMGcCostInMillis',
+      peakMemoryInByte: 'PeakMemoryInByte',
+      requestId: 'RequestId',
+      shuffleReadInByte: 'ShuffleReadInByte',
+      shuffleWriteInByte: 'ShuffleWriteInByte',
+      spillInByte: 'SpillInByte',
+      startedTime: 'StartedTime',
+      state: 'State',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      appId: 'string',
+      cpuUtilization: 'number',
+      diagnosisInfoList: { 'type': 'array', 'itemType': Adb4MysqlSparkDiagnosisInfo },
+      durationInMillis: 'number',
+      JVMGcCostInMillis: 'number',
+      peakMemoryInByte: 'number',
+      requestId: 'string',
+      shuffleReadInByte: 'number',
+      shuffleWriteInByte: 'number',
+      spillInByte: 'number',
+      startedTime: 'number',
+      state: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSparkAppDiagnosisInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSparkAppDiagnosisInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSparkAppDiagnosisInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSparkAppTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * s202407161205sza4c07c1000****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * am-wz9w49b12933****
+   */
+  DBClusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-shenzhen
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      DBClusterId: 'DBClusterId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      DBClusterId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSparkAppTypeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {
+   *     "PolicyType": "AccountLevelIdentityBasedPolicy",
+   *     "AuthPrincipalOwnerId": "1*****************7",
+   *     "EncodedDiagnosticMessage": "AQIBIAAAAOPdwKY2QLOvgMEc7SkkoJfj1kvZwsaRqNYMh10Tv0wTe0fCzaCdrvgazfNb0EnJKETgXyhR+3BIQjx9WAqZryejBsp1Bl4qI5En/D9dEhcXAtKCxCmE2kZCiEzpy8BoEUt+bs0DmlaGWO5xkEpttypLIB4rUhDvZd+zwPg4EXk4KSSWSWsurxtqDkKEMshKlQFBTKvJcKwyhk62IeYly4hQ+5IpXjkh1GQXuDRCQ==",
+   *     "AuthPrincipalType": "SubUser",
+   *     "AuthPrincipalDisplayName": "2***************9",
+   *     "NoPermissionType": "ImplicitDeny",
+   *     "AuthAction": "adb:DescribeExcessivePrimaryKeys"
+   * }
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @example
+   * 596AF63B-8798-501E-BA06-CD2184D48A35
+   */
+  requestId?: string;
+  /**
+   * @example
+   * Batch
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      requestId: 'RequestId',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      requestId: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeSparkAppTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeSparkAppTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeSparkAppTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSparkCodeLogRequest extends $tea.Model {
   /**
    * @remarks
@@ -35491,6 +35799,102 @@ export default class Client extends OpenApi {
   async describeSchemas(request: DescribeSchemasRequest): Promise<DescribeSchemasResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSchemasWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeSparkAppDiagnosisInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSparkAppDiagnosisInfoResponse
+   */
+  async describeSparkAppDiagnosisInfoWithOptions(request: DescribeSparkAppDiagnosisInfoRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSparkAppDiagnosisInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.language)) {
+      query["Language"] = request.language;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSparkAppDiagnosisInfo",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSparkAppDiagnosisInfoResponse>(await this.callApi(params, req, runtime), new DescribeSparkAppDiagnosisInfoResponse({}));
+  }
+
+  /**
+   * @param request - DescribeSparkAppDiagnosisInfoRequest
+   * @returns DescribeSparkAppDiagnosisInfoResponse
+   */
+  async describeSparkAppDiagnosisInfo(request: DescribeSparkAppDiagnosisInfoRequest): Promise<DescribeSparkAppDiagnosisInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSparkAppDiagnosisInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeSparkAppTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSparkAppTypeResponse
+   */
+  async describeSparkAppTypeWithOptions(request: DescribeSparkAppTypeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeSparkAppTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeSparkAppType",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeSparkAppTypeResponse>(await this.callApi(params, req, runtime), new DescribeSparkAppTypeResponse({}));
+  }
+
+  /**
+   * @param request - DescribeSparkAppTypeRequest
+   * @returns DescribeSparkAppTypeResponse
+   */
+  async describeSparkAppType(request: DescribeSparkAppTypeRequest): Promise<DescribeSparkAppTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeSparkAppTypeWithOptions(request, runtime);
   }
 
   /**
