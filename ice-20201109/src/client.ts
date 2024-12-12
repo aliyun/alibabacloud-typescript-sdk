@@ -614,10 +614,6 @@ export class AddTemplateRequest extends $tea.Model {
    * 
    * <!---->
    * 
-   * *
-   * *
-   * *
-   * 
    * @example
    * OpenAPI
    */
@@ -635,13 +631,6 @@ export class AddTemplateRequest extends $tea.Model {
    * 
    * <!---->
    * 
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * 
    * @example
    * Available
    */
@@ -654,9 +643,6 @@ export class AddTemplateRequest extends $tea.Model {
    * *   VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
    * 
    * <!---->
-   * 
-   * *
-   * *
    * 
    * @example
    * Timeline
@@ -8260,7 +8246,7 @@ export class GetEventCallbackResponseBody extends $tea.Model {
   callbackURL?: string;
   /**
    * @remarks
-   * The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/441362.html).
+   * The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/610204.html).
    * 
    * @example
    * ProduceMediaComplete,TranscodeComplete
@@ -10232,8 +10218,9 @@ export class GetSnapshotUrlsRequest extends $tea.Model {
    * @remarks
    * The order that you use to sort the query results. Valid values: Asc and Desc.
    * 
-   * *
-   * *
+   * - Asc
+   * 
+   * - Desc
    * 
    * @example
    * Asc
@@ -11964,9 +11951,6 @@ export class ListBatchMediaProducingJobsRequest extends $tea.Model {
    * *   asc: sorted by creation time in ascending order.
    * 
    * <!---->
-   * 
-   * *
-   * *
    * 
    * @example
    * desc
@@ -15775,11 +15759,17 @@ export class ListPublicMediaBasicInfosResponse extends $tea.Model {
 
 export class ListSearchLibRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Maximum value: 50.
+   * 
    * @example
    * 10
    */
@@ -15805,27 +15795,49 @@ export class ListSearchLibRequest extends $tea.Model {
 
 export class ListSearchLibResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Information about search libraries.
+   */
   searchLibInfoList?: ListSearchLibResponseBodySearchLibInfoList[];
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
   success?: string;
+  /**
+   * @remarks
+   * 总数。
+   * 
+   * @example
+   * 8
+   */
+  total?: number;
   static names(): { [key: string]: string } {
     return {
       code: 'Code',
       requestId: 'RequestId',
       searchLibInfoList: 'SearchLibInfoList',
       success: 'Success',
+      total: 'Total',
     };
   }
 
@@ -15835,6 +15847,7 @@ export class ListSearchLibResponseBody extends $tea.Model {
       requestId: 'string',
       searchLibInfoList: { 'type': 'array', 'itemType': ListSearchLibResponseBodySearchLibInfoList },
       success: 'string',
+      total: 'number',
     };
   }
 
@@ -16884,6 +16897,226 @@ export class ListTranscodeJobsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListTranscodeJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2288c6ca184c0e47098a5b665e2a12****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponseBody extends $tea.Model {
+  data?: QueryCopyrightExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryCopyrightExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCopyrightExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCopyrightExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListRequest extends $tea.Model {
+  /**
+   * @example
+   * 1627357325
+   */
+  createTimeEnd?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  createTimeStart?: number;
+  /**
+   * @example
+   * ****cdb3e74639973036bc84****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 0
+   */
+  level?: number;
+  /**
+   * @example
+   * 0
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      jobId: 'JobId',
+      level: 'Level',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      jobId: 'string',
+      level: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListResponseBody extends $tea.Model {
+  data?: QueryCopyrightJobListResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******36-3C1E-4417-BDB2-1E034F******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryCopyrightJobListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryCopyrightJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryCopyrightJobListResponseBody,
     };
   }
 
@@ -18059,6 +18292,345 @@ export class QuerySmarttagJobResponse extends $tea.Model {
   }
 }
 
+export class QueryTraceAbJobListRequest extends $tea.Model {
+  /**
+   * @example
+   * 1627357325
+   */
+  createTimeEnd?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  createTimeStart?: number;
+  /**
+   * @example
+   * ****d80e4e4044975745c14b****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 0
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * ****437bd2b51105d07b12a9****
+   */
+  traceMediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      traceMediaId: 'TraceMediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      traceMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobListResponseBody extends $tea.Model {
+  data?: QueryTraceAbJobListResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryTraceAbJobListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceAbJobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceAbJobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 31fa3c9ca8134fb4b0b0f7878301****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponseBody extends $tea.Model {
+  data?: QueryTraceExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * *****ACB-44F2-5F2D-88D7-1283E70*****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: QueryTraceExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobListRequest extends $tea.Model {
+  /**
+   * @example
+   * 1627357325
+   */
+  createTimeEnd?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  createTimeStart?: number;
+  /**
+   * @example
+   * ****20b48fb04483915d4f2cd8ac****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 0
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTimeEnd: 'CreateTimeEnd',
+      createTimeStart: 'CreateTimeStart',
+      jobId: 'JobId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTimeEnd: 'number',
+      createTimeStart: 'number',
+      jobId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobListResponseBody extends $tea.Model {
+  data?: QueryTraceM3u8JobListResponseBodyData[];
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: { 'type': 'array', 'itemType': QueryTraceM3u8JobListResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobListResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTraceM3u8JobListResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryTraceM3u8JobListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RefreshUploadMediaRequest extends $tea.Model {
   /**
    * @remarks
@@ -18563,46 +19135,112 @@ export class RegisterMediaStreamResponse extends $tea.Model {
 
 export class SearchEditingProjectRequest extends $tea.Model {
   /**
+   * @remarks
+   * The source of the project.
+   * 
+   * \\-OpenAPI
+   * 
+   * \\-AliyunConsole
+   * 
+   * \\-WebSDK
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole: The project is created in the Alibaba Cloud console.
+   * *   WebSDK: The project is created by using the SDK for Web.
+   * *   OpenAPI: The project is created by calling API operations.
+   * 
    * @example
    * WebSDK
    */
   createSource?: string;
   /**
+   * @remarks
+   * The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10. Valid values: 1 to 100.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The type of the editing project. Default value: EditingProject. Valid values:
+   * 
+   * *   EditingProject: a regular editing project.
+   * *   LiveEditingProject: a live stream editing project.
+   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The sorting rule of results. Valid values:
+   * 
+   * \\- CreationTime:Desc (default): The results are sorted in reverse chronological order based on the creation time.
+   * 
+   * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
+   * 
    * @example
    * CreationTime:Desc
    */
   sortBy?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are queried.
+   * 
+   * Valid values:
+   * 
+   * \\-Draft
+   * 
+   * \\-Producing
+   * 
+   * \\-Produced
+   * 
+   * \\-ProduceFailed
+   * 
    * @example
    * Producing
    */
   status?: string;
   /**
+   * @remarks
+   * The template type. Valid values:
+   * 
+   * \\-Timeline
+   * 
+   * \\-VETemplate
+   * 
+   * Valid values:
+   * 
+   * *   Timeline: regular template.
+   * *   VETemplate: advanced template.
+   * *   None: No template is used.
+   * 
    * @example
    * Timeline
    */
@@ -18642,22 +19280,42 @@ export class SearchEditingProjectRequest extends $tea.Model {
 
 export class SearchEditingProjectResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The maximum number of entries returned on a single page. The value is set to the maximum number of entries returned on each page except for the last page.
+   * 
+   * Examples:
+   * 
+   * Valid example: 10,10,5. Invalid example: 10,5,10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * 
    * @example
    * null
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The queried online editing projects.
+   */
   projectList?: SearchEditingProjectResponseBodyProjectList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ****9262E3DA-07FA-4862-FCBB6BC61D08*****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Optional. The total number of entries returned. By default, this parameter is not returned.
+   * 
    * @example
    * 110
    */
@@ -18715,6 +19373,8 @@ export class SearchEditingProjectResponse extends $tea.Model {
 export class SearchIndexJobRerunRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the media asset. Separate multiple IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18722,11 +19382,21 @@ export class SearchIndexJobRerunRequest extends $tea.Model {
    */
   mediaIds?: string;
   /**
+   * @remarks
+   * The search library.
+   * 
    * @example
    * test-1
    */
   searchLibName?: string;
   /**
+   * @remarks
+   * The type of the job. Separate multiple types with commas (,).
+   * 
+   * *   aiLabel: smart tagging.
+   * *   face: face recognition.
+   * *   mm: large visual model.
+   * 
    * @example
    * AiLabel,Face,Mm
    */
@@ -18754,17 +19424,33 @@ export class SearchIndexJobRerunRequest extends $tea.Model {
 
 export class SearchIndexJobRerunResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The status code returned.
+   * 
    * @example
    * 200
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: SearchIndexJobRerunResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ******11-DB8D-4A9A-875B-275798******
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
@@ -21114,7 +21800,7 @@ export class StartWorkflowRequest extends $tea.Model {
   taskInput?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.htm).
+   * The user-defined data in the JSON format, which cannot be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
    */
   userData?: string;
   /**
@@ -21529,7 +22215,7 @@ export class SubmitAudioProduceJobRequest extends $tea.Model {
    * @remarks
    * The audio editing configurations.
    * 
-   * *   voice: the [voice type](https://help.aliyun.com/document_detail/402424.html).
+   * *   voice: the [voice type](https://help.aliyun.com/document_detail/449563.html).
    * *   customizedVoice: the ID of the personalized human voice.
    * *   format: the format of the output file. Valid values: PCM, WAV, and MP3.
    * *   volume: the volume. Default value: 50. Valid values: 0 to 100.
@@ -21813,6 +22499,12 @@ export class SubmitAvatarVideoJobRequest extends $tea.Model {
    * {"AvatarId":"yunqiao"}
    */
   editingConfig?: string;
+  /**
+   * @remarks
+   * The input configurations of the video rendering job for an avatar. You can specify text, the Object Storage Service (OSS) URL of an audio file, or the ID of a media asset. The audio file must be in the MP3 or WAV format.
+   * 
+   * >  The text must be at least five words in length.
+   */
   inputConfig?: string;
   /**
    * @example
@@ -22051,6 +22743,378 @@ export class SubmitBatchMediaProducingJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitBatchMediaProducingJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  input?: SubmitCopyrightExtractJobRequestInput;
+  /**
+   * @example
+   * {"algoType":"v2"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      params: 'Params',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: SubmitCopyrightExtractJobRequestInput,
+      params: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputShrink?: string;
+  /**
+   * @example
+   * {"algoType":"v2"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputShrink: 'Input',
+      params: 'Params',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputShrink: 'string',
+      params: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponseBody extends $tea.Model {
+  data?: SubmitCopyrightExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****2876-6263-4B75-8F2C-CD0F7FCF****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCopyrightExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCopyrightExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobRequest extends $tea.Model {
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.mp4"}
+   */
+  input?: SubmitCopyrightJobRequestInput;
+  /**
+   * @example
+   * 0
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example_result.mp4"}
+   */
+  output?: SubmitCopyrightJobRequestOutput;
+  /**
+   * @example
+   * {"algoType":"v2"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalTime?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      input: 'Input',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      params: 'Params',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      input: SubmitCopyrightJobRequestInput,
+      level: 'number',
+      message: 'string',
+      output: SubmitCopyrightJobRequestOutput,
+      params: 'string',
+      startTime: 'string',
+      totalTime: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobShrinkRequest extends $tea.Model {
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example.mp4"}
+   */
+  inputShrink?: string;
+  /**
+   * @example
+   * 0
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  message?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"Bucket":"example-bucket","Location":"oss-cn-shanghai","Object":"example_result.mp4"}
+   */
+  outputShrink?: string;
+  /**
+   * @example
+   * {"algoType":"v2"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalTime?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      inputShrink: 'Input',
+      level: 'Level',
+      message: 'Message',
+      outputShrink: 'Output',
+      params: 'Params',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      inputShrink: 'string',
+      level: 'number',
+      message: 'string',
+      outputShrink: 'string',
+      params: 'string',
+      startTime: 'string',
+      totalTime: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBody extends $tea.Model {
+  data?: SubmitCopyrightJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * FA258E67-09B8-4EAA-8F33-BA567834A2C3
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitCopyrightJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitCopyrightJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitCopyrightJobResponseBody,
     };
   }
 
@@ -25924,6 +26988,501 @@ export class SubmitTextGenerateJobResponse extends $tea.Model {
   }
 }
 
+export class SubmitTraceAbJobRequest extends $tea.Model {
+  /**
+   * @example
+   * Qh6OdgIMcliQSI1fReOw****
+   */
+  cipherBase64ed?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  input?: SubmitTraceAbJobRequestInput;
+  /**
+   * @example
+   * 0
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  output?: SubmitTraceAbJobRequestOutput;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 360
+   */
+  totalTime?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cipherBase64ed: 'CipherBase64ed',
+      input: 'Input',
+      level: 'Level',
+      output: 'Output',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cipherBase64ed: 'string',
+      input: SubmitTraceAbJobRequestInput,
+      level: 'number',
+      output: SubmitTraceAbJobRequestOutput,
+      startTime: 'string',
+      totalTime: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * Qh6OdgIMcliQSI1fReOw****
+   */
+  cipherBase64ed?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputShrink?: string;
+  /**
+   * @example
+   * 0
+   */
+  level?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  outputShrink?: string;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 360
+   */
+  totalTime?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cipherBase64ed: 'CipherBase64ed',
+      inputShrink: 'Input',
+      level: 'Level',
+      outputShrink: 'Output',
+      startTime: 'StartTime',
+      totalTime: 'TotalTime',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cipherBase64ed: 'string',
+      inputShrink: 'string',
+      level: 'number',
+      outputShrink: 'string',
+      startTime: 'string',
+      totalTime: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponseBody extends $tea.Model {
+  data?: SubmitTraceAbJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******36-3C1E-4417-BDB2-1E034F******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceAbJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceAbJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceAbJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  input?: SubmitTraceExtractJobRequestInput;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      input: 'Input',
+      params: 'Params',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      input: SubmitTraceExtractJobRequestInput,
+      params: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inputShrink?: string;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
+  params?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      inputShrink: 'Input',
+      params: 'Params',
+      userData: 'UserData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputShrink: 'string',
+      params: 'string',
+      userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponseBody extends $tea.Model {
+  data?: SubmitTraceExtractJobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ****63E8B7C7-4812-46AD-0FA56029AC86****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 200
+   */
+  statusCode?: number;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      statusCode: 'StatusCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceExtractJobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      statusCode: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceExtractJobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceExtractJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobRequest extends $tea.Model {
+  /**
+   * @example
+   * https://cipher.abc.com
+   */
+  keyUri?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  output?: SubmitTraceM3u8JobRequestOutput;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
+  params?: string;
+  trace?: string;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
+  traceMediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyUri: 'KeyUri',
+      output: 'Output',
+      params: 'Params',
+      trace: 'Trace',
+      traceMediaId: 'TraceMediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyUri: 'string',
+      output: SubmitTraceM3u8JobRequestOutput,
+      params: 'string',
+      trace: 'string',
+      traceMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * https://cipher.abc.com
+   */
+  keyUri?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  outputShrink?: string;
+  /**
+   * @example
+   * {"m3u8Type":"v1"}
+   */
+  params?: string;
+  trace?: string;
+  /**
+   * @example
+   * 437bd2b516ffda105d07b12a9a82****
+   */
+  traceMediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      keyUri: 'KeyUri',
+      outputShrink: 'Output',
+      params: 'Params',
+      trace: 'Trace',
+      traceMediaId: 'TraceMediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      keyUri: 'string',
+      outputShrink: 'string',
+      params: 'string',
+      trace: 'string',
+      traceMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponseBody extends $tea.Model {
+  data?: SubmitTraceM3u8JobResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * ******11-DB8D-4A9A-875B-275798******
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: SubmitTraceM3u8JobResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitTraceM3u8JobResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitTraceM3u8JobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTranscodeJobRequest extends $tea.Model {
   /**
    * @remarks
@@ -28903,14 +30462,39 @@ export class AIAgentRuntimeConfigVoiceChat extends $tea.Model {
   }
 }
 
+export class AIAgentTemplateConfigAvatarChat3DLlmHistory extends $tea.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   asrMaxSilence?: number;
   avatarId?: string;
   bailianAppParams?: string;
+  enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  llmHistory?: AIAgentTemplateConfigAvatarChat3DLlmHistory[];
+  llmHistoryLimit?: number;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
@@ -28918,16 +30502,20 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  wakeUpQuery?: string;
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
       asrMaxSilence: 'AsrMaxSilence',
       avatarId: 'AvatarId',
       bailianAppParams: 'BailianAppParams',
+      enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      llmHistory: 'LlmHistory',
+      llmHistoryLimit: 'LlmHistoryLimit',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
@@ -28935,6 +30523,7 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      wakeUpQuery: 'WakeUpQuery',
       workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
@@ -28944,10 +30533,13 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
       asrMaxSilence: 'number',
       avatarId: 'string',
       bailianAppParams: 'string',
+      enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigAvatarChat3DLlmHistory },
+      llmHistoryLimit: 'number',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
@@ -28955,7 +30547,30 @@ export class AIAgentTemplateConfigAvatarChat3D extends $tea.Model {
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      wakeUpQuery: 'string',
       workflowOverrideParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentTemplateConfigVisionChatLlmHistory extends $tea.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
     };
   }
 
@@ -28972,6 +30587,8 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  llmHistory?: AIAgentTemplateConfigVisionChatLlmHistory[];
+  llmHistoryLimit?: number;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
@@ -28979,6 +30596,7 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  wakeUpQuery?: string;
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28989,6 +30607,8 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      llmHistory: 'LlmHistory',
+      llmHistoryLimit: 'LlmHistoryLimit',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
@@ -28996,6 +30616,7 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      wakeUpQuery: 'WakeUpQuery',
       workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
@@ -29009,6 +30630,8 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigVisionChatLlmHistory },
+      llmHistoryLimit: 'number',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
@@ -29016,7 +30639,30 @@ export class AIAgentTemplateConfigVisionChat extends $tea.Model {
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      wakeUpQuery: 'string',
       workflowOverrideParams: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AIAgentTemplateConfigVoiceChatLlmHistory extends $tea.Model {
+  content?: string;
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
     };
   }
 
@@ -29030,10 +30676,13 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   avatarUrl?: string;
   avatarUrlType?: string;
   bailianAppParams?: string;
+  enableIntelligentSegment?: boolean;
   enablePushToTalk?: boolean;
   enableVoiceInterrupt?: boolean;
   gracefulShutdown?: boolean;
   greeting?: string;
+  llmHistory?: AIAgentTemplateConfigVoiceChatLlmHistory[];
+  llmHistoryLimit?: number;
   maxIdleTime?: number;
   useVoiceprint?: boolean;
   userOfflineTimeout?: number;
@@ -29041,6 +30690,7 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
   voiceId?: string;
   voiceprintId?: string;
   volume?: number;
+  wakeUpQuery?: string;
   workflowOverrideParams?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29048,10 +30698,13 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
       avatarUrl: 'AvatarUrl',
       avatarUrlType: 'AvatarUrlType',
       bailianAppParams: 'BailianAppParams',
+      enableIntelligentSegment: 'EnableIntelligentSegment',
       enablePushToTalk: 'EnablePushToTalk',
       enableVoiceInterrupt: 'EnableVoiceInterrupt',
       gracefulShutdown: 'GracefulShutdown',
       greeting: 'Greeting',
+      llmHistory: 'LlmHistory',
+      llmHistoryLimit: 'LlmHistoryLimit',
       maxIdleTime: 'MaxIdleTime',
       useVoiceprint: 'UseVoiceprint',
       userOfflineTimeout: 'UserOfflineTimeout',
@@ -29059,6 +30712,7 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
       voiceId: 'VoiceId',
       voiceprintId: 'VoiceprintId',
       volume: 'Volume',
+      wakeUpQuery: 'WakeUpQuery',
       workflowOverrideParams: 'WorkflowOverrideParams',
     };
   }
@@ -29069,10 +30723,13 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
       avatarUrl: 'string',
       avatarUrlType: 'string',
       bailianAppParams: 'string',
+      enableIntelligentSegment: 'boolean',
       enablePushToTalk: 'boolean',
       enableVoiceInterrupt: 'boolean',
       gracefulShutdown: 'boolean',
       greeting: 'string',
+      llmHistory: { 'type': 'array', 'itemType': AIAgentTemplateConfigVoiceChatLlmHistory },
+      llmHistoryLimit: 'number',
       maxIdleTime: 'number',
       useVoiceprint: 'boolean',
       userOfflineTimeout: 'number',
@@ -29080,6 +30737,7 @@ export class AIAgentTemplateConfigVoiceChat extends $tea.Model {
       voiceId: 'string',
       voiceprintId: 'string',
       volume: 'number',
+      wakeUpQuery: 'string',
       workflowOverrideParams: 'string',
     };
   }
@@ -32238,7 +33896,7 @@ export class GetBatchMediaProducingJobResponseBodyEditingBatchJob extends $tea.M
   subJobList?: GetBatchMediaProducingJobResponseBodyEditingBatchJobSubJobList[];
   /**
    * @remarks
-   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+   * The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
    * 
    * @example
    * {"NotifyAddress":"http://xx.xx.xxx"}
@@ -39792,8 +41450,8 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
    * @remarks
    * The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
    * 
-   * *   [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html)
-   * *   [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html)
+   * *   [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
+   * *   [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
    * 
    * @example
    * {"Media1":"mediaId","Text1":"text"}
@@ -39803,8 +41461,8 @@ export class GetTemplateResponseBodyTemplate extends $tea.Model {
    * @remarks
    * The template configurations.
    * 
-   * *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/277430.html).
-   * *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html#title-3tf-skt-eoi).
+   * *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+   * *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @example
    * 参考Timeline模板配置详解
@@ -44897,7 +46555,7 @@ export class ListBatchMediaProducingJobsResponseBodyEditingBatchJobList extends 
   status?: string;
   /**
    * @remarks
-   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/zh/ims/use-cases/to-configure-a-callback-when-a-clip-completes).
+   * The user-defined data in the JSON format, which can be up to 512 bytes in length. You can specify a custom callback URL. For more information, see [Configure a callback upon editing completion](https://help.aliyun.com/document_detail/451631.html).
    */
   userData?: string;
   static names(): { [key: string]: string } {
@@ -49353,11 +51011,21 @@ export class ListPublicMediaBasicInfosResponseBodyMediaInfos extends $tea.Model 
 
 export class ListSearchLibResponseBodySearchLibInfoList extends $tea.Model {
   /**
+   * @remarks
+   * The search library.
+   * 
    * @example
    * faceSearchLib
    */
   searchLibName?: string;
   /**
+   * @remarks
+   * The status of the search library.
+   * 
+   * *   normal
+   * *   deleting
+   * *   deleteFail
+   * 
    * @example
    * normal
    */
@@ -51823,6 +53491,170 @@ export class ListTranscodeJobsResponseBodyJobs extends $tea.Model {
       submitTime: 'string',
       triggerSource: 'string',
       userData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightExtractJobResponseBodyData extends $tea.Model {
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListResponseBodyDataInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListResponseBodyDataOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryCopyrightJobListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtModified?: number;
+  input?: QueryCopyrightJobListResponseBodyDataInput;
+  /**
+   * @example
+   * bfb786c639894f4d80648792021****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 2
+   */
+  level?: number;
+  /**
+   * @example
+   * test
+   */
+  message?: string;
+  output?: QueryCopyrightJobListResponseBodyDataOutput;
+  /**
+   * @example
+   * {"Code":"success","Message":"ok"}
+   */
+  result?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  /**
+   * @example
+   * 1346693***
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      input: 'Input',
+      jobId: 'JobId',
+      level: 'Level',
+      message: 'Message',
+      output: 'Output',
+      result: 'Result',
+      status: 'Status',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      input: QueryCopyrightJobListResponseBodyDataInput,
+      jobId: 'string',
+      level: 'number',
+      message: 'string',
+      output: QueryCopyrightJobListResponseBodyDataOutput,
+      result: 'string',
+      status: 'string',
+      userData: 'string',
+      userId: 'number',
     };
   }
 
@@ -54492,88 +56324,451 @@ export class QuerySmarttagJobResponseBodyResults extends $tea.Model {
   }
 }
 
+export class QueryTraceAbJobListResponseBodyDataInput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobListResponseBodyDataOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/dir/
+   */
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceAbJobListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtModified?: number;
+  input?: QueryTraceAbJobListResponseBodyDataInput;
+  /**
+   * @example
+   * bfb786c639894f4d80648792021eff90
+   */
+  jobId?: string;
+  /**
+   * @example
+   * 2
+   */
+  level?: number;
+  output?: QueryTraceAbJobListResponseBodyDataOutput;
+  /**
+   * @example
+   * {"Code":"success","Message":"ok"}
+   */
+  result?: string;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * ****437bd2b51105d07b12a9****
+   */
+  traceMediaId?: string;
+  /**
+   * @example
+   * 123
+   */
+  userData?: string;
+  /**
+   * @example
+   * 13466932****
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      input: 'Input',
+      jobId: 'JobId',
+      level: 'Level',
+      output: 'Output',
+      result: 'Result',
+      status: 'Status',
+      traceMediaId: 'TraceMediaId',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      input: QueryTraceAbJobListResponseBodyDataInput,
+      jobId: 'string',
+      level: 'number',
+      output: QueryTraceAbJobListResponseBodyDataOutput,
+      result: 'string',
+      status: 'string',
+      traceMediaId: 'string',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceExtractJobResponseBodyData extends $tea.Model {
+  trace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      trace: 'Trace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      trace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobListResponseBodyDataOutput extends $tea.Model {
+  /**
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryTraceM3u8JobListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtCreate?: number;
+  /**
+   * @example
+   * 1627357322
+   */
+  gmtModified?: number;
+  /**
+   * @example
+   * ****d718e2ff4f018ccf419a7b71****
+   */
+  jobId?: string;
+  output?: QueryTraceM3u8JobListResponseBodyDataOutput;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * test
+   */
+  trace?: string;
+  /**
+   * @example
+   * ****437bd2b105d07b12a9a82****
+   */
+  traceMediaId?: string;
+  /**
+   * @example
+   * 112
+   */
+  userData?: string;
+  /**
+   * @example
+   * 1346693276****
+   */
+  userId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      gmtCreate: 'GmtCreate',
+      gmtModified: 'GmtModified',
+      jobId: 'JobId',
+      output: 'Output',
+      status: 'Status',
+      trace: 'Trace',
+      traceMediaId: 'TraceMediaId',
+      userData: 'UserData',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtCreate: 'number',
+      gmtModified: 'number',
+      jobId: 'string',
+      output: QueryTraceM3u8JobListResponseBodyDataOutput,
+      status: 'string',
+      trace: 'string',
+      traceMediaId: 'string',
+      userData: 'string',
+      userId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
   /**
+   * @remarks
+   * The business configuration of the project. This parameter can be ignored for general editing projects.
+   * 
    * @example
    * { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
    */
   businessConfig?: string;
   /**
+   * @remarks
+   * The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+   * 
+   * Valid values:
+   * 
+   * *   BroadCasting:
+   * *   ReservationCanceled
+   * *   LiveFinished
+   * *   LoadingFailed
+   * *   Reserving
+   * 
    * @example
    * Reserving
    */
   businessStatus?: string;
   /**
+   * @remarks
+   * The thumbnail URL of the online editing project.
+   * 
    * @example
    * http://example-bucket.oss-cn-shanghai.aliyuncs.com/example-cover.jpg
    */
   coverURL?: string;
   /**
+   * @remarks
+   * The method for editing the online editing project.
+   * 
+   * \\-OpenAPI
+   * 
+   * \\-AliyunConsole
+   * 
+   * \\-WebSDK
+   * 
+   * Valid values:
+   * 
+   * *   AliyunConsole: The project is created in the Alibaba Cloud console.
+   * *   WebSDK: The project is created by using the SDK for Web.
+   * *   OpenAPI: The project is created by calling API operations.
+   * 
    * @example
    * OpenAPI
    */
   createSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was created.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description of the online editing project.
+   * 
    * @example
    * sample description
    */
   description?: string;
   /**
+   * @remarks
+   * The total length of the online editing project. Unit: seconds.
+   * 
    * @example
    * 30.100000
    */
   duration?: number;
   /**
+   * @remarks
+   * The error code returned if the production of the online editing project failed.
+   * 
    * @example
    * InvalidParameter
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message returned if the production of the online editing project failed.
+   * 
    * @example
    * "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The method used when the online editing project was last modified.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   modifiedSource?: string;
   /**
+   * @remarks
+   * The time when the online editing project was last modified.
+   * 
    * @example
    * 2017-01-11T12:00:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The ID of the online editing project.
+   * 
    * @example
    * ****fddd7748b58bf1d47e95****
    */
   projectId?: string;
   /**
+   * @remarks
+   * The type of the editing project.
+   * 
+   * Valid values:
+   * 
+   * *   LiveEditingProject: a live stream editing project.
+   * *   EditingProject: a regular editing project.
+   * 
    * @example
    * EditingProject
    */
   projectType?: string;
   /**
+   * @remarks
+   * The status of the online editing project. Valid values:
+   * 
+   * \\-Draft
+   * 
+   * \\-Editing
+   * 
+   * \\-Producing
+   * 
+   * \\-Produced
+   * 
+   * \\-ProduceFailed
+   * 
+   * Valid values:
+   * 
+   * *   Draft
+   * *   Produced
+   * *   Editing
+   * *   Producing
+   * *   ProduceFailed
+   * 
    * @example
    * PRODUCE_FAILED
    */
   status?: string;
   /**
+   * @remarks
+   * The type of the template.
+   * 
    * @example
    * Timeline
    */
   templateType?: string;
   /**
+   * @remarks
+   * The timeline of the online editing project.
+   * 
    * @example
    * {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
    */
   timeline?: string;
   /**
+   * @remarks
+   * The title of the online editing project.
+   * 
    * @example
    * title
    */
@@ -54628,6 +56823,10 @@ export class SearchEditingProjectResponseBodyProjectList extends $tea.Model {
 }
 
 export class SearchIndexJobRerunResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The media asset IDs that do not exist.
+   */
   mediaIdsNoExist?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -56407,6 +58606,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
    * 69.06635
    */
   endTime?: number;
+  expression?: string;
   /**
    * @remarks
    * The start time of the clip. Unit: seconds. The value is of the Float type.
@@ -56423,6 +58623,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      expression: 'Expression',
       startTime: 'StartTime',
       trackData: 'TrackData',
     };
@@ -56431,6 +58632,7 @@ export class SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfos exte
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      expression: 'string',
       startTime: 'number',
       trackData: { 'type': 'array', 'itemType': SearchMediaClipByFaceResponseBodyMediaClipListOccurrencesInfosTrackData },
     };
@@ -56801,6 +59003,148 @@ export class SubmitAvatarTrainingJobResponseBodyData extends $tea.Model {
   }
 }
 
+export class SubmitCopyrightExtractJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c63****4d80648792021eff90
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitCopyrightJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c63****f4d80648792021eff90
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitCustomizedVoiceJobResponseBodyData extends $tea.Model {
   /**
    * @remarks
@@ -56896,7 +59240,7 @@ export class SubmitDynamicImageJobRequestInput extends $tea.Model {
    * 
    * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
    * This parameter is required.
    * 
@@ -56910,9 +59254,6 @@ export class SubmitDynamicImageJobRequestInput extends $tea.Model {
    * 
    * 1.  OSS: an Object Storage Service (OSS) object.
    * 2.  Media: a media asset.
-   * 
-   * *
-   * *
    * 
    * This parameter is required.
    * 
@@ -56949,7 +59290,7 @@ export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
    * 
    * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
    * 
    * This parameter is required.
    * 
@@ -56963,9 +59304,6 @@ export class SubmitDynamicImageJobRequestOutput extends $tea.Model {
    * 
    * 1.  OSS: an OSS object.
    * 2.  Media: a media asset.
-   * 
-   * *
-   * *
    * 
    * This parameter is required.
    * 
@@ -57035,6 +59373,9 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
    * 
    * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
    * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * 
+   * @example
+   * 01:59:59.999 or 32000.23
    */
   duration?: string;
   /**
@@ -57043,6 +59384,9 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
    * 
    * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
    * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * 
+   * @example
+   * 01:59:59.999 or 32000.23
    */
   end?: string;
   /**
@@ -57051,6 +59395,9 @@ export class SubmitDynamicImageJobRequestTemplateConfigOverwriteParamsTimeSpan e
    * 
    * *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
    * *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+   * 
+   * @example
+   * 01:59:59.999 or 32000.23
    */
   seek?: string;
   static names(): { [key: string]: string } {
@@ -57716,7 +60063,7 @@ export class SubmitMediaInfoJobRequestInput extends $tea.Model {
    * 
    * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
    * *   If Type is set to Media, set this parameter to the ID of a media asset.
    * 
@@ -58827,7 +61174,7 @@ export class SubmitSnapshotJobRequestInput extends $tea.Model {
    * 1.  oss://bucket/object
    * 2.  http(s)://bucket.oss-[RegionId].aliyuncs.com/object In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
    * This parameter is required.
    * 
@@ -58877,7 +61224,7 @@ export class SubmitSnapshotJobRequestOutput extends $tea.Model {
    * 
    * In the URL, bucket specifies an OSS bucket that resides in the same region as the job, and object specifies the object URL in OSS. If multiple static snapshots were captured, the object must contain the "{Count}" placeholder. In the case of a sprite, the object must contain the "{TileCount}" placeholder. The suffix of the WebVTT snapshot objects must be ".vtt".
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
    * 
    * This parameter is required.
    * 
@@ -59220,7 +61567,7 @@ export class SubmitSyncMediaInfoJobRequestInput extends $tea.Model {
    * 
    * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
    * *   If Type is set to Media, set this parameter to the ID of a media asset.
    * 
@@ -60101,6 +62448,226 @@ export class SubmitSyncMediaInfoJobResponseBodyMediaInfoJob extends $tea.Model {
   }
 }
 
+export class SubmitTraceAbJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/dir/
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceAbJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
+  jobId?: string;
+  /**
+   * @example
+   * bf53333264f4d80648792021e****
+   */
+  traceMediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+      traceMediaId: 'TraceMediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+      traceMediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobRequestInput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceExtractJobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d80648792021e****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobRequestOutput extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * oss://bucket/object
+   */
+  media?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * OSS
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      media: 'Media',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      media: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitTraceM3u8JobResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * bfb786c639894f4d8064879202****
+   */
+  jobId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jobId: 'JobId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jobId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
   /**
    * @remarks
@@ -60119,7 +62686,7 @@ export class SubmitTranscodeJobRequestInputGroup extends $tea.Model {
    * 
    * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the Intelligent Media Services (IMS) console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the Intelligent Media Services (IMS) console.
    * 
    * *   If Type is set to Media, set this parameter to the ID of a media asset.
    * 
@@ -60170,7 +62737,7 @@ export class SubmitTranscodeJobRequestOutputGroupOutput extends $tea.Model {
    * 
    * *   If Type is set to OSS, set this parameter to the URL of an OSS object. Both the OSS and HTTP protocols are supported.
    * 
-   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/440592.html) page of the IMS console.
+   * >  Before you use the OSS bucket in the URL, you must add the bucket on the [Storage Management](https://help.aliyun.com/document_detail/609918.html) page of the IMS console.
    * 
    * *   If Type is set to Media, set this parameter to the ID of a media asset.
    * 
@@ -66485,8 +69052,8 @@ export default class Client extends OpenApi {
    * Creates a template.
    * 
    * @remarks
-   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
@@ -66551,8 +69118,8 @@ export default class Client extends OpenApi {
    * Creates a template.
    * 
    * @remarks
-   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * *   After an advanced template is created, it enters the Processing state. In this case, the template is unavailable. The template can be used only when it is in the Available state. The time required for template processing varies based on the size of the template file. Generally, it ranges from 10 seconds to 5 minutes.
    * 
    * @param request - AddTemplateRequest
@@ -70930,8 +73497,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - GetTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -70970,8 +73537,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - GetTemplateRequest
    * @returns GetTemplateResponse
@@ -72860,7 +75427,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取搜索库列表
+   * Queries the information about search libraries.
    * 
    * @param request - ListSearchLibRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -72895,7 +75462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取搜索库列表
+   * Queries the information about search libraries.
    * 
    * @param request - ListSearchLibRequest
    * @returns ListSearchLibResponse
@@ -73358,6 +75925,110 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询版权水印提取任务
+   * 
+   * @param request - QueryCopyrightExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCopyrightExtractJobResponse
+   */
+  async queryCopyrightExtractJobWithOptions(request: QueryCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyrightExtractJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightExtractJobResponse>(await this.callApi(params, req, runtime), new QueryCopyrightExtractJobResponse({}));
+  }
+
+  /**
+   * 查询版权水印提取任务
+   * 
+   * @param request - QueryCopyrightExtractJobRequest
+   * @returns QueryCopyrightExtractJobResponse
+   */
+  async queryCopyrightExtractJob(request: QueryCopyrightExtractJobRequest): Promise<QueryCopyrightExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCopyrightExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询视频版权水印任务列表
+   * 
+   * @param request - QueryCopyrightJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryCopyrightJobListResponse
+   */
+  async queryCopyrightJobListWithOptions(request: QueryCopyrightJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryCopyrightJobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryCopyrightJobList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryCopyrightJobListResponse>(await this.callApi(params, req, runtime), new QueryCopyrightJobListResponse({}));
+  }
+
+  /**
+   * 查询视频版权水印任务列表
+   * 
+   * @param request - QueryCopyrightJobListRequest
+   * @returns QueryCopyrightJobListResponse
+   */
+  async queryCopyrightJobList(request: QueryCopyrightJobListRequest): Promise<QueryCopyrightJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryCopyrightJobListWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of media fingerprint analysis jobs.
    * 
    * @param request - QueryDNAJobListRequest
@@ -73802,6 +76473,168 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询视频溯源水印ab流任务
+   * 
+   * @param request - QueryTraceAbJobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceAbJobListResponse
+   */
+  async queryTraceAbJobListWithOptions(request: QueryTraceAbJobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceAbJobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.traceMediaId)) {
+      query["TraceMediaId"] = request.traceMediaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceAbJobList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceAbJobListResponse>(await this.callApi(params, req, runtime), new QueryTraceAbJobListResponse({}));
+  }
+
+  /**
+   * 查询视频溯源水印ab流任务
+   * 
+   * @param request - QueryTraceAbJobListRequest
+   * @returns QueryTraceAbJobListResponse
+   */
+  async queryTraceAbJobList(request: QueryTraceAbJobListRequest): Promise<QueryTraceAbJobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceAbJobListWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询溯源水印提取任务
+   * 
+   * @param request - QueryTraceExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceExtractJobResponse
+   */
+  async queryTraceExtractJobWithOptions(request: QueryTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceExtractJobResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceExtractJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceExtractJobResponse>(await this.callApi(params, req, runtime), new QueryTraceExtractJobResponse({}));
+  }
+
+  /**
+   * 查询溯源水印提取任务
+   * 
+   * @param request - QueryTraceExtractJobRequest
+   * @returns QueryTraceExtractJobResponse
+   */
+  async queryTraceExtractJob(request: QueryTraceExtractJobRequest): Promise<QueryTraceExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询视频溯源水印m3u8任务
+   * 
+   * @param request - QueryTraceM3u8JobListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTraceM3u8JobListResponse
+   */
+  async queryTraceM3u8JobListWithOptions(request: QueryTraceM3u8JobListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTraceM3u8JobListResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.createTimeEnd)) {
+      query["CreateTimeEnd"] = request.createTimeEnd;
+    }
+
+    if (!Util.isUnset(request.createTimeStart)) {
+      query["CreateTimeStart"] = request.createTimeStart;
+    }
+
+    if (!Util.isUnset(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryTraceM3u8JobList",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryTraceM3u8JobListResponse>(await this.callApi(params, req, runtime), new QueryTraceM3u8JobListResponse({}));
+  }
+
+  /**
+   * 查询视频溯源水印m3u8任务
+   * 
+   * @param request - QueryTraceM3u8JobListRequest
+   * @returns QueryTraceM3u8JobListResponse
+   */
+  async queryTraceM3u8JobList(request: QueryTraceM3u8JobListRequest): Promise<QueryTraceM3u8JobListResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.queryTraceM3u8JobListWithOptions(request, runtime);
+  }
+
+  /**
    * Obtain a new upload credential for a media asset after its upload credential expires.
    * 
    * @remarks
@@ -74010,7 +76843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SearchEditingProject
+   * Queries online editing projects by creation time and status.
    * 
    * @param request - SearchEditingProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74073,7 +76906,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * SearchEditingProject
+   * Queries online editing projects by creation time and status.
    * 
    * @param request - SearchEditingProjectRequest
    * @returns SearchEditingProjectResponse
@@ -74084,7 +76917,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索索引任务重新分析
+   * Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
    * 
    * @param request - SearchIndexJobRerunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74123,7 +76956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 搜索索引任务重新分析
+   * Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
    * 
    * @param request - SearchIndexJobRerunRequest
    * @returns SearchIndexJobRerunResponse
@@ -75593,6 +78426,146 @@ export default class Client extends OpenApi {
   async submitBatchMediaProducingJob(request: SubmitBatchMediaProducingJobRequest): Promise<SubmitBatchMediaProducingJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitBatchMediaProducingJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交版权水印提取作业
+   * 
+   * @param tmpReq - SubmitCopyrightExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCopyrightExtractJobResponse
+   */
+  async submitCopyrightExtractJobWithOptions(tmpReq: SubmitCopyrightExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightExtractJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitCopyrightExtractJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightExtractJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightExtractJobResponse({}));
+  }
+
+  /**
+   * 提交版权水印提取作业
+   * 
+   * @param request - SubmitCopyrightExtractJobRequest
+   * @returns SubmitCopyrightExtractJobResponse
+   */
+  async submitCopyrightExtractJob(request: SubmitCopyrightExtractJobRequest): Promise<SubmitCopyrightExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCopyrightExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交版权水印任务
+   * 
+   * @param tmpReq - SubmitCopyrightJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitCopyrightJobResponse
+   */
+  async submitCopyrightJobWithOptions(tmpReq: SubmitCopyrightJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitCopyrightJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitCopyrightJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    if (!Util.isUnset(request.outputShrink)) {
+      query["Output"] = request.outputShrink;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      query["TotalTime"] = request.totalTime;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitCopyrightJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitCopyrightJobResponse>(await this.callApi(params, req, runtime), new SubmitCopyrightJobResponse({}));
+  }
+
+  /**
+   * 提交版权水印任务
+   * 
+   * @param request - SubmitCopyrightJobRequest
+   * @returns SubmitCopyrightJobResponse
+   */
+  async submitCopyrightJob(request: SubmitCopyrightJobRequest): Promise<SubmitCopyrightJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitCopyrightJobWithOptions(request, runtime);
   }
 
   /**
@@ -77115,6 +80088,202 @@ export default class Client extends OpenApi {
   async submitTextGenerateJob(request: SubmitTextGenerateJobRequest): Promise<SubmitTextGenerateJobResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.submitTextGenerateJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频溯源水印ab流任务
+   * 
+   * @param tmpReq - SubmitTraceAbJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceAbJobResponse
+   */
+  async submitTraceAbJobWithOptions(tmpReq: SubmitTraceAbJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceAbJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitTraceAbJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.cipherBase64ed)) {
+      query["CipherBase64ed"] = request.cipherBase64ed;
+    }
+
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
+    }
+
+    if (!Util.isUnset(request.outputShrink)) {
+      query["Output"] = request.outputShrink;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.totalTime)) {
+      query["TotalTime"] = request.totalTime;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceAbJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceAbJobResponse>(await this.callApi(params, req, runtime), new SubmitTraceAbJobResponse({}));
+  }
+
+  /**
+   * 提交视频溯源水印ab流任务
+   * 
+   * @param request - SubmitTraceAbJobRequest
+   * @returns SubmitTraceAbJobResponse
+   */
+  async submitTraceAbJob(request: SubmitTraceAbJobRequest): Promise<SubmitTraceAbJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceAbJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交溯源水印提取任务
+   * 
+   * @param tmpReq - SubmitTraceExtractJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceExtractJobResponse
+   */
+  async submitTraceExtractJobWithOptions(tmpReq: SubmitTraceExtractJobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceExtractJobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitTraceExtractJobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.inputShrink)) {
+      query["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceExtractJob",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceExtractJobResponse>(await this.callApi(params, req, runtime), new SubmitTraceExtractJobResponse({}));
+  }
+
+  /**
+   * 提交溯源水印提取任务
+   * 
+   * @param request - SubmitTraceExtractJobRequest
+   * @returns SubmitTraceExtractJobResponse
+   */
+  async submitTraceExtractJob(request: SubmitTraceExtractJobRequest): Promise<SubmitTraceExtractJobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceExtractJobWithOptions(request, runtime);
+  }
+
+  /**
+   * 提交视频溯源水印m3u8文件任务
+   * 
+   * @param tmpReq - SubmitTraceM3u8JobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitTraceM3u8JobResponse
+   */
+  async submitTraceM3u8JobWithOptions(tmpReq: SubmitTraceM3u8JobRequest, runtime: $Util.RuntimeOptions): Promise<SubmitTraceM3u8JobResponse> {
+    Util.validateModel(tmpReq);
+    let request = new SubmitTraceM3u8JobShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.output)) {
+      request.outputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.output, "Output", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.keyUri)) {
+      query["KeyUri"] = request.keyUri;
+    }
+
+    if (!Util.isUnset(request.outputShrink)) {
+      query["Output"] = request.outputShrink;
+    }
+
+    if (!Util.isUnset(request.params)) {
+      query["Params"] = request.params;
+    }
+
+    if (!Util.isUnset(request.trace)) {
+      query["Trace"] = request.trace;
+    }
+
+    if (!Util.isUnset(request.traceMediaId)) {
+      query["TraceMediaId"] = request.traceMediaId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitTraceM3u8Job",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitTraceM3u8JobResponse>(await this.callApi(params, req, runtime), new SubmitTraceM3u8JobResponse({}));
+  }
+
+  /**
+   * 提交视频溯源水印m3u8文件任务
+   * 
+   * @param request - SubmitTraceM3u8JobRequest
+   * @returns SubmitTraceM3u8JobResponse
+   */
+  async submitTraceM3u8Job(request: SubmitTraceM3u8JobRequest): Promise<SubmitTraceM3u8JobResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.submitTraceM3u8JobWithOptions(request, runtime);
   }
 
   /**
