@@ -2745,6 +2745,7 @@ export class ListChunksRequest extends $tea.Model {
    * An array of field names. This parameter is used to filter non-private fields (prefixed with_underscores) in the Metadata parameter returned by this operation. By default, this parameter is left empty, which means all non-private fields in the Metadata parameter are returned. If you only want specified non-private fields, such as title, set this parameter to title.
    */
   fields?: string[];
+  fileId?: string;
   /**
    * @remarks
    * The primary key ID of the document. This parameter is not required for structured knowledge base, but is required for unstructured knowledge base. To view the ID, you can click the ID icon next to the file name on the [Data Management](https://bailian.console.aliyun.com/#/data-center) page. You can filter returned chunks by the document ID. This parameter is left empty by default.
@@ -2782,6 +2783,7 @@ export class ListChunksRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       fields: 'Fields',
+      fileId: 'FileId',
       filed: 'Filed',
       indexId: 'IndexId',
       pageNum: 'PageNum',
@@ -2792,6 +2794,7 @@ export class ListChunksRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       fields: { 'type': 'array', 'itemType': 'string' },
+      fileId: 'string',
       filed: 'string',
       indexId: 'string',
       pageNum: 'number',
@@ -8695,6 +8698,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.fields)) {
       body["Fields"] = request.fields;
+    }
+
+    if (!Util.isUnset(request.fileId)) {
+      body["FileId"] = request.fileId;
     }
 
     if (!Util.isUnset(request.filed)) {
