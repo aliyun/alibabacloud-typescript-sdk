@@ -6172,6 +6172,7 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
    */
   DBInstanceName?: string;
   dnClass?: string;
+  dnStorageSpace?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -6195,6 +6196,7 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
       cnClass: 'CnClass',
       DBInstanceName: 'DBInstanceName',
       dnClass: 'DnClass',
+      dnStorageSpace: 'DnStorageSpace',
       regionId: 'RegionId',
       specifiedDNScale: 'SpecifiedDNScale',
       specifiedDNSpecMapJson: 'SpecifiedDNSpecMapJson',
@@ -6210,6 +6212,7 @@ export class ModifyDBInstanceClassRequest extends $tea.Model {
       cnClass: 'string',
       DBInstanceName: 'string',
       dnClass: 'string',
+      dnStorageSpace: 'string',
       regionId: 'string',
       specifiedDNScale: 'boolean',
       specifiedDNSpecMapJson: 'string',
@@ -15000,6 +15003,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.dnClass)) {
       query["DnClass"] = request.dnClass;
+    }
+
+    if (!Util.isUnset(request.dnStorageSpace)) {
+      query["DnStorageSpace"] = request.dnStorageSpace;
     }
 
     if (!Util.isUnset(request.regionId)) {
