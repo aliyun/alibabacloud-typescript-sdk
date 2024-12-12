@@ -23,6 +23,124 @@ export class OpenApiModelsPredictCmd extends $tea.Model {
   }
 }
 
+export class PredictRequest extends $tea.Model {
+  /**
+   * @example
+   * db_test
+   */
+  dbName?: string;
+  input?: string;
+  /**
+   * @example
+   * pc-2ze454l20me07****
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * _polar4ai_tongyi
+   */
+  modelClass?: string;
+  parameters?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      dbName: 'dbName',
+      input: 'input',
+      instanceName: 'instanceName',
+      modelClass: 'modelClass',
+      parameters: 'parameters',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbName: 'string',
+      input: 'string',
+      instanceName: 'string',
+      modelClass: 'string',
+      parameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictResponseBody extends $tea.Model {
+  data?: any;
+  /**
+   * @example
+   * ER_ILLEGAL_MODEL_CLASS
+   */
+  errCode?: string;
+  /**
+   * @example
+   * Illegal model class.
+   */
+  errMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 983863E2-****-1D15-A4AE-3468CD75383D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'any',
+      errCode: 'string',
+      errMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class PredictResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: PredictResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: PredictResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PredictSseRequest extends $tea.Model {
   /**
    * @example
@@ -166,6 +284,67 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 模型预测
+   * 
+   * @param request - PredictRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PredictResponse
+   */
+  async predictWithOptions(request: PredictRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<PredictResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dbName)) {
+      body["dbName"] = request.dbName;
+    }
+
+    if (!Util.isUnset(request.input)) {
+      body["input"] = request.input;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      body["instanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.modelClass)) {
+      body["modelClass"] = request.modelClass;
+    }
+
+    if (!Util.isUnset(request.parameters)) {
+      body["parameters"] = request.parameters;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Predict",
+      version: "2024-08-20",
+      protocol: "HTTPS",
+      pathname: `/v1/openapi/models/predict`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<PredictResponse>(await this.callApi(params, req, runtime), new PredictResponse({}));
+  }
+
+  /**
+   * 模型预测
+   * 
+   * @param request - PredictRequest
+   * @returns PredictResponse
+   */
+  async predict(request: PredictRequest): Promise<PredictResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.predictWithOptions(request, headers, runtime);
   }
 
   /**
