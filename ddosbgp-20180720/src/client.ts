@@ -7421,6 +7421,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
    * test
    */
   remark?: string;
+  resourceGroupId?: string;
   /**
    * @remarks
    * The status of the instance. Valid values:
@@ -7448,6 +7449,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
       ipType: 'IpType',
       product: 'Product',
       remark: 'Remark',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
     };
   }
@@ -7467,6 +7469,7 @@ export class DescribeInstanceListResponseBodyInstanceList extends $tea.Model {
       ipType: 'string',
       product: 'string',
       remark: 'string',
+      resourceGroupId: 'string',
       status: 'string',
     };
   }
