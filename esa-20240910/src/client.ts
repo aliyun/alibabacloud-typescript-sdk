@@ -114,11 +114,13 @@ export class WafRuleConfig extends $tea.Model {
   managedRulesets?: WafRuleConfigManagedRulesets[];
   match?: WafRuleMatch;
   name?: string;
+  notes?: string;
   rateLimit?: WafRuleConfigRateLimit;
   sigchl?: string[];
   status?: string;
   timer?: WafTimer;
   type?: string;
+  value?: string;
   static names(): { [key: string]: string } {
     return {
       action: 'Action',
@@ -132,11 +134,13 @@ export class WafRuleConfig extends $tea.Model {
       managedRulesets: 'ManagedRulesets',
       match: 'Match',
       name: 'Name',
+      notes: 'Notes',
       rateLimit: 'RateLimit',
       sigchl: 'Sigchl',
       status: 'Status',
       timer: 'Timer',
       type: 'Type',
+      value: 'Value',
     };
   }
 
@@ -153,11 +157,13 @@ export class WafRuleConfig extends $tea.Model {
       managedRulesets: { 'type': 'array', 'itemType': WafRuleConfigManagedRulesets },
       match: WafRuleMatch,
       name: 'string',
+      notes: 'string',
       rateLimit: WafRuleConfigRateLimit,
       sigchl: { 'type': 'array', 'itemType': 'string' },
       status: 'string',
       timer: WafTimer,
       type: 'string',
+      value: 'string',
     };
   }
 
@@ -243,12 +249,14 @@ export class WafRuleMatch2 extends $tea.Model {
 export class WafSiteSettings extends $tea.Model {
   addBotProtectionHeaders?: WafSiteSettingsAddBotProtectionHeaders;
   addSecurityHeaders?: WafSiteSettingsAddSecurityHeaders;
+  botManagement?: WafSiteSettingsBotManagement;
   clientIpIdentifier?: WafSiteSettingsClientIpIdentifier;
   securityLevel?: WafSiteSettingsSecurityLevel;
   static names(): { [key: string]: string } {
     return {
       addBotProtectionHeaders: 'AddBotProtectionHeaders',
       addSecurityHeaders: 'AddSecurityHeaders',
+      botManagement: 'BotManagement',
       clientIpIdentifier: 'ClientIpIdentifier',
       securityLevel: 'SecurityLevel',
     };
@@ -258,6 +266,7 @@ export class WafSiteSettings extends $tea.Model {
     return {
       addBotProtectionHeaders: WafSiteSettingsAddBotProtectionHeaders,
       addSecurityHeaders: WafSiteSettingsAddSecurityHeaders,
+      botManagement: WafSiteSettingsBotManagement,
       clientIpIdentifier: WafSiteSettingsClientIpIdentifier,
       securityLevel: WafSiteSettingsSecurityLevel,
     };
@@ -7333,6 +7342,8 @@ export class CreateWaitingRoomRuleResponse extends $tea.Model {
 export class DeleteCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The certificate ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7341,6 +7352,8 @@ export class DeleteCertificateRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7368,21 +7381,33 @@ export class DeleteCertificateRequest extends $tea.Model {
 
 export class DeleteCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * babaded901474b9693acf530e0fb1d95
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -7438,6 +7463,8 @@ export class DeleteCertificateResponse extends $tea.Model {
 export class DeleteClientCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The certificate ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7446,6 +7473,8 @@ export class DeleteClientCaCertificateRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7473,21 +7502,33 @@ export class DeleteClientCaCertificateRequest extends $tea.Model {
 
 export class DeleteClientCaCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -11532,6 +11573,8 @@ export class GetClientCaCertificateResponse extends $tea.Model {
 export class GetClientCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The certificate ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11540,6 +11583,8 @@ export class GetClientCertificateRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11567,27 +11612,46 @@ export class GetClientCertificateRequest extends $tea.Model {
 
 export class GetClientCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The certificate content.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----
    */
   certificate?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The certificate information.
+   */
   result?: GetClientCertificateResponseBodyResult;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The certificate status.
+   * 
    * @example
    * active
    */
@@ -14983,6 +15047,7 @@ export class GetSiteLogDeliveryQuotaResponse extends $tea.Model {
 }
 
 export class GetSiteWafSettingsRequest extends $tea.Model {
+  path?: string;
   /**
    * @remarks
    * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
@@ -15001,6 +15066,7 @@ export class GetSiteWafSettingsRequest extends $tea.Model {
   siteVersion?: number;
   static names(): { [key: string]: string } {
     return {
+      path: 'Path',
       siteId: 'SiteId',
       siteVersion: 'SiteVersion',
     };
@@ -15008,6 +15074,7 @@ export class GetSiteWafSettingsRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      path: 'string',
       siteId: 'number',
       siteVersion: 'number',
     };
@@ -16355,17 +16422,25 @@ export class ListCiphersResponse extends $tea.Model {
 
 export class ListClientCaCertificatesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number. Valid values: 1 to 500.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 20. Valid values: 1 to 100.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
    * @remarks
+   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16395,32 +16470,54 @@ export class ListClientCaCertificatesRequest extends $tea.Model {
 
 export class ListClientCaCertificatesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F61CDR30-E83C-4FDA-BF73-9A94CDD44229
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The queried client CA certificates.
+   */
   result?: ListClientCaCertificatesResponseBodyResult[];
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
   siteName?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 16
    */
@@ -23341,6 +23438,8 @@ export class ResetScheduledPreloadJobResponse extends $tea.Model {
 export class RevokeClientCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The certificate ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23349,6 +23448,8 @@ export class RevokeClientCertificateRequest extends $tea.Model {
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23376,21 +23477,33 @@ export class RevokeClientCertificateRequest extends $tea.Model {
 
 export class RevokeClientCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A123425345
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -28989,6 +29102,141 @@ export class WafSiteSettingsAddSecurityHeaders extends $tea.Model {
   }
 }
 
+export class WafSiteSettingsBotManagementDefiniteBots extends $tea.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementEffectOnStatic extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementJSDetection extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'Enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementLikelyBots extends $tea.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagementVerifiedBots extends $tea.Model {
+  action?: string;
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      action: 'Action',
+      id: 'Id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      action: 'string',
+      id: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class WafSiteSettingsBotManagement extends $tea.Model {
+  definiteBots?: WafSiteSettingsBotManagementDefiniteBots;
+  effectOnStatic?: WafSiteSettingsBotManagementEffectOnStatic;
+  JSDetection?: WafSiteSettingsBotManagementJSDetection;
+  likelyBots?: WafSiteSettingsBotManagementLikelyBots;
+  verifiedBots?: WafSiteSettingsBotManagementVerifiedBots;
+  static names(): { [key: string]: string } {
+    return {
+      definiteBots: 'DefiniteBots',
+      effectOnStatic: 'EffectOnStatic',
+      JSDetection: 'JSDetection',
+      likelyBots: 'LikelyBots',
+      verifiedBots: 'VerifiedBots',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      definiteBots: WafSiteSettingsBotManagementDefiniteBots,
+      effectOnStatic: WafSiteSettingsBotManagementEffectOnStatic,
+      JSDetection: WafSiteSettingsBotManagementJSDetection,
+      likelyBots: WafSiteSettingsBotManagementLikelyBots,
+      verifiedBots: WafSiteSettingsBotManagementVerifiedBots,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class WafSiteSettingsClientIpIdentifier extends $tea.Model {
   headers?: string[];
   mode?: string;
@@ -32707,71 +32955,113 @@ export class GetClientCaCertificateResponseBodyResult extends $tea.Model {
 
 export class GetClientCertificateResponseBodyResult extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the CA certificate.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
    */
   CACertificateId?: string;
   /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
    * @example
    * www.example.com
    */
   commonName?: string;
   /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
    * @example
    * 2024-06-24 07:48:51
    */
   createTime?: string;
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   id?: string;
   /**
+   * @remarks
+   * The certificate authority (CA) that issued the certificate.
+   * 
    * @example
    * GlobalSign nv-sa
    */
   issuer?: string;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * yourCertName
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
    * @example
    * 2024-03-31 02:08:00
    */
   notAfter?: string;
   /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
    * @example
    * 2023-03-31 02:08:00
    */
   notBefore?: string;
   /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
    * @example
    * RSA
    */
   pubkeyAlgorithm?: string;
   /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
    * @example
    * www.example.com,*.example.com
    */
   SAN?: string;
   /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
    * @example
    * SHA256-RSA
    */
   signatureAlgorithm?: string;
   /**
+   * @remarks
+   * The certificate status.
+   * 
    * @example
    * active
    */
   status?: string;
   /**
+   * @remarks
+   * The certificate type.
+   * 
    * @example
    * dcdn
    */
   type?: string;
   /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
    * @example
    * 2024-09-22 05:33:13
    */
@@ -35659,66 +35949,105 @@ export class ListCacheReserveInstancesResponseBodyInstanceInfo extends $tea.Mode
 
 export class ListClientCaCertificatesResponseBodyResult extends $tea.Model {
   /**
+   * @remarks
+   * The Common Name of the certificate.
+   * 
    * @example
    * www.example.com
    */
   commonName?: string;
   /**
+   * @remarks
+   * The time when the certificate was created.
+   * 
    * @example
    * 2024-06-24 07:48:51
    */
   createTime?: string;
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b5****
    */
   id?: string;
   /**
+   * @remarks
+   * The CA that issued the certificate.
+   * 
    * @example
    * GlobalSign nv-sa
    */
   issuer?: string;
   /**
+   * @remarks
+   * The certificate name.
+   * 
    * @example
    * yourCertName
    */
   name?: string;
   /**
+   * @remarks
+   * The time when the certificate expires.
+   * 
    * @example
    * 2024-03-31 02:08:00
    */
   notAfter?: string;
   /**
+   * @remarks
+   * The time when the certificate takes effect.
+   * 
    * @example
    * 2023-03-31 02:08:00
    */
   notBefore?: string;
   /**
+   * @remarks
+   * The public-key algorithm of the certificate.
+   * 
    * @example
    * RSA
    */
   pubkeyAlgorithm?: string;
   /**
+   * @remarks
+   * The Subject Alternative Name (SAN) of the certificate.
+   * 
    * @example
    * www.example.com,*.example.com
    */
   SAN?: string;
   /**
+   * @remarks
+   * The signature algorithm of the certificate.
+   * 
    * @example
    * SHA256-RSA
    */
   signatureAlgorithm?: string;
   /**
+   * @remarks
+   * The certificate status.
+   * 
    * @example
    * OK
    */
   status?: string;
   /**
+   * @remarks
+   * The certificate type.
+   * 
    * @example
    * upload
    */
   type?: string;
   /**
+   * @remarks
+   * The time when the certificate was updated.
+   * 
    * @example
    * 2024-07-20 06:18:42
    */
@@ -39187,6 +39516,7 @@ export class ListWafPhasesResponseBodyPhases extends $tea.Model {
 }
 
 export class ListWafRulesRequestQueryArgs extends $tea.Model {
+  configValueLike?: string;
   /**
    * @remarks
    * Specifies whether to sort the returned data in descending order.
@@ -39245,6 +39575,7 @@ export class ListWafRulesRequestQueryArgs extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      configValueLike: 'ConfigValueLike',
       desc: 'Desc',
       id: 'Id',
       idNameLike: 'IdNameLike',
@@ -39257,6 +39588,7 @@ export class ListWafRulesRequestQueryArgs extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      configValueLike: 'string',
       desc: 'boolean',
       id: 'number',
       idNameLike: 'string',
@@ -43325,7 +43657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除证书
+   * Deletes a certificate for a website.
    * 
    * @param request - DeleteCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43352,7 +43684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除证书
+   * Deletes a certificate for a website.
    * 
    * @param request - DeleteCertificateRequest
    * @returns DeleteCertificateResponse
@@ -43363,7 +43695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除客户端CA证书
+   * Deletes a client CA certificate.
    * 
    * @param request - DeleteClientCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -43390,7 +43722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除客户端CA证书
+   * Deletes a client CA certificate.
    * 
    * @param request - DeleteClientCaCertificateRequest
    * @returns DeleteClientCaCertificateResponse
@@ -45133,7 +45465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书以及证书信息
+   * Queries information about a client certificate.
    * 
    * @param request - GetClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45160,7 +45492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书以及证书信息
+   * Queries information about a client certificate.
    * 
    * @param request - GetClientCertificateRequest
    * @returns GetClientCertificateResponse
@@ -46298,6 +46630,10 @@ export default class Client extends OpenApi {
   async getSiteWafSettingsWithOptions(request: GetSiteWafSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetSiteWafSettingsResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.path)) {
+      query["Path"] = request.path;
+    }
+
     if (!Util.isUnset(request.siteId)) {
       query["SiteId"] = request.siteId;
     }
@@ -46765,7 +47101,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下客户端CA证书列表
+   * Queries a list of client certificate authority (CA) certificates for a website.
    * 
    * @param request - ListClientCaCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46792,7 +47128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询站点下客户端CA证书列表
+   * Queries a list of client certificate authority (CA) certificates for a website.
    * 
    * @param request - ListClientCaCertificatesRequest
    * @returns ListClientCaCertificatesResponse
@@ -48966,7 +49302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销客户端证书
+   * Revokes an activated client certificate.
    * 
    * @param request - RevokeClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48993,7 +49329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 吊销客户端证书
+   * Revokes an activated client certificate.
    * 
    * @param request - RevokeClientCertificateRequest
    * @returns RevokeClientCertificateResponse
