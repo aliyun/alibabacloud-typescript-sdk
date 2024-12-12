@@ -648,6 +648,7 @@ export class CreateFunctionInput extends $tea.Model {
    * python3.10
    */
   runtime?: string;
+  tags?: Tag[];
   /**
    * @example
    * 60
@@ -678,6 +679,7 @@ export class CreateFunctionInput extends $tea.Model {
       ossMountConfig: 'ossMountConfig',
       role: 'role',
       runtime: 'runtime',
+      tags: 'tags',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -707,6 +709,7 @@ export class CreateFunctionInput extends $tea.Model {
       ossMountConfig: OSSMountConfig,
       role: 'string',
       runtime: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       timeout: 'number',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
@@ -1569,6 +1572,7 @@ export class Function extends $tea.Model {
    * Creating
    */
   stateReasonCode?: string;
+  tags?: Tag[];
   /**
    * @example
    * 60
@@ -1610,6 +1614,7 @@ export class Function extends $tea.Model {
       state: 'state',
       stateReason: 'stateReason',
       stateReasonCode: 'stateReasonCode',
+      tags: 'tags',
       timeout: 'timeout',
       tracingConfig: 'tracingConfig',
       vpcConfig: 'vpcConfig',
@@ -1650,6 +1655,7 @@ export class Function extends $tea.Model {
       state: 'string',
       stateReason: 'string',
       stateReasonCode: 'string',
+      tags: { 'type': 'array', 'itemType': Tag },
       timeout: 'number',
       tracingConfig: TracingConfig,
       vpcConfig: VPCConfig,
@@ -2858,6 +2864,11 @@ export class ProvisionConfig extends $tea.Model {
   currentError?: string;
   /**
    * @example
+   * 5
+   */
+  defaultTarget?: number;
+  /**
+   * @example
    * acs:fc:cn-shanghai:124:functions/myFunction
    */
   functionArn?: string;
@@ -2874,6 +2885,7 @@ export class ProvisionConfig extends $tea.Model {
       alwaysAllocateGPU: 'alwaysAllocateGPU',
       current: 'current',
       currentError: 'currentError',
+      defaultTarget: 'defaultTarget',
       functionArn: 'functionArn',
       scheduledActions: 'scheduledActions',
       target: 'target',
@@ -2887,6 +2899,7 @@ export class ProvisionConfig extends $tea.Model {
       alwaysAllocateGPU: 'boolean',
       current: 'number',
       currentError: 'string',
+      defaultTarget: 'number',
       functionArn: 'string',
       scheduledActions: { 'type': 'array', 'itemType': ScheduledAction },
       target: 'number',
@@ -2999,6 +3012,11 @@ export class PutProvisionConfigInput extends $tea.Model {
    * true
    */
   alwaysAllocateGPU?: boolean;
+  /**
+   * **if can be null:**
+   * true
+   */
+  defaultTarget?: number;
   scheduledActions?: ScheduledAction[];
   /**
    * @remarks
@@ -3006,6 +3024,11 @@ export class PutProvisionConfigInput extends $tea.Model {
    * 
    * @example
    * 1
+   * 
+   * **if can be null:**
+   * true
+   * 
+   * @deprecated
    */
   target?: number;
   targetTrackingPolicies?: TargetTrackingPolicy[];
@@ -3013,6 +3036,7 @@ export class PutProvisionConfigInput extends $tea.Model {
     return {
       alwaysAllocateCPU: 'alwaysAllocateCPU',
       alwaysAllocateGPU: 'alwaysAllocateGPU',
+      defaultTarget: 'defaultTarget',
       scheduledActions: 'scheduledActions',
       target: 'target',
       targetTrackingPolicies: 'targetTrackingPolicies',
@@ -3023,6 +3047,7 @@ export class PutProvisionConfigInput extends $tea.Model {
     return {
       alwaysAllocateCPU: 'boolean',
       alwaysAllocateGPU: 'boolean',
+      defaultTarget: 'number',
       scheduledActions: { 'type': 'array', 'itemType': ScheduledAction },
       target: 'number',
       targetTrackingPolicies: { 'type': 'array', 'itemType': TargetTrackingPolicy },
@@ -5905,7 +5930,7 @@ export class ListAsyncTasksRequest extends $tea.Model {
   includePayload?: boolean;
   /**
    * @remarks
-   * The number of asynchronous tasks to return. Valid values: [1,100]. Default value: 20.
+   * The number of asynchronous tasks to return. The default value is 20. Valid values: [1,100].
    * 
    * @example
    * 10
@@ -7088,7 +7113,7 @@ export class PutLayerACLResponse extends $tea.Model {
 export class PutProvisionConfigRequest extends $tea.Model {
   /**
    * @remarks
-   * The information about the provisioned configuration.
+   * The provisioned instance configurations.
    * 
    * This parameter is required.
    */
