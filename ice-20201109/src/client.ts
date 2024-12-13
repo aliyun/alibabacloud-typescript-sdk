@@ -20658,6 +20658,90 @@ export class SearchPublicMediaInfoResponse extends $tea.Model {
   }
 }
 
+export class SendAIAgentDataChannelMessageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"key":"value"}
+   */
+  message?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      message: 'Message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      message: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentDataChannelMessageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 7B117AF5-2A16-412C-B127-FA6175ED1AD0
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendAIAgentDataChannelMessageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendAIAgentDataChannelMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendAIAgentDataChannelMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SendAIAgentSpeechRequest extends $tea.Model {
   /**
    * @example
@@ -25521,12 +25605,12 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    */
   clipsParam?: string;
   /**
    * @remarks
-   * The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html#title-10z-t9u-n69).
+   * The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html).
    * 
    * >  If no thumbnail is specified in EditingProduceConfig, the first frame of the video is used as the thumbnail.
    * 
@@ -25544,7 +25628,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   editingProduceConfig?: string;
   /**
    * @remarks
-   * The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.445712.0.0.49a716dbA8hgdz#97ff26d0e3c28).
+   * The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html).
    * 
    * @example
    * {
@@ -25559,7 +25643,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
    * 
    * To store the output file in OSS, you must specify MediaURL. To store the output file in ApsaraVideo VOD, you must specify StorageLocation and FileName.
    * 
-   * For more information, see [OutputMediaConfig](https://help.aliyun.com/document_detail/357745.html#title-4j6-ve7-g31).
+   * For more information, see [OutputMediaConfig](https://help.aliyun.com/document_detail/357745.html).
    * 
    * This parameter is required.
    * 
@@ -25591,7 +25675,7 @@ export class SubmitMediaProducingJobRequest extends $tea.Model {
   projectId?: string;
   /**
    * @remarks
-   * The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html#title-yvp-81k-wff).
+   * The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html).
    */
   projectMetadata?: string;
   /**
@@ -27848,6 +27932,112 @@ export class SubmitVideoTranslationJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SubmitVideoTranslationJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TakeoverAIAgentCallRequest extends $tea.Model {
+  /**
+   * @example
+   * uid2
+   */
+  humanAgentUserId?: string;
+  /**
+   * @example
+   * 39f8e0bc005e4f309379701645f4****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * false
+   */
+  requireToken?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      humanAgentUserId: 'HumanAgentUserId',
+      instanceId: 'InstanceId',
+      requireToken: 'RequireToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      humanAgentUserId: 'string',
+      instanceId: 'string',
+      requireToken: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TakeoverAIAgentCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 70f22d5784194938a7e387052f2b3208
+   */
+  channelId?: string;
+  /**
+   * @example
+   * uid2
+   */
+  humanAgentUserId?: string;
+  /**
+   * @example
+   * ******3B-0E1A-586A-AC29-742247******
+   */
+  requestId?: string;
+  /**
+   * @example
+   * eyJhcHBpZCI6ICIxMjM0MTIzNxxxxx
+   */
+  token?: string;
+  static names(): { [key: string]: string } {
+    return {
+      channelId: 'ChannelId',
+      humanAgentUserId: 'HumanAgentUserId',
+      requestId: 'RequestId',
+      token: 'Token',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channelId: 'string',
+      humanAgentUserId: 'string',
+      requestId: 'string',
+      token: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TakeoverAIAgentCallResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TakeoverAIAgentCallResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TakeoverAIAgentCallResponseBody,
     };
   }
 
@@ -75787,8 +75977,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - ListTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -75847,8 +76037,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -77456,6 +77646,52 @@ export default class Client extends OpenApi {
   async searchPublicMediaInfo(request: SearchPublicMediaInfoRequest): Promise<SearchPublicMediaInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.searchPublicMediaInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * 向智能体通话发送datachannel消息
+   * 
+   * @param request - SendAIAgentDataChannelMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendAIAgentDataChannelMessageResponse
+   */
+  async sendAIAgentDataChannelMessageWithOptions(request: SendAIAgentDataChannelMessageRequest, runtime: $Util.RuntimeOptions): Promise<SendAIAgentDataChannelMessageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.message)) {
+      query["Message"] = request.message;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendAIAgentDataChannelMessage",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SendAIAgentDataChannelMessageResponse>(await this.callApi(params, req, runtime), new SendAIAgentDataChannelMessageResponse({}));
+  }
+
+  /**
+   * 向智能体通话发送datachannel消息
+   * 
+   * @param request - SendAIAgentDataChannelMessageRequest
+   * @returns SendAIAgentDataChannelMessageResponse
+   */
+  async sendAIAgentDataChannelMessage(request: SendAIAgentDataChannelMessageRequest): Promise<SendAIAgentDataChannelMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.sendAIAgentDataChannelMessageWithOptions(request, runtime);
   }
 
   /**
@@ -80435,6 +80671,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 切换真人客服接管模式
+   * 
+   * @param request - TakeoverAIAgentCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TakeoverAIAgentCallResponse
+   */
+  async takeoverAIAgentCallWithOptions(request: TakeoverAIAgentCallRequest, runtime: $Util.RuntimeOptions): Promise<TakeoverAIAgentCallResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.humanAgentUserId)) {
+      query["HumanAgentUserId"] = request.humanAgentUserId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.requireToken)) {
+      query["RequireToken"] = request.requireToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TakeoverAIAgentCall",
+      version: "2020-11-09",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TakeoverAIAgentCallResponse>(await this.callApi(params, req, runtime), new TakeoverAIAgentCallResponse({}));
+  }
+
+  /**
+   * 切换真人客服接管模式
+   * 
+   * @param request - TakeoverAIAgentCallRequest
+   * @returns TakeoverAIAgentCallResponse
+   */
+  async takeoverAIAgentCall(request: TakeoverAIAgentCallRequest): Promise<TakeoverAIAgentCallResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.takeoverAIAgentCallWithOptions(request, runtime);
+  }
+
+  /**
    * 修改实例的配置
    * 
    * @param tmpReq - UpdateAIAgentInstanceRequest
@@ -81330,8 +81616,8 @@ export default class Client extends OpenApi {
    * Modifies an online editing template. You can modify the template title and template configurations.
    * 
    * @remarks
-   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - UpdateTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81395,8 +81681,8 @@ export default class Client extends OpenApi {
    * Modifies an online editing template. You can modify the template title and template configurations.
    * 
    * @remarks
-   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+   *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+   * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
    * 
    * @param request - UpdateTemplateRequest
    * @returns UpdateTemplateResponse
