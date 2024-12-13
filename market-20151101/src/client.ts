@@ -1668,7 +1668,7 @@ export class DescribeOrderForIsvResponseBody extends $tea.Model {
    * 190311111111****
    */
   aliUid?: number;
-  components?: { [key: string]: any };
+  components?: any;
   /**
    * @example
    * 0.0
@@ -1779,7 +1779,7 @@ export class DescribeOrderForIsvResponseBody extends $tea.Model {
     return {
       accountQuantity: 'number',
       aliUid: 'number',
-      components: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      components: 'any',
       couponPrice: 'number',
       createdOn: 'number',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
