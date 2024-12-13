@@ -19,10 +19,6 @@ export class FindIdpListByLoginIdentifierRequest extends $tea.Model {
    * 370b56f8-2812-4b6c-bfa6-2560791c****
    */
   clientId?: string;
-  /**
-   * @example
-   * 22.21.XX.XX
-   */
   clientIp?: string;
   /**
    * @example
@@ -93,10 +89,6 @@ export class FindIdpListByLoginIdentifierShrinkRequest extends $tea.Model {
    * 370b56f8-2812-4b6c-bfa6-2560791c****
    */
   clientId?: string;
-  /**
-   * @example
-   * 22.21.XX.XX
-   */
   clientIp?: string;
   /**
    * @example
@@ -1527,6 +1519,10 @@ export default class Client extends OpenApi {
       query["AvailableFeatures"] = request.availableFeaturesShrink;
     }
 
+    if (!Util.isUnset(request.clientIp)) {
+      query["ClientIp"] = request.clientIp;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.clientChannel)) {
       body["ClientChannel"] = request.clientChannel;
@@ -1534,10 +1530,6 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clientId)) {
       body["ClientId"] = request.clientId;
-    }
-
-    if (!Util.isUnset(request.clientIp)) {
-      body["ClientIp"] = request.clientIp;
     }
 
     if (!Util.isUnset(request.clientOS)) {
