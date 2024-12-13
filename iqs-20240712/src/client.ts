@@ -3213,15 +3213,18 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines 
 
 export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsBus extends $tea.Model {
   buslines?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines[];
+  index?: string;
   static names(): { [key: string]: string } {
     return {
       buslines: 'buslines',
+      index: 'index',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       buslines: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsBusBuslines },
+      index: 'string',
     };
   }
 
@@ -3380,6 +3383,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway exte
    * 434508
    */
   id?: string;
+  index?: string;
   name?: string;
   spaces?: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces[];
   /**
@@ -3395,6 +3399,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway exte
       departureStop: 'departureStop',
       distanceMeter: 'distanceMeter',
       id: 'id',
+      index: 'index',
       name: 'name',
       spaces: 'spaces',
       time: 'time',
@@ -3409,6 +3414,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailway exte
       departureStop: TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwayDepartureStop,
       distanceMeter: 'string',
       id: 'string',
+      index: 'string',
       name: 'string',
       spaces: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsRailwaySpaces },
       time: 'string',
@@ -3443,6 +3449,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
    * 720
    */
   driveTimeSecond?: string;
+  index?: string;
   originName?: string;
   /**
    * @example
@@ -3460,6 +3467,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
       destinationPoint: 'destinationPoint',
       distanceMeter: 'distanceMeter',
       driveTimeSecond: 'driveTimeSecond',
+      index: 'index',
       originName: 'originName',
       originPoint: 'originPoint',
       price: 'price',
@@ -3472,6 +3480,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsTaxi extends
       destinationPoint: 'string',
       distanceMeter: 'string',
       driveTimeSecond: 'string',
+      index: 'string',
       originName: 'string',
       originPoint: 'string',
       price: 'string',
@@ -3638,6 +3647,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking exte
    * 546
    */
   distanceMeter?: string;
+  index?: string;
   /**
    * @example
    * 116.466568,39.995552
@@ -3649,6 +3659,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking exte
       cost: 'cost',
       destination: 'destination',
       distanceMeter: 'distanceMeter',
+      index: 'index',
       origin: 'origin',
       steps: 'steps',
     };
@@ -3659,6 +3670,7 @@ export class TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalking exte
       cost: TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingCost,
       destination: 'string',
       distanceMeter: 'string',
+      index: 'string',
       origin: 'string',
       steps: { 'type': 'array', 'itemType': TransitIntegratedDirectionResponseBodyDataPathsSegmentsWalkingSteps },
     };
