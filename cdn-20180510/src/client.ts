@@ -18162,15 +18162,24 @@ export class DisableRealtimeLogDeliveryRequest extends $tea.Model {
    * example.com
    */
   domain?: string;
+  logstore?: string;
+  project?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
+      logstore: 'Logstore',
+      project: 'Project',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
+      logstore: 'string',
+      project: 'string',
+      region: 'string',
     };
   }
 
@@ -18241,15 +18250,24 @@ export class EnableRealtimeLogDeliveryRequest extends $tea.Model {
    * example.com
    */
   domain?: string;
+  logstore?: string;
+  project?: string;
+  region?: string;
   static names(): { [key: string]: string } {
     return {
       domain: 'Domain',
+      logstore: 'Logstore',
+      project: 'Project',
+      region: 'Region',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       domain: 'string',
+      logstore: 'string',
+      project: 'string',
+      region: 'string',
     };
   }
 
