@@ -5727,6 +5727,7 @@ export class CreateEnvironmentResponse extends $tea.Model {
 }
 
 export class CreateGrafanaWorkspaceRequest extends $tea.Model {
+  accountNumber?: string;
   /**
    * @remarks
    * The language. Default value: zh. Valid values:
@@ -5738,6 +5739,8 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
    * zh
    */
   aliyunLang?: string;
+  autoRenew?: string;
+  customAccountNumber?: string;
   /**
    * @remarks
    * The description of the workspace
@@ -5746,6 +5749,7 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
    * test
    */
   description?: string;
+  duration?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -5789,6 +5793,7 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
    * Test123456!
    */
   password?: string;
+  pricingCycle?: string;
   /**
    * @remarks
    * The region ID.
@@ -5814,12 +5819,17 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
   tags?: CreateGrafanaWorkspaceRequestTags[];
   static names(): { [key: string]: string } {
     return {
+      accountNumber: 'AccountNumber',
       aliyunLang: 'AliyunLang',
+      autoRenew: 'AutoRenew',
+      customAccountNumber: 'CustomAccountNumber',
       description: 'Description',
+      duration: 'Duration',
       grafanaVersion: 'GrafanaVersion',
       grafanaWorkspaceEdition: 'GrafanaWorkspaceEdition',
       grafanaWorkspaceName: 'GrafanaWorkspaceName',
       password: 'Password',
+      pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tags: 'Tags',
@@ -5828,12 +5838,17 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountNumber: 'string',
       aliyunLang: 'string',
+      autoRenew: 'string',
+      customAccountNumber: 'string',
       description: 'string',
+      duration: 'string',
       grafanaVersion: 'string',
       grafanaWorkspaceEdition: 'string',
       grafanaWorkspaceName: 'string',
       password: 'string',
+      pricingCycle: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tags: { 'type': 'array', 'itemType': CreateGrafanaWorkspaceRequestTags },
@@ -5846,6 +5861,7 @@ export class CreateGrafanaWorkspaceRequest extends $tea.Model {
 }
 
 export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
+  accountNumber?: string;
   /**
    * @remarks
    * The language. Default value: zh. Valid values:
@@ -5857,6 +5873,8 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
    * zh
    */
   aliyunLang?: string;
+  autoRenew?: string;
+  customAccountNumber?: string;
   /**
    * @remarks
    * The description of the workspace
@@ -5865,6 +5883,7 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
    * test
    */
   description?: string;
+  duration?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -5908,6 +5927,7 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
    * Test123456!
    */
   password?: string;
+  pricingCycle?: string;
   /**
    * @remarks
    * The region ID.
@@ -5933,12 +5953,17 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {
+      accountNumber: 'AccountNumber',
       aliyunLang: 'AliyunLang',
+      autoRenew: 'AutoRenew',
+      customAccountNumber: 'CustomAccountNumber',
       description: 'Description',
+      duration: 'Duration',
       grafanaVersion: 'GrafanaVersion',
       grafanaWorkspaceEdition: 'GrafanaWorkspaceEdition',
       grafanaWorkspaceName: 'GrafanaWorkspaceName',
       password: 'Password',
+      pricingCycle: 'PricingCycle',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       tagsShrink: 'Tags',
@@ -5947,12 +5972,17 @@ export class CreateGrafanaWorkspaceShrinkRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accountNumber: 'string',
       aliyunLang: 'string',
+      autoRenew: 'string',
+      customAccountNumber: 'string',
       description: 'string',
+      duration: 'string',
       grafanaVersion: 'string',
       grafanaWorkspaceEdition: 'string',
       grafanaWorkspaceName: 'string',
       password: 'string',
+      pricingCycle: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       tagsShrink: 'string',
@@ -8200,6 +8230,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
    * grafana-bp1*****
    */
   grafanaInstanceId?: string;
+  paymentType?: string;
   /**
    * @remarks
    * The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
@@ -8319,6 +8350,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterType: 'ClusterType',
       duration: 'Duration',
       grafanaInstanceId: 'GrafanaInstanceId',
+      paymentType: 'PaymentType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       securityGroupId: 'SecurityGroupId',
@@ -8338,6 +8370,7 @@ export class CreatePrometheusInstanceRequest extends $tea.Model {
       clusterType: 'string',
       duration: 'number',
       grafanaInstanceId: 'string',
+      paymentType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       securityGroupId: 'string',
@@ -14954,7 +14987,7 @@ export class DeleteWebhookContactResponse extends $tea.Model {
 export class DescribeAddonMetricsRequest extends $tea.Model {
   /**
    * @remarks
-   * Version of Addon.
+   * The version of the component.
    * 
    * @example
    * 0.0.1
@@ -14970,7 +15003,7 @@ export class DescribeAddonMetricsRequest extends $tea.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * The environment type. Valid values: CS, ECS, and Cloud.
+   * The environment.
    * 
    * @example
    * CS
@@ -14978,7 +15011,7 @@ export class DescribeAddonMetricsRequest extends $tea.Model {
   environmentType?: string;
   /**
    * @remarks
-   * Name fo Addon.
+   * The name of the component.
    * 
    * This parameter is required.
    * 
@@ -14988,7 +15021,7 @@ export class DescribeAddonMetricsRequest extends $tea.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region.
    * 
    * @example
    * cn-hangzhou
@@ -15030,12 +15063,12 @@ export class DescribeAddonMetricsResponseBody extends $tea.Model {
   code?: number;
   /**
    * @remarks
-   * Metric information list.
+   * The metric details.
    */
   data?: DescribeAddonMetricsResponseBodyData[];
   /**
    * @remarks
-   * The error message.
+   * The returned message.
    * 
    * @example
    * success
@@ -15051,7 +15084,7 @@ export class DescribeAddonMetricsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -21290,7 +21323,7 @@ export class GetRumExceptionStackResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The response parameters.
+   * The returned message.
    */
   data?: GetRumExceptionStackResponseBodyData;
   /**
@@ -22011,6 +22044,10 @@ export class GetStackRequest extends $tea.Model {
    * 0.1
    */
   rpcID?: string;
+  /**
+   * @example
+   * 88c32dfa4b******
+   */
   spanID?: string;
   /**
    * @remarks
@@ -26035,6 +26072,240 @@ export class ListEnvServiceMonitorsResponse extends $tea.Model {
   }
 }
 
+export class ListEnvironmentAddonsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  /**
+   * @remarks
+   * The result of the operation.
+   */
+  data?: ListEnvironmentAddonsResponseBodyData;
+  /**
+   * @example
+   * message
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 32940175-181B-4B93-966E-4BB69176****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListEnvironmentAddonsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnvironmentAddonsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentAddonsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAlertRulesRequest extends $tea.Model {
+  /**
+   * @example
+   * mysql
+   */
+  addonName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * database
+   */
+  scene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      addonName: 'AddonName',
+      environmentId: 'EnvironmentId',
+      regionId: 'RegionId',
+      scene: 'Scene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addonName: 'string',
+      environmentId: 'string',
+      regionId: 'string',
+      scene: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAlertRulesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ListEnvironmentAlertRulesResponseBodyData;
+  /**
+   * @example
+   * message
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4C518054-852F-4023-ABC1-4AF95FF7****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListEnvironmentAlertRulesResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAlertRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnvironmentAlertRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentAlertRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnvironmentDashboardsRequest extends $tea.Model {
   /**
    * @remarks
@@ -26320,6 +26591,302 @@ export class ListEnvironmentFeaturesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListEnvironmentFeaturesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Pod
+   */
+  kind?: string;
+  labelSelectors?: { [key: string]: string };
+  /**
+   * @example
+   * default
+   */
+  namespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      kind: 'Kind',
+      labelSelectors: 'LabelSelectors',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      kind: 'string',
+      labelSelectors: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Pod
+   */
+  kind?: string;
+  labelSelectorsShrink?: string;
+  /**
+   * @example
+   * default
+   */
+  namespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      kind: 'Kind',
+      labelSelectorsShrink: 'LabelSelectors',
+      namespace: 'Namespace',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      kind: 'string',
+      labelSelectorsShrink: 'string',
+      namespace: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ListEnvironmentKubeResourcesResponseBodyData[];
+  /**
+   * @example
+   * message
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C21AB7CF-B7AF-410F-BD61-82D1567F****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: { 'type': 'array', 'itemType': ListEnvironmentKubeResourcesResponseBodyData },
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnvironmentKubeResourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentKubeResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * env-xxx
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * blackbox
+   */
+  jobName?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      environmentId: 'EnvironmentId',
+      jobName: 'JobName',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      environmentId: 'string',
+      jobName: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: number;
+  data?: ListEnvironmentMetricTargetsResponseBodyData;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 16AF921B-8187-489F-9913-43C808B4****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: ListEnvironmentMetricTargetsResponseBodyData,
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListEnvironmentMetricTargetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListEnvironmentMetricTargetsResponseBody,
     };
   }
 
@@ -37705,6 +38272,7 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
    * true
    */
   enableAuthToken?: boolean;
+  paymentType?: string;
   /**
    * @remarks
    * The region ID.
@@ -37740,6 +38308,7 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
       enableAuthFreeRead: 'EnableAuthFreeRead',
       enableAuthFreeWrite: 'EnableAuthFreeWrite',
       enableAuthToken: 'EnableAuthToken',
+      paymentType: 'PaymentType',
       regionId: 'RegionId',
       resourceGroupId: 'ResourceGroupId',
       storageDuration: 'StorageDuration',
@@ -37755,6 +38324,7 @@ export class UpdatePrometheusInstanceRequest extends $tea.Model {
       enableAuthFreeRead: 'boolean',
       enableAuthFreeWrite: 'boolean',
       enableAuthToken: 'boolean',
+      paymentType: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
       storageDuration: 'number',
@@ -45637,7 +46207,7 @@ export class DeleteTraceAppRequestDeleteReason extends $tea.Model {
 export class DescribeAddonMetricsResponseBodyDataLabels extends $tea.Model {
   /**
    * @remarks
-   * Metric label description.
+   * The description of the tag.
    * 
    * @example
    * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
@@ -45645,7 +46215,7 @@ export class DescribeAddonMetricsResponseBodyDataLabels extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * Metric label key.
+   * The tag key.
    * 
    * @example
    * page_size
@@ -45653,7 +46223,7 @@ export class DescribeAddonMetricsResponseBodyDataLabels extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * Metric label value.
+   * The source of the tag.
    * 
    * @example
    * db
@@ -45683,7 +46253,7 @@ export class DescribeAddonMetricsResponseBodyDataLabels extends $tea.Model {
 export class DescribeAddonMetricsResponseBodyDataMetricsLabels extends $tea.Model {
   /**
    * @remarks
-   * Label description.
+   * The description of the tag.
    * 
    * @example
    * PAGE_SIZE
@@ -45691,7 +46261,7 @@ export class DescribeAddonMetricsResponseBodyDataMetricsLabels extends $tea.Mode
   description?: string;
   /**
    * @remarks
-   * Label key.
+   * The tag key.
    * 
    * @example
    * page_size
@@ -45699,7 +46269,7 @@ export class DescribeAddonMetricsResponseBodyDataMetricsLabels extends $tea.Mode
   key?: string;
   /**
    * @remarks
-   * Metric source.
+   * The source of the tag.
    * 
    * @example
    * db
@@ -45729,7 +46299,7 @@ export class DescribeAddonMetricsResponseBodyDataMetricsLabels extends $tea.Mode
 export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
   /**
    * @remarks
-   * Metric description.
+   * The description of the metric.
    * 
    * @example
    * The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
@@ -45737,12 +46307,12 @@ export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * Metric label collection.
+   * The tags.
    */
   labels?: DescribeAddonMetricsResponseBodyDataMetricsLabels[];
   /**
    * @remarks
-   * Metric name.
+   * The metric name.
    * 
    * @example
    * mysql_exporter_collector_duration_seconds
@@ -45750,7 +46320,7 @@ export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
   metric?: string;
   /**
    * @remarks
-   * Metric type.
+   * The type of the metric.
    * 
    * @example
    * GAUGE
@@ -45758,7 +46328,7 @@ export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
   type?: string;
   /**
    * @remarks
-   * Metric unit.
+   * The unit of the metric.
    * 
    * @example
    * bytes
@@ -45792,7 +46362,7 @@ export class DescribeAddonMetricsResponseBodyDataMetrics extends $tea.Model {
 export class DescribeAddonMetricsResponseBodyData extends $tea.Model {
   /**
    * @remarks
-   * Metric Group.
+   * The metric group.
    * 
    * @example
    * Common
@@ -45800,12 +46370,12 @@ export class DescribeAddonMetricsResponseBodyData extends $tea.Model {
   group?: string;
   /**
    * @remarks
-   * Metric Labels.
+   * The tags.
    */
   labels?: DescribeAddonMetricsResponseBodyDataLabels[];
   /**
    * @remarks
-   * Metric list.
+   * The metrics.
    */
   metrics?: DescribeAddonMetricsResponseBodyDataMetrics[];
   static names(): { [key: string]: string } {
@@ -50392,6 +50962,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * PREPAY
    */
   paymentType?: string;
+  paymentTypeUpdateTime?: string;
   /**
    * @remarks
    * The product to which the Prometheus instance belongs. Valid values: arms and cms.
@@ -50522,6 +51093,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
    * vsw-f8z73vcja1tqnw90aav5a
    */
   vSwitchId?: string;
+  version?: string;
   /**
    * @remarks
    * The VPC ID. This parameter is returned only for Prometheus instances for ECS.
@@ -50549,6 +51121,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       httpApiInterUrl: 'HttpApiInterUrl',
       httpApiIntraUrl: 'HttpApiIntraUrl',
       paymentType: 'PaymentType',
+      paymentTypeUpdateTime: 'PaymentTypeUpdateTime',
       product: 'Product',
       pushGatewayInterUrl: 'PushGatewayInterUrl',
       pushGatewayIntraUrl: 'PushGatewayIntraUrl',
@@ -50566,6 +51139,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       tags: 'Tags',
       userId: 'UserId',
       vSwitchId: 'VSwitchId',
+      version: 'Version',
       vpcId: 'VpcId',
     };
   }
@@ -50589,6 +51163,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       httpApiInterUrl: 'string',
       httpApiIntraUrl: 'string',
       paymentType: 'string',
+      paymentTypeUpdateTime: 'string',
       product: 'string',
       pushGatewayInterUrl: 'string',
       pushGatewayIntraUrl: 'string',
@@ -50606,6 +51181,7 @@ export class GetPrometheusInstanceResponseBodyData extends $tea.Model {
       tags: { 'type': 'array', 'itemType': GetPrometheusInstanceResponseBodyDataTags },
       userId: 'string',
       vSwitchId: 'string',
+      version: 'string',
       vpcId: 'string',
     };
   }
@@ -51171,7 +51747,15 @@ export class GetRumAppInfoResponseBodyDataBonreeSDKConfigModuleConfig extends $t
 }
 
 export class GetRumAppInfoResponseBodyDataBonreeSDKConfigSamplingConfig extends $tea.Model {
+  /**
+   * @example
+   * 500
+   */
   samplingRate?: number;
+  /**
+   * @example
+   * 1
+   */
   samplingType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -51331,13 +51915,16 @@ export class GetRumAppInfoResponseBodyData extends $tea.Model {
    */
   appType?: string;
   /**
+   * @remarks
+   * The region where the backend is deployed.
+   * 
    * @example
    * cn-hangzhou
    */
   backendServiceTraceRegion?: string;
   /**
    * @remarks
-   * The mobile collection configurations.
+   * The collection configurations.
    */
   bonreeSDKConfig?: GetRumAppInfoResponseBodyDataBonreeSDKConfig;
   /**
@@ -51938,6 +52525,7 @@ export class GetRumExceptionStackResponseBodyDataThreadInfoList extends $tea.Mod
 }
 
 export class GetRumExceptionStackResponseBodyData extends $tea.Model {
+  binaryImages?: string;
   crashAddress?: string;
   crashReason?: string;
   /**
@@ -51958,6 +52546,7 @@ export class GetRumExceptionStackResponseBodyData extends $tea.Model {
   uuid?: string;
   static names(): { [key: string]: string } {
     return {
+      binaryImages: 'BinaryImages',
       crashAddress: 'CrashAddress',
       crashReason: 'CrashReason',
       lines: 'Lines',
@@ -51970,6 +52559,7 @@ export class GetRumExceptionStackResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      binaryImages: 'string',
       crashAddress: 'string',
       crashReason: 'string',
       lines: { 'type': 'array', 'itemType': 'string' },
@@ -52272,6 +52862,10 @@ export class GetStackResponseBodyStackInfo extends $tea.Model {
    * Tomcat Servlet Process
    */
   api?: string;
+  /**
+   * @example
+   * 1
+   */
   callCount?: string;
   /**
    * @remarks
@@ -59910,6 +60504,513 @@ export class ListEnvServiceMonitorsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListEnvironmentAddonsResponseBodyDataAddonsDashboards extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the dashboard.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The name of the dashboard.
+   * 
+   * @example
+   * mysql-overview
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The URL of the dashboard.
+   * 
+   * @example
+   * http://xxxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      name: 'Name',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      name: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies extends $tea.Model {
+  clusterTypes?: string[];
+  /**
+   * @remarks
+   * The feature that can be installed in the environment.
+   */
+  features?: { [key: string]: boolean };
+  /**
+   * @remarks
+   * The services.
+   */
+  services?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterTypes: 'ClusterTypes',
+      features: 'Features',
+      services: 'Services',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterTypes: { 'type': 'array', 'itemType': 'string' },
+      features: { 'type': 'map', 'keyType': 'string', 'valueType': 'boolean' },
+      services: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule extends $tea.Model {
+  promQL?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      promQL: 'PromQL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      promQL: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProtocols extends $tea.Model {
+  /**
+   * @remarks
+   * The description of the protocol.
+   * 
+   * @example
+   * ARMS
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The URL of the protocol icon.
+   * 
+   * @example
+   * http://xxxxxxx
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The tag of the protocol.
+   * 
+   * @example
+   * ARMS
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The name of the protocol.
+   * 
+   * @example
+   * arms
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      icon: 'Icon',
+      label: 'Label',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      icon: 'string',
+      label: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies extends $tea.Model {
+  /**
+   * @remarks
+   * The default alert status.
+   * 
+   * @example
+   * default
+   */
+  alertDefaultStatus?: string;
+  /**
+   * @remarks
+   * The default installation status.
+   * 
+   * @example
+   * false
+   */
+  defaultInstall?: boolean;
+  enableServiceAccount?: boolean;
+  metricCheckRule?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule;
+  needRestartAfterIntegration?: boolean;
+  /**
+   * @remarks
+   * The supported protocols.
+   */
+  protocols?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProtocols[];
+  /**
+   * @remarks
+   * The target name of the add-on.
+   * 
+   * @example
+   * cloud-rds-mysql
+   */
+  targetAddonName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertDefaultStatus: 'AlertDefaultStatus',
+      defaultInstall: 'DefaultInstall',
+      enableServiceAccount: 'EnableServiceAccount',
+      metricCheckRule: 'MetricCheckRule',
+      needRestartAfterIntegration: 'NeedRestartAfterIntegration',
+      protocols: 'Protocols',
+      targetAddonName: 'TargetAddonName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertDefaultStatus: 'string',
+      defaultInstall: 'boolean',
+      enableServiceAccount: 'boolean',
+      metricCheckRule: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesMetricCheckRule,
+      needRestartAfterIntegration: 'boolean',
+      protocols: { 'type': 'array', 'itemType': ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPoliciesProtocols },
+      targetAddonName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddonsEnvironments extends $tea.Model {
+  /**
+   * @remarks
+   * The dependencies of the environment.
+   */
+  dependencies?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies;
+  /**
+   * @remarks
+   * The description of the environment.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * Indicates whether the feature is enabled.
+   * 
+   * @example
+   * true
+   */
+  enable?: boolean;
+  /**
+   * @remarks
+   * The tag of the environment.
+   */
+  label?: string;
+  /**
+   * @remarks
+   * The name of the environment.
+   * 
+   * @example
+   * CS
+   */
+  name?: string;
+  /**
+   * @remarks
+   * The control policies in the environment.
+   */
+  policies?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies;
+  static names(): { [key: string]: string } {
+    return {
+      dependencies: 'Dependencies',
+      description: 'Description',
+      enable: 'Enable',
+      label: 'Label',
+      name: 'Name',
+      policies: 'Policies',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dependencies: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsDependencies,
+      description: 'string',
+      enable: 'boolean',
+      label: 'string',
+      name: 'string',
+      policies: ListEnvironmentAddonsResponseBodyDataAddonsEnvironmentsPolicies,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyDataAddons extends $tea.Model {
+  /**
+   * @remarks
+   * The alias of the add-on.
+   * 
+   * @example
+   * MySQL
+   */
+  alias?: string;
+  /**
+   * @remarks
+   * The tags of the add-on.
+   */
+  categories?: string[];
+  /**
+   * @remarks
+   * The dashboards.
+   */
+  dashboards?: ListEnvironmentAddonsResponseBodyDataAddonsDashboards[];
+  /**
+   * @remarks
+   * The description of the add-on.
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The supported environments.
+   */
+  environments?: ListEnvironmentAddonsResponseBodyDataAddonsEnvironments[];
+  /**
+   * @remarks
+   * The URL of the icon.
+   * 
+   * @example
+   * http://xxxx
+   */
+  icon?: string;
+  /**
+   * @remarks
+   * The collection of keywords.
+   */
+  keywords?: string[];
+  /**
+   * @remarks
+   * The language.
+   * 
+   * @example
+   * zh
+   */
+  language?: string;
+  /**
+   * @remarks
+   * The time when the instance was last created.
+   * 
+   * @example
+   * 2023-09-22T16:56:29+08:00
+   */
+  latestReleaseCreateTime?: string;
+  /**
+   * @remarks
+   * The name of the add-on.
+   * 
+   * @example
+   * mysql
+   */
+  name?: string;
+  /**
+   * @remarks
+   * Indicates whether the add-on can be installed only once.
+   * 
+   * @example
+   * false
+   */
+  once?: boolean;
+  /**
+   * @remarks
+   * The scenario.
+   * 
+   * @example
+   * database
+   */
+  scene?: string;
+  /**
+   * @remarks
+   * The version of the agent.
+   * 
+   * @example
+   * 0.0.1
+   */
+  version?: string;
+  /**
+   * @remarks
+   * The weight.
+   * 
+   * @example
+   * 857
+   */
+  weight?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alias: 'Alias',
+      categories: 'Categories',
+      dashboards: 'Dashboards',
+      description: 'Description',
+      environments: 'Environments',
+      icon: 'Icon',
+      keywords: 'Keywords',
+      language: 'Language',
+      latestReleaseCreateTime: 'LatestReleaseCreateTime',
+      name: 'Name',
+      once: 'Once',
+      scene: 'Scene',
+      version: 'Version',
+      weight: 'Weight',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alias: 'string',
+      categories: { 'type': 'array', 'itemType': 'string' },
+      dashboards: { 'type': 'array', 'itemType': ListEnvironmentAddonsResponseBodyDataAddonsDashboards },
+      description: 'string',
+      environments: { 'type': 'array', 'itemType': ListEnvironmentAddonsResponseBodyDataAddonsEnvironments },
+      icon: 'string',
+      keywords: { 'type': 'array', 'itemType': 'string' },
+      language: 'string',
+      latestReleaseCreateTime: 'string',
+      name: 'string',
+      once: 'boolean',
+      scene: 'string',
+      version: 'string',
+      weight: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAddonsResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The queried add-ons.
+   */
+  addons?: ListEnvironmentAddonsResponseBodyDataAddons[];
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      addons: 'Addons',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      addons: { 'type': 'array', 'itemType': ListEnvironmentAddonsResponseBodyDataAddons },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAlertRulesResponseBodyDataRules extends $tea.Model {
+  /**
+   * @example
+   * 9502571
+   */
+  alertId?: number;
+  /**
+   * @example
+   * mysql-CS-MySQLInnoDBLogWaits_lu
+   */
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertId: 'AlertId',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertId: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentAlertRulesResponseBodyData extends $tea.Model {
+  groups?: string[];
+  rules?: ListEnvironmentAlertRulesResponseBodyDataRules[];
+  /**
+   * @example
+   * 26
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groups: 'Groups',
+      rules: 'Rules',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groups: { 'type': 'array', 'itemType': 'string' },
+      rules: { 'type': 'array', 'itemType': ListEnvironmentAlertRulesResponseBodyDataRules },
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEnvironmentDashboardsResponseBodyDataDashboards extends $tea.Model {
   /**
    * @remarks
@@ -60141,6 +61242,280 @@ export class ListEnvironmentFeaturesResponseBodyData extends $tea.Model {
       name: 'string',
       status: 'string',
       version: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesResponseBodyDataMetadata extends $tea.Model {
+  annotations?: { [key: string]: string };
+  labels?: { [key: string]: string };
+  /**
+   * @example
+   * arms-prometheus-ack-arms-prometheus-c577b6cc8-mvdwd
+   */
+  name?: string;
+  /**
+   * @example
+   * arms-prom
+   */
+  namespace?: string;
+  static names(): { [key: string]: string } {
+    return {
+      annotations: 'Annotations',
+      labels: 'Labels',
+      name: 'Name',
+      namespace: 'Namespace',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      annotations: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      name: 'string',
+      namespace: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentKubeResourcesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * v1
+   */
+  apiVersion?: string;
+  /**
+   * @example
+   * Pod
+   */
+  kind?: string;
+  metadata?: ListEnvironmentKubeResourcesResponseBodyDataMetadata;
+  /**
+   * @example
+   * {
+   *         "dnsPolicy": "ClusterFirst",
+   *         "nodeName": "cn-hangzhou.172.16.0.60",
+   *         "terminationGracePeriodSeconds": 30,
+   *         "enableServiceLinks": true,
+   *         "serviceAccountName": "arms-prom-operator",
+   *         "volumes": [
+   *           {
+   *             "name": "certs",
+   *             "secret": {
+   *               "secretName": "arms-prometheus-ack-arms-prometheus-cert",
+   *               "defaultMode": 420
+   *             }
+   *           }
+   */
+  spec?: any;
+  /**
+   * @example
+   * run
+   */
+  status?: any;
+  static names(): { [key: string]: string } {
+    return {
+      apiVersion: 'ApiVersion',
+      kind: 'Kind',
+      metadata: 'Metadata',
+      spec: 'Spec',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      apiVersion: 'string',
+      kind: 'string',
+      metadata: ListEnvironmentKubeResourcesResponseBodyDataMetadata,
+      spec: 'any',
+      status: 'any',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsResponseBodyDataActiveTargets extends $tea.Model {
+  discoveredLabels?: { [key: string]: string };
+  /**
+   * @example
+   * http://xxx
+   */
+  globalUrl?: string;
+  /**
+   * @example
+   * up
+   */
+  health?: string;
+  labels?: { [key: string]: string };
+  /**
+   * @example
+   * Get \\"http://172.16.0.86:9104/metrics\\": dial tcp 172.16.0.86:9104: connect: connection refused
+   */
+  lastError?: string;
+  /**
+   * @example
+   * 2023-10-12T07:15:47.306691514Z
+   */
+  lastScrape?: string;
+  /**
+   * @example
+   * 0.00127593
+   */
+  lastScrapeDuration?: number;
+  /**
+   * @example
+   * 122
+   */
+  lastScrapeSeries?: number;
+  /**
+   * @example
+   * arms-prom/mysql-exporter-mysql-1694429267986-sm/0"
+   */
+  scrapePool?: string;
+  /**
+   * @example
+   * http://xxxx
+   */
+  scrapeUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      discoveredLabels: 'DiscoveredLabels',
+      globalUrl: 'GlobalUrl',
+      health: 'Health',
+      labels: 'Labels',
+      lastError: 'LastError',
+      lastScrape: 'LastScrape',
+      lastScrapeDuration: 'LastScrapeDuration',
+      lastScrapeSeries: 'LastScrapeSeries',
+      scrapePool: 'ScrapePool',
+      scrapeUrl: 'ScrapeUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discoveredLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      globalUrl: 'string',
+      health: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      lastError: 'string',
+      lastScrape: 'string',
+      lastScrapeDuration: 'number',
+      lastScrapeSeries: 'number',
+      scrapePool: 'string',
+      scrapeUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets extends $tea.Model {
+  discoveredLabels?: { [key: string]: string };
+  /**
+   * @example
+   * http://xxx
+   */
+  globalUrl?: string;
+  /**
+   * @example
+   * up
+   */
+  health?: string;
+  labels?: { [key: string]: string };
+  /**
+   * @example
+   * Get \\"http://172.16.0.86:9104/metrics\\": dial tcp 172.16.0.86:9104: connect: connection refused
+   */
+  lastError?: string;
+  /**
+   * @example
+   * 2023-10-12T07:15:47.306691514Z
+   */
+  lastScrape?: string;
+  /**
+   * @example
+   * 0.00127593
+   */
+  lastScrapeDuration?: number;
+  /**
+   * @example
+   * 122
+   */
+  lastScrapeSeries?: number;
+  /**
+   * @example
+   * arms-prom/mysql-exporter-mysql-1694429267986-sm/0"
+   */
+  scrapePool?: string;
+  /**
+   * @example
+   * http://xxxx
+   */
+  scrapeUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      discoveredLabels: 'DiscoveredLabels',
+      globalUrl: 'GlobalUrl',
+      health: 'Health',
+      labels: 'Labels',
+      lastError: 'LastError',
+      lastScrape: 'LastScrape',
+      lastScrapeDuration: 'LastScrapeDuration',
+      lastScrapeSeries: 'LastScrapeSeries',
+      scrapePool: 'ScrapePool',
+      scrapeUrl: 'ScrapeUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discoveredLabels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      globalUrl: 'string',
+      health: 'string',
+      labels: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      lastError: 'string',
+      lastScrape: 'string',
+      lastScrapeDuration: 'number',
+      lastScrapeSeries: 'number',
+      scrapePool: 'string',
+      scrapeUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListEnvironmentMetricTargetsResponseBodyData extends $tea.Model {
+  activeTargets?: ListEnvironmentMetricTargetsResponseBodyDataActiveTargets[];
+  droppedTargets?: ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets[];
+  static names(): { [key: string]: string } {
+    return {
+      activeTargets: 'ActiveTargets',
+      droppedTargets: 'DroppedTargets',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      activeTargets: { 'type': 'array', 'itemType': ListEnvironmentMetricTargetsResponseBodyDataActiveTargets },
+      droppedTargets: { 'type': 'array', 'itemType': ListEnvironmentMetricTargetsResponseBodyDataDroppedTargets },
     };
   }
 
@@ -71164,12 +72539,28 @@ export default class Client extends OpenApi {
     }
 
     let query = { };
+    if (!Util.isUnset(request.accountNumber)) {
+      query["AccountNumber"] = request.accountNumber;
+    }
+
     if (!Util.isUnset(request.aliyunLang)) {
       query["AliyunLang"] = request.aliyunLang;
     }
 
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.customAccountNumber)) {
+      query["CustomAccountNumber"] = request.customAccountNumber;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
     }
 
     if (!Util.isUnset(request.grafanaVersion)) {
@@ -71186,6 +72577,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.password)) {
       query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.pricingCycle)) {
+      query["PricingCycle"] = request.pricingCycle;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -72089,6 +73484,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.grafanaInstanceId)) {
       query["GrafanaInstanceId"] = request.grafanaInstanceId;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -74566,7 +75965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Example Query metric details about an Addon.
+   * Queries the metric details of a component.
    * 
    * @param request - DescribeAddonMetricsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -74613,7 +76012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Example Query metric details about an Addon.
+   * Queries the metric details of a component.
    * 
    * @param request - DescribeAddonMetricsRequest
    * @returns DescribeAddonMetricsResponse
@@ -78756,6 +80155,106 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 环境addon列表
+   * 
+   * @param request - ListEnvironmentAddonsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnvironmentAddonsResponse
+   */
+  async listEnvironmentAddonsWithOptions(request: ListEnvironmentAddonsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentAddonsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironmentAddons",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentAddonsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentAddonsResponse({}));
+  }
+
+  /**
+   * 环境addon列表
+   * 
+   * @param request - ListEnvironmentAddonsRequest
+   * @returns ListEnvironmentAddonsResponse
+   */
+  async listEnvironmentAddons(request: ListEnvironmentAddonsRequest): Promise<ListEnvironmentAddonsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentAddonsWithOptions(request, runtime);
+  }
+
+  /**
+   * 环境的告警组列表
+   * 
+   * @param request - ListEnvironmentAlertRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnvironmentAlertRulesResponse
+   */
+  async listEnvironmentAlertRulesWithOptions(request: ListEnvironmentAlertRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentAlertRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.addonName)) {
+      query["AddonName"] = request.addonName;
+    }
+
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scene)) {
+      query["Scene"] = request.scene;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironmentAlertRules",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentAlertRulesResponse>(await this.callApi(params, req, runtime), new ListEnvironmentAlertRulesResponse({}));
+  }
+
+  /**
+   * 环境的告警组列表
+   * 
+   * @param request - ListEnvironmentAlertRulesRequest
+   * @returns ListEnvironmentAlertRulesResponse
+   */
+  async listEnvironmentAlertRules(request: ListEnvironmentAlertRulesRequest): Promise<ListEnvironmentAlertRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentAlertRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about a dashboard of an environment instance.
    * 
    * @param request - ListEnvironmentDashboardsRequest
@@ -78857,6 +80356,120 @@ export default class Client extends OpenApi {
   async listEnvironmentFeatures(request: ListEnvironmentFeaturesRequest): Promise<ListEnvironmentFeaturesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listEnvironmentFeaturesWithOptions(request, runtime);
+  }
+
+  /**
+   * 环境中的kube资源列表
+   * 
+   * @param tmpReq - ListEnvironmentKubeResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnvironmentKubeResourcesResponse
+   */
+  async listEnvironmentKubeResourcesWithOptions(tmpReq: ListEnvironmentKubeResourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentKubeResourcesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListEnvironmentKubeResourcesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.labelSelectors)) {
+      request.labelSelectorsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labelSelectors, "LabelSelectors", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.kind)) {
+      query["Kind"] = request.kind;
+    }
+
+    if (!Util.isUnset(request.labelSelectorsShrink)) {
+      query["LabelSelectors"] = request.labelSelectorsShrink;
+    }
+
+    if (!Util.isUnset(request.namespace)) {
+      query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironmentKubeResources",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentKubeResourcesResponse>(await this.callApi(params, req, runtime), new ListEnvironmentKubeResourcesResponse({}));
+  }
+
+  /**
+   * 环境中的kube资源列表
+   * 
+   * @param request - ListEnvironmentKubeResourcesRequest
+   * @returns ListEnvironmentKubeResourcesResponse
+   */
+  async listEnvironmentKubeResources(request: ListEnvironmentKubeResourcesRequest): Promise<ListEnvironmentKubeResourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentKubeResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 环境指标target列表
+   * 
+   * @param request - ListEnvironmentMetricTargetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEnvironmentMetricTargetsResponse
+   */
+  async listEnvironmentMetricTargetsWithOptions(request: ListEnvironmentMetricTargetsRequest, runtime: $Util.RuntimeOptions): Promise<ListEnvironmentMetricTargetsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.environmentId)) {
+      query["EnvironmentId"] = request.environmentId;
+    }
+
+    if (!Util.isUnset(request.jobName)) {
+      query["JobName"] = request.jobName;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListEnvironmentMetricTargets",
+      version: "2019-08-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListEnvironmentMetricTargetsResponse>(await this.callApi(params, req, runtime), new ListEnvironmentMetricTargetsResponse({}));
+  }
+
+  /**
+   * 环境指标target列表
+   * 
+   * @param request - ListEnvironmentMetricTargetsRequest
+   * @returns ListEnvironmentMetricTargetsResponse
+   */
+  async listEnvironmentMetricTargets(request: ListEnvironmentMetricTargetsRequest): Promise<ListEnvironmentMetricTargetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listEnvironmentMetricTargetsWithOptions(request, runtime);
   }
 
   /**
@@ -83169,6 +84782,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.enableAuthToken)) {
       query["EnableAuthToken"] = request.enableAuthToken;
+    }
+
+    if (!Util.isUnset(request.paymentType)) {
+      query["PaymentType"] = request.paymentType;
     }
 
     if (!Util.isUnset(request.regionId)) {
