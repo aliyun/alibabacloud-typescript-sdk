@@ -5497,6 +5497,7 @@ export class CreateFileRequest extends $tea.Model {
    * false
    */
   stop?: boolean;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
@@ -5531,6 +5532,7 @@ export class CreateFileRequest extends $tea.Model {
       startEffectDate: 'StartEffectDate',
       startImmediately: 'StartImmediately',
       stop: 'Stop',
+      timeout: 'Timeout',
     };
   }
 
@@ -5568,6 +5570,7 @@ export class CreateFileRequest extends $tea.Model {
       startEffectDate: 'number',
       startImmediately: 'boolean',
       stop: 'boolean',
+      timeout: 'number',
     };
   }
 
@@ -8817,6 +8820,9 @@ export class CreateTableRequest extends $tea.Model {
   /**
    * @remarks
    * A reserved parameter.
+   * 
+   * @example
+   * reserved
    */
   clientToken?: string;
   /**
@@ -8829,6 +8835,9 @@ export class CreateTableRequest extends $tea.Model {
   /**
    * @remarks
    * The comment.
+   * 
+   * @example
+   * comment
    */
   comment?: string;
   /**
@@ -11137,7 +11146,7 @@ export class DeleteFromMetaCategoryResponse extends $tea.Model {
 export class DeleteLineageRelationRequest extends $tea.Model {
   /**
    * @remarks
-   * The unique identifier of the destination entity.
+   * Destination entity unique identifier
    * 
    * This parameter is required.
    * 
@@ -11147,16 +11156,23 @@ export class DeleteLineageRelationRequest extends $tea.Model {
   destEntityQualifiedName?: string;
   /**
    * @remarks
-   * The unique identifier of the lineage.
+   * Lineage relationship unique identifier
    * 
    * @example
    * dfazcdfdfccdedd
    */
   relationshipGuid?: string;
+  /**
+   * @remarks
+   * Relationship type
+   * 
+   * @example
+   * sql
+   */
   relationshipType?: string;
   /**
    * @remarks
-   * The unique identifier of the source entity.
+   * Source entity unique identifier
    * 
    * This parameter is required.
    * 
@@ -11190,7 +11206,7 @@ export class DeleteLineageRelationRequest extends $tea.Model {
 export class DeleteLineageRelationResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code
    * 
    * @example
    * 1010040007
@@ -11198,7 +11214,7 @@ export class DeleteLineageRelationResponseBody extends $tea.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message.
+   * Error message
    * 
    * @example
    * qualifiedName should be in format as entity-table.entity-guid
@@ -11206,7 +11222,7 @@ export class DeleteLineageRelationResponseBody extends $tea.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code
    * 
    * @example
    * 200
@@ -11214,7 +11230,7 @@ export class DeleteLineageRelationResponseBody extends $tea.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID: used for locating logs and troubleshooting
    * 
    * @example
    * 64B-587A-8CED-969E1973887FXXX-TT
@@ -11222,11 +11238,11 @@ export class DeleteLineageRelationResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the operation. Valid values:
+   * Operation result:
    * 
-   * true: successful
+   * true: Success
    * 
-   * false: failed
+   * false: Failure
    * 
    * @example
    * true
@@ -11234,11 +11250,11 @@ export class DeleteLineageRelationResponseBody extends $tea.Model {
   status?: boolean;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Whether the call was successful. Values are as follows:
    * 
-   * true
+   * true: success
    * 
-   * false
+   * false: failed
    * 
    * @example
    * true
@@ -23478,7 +23494,7 @@ export class GetMetaTableColumnResponse extends $tea.Model {
 export class GetMetaTableFullInfoRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID of the cluster.
+   * The ID of the EMR cluster. You can log in to the EMR management console to obtain the cluster ID.
    * 
    * @example
    * C-010A704DA760****
@@ -23486,7 +23502,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the data source. Only emr is supported.
+   * Data type, currently only supports the value `emr`.
    * 
    * @example
    * emr
@@ -23494,7 +23510,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
+   * The name of the EMR database. You can obtain the database name by calling the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) interface.
    * 
    * @example
    * abc
@@ -23502,7 +23518,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number requested for pagination.
    * 
    * @example
    * 1
@@ -23510,7 +23526,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: 10. Maximum value: 100.
+   * The number of items per page, with a default of 10 and a maximum of 100.
    * 
    * @example
    * 10
@@ -23518,7 +23534,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The GUID of the metatable. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the GUID of the metatable.
+   * The unique identifier of the table. You can obtain the unique identifier by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
    * 
    * @example
    * odps.engine_name.table_name
@@ -23526,7 +23542,7 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
+   * The name of the EMR table. You can obtain the table name by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
    * 
    * @example
    * abc
@@ -23564,12 +23580,12 @@ export class GetMetaTableFullInfoRequest extends $tea.Model {
 export class GetMetaTableFullInfoResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The business data returned.
+   * Business data.
    */
   data?: GetMetaTableFullInfoResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * Error code.
    * 
    * @example
    * 1031203110005
@@ -23577,7 +23593,7 @@ export class GetMetaTableFullInfoResponseBody extends $tea.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * Error message.
    * 
    * @example
    * The specified parameters are invalid.
@@ -23585,7 +23601,7 @@ export class GetMetaTableFullInfoResponseBody extends $tea.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -23593,7 +23609,7 @@ export class GetMetaTableFullInfoResponseBody extends $tea.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to query logs and troubleshoot issues.
+   * Request ID. Used for locating logs and troubleshooting issues.
    * 
    * @example
    * 0bc1411515937****
@@ -23601,7 +23617,7 @@ export class GetMetaTableFullInfoResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Whether the call was successful.
    * 
    * @example
    * true
@@ -24615,27 +24631,41 @@ export class GetMetaTablePartitionResponse extends $tea.Model {
 
 export class GetMetaTableProducingTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the EMR cluster. This parameter takes effect only if the DataSourceType parameter is set to emr.
+   * 
    * @example
    * C-A_SAMPLE_CLUSTER_ID
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The type of the metatable. Valid values: odps and emr. The value odps indicates that the metatable is a MaxCompute metatable. The value emr indicates that the metatable is an E-MapReduce (EMR) metatable.
+   * 
    * @example
    * odps
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * default
    */
   dbName?: string;
   /**
+   * @remarks
+   * The name of the schema.
+   * 
    * @example
    * myschema
    */
   schemaName?: string;
   /**
    * @remarks
+   * The GUID of the MaxCompute metatable.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24643,6 +24673,9 @@ export class GetMetaTableProducingTasksRequest extends $tea.Model {
    */
   tableGuid?: string;
   /**
+   * @remarks
+   * The name of the metatable.
+   * 
    * @example
    * sample_table
    */
@@ -24675,28 +24708,47 @@ export class GetMetaTableProducingTasksRequest extends $tea.Model {
 }
 
 export class GetMetaTableProducingTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The output tasks of the metatable.
+   */
   data?: GetMetaTableProducingTasksResponseBodyData[];
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * "0"
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * SUCCESS
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code returned.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 00000-00000-00000-00000
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values: true and false. The value true indicates that the request was successful. The value false indicates that the request failed.
+   * 
    * @example
    * true
    */
@@ -47330,6 +47382,7 @@ export class UpdateFileRequest extends $tea.Model {
    * false
    */
   stop?: boolean;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
       advancedSettings: 'AdvancedSettings',
@@ -47363,6 +47416,7 @@ export class UpdateFileRequest extends $tea.Model {
       startEffectDate: 'StartEffectDate',
       startImmediately: 'StartImmediately',
       stop: 'Stop',
+      timeout: 'Timeout',
     };
   }
 
@@ -47399,6 +47453,7 @@ export class UpdateFileRequest extends $tea.Model {
       startEffectDate: 'number',
       startImmediately: 'boolean',
       stop: 'boolean',
+      timeout: 'number',
     };
   }
 
@@ -49497,6 +49552,9 @@ export class UpdateTableRequest extends $tea.Model {
   /**
    * @remarks
    * The comment.
+   * 
+   * @example
+   * comment
    */
   comment?: string;
   /**
@@ -51695,6 +51753,9 @@ export class CreateTableRequestColumns extends $tea.Model {
   /**
    * @remarks
    * The display name of the field.
+   * 
+   * @example
+   * columnName in chinese
    */
   columnNameCn?: string;
   /**
@@ -51710,6 +51771,9 @@ export class CreateTableRequestColumns extends $tea.Model {
   /**
    * @remarks
    * The comment of the field.
+   * 
+   * @example
+   * comment
    */
   comment?: string;
   /**
@@ -60442,6 +60506,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
    * 4155787800000
    */
   endEffectDate?: number;
+  ignoreParentSkipRunningProperty?: string;
   /**
    * @remarks
    * The output names of the parent files on which the current file depends.
@@ -60546,6 +60611,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
    * false
    */
   stop?: boolean;
+  timeout?: number;
   static names(): { [key: string]: string } {
     return {
       applyScheduleImmediately: 'ApplyScheduleImmediately',
@@ -60556,6 +60622,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       dependentNodeIdList: 'DependentNodeIdList',
       dependentType: 'DependentType',
       endEffectDate: 'EndEffectDate',
+      ignoreParentSkipRunningProperty: 'IgnoreParentSkipRunningProperty',
       inputList: 'InputList',
       inputParameters: 'InputParameters',
       outputList: 'OutputList',
@@ -60567,6 +60634,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       startEffectDate: 'StartEffectDate',
       startImmediately: 'StartImmediately',
       stop: 'Stop',
+      timeout: 'Timeout',
     };
   }
 
@@ -60580,6 +60648,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       dependentNodeIdList: 'string',
       dependentType: 'string',
       endEffectDate: 'number',
+      ignoreParentSkipRunningProperty: 'string',
       inputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputList },
       inputParameters: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationInputParameters },
       outputList: { 'type': 'array', 'itemType': GetFileResponseBodyDataNodeConfigurationOutputList },
@@ -60591,6 +60660,7 @@ export class GetFileResponseBodyDataNodeConfiguration extends $tea.Model {
       startEffectDate: 'number',
       startImmediately: 'boolean',
       stop: 'boolean',
+      timeout: 'number',
     };
   }
 
@@ -61851,6 +61921,11 @@ export class GetInstanceResponseBodyData extends $tea.Model {
    */
   nodeName?: string;
   /**
+   * @example
+   * 111
+   */
+  owner?: string;
+  /**
    * @remarks
    * The parameters related to the node.
    * 
@@ -61858,6 +61933,11 @@ export class GetInstanceResponseBodyData extends $tea.Model {
    * bizdate=$bizdate tbods=$tbods tbdw=$tbdw tbpmic=$tbpmic tbpidx=$tbpidx tbptcif=$tbptcif
    */
   paramValues?: string;
+  /**
+   * @example
+   * 1
+   */
+  periodNumber?: number;
   /**
    * @remarks
    * The priority of the instance. Valid values: 1, 3, 5, 7, and 8. A greater value indicates a higher priority. Default value: 1.
@@ -61957,7 +62037,9 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       modifyTime: 'ModifyTime',
       nodeId: 'NodeId',
       nodeName: 'NodeName',
+      owner: 'Owner',
       paramValues: 'ParamValues',
+      periodNumber: 'PeriodNumber',
       priority: 'Priority',
       relatedFlowId: 'RelatedFlowId',
       repeatInterval: 'RepeatInterval',
@@ -61989,7 +62071,9 @@ export class GetInstanceResponseBodyData extends $tea.Model {
       modifyTime: 'number',
       nodeId: 'number',
       nodeName: 'string',
+      owner: 'string',
       paramValues: 'string',
+      periodNumber: 'number',
       priority: 'number',
       relatedFlowId: 'number',
       repeatInterval: 'number',
@@ -63802,7 +63886,7 @@ export class GetMetaTableColumnResponseBodyData extends $tea.Model {
 export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   /**
    * @remarks
-   * The description of the field.
+   * The description of the column.
    * 
    * @example
    * data comment
@@ -63810,7 +63894,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   caption?: string;
   /**
    * @remarks
-   * The GUID of the field.
+   * The unique identifier of the column.
    * 
    * @example
    * odps.engine_name.table_name.1
@@ -63818,7 +63902,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   columnGuid?: string;
   /**
    * @remarks
-   * The name of the field.
+   * The name of the column.
    * 
    * @example
    * 1
@@ -63826,7 +63910,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   columnName?: string;
   /**
    * @remarks
-   * The data type of the field.
+   * The type of the column.
    * 
    * @example
    * string
@@ -63834,7 +63918,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   columnType?: string;
   /**
    * @remarks
-   * The remarks of the field.
+   * The comment for the column.
    * 
    * @example
    * comment
@@ -63842,10 +63926,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   comment?: string;
   /**
    * @remarks
-   * Indicates whether the field is a foreign key. Valid values:
-   * 
-   * *   true: The field is a foreign key.
-   * *   false: The field is not a foreign key.
+   * Whether the field is a foreign key, with values as follows: 
+   * - true, it is a foreign key. 
+   * - false, it is not a foreign key.
    * 
    * @example
    * true
@@ -63853,10 +63936,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   isForeignKey?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is a partition field. Valid values:
-   * 
-   * *   true: The field is a partition field.
-   * *   false: The field is not a partition field.
+   * Indicates whether the column is a partition column, with the following values:
+   * - true: It is a partition column.
+   * - false: It is not a partition column.
    * 
    * @example
    * true
@@ -63864,10 +63946,9 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   isPartitionColumn?: boolean;
   /**
    * @remarks
-   * Indicates whether the field is the primary key. Valid values:
-   * 
-   * *   true: The field is the primary key.
-   * *   false: The field is not the primary key.
+   * Indicates whether the column is a primary key, with the following values:
+   * - true: It is a primary key.
+   * - false: It is not a primary key.
    * 
    * @example
    * false
@@ -63875,7 +63956,7 @@ export class GetMetaTableFullInfoResponseBodyDataColumnList extends $tea.Model {
   isPrimaryKey?: boolean;
   /**
    * @remarks
-   * The ordinal number of the field.
+   * The position of the column in the order.
    * 
    * @example
    * 1
@@ -63925,12 +64006,12 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The fields in the metatable.
+   * A list of columns.
    */
   columnList?: GetMetaTableFullInfoResponseBodyDataColumnList[];
   /**
    * @remarks
-   * The remarks of the metatable.
+   * The comment of the table.
    * 
    * @example
    * comment
@@ -63938,7 +64019,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the metatable was created. You can convert the timestamp to the related date based on the time zone that you use.
+   * The time when the table was created. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
    * 
    * @example
    * 1589870293000
@@ -63946,7 +64027,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * The amount of storage resources that are consumed by the metatable. Unit: bytes.
+   * The storage space occupied by the table, in bytes (B).
    * 
    * @example
    * 10
@@ -63962,10 +64043,9 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The type of the environment in which the metatable resides. Valid values:
-   * 
-   * *   0: indicates that the metatable resides in the development environment.
-   * *   1: indicates that the metatable resides in the production environment.
+   * Environment type, with the following values:
+   * - 0 indicates a table in the development environment.
+   * - 1 indicates a table in the production environment.
    * 
    * @example
    * 1
@@ -63973,12 +64053,11 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   envType?: number;
   /**
    * @remarks
-   * The scope in which the metatable is visible. Valid values:
-   * 
-   * *   0: indicates that the metatable is visible to workspace members.
-   * *   1: indicates that the metatable is visible to users within a tenant.
-   * *   2: indicates that the metatable is visible to all tenants.
-   * *   3: indicates that the metatable is visible only to the metatable owner.
+   * Indicates whether the table is visible, with the following values:
+   * - 0: The table is visible to workspace members.
+   * - 1: The table is visible within the tenant.
+   * - 2: The table is visible across tenants.
+   * - 3: The table is only visible to the responsible person.
    * 
    * @example
    * 1
@@ -63986,7 +64065,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   isVisible?: number;
   /**
    * @remarks
-   * The time when the metatable was last accessed. You can convert the timestamp to the related date based on the time zone that you use.
+   * The last time the table was accessed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
    * 
    * @example
    * 1589870294000
@@ -63994,7 +64073,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   lastAccessTime?: number;
   /**
    * @remarks
-   * The time when the schema of the metatable was last changed. You can convert the timestamp to the related date based on the time zone that you use.
+   * The last time the table structure was changed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
    * 
    * @example
    * 1589870294000
@@ -64002,7 +64081,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   lastDdlTime?: number;
   /**
    * @remarks
-   * The time when the metatable was last updated. You can convert the timestamp to the related date based on the time zone that you use.
+   * The last time the table was updated. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
    * 
    * @example
    * 1589870294000
@@ -64010,7 +64089,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   lastModifyTime?: number;
   /**
    * @remarks
-   * The lifecycle of the metatable. Unit: days.
+   * The lifecycle of the table, in days.
    * 
    * @example
    * 5
@@ -64018,7 +64097,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   lifeCycle?: number;
   /**
    * @remarks
-   * The storage path of the Hive metatable.
+   * The storage location of the Hive table.
    * 
    * @example
    * hdfs://localhost:777/user/hadoop/test.txt
@@ -64026,7 +64105,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   location?: string;
   /**
    * @remarks
-   * The ID of the metatable owner.
+   * The ID of the table owner.
    * 
    * @example
    * 123
@@ -64034,7 +64113,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The partition key.
+   * Partition keys.
    * 
    * @example
    * abc
@@ -64042,7 +64121,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   partitionKeys?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the metatable belongs.
+   * The ID of the workspace where the table is located.
    * 
    * @example
    * 22
@@ -64050,7 +64129,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   projectId?: number;
   /**
    * @remarks
-   * The name of the workspace to which the metatable belongs.
+   * The name of the workspace where the table is located.
    * 
    * @example
    * test
@@ -64059,7 +64138,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   schema?: string;
   /**
    * @remarks
-   * The GUID of the metatable.
+   * The unique identifier of the table.
    * 
    * @example
    * odps.engine_name.table_name
@@ -64067,7 +64146,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The name of the metatable.
+   * The name of the table.
    * 
    * @example
    * table_name
@@ -64075,7 +64154,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the tenant.
+   * The tenant ID.
    * 
    * @example
    * 12345
@@ -64083,7 +64162,7 @@ export class GetMetaTableFullInfoResponseBodyData extends $tea.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The total number of fields.
+   * The total number of columns.
    * 
    * @example
    * 22
@@ -64732,10 +64811,17 @@ export class GetMetaTablePartitionResponseBodyData extends $tea.Model {
 
 export class GetMetaTableProducingTasksResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the output task.
+   * 
    * @example
    * 9876543210
    */
   taskId?: string;
+  /**
+   * @remarks
+   * The name of the output task.
+   */
   taskName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -83732,6 +83818,9 @@ export class UpdateTableRequestColumns extends $tea.Model {
   /**
    * @remarks
    * The display name of the field.
+   * 
+   * @example
+   * 名称
    */
   columnNameCn?: string;
   /**
@@ -83747,6 +83836,9 @@ export class UpdateTableRequestColumns extends $tea.Model {
   /**
    * @remarks
    * The comment of the field.
+   * 
+   * @example
+   * comment
    */
   comment?: string;
   /**
@@ -84171,7 +84263,8 @@ export default class Client extends OpenApi {
    * Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
    * 
    * @remarks
-   * For information about how to add an account to a DataWorks workspace as a member, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+   *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
+   * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
    * 
    * @param request - AddProjectMemberToRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -84217,7 +84310,8 @@ export default class Client extends OpenApi {
    * Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
    * 
    * @remarks
-   * For information about how to add an account to a DataWorks workspace as a member, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
+   *   For information about how to add an account to a DataWorks workspace as a member, see [Add workspace members and assign roles to them](https://help.aliyun.com/document_detail/136941.html).
+   * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
    * 
    * @param request - AddProjectMemberToRoleRequest
    * @returns AddProjectMemberToRoleResponse
@@ -85863,6 +85957,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.stop)) {
       body["Stop"] = request.stop;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      body["Timeout"] = request.timeout;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -87978,10 +88076,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the lineage between entities. You can call this operation to delete only custom lineages that are registered by users.
+   * Delete lineage, supports deleting user-defined lineage relationships
    * 
    * @remarks
-   * This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
+   * This API is currently in the trial phase. Users who wish to experience it can apply, and after the administrator adds them to the trial list, they can call this API.
    * 
    * @param request - DeleteLineageRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -88024,10 +88122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the lineage between entities. You can call this operation to delete only custom lineages that are registered by users.
+   * Delete lineage, supports deleting user-defined lineage relationships
    * 
    * @remarks
-   * This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
+   * This API is currently in the trial phase. Users who wish to experience it can apply, and after the administrator adds them to the trial list, they can call this API.
    * 
    * @param request - DeleteLineageRelationRequest
    * @returns DeleteLineageRelationResponse
@@ -92216,7 +92314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete information about a metatable, including information about fields in the metatable.
+   * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
    * 
    * @param request - GetMetaTableFullInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92243,7 +92341,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the complete information about a metatable, including information about fields in the metatable.
+   * Invoke the GetMetaTableFullInfo interface to obtain the complete information of a table (including field information).
    * 
    * @param request - GetMetaTableFullInfoRequest
    * @returns GetMetaTableFullInfoResponse
@@ -92552,7 +92650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Table的产出任务列表
+   * Queries the output tasks of a metatable.
    * 
    * @param request - GetMetaTableProducingTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -92603,7 +92701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取Table的产出任务列表
+   * Queries the output tasks of a metatable.
    * 
    * @param request - GetMetaTableProducingTasksRequest
    * @returns GetMetaTableProducingTasksResponse
@@ -100852,6 +100950,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.stop)) {
       body["Stop"] = request.stop;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      body["Timeout"] = request.timeout;
     }
 
     let req = new $OpenApi.OpenApiRequest({
