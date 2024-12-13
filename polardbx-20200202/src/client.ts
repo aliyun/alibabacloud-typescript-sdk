@@ -9466,6 +9466,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
    * 3306
    */
   port?: string;
+  primaryInstanceId?: string;
   /**
    * @remarks
    * 主可用区。
@@ -9588,6 +9589,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       network: 'Network',
       payType: 'PayType',
       port: 'Port',
+      primaryInstanceId: 'PrimaryInstanceId',
       primaryZone: 'PrimaryZone',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
@@ -9647,6 +9649,7 @@ export class DescribeDBInstanceAttributeResponseBodyDBInstance extends $tea.Mode
       network: 'string',
       payType: 'string',
       port: 'string',
+      primaryInstanceId: 'string',
       primaryZone: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
@@ -10831,6 +10834,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
    * Prepaid
    */
   payType?: string;
+  primaryInstanceId?: string;
   /**
    * @remarks
    * 主可用区。
@@ -10939,6 +10943,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       nodeCount: 'NodeCount',
       nodes: 'Nodes',
       payType: 'PayType',
+      primaryInstanceId: 'PrimaryInstanceId',
       primaryZone: 'PrimaryZone',
       readDBInstances: 'ReadDBInstances',
       regionId: 'RegionId',
@@ -10988,6 +10993,7 @@ export class DescribeDBInstancesResponseBodyDBInstances extends $tea.Model {
       nodeCount: 'number',
       nodes: { 'type': 'array', 'itemType': DescribeDBInstancesResponseBodyDBInstancesNodes },
       payType: 'string',
+      primaryInstanceId: 'string',
       primaryZone: 'string',
       readDBInstances: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
