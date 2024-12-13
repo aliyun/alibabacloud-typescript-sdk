@@ -10,6 +10,8 @@ import * as $tea from '@alicloud/tea-typescript';
 export class ActiveCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * CA证书所绑定的实例ID，即云消息队列 MQTT 版的实例ID。
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +20,10 @@ export class ActiveCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * 待激活CA证书的SN序列号，用于唯一标识一个CA证书。
+   * 
+   * 取值范围：不超过128 Byte。
+   * 
    * This parameter is required.
    * 
    * @example
@@ -45,11 +51,17 @@ export class ActiveCaCertificateRequest extends $tea.Model {
 
 export class ActiveCaCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The SN serial number of the activated CA certificate, used to uniquely identify a CA certificate.
+   * 
    * @example
    * 007269004887******
    */
@@ -101,6 +113,10 @@ export class ActiveCaCertificateResponse extends $tea.Model {
 export class ActiveDeviceCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The serial number of the CA certificate to which the device certificate belongs. The serial number is the unique identifier of a CA certificate.
+   * 
+   * The serial number of a CA certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,6 +125,8 @@ export class ActiveDeviceCertificateRequest extends $tea.Model {
   caSn?: string;
   /**
    * @remarks
+   * The serial number of the device certificate that you want to reactivate. The serial number is the unique identifier of a device.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -117,6 +135,8 @@ export class ActiveDeviceCertificateRequest extends $tea.Model {
   deviceSn?: string;
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the device certificate is bound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -146,11 +166,17 @@ export class ActiveDeviceCertificateRequest extends $tea.Model {
 
 export class ActiveDeviceCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The serial number of the device certificate that you reactivated. The serial number is the unique identifier of a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -892,6 +918,8 @@ export class BatchQuerySessionByClientIdsResponse extends $tea.Model {
 export class CloseConnectionRequest extends $tea.Model {
   /**
    * @remarks
+   * Client ID of the device
+   * 
    * This parameter is required.
    * 
    * @example
@@ -900,6 +928,8 @@ export class CloseConnectionRequest extends $tea.Model {
   clientId?: string;
   /**
    * @remarks
+   * ID of the Micro Message Queue MQTT version instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -927,11 +957,17 @@ export class CloseConnectionRequest extends $tea.Model {
 
 export class CloseConnectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return code of the interface: 200 indicates success. Other values indicate error codes. For details about the error codes, see Error Codes.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Call result information
+   * 
    * @example
    * operation success.
    */
@@ -945,6 +981,9 @@ export class CloseConnectionResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. true means success, false means failure.
+   * 
    * @example
    * True
    */
@@ -1094,6 +1133,8 @@ export class CreateGroupIdResponse extends $tea.Model {
 export class DeleteCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1102,6 +1143,10 @@ export class DeleteCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * The serial number of the CA certificate that you want to delete. The serial number is the unique identifier of a CA certificate.
+   * 
+   * The serial number of a CA certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1129,11 +1174,17 @@ export class DeleteCaCertificateRequest extends $tea.Model {
 
 export class DeleteCaCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The serial number of the CA certificate that you deleted. The serial number is the unique identifier of a CA certificate.
+   * 
    * @example
    * 007269004887******
    */
@@ -1185,6 +1236,8 @@ export class DeleteCaCertificateResponse extends $tea.Model {
 export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT client.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1193,6 +1246,8 @@ export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
   clientId?: string;
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1220,24 +1275,33 @@ export class DeleteCustomAuthConnectBlackRequest extends $tea.Model {
 
 export class DeleteCustomAuthConnectBlackResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * operation success.
    */
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 317076B7-F946-46BC-A98F-4CF9777C****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation was successful. Valid values: true and false.
+   * 
    * @example
    * True
    */
@@ -1587,6 +1651,10 @@ export class DeleteCustomAuthPermissionResponse extends $tea.Model {
 export class DeleteDeviceCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The serial number of the CA certificate to which the device certificate belongs. The serial number is the unique identifier of a CA certificate. CA certificates are used to validate device certificates.
+   * 
+   * The serial number of a CA certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1595,6 +1663,10 @@ export class DeleteDeviceCertificateRequest extends $tea.Model {
   caSn?: string;
   /**
    * @remarks
+   * The serial number of the device certificate whose registration information you want to delete. The serial number is the unique identifier of a device.
+   * 
+   * The serial number of a device certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1603,6 +1675,8 @@ export class DeleteDeviceCertificateRequest extends $tea.Model {
   deviceSn?: string;
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the device certificate is bound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1632,11 +1706,17 @@ export class DeleteDeviceCertificateRequest extends $tea.Model {
 
 export class DeleteDeviceCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The serial number of the device certificate whose registration information is deleted. The serial number is the unique identifier of a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -1779,6 +1859,8 @@ export class DeleteGroupIdResponse extends $tea.Model {
 export class GetCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID bound to the CA certificate, which is the instance ID of the MQTT version of the cloud message queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1787,6 +1869,8 @@ export class GetCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * The SN serial number of the CA certificate to be queried, used to uniquely identify a CA certificate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1813,8 +1897,15 @@ export class GetCaCertificateRequest extends $tea.Model {
 }
 
 export class GetCaCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Certificate details.
+   */
   data?: GetCaCertificateResponseBodyData;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -1866,6 +1957,8 @@ export class GetCaCertificateResponse extends $tea.Model {
 export class GetDeviceCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The SN serial number of the CA certificate to which the device certificate to be queried belongs, used to uniquely identify a CA certificate. Value range: no more than 128 bytes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1874,6 +1967,8 @@ export class GetDeviceCertificateRequest extends $tea.Model {
   caSn?: string;
   /**
    * @remarks
+   * The SN serial number of the device certificate to be queried, used to uniquely identify a device certificate. Value range: no more than 128 bytes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1882,6 +1977,8 @@ export class GetDeviceCertificateRequest extends $tea.Model {
   deviceSn?: string;
   /**
    * @remarks
+   * The instance ID to which the device certificate is bound, i.e., the instance ID of the Cloud Message Queue MQTT version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1910,8 +2007,15 @@ export class GetDeviceCertificateRequest extends $tea.Model {
 }
 
 export class GetDeviceCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Certificate details.
+   */
   data?: GetDeviceCertificateResponseBodyData;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2061,6 +2165,8 @@ export class GetDeviceCredentialResponse extends $tea.Model {
 export class GetRegisterCodeRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2086,11 +2192,17 @@ export class GetRegisterCodeRequest extends $tea.Model {
 
 export class GetRegisterCodeResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The registration code of the CA certificate.
+   * 
    * @example
    * 13274673-8f90-4630-bea1-9cccb25756ad2089******
    */
   registerCode?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2142,6 +2254,8 @@ export class GetRegisterCodeResponse extends $tea.Model {
 export class InactivateCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2150,6 +2264,10 @@ export class InactivateCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * The serial number of the CA certificate that you want to deregister. The serial number is the unique identifier of a CA certificate.
+   * 
+   * The serial number of a CA certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2177,11 +2295,17 @@ export class InactivateCaCertificateRequest extends $tea.Model {
 
 export class InactivateCaCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The serial number of the CA certificate that is deregistered. The serial number is the unique identifier of a CA certificate.
+   * 
    * @example
    * 007269004887******
    */
@@ -2233,6 +2357,10 @@ export class InactivateCaCertificateResponse extends $tea.Model {
 export class InactivateDeviceCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The serial number of the CA certificate to which the device certificate that you want to deregister belongs. The serial number is the unique identifier of a CA certificate.
+   * 
+   * The serial number of a CA certificate cannot exceed 128 bytes in size.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2241,6 +2369,8 @@ export class InactivateDeviceCertificateRequest extends $tea.Model {
   caSn?: string;
   /**
    * @remarks
+   * The serial number of the device certificate that you want to deregister. The serial number is the unique identifier of a device.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2249,6 +2379,8 @@ export class InactivateDeviceCertificateRequest extends $tea.Model {
   deviceSn?: string;
   /**
    * @remarks
+   * The ID of the ApsaraMQ for MQTT instance to which the device certificate that you want to deregister is bound.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2278,11 +2410,17 @@ export class InactivateDeviceCertificateRequest extends $tea.Model {
 
 export class InactivateDeviceCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The serial number of the device certificate that is deregistered. The serial number is the unique identifier of a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2334,6 +2472,8 @@ export class InactivateDeviceCertificateResponse extends $tea.Model {
 export class ListCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID of the Cloud Message Queue MQTT version, indicating which instance\\"s CA certificates need to be viewed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2342,6 +2482,8 @@ export class ListCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * Indicates the page number of the returned results. The starting page is counted from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2350,6 +2492,8 @@ export class ListCaCertificateRequest extends $tea.Model {
   pageNo?: string;
   /**
    * @remarks
+   * The maximum number of query records to display per page. Value range: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2378,8 +2522,15 @@ export class ListCaCertificateRequest extends $tea.Model {
 }
 
 export class ListCaCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Query result.
+   */
   data?: ListCaCertificateResponseBodyData;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2431,6 +2582,8 @@ export class ListCaCertificateResponse extends $tea.Model {
 export class ListDeviceCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID of the Cloud Message Queue MQTT version, indicating which instance\\"s device certificates need to be viewed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2439,6 +2592,8 @@ export class ListDeviceCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * Indicates which page of the results to return. The starting page is counted from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2447,6 +2602,8 @@ export class ListDeviceCertificateRequest extends $tea.Model {
   pageNo?: string;
   /**
    * @remarks
+   * The maximum number of query records to display per page. Value range: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2475,8 +2632,15 @@ export class ListDeviceCertificateRequest extends $tea.Model {
 }
 
 export class ListDeviceCertificateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Query result.
+   */
   data?: ListDeviceCertificateResponseBodyData;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2528,6 +2692,8 @@ export class ListDeviceCertificateResponse extends $tea.Model {
 export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
   /**
    * @remarks
+   * The SN serial number of the CA certificate to be queried, indicating which CA certificate\\"s registered device certificates are to be retrieved.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2536,6 +2702,8 @@ export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
   caSn?: string;
   /**
    * @remarks
+   * The instance ID bound to the CA certificate, which is the instance ID of the MQTT version of the cloud message queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2544,6 +2712,8 @@ export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * Indicates the page number of the returned results. The starting page is counted from 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2552,6 +2722,8 @@ export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
   pageNo?: string;
   /**
    * @remarks
+   * The maximum number of query records to display per page. Value range: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2582,8 +2754,15 @@ export class ListDeviceCertificateByCaSnRequest extends $tea.Model {
 }
 
 export class ListDeviceCertificateByCaSnResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Query result.
+   */
   data?: ListDeviceCertificateByCaSnResponseBodyData;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -2635,6 +2814,8 @@ export class ListDeviceCertificateByCaSnResponse extends $tea.Model {
 export class ListDeviceCredentialClientIdRequest extends $tea.Model {
   /**
    * @remarks
+   * Group ID of the MQTT version of the micro message queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2643,20 +2824,35 @@ export class ListDeviceCredentialClientIdRequest extends $tea.Model {
   groupId?: string;
   /**
    * @remarks
+   * The ID of the Cloud Message Queue MQTT version instance, which must match the actual instance ID used by the client. You can obtain this ID from the **Instance Details** page in the console.
+   * 
    * This parameter is required.
    * 
    * @example
    * mqtt-xxxxxxxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Token for starting the next page query.
+   * 
+   * @example
+   * FFdXXXXXWa
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * Indicates the page number of the returned results. The starting page is counted from 1.
+   * 
    * @example
    * 1
    */
   pageNo?: string;
   /**
    * @remarks
+   * The maximum number of query records to display per page. 
+   * Value range: 1 to 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2689,8 +2885,15 @@ export class ListDeviceCredentialClientIdRequest extends $tea.Model {
 }
 
 export class ListDeviceCredentialClientIdResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returns the information list.
+   */
   deviceCredentialClientIdList?: ListDeviceCredentialClientIdResponseBodyDeviceCredentialClientIdList;
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
@@ -4381,6 +4584,9 @@ export class RefreshDeviceCredentialResponse extends $tea.Model {
 export class RegisterCaCertificateRequest extends $tea.Model {
   /**
    * @remarks
+   * Content of the CA certificate to be registered.
+   * > Note that \\n in the example represents a new line.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4389,6 +4595,8 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   caContent?: string;
   /**
    * @remarks
+   * Name of the CA certificate to be registered
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4397,6 +4605,8 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   caName?: string;
   /**
    * @remarks
+   * The instance ID of the Cloud Message Queue MQTT version. When registering a CA certificate, you need to specify an instance to bind with.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4405,6 +4615,9 @@ export class RegisterCaCertificateRequest extends $tea.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
+   * Content of the verification certificate for the CA certificate to be registered. It is used together with the registration code of the CA certificate to verify that the user possesses the private key of this CA certificate. 
+   * >  in the example represents a line break.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4436,11 +4649,17 @@ export class RegisterCaCertificateRequest extends $tea.Model {
 
 export class RegisterCaCertificateResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * 020F6A43-19E6-4B6E-B846-44EB31DF****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The SN serial number of the registered CA certificate, used to uniquely identify a CA certificate.
+   * 
    * @example
    * 007269004887******
    */
@@ -4791,6 +5010,93 @@ export class SendMessageResponse extends $tea.Model {
   }
 }
 
+export class SetSniConfigRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  defaultCertificate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  mqttInstanceId?: string;
+  sniConfig?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultCertificate: 'DefaultCertificate',
+      mqttInstanceId: 'MqttInstanceId',
+      sniConfig: 'SniConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultCertificate: 'string',
+      mqttInstanceId: 'string',
+      sniConfig: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSniConfigResponseBody extends $tea.Model {
+  accessDeniedDetail?: SetSniConfigResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * Id of the request
+   */
+  requestId?: string;
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'AccessDeniedDetail',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: SetSniConfigResponseBodyAccessDeniedDetail,
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetSniConfigResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetSniConfigResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetSniConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnRegisterDeviceCredentialRequest extends $tea.Model {
   /**
    * @remarks
@@ -5055,6 +5361,8 @@ export class UpdateCustomAuthIdentityResponse extends $tea.Model {
 export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   /**
    * @remarks
+   * Specifies whether to allow or deny access.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5063,6 +5371,8 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   effect?: string;
   /**
    * @remarks
+   * Username or Client ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5071,6 +5381,11 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   identity?: string;
   /**
    * @remarks
+   * The identity type. Valid values:
+   * 
+   * *   USER
+   * *   CLIENT
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5079,6 +5394,8 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   identityType?: string;
   /**
    * @remarks
+   * ID of the Cloud Message Queue MQTT version instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5087,6 +5404,8 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
+   * The permissions that you want to grant.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5095,6 +5414,8 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
   permitAction?: string;
   /**
    * @remarks
+   * Authorized Topic, supporting multi-level MQTT topics and wildcards.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5130,11 +5451,17 @@ export class UpdateCustomAuthPermissionRequest extends $tea.Model {
 
 export class UpdateCustomAuthPermissionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Error code returned upon failed invocation. For more information, see Error Codes.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * Information
+   * 
    * @example
    * operation success.
    */
@@ -5148,6 +5475,9 @@ export class UpdateCustomAuthPermissionResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. true: Call succeeded. false: Call failed.
+   * 
    * @example
    * True
    */
@@ -5241,41 +5571,69 @@ export class BatchQuerySessionByClientIdsResponseBodyOnlineStatusList extends $t
 
 export class GetCaCertificateResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Content of the CA certificate.
+   * > \\n represents a new line.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
    */
   caContent?: string;
   /**
+   * @remarks
+   * Name of the CA certificate
+   * 
    * @example
    * mqtt_ca
    */
   caName?: string;
   /**
+   * @remarks
+   * Registration code of the CA certificate
+   * 
    * @example
    * 13274673-8f90-4630-bea1-9cccb25756ad2089******
    */
   registrationCode?: string;
   /**
+   * @remarks
+   * The SN serial number of the CA certificate, used to uniquely identify a CA certificate. Value range: no more than 128 bytes.
+   * 
    * @example
    * 00f26900ba87******
    */
   sn?: string;
   /**
+   * @remarks
+   * The status of the CA certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the CA certificate is registered, it is in an active state by default.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1654137303000
    */
   validBegin?: string;
   /**
+   * @remarks
+   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1969497303000
    */
   validEnd?: string;
   /**
+   * @remarks
+   * Content of the Verification certificate.
+   * > \\n represents a new line.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
    */
@@ -5313,36 +5671,61 @@ export class GetCaCertificateResponseBodyData extends $tea.Model {
 
 export class GetDeviceCertificateResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
    * @example
    * 00f26900ba87******
    */
   caSn?: string;
   /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
    * @example
    * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
    */
   deviceContent?: string;
   /**
+   * @remarks
+   * Name of the device certificate.
+   * 
    * @example
    * mqtt_device
    */
   deviceName?: string;
   /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the device certificate is registered, it is in an active state by default.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1654137303000
    */
   validBegin?: string;
   /**
+   * @remarks
+   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1969497303000
    */
@@ -5454,41 +5837,69 @@ export class GetDeviceCredentialResponseBodyDeviceCredential extends $tea.Model 
 
 export class ListCaCertificateResponseBodyDataCaCertificateVOS extends $tea.Model {
   /**
+   * @remarks
+   * Content of the CA certificate. 
+   * > \\n represents a new line.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
    */
   caContent?: string;
   /**
+   * @remarks
+   * Name of the CA certificate
+   * 
    * @example
    * mqtt_ca
    */
   caName?: string;
   /**
+   * @remarks
+   * Registration code of the CA certificate
+   * 
    * @example
    * 13274673-8f90-4630-bea1-9cccb25756ad2089******
    */
   registrationCode?: string;
   /**
+   * @remarks
+   * SN serial number of the CA certificate
+   * 
    * @example
    * 007269004887******
    */
   sn?: string;
   /**
+   * @remarks
+   * The status of the CA certificate. The values are as follows:
+   * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+   * > After the CA certificate is registered, it is in an active state by default.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1654137303000
    */
   validBegin?: string;
   /**
+   * @remarks
+   * The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1969497303000
    */
   validEnd?: string;
   /**
+   * @remarks
+   * Verify the content of the certificate. 
+   * > \\n represents a new line.
+   * 
    * @example
    * -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
    */
@@ -5525,18 +5936,31 @@ export class ListCaCertificateResponseBodyDataCaCertificateVOS extends $tea.Mode
 }
 
 export class ListCaCertificateResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the CA certificate
+   */
   caCertificateVOS?: ListCaCertificateResponseBodyDataCaCertificateVOS[];
   /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
    * @example
    * 2
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Maximum number of pages in the query result.
+   * 
    * @example
    * 1
    */
@@ -5566,36 +5990,61 @@ export class ListCaCertificateResponseBodyData extends $tea.Model {
 
 export class ListDeviceCertificateResponseBodyDataDeviceCertificateVOS extends $tea.Model {
   /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
    * @example
    * 00f26900ba87******
    */
   caSn?: string;
   /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
    * @example
    * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
    */
   deviceContent?: string;
   /**
+   * @remarks
+   * Name of the device certificate.
+   * 
    * @example
    * mqtt_device
    */
   deviceName?: string;
   /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - 0: indicates that the certificate is in an inactive state. - 1: indicates that the certificate is in an active state.
+   * After the device certificate is registered, it defaults to the active state.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1654137303000
    */
   validBegin?: string;
   /**
+   * @remarks
+   * The end time when the device certificate becomes effective. Formatted as a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1969497303000
    */
@@ -5630,18 +6079,31 @@ export class ListDeviceCertificateResponseBodyDataDeviceCertificateVOS extends $
 }
 
 export class ListDeviceCertificateResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the device certificate.
+   */
   deviceCertificateVOS?: ListDeviceCertificateResponseBodyDataDeviceCertificateVOS[];
   /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
    * @example
    * 2
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Maximum number of pages in the query result.
+   * 
    * @example
    * 1
    */
@@ -5671,36 +6133,63 @@ export class ListDeviceCertificateResponseBodyData extends $tea.Model {
 
 export class ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS extends $tea.Model {
   /**
+   * @remarks
+   * The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+   * 
    * @example
    * 00f26900ba87******
    */
   caSn?: string;
   /**
+   * @remarks
+   * Content of the device certificate.
+   * 
+   *  represents a new line.
+   * 
    * @example
    * -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
    */
   deviceContent?: string;
   /**
+   * @remarks
+   * Name of the device certificate.
+   * 
    * @example
    * mqtt_device
    */
   deviceName?: string;
   /**
+   * @remarks
+   * The SN serial number of the device certificate, used to uniquely identify a device certificate.
+   * 
    * @example
    * 356217374433******
    */
   deviceSn?: string;
   /**
+   * @remarks
+   * The status of the device certificate. The values are as follows:
+   * - 0: indicates that the certificate is in an inactive state. 
+   * - 1: indicates that the certificate is in an active state.
+   * 
+   * After the device certificate is registered, it is in an active state by default.
+   * 
    * @example
    * 1
    */
   status?: string;
   /**
+   * @remarks
+   * The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1654137303000
    */
   validBegin?: string;
   /**
+   * @remarks
+   * The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+   * 
    * @example
    * 1969497303000
    */
@@ -5735,18 +6224,31 @@ export class ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS ext
 }
 
 export class ListDeviceCertificateByCaSnResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Details of the device certificate.
+   */
   deviceCertificateVOS?: ListDeviceCertificateByCaSnResponseBodyDataDeviceCertificateVOS[];
   /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
    * @example
    * 2
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Total number of query results.
+   * 
    * @example
    * 1
    */
@@ -5775,19 +6277,41 @@ export class ListDeviceCertificateByCaSnResponseBodyData extends $tea.Model {
 }
 
 export class ListDeviceCredentialClientIdResponseBodyDeviceCredentialClientIdList extends $tea.Model {
+  /**
+   * @remarks
+   * Client list.
+   */
   clientIdList?: string[];
+  /**
+   * @remarks
+   * Indicates whether there is a token (Token) for the next query. Values: 
+   * - For the first query and when there is no next query, this field does not need to be filled. 
+   * - If there is a next query, the value should be the NextToken returned from the previous API call.
+   * 
+   * @example
+   * 634dxxxxx75b5f
+   */
   nextToken?: string;
   /**
+   * @remarks
+   * The current page number of the returned query records.
+   * 
    * @example
    * 1
    */
   pageNo?: string;
   /**
+   * @remarks
+   * The maximum number of results to display per page.
+   * 
    * @example
    * 100
    */
   pageSize?: string;
   /**
+   * @remarks
+   * Total number of query results.
+   * 
    * @example
    * 10
    */
@@ -6663,6 +7187,43 @@ export class RegisterDeviceCredentialResponseBodyDeviceCredential extends $tea.M
   }
 }
 
+export class SetSniConfigResponseBodyAccessDeniedDetail extends $tea.Model {
+  authAction?: string;
+  authPrincipalDisplayName?: string;
+  authPrincipalOwnerId?: string;
+  authPrincipalType?: string;
+  encodedDiagnosticMessage?: string;
+  noPermissionType?: string;
+  policyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authAction: 'AuthAction',
+      authPrincipalDisplayName: 'AuthPrincipalDisplayName',
+      authPrincipalOwnerId: 'AuthPrincipalOwnerId',
+      authPrincipalType: 'AuthPrincipalType',
+      encodedDiagnosticMessage: 'EncodedDiagnosticMessage',
+      noPermissionType: 'NoPermissionType',
+      policyType: 'PolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authAction: 'string',
+      authPrincipalDisplayName: 'string',
+      authPrincipalOwnerId: 'string',
+      authPrincipalType: 'string',
+      encodedDiagnosticMessage: 'string',
+      noPermissionType: 'string',
+      policyType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -6687,7 +7248,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活CA证书
+   * Activate CA Certificate
+   * 
+   * @remarks
+   * - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
+   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
+   * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
    * 
    * @param request - ActiveCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6722,7 +7288,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活CA证书
+   * Activate CA Certificate
+   * 
+   * @remarks
+   * - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
+   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
+   * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
    * 
    * @param request - ActiveCaCertificateRequest
    * @returns ActiveCaCertificateResponse
@@ -6733,7 +7304,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活设备证书
+   * Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - ActiveDeviceCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6772,7 +7347,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 激活设备证书
+   * Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - ActiveDeviceCertificateRequest
    * @returns ActiveDeviceCertificateResponse
@@ -7071,7 +7650,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭设备连接
+   * Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
+   * 
+   * @remarks
+   * This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
    * 
    * @param request - CloseConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7106,7 +7688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 关闭设备连接
+   * Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
+   * 
+   * @remarks
+   * This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
    * 
    * @param request - CloseConnectionRequest
    * @returns CloseConnectionResponse
@@ -7169,7 +7754,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除CA证书
+   * Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+   * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
+   * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
    * 
    * @param request - DeleteCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7204,7 +7795,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除CA证书
+   * Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+   * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
+   * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
    * 
    * @param request - DeleteCaCertificateRequest
    * @returns DeleteCaCertificateResponse
@@ -7215,7 +7812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义权限连接黑名单
+   * Deletes a connection blacklist.
    * 
    * @param request - DeleteCustomAuthConnectBlackRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7250,7 +7847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除自定义权限连接黑名单
+   * Deletes a connection blacklist.
    * 
    * @param request - DeleteCustomAuthConnectBlackRequest
    * @returns DeleteCustomAuthConnectBlackResponse
@@ -7369,7 +7966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除设备证书
+   * Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - DeleteDeviceCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7408,7 +8009,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除设备证书
+   * Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - DeleteDeviceCertificateRequest
    * @returns DeleteDeviceCertificateResponse
@@ -7471,7 +8076,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据SN返回CA证书
+   * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+   * 
+   * @remarks
+   * - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
+   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
    * 
    * @param request - GetCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7498,7 +8107,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据SN返回CA证书
+   * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+   * 
+   * @remarks
+   * - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
+   * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
    * 
    * @param request - GetCaCertificateRequest
    * @returns GetCaCertificateResponse
@@ -7509,7 +8122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书
+   * Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - GetDeviceCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7536,7 +8152,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书
+   * Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - GetDeviceCertificateRequest
    * @returns GetDeviceCertificateResponse
@@ -7601,7 +8220,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取添加CA证书的注册码
+   * Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
+   * 
+   * @remarks
+   *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - GetRegisterCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7628,7 +8251,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取添加CA证书的注册码
+   * Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
+   * 
+   * @remarks
+   *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - GetRegisterCodeRequest
    * @returns GetRegisterCodeResponse
@@ -7639,7 +8266,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注销CA证书
+   * Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+   * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
    * 
    * @param request - InactivateCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7674,7 +8306,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注销CA证书
+   * Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+   * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
    * 
    * @param request - InactivateCaCertificateRequest
    * @returns InactivateCaCertificateResponse
@@ -7685,7 +8322,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注销设备证书
+   * Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - InactivateDeviceCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7724,7 +8365,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注销设备证书
+   * Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+   * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
    * 
    * @param request - InactivateDeviceCertificateRequest
    * @returns InactivateDeviceCertificateResponse
@@ -7735,7 +8380,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例ID 分页获取CA证书
+   * Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7762,7 +8410,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 根据实例ID 分页获取CA证书
+   * Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListCaCertificateRequest
    * @returns ListCaCertificateResponse
@@ -7773,7 +8424,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书列表
+   * Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListDeviceCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7800,7 +8454,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书列表
+   * Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListDeviceCertificateRequest
    * @returns ListDeviceCertificateResponse
@@ -7811,7 +8468,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书列表
+   * Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListDeviceCertificateByCaSnRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7838,7 +8498,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取设备证书列表
+   * Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+   * 
+   * @remarks
+   * - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - ListDeviceCertificateByCaSnRequest
    * @returns ListDeviceCertificateByCaSnResponse
@@ -7849,7 +8512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出注册的一机一密的设备ID
+   * Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
    * 
    * @param request - ListDeviceCredentialClientIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7896,7 +8559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出注册的一机一密的设备ID
+   * Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
    * 
    * @param request - ListDeviceCredentialClientIdRequest
    * @returns ListDeviceCredentialClientIdResponse
@@ -8537,7 +9200,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册CA证书
+   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - RegisterCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8580,7 +9246,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 注册CA证书
+   * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+   * 
+   * @remarks
+   * - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
    * 
    * @param request - RegisterCaCertificateRequest
    * @returns RegisterCaCertificateResponse
@@ -8761,6 +9430,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 配置多域名证书
+   * 
+   * @param request - SetSniConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetSniConfigResponse
+   */
+  async setSniConfigWithOptions(request: SetSniConfigRequest, runtime: $Util.RuntimeOptions): Promise<SetSniConfigResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.defaultCertificate)) {
+      query["DefaultCertificate"] = request.defaultCertificate;
+    }
+
+    if (!Util.isUnset(request.mqttInstanceId)) {
+      query["MqttInstanceId"] = request.mqttInstanceId;
+    }
+
+    if (!Util.isUnset(request.sniConfig)) {
+      query["SniConfig"] = request.sniConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetSniConfig",
+      version: "2020-04-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetSniConfigResponse>(await this.callApi(params, req, runtime), new SetSniConfigResponse({}));
+  }
+
+  /**
+   * 配置多域名证书
+   * 
+   * @param request - SetSniConfigRequest
+   * @returns SetSniConfigResponse
+   */
+  async setSniConfig(request: SetSniConfigRequest): Promise<SetSniConfigResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setSniConfigWithOptions(request, runtime);
+  }
+
+  /**
    * Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
    * 
    * @remarks
@@ -8877,7 +9596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义权限授权
+   * Updates the permissions on a topic.
    * 
    * @param request - UpdateCustomAuthPermissionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8928,7 +9647,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新自定义权限授权
+   * Updates the permissions on a topic.
    * 
    * @param request - UpdateCustomAuthPermissionRequest
    * @returns UpdateCustomAuthPermissionResponse
