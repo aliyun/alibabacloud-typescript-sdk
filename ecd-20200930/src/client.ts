@@ -3097,7 +3097,7 @@ export class CreateADConnectorDirectoryRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * 127.0.\*\*.**
+   * ``127.0.**.**``
    */
   dnsAddress?: string[];
   /**
@@ -3214,7 +3214,7 @@ export class CreateADConnectorDirectoryRequest extends $tea.Model {
    * If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
    * 
    * @example
-   * 127.0.\*\*.**
+   * ``127.0.**.**``
    */
   subDomainDnsAddress?: string[];
   /**
@@ -3378,8 +3378,6 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
    * @remarks
    * The ID of the CEN instance.
    * 
-   * This parameter is required.
-   * 
    * @example
    * cen-3gwy16dojz1m65****
    */
@@ -3402,8 +3400,6 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
    * *   `10.0.0.0/12` (subnet mask range: 12 to 24 bits)
    * *   `172.16.0.0/12` (subnet mask range: 12 to 24 bits)
    * *   `192.168.0.0/16` (subnet mask range: 16 to 24 bits)
-   * 
-   * This parameter is required.
    * 
    * @example
    * 47.100.XX.XX
@@ -3586,6 +3582,7 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
    * child.example.com
    */
   subDomainName?: string;
+  vSwitchId?: string[];
   /**
    * @remarks
    * The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain the verification code.
@@ -3617,6 +3614,7 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
       specification: 'Specification',
       subDomainDnsAddress: 'SubDomainDnsAddress',
       subDomainName: 'SubDomainName',
+      vSwitchId: 'VSwitchId',
       verifyCode: 'VerifyCode',
     };
   }
@@ -3644,6 +3642,7 @@ export class CreateADConnectorOfficeSiteRequest extends $tea.Model {
       specification: 'number',
       subDomainDnsAddress: { 'type': 'array', 'itemType': 'string' },
       subDomainName: 'string',
+      vSwitchId: { 'type': 'array', 'itemType': 'string' },
       verifyCode: 'string',
     };
   }
@@ -5363,7 +5362,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
   endUserIds?: string[];
   /**
    * @remarks
-   * The Apsara File Storage NAS (NAS) file system that is used after data roaming is enabled.
+   * The File Storage NAS (NAS) file system that is used after data roaming is enabled.
    * 
    * @example
    * 04f314****
@@ -5484,6 +5483,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
    * false
    */
   profileFollowSwitch?: boolean;
+  promotionId?: string;
   /**
    * @remarks
    * The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. When the specified threshold is reached, new cloud desktops are automatically created. When the specified threshold is not reached, idle cloud desktops are released.
@@ -5589,6 +5589,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       periodUnit: 'PeriodUnit',
       policyGroupId: 'PolicyGroupId',
       profileFollowSwitch: 'ProfileFollowSwitch',
+      promotionId: 'PromotionId',
       ratioThreshold: 'RatioThreshold',
       regionId: 'RegionId',
       resetType: 'ResetType',
@@ -5633,6 +5634,7 @@ export class CreateDesktopGroupRequest extends $tea.Model {
       periodUnit: 'string',
       policyGroupId: 'string',
       profileFollowSwitch: 'boolean',
+      promotionId: 'string',
       ratioThreshold: 'number',
       regionId: 'string',
       resetType: 'number',
@@ -5896,6 +5898,7 @@ export class CreateDesktopsRequest extends $tea.Model {
    * PrePaid
    */
   chargeType?: string;
+  desktopAttachment?: CreateDesktopsRequestDesktopAttachment;
   /**
    * @remarks
    * The private IP address of the cloud computer.
@@ -6065,12 +6068,14 @@ export class CreateDesktopsRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   snapshotPolicyId?: string;
   /**
    * @remarks
    * The tags that you want to add to the cloud desktop.
    */
   tag?: CreateDesktopsRequestTag[];
+  timerGroupId?: string;
   /**
    * @remarks
    * How the cloud computers are assigned.
@@ -6146,6 +6151,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       bundleId: 'BundleId',
       bundleModels: 'BundleModels',
       chargeType: 'ChargeType',
+      desktopAttachment: 'DesktopAttachment',
       desktopMemberIp: 'DesktopMemberIp',
       desktopName: 'DesktopName',
       desktopNameSuffix: 'DesktopNameSuffix',
@@ -6161,8 +6167,10 @@ export class CreateDesktopsRequest extends $tea.Model {
       policyGroupId: 'PolicyGroupId',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       snapshotPolicyId: 'SnapshotPolicyId',
       tag: 'Tag',
+      timerGroupId: 'TimerGroupId',
       userAssignMode: 'UserAssignMode',
       userCommands: 'UserCommands',
       userName: 'UserName',
@@ -6180,6 +6188,7 @@ export class CreateDesktopsRequest extends $tea.Model {
       bundleId: 'string',
       bundleModels: { 'type': 'array', 'itemType': CreateDesktopsRequestBundleModels },
       chargeType: 'string',
+      desktopAttachment: CreateDesktopsRequestDesktopAttachment,
       desktopMemberIp: 'string',
       desktopName: 'string',
       desktopNameSuffix: 'boolean',
@@ -6195,10 +6204,403 @@ export class CreateDesktopsRequest extends $tea.Model {
       policyGroupId: 'string',
       promotionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       snapshotPolicyId: 'string',
       tag: { 'type': 'array', 'itemType': CreateDesktopsRequestTag },
+      timerGroupId: 'string',
       userAssignMode: 'string',
       userCommands: { 'type': 'array', 'itemType': CreateDesktopsRequestUserCommands },
+      userName: 'string',
+      volumeEncryptionEnabled: 'boolean',
+      volumeEncryptionKey: 'string',
+      vpcId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The number of cloud computers that you want to create. Valid values: 1 to 300. Default value: 1.
+   * 
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable automatic payment.
+   * 
+   * @example
+   * false
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable auto-renewal. This parameter takes effect only when the ChargeType parameter is set to PrePaid.
+   * 
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * The ID of the cloud computer template.
+   * 
+   * @example
+   * b-je9hani001wfn****
+   */
+  bundleId?: string;
+  /**
+   * @remarks
+   * The cloud computer templates.
+   * 
+   * **if can be null:**
+   * true
+   */
+  bundleModels?: CreateDesktopsShrinkRequestBundleModels[];
+  /**
+   * @remarks
+   * The billing method of the cloud computers.
+   * 
+   * Default value: PostPaid. Valid values:
+   * 
+   * *   Postpaid: pay-as-you-go
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   PrePaid: subscription
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  desktopAttachmentShrink?: string;
+  /**
+   * @remarks
+   * The private IP address of the cloud computer.
+   * 
+   * @example
+   * 10.0.0.1
+   */
+  desktopMemberIp?: string;
+  /**
+   * @remarks
+   * The name of the cloud computer. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 64 characters in length.
+   * *   The name must start with a letter but cannot start with `http://` or `https://`.
+   * *   The name can only contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * @example
+   * testDesktopName
+   */
+  desktopName?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically add suffixes to the names of cloud computers when you create multiple cloud computers at the same time.
+   * 
+   * Default value: true. Valid values:
+   * 
+   * *   true
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   False
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * false
+   */
+  desktopNameSuffix?: boolean;
+  /**
+   * @remarks
+   * The details of the scheduled task on cloud computers.
+   * 
+   * **if can be null:**
+   * true
+   */
+  desktopTimers?: CreateDesktopsShrinkRequestDesktopTimers[];
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * To be hidden.
+   */
+  directoryId?: string;
+  /**
+   * @remarks
+   * The IDs of the end users to which you want to assign the cloud computers. You can specify 1 to 100 IDs.
+   * 
+   * @example
+   * 123456789
+   */
+  endUserId?: string[];
+  /**
+   * @remarks
+   * The ID of the cloud computer pool.
+   * 
+   * @example
+   * dg-boyczi8enfyc5****
+   */
+  groupId?: string;
+  /**
+   * @remarks
+   * The custom hostnames of the cloud computers. This parameter is valid only if the office network is an AD office network and the operating system type of the cloud computers is Windows.
+   * 
+   * The hostnames must meet the following requirements:
+   * 
+   * *   The hostnames must be 2 to 15 characters in length.
+   * *   The hostnames can contain only letters, digits, and hyphens (-). The hostnames cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+   * 
+   * When you create multiple cloud computers, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to name the cloud computers. For example, if you set the value of the Hostname parameter to ecd-[1,4]-test, the hostname of the first cloud computer is ecd-0001-test, the hostname of the second cloud computer is ecd-0002-test, and so on.
+   * 
+   * *   `name_prefix`: the prefix of the hostname.
+   * *   `[begin_number,bits]`: the sequential number in the hostname. The `begin_number` value is the starting digit. Valid values of begin_number: 0 to 999999. Default value: 0. The `bits` value is the number of digits. Valid values: 1 to 6. Default value: 6.
+   * *   `name_suffix`: the suffix of the hostname.
+   * 
+   * @example
+   * testhost
+   */
+  hostname?: string;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   */
+  monthDesktopSetting?: CreateDesktopsShrinkRequestMonthDesktopSetting;
+  /**
+   * @remarks
+   * The office network ID.
+   * 
+   * @example
+   * cn-hangzhou+os-c5cy7q578s8jc****
+   */
+  officeSiteId?: string;
+  /**
+   * @remarks
+   * The subscription duration of the cloud desktop that you want to create. The unit is specified by the `PeriodUnit` parameter. This parameter takes effect and is required only when the `ChargeType` parameter is set to `PrePaid`.
+   * 
+   * *   Valid values if the `PeriodUnit` parameter is set to `Month`:
+   * 
+   *     *   1
+   *     *   2
+   *     *   3
+   *     *   6
+   * 
+   * *   Valid values if the `PeriodUnit` parameter is set to `Year`:
+   * 
+   *     *   1
+   *     *   2
+   *     *   3
+   *     *   4
+   *     *   5
+   * 
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @remarks
+   * The unit of the subscription duration.
+   * 
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * The ID of the policy.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * system-all-enabled-policy
+   */
+  policyGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the sales promotion.
+   * 
+   * @example
+   * 23141
+   */
+  promotionId?: string;
+  /**
+   * @remarks
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceGroupId?: string;
+  snapshotPolicyId?: string;
+  /**
+   * @remarks
+   * The tags that you want to add to the cloud desktop.
+   */
+  tag?: CreateDesktopsShrinkRequestTag[];
+  timerGroupId?: string;
+  /**
+   * @remarks
+   * How the cloud computers are assigned.
+   * 
+   * >  If you do not specify the `EndUserId` parameter, the cloud computers are not assigned to end users after the cloud computers are created.
+   * 
+   * Default value: ALL. Valid values:
+   * 
+   * *   ALL: If you specify the EndUserId parameter, the cloud computers are assigned to all specified end users after the cloud computers are created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   PER_USER: If you specify the EndUserId parameter, the cloud computers are evenly assigned to the specified end users after the cloud computers are created.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     In this case, you must make sure that the value of the Amount parameter can be divided by the N value of the EndUserId.N parameter that you specify.
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * ALL
+   */
+  userAssignMode?: string;
+  /**
+   * @remarks
+   * Details about the custom command scripts.
+   */
+  userCommands?: CreateDesktopsShrinkRequestUserCommands[];
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * To be hidden.
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable disk encryption.
+   * 
+   * @example
+   * false
+   */
+  volumeEncryptionEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the Key Management Service (KMS) key that you want to use when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain a list of KMS keys.
+   * 
+   * @example
+   * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+   */
+  volumeEncryptionKey?: string;
+  /**
+   * @remarks
+   * >  This parameter is not publicly available.
+   * 
+   * @example
+   * To be hidden.
+   */
+  vpcId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      bundleId: 'BundleId',
+      bundleModels: 'BundleModels',
+      chargeType: 'ChargeType',
+      desktopAttachmentShrink: 'DesktopAttachment',
+      desktopMemberIp: 'DesktopMemberIp',
+      desktopName: 'DesktopName',
+      desktopNameSuffix: 'DesktopNameSuffix',
+      desktopTimers: 'DesktopTimers',
+      directoryId: 'DirectoryId',
+      endUserId: 'EndUserId',
+      groupId: 'GroupId',
+      hostname: 'Hostname',
+      monthDesktopSetting: 'MonthDesktopSetting',
+      officeSiteId: 'OfficeSiteId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      policyGroupId: 'PolicyGroupId',
+      promotionId: 'PromotionId',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      snapshotPolicyId: 'SnapshotPolicyId',
+      tag: 'Tag',
+      timerGroupId: 'TimerGroupId',
+      userAssignMode: 'UserAssignMode',
+      userCommands: 'UserCommands',
+      userName: 'UserName',
+      volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
+      volumeEncryptionKey: 'VolumeEncryptionKey',
+      vpcId: 'VpcId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      bundleId: 'string',
+      bundleModels: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestBundleModels },
+      chargeType: 'string',
+      desktopAttachmentShrink: 'string',
+      desktopMemberIp: 'string',
+      desktopName: 'string',
+      desktopNameSuffix: 'boolean',
+      desktopTimers: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestDesktopTimers },
+      directoryId: 'string',
+      endUserId: { 'type': 'array', 'itemType': 'string' },
+      groupId: 'string',
+      hostname: 'string',
+      monthDesktopSetting: CreateDesktopsShrinkRequestMonthDesktopSetting,
+      officeSiteId: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      policyGroupId: 'string',
+      promotionId: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      snapshotPolicyId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestTag },
+      timerGroupId: 'string',
+      userAssignMode: 'string',
+      userCommands: { 'type': 'array', 'itemType': CreateDesktopsShrinkRequestUserCommands },
       userName: 'string',
       volumeEncryptionEnabled: 'boolean',
       volumeEncryptionKey: 'string',
@@ -6553,22 +6955,42 @@ export class CreateImageResponse extends $tea.Model {
 
 export class CreateNASFileSystemRequest extends $tea.Model {
   /**
+   * @remarks
+   * Description of the NAS file system.
+   * 
    * @example
    * testDescription
    */
   description?: string;
   /**
+   * @remarks
+   * Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data. Possible values and their meanings:
+   * 
+   * - 0: Not encrypted.
+   * - 1: Encrypted using NAS-managed keys.
+   * 
+   * Default value: 0
+   * 
    * @example
    * 0
    */
   encryptType?: string;
   /**
+   * @remarks
+   * Name of the NAS file system.
+   * The file name must follow these rules:
+   * - Length: 2 to 128 English or Chinese characters.
+   * - Must start with an uppercase or lowercase letter or a Chinese character, cannot start with http:// or https://.
+   * - Can include numbers, underscores (_), or hyphens (-).
+   * 
    * @example
    * testNAS
    */
   name?: string;
   /**
    * @remarks
+   * Workspace ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6577,6 +6999,8 @@ export class CreateNASFileSystemRequest extends $tea.Model {
   officeSiteId?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6584,6 +7008,14 @@ export class CreateNASFileSystemRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Storage specification type of the NAS file system. Allowed values:
+   * 
+   * - Capacity: Capacity type.
+   * - Performance: Performance type.
+   * 
+   * Default value: Capacity
+   * 
    * @example
    * Capacity
    */
@@ -6617,26 +7049,41 @@ export class CreateNASFileSystemRequest extends $tea.Model {
 
 export class CreateNASFileSystemResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * ID of the NAS file system.
+   * 
    * @example
    * 04f314****
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * Name of the NAS file system.
+   * 
    * @example
    * testNAS
    */
   fileSystemName?: string;
   /**
+   * @remarks
+   * Mount point domain.
+   * 
    * @example
    * 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
    */
   mountTargetDomain?: string;
   /**
+   * @remarks
+   * Workspace ID.
+   * 
    * @example
    * cn-hangzhou+dir-363353****
    */
   officeSiteId?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 269BDB16-2CD8-4865-84BD-11C40BC21DB0
    */
@@ -7823,6 +8270,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
    * EndUserId
    */
   watermarkType?: string;
+  wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
       adminAccess: 'AdminAccess',
@@ -7881,6 +8329,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       watermarkTransparency: 'WatermarkTransparency',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
+      wyAssistant: 'WyAssistant',
     };
   }
 
@@ -7942,6 +8391,7 @@ export class CreatePolicyGroupRequest extends $tea.Model {
       watermarkTransparency: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
+      wyAssistant: 'string',
     };
   }
 
@@ -12999,6 +13449,7 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
    * testUser
    */
   endUserId?: string;
+  endUserIdFilter?: string;
   /**
    * @remarks
    * The ID of the office network.
@@ -13062,6 +13513,7 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
       desktopName: 'DesktopName',
       endTime: 'EndTime',
       endUserId: 'EndUserId',
+      endUserIdFilter: 'EndUserIdFilter',
       officeSiteId: 'OfficeSiteId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -13079,6 +13531,7 @@ export class DescribeDesktopSessionsRequest extends $tea.Model {
       desktopName: 'string',
       endTime: 'string',
       endUserId: 'string',
+      endUserIdFilter: 'string',
       officeSiteId: 'string',
       pageNumber: 'number',
       pageSize: 'number',
@@ -13367,6 +13820,7 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
    * ecd.graphics.xlarge
    */
   desktopTypeId?: string;
+  desktopTypeIdList?: string[];
   /**
    * @remarks
    * The number of GPUs.
@@ -13452,6 +13906,7 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
    * 4
    */
   memorySize?: number;
+  orderBy?: string;
   /**
    * @remarks
    * The order type.
@@ -13470,6 +13925,8 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  scope?: string;
+  sortType?: string;
   static names(): { [key: string]: string } {
     return {
       appliedScope: 'AppliedScope',
@@ -13477,12 +13934,16 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
       desktopGroupIdForModify: 'DesktopGroupIdForModify',
       desktopIdForModify: 'DesktopIdForModify',
       desktopTypeId: 'DesktopTypeId',
+      desktopTypeIdList: 'DesktopTypeIdList',
       gpuCount: 'GpuCount',
       gpuDriverType: 'GpuDriverType',
       instanceTypeFamily: 'InstanceTypeFamily',
       memorySize: 'MemorySize',
+      orderBy: 'OrderBy',
       orderType: 'OrderType',
       regionId: 'RegionId',
+      scope: 'Scope',
+      sortType: 'SortType',
     };
   }
 
@@ -13493,12 +13954,16 @@ export class DescribeDesktopTypesRequest extends $tea.Model {
       desktopGroupIdForModify: 'string',
       desktopIdForModify: 'string',
       desktopTypeId: 'string',
+      desktopTypeIdList: { 'type': 'array', 'itemType': 'string' },
       gpuCount: 'number',
       gpuDriverType: 'string',
       instanceTypeFamily: 'string',
       memorySize: 'number',
+      orderBy: 'string',
       orderType: 'string',
       regionId: 'string',
+      scope: 'string',
+      sortType: 'string',
     };
   }
 
@@ -13734,6 +14199,8 @@ export class DescribeDesktopsRequest extends $tea.Model {
    * The types of the OSs.
    */
   osTypes?: string[];
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The ID of the policy.
@@ -13817,6 +14284,8 @@ export class DescribeDesktopsRequest extends $tea.Model {
       officeSiteName: 'OfficeSiteName',
       onlyDesktopGroup: 'OnlyDesktopGroup',
       osTypes: 'OsTypes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       policyGroupId: 'PolicyGroupId',
       protocolType: 'ProtocolType',
       qosRuleId: 'QosRuleId',
@@ -13855,6 +14324,8 @@ export class DescribeDesktopsRequest extends $tea.Model {
       officeSiteName: 'string',
       onlyDesktopGroup: 'boolean',
       osTypes: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
       policyGroupId: 'string',
       protocolType: 'string',
       qosRuleId: 'string',
@@ -13887,6 +14358,8 @@ export class DescribeDesktopsResponseBody extends $tea.Model {
    * caeba0bbb2be03f84eb48b699f0a4883
    */
   nextToken?: string;
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @remarks
    * The ID of the request.
@@ -13907,6 +14380,8 @@ export class DescribeDesktopsResponseBody extends $tea.Model {
     return {
       desktops: 'Desktops',
       nextToken: 'NextToken',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
       requestId: 'RequestId',
       totalCount: 'TotalCount',
     };
@@ -13916,6 +14391,8 @@ export class DescribeDesktopsResponseBody extends $tea.Model {
     return {
       desktops: { 'type': 'array', 'itemType': DescribeDesktopsResponseBodyDesktops },
       nextToken: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       requestId: 'string',
       totalCount: 'number',
     };
@@ -15942,6 +16419,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
    * test1
    */
   endUserId?: string;
+  includeInvokeDesktops?: boolean;
   /**
    * @remarks
    * Specifies whether to return command outputs in the response. Valid values:
@@ -16015,6 +16493,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
       desktopId: 'DesktopId',
       desktopIds: 'DesktopIds',
       endUserId: 'EndUserId',
+      includeInvokeDesktops: 'IncludeInvokeDesktops',
       includeOutput: 'IncludeOutput',
       invokeId: 'InvokeId',
       invokeStatus: 'InvokeStatus',
@@ -16031,6 +16510,7 @@ export class DescribeInvocationsRequest extends $tea.Model {
       desktopId: 'string',
       desktopIds: { 'type': 'array', 'itemType': 'string' },
       endUserId: 'string',
+      includeInvokeDesktops: 'boolean',
       includeOutput: 'boolean',
       invokeId: 'string',
       invokeStatus: 'string',
@@ -16209,6 +16689,125 @@ export class DescribeKmsKeysResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeKmsKeysResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceRequest extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
+  bandwidth?: number;
+  /**
+   * @example
+   * ecd-0gfv2z3sf95zvt****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * eds.enterprise_office.8c16g
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * Desktop
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * 80
+   */
+  rootDiskSizeGib?: number;
+  /**
+   * @example
+   * 50
+   */
+  userDiskSizeGib?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidth: 'Bandwidth',
+      instanceId: 'InstanceId',
+      instanceType: 'InstanceType',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+      rootDiskSizeGib: 'RootDiskSizeGib',
+      userDiskSizeGib: 'UserDiskSizeGib',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidth: 'number',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+      rootDiskSizeGib: 'number',
+      userDiskSizeGib: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponseBody extends $tea.Model {
+  priceInfo?: DescribeModificationPriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 48174475-5EB2-5F99-A9E9-6F892D645****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: DescribeModificationPriceResponseBodyPriceInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeModificationPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeModificationPriceResponseBody,
     };
   }
 
@@ -16576,6 +17175,18 @@ export class DescribeOfficeSitesRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The security protection setting of the office network.
+   * 
+   * Valid values:
+   * 
+   * *   SASE: SASE is configured.
+   * *   OFF: No security protection setting is configured.
+   * 
+   * @example
+   * SASE
+   */
   securityProtection?: string;
   /**
    * @remarks
@@ -16710,6 +17321,13 @@ export class DescribeOfficeSitesResponseBody extends $tea.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries returned.
+   * 
+   * @example
+   * 20
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16924,30 +17542,8 @@ export class DescribePriceRequest extends $tea.Model {
    * 10
    */
   bandwidth?: number;
-  /**
-   * **if can be null:**
-   * true
-   */
-  bundleModels?: DescribePriceRequestBundleModels[];
-  eduCdsEnable?: string;
-  eduCdsSize?: number;
-  eduCommittedTime?: number;
-  eduDesktopBundleId?: string;
-  eduDesktopNum?: number;
-  eduRoomClassify?: string;
-  eduStudentBundleId?: string;
-  eduStudentNum?: number;
-  eduTeacherBundleId?: string;
-  eduTeacherNum?: number;
+  duration?: number;
   groupDesktopCount?: number;
-  /**
-   * @remarks
-   * The model of the WUYING hardware client.
-   * 
-   * @example
-   * hide
-   */
-  hardwareVersion?: string;
   /**
    * @remarks
    * The resource specifications.
@@ -16992,7 +17588,6 @@ export class DescribePriceRequest extends $tea.Model {
    * PayByTraffic
    */
   internetChargeType?: string;
-  networkType?: string;
   /**
    * @remarks
    * The OS. Valid values:
@@ -17006,7 +17601,6 @@ export class DescribePriceRequest extends $tea.Model {
    * Windows
    */
   osType?: string;
-  packageSize?: number;
   /**
    * @remarks
    * The subscription duration. Default value: 1.
@@ -17061,19 +17655,7 @@ export class DescribePriceRequest extends $tea.Model {
    * Desktop
    */
   resourceType?: string;
-  /**
-   * @remarks
-   * The performance level (PL) of the system disk. Valid values:
-   * 
-   * *   PL0
-   * *   PL1
-   * *   PL2
-   * *   PL3
-   * 
-   * @example
-   * PL0
-   */
-  rootDiskPerformanceLevel?: string;
+  rootDiskCategory?: string;
   /**
    * @remarks
    * The system disk size. Unit: GiB.
@@ -17082,22 +17664,7 @@ export class DescribePriceRequest extends $tea.Model {
    * 80
    */
   rootDiskSizeGib?: number;
-  spPeriodInfo?: string;
-  spPrice?: boolean;
-  spType?: string;
-  /**
-   * @remarks
-   * The PL of the data disk. Valid values:
-   * 
-   * *   PL0
-   * *   PL1
-   * *   PL2
-   * *   PL3
-   * 
-   * @example
-   * PL0
-   */
-  userDiskPerformanceLevel?: string;
+  userDiskCategory?: string;
   /**
    * @remarks
    * The data disk size. Unit: GiB.
@@ -17110,35 +17677,19 @@ export class DescribePriceRequest extends $tea.Model {
     return {
       amount: 'Amount',
       bandwidth: 'Bandwidth',
-      bundleModels: 'BundleModels',
-      eduCdsEnable: 'EduCdsEnable',
-      eduCdsSize: 'EduCdsSize',
-      eduCommittedTime: 'EduCommittedTime',
-      eduDesktopBundleId: 'EduDesktopBundleId',
-      eduDesktopNum: 'EduDesktopNum',
-      eduRoomClassify: 'EduRoomClassify',
-      eduStudentBundleId: 'EduStudentBundleId',
-      eduStudentNum: 'EduStudentNum',
-      eduTeacherBundleId: 'EduTeacherBundleId',
-      eduTeacherNum: 'EduTeacherNum',
+      duration: 'Duration',
       groupDesktopCount: 'GroupDesktopCount',
-      hardwareVersion: 'HardwareVersion',
       instanceType: 'InstanceType',
       internetChargeType: 'InternetChargeType',
-      networkType: 'NetworkType',
       osType: 'OsType',
-      packageSize: 'PackageSize',
       period: 'Period',
       periodUnit: 'PeriodUnit',
       promotionId: 'PromotionId',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
-      rootDiskPerformanceLevel: 'RootDiskPerformanceLevel',
+      rootDiskCategory: 'RootDiskCategory',
       rootDiskSizeGib: 'RootDiskSizeGib',
-      spPeriodInfo: 'SpPeriodInfo',
-      spPrice: 'SpPrice',
-      spType: 'SpType',
-      userDiskPerformanceLevel: 'UserDiskPerformanceLevel',
+      userDiskCategory: 'UserDiskCategory',
       userDiskSizeGib: 'UserDiskSizeGib',
     };
   }
@@ -17147,35 +17698,19 @@ export class DescribePriceRequest extends $tea.Model {
     return {
       amount: 'number',
       bandwidth: 'number',
-      bundleModels: { 'type': 'array', 'itemType': DescribePriceRequestBundleModels },
-      eduCdsEnable: 'string',
-      eduCdsSize: 'number',
-      eduCommittedTime: 'number',
-      eduDesktopBundleId: 'string',
-      eduDesktopNum: 'number',
-      eduRoomClassify: 'string',
-      eduStudentBundleId: 'string',
-      eduStudentNum: 'number',
-      eduTeacherBundleId: 'string',
-      eduTeacherNum: 'number',
+      duration: 'number',
       groupDesktopCount: 'number',
-      hardwareVersion: 'string',
       instanceType: 'string',
       internetChargeType: 'string',
-      networkType: 'string',
       osType: 'string',
-      packageSize: 'number',
       period: 'number',
       periodUnit: 'string',
       promotionId: 'string',
       regionId: 'string',
       resourceType: 'string',
-      rootDiskPerformanceLevel: 'string',
+      rootDiskCategory: 'string',
       rootDiskSizeGib: 'number',
-      spPeriodInfo: 'string',
-      spPrice: 'boolean',
-      spType: 'string',
-      userDiskPerformanceLevel: 'string',
+      userDiskCategory: 'string',
       userDiskSizeGib: 'number',
     };
   }
@@ -17611,6 +18146,97 @@ export class DescribeRecordingsResponse extends $tea.Model {
   }
 }
 
+export class DescribeRefundPriceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  desktopId?: string[];
+  /**
+   * @example
+   * RemainRefund
+   */
+  refundType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desktopId: 'DesktopId',
+      refundType: 'RefundType',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desktopId: { 'type': 'array', 'itemType': 'string' },
+      refundType: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRefundPriceResponseBody extends $tea.Model {
+  priceInfo?: DescribeRefundPriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: DescribeRefundPriceResponseBodyPriceInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRefundPriceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRefundPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRefundPriceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsRequest extends $tea.Model {
   /**
    * @remarks
@@ -17699,6 +18325,114 @@ export class DescribeRegionsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRegionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceRequest extends $tea.Model {
+  /**
+   * @example
+   * ecd-6ldllk9zxcpfhs****
+   */
+  instanceId?: string;
+  instanceIds?: string[];
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * Desktop
+   */
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceIds: 'InstanceIds',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceType: 'ResourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponseBody extends $tea.Model {
+  priceInfo?: DescribeRenewalPriceResponseBodyPriceInfo;
+  /**
+   * @example
+   * 72E47B1E-6B11-5A11-A27C-7A80F866****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      priceInfo: 'PriceInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      priceInfo: DescribeRenewalPriceResponseBodyPriceInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRenewalPriceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRenewalPriceResponseBody,
     };
   }
 
@@ -20758,6 +21492,7 @@ export class GetConnectionTicketRequest extends $tea.Model {
 }
 
 export class GetConnectionTicketResponseBody extends $tea.Model {
+  desktopId?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -20766,6 +21501,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
+  taskCode?: string;
   /**
    * @remarks
    * The ID of the cloud computer connection task.
@@ -20774,6 +21510,7 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
    * 2afbad19-778a-4fc5-9674-1f19c638****
    */
   taskId?: string;
+  taskMessage?: string;
   /**
    * @remarks
    * The task status.
@@ -20828,8 +21565,11 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
   ticket?: string;
   static names(): { [key: string]: string } {
     return {
+      desktopId: 'DesktopId',
       requestId: 'RequestId',
+      taskCode: 'TaskCode',
       taskId: 'TaskId',
+      taskMessage: 'TaskMessage',
       taskStatus: 'TaskStatus',
       ticket: 'Ticket',
     };
@@ -20837,8 +21577,11 @@ export class GetConnectionTicketResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      desktopId: 'string',
       requestId: 'string',
+      taskCode: 'string',
       taskId: 'string',
+      taskMessage: 'string',
       taskStatus: 'string',
       ticket: 'string',
     };
@@ -22061,6 +22804,7 @@ export class ListCdsFilesResponse extends $tea.Model {
 }
 
 export class ListDirectoryUsersRequest extends $tea.Model {
+  assignedInfo?: string;
   /**
    * @remarks
    * The ID of the AD directory.
@@ -22079,6 +22823,7 @@ export class ListDirectoryUsersRequest extends $tea.Model {
    * alice
    */
   filter?: string;
+  includeAssignedUser?: boolean;
   /**
    * @remarks
    * The number of entries to return on each page.
@@ -22117,25 +22862,32 @@ export class ListDirectoryUsersRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sortType?: string;
   static names(): { [key: string]: string } {
     return {
+      assignedInfo: 'AssignedInfo',
       directoryId: 'DirectoryId',
       filter: 'Filter',
+      includeAssignedUser: 'IncludeAssignedUser',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       OUPath: 'OUPath',
       regionId: 'RegionId',
+      sortType: 'SortType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      assignedInfo: 'string',
       directoryId: 'string',
       filter: 'string',
+      includeAssignedUser: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       OUPath: 'string',
       regionId: 'string',
+      sortType: 'string',
     };
   }
 
@@ -22495,6 +23247,7 @@ export class ListOfficeSiteOverviewResponse extends $tea.Model {
 }
 
 export class ListOfficeSiteUsersRequest extends $tea.Model {
+  assignedInfo?: string;
   /**
    * @remarks
    * The query string for fuzzy query.
@@ -22503,6 +23256,7 @@ export class ListOfficeSiteUsersRequest extends $tea.Model {
    * *jin*
    */
   filter?: string;
+  includeAssignedUser?: boolean;
   /**
    * @remarks
    * The number of entries per page.
@@ -22550,25 +23304,32 @@ export class ListOfficeSiteUsersRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  sortType?: string;
   static names(): { [key: string]: string } {
     return {
+      assignedInfo: 'AssignedInfo',
       filter: 'Filter',
+      includeAssignedUser: 'IncludeAssignedUser',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       OUPath: 'OUPath',
       officeSiteId: 'OfficeSiteId',
       regionId: 'RegionId',
+      sortType: 'SortType',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      assignedInfo: 'string',
       filter: 'string',
+      includeAssignedUser: 'boolean',
       maxResults: 'number',
       nextToken: 'string',
       OUPath: 'string',
       officeSiteId: 'string',
       regionId: 'string',
+      sortType: 'string',
     };
   }
 
@@ -23263,7 +24024,7 @@ export class ModifyADConnectorDirectoryRequest extends $tea.Model {
    * The IP address of the DNS server corresponding to the enterprise AD. You can specify only one IP address. Make sure that the specified IP address is accessible in the network of the selected vSwitch.
    * 
    * @example
-   * 127.0.\*\*.**
+   * ``127.0.**.**``
    */
   dnsAddress?: string[];
   /**
@@ -23342,7 +24103,7 @@ export class ModifyADConnectorDirectoryRequest extends $tea.Model {
    * If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
    * 
    * @example
-   * 127.0.\*\*.**
+   * ``127.0.**.**``
    */
   subDomainDnsAddress?: string[];
   /**
@@ -24871,6 +25632,7 @@ export class ModifyCloudDrivePermissionRequest extends $tea.Model {
    * The IDs of the users who have the upload and download permissions.
    */
   downloadUploadEndUserIds?: string[];
+  noDownloadNoUploadEndUserIds?: string[];
   /**
    * @remarks
    * The region ID.
@@ -24886,6 +25648,7 @@ export class ModifyCloudDrivePermissionRequest extends $tea.Model {
       cdsId: 'CdsId',
       downloadEndUserIds: 'DownloadEndUserIds',
       downloadUploadEndUserIds: 'DownloadUploadEndUserIds',
+      noDownloadNoUploadEndUserIds: 'NoDownloadNoUploadEndUserIds',
       regionId: 'RegionId',
     };
   }
@@ -24895,6 +25658,7 @@ export class ModifyCloudDrivePermissionRequest extends $tea.Model {
       cdsId: 'string',
       downloadEndUserIds: { 'type': 'array', 'itemType': 'string' },
       downloadUploadEndUserIds: { 'type': 'array', 'itemType': 'string' },
+      noDownloadNoUploadEndUserIds: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
     };
   }
@@ -25506,7 +26270,7 @@ export class ModifyDesktopGroupRequest extends $tea.Model {
   disableSessionConfig?: boolean;
   /**
    * @remarks
-   * The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
+   * The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
    * 
    * >  This parameter is unavailable.
    * 
@@ -28469,6 +29233,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
    * EndUserId
    */
   watermarkType?: string;
+  wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
       adminAccess: 'AdminAccess',
@@ -28530,6 +29295,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       watermarkTransparency: 'WatermarkTransparency',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
+      wyAssistant: 'WyAssistant',
     };
   }
 
@@ -28594,6 +29360,7 @@ export class ModifyPolicyGroupRequest extends $tea.Model {
       watermarkTransparency: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
+      wyAssistant: 'string',
     };
   }
 
@@ -29189,7 +29956,7 @@ export class RebootDesktopsResponse extends $tea.Model {
 export class RebuildDesktopsRequest extends $tea.Model {
   /**
    * @remarks
-   * The IDs of the cloud computers. You can specify 1 to 20 IDs.
+   * The cloud computer IDs. You can specify the IDs of 1 to 20 cloud computers.
    * 
    * This parameter is required.
    * 
@@ -29205,6 +29972,20 @@ export class RebuildDesktopsRequest extends $tea.Model {
    * m-84mztzatmlnys****
    */
   imageId?: string;
+  /**
+   * @remarks
+   * The OS language. Only system images are supported, and Linux cloud computers support only English.
+   * 
+   * Valid values:
+   * 
+   * *   en-US: English
+   * *   zh-HK: Traditional Chinese (Hong Kong, China)
+   * *   zh-CN: Simplified Chinese
+   * *   ja-JP: Japanese
+   * 
+   * @example
+   * en-US
+   */
   language?: string;
   /**
    * @remarks
@@ -29233,7 +30014,7 @@ export class RebuildDesktopsRequest extends $tea.Model {
   operateType?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
    * 
    * This parameter is required.
    * 
@@ -29700,6 +30481,121 @@ export class RemoveUserFromDesktopOversoldUserGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RemoveUserFromDesktopOversoldUserGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewDesktopGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dg-7724r1jitbjzc****
+   */
+  desktopGroupId?: string;
+  /**
+   * @example
+   * 1
+   */
+  period?: number;
+  /**
+   * @example
+   * Month
+   */
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      desktopGroupId: 'DesktopGroupId',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      desktopGroupId: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewDesktopGroupResponseBody extends $tea.Model {
+  orderId?: string[];
+  /**
+   * @example
+   * E55E6732-2028-52FA-AB06-EA29C36B****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RenewDesktopGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RenewDesktopGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RenewDesktopGroupResponseBody,
     };
   }
 
@@ -32868,6 +33764,7 @@ export class UploadImageRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  systemDiskSize?: string;
   static names(): { [key: string]: string } {
     return {
       dataDiskSize: 'DataDiskSize',
@@ -32881,6 +33778,7 @@ export class UploadImageRequest extends $tea.Model {
       ossObjectPath: 'OssObjectPath',
       protocolType: 'ProtocolType',
       regionId: 'RegionId',
+      systemDiskSize: 'SystemDiskSize',
     };
   }
 
@@ -32897,6 +33795,7 @@ export class UploadImageRequest extends $tea.Model {
       ossObjectPath: 'string',
       protocolType: 'string',
       regionId: 'string',
+      systemDiskSize: 'string',
     };
   }
 
@@ -33660,7 +34559,7 @@ export class CreateADConnectorDirectoryResponseBodyAdConnectors extends $tea.Mod
    * The connection address.
    * 
    * @example
-   * 127.0.\*\*.**
+   * ``127.0.**.**``
    */
   address?: string;
   static names(): { [key: string]: string } {
@@ -33934,6 +34833,49 @@ export class CreateDesktopsRequestBundleModels extends $tea.Model {
   }
 }
 
+export class CreateDesktopsRequestDesktopAttachment extends $tea.Model {
+  dataDiskCategory?: string;
+  dataDiskPerLevel?: string;
+  dataDiskSize?: number;
+  defaultLanguage?: string;
+  desktopType?: string;
+  imageId?: string;
+  systemDiskCategory?: string;
+  systemDiskPerLevel?: string;
+  systemDiskSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataDiskCategory: 'DataDiskCategory',
+      dataDiskPerLevel: 'DataDiskPerLevel',
+      dataDiskSize: 'DataDiskSize',
+      defaultLanguage: 'DefaultLanguage',
+      desktopType: 'DesktopType',
+      imageId: 'ImageId',
+      systemDiskCategory: 'SystemDiskCategory',
+      systemDiskPerLevel: 'SystemDiskPerLevel',
+      systemDiskSize: 'SystemDiskSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataDiskCategory: 'string',
+      dataDiskPerLevel: 'string',
+      dataDiskSize: 'number',
+      defaultLanguage: 'string',
+      desktopType: 'string',
+      imageId: 'string',
+      systemDiskCategory: 'string',
+      systemDiskPerLevel: 'string',
+      systemDiskSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDesktopsRequestDesktopTimers extends $tea.Model {
   /**
    * @remarks
@@ -34159,6 +35101,418 @@ export class CreateDesktopsRequestTag extends $tea.Model {
 }
 
 export class CreateDesktopsRequestUserCommands extends $tea.Model {
+  /**
+   * @remarks
+   * The command content.
+   * 
+   * @example
+   * bmV3LWl0ZW0gZDpcdGVzdF91c2VyX2NvbW1hbmRzLnR4dCAtdHlwZSBm****
+   */
+  content?: string;
+  /**
+   * @remarks
+   * The encoding mode of the command content.
+   * 
+   * Valid values:
+   * 
+   * *   Base64: encodes the command content in Base64.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   PlainText: does not encode the command content.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Base64
+   */
+  contentEncoding?: string;
+  /**
+   * @remarks
+   * The language type of the command.
+   * 
+   * Valid values:
+   * 
+   * *   RunPowerShellScript: PowerShell commands (applicable to Windows cloud computers).
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   RunShellScript: shell commands (applicable to Linux cloud computers).
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   RunBatScript: batch commands (applicable to Windows cloud computers).
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * RunPowerShellScript
+   */
+  contentType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      contentEncoding: 'ContentEncoding',
+      contentType: 'ContentType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      contentEncoding: 'string',
+      contentType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequestBundleModels extends $tea.Model {
+  /**
+   * @remarks
+   * The number of cloud computers that you want to create. Valid values: 1 to 300. Default value: null.
+   * 
+   * @example
+   * 1
+   */
+  amount?: number;
+  /**
+   * @remarks
+   * The ID of a cloud computer template.
+   * 
+   * @example
+   * b-je9hani001wfn****
+   */
+  bundleId?: string;
+  /**
+   * @remarks
+   * The name of the cloud computer. The name must meet the following requirements:
+   * 
+   * *   The name must be 1 to 64 characters in length.
+   * *   The name must start with a letter but cannot start with `http://` or `https://`.
+   * *   The name can only contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+   * 
+   * @example
+   * testDesktopName
+   */
+  desktopName?: string;
+  /**
+   * @remarks
+   * The IDs of the end users to whom the cloud computer are assigned.
+   */
+  endUserIds?: string[];
+  /**
+   * @remarks
+   * The custom hostnames of the cloud computers. This parameter is valid only if the office network is an AD office network and the operating system type of the cloud computers is Windows.
+   * 
+   * The hostnames must meet the following requirements:
+   * 
+   * *   The hostnames must be 2 to 15 characters in length.
+   * *   The hostnames can contain only letters, digits, and hyphens (-). The hostnames cannot start or end with a hyphen (-), contain consecutive hyphens (-), or contain only digits.
+   * 
+   * When you create multiple cloud computers, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to name the cloud computers. For example, if you set the value of the Hostname parameter to ecd-[1,4]-test, the hostname of the first cloud computer is ecd-0001-test, the hostname of the second cloud computer is ecd-0002-test, and so on.
+   * 
+   * *   `name_prefix`: the prefix of the hostname.
+   * *   `[begin_number,bits]`: the sequential number in the hostname. The `begin_number` value is the starting digit. Valid values of begin_number: 0 to 999999. Default value: 0. The `bits` value is the number of digits. Valid values: 1 to 6. Default value: 6.
+   * *   `name_suffix`: the suffix of the hostname.
+   * 
+   * @example
+   * testhost
+   */
+  hostname?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable disk encryption.
+   * 
+   * @example
+   * false
+   */
+  volumeEncryptionEnabled?: boolean;
+  /**
+   * @remarks
+   * The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to query the list of KMS keys.
+   * 
+   * @example
+   * 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
+   */
+  volumeEncryptionKey?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      bundleId: 'BundleId',
+      desktopName: 'DesktopName',
+      endUserIds: 'EndUserIds',
+      hostname: 'Hostname',
+      volumeEncryptionEnabled: 'VolumeEncryptionEnabled',
+      volumeEncryptionKey: 'VolumeEncryptionKey',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      bundleId: 'string',
+      desktopName: 'string',
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
+      hostname: 'string',
+      volumeEncryptionEnabled: 'boolean',
+      volumeEncryptionKey: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequestDesktopTimers extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to allow the end user to configure the scheduled task.
+   * 
+   * @example
+   * true
+   */
+  allowClientSetting?: boolean;
+  /**
+   * @remarks
+   * The cron expression for the scheduled task.
+   * 
+   * >  The time must be in UTC. For example, for 24:00 (UTC+8), you must set the value to 0 0 16 ? \\* 1,2,3,4,5,6,7
+   * 
+   * @example
+   * 0 40 7 ? * 1,2,3,4,5,6,7
+   */
+  cronExpression?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly execute the scheduled task.
+   * 
+   * Valid values:
+   * 
+   * *   true: forcibly executes the scheduled task regardless of the status and connection of the cloud computers.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   false: does not forcibly execute the scheduled task.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * True
+   */
+  enforce?: boolean;
+  /**
+   * @remarks
+   * The interval at which cloud computers are created. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
+  interval?: number;
+  /**
+   * @remarks
+   * The operations that scheduled tasks support. This parameter is valid only when TimerType is set to NoConnect.
+   * 
+   * Valid values:
+   * 
+   * *   Hibernate: hibernates the cloud computers.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   Shutdown: stops the cloud computers.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * Shutdown
+   */
+  operationType?: string;
+  /**
+   * @remarks
+   * The reset type of the cloud computers.
+   * 
+   * Valid values:
+   * 
+   * *   RESET_TYPE_SYSTEM: resets the system disks.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * *   RESET_TYPE_BOTH: resets the system disks and data disks.
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   *     <!-- -->
+   * 
+   * @example
+   * RESET_TYPE_SYSTEM
+   */
+  resetType?: string;
+  /**
+   * @remarks
+   * The type of the scheduled task.
+   * 
+   * @example
+   * NoOperationReboot
+   */
+  timerType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowClientSetting: 'AllowClientSetting',
+      cronExpression: 'CronExpression',
+      enforce: 'Enforce',
+      interval: 'Interval',
+      operationType: 'OperationType',
+      resetType: 'ResetType',
+      timerType: 'TimerType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowClientSetting: 'boolean',
+      cronExpression: 'string',
+      enforce: 'boolean',
+      interval: 'number',
+      operationType: 'string',
+      resetType: 'string',
+      timerType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequestMonthDesktopSetting extends $tea.Model {
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  buyerId?: number;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  desktopId?: string;
+  /**
+   * @remarks
+   * > This parameter is not publicly available.
+   * 
+   * @example
+   * null
+   */
+  useDuration?: number;
+  static names(): { [key: string]: string } {
+    return {
+      buyerId: 'BuyerId',
+      desktopId: 'DesktopId',
+      useDuration: 'UseDuration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      buyerId: 'number',
+      desktopId: 'string',
+      useDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequestTag extends $tea.Model {
+  /**
+   * @remarks
+   * The key of the tag. You can specify 1 to 20 keys for a tag.
+   * 
+   * @example
+   * TestKey
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the tag. You can specify 1 to 20 values for a tag.
+   * 
+   * @example
+   * TestValue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDesktopsShrinkRequestUserCommands extends $tea.Model {
   /**
    * @remarks
    * The command content.
@@ -36001,6 +37355,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $tea.M
    */
   groupName?: string;
   orgId?: string;
+  recycleBinSize?: string;
   /**
    * @remarks
    * The team space status. Valid values:
@@ -36040,6 +37395,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $tea.M
       groupId: 'GroupId',
       groupName: 'GroupName',
       orgId: 'OrgId',
+      recycleBinSize: 'RecycleBinSize',
       status: 'Status',
       totalSize: 'TotalSize',
       usedSize: 'UsedSize',
@@ -36056,6 +37412,7 @@ export class DescribeCloudDriveGroupsResponseBodyCloudDriveGroups extends $tea.M
       groupId: 'string',
       groupName: 'string',
       orgId: 'string',
+      recycleBinSize: 'string',
       status: 'string',
       totalSize: 'number',
       usedSize: 'string',
@@ -37682,6 +39039,7 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $tea.Model {
    * 1
    */
   gpuCount?: number;
+  gpuMemory?: number;
   /**
    * @remarks
    * The GPU memory.
@@ -37706,6 +39064,8 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $tea.Model {
    * 23552
    */
   memorySize?: string;
+  scopes?: string[];
+  stockState?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB.
@@ -37721,9 +39081,12 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $tea.Model {
       desktopTypeId: 'DesktopTypeId',
       desktopTypeStatus: 'DesktopTypeStatus',
       gpuCount: 'GpuCount',
+      gpuMemory: 'GpuMemory',
       gpuSpec: 'GpuSpec',
       instanceTypeFamily: 'InstanceTypeFamily',
       memorySize: 'MemorySize',
+      scopes: 'Scopes',
+      stockState: 'StockState',
       systemDiskSize: 'SystemDiskSize',
     };
   }
@@ -37735,9 +39098,12 @@ export class DescribeDesktopTypesResponseBodyDesktopTypes extends $tea.Model {
       desktopTypeId: 'string',
       desktopTypeStatus: 'string',
       gpuCount: 'number',
+      gpuMemory: 'number',
       gpuSpec: 'string',
       instanceTypeFamily: 'string',
       memorySize: 'string',
+      scopes: { 'type': 'array', 'itemType': 'string' },
+      stockState: 'string',
       systemDiskSize: 'string',
     };
   }
@@ -37784,6 +39150,7 @@ export class DescribeDesktopsRequestTag extends $tea.Model {
 }
 
 export class DescribeDesktopsResponseBodyDesktopsDisks extends $tea.Model {
+  diskCategory?: string;
   /**
    * @remarks
    * The disk ID.
@@ -37843,6 +39210,7 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $tea.Model {
   performanceLevel?: string;
   static names(): { [key: string]: string } {
     return {
+      diskCategory: 'DiskCategory',
       diskId: 'DiskId',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
@@ -37852,6 +39220,7 @@ export class DescribeDesktopsResponseBodyDesktopsDisks extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      diskCategory: 'string',
       diskId: 'string',
       diskSize: 'number',
       diskType: 'string',
@@ -39669,7 +41038,7 @@ export class DescribeDirectoriesResponseBodyDirectoriesADConnectors extends $tea
    * The connection address.
    * 
    * @example
-   * 172.17.\*\*.**
+   * ``172.17.**.**``
    */
   ADConnectorAddress?: string;
   /**
@@ -39851,8 +41220,20 @@ export class DescribeDirectoriesResponseBodyDirectories extends $tea.Model {
    * Details of the AD connector.
    */
   ADConnectors?: DescribeDirectoriesResponseBodyDirectoriesADConnectors[];
+  /**
+   * @example
+   * dc001
+   */
   adHostname?: string;
+  /**
+   * @example
+   * dc002
+   */
   backupDCHostname?: string;
+  /**
+   * @example
+   * 192.168.2.100
+   */
   backupDns?: string;
   /**
    * @remarks
@@ -40011,7 +41392,7 @@ export class DescribeDirectoriesResponseBodyDirectories extends $tea.Model {
   enableInternetAccess?: boolean;
   /**
    * @remarks
-   * The IDs of Apsara File Storage NAS (NAS) file systems.
+   * The IDs of File Storage NAS (NAS) file systems.
    */
   fileSystemIds?: string[];
   /**
@@ -41376,6 +42757,8 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
    * Pending
    */
   invocationStatus?: string;
+  invokeDesktopCount?: number;
+  invokeDesktopSucceedCount?: number;
   /**
    * @remarks
    * The cloud desktops on which the command is executed.
@@ -41396,6 +42779,8 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
       creationTime: 'CreationTime',
       endUserId: 'EndUserId',
       invocationStatus: 'InvocationStatus',
+      invokeDesktopCount: 'InvokeDesktopCount',
+      invokeDesktopSucceedCount: 'InvokeDesktopSucceedCount',
       invokeDesktops: 'InvokeDesktops',
       invokeId: 'InvokeId',
     };
@@ -41408,6 +42793,8 @@ export class DescribeInvocationsResponseBodyInvocations extends $tea.Model {
       creationTime: 'string',
       endUserId: 'string',
       invocationStatus: 'string',
+      invokeDesktopCount: 'number',
+      invokeDesktopSucceedCount: 'number',
       invokeDesktops: { 'type': 'array', 'itemType': DescribeInvocationsResponseBodyInvocationsInvokeDesktops },
       invokeId: 'string',
     };
@@ -41466,6 +42853,147 @@ export class DescribeKmsKeysResponseBodyKeys extends $tea.Model {
       arn: 'string',
       keyId: 'string',
       type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponseBodyPriceInfoPricePromotions extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  optionCode?: string;
+  promotionDesc?: string;
+  /**
+   * @example
+   * promo_option
+   */
+  promotionId?: string;
+  promotionName?: string;
+  /**
+   * @example
+   * false
+   */
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      optionCode: 'OptionCode',
+      promotionDesc: 'PromotionDesc',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionCode: 'string',
+      promotionDesc: 'string',
+      promotionId: 'string',
+      promotionName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponseBodyPriceInfoPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 15.8
+   */
+  discountPrice?: number;
+  orderLines?: { [key: string]: string };
+  /**
+   * @example
+   * 79.0
+   */
+  originalPrice?: number;
+  promotions?: DescribeModificationPriceResponseBodyPriceInfoPricePromotions[];
+  /**
+   * @example
+   * 63.2
+   */
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      orderLines: 'OrderLines',
+      originalPrice: 'OriginalPrice',
+      promotions: 'Promotions',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      orderLines: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      originalPrice: 'number',
+      promotions: { 'type': 'array', 'itemType': DescribeModificationPriceResponseBodyPriceInfoPricePromotions },
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponseBodyPriceInfoRules extends $tea.Model {
+  description?: string;
+  /**
+   * @example
+   * 14806
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeModificationPriceResponseBodyPriceInfo extends $tea.Model {
+  price?: DescribeModificationPriceResponseBodyPriceInfoPrice;
+  rules?: DescribeModificationPriceResponseBodyPriceInfoRules[];
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: DescribeModificationPriceResponseBodyPriceInfoPrice,
+      rules: { 'type': 'array', 'itemType': DescribeModificationPriceResponseBodyPriceInfoRules },
     };
   }
 
@@ -42127,6 +43655,28 @@ export class DescribeOfficeSitesResponseBodyOfficeSitesLogs extends $tea.Model {
   }
 }
 
+export class DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts extends $tea.Model {
+  amount?: number;
+  resourceType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'amount',
+      resourceType: 'resourceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      resourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   /**
    * @remarks
@@ -42211,6 +43761,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
    * 2021-05-06T05:58Z
    */
   creationTime?: string;
+  customAccessPoint?: string;
+  customDnsAddress?: string[];
   /**
    * @remarks
    * The ID of the security group.
@@ -42327,7 +43879,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
   enableServiceRoute?: boolean;
   /**
    * @remarks
-   * An array of Apsara File Storage NAS (NAS) file system IDs.
+   * An array of File Storage NAS (NAS) file system IDs.
    */
   fileSystemIds?: string[];
   /**
@@ -42380,6 +43932,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
    * np-amtp8e8q1o9e4****
    */
   networkPackageId?: string;
+  nmVersion?: string;
   /**
    * @remarks
    * The IDs of the office networks.
@@ -42446,6 +43999,19 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
    * 2
    */
   rdsLicenseStatus?: string;
+  resourceAmounts?: DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts[];
+  /**
+   * @remarks
+   * The security protection setting of the office network.
+   * 
+   * Valid values:
+   * 
+   * *   SASE: SASE is configured.
+   * *   OFF: No security protection setting is configured.
+   * 
+   * @example
+   * SASE
+   */
   securityProtection?: string;
   /**
    * @remarks
@@ -42500,6 +44066,18 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
    * testSubDnsUserName
    */
   subDomainName?: string;
+  /**
+   * @remarks
+   * The subnet mode of the office network.
+   * 
+   * Valid values:
+   * 
+   * *   0: disabled.
+   * *   1: enabled.
+   * 
+   * @example
+   * 0
+   */
   subnetMode?: string;
   /**
    * @remarks
@@ -42517,6 +44095,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
    * 0
    */
   totalEdsCountForGroup?: number;
+  totalResourceAmount?: number;
   /**
    * @remarks
    * >  This parameter is unavailable.
@@ -42564,6 +44143,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       cidrBlock: 'CidrBlock',
       cloudBoxOfficeSite: 'CloudBoxOfficeSite',
       creationTime: 'CreationTime',
+      customAccessPoint: 'CustomAccessPoint',
+      customDnsAddress: 'CustomDnsAddress',
       customSecurityGroupId: 'CustomSecurityGroupId',
       desktopAccessType: 'DesktopAccessType',
       desktopCount: 'DesktopCount',
@@ -42584,6 +44165,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       needVerifyLoginRisk: 'NeedVerifyLoginRisk',
       needVerifyZeroDevice: 'NeedVerifyZeroDevice',
       networkPackageId: 'NetworkPackageId',
+      nmVersion: 'NmVersion',
       officeSiteId: 'OfficeSiteId',
       officeSiteType: 'OfficeSiteType',
       ouName: 'OuName',
@@ -42591,6 +44173,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       rdsLicenseAddress: 'RdsLicenseAddress',
       rdsLicenseDomainName: 'RdsLicenseDomainName',
       rdsLicenseStatus: 'RdsLicenseStatus',
+      resourceAmounts: 'ResourceAmounts',
       securityProtection: 'SecurityProtection',
       ssoEnabled: 'SsoEnabled',
       ssoType: 'SsoType',
@@ -42600,6 +44183,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       subnetMode: 'SubnetMode',
       totalEdsCount: 'TotalEdsCount',
       totalEdsCountForGroup: 'TotalEdsCountForGroup',
+      totalResourceAmount: 'TotalResourceAmount',
       trustPassword: 'TrustPassword',
       vSwitchIds: 'VSwitchIds',
       vpcId: 'VpcId',
@@ -42619,6 +44203,8 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       cidrBlock: 'string',
       cloudBoxOfficeSite: 'boolean',
       creationTime: 'string',
+      customAccessPoint: 'string',
+      customDnsAddress: { 'type': 'array', 'itemType': 'string' },
       customSecurityGroupId: 'string',
       desktopAccessType: 'string',
       desktopCount: 'number',
@@ -42639,6 +44225,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       needVerifyLoginRisk: 'boolean',
       needVerifyZeroDevice: 'boolean',
       networkPackageId: 'string',
+      nmVersion: 'string',
       officeSiteId: 'string',
       officeSiteType: 'string',
       ouName: 'string',
@@ -42646,6 +44233,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       rdsLicenseAddress: 'string',
       rdsLicenseDomainName: 'string',
       rdsLicenseStatus: 'string',
+      resourceAmounts: { 'type': 'array', 'itemType': DescribeOfficeSitesResponseBodyOfficeSitesResourceAmounts },
       securityProtection: 'string',
       ssoEnabled: 'boolean',
       ssoType: 'string',
@@ -42655,6 +44243,7 @@ export class DescribeOfficeSitesResponseBodyOfficeSites extends $tea.Model {
       subnetMode: 'string',
       totalEdsCount: 'number',
       totalEdsCountForGroup: 'number',
+      totalResourceAmount: 'number',
       trustPassword: 'string',
       vSwitchIds: { 'type': 'array', 'itemType': 'string' },
       vpcId: 'string',
@@ -43607,6 +45196,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    * fullControl
    */
   remoteCoordinate?: string;
+  resourceRegionId?: string;
   /**
    * @remarks
    * The effective scope of the policy. Valid values:
@@ -43797,6 +45387,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    * EndUserId
    */
   watermarkType?: string;
+  wyAssistant?: string;
   static names(): { [key: string]: string } {
     return {
       adminAccess: 'AdminAccess',
@@ -43856,6 +45447,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingUserNotify: 'RecordingUserNotify',
       recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
       remoteCoordinate: 'RemoteCoordinate',
+      resourceRegionId: 'ResourceRegionId',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       smoothEnhancement: 'SmoothEnhancement',
@@ -43883,6 +45475,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       watermarkTransparency: 'WatermarkTransparency',
       watermarkTransparencyValue: 'WatermarkTransparencyValue',
       watermarkType: 'WatermarkType',
+      wyAssistant: 'WyAssistant',
     };
   }
 
@@ -43945,6 +45538,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingUserNotify: 'string',
       recordingUserNotifyMessage: 'string',
       remoteCoordinate: 'string',
+      resourceRegionId: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       smoothEnhancement: 'string',
@@ -43972,43 +45566,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       watermarkTransparency: 'string',
       watermarkTransparencyValue: 'number',
       watermarkType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribePriceRequestBundleModels extends $tea.Model {
-  amount?: number;
-  bundleId?: string;
-  duration?: number;
-  instanceType?: string;
-  osType?: string;
-  rootDiskId?: string;
-  userDiskId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      amount: 'Amount',
-      bundleId: 'BundleId',
-      duration: 'Duration',
-      instanceType: 'InstanceType',
-      osType: 'OsType',
-      rootDiskId: 'RootDiskId',
-      userDiskId: 'UserDiskId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      amount: 'number',
-      bundleId: 'string',
-      duration: 'number',
-      instanceType: 'string',
-      osType: 'string',
-      rootDiskId: 'string',
-      userDiskId: 'string',
+      wyAssistant: 'string',
     };
   }
 
@@ -44359,6 +45917,36 @@ export class DescribeRecordingsResponseBodyRecordings extends $tea.Model {
   }
 }
 
+export class DescribeRefundPriceResponseBodyPriceInfo extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 3990.75
+   */
+  refundFee?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      refundFee: 'RefundFee',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      refundFee: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRegionsResponseBodyRegions extends $tea.Model {
   /**
    * @remarks
@@ -44397,6 +45985,147 @@ export class DescribeRegionsResponseBodyRegions extends $tea.Model {
       localName: 'string',
       regionEndpoint: 'string',
       regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponseBodyPriceInfoPricePromotions extends $tea.Model {
+  /**
+   * @example
+   * test
+   */
+  optionCode?: string;
+  promotionDesc?: string;
+  /**
+   * @example
+   * promo_option
+   */
+  promotionId?: string;
+  promotionName?: string;
+  /**
+   * @example
+   * false
+   */
+  selected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      optionCode: 'OptionCode',
+      promotionDesc: 'PromotionDesc',
+      promotionId: 'PromotionId',
+      promotionName: 'PromotionName',
+      selected: 'Selected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      optionCode: 'string',
+      promotionDesc: 'string',
+      promotionId: 'string',
+      promotionName: 'string',
+      selected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponseBodyPriceInfoPrice extends $tea.Model {
+  /**
+   * @example
+   * CNY
+   */
+  currency?: string;
+  /**
+   * @example
+   * 15.8
+   */
+  discountPrice?: number;
+  orderLines?: { [key: string]: string };
+  /**
+   * @example
+   * 79.0
+   */
+  originalPrice?: number;
+  promotions?: DescribeRenewalPriceResponseBodyPriceInfoPricePromotions[];
+  /**
+   * @example
+   * 63.2
+   */
+  tradePrice?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currency: 'Currency',
+      discountPrice: 'DiscountPrice',
+      orderLines: 'OrderLines',
+      originalPrice: 'OriginalPrice',
+      promotions: 'Promotions',
+      tradePrice: 'TradePrice',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currency: 'string',
+      discountPrice: 'number',
+      orderLines: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      originalPrice: 'number',
+      promotions: { 'type': 'array', 'itemType': DescribeRenewalPriceResponseBodyPriceInfoPricePromotions },
+      tradePrice: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponseBodyPriceInfoRules extends $tea.Model {
+  description?: string;
+  /**
+   * @example
+   * 29644
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRenewalPriceResponseBodyPriceInfo extends $tea.Model {
+  price?: DescribeRenewalPriceResponseBodyPriceInfoPrice;
+  rules?: DescribeRenewalPriceResponseBodyPriceInfoRules[];
+  static names(): { [key: string]: string } {
+    return {
+      price: 'Price',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      price: DescribeRenewalPriceResponseBodyPriceInfoPrice,
+      rules: { 'type': 'array', 'itemType': DescribeRenewalPriceResponseBodyPriceInfoRules },
     };
   }
 
@@ -46252,7 +47981,7 @@ export class GetDesktopGroupDetailResponseBodyDesktops extends $tea.Model {
   minDesktopsCount?: number;
   /**
    * @remarks
-   * The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
+   * The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
    * 
    * @example
    * 0783b4****
@@ -46819,6 +48548,7 @@ export class ListCdsFilesResponseBodyFileModels extends $tea.Model {
 }
 
 export class ListDirectoryUsersResponseBodyUsers extends $tea.Model {
+  assignedDesktopNumber?: number;
   /**
    * @remarks
    * The display name of the user.
@@ -46827,6 +48557,7 @@ export class ListDirectoryUsersResponseBodyUsers extends $tea.Model {
    * Alice
    */
   displayName?: string;
+  email?: string;
   /**
    * @remarks
    * The name of the user.
@@ -46835,17 +48566,24 @@ export class ListDirectoryUsersResponseBodyUsers extends $tea.Model {
    * Alice
    */
   endUser?: string;
+  phone?: string;
   static names(): { [key: string]: string } {
     return {
+      assignedDesktopNumber: 'AssignedDesktopNumber',
       displayName: 'DisplayName',
+      email: 'Email',
       endUser: 'EndUser',
+      phone: 'Phone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      assignedDesktopNumber: 'number',
       displayName: 'string',
+      email: 'string',
       endUser: 'string',
+      phone: 'string',
     };
   }
 
@@ -47081,6 +48819,7 @@ export class ListOfficeSiteOverviewResponseBodyOfficeSiteOverviewResults extends
 }
 
 export class ListOfficeSiteUsersResponseBodyUsers extends $tea.Model {
+  assignedDesktopNumber?: number;
   /**
    * @remarks
    * The display name of the user.
@@ -47089,6 +48828,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $tea.Model {
    * Alice
    */
   displayName?: string;
+  email?: string;
   /**
    * @remarks
    * The name of the AD user.
@@ -47097,17 +48837,24 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $tea.Model {
    * Alice
    */
   endUser?: string;
+  phone?: string;
   static names(): { [key: string]: string } {
     return {
+      assignedDesktopNumber: 'AssignedDesktopNumber',
       displayName: 'DisplayName',
+      email: 'Email',
       endUser: 'EndUser',
+      phone: 'Phone',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      assignedDesktopNumber: 'number',
       displayName: 'string',
+      email: 'string',
       endUser: 'string',
+      phone: 'string',
     };
   }
 
@@ -50643,6 +52390,10 @@ export default class Client extends OpenApi {
       query["SubDomainName"] = request.subDomainName;
     }
 
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
     if (!Util.isUnset(request.verifyCode)) {
       query["VerifyCode"] = request.verifyCode;
     }
@@ -50685,7 +52436,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   * Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50744,7 +52495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+   * Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
    * 
    * @param request - CreateAndBindNasFileSystemRequest
    * @returns CreateAndBindNasFileSystemResponse
@@ -51371,6 +53122,10 @@ export default class Client extends OpenApi {
       query["ProfileFollowSwitch"] = request.profileFollowSwitch;
     }
 
+    if (!Util.isUnset(request.promotionId)) {
+      query["PromotionId"] = request.promotionId;
+    }
+
     if (!Util.isUnset(request.ratioThreshold)) {
       query["RatioThreshold"] = request.ratioThreshold;
     }
@@ -51554,12 +53309,18 @@ export default class Client extends OpenApi {
    * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
    * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
    * 
-   * @param request - CreateDesktopsRequest
+   * @param tmpReq - CreateDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDesktopsResponse
    */
-  async createDesktopsWithOptions(request: CreateDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDesktopsResponse> {
-    Util.validateModel(request);
+  async createDesktopsWithOptions(tmpReq: CreateDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<CreateDesktopsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDesktopsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.desktopAttachment)) {
+      request.desktopAttachmentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.desktopAttachment, "DesktopAttachment", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.amount)) {
       query["Amount"] = request.amount;
@@ -51583,6 +53344,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
+    }
+
+    if (!Util.isUnset(request.desktopAttachmentShrink)) {
+      query["DesktopAttachment"] = request.desktopAttachmentShrink;
     }
 
     if (!Util.isUnset(request.desktopMemberIp)) {
@@ -51645,12 +53410,20 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.snapshotPolicyId)) {
       query["SnapshotPolicyId"] = request.snapshotPolicyId;
     }
 
     if (!Util.isUnset(request.tag)) {
       query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.timerGroupId)) {
+      query["TimerGroupId"] = request.timerGroupId;
     }
 
     if (!Util.isUnset(request.userAssignMode)) {
@@ -51831,6 +53604,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a NAS file system.
+   * 
+   * @remarks
+   * <props="china">
+   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
+   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * <props="intl">
+   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
+   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * 
    * @param request - CreateNASFileSystemRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateNASFileSystemResponse
@@ -51880,6 +53667,20 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Create a NAS file system.
+   * 
+   * @remarks
+   * <props="china">
+   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
+   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * <props="intl">
+   * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+   * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+   * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
+   * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+   * 
    * @param request - CreateNASFileSystemRequest
    * @returns CreateNASFileSystemResponse
    */
@@ -52201,6 +54002,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.watermarkType)) {
       query["WatermarkType"] = request.watermarkType;
+    }
+
+    if (!Util.isUnset(request.wyAssistant)) {
+      query["WyAssistant"] = request.wyAssistant;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -53032,7 +54837,7 @@ export default class Client extends OpenApi {
    * Deletes NAS file systems.
    * 
    * @remarks
-   * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+   * Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
    * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
    * 
    * @param request - DeleteNASFileSystemsRequest
@@ -53071,7 +54876,7 @@ export default class Client extends OpenApi {
    * Deletes NAS file systems.
    * 
    * @remarks
-   * Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+   * Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
    * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
    * 
    * @param request - DeleteNASFileSystemsRequest
@@ -54457,6 +56262,10 @@ export default class Client extends OpenApi {
       query["EndUserId"] = request.endUserId;
     }
 
+    if (!Util.isUnset(request.endUserIdFilter)) {
+      query["EndUserIdFilter"] = request.endUserIdFilter;
+    }
+
     if (!Util.isUnset(request.officeSiteId)) {
       query["OfficeSiteId"] = request.officeSiteId;
     }
@@ -54549,6 +56358,10 @@ export default class Client extends OpenApi {
       query["DesktopTypeId"] = request.desktopTypeId;
     }
 
+    if (!Util.isUnset(request.desktopTypeIdList)) {
+      query["DesktopTypeIdList"] = request.desktopTypeIdList;
+    }
+
     if (!Util.isUnset(request.gpuCount)) {
       query["GpuCount"] = request.gpuCount;
     }
@@ -54565,12 +56378,24 @@ export default class Client extends OpenApi {
       query["MemorySize"] = request.memorySize;
     }
 
+    if (!Util.isUnset(request.orderBy)) {
+      query["OrderBy"] = request.orderBy;
+    }
+
     if (!Util.isUnset(request.orderType)) {
       query["OrderType"] = request.orderType;
     }
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.scope)) {
+      query["Scope"] = request.scope;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -54704,6 +56529,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.osTypes)) {
       query["OsTypes"] = request.osTypes;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
     }
 
     if (!Util.isUnset(request.policyGroupId)) {
@@ -55115,7 +56948,35 @@ export default class Client extends OpenApi {
    */
   async describeFotaPendingDesktopsWithOptions(request: DescribeFotaPendingDesktopsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFotaPendingDesktopsResponse> {
     Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
+    let query = { };
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!Util.isUnset(request.desktopName)) {
+      query["DesktopName"] = request.desktopName;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.officeSiteId)) {
+      query["OfficeSiteId"] = request.officeSiteId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.taskUid)) {
+      query["TaskUid"] = request.taskUid;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -55124,7 +56985,7 @@ export default class Client extends OpenApi {
       version: "2020-09-30",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -55496,6 +57357,10 @@ export default class Client extends OpenApi {
       query["EndUserId"] = request.endUserId;
     }
 
+    if (!Util.isUnset(request.includeInvokeDesktops)) {
+      query["IncludeInvokeDesktops"] = request.includeInvokeDesktops;
+    }
+
     if (!Util.isUnset(request.includeOutput)) {
       query["IncludeOutput"] = request.includeOutput;
     }
@@ -55593,7 +57458,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Apsara File Storage NAS (NAS) file systems.
+   * @param request - DescribeModificationPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeModificationPriceResponse
+   */
+  async describeModificationPriceWithOptions(request: DescribeModificationPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeModificationPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.bandwidth)) {
+      query["Bandwidth"] = request.bandwidth;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!Util.isUnset(request.rootDiskSizeGib)) {
+      query["RootDiskSizeGib"] = request.rootDiskSizeGib;
+    }
+
+    if (!Util.isUnset(request.userDiskSizeGib)) {
+      query["UserDiskSizeGib"] = request.userDiskSizeGib;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeModificationPrice",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeModificationPriceResponse>(await this.callApi(params, req, runtime), new DescribeModificationPriceResponse({}));
+  }
+
+  /**
+   * @param request - DescribeModificationPriceRequest
+   * @returns DescribeModificationPriceResponse
+   */
+  async describeModificationPrice(request: DescribeModificationPriceRequest): Promise<DescribeModificationPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeModificationPriceWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about File Storage NAS (NAS) file systems.
    * 
    * @param request - DescribeNASFileSystemsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -55644,7 +57571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about Apsara File Storage NAS (NAS) file systems.
+   * Queries the information about File Storage NAS (NAS) file systems.
    * 
    * @param request - DescribeNASFileSystemsRequest
    * @returns DescribeNASFileSystemsResponse
@@ -55862,56 +57789,12 @@ export default class Client extends OpenApi {
       query["Bandwidth"] = request.bandwidth;
     }
 
-    if (!Util.isUnset(request.bundleModels)) {
-      query["BundleModels"] = request.bundleModels;
-    }
-
-    if (!Util.isUnset(request.eduCdsEnable)) {
-      query["EduCdsEnable"] = request.eduCdsEnable;
-    }
-
-    if (!Util.isUnset(request.eduCdsSize)) {
-      query["EduCdsSize"] = request.eduCdsSize;
-    }
-
-    if (!Util.isUnset(request.eduCommittedTime)) {
-      query["EduCommittedTime"] = request.eduCommittedTime;
-    }
-
-    if (!Util.isUnset(request.eduDesktopBundleId)) {
-      query["EduDesktopBundleId"] = request.eduDesktopBundleId;
-    }
-
-    if (!Util.isUnset(request.eduDesktopNum)) {
-      query["EduDesktopNum"] = request.eduDesktopNum;
-    }
-
-    if (!Util.isUnset(request.eduRoomClassify)) {
-      query["EduRoomClassify"] = request.eduRoomClassify;
-    }
-
-    if (!Util.isUnset(request.eduStudentBundleId)) {
-      query["EduStudentBundleId"] = request.eduStudentBundleId;
-    }
-
-    if (!Util.isUnset(request.eduStudentNum)) {
-      query["EduStudentNum"] = request.eduStudentNum;
-    }
-
-    if (!Util.isUnset(request.eduTeacherBundleId)) {
-      query["EduTeacherBundleId"] = request.eduTeacherBundleId;
-    }
-
-    if (!Util.isUnset(request.eduTeacherNum)) {
-      query["EduTeacherNum"] = request.eduTeacherNum;
+    if (!Util.isUnset(request.duration)) {
+      query["Duration"] = request.duration;
     }
 
     if (!Util.isUnset(request.groupDesktopCount)) {
       query["GroupDesktopCount"] = request.groupDesktopCount;
-    }
-
-    if (!Util.isUnset(request.hardwareVersion)) {
-      query["HardwareVersion"] = request.hardwareVersion;
     }
 
     if (!Util.isUnset(request.instanceType)) {
@@ -55922,16 +57805,8 @@ export default class Client extends OpenApi {
       query["InternetChargeType"] = request.internetChargeType;
     }
 
-    if (!Util.isUnset(request.networkType)) {
-      query["NetworkType"] = request.networkType;
-    }
-
     if (!Util.isUnset(request.osType)) {
       query["OsType"] = request.osType;
-    }
-
-    if (!Util.isUnset(request.packageSize)) {
-      query["PackageSize"] = request.packageSize;
     }
 
     if (!Util.isUnset(request.period)) {
@@ -55954,28 +57829,16 @@ export default class Client extends OpenApi {
       query["ResourceType"] = request.resourceType;
     }
 
-    if (!Util.isUnset(request.rootDiskPerformanceLevel)) {
-      query["RootDiskPerformanceLevel"] = request.rootDiskPerformanceLevel;
+    if (!Util.isUnset(request.rootDiskCategory)) {
+      query["RootDiskCategory"] = request.rootDiskCategory;
     }
 
     if (!Util.isUnset(request.rootDiskSizeGib)) {
       query["RootDiskSizeGib"] = request.rootDiskSizeGib;
     }
 
-    if (!Util.isUnset(request.spPeriodInfo)) {
-      query["SpPeriodInfo"] = request.spPeriodInfo;
-    }
-
-    if (!Util.isUnset(request.spPrice)) {
-      query["SpPrice"] = request.spPrice;
-    }
-
-    if (!Util.isUnset(request.spType)) {
-      query["SpType"] = request.spType;
-    }
-
-    if (!Util.isUnset(request.userDiskPerformanceLevel)) {
-      query["UserDiskPerformanceLevel"] = request.userDiskPerformanceLevel;
+    if (!Util.isUnset(request.userDiskCategory)) {
+      query["UserDiskCategory"] = request.userDiskCategory;
     }
 
     if (!Util.isUnset(request.userDiskSizeGib)) {
@@ -56255,6 +58118,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * @param request - DescribeRefundPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRefundPriceResponse
+   */
+  async describeRefundPriceWithOptions(request: DescribeRefundPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRefundPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.desktopId)) {
+      query["DesktopId"] = request.desktopId;
+    }
+
+    if (!Util.isUnset(request.refundType)) {
+      query["RefundType"] = request.refundType;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRefundPrice",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRefundPriceResponse>(await this.callApi(params, req, runtime), new DescribeRefundPriceResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRefundPriceRequest
+   * @returns DescribeRefundPriceResponse
+   */
+  async describeRefundPrice(request: DescribeRefundPriceRequest): Promise<DescribeRefundPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRefundPriceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
    * 
    * @param request - DescribeRegionsRequest
@@ -56298,6 +58207,64 @@ export default class Client extends OpenApi {
   async describeRegions(request: DescribeRegionsRequest): Promise<DescribeRegionsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - DescribeRenewalPriceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRenewalPriceResponse
+   */
+  async describeRenewalPriceWithOptions(request: DescribeRenewalPriceRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRenewalPriceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRenewalPrice",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRenewalPriceResponse>(await this.callApi(params, req, runtime), new DescribeRenewalPriceResponse({}));
+  }
+
+  /**
+   * @param request - DescribeRenewalPriceRequest
+   * @returns DescribeRenewalPriceResponse
+   */
+  async describeRenewalPrice(request: DescribeRenewalPriceRequest): Promise<DescribeRenewalPriceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRenewalPriceWithOptions(request, runtime);
   }
 
   /**
@@ -57997,12 +59964,20 @@ export default class Client extends OpenApi {
   async listDirectoryUsersWithOptions(request: ListDirectoryUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListDirectoryUsersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.assignedInfo)) {
+      query["AssignedInfo"] = request.assignedInfo;
+    }
+
     if (!Util.isUnset(request.directoryId)) {
       query["DirectoryId"] = request.directoryId;
     }
 
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.includeAssignedUser)) {
+      query["IncludeAssignedUser"] = request.includeAssignedUser;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -58019,6 +59994,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -58182,8 +60161,16 @@ export default class Client extends OpenApi {
   async listOfficeSiteUsersWithOptions(request: ListOfficeSiteUsersRequest, runtime: $Util.RuntimeOptions): Promise<ListOfficeSiteUsersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.assignedInfo)) {
+      query["AssignedInfo"] = request.assignedInfo;
+    }
+
     if (!Util.isUnset(request.filter)) {
       query["Filter"] = request.filter;
+    }
+
+    if (!Util.isUnset(request.includeAssignedUser)) {
+      query["IncludeAssignedUser"] = request.includeAssignedUser;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -58204,6 +60191,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.sortType)) {
+      query["SortType"] = request.sortType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -59144,6 +61135,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.downloadUploadEndUserIds)) {
       query["DownloadUploadEndUserIds"] = request.downloadUploadEndUserIds;
+    }
+
+    if (!Util.isUnset(request.noDownloadNoUploadEndUserIds)) {
+      query["NoDownloadNoUploadEndUserIds"] = request.noDownloadNoUploadEndUserIds;
     }
 
     if (!Util.isUnset(request.regionId)) {
@@ -60317,7 +62312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+   * Modifies the mount target of a File Storage NAS (NAS) file system.
    * 
    * @remarks
    * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
@@ -60359,7 +62354,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+   * Modifies the mount target of a File Storage NAS (NAS) file system.
    * 
    * @remarks
    * When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
@@ -60898,6 +62893,10 @@ export default class Client extends OpenApi {
       query["WatermarkType"] = request.watermarkType;
     }
 
+    if (!Util.isUnset(request.wyAssistant)) {
+      query["WyAssistant"] = request.wyAssistant;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -61162,12 +63161,12 @@ export default class Client extends OpenApi {
    * Recreates cloud computers.
    * 
    * @remarks
-   * Before you change the image of a cloud computer, take note of the following limits:
-   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+   * Take note of the following limits when you change an image:
+   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Singapore, and Japan (Tokyo).
+   * *   GPU images and non-GPU images cannot be exchanged. Graphic-based cloud computers can only use GPU-accelerated images. The other cloud computers can only use non-GPU-accelerated images.
+   * After the image of a cloud computer is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer become unavailable. The system automatically deletes the snapshots.
+   * *   If the OS of the image is changed, the data in the data disk of the original cloud computer is cleared, and the snapshots that are created based on the data disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disk of the original cloud computer is retained, and the snapshots that are created based on the data disk of the original cloud computer can still be used.
    * 
    * @param request - RebuildDesktopsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -61217,12 +63216,12 @@ export default class Client extends OpenApi {
    * Recreates cloud computers.
    * 
    * @remarks
-   * Before you change the image of a cloud computer, take note of the following limits:
-   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-   * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-   * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-   * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+   * Take note of the following limits when you change an image:
+   * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Singapore, and Japan (Tokyo).
+   * *   GPU images and non-GPU images cannot be exchanged. Graphic-based cloud computers can only use GPU-accelerated images. The other cloud computers can only use non-GPU-accelerated images.
+   * After the image of a cloud computer is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+   * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer become unavailable. The system automatically deletes the snapshots.
+   * *   If the OS of the image is changed, the data in the data disk of the original cloud computer is cleared, and the snapshots that are created based on the data disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disk of the original cloud computer is retained, and the snapshots that are created based on the data disk of the original cloud computer can still be used.
    * 
    * @param request - RebuildDesktopsRequest
    * @returns RebuildDesktopsResponse
@@ -61406,6 +63405,64 @@ export default class Client extends OpenApi {
   async removeUserFromDesktopOversoldUserGroup(request: RemoveUserFromDesktopOversoldUserGroupRequest): Promise<RemoveUserFromDesktopOversoldUserGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeUserFromDesktopOversoldUserGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - RenewDesktopGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RenewDesktopGroupResponse
+   */
+  async renewDesktopGroupWithOptions(request: RenewDesktopGroupRequest, runtime: $Util.RuntimeOptions): Promise<RenewDesktopGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.desktopGroupId)) {
+      query["DesktopGroupId"] = request.desktopGroupId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RenewDesktopGroup",
+      version: "2020-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RenewDesktopGroupResponse>(await this.callApi(params, req, runtime), new RenewDesktopGroupResponse({}));
+  }
+
+  /**
+   * @param request - RenewDesktopGroupRequest
+   * @returns RenewDesktopGroupResponse
+   */
+  async renewDesktopGroup(request: RenewDesktopGroupRequest): Promise<RenewDesktopGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.renewDesktopGroupWithOptions(request, runtime);
   }
 
   /**
@@ -61667,7 +63724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+   * Resets the mount target of a File Storage NAS (NAS) file system.
    * 
    * @remarks
    * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
@@ -61705,7 +63762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+   * Resets the mount target of a File Storage NAS (NAS) file system.
    * 
    * @remarks
    * When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
@@ -62905,6 +64962,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.systemDiskSize)) {
+      query["SystemDiskSize"] = request.systemDiskSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
