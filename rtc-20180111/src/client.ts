@@ -4772,6 +4772,213 @@ export class DescribeChannelsResponse extends $tea.Model {
   }
 }
 
+export class DescribeCloudNotesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
+  appId?: string;
+  /**
+   * @example
+   * 311
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 1712376532000
+   */
+  endTs?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1712376032000
+   */
+  startTs?: number;
+  taskIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTs: 'StartTs',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTs: 'number',
+      taskIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudNotesShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * APP ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testappid
+   */
+  appId?: string;
+  /**
+   * @example
+   * 311
+   */
+  channelId?: string;
+  /**
+   * @example
+   * 1712376532000
+   */
+  endTs?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1712376032000
+   */
+  startTs?: number;
+  taskIdsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      endTs: 'EndTs',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      startTs: 'StartTs',
+      taskIdsShrink: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      endTs: 'number',
+      pageNo: 'number',
+      pageSize: 'number',
+      startTs: 'number',
+      taskIdsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudNotesResponseBody extends $tea.Model {
+  items?: DescribeCloudNotesResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 154EF5DE-3D08-1F2C-A482-281F78D74B7C
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 10
+   */
+  totalCnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNo: 'PageNo',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCnt: 'TotalCnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeCloudNotesResponseBodyItems },
+      pageNo: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCnt: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudNotesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeCloudNotesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeCloudNotesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeEndPointEventListRequest extends $tea.Model {
   /**
    * @remarks
@@ -9464,6 +9671,223 @@ export class StartCategoryCallbackResponse extends $tea.Model {
   }
 }
 
+export class StartCloudNoteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2ws***z3
+   */
+  appId?: string;
+  autoChapters?: StartCloudNoteRequestAutoChapters;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  channelId?: string;
+  customPrompt?: StartCloudNoteRequestCustomPrompt;
+  languageHints?: string[];
+  meetingAssistance?: StartCloudNoteRequestMeetingAssistance;
+  serviceInspection?: StartCloudNoteRequestServiceInspection;
+  /**
+   * @example
+   * cn
+   */
+  sourceLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  storageConfig?: StartCloudNoteRequestStorageConfig;
+  summarization?: StartCloudNoteRequestSummarization;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc
+   */
+  taskId?: string;
+  textPolish?: StartCloudNoteRequestTextPolish;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      autoChapters: 'AutoChapters',
+      channelId: 'ChannelId',
+      customPrompt: 'CustomPrompt',
+      languageHints: 'LanguageHints',
+      meetingAssistance: 'MeetingAssistance',
+      serviceInspection: 'ServiceInspection',
+      sourceLanguage: 'SourceLanguage',
+      storageConfig: 'StorageConfig',
+      summarization: 'Summarization',
+      taskId: 'TaskId',
+      textPolish: 'TextPolish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      autoChapters: StartCloudNoteRequestAutoChapters,
+      channelId: 'string',
+      customPrompt: StartCloudNoteRequestCustomPrompt,
+      languageHints: { 'type': 'array', 'itemType': 'string' },
+      meetingAssistance: StartCloudNoteRequestMeetingAssistance,
+      serviceInspection: StartCloudNoteRequestServiceInspection,
+      sourceLanguage: 'string',
+      storageConfig: StartCloudNoteRequestStorageConfig,
+      summarization: StartCloudNoteRequestSummarization,
+      taskId: 'string',
+      textPolish: StartCloudNoteRequestTextPolish,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2ws***z3
+   */
+  appId?: string;
+  autoChaptersShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  channelId?: string;
+  customPromptShrink?: string;
+  languageHints?: string[];
+  meetingAssistanceShrink?: string;
+  serviceInspectionShrink?: string;
+  /**
+   * @example
+   * cn
+   */
+  sourceLanguage?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  storageConfig?: StartCloudNoteShrinkRequestStorageConfig;
+  summarizationShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc
+   */
+  taskId?: string;
+  textPolishShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      autoChaptersShrink: 'AutoChapters',
+      channelId: 'ChannelId',
+      customPromptShrink: 'CustomPrompt',
+      languageHints: 'LanguageHints',
+      meetingAssistanceShrink: 'MeetingAssistance',
+      serviceInspectionShrink: 'ServiceInspection',
+      sourceLanguage: 'SourceLanguage',
+      storageConfig: 'StorageConfig',
+      summarizationShrink: 'Summarization',
+      taskId: 'TaskId',
+      textPolishShrink: 'TextPolish',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      autoChaptersShrink: 'string',
+      channelId: 'string',
+      customPromptShrink: 'string',
+      languageHints: { 'type': 'array', 'itemType': 'string' },
+      meetingAssistanceShrink: 'string',
+      serviceInspectionShrink: 'string',
+      sourceLanguage: 'string',
+      storageConfig: StartCloudNoteShrinkRequestStorageConfig,
+      summarizationShrink: 'string',
+      taskId: 'string',
+      textPolishShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 123
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartCloudNoteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartCloudNoteResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartCloudRecordRequest extends $tea.Model {
   /**
    * @remarks
@@ -9493,6 +9917,7 @@ export class StartCloudRecordRequest extends $tea.Model {
    */
   cropMode?: number;
   images?: StartCloudRecordRequestImages[];
+  layoutSpecifiedUsers?: StartCloudRecordRequestLayoutSpecifiedUsers;
   /**
    * @remarks
    * panes
@@ -9533,6 +9958,7 @@ export class StartCloudRecordRequest extends $tea.Model {
       clockWidgets: 'ClockWidgets',
       cropMode: 'CropMode',
       images: 'Images',
+      layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
       storageConfig: 'StorageConfig',
@@ -9550,12 +9976,116 @@ export class StartCloudRecordRequest extends $tea.Model {
       clockWidgets: { 'type': 'array', 'itemType': StartCloudRecordRequestClockWidgets },
       cropMode: 'number',
       images: { 'type': 'array', 'itemType': StartCloudRecordRequestImages },
+      layoutSpecifiedUsers: StartCloudRecordRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': StartCloudRecordRequestPanes },
       regionColor: StartCloudRecordRequestRegionColor,
       storageConfig: StartCloudRecordRequestStorageConfig,
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': StartCloudRecordRequestTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * appId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  backgrounds?: StartCloudRecordShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * channelName
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
+  channelId?: string;
+  clockWidgets?: StartCloudRecordShrinkRequestClockWidgets[];
+  /**
+   * @example
+   * 2
+   */
+  cropMode?: number;
+  images?: StartCloudRecordShrinkRequestImages[];
+  layoutSpecifiedUsersShrink?: string;
+  /**
+   * @remarks
+   * panes
+   */
+  panes?: StartCloudRecordShrinkRequestPanes[];
+  regionColor?: StartCloudRecordShrinkRequestRegionColor;
+  /**
+   * @remarks
+   * storageConfig
+   * 
+   * This parameter is required.
+   */
+  storageConfig?: StartCloudRecordShrinkRequestStorageConfig;
+  /**
+   * @remarks
+   * taskId
+   * 
+   * @example
+   * 123
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * templateId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
+  templateId?: string;
+  texts?: StartCloudRecordShrinkRequestTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      backgrounds: 'Backgrounds',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      cropMode: 'CropMode',
+      images: 'Images',
+      layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
+      panes: 'Panes',
+      regionColor: 'RegionColor',
+      storageConfig: 'StorageConfig',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestBackgrounds },
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestClockWidgets },
+      cropMode: 'number',
+      images: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestImages },
+      layoutSpecifiedUsersShrink: 'string',
+      panes: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanes },
+      regionColor: StartCloudRecordShrinkRequestRegionColor,
+      storageConfig: StartCloudRecordShrinkRequestStorageConfig,
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestTexts },
     };
   }
 
@@ -10097,6 +10627,7 @@ export class StartStreamingOutRequest extends $tea.Model {
    */
   cropMode?: number;
   images?: StartStreamingOutRequestImages[];
+  layoutSpecifiedUsers?: StartStreamingOutRequestLayoutSpecifiedUsers;
   panes?: StartStreamingOutRequestPanes[];
   regionColor?: StartStreamingOutRequestRegionColor;
   /**
@@ -10129,6 +10660,7 @@ export class StartStreamingOutRequest extends $tea.Model {
       clockWidgets: 'ClockWidgets',
       cropMode: 'CropMode',
       images: 'Images',
+      layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       regionColor: 'RegionColor',
       taskId: 'TaskId',
@@ -10146,11 +10678,103 @@ export class StartStreamingOutRequest extends $tea.Model {
       clockWidgets: { 'type': 'array', 'itemType': StartStreamingOutRequestClockWidgets },
       cropMode: 'number',
       images: { 'type': 'array', 'itemType': StartStreamingOutRequestImages },
+      layoutSpecifiedUsers: StartStreamingOutRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': StartStreamingOutRequestPanes },
       regionColor: StartStreamingOutRequestRegionColor,
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': StartStreamingOutRequestTexts },
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  backgrounds?: StartStreamingOutShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
+  channelId?: string;
+  clockWidgets?: StartStreamingOutShrinkRequestClockWidgets[];
+  /**
+   * @example
+   * 2
+   */
+  cropMode?: number;
+  images?: StartStreamingOutShrinkRequestImages[];
+  layoutSpecifiedUsersShrink?: string;
+  panes?: StartStreamingOutShrinkRequestPanes[];
+  regionColor?: StartStreamingOutShrinkRequestRegionColor;
+  /**
+   * @example
+   * 123
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
+  templateId?: string;
+  texts?: StartStreamingOutShrinkRequestTexts[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtmp://example.com/live/stream
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      backgrounds: 'Backgrounds',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      cropMode: 'CropMode',
+      images: 'Images',
+      layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
+      panes: 'Panes',
+      regionColor: 'RegionColor',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestBackgrounds },
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestClockWidgets },
+      cropMode: 'number',
+      images: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestImages },
+      layoutSpecifiedUsersShrink: 'string',
+      panes: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanes },
+      regionColor: StartStreamingOutShrinkRequestRegionColor,
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestTexts },
       url: 'string',
     };
   }
@@ -10408,6 +11032,110 @@ export class StopChannelResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StopChannelResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudNoteRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * qwsz1234
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  channelId?: string;
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * rtc
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      channelId: 'ChannelId',
+      clientToken: 'ClientToken',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      channelId: 'string',
+      clientToken: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudNoteResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 123
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopCloudNoteResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopCloudNoteResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopCloudNoteResponseBody,
     };
   }
 
@@ -10936,6 +11664,7 @@ export class UpdateCloudRecordRequest extends $tea.Model {
   channelId?: string;
   clockWidgets?: UpdateCloudRecordRequestClockWidgets[];
   images?: UpdateCloudRecordRequestImages[];
+  layoutSpecifiedUsers?: UpdateCloudRecordRequestLayoutSpecifiedUsers;
   panes?: UpdateCloudRecordRequestPanes[];
   /**
    * @remarks
@@ -10961,6 +11690,7 @@ export class UpdateCloudRecordRequest extends $tea.Model {
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       images: 'Images',
+      layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       taskId: 'TaskId',
       templateId: 'TemplateId',
@@ -10975,10 +11705,85 @@ export class UpdateCloudRecordRequest extends $tea.Model {
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': UpdateCloudRecordRequestClockWidgets },
       images: { 'type': 'array', 'itemType': UpdateCloudRecordRequestImages },
+      layoutSpecifiedUsers: UpdateCloudRecordRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': UpdateCloudRecordRequestPanes },
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': UpdateCloudRecordRequestTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  backgrounds?: UpdateCloudRecordShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
+  channelId?: string;
+  clockWidgets?: UpdateCloudRecordShrinkRequestClockWidgets[];
+  images?: UpdateCloudRecordShrinkRequestImages[];
+  layoutSpecifiedUsersShrink?: string;
+  panes?: UpdateCloudRecordShrinkRequestPanes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
+  templateId?: string;
+  texts?: UpdateCloudRecordShrinkRequestTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      backgrounds: 'Backgrounds',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      images: 'Images',
+      layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
+      panes: 'Panes',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestBackgrounds },
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestClockWidgets },
+      images: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestImages },
+      layoutSpecifiedUsersShrink: 'string',
+      panes: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestPanes },
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestTexts },
     };
   }
 
@@ -11592,6 +12397,7 @@ export class UpdateStreamingOutRequest extends $tea.Model {
   channelId?: string;
   clockWidgets?: UpdateStreamingOutRequestClockWidgets[];
   images?: UpdateStreamingOutRequestImages[];
+  layoutSpecifiedUsers?: UpdateStreamingOutRequestLayoutSpecifiedUsers;
   panes?: UpdateStreamingOutRequestPanes[];
   /**
    * @remarks
@@ -11617,6 +12423,7 @@ export class UpdateStreamingOutRequest extends $tea.Model {
       channelId: 'ChannelId',
       clockWidgets: 'ClockWidgets',
       images: 'Images',
+      layoutSpecifiedUsers: 'LayoutSpecifiedUsers',
       panes: 'Panes',
       taskId: 'TaskId',
       templateId: 'TemplateId',
@@ -11631,10 +12438,85 @@ export class UpdateStreamingOutRequest extends $tea.Model {
       channelId: 'string',
       clockWidgets: { 'type': 'array', 'itemType': UpdateStreamingOutRequestClockWidgets },
       images: { 'type': 'array', 'itemType': UpdateStreamingOutRequestImages },
+      layoutSpecifiedUsers: UpdateStreamingOutRequestLayoutSpecifiedUsers,
       panes: { 'type': 'array', 'itemType': UpdateStreamingOutRequestPanes },
       taskId: 'string',
       templateId: 'string',
       texts: { 'type': 'array', 'itemType': UpdateStreamingOutRequestTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eo85****
+   */
+  appId?: string;
+  backgrounds?: UpdateStreamingOutShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * testid
+   */
+  channelId?: string;
+  clockWidgets?: UpdateStreamingOutShrinkRequestClockWidgets[];
+  images?: UpdateStreamingOutShrinkRequestImages[];
+  layoutSpecifiedUsersShrink?: string;
+  panes?: UpdateStreamingOutShrinkRequestPanes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 567
+   */
+  templateId?: string;
+  texts?: UpdateStreamingOutShrinkRequestTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      backgrounds: 'Backgrounds',
+      channelId: 'ChannelId',
+      clockWidgets: 'ClockWidgets',
+      images: 'Images',
+      layoutSpecifiedUsersShrink: 'LayoutSpecifiedUsers',
+      panes: 'Panes',
+      taskId: 'TaskId',
+      templateId: 'TemplateId',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      backgrounds: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestBackgrounds },
+      channelId: 'string',
+      clockWidgets: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestClockWidgets },
+      images: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestImages },
+      layoutSpecifiedUsersShrink: 'string',
+      panes: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestPanes },
+      taskId: 'string',
+      templateId: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestTexts },
     };
   }
 
@@ -13846,6 +14728,113 @@ export class DescribeChannelUserMetricsResponseBodyOverallData extends $tea.Mode
       totalPubUserNum: 'number',
       totalSubUserNum: 'number',
       totalUserNum: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeCloudNotesResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/autoChapters_1724914365173.json
+   */
+  autoChaptersFilePath?: string;
+  /**
+   * @example
+   * sample-bucket
+   */
+  bucket?: string;
+  /**
+   * @example
+   * testchannelId
+   */
+  channelId?: string;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/customPrompt_1724914365173.json
+   */
+  customPromptFilePath?: string;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/meetingAssistance_1724914365173.json
+   */
+  meetingAssistanceFilePath?: string;
+  /**
+   * @example
+   * 1
+   */
+  region?: number;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/serviceInspection_1724914365173.json
+   */
+  serviceInspectionFilePath?: string;
+  /**
+   * @example
+   * 1731939816837
+   */
+  startTs?: number;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/summarization_1724914365173.json
+   */
+  summarizationFilePath?: string;
+  /**
+   * @example
+   * test001
+   */
+  taskId?: string;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/textPolish_1724914365173.json
+   */
+  textPolishFilePath?: string;
+  /**
+   * @example
+   * cloudNote/ksvxxppi/88_12/transcription_1724914365173.json
+   */
+  transcriptionFilePath?: string;
+  /**
+   * @example
+   * 1
+   */
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      autoChaptersFilePath: 'AutoChaptersFilePath',
+      bucket: 'Bucket',
+      channelId: 'ChannelId',
+      customPromptFilePath: 'CustomPromptFilePath',
+      meetingAssistanceFilePath: 'MeetingAssistanceFilePath',
+      region: 'Region',
+      serviceInspectionFilePath: 'ServiceInspectionFilePath',
+      startTs: 'StartTs',
+      summarizationFilePath: 'SummarizationFilePath',
+      taskId: 'TaskId',
+      textPolishFilePath: 'TextPolishFilePath',
+      transcriptionFilePath: 'TranscriptionFilePath',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoChaptersFilePath: 'string',
+      bucket: 'string',
+      channelId: 'string',
+      customPromptFilePath: 'string',
+      meetingAssistanceFilePath: 'string',
+      region: 'number',
+      serviceInspectionFilePath: 'string',
+      startTs: 'number',
+      summarizationFilePath: 'string',
+      taskId: 'string',
+      textPolishFilePath: 'string',
+      transcriptionFilePath: 'string',
+      vendor: 'number',
     };
   }
 
@@ -17345,6 +18334,394 @@ export class StartCategoryCallbackRequestCallback extends $tea.Model {
   }
 }
 
+export class StartCloudNoteRequestAutoChapters extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestCustomPromptCustomPromptContents extends $tea.Model {
+  /**
+   * @example
+   * tingwu-turbo
+   */
+  model?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * split-summary-demo
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 请帮我将下面的对话进行总结，根据发言人来总结:\n {Transcription}
+   */
+  prompt?: string;
+  /**
+   * @example
+   * chat
+   */
+  transType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      model: 'Model',
+      name: 'Name',
+      prompt: 'Prompt',
+      transType: 'TransType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      model: 'string',
+      name: 'string',
+      prompt: 'string',
+      transType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestCustomPrompt extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  customPromptContents?: StartCloudNoteRequestCustomPromptCustomPromptContents[];
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      customPromptContents: 'CustomPromptContents',
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      customPromptContents: { 'type': 'array', 'itemType': StartCloudNoteRequestCustomPromptCustomPromptContents },
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestMeetingAssistance extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  meetingAssistanceType?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      meetingAssistanceType: 'MeetingAssistanceType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      meetingAssistanceType: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestServiceInspectionInspectionContents extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 销售在开场白的时候主动向客户打招呼进行欢迎
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 到店欢迎-欢迎语
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestServiceInspection extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  inspectionContents?: StartCloudNoteRequestServiceInspectionInspectionContents[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 请监测对话中销售人员表现是否接待热情、态度良好
+   */
+  inspectionIntroduction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 汽车门店线下销售场景
+   */
+  sceneIntroduction?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      inspectionContents: 'InspectionContents',
+      inspectionIntroduction: 'InspectionIntroduction',
+      sceneIntroduction: 'SceneIntroduction',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      inspectionContents: { 'type': 'array', 'itemType': StartCloudNoteRequestServiceInspectionInspectionContents },
+      inspectionIntroduction: 'string',
+      sceneIntroduction: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestStorageConfig extends $tea.Model {
+  /**
+   * @remarks
+   * accessKey。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAX***
+   */
+  accessKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-bucket-for-recording
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @remarks
+   * secretKey。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * APb6qWYEzKtYxE***
+   */
+  secretKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      bucket: 'Bucket',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucket: 'string',
+      region: 'number',
+      secretKey: 'string',
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestSummarization extends $tea.Model {
+  enabled?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      type: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteRequestTextPolish extends $tea.Model {
+  enabled?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'Enabled',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudNoteShrinkRequestStorageConfig extends $tea.Model {
+  /**
+   * @remarks
+   * accessKey。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAX***
+   */
+  accessKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * test-bucket-for-recording
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @remarks
+   * secretKey。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * APb6qWYEzKtYxE***
+   */
+  secretKey?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      bucket: 'Bucket',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucket: 'string',
+      region: 'number',
+      secretKey: 'string',
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartCloudRecordRequestBackgrounds extends $tea.Model {
   /**
    * @example
@@ -17679,6 +19056,36 @@ export class StartCloudRecordRequestImages extends $tea.Model {
       width: 'number',
       x: 'number',
       y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordRequestLayoutSpecifiedUsers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ids?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 
@@ -18273,6 +19680,948 @@ export class StartCloudRecordRequestTexts extends $tea.Model {
       boxColor: StartCloudRecordRequestTextsBoxColor,
       font: 'number',
       fontColor: StartCloudRecordRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordShrinkRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartCloudRecordShrinkRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  /**
+   * @example
+   * 8
+   */
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordShrinkRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordShrinkRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.3
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @example
+   * 2
+   */
+  paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xx.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordShrinkRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartCloudRecordShrinkRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordShrinkRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordShrinkRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestPanes extends $tea.Model {
+  images?: StartCloudRecordShrinkRequestPanesImages[];
+  /**
+   * @example
+   * 3
+   */
+  paneCropMode?: number;
+  /**
+   * @remarks
+   * paneId
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @remarks
+   * source
+   */
+  source?: string;
+  /**
+   * @remarks
+   * sourceType
+   * 
+   * @example
+   * video
+   */
+  sourceType?: string;
+  texts?: StartCloudRecordShrinkRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'number',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartCloudRecordShrinkRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestRegionColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestStorageConfig extends $tea.Model {
+  /**
+   * @remarks
+   * accessKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * LTAX***
+   */
+  accessKey?: string;
+  /**
+   * @remarks
+   * bucket
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test-bucket-for-recording
+   */
+  bucket?: string;
+  /**
+   * @remarks
+   * region
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  region?: number;
+  /**
+   * @remarks
+   * secretKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * APb6qWYEzKtYxE***
+   */
+  secretKey?: string;
+  /**
+   * @remarks
+   * vendor
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  vendor?: number;
+  static names(): { [key: string]: string } {
+    return {
+      accessKey: 'AccessKey',
+      bucket: 'Bucket',
+      region: 'Region',
+      secretKey: 'SecretKey',
+      vendor: 'Vendor',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessKey: 'string',
+      bucket: 'string',
+      region: 'number',
+      secretKey: 'string',
+      vendor: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartCloudRecordShrinkRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartCloudRecordShrinkRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartCloudRecordShrinkRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartCloudRecordShrinkRequestTextsBoxColor,
+      font: 'number',
+      fontColor: StartCloudRecordShrinkRequestTextsFontColor,
       fontSize: 'number',
       hasBox: 'boolean',
       layer: 'number',
@@ -19284,6 +21633,36 @@ export class StartStreamingOutRequestImages extends $tea.Model {
   }
 }
 
+export class StartStreamingOutRequestLayoutSpecifiedUsers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ids?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StartStreamingOutRequestPanesImages extends $tea.Model {
   /**
    * @example
@@ -19803,6 +22182,867 @@ export class StartStreamingOutRequestTexts extends $tea.Model {
   }
 }
 
+export class StartStreamingOutShrinkRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutShrinkRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartStreamingOutShrinkRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  /**
+   * @example
+   * 8
+   */
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutShrinkRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutShrinkRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @example
+   * 2
+   */
+  paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.3
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutShrinkRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartStreamingOutShrinkRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutShrinkRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutShrinkRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestPanes extends $tea.Model {
+  images?: StartStreamingOutShrinkRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
+  paneCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  paneId?: string;
+  /**
+   * @example
+   * 1811****
+   */
+  source?: string;
+  /**
+   * @example
+   * Video
+   */
+  sourceType?: string;
+  texts?: StartStreamingOutShrinkRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'string',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': StartStreamingOutShrinkRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestRegionColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartStreamingOutShrinkRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: StartStreamingOutShrinkRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: StartStreamingOutShrinkRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: StartStreamingOutShrinkRequestTextsBoxColor,
+      font: 'number',
+      fontColor: StartStreamingOutShrinkRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class StopCategoryCallbackRequestCallback extends $tea.Model {
   /**
    * @remarks
@@ -20163,6 +23403,36 @@ export class UpdateCloudRecordRequestImages extends $tea.Model {
       width: 'number',
       x: 'number',
       y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordRequestLayoutSpecifiedUsers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ids?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
     };
   }
 
@@ -20639,6 +23909,830 @@ export class UpdateCloudRecordRequestTexts extends $tea.Model {
       boxColor: UpdateCloudRecordRequestTextsBoxColor,
       font: 'number',
       fontColor: UpdateCloudRecordRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordShrinkRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateCloudRecordShrinkRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  /**
+   * @example
+   * 8
+   */
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordShrinkRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordShrinkRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @example
+   * 2
+   */
+  paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123xxx.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordShrinkRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateCloudRecordShrinkRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordShrinkRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordShrinkRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestPanes extends $tea.Model {
+  images?: UpdateCloudRecordShrinkRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
+  paneCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 22
+   */
+  source?: string;
+  /**
+   * @example
+   * video
+   */
+  sourceType?: string;
+  texts?: UpdateCloudRecordShrinkRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'number',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateCloudRecordShrinkRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateCloudRecordShrinkRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateCloudRecordShrinkRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateCloudRecordShrinkRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateCloudRecordShrinkRequestTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateCloudRecordShrinkRequestTextsFontColor,
       fontSize: 'number',
       hasBox: 'boolean',
       layer: 'number',
@@ -21822,6 +25916,36 @@ export class UpdateStreamingOutRequestImages extends $tea.Model {
   }
 }
 
+export class UpdateStreamingOutRequestLayoutSpecifiedUsers extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  ids?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: { 'type': 'array', 'itemType': 'string' },
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateStreamingOutRequestPanesImages extends $tea.Model {
   /**
    * @example
@@ -22287,6 +26411,827 @@ export class UpdateStreamingOutRequestTexts extends $tea.Model {
       boxColor: UpdateStreamingOutRequestTextsBoxColor,
       font: 'number',
       fontColor: UpdateStreamingOutRequestTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestBackgrounds extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 2
+   */
+  backgroundCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      backgroundCropMode: 'BackgroundCropMode',
+      height: 'Height',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      backgroundCropMode: 'number',
+      height: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestClockWidgetsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestClockWidgetsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestClockWidgets extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutShrinkRequestClockWidgetsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateStreamingOutShrinkRequestClockWidgetsFontColor;
+  /**
+   * @example
+   * 30
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  /**
+   * @example
+   * 8
+   */
+  zone?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      x: 'X',
+      y: 'Y',
+      zone: 'Zone',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutShrinkRequestClockWidgetsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutShrinkRequestClockWidgetsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      x: 'number',
+      y: 'number',
+      zone: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 2
+   */
+  imageCropMode?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      imageCropMode: 'ImageCropMode',
+      layer: 'Layer',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      imageCropMode: 'number',
+      layer: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestPanesImages extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  height?: number;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @example
+   * 2
+   */
+  paneImageCropMode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * https://aliyun.com/123.jpg
+   */
+  url?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  width?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      height: 'Height',
+      layer: 'Layer',
+      paneImageCropMode: 'PaneImageCropMode',
+      url: 'Url',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      height: 'number',
+      layer: 'number',
+      paneImageCropMode: 'number',
+      url: 'string',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestPanesTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestPanesTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestPanesTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.9
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutShrinkRequestPanesTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateStreamingOutShrinkRequestPanesTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutShrinkRequestPanesTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutShrinkRequestPanesTextsFontColor,
+      fontSize: 'number',
+      hasBox: 'boolean',
+      layer: 'number',
+      texture: 'string',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestPanes extends $tea.Model {
+  images?: UpdateStreamingOutShrinkRequestPanesImages[];
+  /**
+   * @example
+   * 2
+   */
+  paneCropMode?: number;
+  /**
+   * @example
+   * 1
+   */
+  paneId?: number;
+  /**
+   * @example
+   * 22
+   */
+  source?: string;
+  /**
+   * @example
+   * video
+   */
+  sourceType?: string;
+  texts?: UpdateStreamingOutShrinkRequestPanesTexts[];
+  static names(): { [key: string]: string } {
+    return {
+      images: 'Images',
+      paneCropMode: 'PaneCropMode',
+      paneId: 'PaneId',
+      source: 'Source',
+      sourceType: 'SourceType',
+      texts: 'Texts',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      images: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestPanesImages },
+      paneCropMode: 'number',
+      paneId: 'number',
+      source: 'string',
+      sourceType: 'string',
+      texts: { 'type': 'array', 'itemType': UpdateStreamingOutShrinkRequestPanesTexts },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestTextsBoxColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestTextsFontColor extends $tea.Model {
+  /**
+   * @example
+   * 255
+   */
+  b?: number;
+  /**
+   * @example
+   * 255
+   */
+  g?: number;
+  /**
+   * @example
+   * 255
+   */
+  r?: number;
+  static names(): { [key: string]: string } {
+    return {
+      b: 'B',
+      g: 'G',
+      r: 'R',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      b: 'number',
+      g: 'number',
+      r: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateStreamingOutShrinkRequestTexts extends $tea.Model {
+  /**
+   * @example
+   * 0.1
+   */
+  alpha?: number;
+  /**
+   * @example
+   * 0.6
+   */
+  boxAlpha?: number;
+  /**
+   * @example
+   * 5
+   */
+  boxBorderw?: number;
+  boxColor?: UpdateStreamingOutShrinkRequestTextsBoxColor;
+  /**
+   * @example
+   * 0
+   */
+  font?: number;
+  fontColor?: UpdateStreamingOutShrinkRequestTextsFontColor;
+  /**
+   * @example
+   * 36
+   */
+  fontSize?: number;
+  hasBox?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  layer?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 文字水印
+   */
+  texture?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  x?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0.2
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alpha: 'Alpha',
+      boxAlpha: 'BoxAlpha',
+      boxBorderw: 'BoxBorderw',
+      boxColor: 'BoxColor',
+      font: 'Font',
+      fontColor: 'FontColor',
+      fontSize: 'FontSize',
+      hasBox: 'HasBox',
+      layer: 'Layer',
+      texture: 'Texture',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alpha: 'number',
+      boxAlpha: 'number',
+      boxBorderw: 'number',
+      boxColor: UpdateStreamingOutShrinkRequestTextsBoxColor,
+      font: 'number',
+      fontColor: UpdateStreamingOutShrinkRequestTextsFontColor,
       fontSize: 'number',
       hasBox: 'boolean',
       layer: 'number',
@@ -24462,6 +29407,50 @@ export default class Client extends OpenApi {
   async describeChannels(request: DescribeChannelsRequest): Promise<DescribeChannelsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeChannelsWithOptions(request, runtime);
+  }
+
+  /**
+   * 纪要列表
+   * 
+   * @param tmpReq - DescribeCloudNotesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeCloudNotesResponse
+   */
+  async describeCloudNotesWithOptions(tmpReq: DescribeCloudNotesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeCloudNotesResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DescribeCloudNotesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.taskIds)) {
+      request.taskIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskIds, "TaskIds", "json");
+    }
+
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeCloudNotes",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeCloudNotesResponse>(await this.callApi(params, req, runtime), new DescribeCloudNotesResponse({}));
+  }
+
+  /**
+   * 纪要列表
+   * 
+   * @param request - DescribeCloudNotesRequest
+   * @returns DescribeCloudNotesResponse
+   */
+  async describeCloudNotes(request: DescribeCloudNotesRequest): Promise<DescribeCloudNotesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeCloudNotesWithOptions(request, runtime);
   }
 
   /**
@@ -26743,14 +31732,132 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 开启智能纪要
+   * 
+   * @param tmpReq - StartCloudNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCloudNoteResponse
+   */
+  async startCloudNoteWithOptions(tmpReq: StartCloudNoteRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudNoteResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartCloudNoteShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.autoChapters)) {
+      request.autoChaptersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.autoChapters, "AutoChapters", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.customPrompt)) {
+      request.customPromptShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.customPrompt, "CustomPrompt", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.meetingAssistance)) {
+      request.meetingAssistanceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.meetingAssistance, "MeetingAssistance", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.serviceInspection)) {
+      request.serviceInspectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.serviceInspection, "ServiceInspection", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.summarization)) {
+      request.summarizationShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.summarization, "Summarization", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.textPolish)) {
+      request.textPolishShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textPolish, "TextPolish", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.autoChaptersShrink)) {
+      query["AutoChapters"] = request.autoChaptersShrink;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.customPromptShrink)) {
+      query["CustomPrompt"] = request.customPromptShrink;
+    }
+
+    if (!Util.isUnset(request.languageHints)) {
+      query["LanguageHints"] = request.languageHints;
+    }
+
+    if (!Util.isUnset(request.meetingAssistanceShrink)) {
+      query["MeetingAssistance"] = request.meetingAssistanceShrink;
+    }
+
+    if (!Util.isUnset(request.serviceInspectionShrink)) {
+      query["ServiceInspection"] = request.serviceInspectionShrink;
+    }
+
+    if (!Util.isUnset(request.sourceLanguage)) {
+      query["SourceLanguage"] = request.sourceLanguage;
+    }
+
+    if (!Util.isUnset(request.storageConfig)) {
+      query["StorageConfig"] = request.storageConfig;
+    }
+
+    if (!Util.isUnset(request.summarizationShrink)) {
+      query["Summarization"] = request.summarizationShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.textPolishShrink)) {
+      query["TextPolish"] = request.textPolishShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartCloudNote",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartCloudNoteResponse>(await this.callApi(params, req, runtime), new StartCloudNoteResponse({}));
+  }
+
+  /**
+   * 开启智能纪要
+   * 
+   * @param request - StartCloudNoteRequest
+   * @returns StartCloudNoteResponse
+   */
+  async startCloudNote(request: StartCloudNoteRequest): Promise<StartCloudNoteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startCloudNoteWithOptions(request, runtime);
+  }
+
+  /**
    * StartCloudRecord
    * 
-   * @param request - StartCloudRecordRequest
+   * @param tmpReq - StartCloudRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartCloudRecordResponse
    */
-  async startCloudRecordWithOptions(request: StartCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
-    Util.validateModel(request);
+  async startCloudRecordWithOptions(tmpReq: StartCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<StartCloudRecordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartCloudRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layoutSpecifiedUsers)) {
+      request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -26774,6 +31881,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.images)) {
       query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.layoutSpecifiedUsersShrink)) {
+      query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink;
     }
 
     if (!Util.isUnset(request.panes)) {
@@ -27106,12 +32217,18 @@ export default class Client extends OpenApi {
   /**
    * StartStreamingOut
    * 
-   * @param request - StartStreamingOutRequest
+   * @param tmpReq - StartStreamingOutRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns StartStreamingOutResponse
    */
-  async startStreamingOutWithOptions(request: StartStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StartStreamingOutResponse> {
-    Util.validateModel(request);
+  async startStreamingOutWithOptions(tmpReq: StartStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<StartStreamingOutResponse> {
+    Util.validateModel(tmpReq);
+    let request = new StartStreamingOutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layoutSpecifiedUsers)) {
+      request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -27135,6 +32252,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.images)) {
       query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.layoutSpecifiedUsersShrink)) {
+      query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink;
     }
 
     if (!Util.isUnset(request.panes)) {
@@ -27285,6 +32406,60 @@ export default class Client extends OpenApi {
   async stopChannel(request: StopChannelRequest): Promise<StopChannelResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止智能纪要
+   * 
+   * @param request - StopCloudNoteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopCloudNoteResponse
+   */
+  async stopCloudNoteWithOptions(request: StopCloudNoteRequest, runtime: $Util.RuntimeOptions): Promise<StopCloudNoteResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.channelId)) {
+      query["ChannelId"] = request.channelId;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopCloudNote",
+      version: "2018-01-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopCloudNoteResponse>(await this.callApi(params, req, runtime), new StopCloudNoteResponse({}));
+  }
+
+  /**
+   * 停止智能纪要
+   * 
+   * @param request - StopCloudNoteRequest
+   * @returns StopCloudNoteResponse
+   */
+  async stopCloudNote(request: StopCloudNoteRequest): Promise<StopCloudNoteResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopCloudNoteWithOptions(request, runtime);
   }
 
   /**
@@ -27552,12 +32727,18 @@ export default class Client extends OpenApi {
   /**
    * 更新云端录制任务
    * 
-   * @param request - UpdateCloudRecordRequest
+   * @param tmpReq - UpdateCloudRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateCloudRecordResponse
    */
-  async updateCloudRecordWithOptions(request: UpdateCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudRecordResponse> {
-    Util.validateModel(request);
+  async updateCloudRecordWithOptions(tmpReq: UpdateCloudRecordRequest, runtime: $Util.RuntimeOptions): Promise<UpdateCloudRecordResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateCloudRecordShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layoutSpecifiedUsers)) {
+      request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -27577,6 +32758,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.images)) {
       query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.layoutSpecifiedUsersShrink)) {
+      query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink;
     }
 
     if (!Util.isUnset(request.panes)) {
@@ -27960,12 +33145,18 @@ export default class Client extends OpenApi {
   /**
    * 更新旁路推流任务
    * 
-   * @param request - UpdateStreamingOutRequest
+   * @param tmpReq - UpdateStreamingOutRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateStreamingOutResponse
    */
-  async updateStreamingOutWithOptions(request: UpdateStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStreamingOutResponse> {
-    Util.validateModel(request);
+  async updateStreamingOutWithOptions(tmpReq: UpdateStreamingOutRequest, runtime: $Util.RuntimeOptions): Promise<UpdateStreamingOutResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateStreamingOutShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.layoutSpecifiedUsers)) {
+      request.layoutSpecifiedUsersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.layoutSpecifiedUsers, "LayoutSpecifiedUsers", "json");
+    }
+
     let query = { };
     if (!Util.isUnset(request.appId)) {
       query["AppId"] = request.appId;
@@ -27985,6 +33176,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.images)) {
       query["Images"] = request.images;
+    }
+
+    if (!Util.isUnset(request.layoutSpecifiedUsersShrink)) {
+      query["LayoutSpecifiedUsers"] = request.layoutSpecifiedUsersShrink;
     }
 
     if (!Util.isUnset(request.panes)) {
