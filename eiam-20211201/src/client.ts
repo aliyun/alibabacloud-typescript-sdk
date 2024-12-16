@@ -1096,6 +1096,200 @@ export class CreateGroupResponse extends $tea.Model {
   }
 }
 
+export class CreateIdentityProviderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 认证配置
+   */
+  authnConfig?: CreateIdentityProviderRequestAuthnConfig;
+  /**
+   * @remarks
+   * 自动创建账户账户规则配置。
+   */
+  autoCreateUserConfig?: CreateIdentityProviderRequestAutoCreateUserConfig;
+  /**
+   * @remarks
+   * 自动更新账户规则配置。
+   */
+  autoUpdateUserConfig?: CreateIdentityProviderRequestAutoUpdateUserConfig;
+  /**
+   * @remarks
+   * 账户绑定规则配置。
+   */
+  bindingConfig?: CreateIdentityProviderRequestBindingConfig;
+  /**
+   * @remarks
+   * 钉钉配置
+   */
+  dingtalkAppConfig?: CreateIdentityProviderRequestDingtalkAppConfig;
+  /**
+   * @remarks
+   * 身份提供方名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  identityProviderName?: string;
+  /**
+   * @remarks
+   * 身份提供发类型
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * urn:alibaba:idaas:idp:alibaba:dingtalk:push
+   */
+  identityProviderType?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * 飞书配置
+   */
+  larkConfig?: CreateIdentityProviderRequestLarkConfig;
+  /**
+   * @remarks
+   * AD/LDAP配置
+   */
+  ldapConfig?: CreateIdentityProviderRequestLdapConfig;
+  /**
+   * @remarks
+   * 网络端点ID
+   * 
+   * @example
+   * nae_examplexxxx
+   */
+  networkAccessEndpointId?: string;
+  /**
+   * @remarks
+   * OIDC IdP配置。
+   */
+  oidcConfig?: CreateIdentityProviderRequestOidcConfig;
+  /**
+   * @remarks
+   * 同步入配置
+   */
+  udPullConfig?: CreateIdentityProviderRequestUdPullConfig;
+  /**
+   * @remarks
+   * 同步出配置
+   */
+  udPushConfig?: CreateIdentityProviderRequestUdPushConfig;
+  /**
+   * @remarks
+   * WeCom配置
+   */
+  weComConfig?: CreateIdentityProviderRequestWeComConfig;
+  static names(): { [key: string]: string } {
+    return {
+      authnConfig: 'AuthnConfig',
+      autoCreateUserConfig: 'AutoCreateUserConfig',
+      autoUpdateUserConfig: 'AutoUpdateUserConfig',
+      bindingConfig: 'BindingConfig',
+      dingtalkAppConfig: 'DingtalkAppConfig',
+      identityProviderName: 'IdentityProviderName',
+      identityProviderType: 'IdentityProviderType',
+      instanceId: 'InstanceId',
+      larkConfig: 'LarkConfig',
+      ldapConfig: 'LdapConfig',
+      networkAccessEndpointId: 'NetworkAccessEndpointId',
+      oidcConfig: 'OidcConfig',
+      udPullConfig: 'UdPullConfig',
+      udPushConfig: 'UdPushConfig',
+      weComConfig: 'WeComConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnConfig: CreateIdentityProviderRequestAuthnConfig,
+      autoCreateUserConfig: CreateIdentityProviderRequestAutoCreateUserConfig,
+      autoUpdateUserConfig: CreateIdentityProviderRequestAutoUpdateUserConfig,
+      bindingConfig: CreateIdentityProviderRequestBindingConfig,
+      dingtalkAppConfig: CreateIdentityProviderRequestDingtalkAppConfig,
+      identityProviderName: 'string',
+      identityProviderType: 'string',
+      instanceId: 'string',
+      larkConfig: CreateIdentityProviderRequestLarkConfig,
+      ldapConfig: CreateIdentityProviderRequestLdapConfig,
+      networkAccessEndpointId: 'string',
+      oidcConfig: CreateIdentityProviderRequestOidcConfig,
+      udPullConfig: CreateIdentityProviderRequestUdPullConfig,
+      udPushConfig: CreateIdentityProviderRequestUdPushConfig,
+      weComConfig: CreateIdentityProviderRequestWeComConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * idp_mwpcwnhrimlr2horxXXXX
+   */
+  identityProviderId?: string;
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIdentityProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIdentityProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -2155,6 +2349,94 @@ export class DeleteGroupResponse extends $tea.Model {
   }
 }
 
+export class DeleteIdentityProviderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM的实例id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdentityProviderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIdentityProviderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIdentityProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIdentityProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -3159,6 +3441,94 @@ export class DisableDomainProxyTokenResponse extends $tea.Model {
   }
 }
 
+export class DisableIdentityProviderUdPullRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM的实例id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableIdentityProviderUdPullResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DisableIdentityProviderUdPullResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DisableIdentityProviderUdPullResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DisableIdentityProviderUdPullResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DisableInitDomainAutoRedirectRequest extends $tea.Model {
   /**
    * @remarks
@@ -3890,6 +4260,94 @@ export class EnableDomainProxyTokenResponse extends $tea.Model {
   }
 }
 
+export class EnableIdentityProviderUdPullRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM的实例id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableIdentityProviderUdPullResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnableIdentityProviderUdPullResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnableIdentityProviderUdPullResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnableIdentityProviderUdPullResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class EnableInitDomainAutoRedirectRequest extends $tea.Model {
   /**
    * @remarks
@@ -4492,7 +4950,7 @@ export class GetApplicationSsoConfigRequest extends $tea.Model {
 export class GetApplicationSsoConfigResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The SSO configuration information of the application.
+   * The single sign-on (SSO) configuration information of the application.
    */
   applicationSsoConfig?: GetApplicationSsoConfigResponseBodyApplicationSsoConfig;
   /**
@@ -4905,6 +5363,188 @@ export class GetGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBody extends $tea.Model {
+  identityProviderDetail?: GetIdentityProviderResponseBodyIdentityProviderDetail;
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderDetail: 'IdentityProviderDetail',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderDetail: GetIdentityProviderResponseBodyIdentityProviderDetail,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIdentityProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIdentityProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviderId: 'IdentityProviderId',
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviderId: 'string',
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  udPullConfiguration?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      udPullConfiguration: 'UdPullConfiguration',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      udPullConfiguration: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIdentityProviderUdPullConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIdentityProviderUdPullConfigurationResponseBody,
     };
   }
 
@@ -7082,6 +7722,112 @@ export class ListGroupsForUserResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListGroupsForUserResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityProvidersRequest extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * 当前查询的列表页码，默认为1。
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * 当前查询的列表页码，默认为20。
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityProvidersResponseBody extends $tea.Model {
+  identityProviders?: ListIdentityProvidersResponseBodyIdentityProviders[];
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      identityProviders: 'IdentityProviders',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      identityProviders: { 'type': 'array', 'itemType': ListIdentityProvidersResponseBodyIdentityProviders },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityProvidersResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListIdentityProvidersResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListIdentityProvidersResponseBody,
     };
   }
 
@@ -9920,6 +10666,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
    * app_mkv7rgt4d7i4u7zqtzev2mxxxx
    */
   applicationId?: string;
+  clientToken?: string;
   /**
    * @remarks
    * The initial SSO method. Valid values:
@@ -9962,6 +10709,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       applicationId: 'ApplicationId',
+      clientToken: 'ClientToken',
       initLoginType: 'InitLoginType',
       initLoginUrl: 'InitLoginUrl',
       instanceId: 'InstanceId',
@@ -9973,6 +10721,7 @@ export class SetApplicationSsoConfigRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       applicationId: 'string',
+      clientToken: 'string',
       initLoginType: 'string',
       initLoginUrl: 'string',
       instanceId: 'string',
@@ -10218,6 +10967,144 @@ export class SetForgetPasswordConfigurationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SetForgetPasswordConfigurationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 组同步状态
+   * 
+   * @example
+   * disabled
+   */
+  groupSyncStatus?: string;
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * disabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * ldap同步侧相关配置信息
+   */
+  ldapUdPullConfig?: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig;
+  /**
+   * @example
+   * disabled
+   */
+  periodicSyncStatus?: string;
+  /**
+   * @remarks
+   * 同步入保护规则,根据IdP的type做解析
+   */
+  pullProtectedRule?: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule;
+  /**
+   * @remarks
+   * 同步入配置信息
+   */
+  udSyncScopeConfig?: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      groupSyncStatus: 'GroupSyncStatus',
+      identityProviderId: 'IdentityProviderId',
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      instanceId: 'InstanceId',
+      ldapUdPullConfig: 'LdapUdPullConfig',
+      periodicSyncStatus: 'PeriodicSyncStatus',
+      pullProtectedRule: 'PullProtectedRule',
+      udSyncScopeConfig: 'UdSyncScopeConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupSyncStatus: 'string',
+      identityProviderId: 'string',
+      incrementalCallbackStatus: 'string',
+      instanceId: 'string',
+      ldapUdPullConfig: SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig,
+      periodicSyncStatus: 'string',
+      pullProtectedRule: SetIdentityProviderUdPullConfigurationRequestPullProtectedRule,
+      udSyncScopeConfig: SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SetIdentityProviderUdPullConfigurationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SetIdentityProviderUdPullConfigurationResponseBody,
     };
   }
 
@@ -11334,6 +12221,149 @@ export class UpdateGroupDescriptionResponse extends $tea.Model {
   }
 }
 
+export class UpdateIdentityProviderRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 钉钉出基本信息
+   */
+  dingtalkAppConfig?: UpdateIdentityProviderRequestDingtalkAppConfig;
+  /**
+   * @remarks
+   * IDaaS的身份提供方主键id
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * 身份提供方名称
+   * 
+   * @example
+   * test
+   */
+  identityProviderName?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM实例的ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * 飞书配置
+   */
+  larkConfig?: UpdateIdentityProviderRequestLarkConfig;
+  /**
+   * @remarks
+   * AD/LDAP基本信息
+   */
+  ldapConfig?: UpdateIdentityProviderRequestLdapConfig;
+  /**
+   * @remarks
+   * 网络端点ID
+   * 
+   * @example
+   * nae_examplexxxx
+   */
+  networkAccessEndpointId?: string;
+  /**
+   * @remarks
+   * OIDC IdP配置。
+   */
+  oidcConfig?: UpdateIdentityProviderRequestOidcConfig;
+  /**
+   * @remarks
+   * 企业微信基本信息
+   */
+  weComConfig?: UpdateIdentityProviderRequestWeComConfig;
+  static names(): { [key: string]: string } {
+    return {
+      dingtalkAppConfig: 'DingtalkAppConfig',
+      identityProviderId: 'IdentityProviderId',
+      identityProviderName: 'IdentityProviderName',
+      instanceId: 'InstanceId',
+      larkConfig: 'LarkConfig',
+      ldapConfig: 'LdapConfig',
+      networkAccessEndpointId: 'NetworkAccessEndpointId',
+      oidcConfig: 'OidcConfig',
+      weComConfig: 'WeComConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dingtalkAppConfig: UpdateIdentityProviderRequestDingtalkAppConfig,
+      identityProviderId: 'string',
+      identityProviderName: 'string',
+      instanceId: 'string',
+      larkConfig: UpdateIdentityProviderRequestLarkConfig,
+      ldapConfig: UpdateIdentityProviderRequestLdapConfig,
+      networkAccessEndpointId: 'string',
+      oidcConfig: UpdateIdentityProviderRequestOidcConfig,
+      weComConfig: UpdateIdentityProviderRequestWeComConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateIdentityProviderResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateIdentityProviderResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateInstanceDescriptionRequest extends $tea.Model {
   /**
    * @remarks
@@ -12287,6 +13317,863 @@ export class CreateDomainRequestFiling extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       icpNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestAuthnConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 对应IdP是否支持认证
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * enabled
+   */
+  authnStatus?: string;
+  /**
+   * @remarks
+   * 是否支持自动更新密码
+   * 
+   * @example
+   * enabled
+   */
+  autoUpdatePasswordStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authnStatus: 'AuthnStatus',
+      autoUpdatePasswordStatus: 'AutoUpdatePasswordStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnStatus: 'string',
+      autoUpdatePasswordStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestAutoCreateUserConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 自动创建账户是否开启
+   * 
+   * @example
+   * disabled
+   */
+  autoCreateUserStatus?: string;
+  targetOrganizationalUnitIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      autoCreateUserStatus: 'AutoCreateUserStatus',
+      targetOrganizationalUnitIds: 'TargetOrganizationalUnitIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoCreateUserStatus: 'string',
+      targetOrganizationalUnitIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestAutoUpdateUserConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 自动更新账户是否开启
+   * 
+   * @example
+   * disabled
+   */
+  autoUpdateUserStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoUpdateUserStatus: 'AutoUpdateUserStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoUpdateUserStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions extends $tea.Model {
+  /**
+   * @remarks
+   * 表达式的类型
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * filed
+   */
+  expressionMappingType?: string;
+  /**
+   * @remarks
+   * 映射属性取值表达式
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * idpUser.phoneNumber
+   */
+  sourceValueExpression?: string;
+  /**
+   * @remarks
+   * 映射目标属性名称
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * user.username
+   */
+  targetField?: string;
+  /**
+   * @remarks
+   * 映射目标属性名称
+   */
+  targetFieldDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expressionMappingType: 'ExpressionMappingType',
+      sourceValueExpression: 'SourceValueExpression',
+      targetField: 'TargetField',
+      targetFieldDescription: 'TargetFieldDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expressionMappingType: 'string',
+      sourceValueExpression: 'string',
+      targetField: 'string',
+      targetFieldDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestBindingConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 自动匹配账户的规则
+   */
+  autoMatchUserProfileExpressions?: CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions[];
+  /**
+   * @remarks
+   * 自动匹配账户是否开启
+   * 
+   * @example
+   * disabled
+   */
+  autoMatchUserStatus?: string;
+  /**
+   * @remarks
+   * 用户手动绑定账户功能是否开启
+   * 
+   * @example
+   * enabled
+   */
+  mappingBindingStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoMatchUserProfileExpressions: 'AutoMatchUserProfileExpressions',
+      autoMatchUserStatus: 'AutoMatchUserStatus',
+      mappingBindingStatus: 'MappingBindingStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoMatchUserProfileExpressions: { 'type': 'array', 'itemType': CreateIdentityProviderRequestBindingConfigAutoMatchUserProfileExpressions },
+      autoMatchUserStatus: 'string',
+      mappingBindingStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestDingtalkAppConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 钉钉一方应用的AppKey
+   * 
+   * @example
+   * Xczngvfemo4e
+   */
+  appKey?: string;
+  /**
+   * @remarks
+   * 钉钉一方应用的AppSecret
+   * 
+   * @example
+   * 5d405a12a6f84ad4ab05ee09axxxx
+   */
+  appSecret?: string;
+  /**
+   * @remarks
+   * 钉钉一方应用的corpId
+   * 
+   * @example
+   * 3075680424786133505
+   */
+  corpId?: string;
+  /**
+   * @remarks
+   * 钉钉版本
+   * 
+   * @example
+   * public_dingtalk
+   */
+  dingtalkVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+      corpId: 'CorpId',
+      dingtalkVersion: 'DingtalkVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      appSecret: 'string',
+      corpId: 'string',
+      dingtalkVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestLarkConfig extends $tea.Model {
+  /**
+   * @example
+   * cli_xxxx
+   */
+  appId?: string;
+  /**
+   * @example
+   * KiiLzh5Dueh4wbLxxxx
+   */
+  appSecret?: string;
+  /**
+   * @example
+   * FSX123111xxx
+   */
+  enterpriseNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecret: 'AppSecret',
+      enterpriseNumber: 'EnterpriseNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecret: 'string',
+      enterpriseNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestLdapConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 管理员密码
+   * 
+   * @example
+   * xxxx
+   */
+  administratorPassword?: string;
+  /**
+   * @remarks
+   * 管理员账号
+   * 
+   * @example
+   * DC=example,DC=com
+   */
+  administratorUsername?: string;
+  /**
+   * @remarks
+   * 是否验证指纹证书
+   * 
+   * @example
+   * enabled
+   */
+  certificateFingerprintStatus?: string;
+  /**
+   * @remarks
+   * 证书指纹列表
+   */
+  certificateFingerprints?: string[];
+  /**
+   * @remarks
+   * 组成员标识
+   * 
+   * @example
+   * member
+   */
+  groupMemberAttributeName?: string;
+  /**
+   * @remarks
+   * 组objectClass
+   * 
+   * @example
+   * group
+   */
+  groupObjectClass?: string;
+  /**
+   * @remarks
+   * 组自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(group=test@test.com))
+   */
+  groupObjectClassCustomFilter?: string;
+  /**
+   * @remarks
+   * 通信协议
+   * 
+   * @example
+   * ldap
+   */
+  ldapProtocol?: string;
+  /**
+   * @remarks
+   * ad/ldap 服务器地址
+   * 
+   * @example
+   * 123.xx.xx.89
+   */
+  ldapServerHost?: string;
+  /**
+   * @remarks
+   * 端口号
+   * 
+   * @example
+   * 636
+   */
+  ldapServerPort?: number;
+  /**
+   * @remarks
+   * 组织objectClass
+   * 
+   * @example
+   * organizationUnit,top
+   */
+  organizationUnitObjectClass?: string;
+  /**
+   * @remarks
+   * startTls是否开启
+   * 
+   * @example
+   * enabled
+   */
+  startTlsStatus?: string;
+  /**
+   * @remarks
+   * 用户登录标识
+   * 
+   * @example
+   * userPrincipalName, mail
+   */
+  userLoginIdentifier?: string;
+  /**
+   * @remarks
+   * 用户objectClass
+   * 
+   * @example
+   * person,user
+   */
+  userObjectClass?: string;
+  /**
+   * @remarks
+   * 用户自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(mail=test@test.com))
+   */
+  userObjectClassCustomFilter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorPassword: 'AdministratorPassword',
+      administratorUsername: 'AdministratorUsername',
+      certificateFingerprintStatus: 'CertificateFingerprintStatus',
+      certificateFingerprints: 'CertificateFingerprints',
+      groupMemberAttributeName: 'GroupMemberAttributeName',
+      groupObjectClass: 'GroupObjectClass',
+      groupObjectClassCustomFilter: 'GroupObjectClassCustomFilter',
+      ldapProtocol: 'LdapProtocol',
+      ldapServerHost: 'LdapServerHost',
+      ldapServerPort: 'LdapServerPort',
+      organizationUnitObjectClass: 'OrganizationUnitObjectClass',
+      startTlsStatus: 'StartTlsStatus',
+      userLoginIdentifier: 'UserLoginIdentifier',
+      userObjectClass: 'UserObjectClass',
+      userObjectClassCustomFilter: 'UserObjectClassCustomFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorPassword: 'string',
+      administratorUsername: 'string',
+      certificateFingerprintStatus: 'string',
+      certificateFingerprints: { 'type': 'array', 'itemType': 'string' },
+      groupMemberAttributeName: 'string',
+      groupObjectClass: 'string',
+      groupObjectClassCustomFilter: 'string',
+      ldapProtocol: 'string',
+      ldapServerHost: 'string',
+      ldapServerPort: 'number',
+      organizationUnitObjectClass: 'string',
+      startTlsStatus: 'string',
+      userLoginIdentifier: 'string',
+      userObjectClass: 'string',
+      userObjectClassCustomFilter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestOidcConfigAuthnParam extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC/oAuth2 认证方法。
+   * 
+   * @example
+   * client_secret_post
+   */
+  authnMethod?: string;
+  /**
+   * @remarks
+   * OIDC/oAuth2 客户端ID。
+   * 
+   * @example
+   * mkv7rgt4d7i4u7zqtzev2mxxxx
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * OIDC/oAuth2 客户端密钥。
+   * 
+   * @example
+   * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
+   */
+  clientSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authnMethod: 'AuthnMethod',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnMethod: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestOidcConfigEndpointConfig extends $tea.Model {
+  /**
+   * @remarks
+   * oAuth2 授权端点。
+   * 
+   * @example
+   * https://example.com/auth/authorize
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC issuer信息。
+   * 
+   * @example
+   * https://example.com/auth
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * OIDC jwks地址。
+   * 
+   * @example
+   * https://example.com/auth/jwks
+   */
+  jwksUri?: string;
+  /**
+   * @remarks
+   * oAuth2 Token端点。
+   * 
+   * @example
+   * https://example.com/auth/token
+   */
+  tokenEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC 用户信息端点。
+   * 
+   * @example
+   * https://example.com/auth/userinfo
+   */
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'AuthorizationEndpoint',
+      issuer: 'Issuer',
+      jwksUri: 'JwksUri',
+      tokenEndpoint: 'TokenEndpoint',
+      userinfoEndpoint: 'UserinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      issuer: 'string',
+      jwksUri: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestOidcConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC客户端认证配置。
+   */
+  authnParam?: CreateIdentityProviderRequestOidcConfigAuthnParam;
+  /**
+   * @remarks
+   * OIDC 端点配置。
+   */
+  endpointConfig?: CreateIdentityProviderRequestOidcConfigEndpointConfig;
+  /**
+   * @remarks
+   * OIDC标准参数，如profile、email等
+   * 
+   * @example
+   * openid
+   */
+  grantScopes?: string[];
+  /**
+   * @remarks
+   * OIDC授权类型。
+   * 
+   * @example
+   * authorization_code
+   */
+  grantType?: string;
+  /**
+   * @remarks
+   * 支持的PKCE算法类型。
+   * 
+   * @example
+   * S256
+   */
+  pkceChallengeMethod?: string;
+  /**
+   * @remarks
+   * AuthorizationCode授权模式下是否使用PKCE。
+   * 
+   * @example
+   * true
+   */
+  pkceRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      authnParam: 'AuthnParam',
+      endpointConfig: 'EndpointConfig',
+      grantScopes: 'GrantScopes',
+      grantType: 'GrantType',
+      pkceChallengeMethod: 'PkceChallengeMethod',
+      pkceRequired: 'PkceRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnParam: CreateIdentityProviderRequestOidcConfigAuthnParam,
+      endpointConfig: CreateIdentityProviderRequestOidcConfigEndpointConfig,
+      grantScopes: { 'type': 'array', 'itemType': 'string' },
+      grantType: 'string',
+      pkceChallengeMethod: 'string',
+      pkceRequired: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_lyhyy6p7yf7mdrdiq5xxxx
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestUdPullConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 是否支持组同步，默认为disabled
+   * 
+   * @example
+   * disabled
+   */
+  groupSyncStatus?: string;
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * disabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @example
+   * disabled
+   */
+  periodicSyncStatus?: string;
+  /**
+   * @remarks
+   * 同步入配置信息
+   * 
+   * This parameter is required.
+   */
+  udSyncScopeConfig?: CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      groupSyncStatus: 'GroupSyncStatus',
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      periodicSyncStatus: 'PeriodicSyncStatus',
+      udSyncScopeConfig: 'UdSyncScopeConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupSyncStatus: 'string',
+      incrementalCallbackStatus: 'string',
+      periodicSyncStatus: 'string',
+      udSyncScopeConfig: CreateIdentityProviderRequestUdPullConfigUdSyncScopeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_lyhyy6p7yf7mdrdiq5xxxx
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestUdPushConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * disabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @example
+   * disabled
+   */
+  periodicSyncStatus?: string;
+  /**
+   * @remarks
+   * 同步出配置信息
+   */
+  udSyncScopeConfigs?: CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      periodicSyncStatus: 'PeriodicSyncStatus',
+      udSyncScopeConfigs: 'UdSyncScopeConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      incrementalCallbackStatus: 'string',
+      periodicSyncStatus: 'string',
+      udSyncScopeConfigs: { 'type': 'array', 'itemType': CreateIdentityProviderRequestUdPushConfigUdSyncScopeConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIdentityProviderRequestWeComConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 企业微信自建应用的Id
+   * 
+   * @example
+   * 278231941749863339
+   */
+  agentId?: string;
+  /**
+   * @remarks
+   * 授权回调域
+   * 
+   * @example
+   * https://xxx.aliyunidaas.com/xxxx
+   */
+  authorizeCallbackDomain?: string;
+  /**
+   * @remarks
+   * 企业微信自建应用的corpId
+   * 
+   * @example
+   * 3756043633237690761
+   */
+  corpId?: string;
+  /**
+   * @remarks
+   * 企业微信自建应用的corpSecret
+   * 
+   * @example
+   * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
+   */
+  corpSecret?: string;
+  /**
+   * @remarks
+   * 可信域名
+   * 
+   * @example
+   * https://xxx.aliyunidaas.com/
+   */
+  trustableDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      authorizeCallbackDomain: 'AuthorizeCallbackDomain',
+      corpId: 'CorpId',
+      corpSecret: 'CorpSecret',
+      trustableDomain: 'TrustableDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      authorizeCallbackDomain: 'string',
+      corpId: 'string',
+      corpSecret: 'string',
+      trustableDomain: 'string',
     };
   }
 
@@ -13362,10 +15249,49 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   }
 }
 
+export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates extends $tea.Model {
+  /**
+   * @remarks
+   * The display name of the RelayState
+   * 
+   * @example
+   * Ram Account SSO
+   */
+  displayName?: string;
+  /**
+   * @remarks
+   * RelayState.The user will see the display names of multiple optional redirect addresses in the application card of the application portal. After the user clicks and completes SSO, they will automatically jump to the corresponding address. This field can only be filled in after the default redirect address is filled in.
+   * 
+   * @example
+   * https://home.console.aliyun.com
+   */
+  relayState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      relayState: 'RelayState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      relayState: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig extends $tea.Model {
   /**
    * @remarks
-   * assertion是否签名
+   * Whether the Assertion needs a signature. ResponseSigned and AssertionSigned cannot be false at the same time.
+   * 
+   * true: signature is required.
+   * false: signature is not required.
    * 
    * @example
    * true
@@ -13384,6 +15310,13 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
    * https://home.console.aliyun.com
    */
   defaultRelayState?: string;
+  /**
+   * @remarks
+   * The custom issuer ID.
+   * 
+   * @example
+   * https://example.com/
+   */
   idPEntityId?: string;
   /**
    * @remarks
@@ -13408,7 +15341,15 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
   nameIdValueExpression?: string;
   /**
    * @remarks
-   * response是否签名
+   * Optional RelayState. The user will see the display names of multiple optional redirect addresses in the application card of the application portal. After the user clicks and completes SSO, they will automatically jump to the corresponding address. This field can only be filled in after the default redirect address is filled in.
+   */
+  optionalRelayStates?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates[];
+  /**
+   * @remarks
+   * Whether the response needs to be signed. ResponseSigned and AssertionSigned cannot be false at the same time.
+   * 
+   * true: signature is required.
+   * false: signature is not required.
    * 
    * @example
    * true
@@ -13446,6 +15387,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
       idPEntityId: 'IdPEntityId',
       nameIdFormat: 'NameIdFormat',
       nameIdValueExpression: 'NameIdValueExpression',
+      optionalRelayStates: 'OptionalRelayStates',
       responseSigned: 'ResponseSigned',
       signatureAlgorithm: 'SignatureAlgorithm',
       spEntityId: 'SpEntityId',
@@ -13461,6 +15403,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfi
       idPEntityId: 'string',
       nameIdFormat: 'string',
       nameIdValueExpression: 'string',
+      optionalRelayStates: { 'type': 'array', 'itemType': GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfigOptionalRelayStates },
       responseSigned: 'boolean',
       signatureAlgorithm: 'string',
       spEntityId: 'string',
@@ -13505,7 +15448,7 @@ export class GetApplicationSsoConfigResponseBodyApplicationSsoConfig extends $te
   protocolEndpointDomain?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigProtocolEndpointDomain;
   /**
    * @remarks
-   * The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
+   * The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application. This parameter is returned only if the SSO protocol of the application is SAML 2.0.
    */
   samlSsoConfig?: GetApplicationSsoConfigResponseBodyApplicationSsoConfigSamlSsoConfig;
   /**
@@ -13878,6 +15821,1191 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
       groupSourceType: 'string',
       instanceId: 'string',
       updateTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉一方应用的AppKey
+   * 
+   * @example
+   * 41reopmwoy9s
+   */
+  appKey?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉一方应用的AppSecret
+   * 
+   * @example
+   * REOQ6Cl55kriOd8NOBeqWYLKpHR4p6fdZxxxx
+   */
+  appSecret?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉一方应用的corpId
+   * 
+   * @example
+   * 3756043633237690761
+   */
+  corpId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉版本
+   * 
+   * @example
+   * public_dingtalk
+   */
+  dingtalkVersion?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+      corpId: 'CorpId',
+      dingtalkVersion: 'DingtalkVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      appSecret: 'string',
+      corpId: 'string',
+      dingtalkVersion: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds extends $tea.Model {
+  /**
+   * @remarks
+   * 钉钉部门Id
+   * 
+   * @example
+   * 123xxx444
+   */
+  deptId?: string;
+  /**
+   * @remarks
+   * 钉钉部门名称
+   * 
+   * @example
+   * 测试部门
+   */
+  deptName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      deptId: 'DeptId',
+      deptName: 'DeptName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deptId: 'string',
+      deptName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers extends $tea.Model {
+  /**
+   * @remarks
+   * 钉钉用户名称
+   * 
+   * @example
+   * 张三
+   */
+  name?: string;
+  /**
+   * @remarks
+   * 钉钉用户userId
+   * 
+   * @example
+   * 130308333929200479
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 授权的钉钉部门
+   */
+  authedDepartmentIds?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds[];
+  /**
+   * @remarks
+   * 授权的钉钉账户列表
+   */
+  authedUsers?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers[];
+  /**
+   * @remarks
+   * 钉钉企业corpId
+   * 
+   * @example
+   * ding_xxxxx
+   */
+  corpId?: string;
+  /**
+   * @remarks
+   * 钉钉企业名称
+   * 
+   * @example
+   * 测试企业
+   */
+  corpName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authedDepartmentIds: 'AuthedDepartmentIds',
+      authedUsers: 'AuthedUsers',
+      corpId: 'CorpId',
+      corpName: 'CorpName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authedDepartmentIds: { 'type': 'array', 'itemType': GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedDepartmentIds },
+      authedUsers: { 'type': 'array', 'itemType': GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfigAuthedUsers },
+      corpId: 'string',
+      corpName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS EIAM 飞书自建应用的corpId
+   * 
+   * @example
+   * cli_a7a99f53a317100c
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 飞书自建应用的AppSecret
+   * 
+   * @example
+   * ***
+   */
+  appSecret?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 飞书企业编码
+   * 
+   * @example
+   * FX1231xxxx
+   */
+  enterpriseNumber?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecret: 'AppSecret',
+      enterpriseNumber: 'EnterpriseNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecret: 'string',
+      enterpriseNumber: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 管理员密码
+   * 
+   * @example
+   * XXXX
+   */
+  administratorPassword?: string;
+  /**
+   * @remarks
+   * 管理员账号
+   * 
+   * @example
+   * example.com
+   */
+  administratorUsername?: string;
+  /**
+   * @remarks
+   * 是否验证指纹证书
+   * 
+   * @example
+   * enabled
+   */
+  certificateFingerprintStatus?: string;
+  /**
+   * @remarks
+   * 证书指纹列表
+   */
+  certificateFingerprints?: string[];
+  /**
+   * @remarks
+   * 通信协议
+   * 
+   * @example
+   * ldap
+   */
+  ldapProtocol?: string;
+  /**
+   * @remarks
+   * ad/ldap 服务器地址
+   * 
+   * @example
+   * 127.xx.xx.100
+   */
+  ldapServerHost?: string;
+  /**
+   * @remarks
+   * ad/ldap 服务器地址
+   * 
+   * @example
+   * 389
+   */
+  ldapServerPort?: number;
+  /**
+   * @remarks
+   * startTls是否开启
+   * 
+   * @example
+   * enabled
+   */
+  startTlsStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorPassword: 'AdministratorPassword',
+      administratorUsername: 'AdministratorUsername',
+      certificateFingerprintStatus: 'CertificateFingerprintStatus',
+      certificateFingerprints: 'CertificateFingerprints',
+      ldapProtocol: 'LdapProtocol',
+      ldapServerHost: 'LdapServerHost',
+      ldapServerPort: 'LdapServerPort',
+      startTlsStatus: 'StartTlsStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorPassword: 'string',
+      administratorUsername: 'string',
+      certificateFingerprintStatus: 'string',
+      certificateFingerprints: { 'type': 'array', 'itemType': 'string' },
+      ldapProtocol: 'string',
+      ldapServerHost: 'string',
+      ldapServerPort: 'number',
+      startTlsStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC/oAuth2 认证方法。
+   * 
+   * @example
+   * client_secret_post
+   */
+  authnMethod?: string;
+  /**
+   * @remarks
+   * OIDC/oAuth2 客户端ID。
+   * 
+   * @example
+   * mkv7rgt4d7i4u7zqtzev2mxxxx
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * OIDC/oAuth2 客户端密钥。
+   * 
+   * @example
+   * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
+   */
+  clientSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authnMethod: 'AuthnMethod',
+      clientId: 'ClientId',
+      clientSecret: 'ClientSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnMethod: 'string',
+      clientId: 'string',
+      clientSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig extends $tea.Model {
+  /**
+   * @remarks
+   * oAuth2 授权端点。
+   * 
+   * @example
+   * https://example.com/oauth/authorize
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC issuer信息。
+   * 
+   * @example
+   * https://example.com/oauth
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * OIDC jwks地址。
+   * 
+   * @example
+   * https://example.com/oauth/jwks
+   */
+  jwksUri?: string;
+  /**
+   * @remarks
+   * oAuth2 Token端点。
+   * 
+   * @example
+   * https://example.com/oauth/token
+   */
+  tokenEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC 用户信息端点。
+   * 
+   * @example
+   * https://example.com/oauth/userinfo
+   */
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'AuthorizationEndpoint',
+      issuer: 'Issuer',
+      jwksUri: 'JwksUri',
+      tokenEndpoint: 'TokenEndpoint',
+      userinfoEndpoint: 'UserinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      issuer: 'string',
+      jwksUri: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC客户端认证配置。
+   */
+  authnParam?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam;
+  /**
+   * @remarks
+   * OIDC 端点配置。
+   */
+  endpointConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig;
+  /**
+   * @remarks
+   * OIDC标准参数，如profile、email等
+   * 
+   * @example
+   * openid
+   */
+  grantScopes?: string[];
+  /**
+   * @remarks
+   * OIDC授权类型。
+   * 
+   * @example
+   * authorization_code
+   */
+  grantType?: string;
+  /**
+   * @remarks
+   * 支持的PKCE算法类型。
+   * 
+   * @example
+   * S256
+   */
+  pkceChallengeMethod?: string;
+  /**
+   * @remarks
+   * AuthorizationCode授权模式下是否使用PKCE。
+   * 
+   * @example
+   * true
+   */
+  pkceRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      authnParam: 'AuthnParam',
+      endpointConfig: 'EndpointConfig',
+      grantScopes: 'GrantScopes',
+      grantType: 'GrantType',
+      pkceChallengeMethod: 'PkceChallengeMethod',
+      pkceRequired: 'PkceRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnParam: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigAuthnParam,
+      endpointConfig: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfigEndpointConfig,
+      grantScopes: { 'type': 'array', 'itemType': 'string' },
+      grantType: 'string',
+      pkceChallengeMethod: 'string',
+      pkceRequired: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_123xxxx
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig extends $tea.Model {
+  /**
+   * @example
+   * disabled
+   */
+  groupSyncStatus?: string;
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * disabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @remarks
+   * 同步入配置信息
+   */
+  udSyncScopeConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      groupSyncStatus: 'GroupSyncStatus',
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      udSyncScopeConfig: 'UdSyncScopeConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupSyncStatus: 'string',
+      incrementalCallbackStatus: 'string',
+      udSyncScopeConfig: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfigUdSyncScopeConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_123xxxx
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * disabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @remarks
+   * 同步出配置信息
+   */
+  udSyncScopeConfigs?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      udSyncScopeConfigs: 'UdSyncScopeConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      incrementalCallbackStatus: 'string',
+      udSyncScopeConfigs: { 'type': 'array', 'itemType': GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfigUdSyncScopeConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig extends $tea.Model {
+  /**
+   * @remarks
+   * IDaaS EIAM 企业微信自建应用的Id
+   * 
+   * @example
+   * 1242350
+   */
+  agentId?: string;
+  /**
+   * @remarks
+   * 授权回调域
+   * 
+   * @example
+   * https://example.com/xxxx
+   */
+  authorizeCallbackDomain?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 企业微信自建应用的corpId
+   * 
+   * @example
+   * 3562012953454577801
+   */
+  corpId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 企业微信自建应用的corpSecret
+   * 
+   * @example
+   * weaseiszjskejskaj12sjeszojxxxx
+   */
+  corpSecret?: string;
+  /**
+   * @remarks
+   * 可信域名
+   * 
+   * @example
+   * https://example.com
+   */
+  trustableDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      authorizeCallbackDomain: 'AuthorizeCallbackDomain',
+      corpId: 'CorpId',
+      corpSecret: 'CorpSecret',
+      trustableDomain: 'TrustableDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      authorizeCallbackDomain: 'string',
+      corpId: 'string',
+      corpSecret: 'string',
+      trustableDomain: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderResponseBodyIdentityProviderDetail extends $tea.Model {
+  /**
+   * @remarks
+   * 高阶配置能力
+   * 
+   * @example
+   * disabled
+   */
+  advancedStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 对应的认证来源产品，okta or google or azure ad
+   * 
+   * @example
+   * urn:alibaba:idaas:idp:bytedance:lark
+   */
+  authnSourceSupplier?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 认证方式类型 oidc or saml
+   * 
+   * @example
+   * urn:alibaba:idaas:authntype:oidc
+   */
+  authnSourceType?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 对应IdP是否支持认证
+   * 
+   * @example
+   * disabled
+   */
+  authnStatus?: string;
+  /**
+   * @remarks
+   * 创建时间
+   * 
+   * @example
+   * 1726021079000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方描述
+   * 
+   * @example
+   * for poc test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 钉钉基础配置
+   */
+  dingtalkAppConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig;
+  /**
+   * @remarks
+   * 钉钉同步配置
+   */
+  dingtalkProvisioningConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方外部ID
+   * 
+   * @example
+   * idp_xxxx
+   */
+  identityProviderExternalId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方ID
+   * 
+   * @example
+   * idp_mwpcwnhrimlr2horx7xgg7pp7y
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方名称
+   * 
+   * @example
+   * test
+   */
+  identityProviderName?: string;
+  /**
+   * @remarks
+   * 身份提供方同步类型
+   * 
+   * @example
+   * urn:alibaba:idaas:idp:alibaba:dingtalk:push
+   */
+  identityProviderType?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 实例Id
+   * 
+   * @example
+   * idaas_x2df3bak3uwnapqm6xxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * 飞书配置
+   */
+  larkConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig;
+  /**
+   * @remarks
+   * 最后一次状态检查结果
+   * 
+   * @example
+   * success
+   */
+  lastStatusCheckJobResult?: string;
+  /**
+   * @remarks
+   * AD/LDAP身份提供方相关信息
+   */
+  ldapConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig;
+  /**
+   * @remarks
+   * 锁定原因
+   * 
+   * @example
+   * financial
+   */
+  lockReason?: string;
+  /**
+   * @remarks
+   * 网络端点ID
+   * 
+   * @example
+   * nae_mx4vsadfe6govkqkwckxxxx
+   */
+  networkAccessEndpointId?: string;
+  /**
+   * @remarks
+   * OIDC IdP配置。
+   */
+  oidcConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig;
+  /**
+   * @remarks
+   * 同步入配置
+   */
+  udPullConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig;
+  /**
+   * @remarks
+   * IDaaS EIAM 是否支持UD同步
+   * 
+   * @example
+   * disabled
+   */
+  udPullStatus?: string;
+  /**
+   * @remarks
+   * 同步出配置
+   */
+  udPushConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig;
+  /**
+   * @remarks
+   * 同步出能力
+   * 
+   * @example
+   * disabled
+   */
+  udPushStatus?: string;
+  /**
+   * @remarks
+   * 更新时间
+   * 
+   * @example
+   * 1726021079000
+   */
+  updateTime?: number;
+  /**
+   * @remarks
+   * 企业微信
+   */
+  weComConfig?: GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig;
+  static names(): { [key: string]: string } {
+    return {
+      advancedStatus: 'AdvancedStatus',
+      authnSourceSupplier: 'AuthnSourceSupplier',
+      authnSourceType: 'AuthnSourceType',
+      authnStatus: 'AuthnStatus',
+      createTime: 'CreateTime',
+      description: 'Description',
+      dingtalkAppConfig: 'DingtalkAppConfig',
+      dingtalkProvisioningConfig: 'DingtalkProvisioningConfig',
+      identityProviderExternalId: 'IdentityProviderExternalId',
+      identityProviderId: 'IdentityProviderId',
+      identityProviderName: 'IdentityProviderName',
+      identityProviderType: 'IdentityProviderType',
+      instanceId: 'InstanceId',
+      larkConfig: 'LarkConfig',
+      lastStatusCheckJobResult: 'LastStatusCheckJobResult',
+      ldapConfig: 'LdapConfig',
+      lockReason: 'LockReason',
+      networkAccessEndpointId: 'NetworkAccessEndpointId',
+      oidcConfig: 'OidcConfig',
+      udPullConfig: 'UdPullConfig',
+      udPullStatus: 'UdPullStatus',
+      udPushConfig: 'UdPushConfig',
+      udPushStatus: 'UdPushStatus',
+      updateTime: 'UpdateTime',
+      weComConfig: 'WeComConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedStatus: 'string',
+      authnSourceSupplier: 'string',
+      authnSourceType: 'string',
+      authnStatus: 'string',
+      createTime: 'number',
+      description: 'string',
+      dingtalkAppConfig: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkAppConfig,
+      dingtalkProvisioningConfig: GetIdentityProviderResponseBodyIdentityProviderDetailDingtalkProvisioningConfig,
+      identityProviderExternalId: 'string',
+      identityProviderId: 'string',
+      identityProviderName: 'string',
+      identityProviderType: 'string',
+      instanceId: 'string',
+      larkConfig: GetIdentityProviderResponseBodyIdentityProviderDetailLarkConfig,
+      lastStatusCheckJobResult: 'string',
+      ldapConfig: GetIdentityProviderResponseBodyIdentityProviderDetailLdapConfig,
+      lockReason: 'string',
+      networkAccessEndpointId: 'string',
+      oidcConfig: GetIdentityProviderResponseBodyIdentityProviderDetailOidcConfig,
+      udPullConfig: GetIdentityProviderResponseBodyIdentityProviderDetailUdPullConfig,
+      udPullStatus: 'string',
+      udPushConfig: GetIdentityProviderResponseBodyIdentityProviderDetailUdPushConfig,
+      udPushStatus: 'string',
+      updateTime: 'number',
+      weComConfig: GetIdentityProviderResponseBodyIdentityProviderDetailWeComConfig,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 组成员标识
+   * 
+   * @example
+   * group
+   */
+  groupMemberAttributeName?: string;
+  /**
+   * @remarks
+   * 组objectClass
+   * 
+   * @example
+   * member
+   */
+  groupObjectClass?: string;
+  /**
+   * @remarks
+   * 组自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(group=test@test.com))
+   */
+  groupObjectClassCustomFilter?: string;
+  /**
+   * @remarks
+   * 组织objectClass
+   * 
+   * @example
+   * ou,top
+   */
+  organizationUnitObjectClass?: string;
+  /**
+   * @remarks
+   * 用户objectClass
+   * 
+   * @example
+   * ou,top
+   */
+  userObjectClass?: string;
+  /**
+   * @remarks
+   * 用户自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(mail=test@test.com))
+   */
+  userObjectClassCustomFilter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupMemberAttributeName: 'GroupMemberAttributeName',
+      groupObjectClass: 'GroupObjectClass',
+      groupObjectClassCustomFilter: 'GroupObjectClassCustomFilter',
+      organizationUnitObjectClass: 'OrganizationUnitObjectClass',
+      userObjectClass: 'UserObjectClass',
+      userObjectClassCustomFilter: 'UserObjectClassCustomFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupMemberAttributeName: 'string',
+      groupObjectClass: 'string',
+      groupObjectClassCustomFilter: 'string',
+      organizationUnitObjectClass: 'string',
+      userObjectClass: 'string',
+      userObjectClassCustomFilter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule extends $tea.Model {
+  /**
+   * @remarks
+   * 同步保护规则-删除组数量
+   * 
+   * @example
+   * 10
+   */
+  groupDeletedThreshold?: number;
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉一方应用同步保护规则-删除组织数量
+   * 
+   * @example
+   * 10
+   */
+  organizationalUnitDeletedThreshold?: number;
+  /**
+   * @remarks
+   * IDaaS EIAM 钉钉一方应用同步保护规则-删除账户数量
+   * 
+   * @example
+   * 30
+   */
+  userDeletedThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupDeletedThreshold: 'GroupDeletedThreshold',
+      organizationalUnitDeletedThreshold: 'OrganizationalUnitDeletedThreshold',
+      userDeletedThreshold: 'UserDeletedThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupDeletedThreshold: 'number',
+      organizationalUnitDeletedThreshold: 'number',
+      userDeletedThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_asjdfhaskfhw213mnsj33sXXX
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * 组同步状态
+   * 
+   * @example
+   * enabled
+   */
+  groupSyncStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方ID
+   * 
+   * @example
+   * idp_my664lwkhpicbyzirog3xxxxx
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * enabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 实例Id
+   * 
+   * @example
+   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * ldap同步侧相关配置信息
+   */
+  ldapUdPullConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig;
+  /**
+   * @example
+   * enabled
+   */
+  periodicSyncStatus?: string;
+  /**
+   * @remarks
+   * 同步入用户映射字段配置列表
+   */
+  pullProtectedRule?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule;
+  /**
+   * @remarks
+   * 同步入配置信息
+   */
+  udSyncScopeConfig?: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig;
+  static names(): { [key: string]: string } {
+    return {
+      groupSyncStatus: 'GroupSyncStatus',
+      identityProviderId: 'IdentityProviderId',
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      instanceId: 'InstanceId',
+      ldapUdPullConfig: 'LdapUdPullConfig',
+      periodicSyncStatus: 'PeriodicSyncStatus',
+      pullProtectedRule: 'PullProtectedRule',
+      udSyncScopeConfig: 'UdSyncScopeConfig',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupSyncStatus: 'string',
+      identityProviderId: 'string',
+      incrementalCallbackStatus: 'string',
+      instanceId: 'string',
+      ldapUdPullConfig: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationLdapUdPullConfig,
+      periodicSyncStatus: 'string',
+      pullProtectedRule: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationPullProtectedRule,
+      udSyncScopeConfig: GetIdentityProviderUdPullConfigurationResponseBodyUdPullConfigurationUdSyncScopeConfig,
     };
   }
 
@@ -14404,6 +17532,20 @@ export class GetPasswordComplexityConfigurationResponseBodyPasswordComplexityCon
 }
 
 export class GetPasswordExpirationConfigurationResponseBodyPasswordExpirationConfiguration extends $tea.Model {
+  /**
+   * @remarks
+   * The list of valid authentication IDs. The default is all ["ia_all"]
+   * 
+   * ia_all: All. If you fill in this value, you cannot fill in other values
+   * 
+   * ia_password: Account password login
+   * 
+   * ia_otp_sms: SMS verification code login method
+   * 
+   * ia_webauthn: WebAuthn authenticator login method
+   * 
+   * idp_xxx: Specific identity provider authentication method
+   */
   effectiveAuthenticationSourceIds?: string[];
   /**
    * @remarks
@@ -17716,6 +20858,187 @@ export class ListGroupsForUserResponseBodyGroups extends $tea.Model {
       groupId: 'string',
       groupMemberRelationSourceId: 'string',
       groupMemberRelationSourceType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListIdentityProvidersResponseBodyIdentityProviders extends $tea.Model {
+  /**
+   * @remarks
+   * 高阶配置能力
+   * 
+   * @example
+   * disabled
+   */
+  advancedStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 对应的认证来源产品，okta or google or azure ad
+   * 
+   * @example
+   * urn:alibaba:idaas:idp:bytedance:lark
+   */
+  authnSourceSupplier?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 认证方式类型 oidc or saml
+   * 
+   * @example
+   * urn:alibaba:idaas:authntype:oidc
+   */
+  authnSourceType?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 对应IdP是否支持认证
+   * 
+   * @example
+   * disabled
+   */
+  authnStatus?: string;
+  /**
+   * @example
+   * 1712561597000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方描述
+   */
+  description?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方外部ID
+   * 
+   * @example
+   * test_123
+   */
+  identityProviderExternalId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方ID
+   * 
+   * @example
+   * idp_m5b5wd5s2hpq4t6iaehhXXX
+   */
+  identityProviderId?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 身份提供方名称
+   */
+  identityProviderName?: string;
+  /**
+   * @remarks
+   * 身份提供方同步类型
+   * 
+   * @example
+   * urn:alibaba:idaas:idp:bytedance:lark:pull
+   */
+  identityProviderType?: string;
+  /**
+   * @remarks
+   * 增量回调状态，是否处理来自IdP的增量回调数据
+   * 
+   * @example
+   * enabled
+   */
+  incrementalCallbackStatus?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 实例Id
+   * 
+   * @example
+   * idaas_pbf4dth34l2qb7mydpntXXX
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * success
+   */
+  lastStatusCheckJobResult?: string;
+  /**
+   * @remarks
+   * 锁定原因
+   * 
+   * @example
+   * financial
+   */
+  lockReason?: string;
+  /**
+   * @remarks
+   * IDaaS EIAM 是否支持UD同步
+   * 
+   * @example
+   * disabled
+   */
+  udPullStatus?: string;
+  /**
+   * @remarks
+   * 当支持ud_pullIDaaS侧UD中的范围
+   * 
+   * @example
+   * ou_2buqmxsa3ltyqkjgpwfijurXXX
+   */
+  udPullTargetScope?: string;
+  /**
+   * @remarks
+   * 同步出能力
+   * 
+   * @example
+   * disabled
+   */
+  udPushStatus?: string;
+  /**
+   * @example
+   * 1712561597000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      advancedStatus: 'AdvancedStatus',
+      authnSourceSupplier: 'AuthnSourceSupplier',
+      authnSourceType: 'AuthnSourceType',
+      authnStatus: 'AuthnStatus',
+      createTime: 'CreateTime',
+      description: 'Description',
+      identityProviderExternalId: 'IdentityProviderExternalId',
+      identityProviderId: 'IdentityProviderId',
+      identityProviderName: 'IdentityProviderName',
+      identityProviderType: 'IdentityProviderType',
+      incrementalCallbackStatus: 'IncrementalCallbackStatus',
+      instanceId: 'InstanceId',
+      lastStatusCheckJobResult: 'LastStatusCheckJobResult',
+      lockReason: 'LockReason',
+      udPullStatus: 'UdPullStatus',
+      udPullTargetScope: 'UdPullTargetScope',
+      udPushStatus: 'UdPushStatus',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      advancedStatus: 'string',
+      authnSourceSupplier: 'string',
+      authnSourceType: 'string',
+      authnStatus: 'string',
+      createTime: 'number',
+      description: 'string',
+      identityProviderExternalId: 'string',
+      identityProviderId: 'string',
+      identityProviderName: 'string',
+      identityProviderType: 'string',
+      incrementalCallbackStatus: 'string',
+      instanceId: 'string',
+      lastStatusCheckJobResult: 'string',
+      lockReason: 'string',
+      udPullStatus: 'string',
+      udPullTargetScope: 'string',
+      udPushStatus: 'string',
+      updateTime: 'number',
     };
   }
 
@@ -21064,6 +24387,28 @@ export class SetApplicationSsoConfigRequestSamlSsoConfigAttributeStatements exte
   }
 }
 
+export class SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates extends $tea.Model {
+  displayName?: string;
+  relayState?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displayName: 'DisplayName',
+      relayState: 'RelayState',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displayName: 'string',
+      relayState: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
   /**
    * @remarks
@@ -21111,6 +24456,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
    * user.email
    */
   nameIdValueExpression?: string;
+  optionalRelayStates?: SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates[];
   /**
    * @remarks
    * Specifies whether to calculate the signature for the response. You cannot set ResponseSigned and AssertionSigned to false at the same time.
@@ -21170,6 +24516,7 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
       idPEntityId: 'IdPEntityId',
       nameIdFormat: 'NameIdFormat',
       nameIdValueExpression: 'NameIdValueExpression',
+      optionalRelayStates: 'OptionalRelayStates',
       responseSigned: 'ResponseSigned',
       signatureAlgorithm: 'SignatureAlgorithm',
       spEntityId: 'SpEntityId',
@@ -21185,10 +24532,166 @@ export class SetApplicationSsoConfigRequestSamlSsoConfig extends $tea.Model {
       idPEntityId: 'string',
       nameIdFormat: 'string',
       nameIdValueExpression: 'string',
+      optionalRelayStates: { 'type': 'array', 'itemType': SetApplicationSsoConfigRequestSamlSsoConfigOptionalRelayStates },
       responseSigned: 'boolean',
       signatureAlgorithm: 'string',
       spEntityId: 'string',
       spSsoAcsUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationRequestLdapUdPullConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 组成员标识
+   * 
+   * @example
+   * member
+   */
+  groupMemberAttributeName?: string;
+  /**
+   * @remarks
+   * 组objectClass
+   * 
+   * @example
+   * group
+   */
+  groupObjectClass?: string;
+  /**
+   * @remarks
+   * 组自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(group=test@test.com))
+   */
+  groupObjectClassCustomFilter?: string;
+  /**
+   * @remarks
+   * 组织ObjectClass
+   * 
+   * @example
+   * organizationUnit,top
+   */
+  organizationUnitObjectClass?: string;
+  /**
+   * @remarks
+   * 用户ObjectClass
+   * 
+   * @example
+   * userPrincipalName, mail
+   */
+  userObjectClass?: string;
+  /**
+   * @remarks
+   * 用户自定义Filter
+   * 
+   * @example
+   * (|(cn=test)(mail=test@test.com))
+   */
+  userObjectClassCustomFilter?: string;
+  static names(): { [key: string]: string } {
+    return {
+      groupMemberAttributeName: 'GroupMemberAttributeName',
+      groupObjectClass: 'GroupObjectClass',
+      groupObjectClassCustomFilter: 'GroupObjectClassCustomFilter',
+      organizationUnitObjectClass: 'OrganizationUnitObjectClass',
+      userObjectClass: 'UserObjectClass',
+      userObjectClassCustomFilter: 'UserObjectClassCustomFilter',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupMemberAttributeName: 'string',
+      groupObjectClass: 'string',
+      groupObjectClassCustomFilter: 'string',
+      organizationUnitObjectClass: 'string',
+      userObjectClass: 'string',
+      userObjectClassCustomFilter: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationRequestPullProtectedRule extends $tea.Model {
+  /**
+   * @remarks
+   * 同步保护规则-删除组数量
+   * 
+   * @example
+   * 10
+   */
+  groupDeletedThreshold?: number;
+  /**
+   * @remarks
+   * 钉钉一方应用同步保护规则-删除组织数量
+   * 
+   * @example
+   * 10
+   */
+  organizationalUnitDeletedThreshold?: number;
+  /**
+   * @remarks
+   * 钉钉一方应用同步保护规则-删除账户数量
+   * 
+   * @example
+   * 30
+   */
+  userDeletedThreshold?: number;
+  static names(): { [key: string]: string } {
+    return {
+      groupDeletedThreshold: 'GroupDeletedThreshold',
+      organizationalUnitDeletedThreshold: 'OrganizationalUnitDeletedThreshold',
+      userDeletedThreshold: 'UserDeletedThreshold',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      groupDeletedThreshold: 'number',
+      organizationalUnitDeletedThreshold: 'number',
+      userDeletedThreshold: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SetIdentityProviderUdPullConfigurationRequestUdSyncScopeConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 同步来源节点
+   */
+  sourceScopes?: string[];
+  /**
+   * @remarks
+   * 同步目标节点
+   * 
+   * @example
+   * ou_asdaq1addsxzdq1XXX
+   */
+  targetScope?: string;
+  static names(): { [key: string]: string } {
+    return {
+      sourceScopes: 'SourceScopes',
+      targetScope: 'TargetScope',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      sourceScopes: { 'type': 'array', 'itemType': 'string' },
+      targetScope: 'string',
     };
   }
 
@@ -21224,6 +24727,397 @@ export class SetPasswordComplexityConfigurationRequestPasswordComplexityRules ex
   static types(): { [key: string]: any } {
     return {
       passwordCheckType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestDingtalkAppConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 钉钉一方应用的AppKey
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 49nyeaqumk7f
+   */
+  appKey?: string;
+  /**
+   * @remarks
+   * 钉钉一方应用的AppSecret
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 86nozWFL2CxgwnhKiXaG8dN4keLPkUNc5xxxx
+   */
+  appSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appKey: 'AppKey',
+      appSecret: 'AppSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appKey: 'string',
+      appSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestLarkConfig extends $tea.Model {
+  /**
+   * @example
+   * cli_xxxx
+   */
+  appId?: string;
+  /**
+   * @example
+   * KiiLzh5Dueh4wbLxxxx
+   */
+  appSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'AppId',
+      appSecret: 'AppSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      appSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestLdapConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 管理员密码
+   * 
+   * @example
+   * xxxxxx
+   */
+  administratorPassword?: string;
+  /**
+   * @remarks
+   * 管理员账号
+   * 
+   * @example
+   * DC=example,DC=com
+   */
+  administratorUsername?: string;
+  /**
+   * @remarks
+   * 是否验证指纹证书
+   * 
+   * @example
+   * enabled
+   */
+  certificateFingerprintStatus?: string;
+  /**
+   * @remarks
+   * 证书指纹列表
+   */
+  certificateFingerprints?: string[];
+  /**
+   * @remarks
+   * 通信协议
+   * 
+   * @example
+   * ldap
+   */
+  ldapProtocol?: string;
+  /**
+   * @remarks
+   * ad/ldap 服务器地址
+   * 
+   * @example
+   * 123.xx.xx.89
+   */
+  ldapServerHost?: string;
+  /**
+   * @remarks
+   * 端口号
+   * 
+   * @example
+   * 636
+   */
+  ldapServerPort?: number;
+  /**
+   * @remarks
+   * startTls是否开启
+   * 
+   * @example
+   * enabled
+   */
+  startTlsStatus?: string;
+  static names(): { [key: string]: string } {
+    return {
+      administratorPassword: 'AdministratorPassword',
+      administratorUsername: 'AdministratorUsername',
+      certificateFingerprintStatus: 'CertificateFingerprintStatus',
+      certificateFingerprints: 'CertificateFingerprints',
+      ldapProtocol: 'LdapProtocol',
+      ldapServerHost: 'LdapServerHost',
+      ldapServerPort: 'LdapServerPort',
+      startTlsStatus: 'StartTlsStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      administratorPassword: 'string',
+      administratorUsername: 'string',
+      certificateFingerprintStatus: 'string',
+      certificateFingerprints: { 'type': 'array', 'itemType': 'string' },
+      ldapProtocol: 'string',
+      ldapServerHost: 'string',
+      ldapServerPort: 'number',
+      startTlsStatus: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestOidcConfigAuthnParam extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC/oAuth2 认证方法。
+   * 
+   * @example
+   * client_secret_post
+   */
+  authnMethod?: string;
+  /**
+   * @remarks
+   * OIDC/oAuth2 客户端密钥。
+   * 
+   * @example
+   * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
+   */
+  clientSecret?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authnMethod: 'AuthnMethod',
+      clientSecret: 'ClientSecret',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnMethod: 'string',
+      clientSecret: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestOidcConfigEndpointConfig extends $tea.Model {
+  /**
+   * @remarks
+   * oAuth2 授权端点。
+   * 
+   * @example
+   * https://example.com/oauth/authorize
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC issuer信息。
+   * 
+   * @example
+   * https://example.com/oauth
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * OIDC jwks地址。
+   * 
+   * @example
+   * https://example.com/oauth/jwks
+   */
+  jwksUri?: string;
+  /**
+   * @remarks
+   * oAuth2 Token端点。
+   * 
+   * @example
+   * https://example.com/oauth/token
+   */
+  tokenEndpoint?: string;
+  /**
+   * @remarks
+   * OIDC 用户信息端点。
+   * 
+   * @example
+   * https://example.com/oauth/userinfo
+   */
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'AuthorizationEndpoint',
+      issuer: 'Issuer',
+      jwksUri: 'JwksUri',
+      tokenEndpoint: 'TokenEndpoint',
+      userinfoEndpoint: 'UserinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      issuer: 'string',
+      jwksUri: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestOidcConfig extends $tea.Model {
+  /**
+   * @remarks
+   * OIDC客户端认证配置。
+   */
+  authnParam?: UpdateIdentityProviderRequestOidcConfigAuthnParam;
+  /**
+   * @remarks
+   * OIDC 端点配置。
+   */
+  endpointConfig?: UpdateIdentityProviderRequestOidcConfigEndpointConfig;
+  /**
+   * @remarks
+   * OIDC标准参数，如profile、email等
+   * 
+   * @example
+   * openid
+   */
+  grantScopes?: string[];
+  /**
+   * @remarks
+   * OIDC授权类型。
+   * 
+   * @example
+   * authorization_code
+   */
+  grantType?: string;
+  /**
+   * @remarks
+   * 支持的PKCE算法类型。
+   * 
+   * @example
+   * S256
+   */
+  pkceChallengeMethod?: string;
+  /**
+   * @remarks
+   * AuthorizationCode授权模式下是否使用PKCE。
+   * 
+   * @example
+   * true
+   */
+  pkceRequired?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      authnParam: 'AuthnParam',
+      endpointConfig: 'EndpointConfig',
+      grantScopes: 'GrantScopes',
+      grantType: 'GrantType',
+      pkceChallengeMethod: 'PkceChallengeMethod',
+      pkceRequired: 'PkceRequired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authnParam: UpdateIdentityProviderRequestOidcConfigAuthnParam,
+      endpointConfig: UpdateIdentityProviderRequestOidcConfigEndpointConfig,
+      grantScopes: { 'type': 'array', 'itemType': 'string' },
+      grantType: 'string',
+      pkceChallengeMethod: 'string',
+      pkceRequired: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateIdentityProviderRequestWeComConfig extends $tea.Model {
+  /**
+   * @remarks
+   * 企业微信自建应用的Id
+   * 
+   * @example
+   * 1237403
+   */
+  agentId?: string;
+  /**
+   * @remarks
+   * 授权回调域
+   * 
+   * @example
+   * https://xxx.aliyunidaas.com/xxxxx
+   */
+  authorizeCallbackDomain?: string;
+  /**
+   * @remarks
+   * 企业微信自建应用的corpSecret
+   * 
+   * @example
+   * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
+   */
+  corpSecret?: string;
+  /**
+   * @remarks
+   * 可信域名
+   * 
+   * @example
+   * https://xxx.aliyunidaas.com
+   */
+  trustableDomain?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentId: 'AgentId',
+      authorizeCallbackDomain: 'AuthorizeCallbackDomain',
+      corpSecret: 'CorpSecret',
+      trustableDomain: 'TrustableDomain',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentId: 'string',
+      authorizeCallbackDomain: 'string',
+      corpSecret: 'string',
+      trustableDomain: 'string',
     };
   }
 
@@ -21824,6 +25718,104 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建身份提供方
+   * 
+   * @param request - CreateIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIdentityProviderResponse
+   */
+  async createIdentityProviderWithOptions(request: CreateIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<CreateIdentityProviderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.authnConfig)) {
+      query["AuthnConfig"] = request.authnConfig;
+    }
+
+    if (!Util.isUnset(request.autoCreateUserConfig)) {
+      query["AutoCreateUserConfig"] = request.autoCreateUserConfig;
+    }
+
+    if (!Util.isUnset(request.autoUpdateUserConfig)) {
+      query["AutoUpdateUserConfig"] = request.autoUpdateUserConfig;
+    }
+
+    if (!Util.isUnset(request.bindingConfig)) {
+      query["BindingConfig"] = request.bindingConfig;
+    }
+
+    if (!Util.isUnset(request.dingtalkAppConfig)) {
+      query["DingtalkAppConfig"] = request.dingtalkAppConfig;
+    }
+
+    if (!Util.isUnset(request.identityProviderName)) {
+      query["IdentityProviderName"] = request.identityProviderName;
+    }
+
+    if (!Util.isUnset(request.identityProviderType)) {
+      query["IdentityProviderType"] = request.identityProviderType;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.larkConfig)) {
+      query["LarkConfig"] = request.larkConfig;
+    }
+
+    if (!Util.isUnset(request.ldapConfig)) {
+      query["LdapConfig"] = request.ldapConfig;
+    }
+
+    if (!Util.isUnset(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!Util.isUnset(request.oidcConfig)) {
+      query["OidcConfig"] = request.oidcConfig;
+    }
+
+    if (!Util.isUnset(request.udPullConfig)) {
+      query["UdPullConfig"] = request.udPullConfig;
+    }
+
+    if (!Util.isUnset(request.udPushConfig)) {
+      query["UdPushConfig"] = request.udPushConfig;
+    }
+
+    if (!Util.isUnset(request.weComConfig)) {
+      query["WeComConfig"] = request.weComConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIdentityProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateIdentityProviderResponse>(await this.callApi(params, req, runtime), new CreateIdentityProviderResponse({}));
+  }
+
+  /**
+   * 创建身份提供方
+   * 
+   * @param request - CreateIdentityProviderRequest
+   * @returns CreateIdentityProviderResponse
+   */
+  async createIdentityProvider(request: CreateIdentityProviderRequest): Promise<CreateIdentityProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
    * Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
    * 
    * @param request - CreateInstanceRequest
@@ -22325,6 +26317,52 @@ export default class Client extends OpenApi {
   async deleteGroup(request: DeleteGroupRequest): Promise<DeleteGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除身份提供方
+   * 
+   * @param request - DeleteIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIdentityProviderResponse
+   */
+  async deleteIdentityProviderWithOptions(request: DeleteIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<DeleteIdentityProviderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIdentityProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteIdentityProviderResponse>(await this.callApi(params, req, runtime), new DeleteIdentityProviderResponse({}));
+  }
+
+  /**
+   * 删除身份提供方
+   * 
+   * @param request - DeleteIdentityProviderRequest
+   * @returns DeleteIdentityProviderResponse
+   */
+  async deleteIdentityProvider(request: DeleteIdentityProviderRequest): Promise<DeleteIdentityProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteIdentityProviderWithOptions(request, runtime);
   }
 
   /**
@@ -22850,6 +26888,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 禁用同步入
+   * 
+   * @param request - DisableIdentityProviderUdPullRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableIdentityProviderUdPullResponse
+   */
+  async disableIdentityProviderUdPullWithOptions(request: DisableIdentityProviderUdPullRequest, runtime: $Util.RuntimeOptions): Promise<DisableIdentityProviderUdPullResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DisableIdentityProviderUdPull",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DisableIdentityProviderUdPullResponse>(await this.callApi(params, req, runtime), new DisableIdentityProviderUdPullResponse({}));
+  }
+
+  /**
+   * 禁用同步入
+   * 
+   * @param request - DisableIdentityProviderUdPullRequest
+   * @returns DisableIdentityProviderUdPullResponse
+   */
+  async disableIdentityProviderUdPull(request: DisableIdentityProviderUdPullRequest): Promise<DisableIdentityProviderUdPullResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.disableIdentityProviderUdPullWithOptions(request, runtime);
+  }
+
+  /**
    * 关闭初始化域名自动跳转。
    * 
    * @param request - DisableInitDomainAutoRedirectRequest
@@ -23219,6 +27303,52 @@ export default class Client extends OpenApi {
   async enableDomainProxyToken(request: EnableDomainProxyTokenRequest): Promise<EnableDomainProxyTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.enableDomainProxyTokenWithOptions(request, runtime);
+  }
+
+  /**
+   * 启用同步入
+   * 
+   * @param request - EnableIdentityProviderUdPullRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableIdentityProviderUdPullResponse
+   */
+  async enableIdentityProviderUdPullWithOptions(request: EnableIdentityProviderUdPullRequest, runtime: $Util.RuntimeOptions): Promise<EnableIdentityProviderUdPullResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnableIdentityProviderUdPull",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnableIdentityProviderUdPullResponse>(await this.callApi(params, req, runtime), new EnableIdentityProviderUdPullResponse({}));
+  }
+
+  /**
+   * 启用同步入
+   * 
+   * @param request - EnableIdentityProviderUdPullRequest
+   * @returns EnableIdentityProviderUdPullResponse
+   */
+  async enableIdentityProviderUdPull(request: EnableIdentityProviderUdPullRequest): Promise<EnableIdentityProviderUdPullResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enableIdentityProviderUdPullWithOptions(request, runtime);
   }
 
   /**
@@ -23717,6 +27847,98 @@ export default class Client extends OpenApi {
   async getGroup(request: GetGroupRequest): Promise<GetGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取身份提供方
+   * 
+   * @param request - GetIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityProviderResponse
+   */
+  async getIdentityProviderWithOptions(request: GetIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<GetIdentityProviderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIdentityProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIdentityProviderResponse>(await this.callApi(params, req, runtime), new GetIdentityProviderResponse({}));
+  }
+
+  /**
+   * 获取身份提供方
+   * 
+   * @param request - GetIdentityProviderRequest
+   * @returns GetIdentityProviderResponse
+   */
+  async getIdentityProvider(request: GetIdentityProviderRequest): Promise<GetIdentityProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIdentityProviderWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取IdP同步入配置
+   * 
+   * @param request - GetIdentityProviderUdPullConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIdentityProviderUdPullConfigurationResponse
+   */
+  async getIdentityProviderUdPullConfigurationWithOptions(request: GetIdentityProviderUdPullConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<GetIdentityProviderUdPullConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIdentityProviderUdPullConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIdentityProviderUdPullConfigurationResponse>(await this.callApi(params, req, runtime), new GetIdentityProviderUdPullConfigurationResponse({}));
+  }
+
+  /**
+   * 获取IdP同步入配置
+   * 
+   * @param request - GetIdentityProviderUdPullConfigurationRequest
+   * @returns GetIdentityProviderUdPullConfigurationResponse
+   */
+  async getIdentityProviderUdPullConfiguration(request: GetIdentityProviderUdPullConfigurationRequest): Promise<GetIdentityProviderUdPullConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIdentityProviderUdPullConfigurationWithOptions(request, runtime);
   }
 
   /**
@@ -24735,6 +28957,56 @@ export default class Client extends OpenApi {
   async listGroupsForUser(request: ListGroupsForUserRequest): Promise<ListGroupsForUserResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listGroupsForUserWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询身份提供方
+   * 
+   * @param request - ListIdentityProvidersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListIdentityProvidersResponse
+   */
+  async listIdentityProvidersWithOptions(request: ListIdentityProvidersRequest, runtime: $Util.RuntimeOptions): Promise<ListIdentityProvidersResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListIdentityProviders",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListIdentityProvidersResponse>(await this.callApi(params, req, runtime), new ListIdentityProvidersResponse({}));
+  }
+
+  /**
+   * 查询身份提供方
+   * 
+   * @param request - ListIdentityProvidersRequest
+   * @returns ListIdentityProvidersResponse
+   */
+  async listIdentityProviders(request: ListIdentityProvidersRequest): Promise<ListIdentityProvidersResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listIdentityProvidersWithOptions(request, runtime);
   }
 
   /**
@@ -26054,6 +30326,10 @@ export default class Client extends OpenApi {
       query["ApplicationId"] = request.applicationId;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.initLoginType)) {
       query["InitLoginType"] = request.initLoginType;
     }
@@ -26199,6 +30475,76 @@ export default class Client extends OpenApi {
   async setForgetPasswordConfiguration(request: SetForgetPasswordConfigurationRequest): Promise<SetForgetPasswordConfigurationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.setForgetPasswordConfigurationWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改IdP同步入配置
+   * 
+   * @param request - SetIdentityProviderUdPullConfigurationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SetIdentityProviderUdPullConfigurationResponse
+   */
+  async setIdentityProviderUdPullConfigurationWithOptions(request: SetIdentityProviderUdPullConfigurationRequest, runtime: $Util.RuntimeOptions): Promise<SetIdentityProviderUdPullConfigurationResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.groupSyncStatus)) {
+      query["GroupSyncStatus"] = request.groupSyncStatus;
+    }
+
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.incrementalCallbackStatus)) {
+      query["IncrementalCallbackStatus"] = request.incrementalCallbackStatus;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ldapUdPullConfig)) {
+      query["LdapUdPullConfig"] = request.ldapUdPullConfig;
+    }
+
+    if (!Util.isUnset(request.periodicSyncStatus)) {
+      query["PeriodicSyncStatus"] = request.periodicSyncStatus;
+    }
+
+    if (!Util.isUnset(request.pullProtectedRule)) {
+      query["PullProtectedRule"] = request.pullProtectedRule;
+    }
+
+    if (!Util.isUnset(request.udSyncScopeConfig)) {
+      query["UdSyncScopeConfig"] = request.udSyncScopeConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SetIdentityProviderUdPullConfiguration",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SetIdentityProviderUdPullConfigurationResponse>(await this.callApi(params, req, runtime), new SetIdentityProviderUdPullConfigurationResponse({}));
+  }
+
+  /**
+   * 修改IdP同步入配置
+   * 
+   * @param request - SetIdentityProviderUdPullConfigurationRequest
+   * @returns SetIdentityProviderUdPullConfigurationResponse
+   */
+  async setIdentityProviderUdPullConfiguration(request: SetIdentityProviderUdPullConfigurationRequest): Promise<SetIdentityProviderUdPullConfigurationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.setIdentityProviderUdPullConfigurationWithOptions(request, runtime);
   }
 
   /**
@@ -26731,6 +31077,80 @@ export default class Client extends OpenApi {
   async updateGroupDescription(request: UpdateGroupDescriptionRequest): Promise<UpdateGroupDescriptionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateGroupDescriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新idp基础配置
+   * 
+   * @param request - UpdateIdentityProviderRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateIdentityProviderResponse
+   */
+  async updateIdentityProviderWithOptions(request: UpdateIdentityProviderRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIdentityProviderResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dingtalkAppConfig)) {
+      query["DingtalkAppConfig"] = request.dingtalkAppConfig;
+    }
+
+    if (!Util.isUnset(request.identityProviderId)) {
+      query["IdentityProviderId"] = request.identityProviderId;
+    }
+
+    if (!Util.isUnset(request.identityProviderName)) {
+      query["IdentityProviderName"] = request.identityProviderName;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.larkConfig)) {
+      query["LarkConfig"] = request.larkConfig;
+    }
+
+    if (!Util.isUnset(request.ldapConfig)) {
+      query["LdapConfig"] = request.ldapConfig;
+    }
+
+    if (!Util.isUnset(request.networkAccessEndpointId)) {
+      query["NetworkAccessEndpointId"] = request.networkAccessEndpointId;
+    }
+
+    if (!Util.isUnset(request.oidcConfig)) {
+      query["OidcConfig"] = request.oidcConfig;
+    }
+
+    if (!Util.isUnset(request.weComConfig)) {
+      query["WeComConfig"] = request.weComConfig;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateIdentityProvider",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateIdentityProviderResponse>(await this.callApi(params, req, runtime), new UpdateIdentityProviderResponse({}));
+  }
+
+  /**
+   * 更新idp基础配置
+   * 
+   * @param request - UpdateIdentityProviderRequest
+   * @returns UpdateIdentityProviderResponse
+   */
+  async updateIdentityProvider(request: UpdateIdentityProviderRequest): Promise<UpdateIdentityProviderResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateIdentityProviderWithOptions(request, runtime);
   }
 
   /**
