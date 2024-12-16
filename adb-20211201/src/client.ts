@@ -25455,6 +25455,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
    * {instance_name: "am-***"}
    */
   tags?: string;
+  translateKey?: string;
   /**
    * @remarks
    * The values of the performance metric at different points in time.
@@ -25464,6 +25465,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
     return {
       name: 'Name',
       tags: 'Tags',
+      translateKey: 'TranslateKey',
       values: 'Values',
     };
   }
@@ -25472,6 +25474,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformancesSeries extends 
     return {
       name: 'string',
       tags: 'string',
+      translateKey: 'string',
       values: { 'type': 'array', 'itemType': 'string' },
     };
   }
