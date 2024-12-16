@@ -403,6 +403,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * dsw-123456789
    */
   resourceId?: string;
+  tag?: CreateInstanceRequestTag[];
   /**
    * @example
    * 1612285282502324
@@ -437,6 +438,7 @@ export class CreateInstanceRequest extends $tea.Model {
       priority: 'Priority',
       requestedResource: 'RequestedResource',
       resourceId: 'ResourceId',
+      tag: 'Tag',
       userId: 'UserId',
       userVpc: 'UserVpc',
       workspaceId: 'WorkspaceId',
@@ -462,6 +464,7 @@ export class CreateInstanceRequest extends $tea.Model {
       priority: 'number',
       requestedResource: CreateInstanceRequestRequestedResource,
       resourceId: 'string',
+      tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
       userId: 'string',
       userVpc: CreateInstanceRequestUserVpc,
       workspaceId: 'string',
@@ -1476,6 +1479,7 @@ export class GetInstanceResponseBody extends $tea.Model {
    * 1
    */
   priority?: number;
+  proxyPath?: string;
   /**
    * @example
    * Internal Error
@@ -1516,6 +1520,7 @@ export class GetInstanceResponseBody extends $tea.Model {
    * true
    */
   success?: boolean;
+  tags?: GetInstanceResponseBodyTags[];
   /**
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
@@ -1588,6 +1593,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       nodeErrorRecovery: 'NodeErrorRecovery',
       paymentType: 'PaymentType',
       priority: 'Priority',
+      proxyPath: 'ProxyPath',
       reasonCode: 'ReasonCode',
       reasonMessage: 'ReasonMessage',
       requestId: 'RequestId',
@@ -1596,6 +1602,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       resourceName: 'ResourceName',
       status: 'Status',
       success: 'Success',
+      tags: 'Tags',
       terminalUrl: 'TerminalUrl',
       userId: 'UserId',
       userName: 'UserName',
@@ -1640,6 +1647,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       nodeErrorRecovery: GetInstanceResponseBodyNodeErrorRecovery,
       paymentType: 'string',
       priority: 'number',
+      proxyPath: 'string',
       reasonCode: 'string',
       reasonMessage: 'string',
       requestId: 'string',
@@ -1648,6 +1656,7 @@ export class GetInstanceResponseBody extends $tea.Model {
       resourceName: 'string',
       status: 'string',
       success: 'boolean',
+      tags: { 'type': 'array', 'itemType': GetInstanceResponseBodyTags },
       terminalUrl: 'string',
       userId: 'string',
       userName: 'string',
@@ -3297,6 +3306,7 @@ export class ListInstancesRequest extends $tea.Model {
    * Running
    */
   status?: string;
+  tag?: ListInstancesRequestTag[];
   /**
    * @example
    * 40823
@@ -3327,6 +3337,7 @@ export class ListInstancesRequest extends $tea.Model {
       resourceId: 'ResourceId',
       sortBy: 'SortBy',
       status: 'Status',
+      tag: 'Tag',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -3356,6 +3367,7 @@ export class ListInstancesRequest extends $tea.Model {
       resourceId: 'string',
       sortBy: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': ListInstancesRequestTag },
       workspaceId: 'string',
     };
   }
@@ -3433,6 +3445,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
    * Running
    */
   status?: string;
+  tagShrink?: string;
   /**
    * @example
    * 40823
@@ -3463,6 +3476,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       resourceId: 'ResourceId',
       sortBy: 'SortBy',
       status: 'Status',
+      tagShrink: 'Tag',
       workspaceId: 'WorkspaceId',
     };
   }
@@ -3492,6 +3506,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       resourceId: 'string',
       sortBy: 'string',
       status: 'string',
+      tagShrink: 'string',
       workspaceId: 'string',
     };
   }
@@ -4538,6 +4553,28 @@ export class CreateInstanceRequestRequestedResource extends $tea.Model {
   }
 }
 
+export class CreateInstanceRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateInstanceRequestUserVpc extends $tea.Model {
   /**
    * @example
@@ -5149,6 +5186,28 @@ export class GetInstanceResponseBodyRequestedResource extends $tea.Model {
   }
 }
 
+export class GetInstanceResponseBodyTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetInstanceResponseBodyUserVpc extends $tea.Model {
   /**
    * @example
@@ -5692,6 +5751,28 @@ export class ListInstanceSnapshotResponseBodySnapshots extends $tea.Model {
   }
 }
 
+export class ListInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesAffinityCPU extends $tea.Model {
   enable?: boolean;
   static names(): { [key: string]: string } {
@@ -6154,6 +6235,28 @@ export class ListInstancesResponseBodyInstancesRequestedResource extends $tea.Mo
   }
 }
 
+export class ListInstancesResponseBodyInstancesTags extends $tea.Model {
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListInstancesResponseBodyInstancesUserVpc extends $tea.Model {
   /**
    * @example
@@ -6353,6 +6456,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
    * Running
    */
   status?: string;
+  tags?: ListInstancesResponseBodyInstancesTags[];
   /**
    * @example
    * https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
@@ -6427,6 +6531,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       resourceId: 'ResourceId',
       resourceName: 'ResourceName',
       status: 'Status',
+      tags: 'Tags',
       terminalUrl: 'TerminalUrl',
       userId: 'UserId',
       userName: 'UserName',
@@ -6473,6 +6578,7 @@ export class ListInstancesResponseBodyInstances extends $tea.Model {
       resourceId: 'string',
       resourceName: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': ListInstancesResponseBodyInstancesTags },
       terminalUrl: 'string',
       userId: 'string',
       userName: 'string',
@@ -6889,6 +6995,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceId)) {
       body["ResourceId"] = request.resourceId;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      body["Tag"] = request.tag;
     }
 
     if (!Util.isUnset(request.userId)) {
@@ -7930,6 +8040,10 @@ export default class Client extends OpenApi {
       request.labelsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.labels, "Labels", "json");
     }
 
+    if (!Util.isUnset(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "Tag", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.acceleratorType)) {
       query["AcceleratorType"] = request.acceleratorType;
@@ -8021,6 +8135,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tagShrink)) {
+      query["Tag"] = request.tagShrink;
     }
 
     if (!Util.isUnset(request.workspaceId)) {
