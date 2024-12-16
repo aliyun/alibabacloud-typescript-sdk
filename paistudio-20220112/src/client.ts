@@ -10505,6 +10505,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
    */
   algorithmVersion?: string;
   computeResource?: ListTrainingJobsResponseBodyTrainingJobsComputeResource;
+  dlcJobId?: string;
   environments?: { [key: string]: string };
   experimentConfig?: ListTrainingJobsResponseBodyTrainingJobsExperimentConfig;
   /**
@@ -10577,6 +10578,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
       algorithmProvider: 'AlgorithmProvider',
       algorithmVersion: 'AlgorithmVersion',
       computeResource: 'ComputeResource',
+      dlcJobId: 'DlcJobId',
       environments: 'Environments',
       experimentConfig: 'ExperimentConfig',
       gmtCreateTime: 'GmtCreateTime',
@@ -10608,6 +10610,7 @@ export class ListTrainingJobsResponseBodyTrainingJobs extends $tea.Model {
       algorithmProvider: 'string',
       algorithmVersion: 'string',
       computeResource: ListTrainingJobsResponseBodyTrainingJobsComputeResource,
+      dlcJobId: 'string',
       environments: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       experimentConfig: ListTrainingJobsResponseBodyTrainingJobsExperimentConfig,
       gmtCreateTime: 'string',

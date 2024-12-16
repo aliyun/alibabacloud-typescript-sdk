@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/paistudio20220112",
-  "version": "2.0.0",
+  "version": "1.1.2",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
