@@ -922,6 +922,148 @@ export class DeleteCustomTopicViewPointByIdResponse extends $tea.Model {
   }
 }
 
+export class DeleteDocsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docIds: 'DocIds',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docIdsShrink: 'DocIds',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIdsShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 2C565EDD-E624-5FED-8565-0A9CB0C8CC46
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDocsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDocsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDocsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteGeneratedContentRequest extends $tea.Model {
   /**
    * @remarks
@@ -3530,6 +3672,128 @@ export class GetDocClusterTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDocClusterTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docId: 'DocId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: GetDocInfoResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDocInfoResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDocInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDocInfoResponseBody,
     };
   }
 
@@ -6660,6 +6924,240 @@ export class ListDialoguesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListDialoguesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocsRequest extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  docName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  docType?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 52a33dc83779f63641e16f5146cd7125
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 10
+   */
+  skip?: number;
+  statuses?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docName: 'DocName',
+      docType: 'DocType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      skip: 'Skip',
+      statuses: 'Statuses',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docName: 'string',
+      docType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      skip: 'number',
+      statuses: { 'type': 'array', 'itemType': 'number' },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  docName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  docType?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * 52a33dc83779f63641e16f5146cd7125
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 10
+   */
+  skip?: number;
+  statusesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docName: 'DocName',
+      docType: 'DocType',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      skip: 'Skip',
+      statusesShrink: 'Statuses',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docName: 'string',
+      docType: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      skip: 'number',
+      statusesShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: ListDocsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * 10
+   */
+  maxResults?: number;
+  /**
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @example
+   * CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJANEQ4mYAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM4NzA3MjZjN2E2NDYyNzUzODMxMzY3ODM0NmIzNTZkNjc=
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 70
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      maxResults: 'MaxResults',
+      message: 'Message',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDocsResponseBodyData },
+      httpStatusCode: 'number',
+      maxResults: 'number',
+      message: 'string',
+      nextToken: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDocsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDocsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDocsResponseBody,
     };
   }
 
@@ -10115,6 +10613,601 @@ export class RunCustomHotTopicViewPointAnalysisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunCustomHotTopicViewPointAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponseBody extends $tea.Model {
+  header?: RunDocBrainmapResponseBodyHeader;
+  payload?: RunDocBrainmapResponseBodyPayload;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunDocBrainmapResponseBodyHeader,
+      payload: RunDocBrainmapResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocBrainmapResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocBrainmapResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * a3b5eb35-6b28-4cf9-ac09-1dec25ab4df6
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBody extends $tea.Model {
+  header?: RunDocIntroductionResponseBodyHeader;
+  payload?: RunDocIntroductionResponseBodyPayload;
+  /**
+   * @example
+   * C9B5BEA6-E8C4-5861-BE37-D906D516510E
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunDocIntroductionResponseBodyHeader,
+      payload: RunDocIntroductionResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocIntroductionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocIntroductionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaRequest extends $tea.Model {
+  categoryIds?: string[];
+  conversationContexts?: RunDocQaRequestConversationContexts[];
+  docIds?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  referenceContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fromWeb
+   */
+  searchSource?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f486c4e2-b773-4d65-88f8-2ba540610456
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-dswd4003ny4gh9rw
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIds: 'CategoryIds',
+      conversationContexts: 'ConversationContexts',
+      docIds: 'DocIds',
+      query: 'Query',
+      referenceContent: 'ReferenceContent',
+      searchSource: 'SearchSource',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIds: { 'type': 'array', 'itemType': 'string' },
+      conversationContexts: { 'type': 'array', 'itemType': RunDocQaRequestConversationContexts },
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      query: 'string',
+      referenceContent: 'string',
+      searchSource: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaShrinkRequest extends $tea.Model {
+  categoryIdsShrink?: string;
+  conversationContextsShrink?: string;
+  docIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  referenceContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * fromWeb
+   */
+  searchSource?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * f486c4e2-b773-4d65-88f8-2ba540610456
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-dswd4003ny4gh9rw
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryIdsShrink: 'CategoryIds',
+      conversationContextsShrink: 'ConversationContexts',
+      docIdsShrink: 'DocIds',
+      query: 'Query',
+      referenceContent: 'ReferenceContent',
+      searchSource: 'SearchSource',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryIdsShrink: 'string',
+      conversationContextsShrink: 'string',
+      docIdsShrink: 'string',
+      query: 'string',
+      referenceContent: 'string',
+      searchSource: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBody extends $tea.Model {
+  header?: RunDocQaResponseBodyHeader;
+  payload?: RunDocQaResponseBodyPayload;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunDocQaResponseBodyHeader,
+      payload: RunDocQaResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocQaResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocQaResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryRequest extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
+  docId?: string;
+  query?: string;
+  recommendContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0f56f98a-f2d8-47ec-98e9-1cbdcffa9539
+   */
+  sessionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-2setzb9x4ewsd
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      query: 'Query',
+      recommendContent: 'RecommendContent',
+      sessionId: 'SessionId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      query: 'string',
+      recommendContent: 'string',
+      sessionId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponseBody extends $tea.Model {
+  header?: RunDocSummaryResponseBodyHeader;
+  payload?: RunDocSummaryResponseBodyPayload;
+  /**
+   * @example
+   * 3259D344-E871-5DE0-8FFE-CDA21F8D4382
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunDocSummaryResponseBodyHeader,
+      payload: RunDocSummaryResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocSummaryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocSummaryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationRequest extends $tea.Model {
+  /**
+   * @example
+   * 12345
+   */
+  docId?: string;
+  recommendContent?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2e6b3987-f743-4d4c-8326-d9c41a6af3ee
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * toChinese
+   * toEnglish
+   */
+  transType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      recommendContent: 'RecommendContent',
+      sessionId: 'SessionId',
+      transType: 'TransType',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      recommendContent: 'string',
+      sessionId: 'string',
+      transType: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponseBody extends $tea.Model {
+  header?: RunDocTranslationResponseBodyHeader;
+  payload?: RunDocTranslationResponseBodyPayload;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunDocTranslationResponseBodyHeader,
+      payload: RunDocTranslationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunDocTranslationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunDocTranslationResponseBody,
     };
   }
 
@@ -14132,6 +15225,168 @@ export class UpdateMaterialDocumentResponse extends $tea.Model {
   }
 }
 
+export class UploadDocRequest extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docs?: UploadDocRequestDocs[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-yigtrrjl377rcbab
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docs: 'Docs',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docs: { 'type': 'array', 'itemType': UploadDocRequestDocs },
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDocShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-yigtrrjl377rcbab
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docsShrink: 'Docs',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docsShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDocResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: UploadDocResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UploadDocResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDocResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UploadDocResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UploadDocResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateUploadTemplateRequest extends $tea.Model {
   /**
    * @remarks
@@ -15160,6 +16415,59 @@ export class GetDocClusterTaskResponseBodyData extends $tea.Model {
       errorMessage: 'string',
       status: 'string',
       topics: { 'type': 'array', 'itemType': GetDocClusterTaskResponseBodyDataTopics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDocInfoResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  docName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  docType?: string;
+  /**
+   * @example
+   * http://xxx/xxx.pdf
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  statusMessage?: string;
+  videoContents?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      docName: 'DocName',
+      docType: 'DocType',
+      fileUrl: 'FileUrl',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+      videoContents: 'VideoContents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      docName: 'string',
+      docType: 'string',
+      fileUrl: 'string',
+      status: 'number',
+      statusMessage: 'string',
+      videoContents: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -18658,6 +19966,63 @@ export class ListDialoguesResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListDocsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * default
+   */
+  categoryId?: string;
+  /**
+   * @example
+   * 2024-01-04 11:46:07
+   */
+  createTime?: number;
+  /**
+   * @example
+   * 12345
+   */
+  docId?: string;
+  docName?: string;
+  /**
+   * @example
+   * pdf
+   */
+  docType?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  statusMessage?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryId: 'CategoryId',
+      createTime: 'CreateTime',
+      docId: 'DocId',
+      docName: 'DocName',
+      docType: 'DocType',
+      status: 'Status',
+      statusMessage: 'StatusMessage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryId: 'string',
+      createTime: 'number',
+      docId: 'string',
+      docName: 'string',
+      docType: 'string',
+      status: 'number',
+      statusMessage: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListFreshViewPointsResponseBodyDataOutlines extends $tea.Model {
   /**
    * @example
@@ -21074,6 +22439,981 @@ export class RunCustomHotTopicViewPointAnalysisResponseBodyPayload extends $tea.
     return {
       output: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadOutput,
       usage: RunCustomHotTopicViewPointAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 07181f55-2311-48af-8048-132a77dee020
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 161816
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 6427cdf4-2ffe-4d05-b0ef-c4adceea90f4
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponseBodyPayloadOutput extends $tea.Model {
+  /**
+   * @example
+   * {"xxxx":"xxx"}
+   */
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 65
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 165
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocBrainmapResponseBodyPayload extends $tea.Model {
+  output?: RunDocBrainmapResponseBodyPayloadOutput;
+  usage?: RunDocBrainmapResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocBrainmapResponseBodyPayloadOutput,
+      usage: RunDocBrainmapResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 20247a52-23e2-46fb-943d-309cdee2bc6d
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 8a9cecb7-6d20-32db-8823-5882c217b647
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 0bd58ea2-dc38-45da-ac02-17f05cb9040b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  beginTime?: number;
+  /**
+   * @example
+   * 1200
+   */
+  endTime?: number;
+  /**
+   * @example
+   * 600
+   */
+  height?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageId?: number;
+  /**
+   * @example
+   * 600
+   */
+  width?: number;
+  /**
+   * @example
+   * 10
+   */
+  x?: number;
+  /**
+   * @example
+   * 10
+   */
+  y?: number;
+  static names(): { [key: string]: string } {
+    return {
+      beginTime: 'BeginTime',
+      endTime: 'EndTime',
+      height: 'Height',
+      pageId: 'PageId',
+      width: 'Width',
+      x: 'X',
+      y: 'Y',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      beginTime: 'number',
+      endTime: 'number',
+      height: 'number',
+      pageId: 'number',
+      width: 'number',
+      x: 'number',
+      y: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyPayloadOutputIntroductions extends $tea.Model {
+  blocks?: RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks[];
+  /**
+   * @example
+   * 10
+   */
+  startPageId?: number;
+  summary?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      blocks: 'Blocks',
+      startPageId: 'StartPageId',
+      summary: 'Summary',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      blocks: { 'type': 'array', 'itemType': RunDocIntroductionResponseBodyPayloadOutputIntroductionsBlocks },
+      startPageId: 'number',
+      summary: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyPayloadOutput extends $tea.Model {
+  introductions?: RunDocIntroductionResponseBodyPayloadOutputIntroductions[];
+  keyPoint?: string;
+  summary?: string;
+  static names(): { [key: string]: string } {
+    return {
+      introductions: 'Introductions',
+      keyPoint: 'KeyPoint',
+      summary: 'Summary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      introductions: { 'type': 'array', 'itemType': RunDocIntroductionResponseBodyPayloadOutputIntroductions },
+      keyPoint: 'string',
+      summary: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocIntroductionResponseBodyPayload extends $tea.Model {
+  output?: RunDocIntroductionResponseBodyPayloadOutput;
+  usage?: RunDocIntroductionResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocIntroductionResponseBodyPayloadOutput,
+      usage: RunDocIntroductionResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaRequestConversationContexts extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      role: 'Role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * f5517ee8-dbec-4dc8-bd0a-af084b5e3db1
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 46e5c2b5-0877-4f09-bd91-ab0cf314e48b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  from?: number;
+  /**
+   * @example
+   * 30
+   */
+  to?: number;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      to: 'To',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      to: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadOutputMediaUrlList extends $tea.Model {
+  clipInfos?: RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos[];
+  /**
+   * @example
+   * https://gw.alicdn.com/imgextra/i3/2775676850/O1CN01kdeffE20TM0E7wvpq_!!2775676850.jpg_q60.jpg
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * video
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clipInfos: { 'type': 'array', 'itemType': RunDocQaResponseBodyPayloadOutputMediaUrlListClipInfos },
+      fileUrl: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadOutputRecommends extends $tea.Model {
+  title?: string;
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadOutputReferences extends $tea.Model {
+  /**
+   * @example
+   * 2024-10-08 18:00
+   */
+  pubTime?: string;
+  source?: string;
+  /**
+   * @example
+   * 123456
+   */
+  sourceDocId?: string;
+  title?: string;
+  /**
+   * @example
+   * http://xxxxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pubTime: 'PubTime',
+      source: 'Source',
+      sourceDocId: 'SourceDocId',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pubTime: 'string',
+      source: 'string',
+      sourceDocId: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadOutput extends $tea.Model {
+  content?: string;
+  interveneContent?: string;
+  /**
+   * @example
+   * false
+   */
+  isReject?: boolean;
+  mediaUrlList?: RunDocQaResponseBodyPayloadOutputMediaUrlList[];
+  recommends?: RunDocQaResponseBodyPayloadOutputRecommends[];
+  references?: RunDocQaResponseBodyPayloadOutputReferences[];
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      interveneContent: 'InterveneContent',
+      isReject: 'IsReject',
+      mediaUrlList: 'MediaUrlList',
+      recommends: 'Recommends',
+      references: 'References',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      interveneContent: 'string',
+      isReject: 'boolean',
+      mediaUrlList: { 'type': 'array', 'itemType': RunDocQaResponseBodyPayloadOutputMediaUrlList },
+      recommends: { 'type': 'array', 'itemType': RunDocQaResponseBodyPayloadOutputRecommends },
+      references: { 'type': 'array', 'itemType': RunDocQaResponseBodyPayloadOutputReferences },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocQaResponseBodyPayload extends $tea.Model {
+  output?: RunDocQaResponseBodyPayloadOutput;
+  usage?: RunDocQaResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocQaResponseBodyPayloadOutput,
+      usage: RunDocQaResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 92e16ccb-92b6-4894-abbf-fc6e2929a0df
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * b057f2fa-2277-477b-babf-cbc062307828
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 2150451a17191950923411783e2927
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponseBodyPayloadOutput extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocSummaryResponseBodyPayload extends $tea.Model {
+  output?: RunDocSummaryResponseBodyPayloadOutput;
+  usage?: RunDocSummaryResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocSummaryResponseBodyPayloadOutput,
+      usage: RunDocSummaryResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * success
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * success
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-started
+   */
+  event?: string;
+  eventInfo?: string;
+  /**
+   * @example
+   * 411c4dfa-2168-4379-a902-675d67f453f8
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * 50a1cc8e-717e-4a2b-a76b-dc9734a8564b
+   */
+  taskId?: string;
+  /**
+   * @example
+   * ebd19b12-0cae-488f-9e41-5a1c825f545b
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponseBodyPayloadOutput extends $tea.Model {
+  content?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunDocTranslationResponseBodyPayload extends $tea.Model {
+  output?: RunDocTranslationResponseBodyPayloadOutput;
+  usage?: RunDocTranslationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunDocTranslationResponseBodyPayloadOutput,
+      usage: RunDocTranslationResponseBodyPayloadUsage,
     };
   }
 
@@ -24501,6 +26841,61 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends
   }
 }
 
+export class UploadDocRequestDocs extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  docName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * http://xxx/ccc.pdf
+   */
+  fileUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docName: 'DocName',
+      fileUrl: 'FileUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docName: 'string',
+      fileUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UploadDocResponseBodyData extends $tea.Model {
+  docIds?: string[];
+  existedIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      docIds: 'DocIds',
+      existedIds: 'ExistedIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docIds: { 'type': 'array', 'itemType': 'string' },
+      existedIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ValidateUploadTemplateResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -24921,6 +27316,58 @@ export default class Client extends OpenApi {
   async deleteCustomTopicViewPointById(request: DeleteCustomTopicViewPointByIdRequest): Promise<DeleteCustomTopicViewPointByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomTopicViewPointByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读删除多个文档
+   * 
+   * @param tmpReq - DeleteDocsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDocsResponse
+   */
+  async deleteDocsWithOptions(tmpReq: DeleteDocsRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDocsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteDocsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.docIds)) {
+      request.docIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docIds, "DocIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docIdsShrink)) {
+      body["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDocs",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDocsResponse>(await this.callApi(params, req, runtime), new DeleteDocsResponse({}));
+  }
+
+  /**
+   * 妙读删除多个文档
+   * 
+   * @param request - DeleteDocsRequest
+   * @returns DeleteDocsResponse
+   */
+  async deleteDocs(request: DeleteDocsRequest): Promise<DeleteDocsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDocsWithOptions(request, runtime);
   }
 
   /**
@@ -25939,6 +28386,56 @@ export default class Client extends OpenApi {
   async getDocClusterTask(request: GetDocClusterTaskRequest): Promise<GetDocClusterTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDocClusterTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读获取文档信息
+   * 
+   * @param request - GetDocInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDocInfoResponse
+   */
+  async getDocInfoWithOptions(request: GetDocInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetDocInfoResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDocInfo",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDocInfoResponse>(await this.callApi(params, req, runtime), new GetDocInfoResponse({}));
+  }
+
+  /**
+   * 妙读获取文档信息
+   * 
+   * @param request - GetDocInfoRequest
+   * @returns GetDocInfoResponse
+   */
+  async getDocInfo(request: GetDocInfoRequest): Promise<GetDocInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDocInfoWithOptions(request, runtime);
   }
 
   /**
@@ -27173,6 +29670,82 @@ export default class Client extends OpenApi {
   async listDialogues(request: ListDialoguesRequest): Promise<ListDialoguesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDialoguesWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读获取文档列表
+   * 
+   * @param tmpReq - ListDocsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDocsResponse
+   */
+  async listDocsWithOptions(tmpReq: ListDocsRequest, runtime: $Util.RuntimeOptions): Promise<ListDocsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDocsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.statuses)) {
+      request.statusesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.statuses, "Statuses", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.docName)) {
+      body["DocName"] = request.docName;
+    }
+
+    if (!Util.isUnset(request.docType)) {
+      body["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.skip)) {
+      body["Skip"] = request.skip;
+    }
+
+    if (!Util.isUnset(request.statusesShrink)) {
+      body["Statuses"] = request.statusesShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDocs",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDocsResponse>(await this.callApi(params, req, runtime), new ListDocsResponse({}));
+  }
+
+  /**
+   * 妙读获取文档列表
+   * 
+   * @param request - ListDocsRequest
+   * @returns ListDocsResponse
+   */
+  async listDocs(request: ListDocsRequest): Promise<ListDocsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDocsWithOptions(request, runtime);
   }
 
   /**
@@ -28551,6 +31124,306 @@ export default class Client extends OpenApi {
   async runCustomHotTopicViewPointAnalysis(request: RunCustomHotTopicViewPointAnalysisRequest): Promise<RunCustomHotTopicViewPointAnalysisResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runCustomHotTopicViewPointAnalysisWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读脑图生成接口
+   * 
+   * @param request - RunDocBrainmapRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocBrainmapResponse
+   */
+  async runDocBrainmapWithOptions(request: RunDocBrainmapRequest, runtime: $Util.RuntimeOptions): Promise<RunDocBrainmapResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunDocBrainmap",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDocBrainmapResponse>(await this.callApi(params, req, runtime), new RunDocBrainmapResponse({}));
+  }
+
+  /**
+   * 妙读脑图生成接口
+   * 
+   * @param request - RunDocBrainmapRequest
+   * @returns RunDocBrainmapResponse
+   */
+  async runDocBrainmap(request: RunDocBrainmapRequest): Promise<RunDocBrainmapResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runDocBrainmapWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读文档导读接口
+   * 
+   * @param request - RunDocIntroductionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocIntroductionResponse
+   */
+  async runDocIntroductionWithOptions(request: RunDocIntroductionRequest, runtime: $Util.RuntimeOptions): Promise<RunDocIntroductionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunDocIntroduction",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunDocIntroductionResponse({}));
+  }
+
+  /**
+   * 妙读文档导读接口
+   * 
+   * @param request - RunDocIntroductionRequest
+   * @returns RunDocIntroductionResponse
+   */
+  async runDocIntroduction(request: RunDocIntroductionRequest): Promise<RunDocIntroductionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runDocIntroductionWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读问答接口
+   * 
+   * @param tmpReq - RunDocQaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocQaResponse
+   */
+  async runDocQaWithOptions(tmpReq: RunDocQaRequest, runtime: $Util.RuntimeOptions): Promise<RunDocQaResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunDocQaShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categoryIds)) {
+      request.categoryIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categoryIds, "CategoryIds", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.conversationContexts)) {
+      request.conversationContextsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.conversationContexts, "ConversationContexts", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.docIds)) {
+      request.docIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docIds, "DocIds", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryIdsShrink)) {
+      body["CategoryIds"] = request.categoryIdsShrink;
+    }
+
+    if (!Util.isUnset(request.conversationContextsShrink)) {
+      body["ConversationContexts"] = request.conversationContextsShrink;
+    }
+
+    if (!Util.isUnset(request.docIdsShrink)) {
+      body["DocIds"] = request.docIdsShrink;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.referenceContent)) {
+      body["ReferenceContent"] = request.referenceContent;
+    }
+
+    if (!Util.isUnset(request.searchSource)) {
+      body["SearchSource"] = request.searchSource;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunDocQa",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDocQaResponse>(await this.callApi(params, req, runtime), new RunDocQaResponse({}));
+  }
+
+  /**
+   * 妙读问答接口
+   * 
+   * @param request - RunDocQaRequest
+   * @returns RunDocQaResponse
+   */
+  async runDocQa(request: RunDocQaRequest): Promise<RunDocQaResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runDocQaWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读文档总结摘要接口
+   * 
+   * @param request - RunDocSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocSummaryResponse
+   */
+  async runDocSummaryWithOptions(request: RunDocSummaryRequest, runtime: $Util.RuntimeOptions): Promise<RunDocSummaryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.recommendContent)) {
+      body["RecommendContent"] = request.recommendContent;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunDocSummary",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDocSummaryResponse>(await this.callApi(params, req, runtime), new RunDocSummaryResponse({}));
+  }
+
+  /**
+   * 妙读文档总结摘要接口
+   * 
+   * @param request - RunDocSummaryRequest
+   * @returns RunDocSummaryResponse
+   */
+  async runDocSummary(request: RunDocSummaryRequest): Promise<RunDocSummaryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runDocSummaryWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读文档翻译接口
+   * 
+   * @param request - RunDocTranslationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunDocTranslationResponse
+   */
+  async runDocTranslationWithOptions(request: RunDocTranslationRequest, runtime: $Util.RuntimeOptions): Promise<RunDocTranslationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.recommendContent)) {
+      body["RecommendContent"] = request.recommendContent;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.transType)) {
+      body["TransType"] = request.transType;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunDocTranslation",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunDocTranslationResponse>(await this.callApi(params, req, runtime), new RunDocTranslationResponse({}));
+  }
+
+  /**
+   * 妙读文档翻译接口
+   * 
+   * @param request - RunDocTranslationRequest
+   * @returns RunDocTranslationResponse
+   */
+  async runDocTranslation(request: RunDocTranslationRequest): Promise<RunDocTranslationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runDocTranslationWithOptions(request, runtime);
   }
 
   /**
@@ -30145,6 +33018,62 @@ export default class Client extends OpenApi {
   async updateMaterialDocument(request: UpdateMaterialDocumentRequest): Promise<UpdateMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateMaterialDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 妙读上传文档接口
+   * 
+   * @param tmpReq - UploadDocRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UploadDocResponse
+   */
+  async uploadDocWithOptions(tmpReq: UploadDocRequest, runtime: $Util.RuntimeOptions): Promise<UploadDocResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UploadDocShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.docs)) {
+      request.docsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.docs, "Docs", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoryId)) {
+      body["CategoryId"] = request.categoryId;
+    }
+
+    if (!Util.isUnset(request.docsShrink)) {
+      body["Docs"] = request.docsShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UploadDoc",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UploadDocResponse>(await this.callApi(params, req, runtime), new UploadDocResponse({}));
+  }
+
+  /**
+   * 妙读上传文档接口
+   * 
+   * @param request - UploadDocRequest
+   * @returns UploadDocResponse
+   */
+  async uploadDoc(request: UploadDocRequest): Promise<UploadDocResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.uploadDocWithOptions(request, runtime);
   }
 
   /**
