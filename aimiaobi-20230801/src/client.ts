@@ -11416,6 +11416,7 @@ export class RunWritingShrinkRequest extends $tea.Model {
 }
 
 export class RunWritingResponseBody extends $tea.Model {
+  end?: boolean;
   header?: RunWritingResponseBodyHeader;
   payload?: RunWritingResponseBodyPayload;
   /**
@@ -11425,6 +11426,7 @@ export class RunWritingResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      end: 'End',
       header: 'Header',
       payload: 'Payload',
       requestId: 'RequestId',
@@ -11433,6 +11435,7 @@ export class RunWritingResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      end: 'boolean',
       header: RunWritingResponseBodyHeader,
       payload: RunWritingResponseBodyPayload,
       requestId: 'string',
