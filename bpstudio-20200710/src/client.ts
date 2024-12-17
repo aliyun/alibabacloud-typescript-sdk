@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -311,6 +312,7 @@ export class GetDeployDetailResponseBodyDataResourceList extends $tea.Model {
    * OpenApi
    */
   executionStrategy?: string;
+  expiredTime?: number;
   /**
    * @example
    * 1714031840000
@@ -363,6 +365,7 @@ export class GetDeployDetailResponseBodyDataResourceList extends $tea.Model {
       buyDuration: 'BuyDuration',
       chargeType: 'ChargeType',
       executionStrategy: 'ExecutionStrategy',
+      expiredTime: 'ExpiredTime',
       modifiedTime: 'ModifiedTime',
       monitorURL: 'MonitorURL',
       nodeName: 'NodeName',
@@ -382,6 +385,7 @@ export class GetDeployDetailResponseBodyDataResourceList extends $tea.Model {
       buyDuration: 'string',
       chargeType: 'string',
       executionStrategy: 'string',
+      expiredTime: 'number',
       modifiedTime: 'number',
       monitorURL: 'string',
       nodeName: 'string',
@@ -506,6 +510,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "BPStudio";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("bpstudio", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -560,7 +567,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<BillingApplicationResponse>(await this.callApi(params, req, runtime), new BillingApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BillingApplicationResponse>(await this.callApi(params, req, runtime), new BillingApplicationResponse({}));
+    } else {
+      return $tea.cast<BillingApplicationResponse>(await this.execute(params, req, runtime), new BillingApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -630,7 +642,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDeployDetailResponse>(await this.callApi(params, req, runtime), new GetDeployDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetDeployDetailResponse>(await this.callApi(params, req, runtime), new GetDeployDetailResponse({}));
+    } else {
+      return $tea.cast<GetDeployDetailResponse>(await this.execute(params, req, runtime), new GetDeployDetailResponse({}));
+    }
+
   }
 
   /**
