@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -315,10 +316,10 @@ export class AttachAlbServerGroupsRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the ALB server group. Valid values:
+   * Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the new ALB server group. Valid values:
    * 
-   * *   true: adds the existing ECS instances or elastic container instances in the scaling group to the ALB server group. In this case, the system returns the value of `ScalingActivityId`.
-   * *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the ALB server group.
+   * *   true: adds the existing ECS instances or elastic container instances in the scaling group to the new ALB server group. In this case, the system returns the value of `ScalingActivityId`.
+   * *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the new ALB server group.
    * 
    * Default value: false.
    * 
@@ -807,7 +808,7 @@ export class AttachLoadBalancersRequest extends $tea.Model {
    * 
    *     **
    * 
-   *     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set the ForceAttach request parameter to true.
+   *     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set ForceAttach request to true.
    * 
    * *   false: If you set this parameter to false, the attachment of the load balancer does not entail the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
    * 
@@ -1471,7 +1472,7 @@ export class CompleteLifecycleActionRequest extends $tea.Model {
   lifecycleActionResult?: string;
   /**
    * @remarks
-   * The token of the lifecycle hook. You can obtain this token by using a Message Service (MNS) queue or an MNS topic that is specified for the lifecycle hook.
+   * The token of the lifecycle action. You can obtain the token from the Simple Message Queue (SMQ, formerly MNS) queue or topic that is specified for the lifecycle hook.
    * 
    * This parameter is required.
    * 
@@ -1590,12 +1591,12 @@ export class CreateAlarmRequest extends $tea.Model {
   alarmActions?: string[];
   /**
    * @remarks
-   * The operator that is used to compare the metric value and the threshold. Valid values:
+   * The operator that you want to use to compare the metric value and the threshold. Valid values:
    * 
-   * *   If the metric value is greater than or equal to the threshold, set the value to: >=.
-   * *   If the metric value is less than or equal to the threshold, set the value to: <=.
-   * *   If the metric value is greater than the threshold, set the value to: >.
-   * *   If the metric value is less than the threshold, set the value to: <.
+   * *   If the metric value is greater than or equal to the threshold, set the value to >=.
+   * *   If the metric value is less than or equal to the metric threshold, set the value to <=.
+   * *   If the metric value is greater than the metric threshold, set the value to >.
+   * *   If the metric value is less than the metric threshold, set the value to <.
    * 
    * Default value: >=.
    * 
@@ -1639,7 +1640,7 @@ export class CreateAlarmRequest extends $tea.Model {
   effective?: string;
   /**
    * @remarks
-   * The number of times that the threshold must be reached before a scaling rule can be executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before a scaling rule is triggered.
+   * The number of consecutive times that the threshold must be reached before a scaling rule is executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before the scaling rule is executed.
    * 
    * Default value: 3.
    * 
@@ -1715,10 +1716,10 @@ export class CreateAlarmRequest extends $tea.Model {
   metricName?: string;
   /**
    * @remarks
-   * The type of the metric. Valid values:
+   * The metric type. Valid values:
    * 
-   * *   system: system metrics of CloudMonitor
-   * *   custom: custom metrics that are reported to CloudMonitor
+   * *   system: system metrics of CloudMonitor.
+   * *   custom: custom metrics that are reported to CloudMonitor.
    * 
    * @example
    * system
@@ -1774,11 +1775,11 @@ export class CreateAlarmRequest extends $tea.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The method that is used to aggregate statistics for the metric. Valid values:
+   * The method that you want to use to aggregate the metric data. Valid values:
    * 
-   * *   Average
-   * *   Minimum
-   * *   Maximum
+   * *   Average: the average value.
+   * *   Minimum: the minimum value.
+   * *   Maximum: the maximum value.
    * 
    * Default value: Average.
    * 
@@ -1911,6 +1912,8 @@ export class CreateAlarmResponse extends $tea.Model {
 export class CreateDiagnoseReportRequest extends $tea.Model {
   /**
    * @remarks
+   * The region ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1919,6 +1922,8 @@ export class CreateDiagnoseReportRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1946,13 +1951,16 @@ export class CreateDiagnoseReportRequest extends $tea.Model {
 
 export class CreateDiagnoseReportResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The unique ID of the diagnostic report.
+   * 
    * @example
    * dr-uf6enpbnri1xhcy9qc7s
    */
   reportId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * 0189C6CB-07BA-5AFE-B533-D93892324774
@@ -2203,6 +2211,18 @@ export class CreateEciScalingConfigurationRequest extends $tea.Model {
    * 20
    */
   ephemeralStorage?: number;
+  /**
+   * @remarks
+   * The version of the GPU driver. Valid values:
+   * 
+   * *   tesla=470.82.01 (default)
+   * *   tesla=525.85.12
+   * 
+   * >  You can switch the GPU driver version only for a few Elastic Compute Service (ECS) instance types. For more information, see [Specify GPU-accelerated ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/2579486.html).
+   * 
+   * @example
+   * tesla=525.85.12
+   */
   gpuDriverVersion?: string;
   /**
    * @remarks
@@ -2632,18 +2652,19 @@ export class CreateLifecycleHookRequest extends $tea.Model {
   lifecycleTransition?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the notification method that is used by Auto Scaling to send notifications when the lifecycle hook takes effect. If you do not specify this parameter, no notification is sent when the lifecycle hook takes effect. If you specify this parameter, the following rules apply:
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient. If you do not specify this parameter, no notification is sent when the lifecycle hook takes effect. If you specify this parameter, the value must be in one of the following formats:
    * 
-   * *   If you use a Message Service (MNS) queue as the notification method, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
-   * *   If you use an MNS topic as the notification method, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
-   * *   If you use an OOS template as the notification method, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+   * *   If you specify a Simple Message Queue (SMQ, formerly MNS) as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
+   * *   If you specify an SMQ topic as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
+   * *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+   * *   If you specify an event bus as the notification recipient, specify the value in the acs:eventbridge:{region-id}:{account-id}:eventbus/default format.
    * 
-   * The variables in the preceding parameter formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
-   * *   region-id: the region ID of the scaling group.
-   * *   account-id: the ID of the Alibaba Cloud account. The ID of the RAM user is not supported.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   region-id: the region ID of your scaling group.
+   * *   account-id: the ID of the Alibaba Cloud account. IDs of Resource Access Management (RAM) users are not supported.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * *   templatename: the name of the OOS template.
    * 
    * @example
@@ -2783,15 +2804,15 @@ export class CreateNotificationConfigurationRequest extends $tea.Model {
    * The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
    * 
    * *   If you specify CloudMonitor as the notification recipient, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
-   * *   If you specify an MNS queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-   * *   If you specify an MNS topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+   * *   If you specify an SMQ queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+   * *   If you specify an SMQ topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
    * 
    * The variables in the preceding formats have the following meanings:
    * 
    * *   `region-id`: the region ID of the scaling group.
    * *   `account-id`: the ID of the Alibaba Cloud account.
-   * *   `queuename`: the name of the MNS queue.
-   * *   `topicname`: the name of the MNS topic.
+   * *   `queuename`: the name of the SMQ queue.
+   * *   `topicname`: the name of the SMQ topic.
    * 
    * This parameter is required.
    * 
@@ -3034,7 +3055,35 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the access channel for instance metadata. Valid values:
+   * 
+   * *   enabled
+   * *   disabled
+   * 
+   * Default value: enabled.
+   * 
+   * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * enabled
+   */
   httpEndpoint?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+   * 
+   * *   optional: does not forcibly use the security hardening mode (IMDSv2).
+   * *   required: forcibly uses the security hardening mode (IMDSv2). If you set this parameter to required, you cannot access instance metadata in normal mode.
+   * 
+   * Default value: optional.
+   * 
+   * >  For more information about instance metadata access modes, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * optional
+   */
   httpTokens?: string;
   /**
    * @remarks
@@ -3080,7 +3129,7 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The information about the intelligent configuration settings, which determine the available instance types.
+   * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: CreateScalingConfigurationRequestInstancePatternInfos[];
   /**
@@ -3118,9 +3167,10 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
+   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
    * 
-   * Default value: 200 This parameter is not used for billing because inbound traffic to instances is free of charge.
+   * *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10, and the default value is 10.
+   * *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `InternetMaxBandwidthOut`, and the default value is the value of `InternetMaxBandwidthOut`.
    * 
    * @example
    * 100
@@ -3128,10 +3178,9 @@ export class CreateScalingConfigurationRequest extends $tea.Model {
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
    * 
-   * *   Valid values if you set InternetChargeType to PayByBandwidth: 0 to 100. If you leave this parameter empty, this parameter is automatically set to 0.
-   * *   Valid values if you set InternetChargeType to PayByTraffic: 0 to 100. If you leave this parameter empty, an error is returned.
+   * Default value: 0.
    * 
    * @example
    * 50
@@ -3645,7 +3694,35 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the access channel for instance metadata. Valid values:
+   * 
+   * *   enabled
+   * *   disabled
+   * 
+   * Default value: enabled.
+   * 
+   * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * enabled
+   */
   httpEndpoint?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+   * 
+   * *   optional: does not forcibly use the security hardening mode (IMDSv2).
+   * *   required: forcibly uses the security hardening mode (IMDSv2). If you set this parameter to required, you cannot access instance metadata in normal mode.
+   * 
+   * Default value: optional.
+   * 
+   * >  For more information about instance metadata access modes, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * optional
+   */
   httpTokens?: string;
   /**
    * @remarks
@@ -3691,7 +3768,7 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The information about the intelligent configuration settings, which determine the available instance types.
+   * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: CreateScalingConfigurationShrinkRequestInstancePatternInfos[];
   /**
@@ -3729,9 +3806,10 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
+   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
    * 
-   * Default value: 200 This parameter is not used for billing because inbound traffic to instances is free of charge.
+   * *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10, and the default value is 10.
+   * *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `InternetMaxBandwidthOut`, and the default value is the value of `InternetMaxBandwidthOut`.
    * 
    * @example
    * 100
@@ -3739,10 +3817,9 @@ export class CreateScalingConfigurationShrinkRequest extends $tea.Model {
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
    * 
-   * *   Valid values if you set InternetChargeType to PayByBandwidth: 0 to 100. If you leave this parameter empty, this parameter is automatically set to 0.
-   * *   Valid values if you set InternetChargeType to PayByTraffic: 0 to 100. If you leave this parameter empty, an error is returned.
+   * Default value: 0.
    * 
    * @example
    * 50
@@ -4233,6 +4310,10 @@ export class CreateScalingGroupRequest extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  /**
+   * @remarks
+   * The capacity options.
+   */
   capacityOptions?: CreateScalingGroupRequestCapacityOptions;
   /**
    * @remarks
@@ -5047,9 +5128,9 @@ export class CreateScalingRuleRequest extends $tea.Model {
    * *   SimpleScalingRule: a simple scaling rule. After you execute a simple scaling rule, Auto Scaling adjusts the number of ECS instances or elastic container instances in the scaling group based on the values of AdjustmentType and AdjustmentValue.
    * *   TargetTrackingScalingRule: a target tracking scaling rule. After you execute a target tracking scaling rule, Auto Scaling dynamically calculates the number of ECS instances or elastic container instances to scale based on the predefined metric (MetricName) and attempts to maintain the metric value close to the expected value (TargetValue).
    * *   StepScalingRule: a step scaling rule. After you execute a step scaling rule, Auto Scaling scales instances step by step based on the predefined thresholds and metric values.
-   * *   PredictiveScalingRule: uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to specify the value range for the scaling group.
+   * *   PredictiveScalingRule: a predictive scaling rule. After you execute a predictive scaling rule, Auto Scaling uses machine learning to analyze historical monitoring data of the scaling group and predicts the future values of metrics. In addition, Auto Scaling automatically creates scheduled tasks to specify the value range for the scaling group.
    * 
-   * Default value: SimpleScalingRule
+   * Default value: SimpleScalingRule.
    * 
    * @example
    * SimpleScalingRule
@@ -5884,18 +5965,18 @@ export class DeleteLifecycleHookResponse extends $tea.Model {
 export class DeleteNotificationConfigurationRequest extends $tea.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient. Specify the value in one of the following formats:
    * 
-   * *   If you use CloudMonitor as the notification party, the value format of this parameter is acs:ess:{region-id}:{account-id}:cloudmonitor.
-   * *   If you use an MNS queue as the notification party, the value format of this parameter is acs:mns:{region-id}:{account-id}:queue/{queuename}.
-   * *   If you use an MNS topic as the notification party, the value format of this parameter is acs:mns:{region-id}:{account-id}:topic/{topicname}.
+   * *   If you specify CloudMonitor as the notification recipient, specify the value in the acs:ess:{region-id}:{account-id}:cloudmonitor format.
+   * *   If you specify a Simple Message Queue (SMQ, formerly MNS) queue as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
+   * *   If you specify an SMQ queue as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
    * 
-   * The variables in the preceding formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
    * *   region-id: the region ID of the scaling group.
-   * *   account-id: the ID of the Alibaba Cloud account.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   account-id: the ID of your Alibaba Cloud cloud.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * 
    * This parameter is required.
    * 
@@ -6722,26 +6803,40 @@ export class DescribeAlertConfigurationResponse extends $tea.Model {
 
 export class DescribeDiagnoseReportsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
    * @remarks
+   * The region ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-shenzhen
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the diagnostic reports. You can specify at most 20 IDs.
+   */
   reportIds?: string[];
   /**
    * @remarks
+   * The ID of the scaling group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6775,25 +6870,38 @@ export class DescribeDiagnoseReportsRequest extends $tea.Model {
 
 export class DescribeDiagnoseReportsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The diagnostic reports.
+   */
   reports?: DescribeDiagnoseReportsResponseBodyReports[];
   /**
    * @remarks
-   * Id of the request
+   * The ID of the request.
    * 
    * @example
    * ECA123C6-107B-5F70-A177-740A7224C996
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of diagnostic reports.
+   * 
    * @example
    * 5
    */
@@ -7181,14 +7289,30 @@ export class DescribeEciScalingConfigurationsResponse extends $tea.Model {
 
 export class DescribeElasticStrengthRequest extends $tea.Model {
   dataDiskCategories?: string[];
+  /**
+   * @example
+   * CentOS7
+   */
   imageFamily?: string;
+  /**
+   * @example
+   * centos6u5_64_20G_aliaegis****.vhd
+   */
   imageId?: string;
+  /**
+   * @example
+   * ubuntu_18_04_x64_20G_alibase_20231225.vhd
+   */
   imageName?: string;
   /**
    * @remarks
    * The instance types. The instance types specified by this parameter overwrite the instance types specified in the scaling configuration.
    */
   instanceTypes?: string[];
+  /**
+   * @example
+   * 1
+   */
   ipv6AddressCount?: number;
   /**
    * @remarks
@@ -7227,6 +7351,10 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
    * The IDs of the scaling groups that you want to query.
    */
   scalingGroupIds?: string[];
+  /**
+   * @example
+   * NoSpot
+   */
   spotStrategy?: string;
   /**
    * @remarks
@@ -7283,7 +7411,7 @@ export class DescribeElasticStrengthRequest extends $tea.Model {
 export class DescribeElasticStrengthResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The scaling strength models.
+   * The scaling strengths of scaling configurations that are queried at the same time.
    */
   elasticStrengthModels?: DescribeElasticStrengthResponseBodyElasticStrengthModels[];
   /**
@@ -7781,7 +7909,7 @@ export class DescribeLifecycleHooksRequest extends $tea.Model {
 export class DescribeLifecycleHooksResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the lifecycle hooks.
+   * Details about the lifecycle hooks.
    */
   lifecycleHooks?: DescribeLifecycleHooksResponseBodyLifecycleHooks[];
   /**
@@ -8293,13 +8421,12 @@ export class DescribeNotificationTypesResponse extends $tea.Model {
 export class DescribePatternTypesRequest extends $tea.Model {
   /**
    * @remarks
-   * The architectures of instance types. Valid values:
+   * The architecture types of the instance types. Valid values:
    * 
-   * *   X86: x86
-   * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated
-   * *   BareMetal: ECS Bare Metal Instance
-   * *   Arm: Arm
-   * *   SuperComputeCluster: Super Computing Cluster
+   * *   X86: x86 architecture.
+   * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
+   * *   BareMetal: ECS Bare Metal Instance.
+   * *   Arm: Arm.
    * 
    * By default, all values are selected.
    */
@@ -8357,24 +8484,23 @@ export class DescribePatternTypesRequest extends $tea.Model {
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of the instance types. Valid values:
+   * The classifications of the instance types. Valid values:
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type with local SSDs.
+   * *   High Clock Speed: instance type with high clock speeds.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
@@ -8537,6 +8663,10 @@ export class DescribePatternTypesRequest extends $tea.Model {
    * The IDs of the vSwitches.
    */
   vSwitchId?: string[];
+  /**
+   * @remarks
+   * The zone IDs. If you pass vSwitch IDs to the system, this parameter does not take effect.
+   */
   zoneId?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -8772,6 +8902,9 @@ export class DescribeRegionsResponse extends $tea.Model {
 
 export class DescribeScalingActivitiesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance refresh task. If you specify this parameter, this operation returns the list of scaling activities associated with the instance refresh task.
+   * 
    * @example
    * ir-a12ds234fasd*****
    */
@@ -9006,7 +9139,7 @@ export class DescribeScalingActivityDetailRequest extends $tea.Model {
 export class DescribeScalingActivityDetailResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of the scaling activity. If the status of the scaling activity is Rejected, no result is displayed.
+   * The details of the scaling activity. The result of a scaling activity is either successful or failed. If the scaling activity is rejected, no scaling activity details are returned.
    * 
    * @example
    * new ECS instances \\"i-bp16t2cgmiiymeqv****\\" are created.
@@ -10204,11 +10337,24 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The interval at which scheduled task N is repeatedly executed. Valid values:
+   * 
+   * *   Daily: Scheduled task N is executed once every specified number of days.
+   * *   Weekly: Scheduled task N is executed on each specified day of a week.
+   * *   Monthly: Scheduled task N is executed on each specified day of a month.
+   * *   Cron: Scheduled task N is executed based on the specified Cron expression.
+   * 
    * @example
    * Weekly
    */
   recurrenceType?: string;
   /**
+   * @remarks
+   * The number of times scheduled task N is repeatedly executed.
+   * 
+   * You can specify this parameter only if you set RecurrenceType to Weekly. Separate multiple values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.
+   * 
    * @example
    * 1,2,3
    */
@@ -10249,11 +10395,20 @@ export class DescribeScheduledTasksRequest extends $tea.Model {
    */
   scheduledTaskNames?: string[];
   /**
+   * @remarks
+   * Specifies whether scheduled task N is enabled.
+   * 
+   * *   true
+   * *   false
+   * 
    * @example
    * true
    */
   taskEnabled?: boolean;
   /**
+   * @remarks
+   * The name of scheduled task N. Fuzzy search based on keywords is supported.
+   * 
    * @example
    * scheduled****
    */
@@ -10411,7 +10566,7 @@ export class DetachAlbServerGroupsRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to remove the existing ECS instances from the ALB server group. Valid values:
+   * Specifies whether to remove the existing Elastic Compute Service (ECS) instances from the Application Load Balancer (ALB) server group marked for detachment. Valid values:
    * 
    * *   true: removes the existing ECS instances from the ALB server group and returns the value of `ScalingActivityId`. You can query the value of ScalingActivityId to check whether the existing ECS instances are removed from the ALB server group.
    * *   false: does not remove the existing ECS instances from the ALB server group.
@@ -10537,9 +10692,9 @@ export class DetachAlbServerGroupsResponse extends $tea.Model {
 export class DetachDBInstancesRequest extends $tea.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -10576,7 +10731,10 @@ export class DetachDBInstancesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * This parameter takes effect only for databases whose AttachMode is set to SecurityGroup. If you set this parameter to true, Auto Scaling removes the security group ID of the active scaling configuration from the security group whitelist of the database that you want to detach from the scaling group.
+   * Specifies whether to remove the security group. This parameter takes effect only if you set `AttachMode` to `SecurityGroup`. Valid values:
+   * 
+   * *   true
+   * *   false
    * 
    * Default value: false.
    * 
@@ -10886,7 +11044,7 @@ export class DetachLoadBalancersRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the CLB instance. Valid values:
+   * Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the Server Load Balancer (SLB) instance. Valid values:
    * 
    * *   true
    * *   false
@@ -12737,10 +12895,10 @@ export class ModifyAlarmRequest extends $tea.Model {
   metricName?: string;
   /**
    * @remarks
-   * The type of the metric. Valid values:
+   * The metric type. Valid values:
    * 
    * *   system: system metrics of CloudMonitor
-   * *   custom: custom metrics that are reported to CloudMonitor
+   * *   custom: custom metrics that are reported to CloudMonitor.
    * 
    * @example
    * system
@@ -13236,6 +13394,18 @@ export class ModifyEciScalingConfigurationRequest extends $tea.Model {
    * 20
    */
   ephemeralStorage?: number;
+  /**
+   * @remarks
+   * The version of the GPU driver. Valid values:
+   * 
+   * *   tesla=470.82.01 (default)
+   * *   tesla=525.85.12
+   * 
+   * >  You can switch the GPU driver version only for a few Elastic Compute Service (ECS) instance types. For more information, see [Specify GPU-accelerated ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/2579486.html).
+   * 
+   * @example
+   * tesla=525.85.12
+   */
   gpuDriverVersion?: string;
   /**
    * @remarks
@@ -13791,18 +13961,19 @@ export class ModifyLifecycleHookRequest extends $tea.Model {
   lifecycleTransition?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the notification method. Specify the value in one of the following formats:
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient. Specify the value in one of the following formats:
    * 
-   * *   If the notification method is a Message Service (MNS) queue, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
-   * *   If the notification method is an MNS topic, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
-   * *   If the notification method is an Operation Orchestration Service (OOS) template, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+   * *   If you specify a Simple Message Queue (SMQ, formerly MNS) as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
+   * *   If you specify an SMQ topic as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
+   * *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+   * *   If you specify an event bus as the notification recipient, specify the value in the acs:eventbridge:{region-id}:{account-id}:eventbus/default format.
    * 
-   * The variables in the preceding parameter formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
-   * *   region-id: the region ID of the scaling group.
-   * *   account-id: the ID of the Alibaba Cloud account.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   region-id: the region ID of your scaling group.
+   * *   account-id: the ID of your Alibaba Cloud account.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * *   templatename: the name of the OOS template.
    * 
    * @example
@@ -13933,18 +14104,18 @@ export class ModifyLifecycleHookResponse extends $tea.Model {
 export class ModifyNotificationConfigurationRequest extends $tea.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
    * 
-   * *   If you use CloudMonitor as the notification method, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
-   * *   If you use an MNS queue as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-   * *   If you use an MNS topic as the notification method, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+   * *   If you specify CloudMonitor as the notification recipient, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
+   * *   If you specify a Simple Message Queue (SMQ) queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+   * *   If you specify an SMQ topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
    * 
-   * The variables in the preceding formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
    * *   region-id: the region ID of your scaling group.
-   * *   account-id: the ID of your Alibaba Cloud.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   account-id: the ID of your Alibaba Cloud account.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * 
    * This parameter is required.
    * 
@@ -14181,7 +14352,35 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the access channel for instance metadata. Valid values:
+   * 
+   * *   enabled
+   * *   disabled
+   * 
+   * Default value: enabled.
+   * 
+   * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * enabled
+   */
   httpEndpoint?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+   * 
+   * *   optional: does not forcibly use the security hardening mode (IMDSv2).
+   * *   required: forcibly uses the security hardening mode (IMDSv2). If you set this parameter to required, you cannot access instance metadata in normal mode.
+   * 
+   * Default value: optional.
+   * 
+   * >  For more information about instance metadata access modes, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * optional
+   */
   httpTokens?: string;
   /**
    * @remarks
@@ -14229,7 +14428,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The information about the intelligent configuration settings, which determine the available instance types.
+   * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: ModifyScalingConfigurationRequestInstancePatternInfos[];
   /**
@@ -14255,13 +14454,22 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
    * PayByBandwidth
    */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+   * 
+   * *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10. The default value is 10.
+   * *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `InternetMaxBandwidthOut`. The default value is the value of `InternetMaxBandwidthOut`.
+   * 
+   * @example
+   * 10
+   */
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
    * 
-   * *   If you set InternetChargeType to PayByBandwidth: 0 to 100. If you leave this parameter empty, this parameter is automatically set to 0.
-   * *   If you set InternetChargeType to PayByTraffic: 0 to 100. If you leave this parameter empty, an error is returned.
+   * Default value: 0.
    * 
    * @example
    * 50
@@ -14324,7 +14532,7 @@ export class ModifyScalingConfigurationRequest extends $tea.Model {
   networkInterfaces?: ModifyScalingConfigurationRequestNetworkInterfaces[];
   /**
    * @remarks
-   * Specifies whether to override existing data. Valid values:
+   * Specifies whether to overwrite existing data. Valid values:
    * 
    * *   true
    * *   false
@@ -14761,7 +14969,35 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
    * hpc-clusterid
    */
   hpcClusterId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the access channel for instance metadata. Valid values:
+   * 
+   * *   enabled
+   * *   disabled
+   * 
+   * Default value: enabled.
+   * 
+   * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * enabled
+   */
   httpEndpoint?: string;
+  /**
+   * @remarks
+   * Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+   * 
+   * *   optional: does not forcibly use the security hardening mode (IMDSv2).
+   * *   required: forcibly uses the security hardening mode (IMDSv2). If you set this parameter to required, you cannot access instance metadata in normal mode.
+   * 
+   * Default value: optional.
+   * 
+   * >  For more information about instance metadata access modes, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/108460.html).
+   * 
+   * @example
+   * optional
+   */
   httpTokens?: string;
   /**
    * @remarks
@@ -14809,7 +15045,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The information about the intelligent configuration settings, which determine the available instance types.
+   * The intelligent configuration settings, which determine the available instance types.
    */
   instancePatternInfos?: ModifyScalingConfigurationShrinkRequestInstancePatternInfos[];
   /**
@@ -14835,13 +15071,22 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
    * PayByBandwidth
    */
   internetChargeType?: string;
+  /**
+   * @remarks
+   * The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+   * 
+   * *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10. The default value is 10.
+   * *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `InternetMaxBandwidthOut`. The default value is the value of `InternetMaxBandwidthOut`.
+   * 
+   * @example
+   * 10
+   */
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+   * The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
    * 
-   * *   If you set InternetChargeType to PayByBandwidth: 0 to 100. If you leave this parameter empty, this parameter is automatically set to 0.
-   * *   If you set InternetChargeType to PayByTraffic: 0 to 100. If you leave this parameter empty, an error is returned.
+   * Default value: 0.
    * 
    * @example
    * 50
@@ -14904,7 +15149,7 @@ export class ModifyScalingConfigurationShrinkRequest extends $tea.Model {
   networkInterfaces?: ModifyScalingConfigurationShrinkRequestNetworkInterfaces[];
   /**
    * @remarks
-   * Specifies whether to override existing data. Valid values:
+   * Specifies whether to overwrite existing data. Valid values:
    * 
    * *   true
    * *   false
@@ -15313,6 +15558,10 @@ export class ModifyScalingGroupRequest extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  /**
+   * @remarks
+   * The capacity options.
+   */
   capacityOptions?: ModifyScalingGroupRequestCapacityOptions;
   /**
    * @remarks
@@ -16146,6 +16395,7 @@ export class ModifyScheduledTaskRequest extends $tea.Model {
    * 2
    */
   recurrenceValue?: string;
+  regionId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -16212,6 +16462,7 @@ export class ModifyScheduledTaskRequest extends $tea.Model {
       recurrenceEndTime: 'RecurrenceEndTime',
       recurrenceType: 'RecurrenceType',
       recurrenceValue: 'RecurrenceValue',
+      regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       scalingGroupId: 'ScalingGroupId',
@@ -16235,6 +16486,7 @@ export class ModifyScheduledTaskRequest extends $tea.Model {
       recurrenceEndTime: 'string',
       recurrenceType: 'string',
       recurrenceValue: 'string',
+      regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       scalingGroupId: 'string',
@@ -16426,9 +16678,9 @@ export class RecordLifecycleActionHeartbeatRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   /**
    * @remarks
-   * The time window during which the desired ECS instance stays in a Pending state. When the time window ends, Auto Scaling executes the default action. Valid values: 30 to 21600. Unit: seconds.
+   * The time window during which the ECS instance stays in a Pending state. When the time window ends, Auto Scaling executes the default action. Valid values: 30 to 21600. Unit: seconds.
    * 
-   * After you create a lifecycle hook, you can call this operation to extend the time window during which the desired ECS instance stays in a Pending state. You can also call the [CompleteLifecycleAction](https://help.aliyun.com/document_detail/459335.html) operation to remove the desired ECS instance from a Pending state ahead of schedule.
+   * After you create a lifecycle hook, you can call this operation to extend the time window during which the ECS instance stays in a Pending state. You can also call the [CompleteLifecycleAction](https://help.aliyun.com/document_detail/459335.html) operation to remove the ECS instance from the Pending state ahead of schedule.
    * 
    * Default value: 600.
    * 
@@ -16438,9 +16690,11 @@ export class RecordLifecycleActionHeartbeatRequest extends $tea.Model {
   heartbeatTimeout?: number;
   /**
    * @remarks
-   * The action token of the lifecycle hook. You can obtain the token from the details page of the Message Service (MNS) queue specified for the lifecycle hook when the desired ECS instance enters a Pending state.\\
-   * You can also call the [DescribeLifecycleActions](https://help.aliyun.com/document_detail/459333.html) operation to obtain the action token of the lifecycle hook.\\
-   * If you specified an MNS topic for the lifecycle hook, you can obtain the token from the MNS topic.
+   * The action token of the lifecycle hook. You can obtain the token from the details page of the Simple Message Queue (SMQ, formerly MNS) queue specified for the lifecycle hook.
+   * 
+   * You can also call the [DescribeLifecycleActions](https://help.aliyun.com/document_detail/459333.html) operation to obtain the action token of the lifecycle hook.
+   * 
+   * If you specified an SMQ topic for the lifecycle hook, you can obtain the token from the MNS topic.
    * 
    * This parameter is required.
    * 
@@ -16629,15 +16883,17 @@ export class RemoveInstancesRequest extends $tea.Model {
   scalingGroupId?: string;
   /**
    * @remarks
-   * The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds. Valid values: 30 to 240.
+   * The period of time required by the ECS instance to enter the Stopped state. Unit: seconds. Valid values: 30 to 240.
    * 
    * > 
    * 
    * *   By default, this parameter inherits the value of StopInstanceTimeout specified in the CreateScalingGroup or ModifyScalingGroup operation. You can also specify a different value for this parameter in the RemoveInstances operation.
    * 
-   * *   This parameter takes effect only if you set RemovePolicy to release.\\
-   *     If you specify this parameter, the system proceeds with the scale-in process only after the period of time specified by StopInstanceTimeout ends. In this case, the scale-in operation continues regardless of whether the ECS instance enters the Stopped state or not.\\
-   *     If you do not specify this parameter, the system proceeds with the scale-in process only after the ECS instance enters the Stopped state. If the ECS instance fails to enter the Stopped state, the scale-in process rolls back, and the scale-in operation is considered as failed.
+   * *   This parameter takes effect only if you set RemovePolicy to release.
+   * 
+   * *   If you specify this parameter, the system waits for the ECS instance to enter the Stopped state only for up to the specified period of time before continuing with the scale-in operation, regardless of the status of the ECS instance.
+   * 
+   * *   If you do not specify this parameter, the system continues with the scale-in operation until the ECS instance enters the Stopped state. If the ECS instance is not successfully stopped, the scale-in process is rolled back and considered failed.
    * 
    * @example
    * 60
@@ -17156,10 +17412,10 @@ export class ScaleWithAdjustmentRequest extends $tea.Model {
    * @remarks
    * Specifies whether to trigger the scaling activity in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid values:
    * 
-   * *   true: triggers the scaling activity in a synchronous manner. The scaling activity is triggered at the time when the scaling rule is executed.
-   * *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number of instances and determines whether to trigger the scaling activity based on the check result.
+   * *   true: triggers the scaling activity in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
+   * *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
    * 
-   * > For more information about the Expected Number of Instances feature, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
+   * >  For more information about the expected number of instances feature, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
    * 
    * Default value: false.
    * 
@@ -17283,10 +17539,10 @@ export class ScaleWithAdjustmentShrinkRequest extends $tea.Model {
    * @remarks
    * Specifies whether to trigger the scaling activity in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid values:
    * 
-   * *   true: triggers the scaling activity in a synchronous manner. The scaling activity is triggered at the time when the scaling rule is executed.
-   * *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number of instances and determines whether to trigger the scaling activity based on the check result.
+   * *   true: triggers the scaling activity in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
+   * *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
    * 
-   * > For more information about the Expected Number of Instances feature, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
+   * >  For more information about the expected number of instances feature, see [Expected number of instances](https://help.aliyun.com/document_detail/146231.html).
    * 
    * Default value: false.
    * 
@@ -17730,7 +17986,7 @@ export class SetInstancesProtectionResponse extends $tea.Model {
 export class StartInstanceRefreshRequest extends $tea.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see "How to ensure idempotence".
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -18003,13 +18259,13 @@ export class SuspendProcessesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The types of the processes that you want to suspend. Valid values:
+   * The types of processes that you want to suspend. Valid values:
    * 
-   * *   scalein: the scale-in process.
-   * *   scaleout: the scale-out process.
-   * *   healthcheck: the health check process.
-   * *   alarmnotification: the process of executing an event-triggered task.
-   * *   scheduledaction: the process of executing a scheduled task.
+   * *   ScaleIn: the scale-in process.
+   * *   ScaleOut: the scale-out process.
+   * *   HealthCheck: the health check process.
+   * *   AlarmNotification: the process of executing an event-triggered task.
+   * *   ScheduledAction: the process of executing a scheduled task.
    * 
    * Presently, Auto Scaling supports suspending the five mentioned process types. In cases where more than five types are specified, Auto Scaling will automatically disregard duplicates and proceed with suspending the unique process types.
    * 
@@ -18145,7 +18401,7 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Details of the tags.
+   * The tags that you want to add to the Auto Scaling resources.
    * 
    * This parameter is required.
    */
@@ -20999,22 +21255,21 @@ export class CreateScalingConfigurationRequestDataDisks extends $tea.Model {
 export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.Model {
   /**
    * @remarks
-   * The architecture types of instance types. Valid values:
+   * The architecture types of the instance types. Valid values:
    * 
-   * *   X86: x86.
+   * *   X86: x86 architecture.
    * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
    * *   BareMetal: ECS Bare Metal Instance.
    * *   Arm: Arm.
-   * *   SuperComputeCluster: Super Computing Cluster.
    * 
-   * By default, all values are included.
+   * By default, all values are selected.
    */
   architectures?: string[];
   /**
    * @remarks
    * Specifies whether to include burstable instance types. Valid values:
    * 
-   * *   Exclude: does not include burstable instance types.
+   * *   Exclude: excludes burstable instance types.
    * *   Include: includes burstable instance types.
    * *   Required: includes only burstable instance types.
    * 
@@ -21026,11 +21281,11 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   burstablePerformance?: string;
   /**
    * @remarks
-   * The number of vCPUs per instance type in intelligent configuration mode. You can use this parameter to match the available instance types. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The number of vCPUs per instance type in intelligent configuration mode. You can specify this parameter to filter the available instance types. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * Take note of the following items:
    * 
-   * *   InstancePatternInfos applies only to the scaling groups that reside in virtual private clouds (VPCs).
+   * *   InstancePatternInfos applies only to scaling groups that reside in virtual private clouds (VPCs).
    * *   If you specify InstancePatternInfos, you must also specify InstancePatternInfos.Cores and InstancePatternInfos.Memory.
    * *   If you specify InstanceType or InstanceTypes, Auto Scaling preferentially uses the instance type specified by InstanceType or InstanceTypes to create instances during scale-out events. If the specified instance type has insufficient inventory, Auto Scaling uses the lowest-priced instance type specified by InstancePatternInfos to create instances during scale-out events.
    * 
@@ -21040,9 +21295,9 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   cores?: number;
   /**
    * @remarks
-   * The CPU architectures of instance types. Valid values:
+   * The CPU architectures of the instance types. Valid values:
    * 
-   * >  You can specify 1 to 2 CPU architectures.
+   * >  You can specify up to two CPU architectures.
    * 
    * *   x86
    * *   Arm
@@ -21050,7 +21305,7 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance types that you want to exclude. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
+   * The instance types that you want to exclude. You can use an asterisk (\\*) as a wildcard character to exclude an instance type or an instance family. Examples:
    * 
    * *   ecs.c6.large: excludes the ecs.c6.large instance type.
    * *   ecs.c6.\\*: excludes the c6 instance family.
@@ -21063,35 +21318,34 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of instance types. Valid values:
+   * The categories of the instance types. Valid values:
    * 
    * >  You can specify up to 10 categories.
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type that uses local SSDs.
+   * *   High Clock Speed: instance type that has high clock speeds.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
    * @remarks
-   * The level of the instance family. You can use this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+   * The level of the instance family. You can specify this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
    * 
-   * *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-   * *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * *   EntryLevel: entry-level (shared instance types). Instance types of this level are the most cost-effective but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * *   EnterpriseLevel: enterprise-level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * *   CreditEntryLevel: credit entry-level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
    * 
    * @example
    * EnterpriseLevel
@@ -21140,7 +21394,7 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   maximumMemorySize?: number;
   /**
    * @remarks
-   * The memory size per instance type in intelligent configuration mode. Unit: GiB. You can use this parameter to match the available instance types.
+   * The memory size per instance type in intelligent configuration mode. Unit: GiB. You can specify this parameter to filter the available instance types.
    * 
    * @example
    * 4
@@ -21212,7 +21466,7 @@ export class CreateScalingConfigurationRequestInstancePatternInfos extends $tea.
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The processor models of instance types. You can specify up to 10 processor models.
+   * The processor models of the instance types. You can specify up to 10 processor models.
    */
   physicalProcessorModels?: string[];
   static names(): { [key: string]: string } {
@@ -21932,22 +22186,21 @@ export class CreateScalingConfigurationShrinkRequestDataDisks extends $tea.Model
 export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends $tea.Model {
   /**
    * @remarks
-   * The architecture types of instance types. Valid values:
+   * The architecture types of the instance types. Valid values:
    * 
-   * *   X86: x86.
+   * *   X86: x86 architecture.
    * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
    * *   BareMetal: ECS Bare Metal Instance.
    * *   Arm: Arm.
-   * *   SuperComputeCluster: Super Computing Cluster.
    * 
-   * By default, all values are included.
+   * By default, all values are selected.
    */
   architectures?: string[];
   /**
    * @remarks
    * Specifies whether to include burstable instance types. Valid values:
    * 
-   * *   Exclude: does not include burstable instance types.
+   * *   Exclude: excludes burstable instance types.
    * *   Include: includes burstable instance types.
    * *   Required: includes only burstable instance types.
    * 
@@ -21959,11 +22212,11 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   burstablePerformance?: string;
   /**
    * @remarks
-   * The number of vCPUs per instance type in intelligent configuration mode. You can use this parameter to match the available instance types. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * The number of vCPUs per instance type in intelligent configuration mode. You can specify this parameter to filter the available instance types. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
    * 
    * Take note of the following items:
    * 
-   * *   InstancePatternInfos applies only to the scaling groups that reside in virtual private clouds (VPCs).
+   * *   InstancePatternInfos applies only to scaling groups that reside in virtual private clouds (VPCs).
    * *   If you specify InstancePatternInfos, you must also specify InstancePatternInfos.Cores and InstancePatternInfos.Memory.
    * *   If you specify InstanceType or InstanceTypes, Auto Scaling preferentially uses the instance type specified by InstanceType or InstanceTypes to create instances during scale-out events. If the specified instance type has insufficient inventory, Auto Scaling uses the lowest-priced instance type specified by InstancePatternInfos to create instances during scale-out events.
    * 
@@ -21973,9 +22226,9 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   cores?: number;
   /**
    * @remarks
-   * The CPU architectures of instance types. Valid values:
+   * The CPU architectures of the instance types. Valid values:
    * 
-   * >  You can specify 1 to 2 CPU architectures.
+   * >  You can specify up to two CPU architectures.
    * 
    * *   x86
    * *   Arm
@@ -21983,7 +22236,7 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance types that you want to exclude. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
+   * The instance types that you want to exclude. You can use an asterisk (\\*) as a wildcard character to exclude an instance type or an instance family. Examples:
    * 
    * *   ecs.c6.large: excludes the ecs.c6.large instance type.
    * *   ecs.c6.\\*: excludes the c6 instance family.
@@ -21996,35 +22249,34 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of instance types. Valid values:
+   * The categories of the instance types. Valid values:
    * 
    * >  You can specify up to 10 categories.
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type that uses local SSDs.
+   * *   High Clock Speed: instance type that has high clock speeds.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
    * @remarks
-   * The level of the instance family. You can use this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+   * The level of the instance family. You can specify this parameter to match the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
    * 
-   * *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-   * *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * *   EntryLevel: entry-level (shared instance types). Instance types of this level are the most cost-effective but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * *   EnterpriseLevel: enterprise-level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * *   CreditEntryLevel: credit entry-level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
    * 
    * @example
    * EnterpriseLevel
@@ -22073,7 +22325,7 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   maximumMemorySize?: number;
   /**
    * @remarks
-   * The memory size per instance type in intelligent configuration mode. Unit: GiB. You can use this parameter to match the available instance types.
+   * The memory size per instance type in intelligent configuration mode. Unit: GiB. You can specify this parameter to filter the available instance types.
    * 
    * @example
    * 4
@@ -22145,7 +22397,7 @@ export class CreateScalingConfigurationShrinkRequestInstancePatternInfos extends
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The processor models of instance types. You can specify up to 10 processor models.
+   * The processor models of the instance types. You can specify up to 10 processor models.
    */
   physicalProcessorModels?: string[];
   static names(): { [key: string]: string } {
@@ -22421,9 +22673,51 @@ export class CreateScalingGroupRequestAlbServerGroups extends $tea.Model {
 }
 
 export class CreateScalingGroupRequestCapacityOptions extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically create pay-as-you-go ECS instances to reach the required number of ECS instances when preemptible ECS instances cannot be created due to high prices or insufficient inventory of resources. This parameter takes effect when you set `MultiAZPolicy` to `COST_OPTIMIZED`. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: true.
+   * 
+   * @example
+   * true
+   */
   compensateWithOnDemand?: boolean;
+  /**
+   * @remarks
+   * The minimum number of pay-as-you-go instances required in the scaling group. When the number of pay-as-you-go instances drops below the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+   * 
+   * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 0.
+   * 
+   * @example
+   * 30
+   */
   onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 100.
+   * 
+   * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 100.
+   * 
+   * @example
+   * 20
+   */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * Specifies whether to replace pay-as-you-go instances with preemptible instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible instances to replace the surplus pay-as-you-go instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * false
+   */
   spotAutoReplaceOnDemand?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -22773,7 +23067,7 @@ export class CreateScalingGroupRequestServerGroups extends $tea.Model {
 export class CreateScalingGroupRequestTags extends $tea.Model {
   /**
    * @remarks
-   * The tag key that you want to add to the scaling group.
+   * The tag key.
    * 
    * @example
    * Department
@@ -22781,10 +23075,10 @@ export class CreateScalingGroupRequestTags extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
+   * Specifies whether to propagate the tag that you want to add. Valid values:
    * 
-   * *   true: propagates the tag to only instances that are newly created.
-   * *   false: does not propagate the tag to any instances.
+   * *   true: propagates the tag to new instances.
+   * *   false: does not propagate the tag to any instance.
    * 
    * Default value: false.
    * 
@@ -22794,7 +23088,7 @@ export class CreateScalingGroupRequestTags extends $tea.Model {
   propagate?: boolean;
   /**
    * @remarks
-   * The tag value that you want to add to the scaling group.
+   * The tag value.
    * 
    * @example
    * Finance
@@ -23512,21 +23806,57 @@ export class DescribeAlarmsResponseBodyAlarmList extends $tea.Model {
 
 export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $tea.Model {
   /**
+   * @remarks
+   * The type of the diagnostic item. Valid values:
+   * 
+   * *   AccountArrearage: Checks whether your Alibaba Cloud account has overdue payments.
+   * *   AccountNotEnoughBalance: Checks whether the balance of your Alibaba Cloud account at the China site (aliyun.com) is greater than or equal to CNY 100.
+   * *   ElasticStrength: Checks whether the instance types that are specified in the scaling configuration are sufficient.
+   * *   VSwitch: Checks whether a specific vSwitch can work as expected. For example, if a vSwitch is deleted, the vSwitch cannot provide services and an exception occurs.
+   * *   SecurityGroup: Checks whether a specific security group can work as expected. For example, if a security group is deleted, the security group cannot provide services and an exception occurs.
+   * *   KeyPair: Checks whether the key pair is available. If the specified key pair is deleted, specify another key pair for the scaling group.
+   * *   SlbBackendServerQuota: Checks whether the number of ECS instances that are added to the default server group and the vServer groups of the SLB instances associated with the scaling group has reached the upper limit.
+   * *   AlbBackendServerQuota: Checks whether the number of ECS instances that are added to the backend server groups of the ALB instances associated with the scaling group has reached the upper limit.
+   * *   NlbBackendServerQuota: Checks whether the number of ECS instances that are added to the backend server groups of the NLB instances associated with the scaling group has reached the upper limit.
+   * 
    * @example
    * AccountArrearage
    */
   diagnoseType?: string;
   /**
+   * @remarks
+   * The error code of the diagnostic item. Valid values:
+   * 
+   * *   VSwitchIdNotFound: The vSwitch does not exist.
+   * *   SecurityGroupNotFound: The security group does not exist.
+   * *   KeyPairNotFound: The key pair does not exist.
+   * *   SlbBackendServerQuotaExceeded: The number of ECS instances that are added to the default server group and the vServer groups of the SLB instances associated with the scaling group has reached the upper limit.
+   * *   AlbBackendServerQuotaExceeded: The number of ECS instances that are attached to the ALB instances of the scaling group has reached the upper limit.
+   * *   NlbBackendServerQuotaExceeded: The number of ECS instances that are attached to the NLB instances of the scaling group has reached the upper limit.
+   * *   AccountArrearage: Your account has overdue payments.
+   * *   AccountNotEnoughBalance: The balance of your Alibaba Cloud account is less than CNY 100.
+   * *   ElasticStrengthAlert: The inventory levels are lower than expected.
+   * 
    * @example
    * VSwitchIdNotFound
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The ID of the resource.
+   * 
    * @example
    * sg-280ih****
    */
   resourceId?: string;
   /**
+   * @remarks
+   * The status of the diagnostic item. Valid values:
+   * 
+   * *   Normal: The diagnostic result is normal.
+   * *   Warn: The diagnostic result is warning.
+   * *   Critical: The diagnostic result is critical.
+   * 
    * @example
    * Normal
    */
@@ -23556,37 +23886,69 @@ export class DescribeDiagnoseReportsResponseBodyReportsDetails extends $tea.Mode
 
 export class DescribeDiagnoseReportsResponseBodyReports extends $tea.Model {
   /**
+   * @remarks
+   * The time when the diagnostic report was created.
+   * 
    * @example
    * 2024-08-23T02:22:30Z
    */
   creationTime?: string;
+  /**
+   * @remarks
+   * The details of the diagnostic report.
+   */
   details?: DescribeDiagnoseReportsResponseBodyReportsDetails[];
   /**
+   * @remarks
+   * The status of the diagnostic item. Only the severe status is displayed in the diagnostic report. Valid values:
+   * 
+   * *   Normal: The diagnostic result is normal.
+   * *   Warn: The diagnostic result is warning.
+   * *   Critical: The diagnostic result is critical.
+   * 
    * @example
    * Normal
    */
   diagnoseStatus?: string;
   /**
+   * @remarks
+   * The status of the diagnostic report. Valid values:
+   * 
+   * *   processing: The diagnosis is in progress.
+   * *   Finished: The diagnosis is complete.
+   * 
    * @example
    * Finished
    */
   processStatus?: string;
   /**
+   * @remarks
+   * The ID of the region.
+   * 
    * @example
    * cn-qingdao
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the diagnostic report.
+   * 
    * @example
    * dr-bp14p0cjp7wvjob5l6hk
    */
   reportId?: string;
   /**
+   * @remarks
+   * The ID of the scaling group.
+   * 
    * @example
    * asg-bp124uve5iph3*****
    */
   scalingGroupId?: string;
   /**
+   * @remarks
+   * The user ID of the scaling group.
+   * 
    * @example
    * 161456884*******
    */
@@ -27325,6 +27687,13 @@ export class DescribeEciScalingConfigurationsResponseBodyScalingConfigurations e
    * 20
    */
   ephemeralStorage?: number;
+  /**
+   * @remarks
+   * The version of the GPU driver.
+   * 
+   * @example
+   * tesla=470.82.01
+   */
   gpuDriverVersion?: string;
   /**
    * @remarks
@@ -28158,20 +28527,20 @@ export class DescribeLifecycleHooksResponseBodyLifecycleHooks extends $tea.Model
   lifecycleTransition?: string;
   /**
    * @remarks
-   * The ARN of the notification recipient when the lifecycle hook takes effect. The value of this parameter is in one of the following formats:
+   * The ARN of the notification recipient when the lifecycle hook takes effect. The value of this parameter must be in one of the following formats:
    * 
-   * *   If you did not specify this parameter, the return value is in the `acs:ess:{region-id}:{account-id}:null/null` format.
-   * *   If you specified a Message Service (MNS) queue as the notification recipient, the return value is in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-   * *   If you specified an MNS topic as the notification recipient, the return value is in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
-   * *   If you specified a CloudOps Orchestration Service (OOS) template as the notification recipient, the return value is in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
-   * *   If you specified an event bus as the notification recipient, the return value is in the `acs:eventbridge:{region-id}:{account-id}:eventbus/default` format.
+   * *   If you do not create a notification rule, specify the value in the `acs:ess:{region-id}:{account-id}:null/null` format.
+   * *   If you specify a Simple Message Queue (SMQ, formerly MNS) queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+   * *   If you specify an SMQ as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+   * *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
+   * *   If you specify an event bus as the notification recipient, specify the value in the `acs:eventbridge:{region-id}:{account-id}:eventbus/default` format.
    * 
-   * The variables in the preceding formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
    * *   region-id: the region ID of your scaling group.
-   * *   account-id: the ID of your Alibaba Cloud.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   account-id: the ID of your Alibaba Cloud account.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * *   templatename: the name of the OOS template.
    * 
    * @example
@@ -28230,18 +28599,18 @@ export class DescribeLifecycleHooksResponseBodyLifecycleHooks extends $tea.Model
 export class DescribeNotificationConfigurationsResponseBodyNotificationConfigurationModels extends $tea.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the notification method. The following list describes the value formats of this parameter:
+   * The Alibaba Cloud Resource Name (ARN) of the notification recipient. The value is in one of the following formats:
    * 
-   * *   If you use CloudMonitor as the notification method, the value format of this parameter is acs:ess:{region-id}:{account-id}:cloudmonitor.
-   * *   If you use a Message Service (MNS) queue as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:queue/{queuename}.
-   * *   If you use an MNS topic as the notification method, the value format of this parameter is acs:mns:{region-id}:{account-id}:topic/{topicname}.
+   * *   If you specify CloudMonitor as the notification recipient, the value is in the acs:ess:{region-id}:{account-id}:cloudmonitor format.
+   * *   If you specify a Simple Message Queue (SMQ, formerly MNS) as the notification recipient, the value is in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
+   * *   If you specify an SMQ topic as the notification recipient, the value is in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
    * 
-   * The variables in the preceding formats have the following meanings:
+   * The variables in the preceding value formats have the following meanings:
    * 
-   * *   region-id: the region ID of the scaling group.
-   * *   account-id: the ID of the Alibaba Cloud account.
-   * *   queuename: the name of the MNS queue.
-   * *   topicname: the name of the MNS topic.
+   * *   region-id: the region ID of your scaling group.
+   * *   account-id: the ID of your Alibaba Cloud account.
+   * *   queuename: the name of the SMQ queue.
+   * *   topicname: the name of the SMQ topic.
    * 
    * @example
    * acs:mns:cn-beijing:161456884340****:topic/modifyLifecycleHo****
@@ -28569,6 +28938,9 @@ export class DescribeScalingActivitiesResponseBodyScalingActivities extends $tea
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the instance refresh task.
+   * 
    * @example
    * ir-asdf12adsxg*****
    */
@@ -28997,13 +29369,12 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsDataD
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInstancePatternInfos extends $tea.Model {
   /**
    * @remarks
-   * The architecture types of the instance types. Valid values:
+   * The architectures of instance types. Valid values:
    * 
-   * *   X86: x86
-   * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated
-   * *   BareMetal: ECS Bare Metal Instance
-   * *   Arm: Arm
-   * *   SuperComputeCluster: Super Computing Cluster
+   * *   X86: x86.
+   * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
+   * *   BareMetal: ECS Bare Metal Instance.
+   * *   Arm: Arm.
    */
   architectures?: string[];
   /**
@@ -29051,26 +29422,25 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsInsta
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of the instance.families. Valid values:
+   * The categories of ECS instances. Valid values:
    * 
-   * >  You can specify 1 to 10 categories.
+   * >  Up to 10 categories of ECS instances are supported.
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type with local SSDs.
+   * *   High Clock Speed: instance type with high clock speeds.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
@@ -29349,11 +29719,6 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSched
 
 export class DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions extends $tea.Model {
   /**
-   * @remarks
-   * 机密计算模式。可能值：
-   * -  Enclave：表示ECS实例使用Enclave构建机密计算环境。更多信息，请参见[使用Enclave构建机密计算环境](https://help.aliyun.com/document_detail/203433.html)。
-   * - TDX：表示构建TDX机密计算环境。更多信息，请参见[构建TDX机密计算环境](https://help.aliyun.com/document_detail/479090.html)。
-   * 
    * @example
    * TDX
    */
@@ -29567,7 +29932,27 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * hpc-clus****
    */
   hpcClusterId?: string;
+  /**
+   * @remarks
+   * Indicates whether the access channel is enabled for instance metadata. Valid values:
+   * 
+   * *   enabled
+   * *   disabled
+   * 
+   * @example
+   * enabled
+   */
   httpEndpoint?: string;
+  /**
+   * @remarks
+   * Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
+   * 
+   * *   optional: The security hardening mode IMDSv2 is not forcibly used.
+   * *   required: The security hardening mode (IMDSv2) is forcibly used. After you set this parameter to required, you cannot access instance metadata in normal mode.
+   * 
+   * @example
+   * optional
+   */
   httpTokens?: string;
   /**
    * @remarks
@@ -29672,7 +30057,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   internetChargeType?: string;
   /**
    * @remarks
-   * The maximum inbound bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
+   * The maximum inbound public bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 200
@@ -29680,10 +30065,7 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
   internetMaxBandwidthIn?: number;
   /**
    * @remarks
-   * The maximum outbound bandwidth. Unit: Mbit/s. Valid values:
-   * 
-   * *   0 to 1024 if you set InternetChargeType to PayByBandwidth. If you leave this parameter empty, this parameter is automatically set to 0.
-   * *   0 to 1024 if you set InternetChargeType to PayByTraffic. If you leave this parameter empty, an error is returned.
+   * The maximum outbound public bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 0
@@ -29839,10 +30221,6 @@ export class DescribeScalingConfigurationsResponseBodyScalingConfigurations exte
    * The IDs of the security groups to which the ECS instances belong. ECS instances that belong to the same security group can communicate with each other.
    */
   securityGroupIds?: string[];
-  /**
-   * @remarks
-   * 安全选项。
-   */
   securityOptions?: DescribeScalingConfigurationsResponseBodyScalingConfigurationsSecurityOptions;
   /**
    * @remarks
@@ -31296,9 +31674,43 @@ export class DescribeScalingGroupsResponseBodyScalingGroupsAlbServerGroups exten
 }
 
 export class DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions extends $tea.Model {
+  /**
+   * @remarks
+   * Indicates whether pay-as-you-go ECS instances can be automatically created to reach the required number of ECS instances when preemptible ECS instances cannot be created due to high prices or insufficient inventory of resources. This parameter takes effect when you set `MultiAZPolicy` to `COST_OPTIMIZED`. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   compensateWithOnDemand?: boolean;
+  /**
+   * @remarks
+   * The minimum number of pay-as-you-go instances required in the scaling group. When the actual number of pay-as-you-go instances drops below the minimum threshold, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+   * 
+   * @example
+   * 0
+   */
   onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances required in the scaling group. Valid values: 0 to 100.
+   * 
+   * @example
+   * 0
+   */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types available. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * false
+   */
   spotAutoReplaceOnDemand?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -31687,6 +32099,10 @@ export class DescribeScalingGroupsResponseBodyScalingGroups extends $tea.Model {
    * false
    */
   azBalance?: boolean;
+  /**
+   * @remarks
+   * The capacity options.
+   */
   capacityOptions?: DescribeScalingGroupsResponseBodyScalingGroupsCapacityOptions;
   /**
    * @remarks
@@ -35832,22 +36248,21 @@ export class ModifyScalingConfigurationRequestDataDisks extends $tea.Model {
 export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.Model {
   /**
    * @remarks
-   * The architectures of instance types. Valid values:
+   * The architecture types of the instance types. Valid values:
    * 
    * *   X86: x86.
    * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
    * *   BareMetal: ECS Bare Metal Instance.
    * *   Arm: Arm.
-   * *   SuperComputeCluster: Super Computing Cluster.
    * 
-   * By default, all values are included.
+   * By default, all values are selected.
    */
   architectures?: string[];
   /**
    * @remarks
    * Specifies whether to include burstable instance types. Valid values:
    * 
-   * *   Exclude: does not include burstable instance types.
+   * *   Exclude: excludes burstable instance types.
    * *   Include: includes burstable instance types.
    * *   Required: includes only burstable instance types.
    * 
@@ -35873,7 +36288,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   cores?: number;
   /**
    * @remarks
-   * The CPU architectures of instance types. Valid values:
+   * The CPU architectures of the instance types. Valid values:
    * 
    * >  You can specify up to two CPU architectures.
    * 
@@ -35883,7 +36298,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance types that you want to exclude. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
+   * The instance types that you want to exclude. You can use an asterisk (\\*) as a wildcard character to exclude an instance type or an instance family. Examples:
    * 
    * *   ecs.c6.large: excludes the ecs.c6.large instance type.
    * *   ecs.c6.\\*: excludes the c6 instance family.
@@ -35896,33 +36311,32 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of instance types. Valid values:
+   * The categories of the instance types. Valid values:
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type that uses local SSDs.
+   * *   High Clock Speed: instance type that has a high clock speed.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
    * @remarks
-   * The level of the instance family. You can specify this parameter to filter the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+   * The level of the instance family. You can specify this parameter to obtain the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
    * 
-   * *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios in which high stability is required. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-   * *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * *   EntryLevel: entry-level (shared instance types). Instance types of this level are the most cost-effective but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * *   EnterpriseLevel: enterprise-level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * *   CreditEntryLevel: credit entry-level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
    * 
    * @example
    * EnterpriseLevel
@@ -35935,7 +36349,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   instanceTypeFamilies?: string[];
   /**
    * @remarks
-   * The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to filter the available instance types.
+   * The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to obtain the available instance types.
    * 
    * >  If you set SpotStrategy to SpotWithPriceLimit, you must specify this parameter. In other cases, this parameter is optional.
    * 
@@ -35979,7 +36393,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   memory?: number;
   /**
    * @remarks
-   * The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+   * The baseline vCPU computing performance (overall baseline performance of all vCPUs) of each t5 or t6 burstable instance.
    * 
    * @example
    * 12
@@ -36027,7 +36441,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   minimumGpuAmount?: number;
   /**
    * @remarks
-   * The initial vCPU credits per t5 or t6 burstable instance.
+   * The initial vCPU credits of each t5 or t6 burstable instance.
    * 
    * @example
    * 12
@@ -36043,7 +36457,7 @@ export class ModifyScalingConfigurationRequestInstancePatternInfos extends $tea.
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The processor models of instance types. You can specify up to 10 processor models.
+   * The processor models of the instance types. You can specify up to 10 processor models.
    */
   physicalProcessorModels?: string[];
   static names(): { [key: string]: string } {
@@ -36783,22 +37197,21 @@ export class ModifyScalingConfigurationShrinkRequestDataDisks extends $tea.Model
 export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends $tea.Model {
   /**
    * @remarks
-   * The architectures of instance types. Valid values:
+   * The architecture types of the instance types. Valid values:
    * 
    * *   X86: x86.
    * *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
    * *   BareMetal: ECS Bare Metal Instance.
    * *   Arm: Arm.
-   * *   SuperComputeCluster: Super Computing Cluster.
    * 
-   * By default, all values are included.
+   * By default, all values are selected.
    */
   architectures?: string[];
   /**
    * @remarks
    * Specifies whether to include burstable instance types. Valid values:
    * 
-   * *   Exclude: does not include burstable instance types.
+   * *   Exclude: excludes burstable instance types.
    * *   Include: includes burstable instance types.
    * *   Required: includes only burstable instance types.
    * 
@@ -36824,7 +37237,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   cores?: number;
   /**
    * @remarks
-   * The CPU architectures of instance types. Valid values:
+   * The CPU architectures of the instance types. Valid values:
    * 
    * >  You can specify up to two CPU architectures.
    * 
@@ -36834,7 +37247,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   cpuArchitectures?: string[];
   /**
    * @remarks
-   * The instance types that you want to exclude. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
+   * The instance types that you want to exclude. You can use an asterisk (\\*) as a wildcard character to exclude an instance type or an instance family. Examples:
    * 
    * *   ecs.c6.large: excludes the ecs.c6.large instance type.
    * *   ecs.c6.\\*: excludes the c6 instance family.
@@ -36847,33 +37260,32 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   gpuSpecs?: string[];
   /**
    * @remarks
-   * The categories of instance types. Valid values:
+   * The categories of the instance types. Valid values:
    * 
-   * *   General-purpose
-   * *   Compute-optimized
-   * *   Memory-optimized
-   * *   Big data
-   * *   Local SSDs
-   * *   High Clock Speed
-   * *   Enhanced
-   * *   Shared
-   * *   Compute-optimized with GPU
-   * *   Visual Compute-optimized
-   * *   Heterogeneous Service
-   * *   Compute-optimized with FPGA
-   * *   Compute-optimized with NPU
-   * *   ECS Bare Metal
-   * *   Super Computing Cluster
-   * *   High Performance Compute
+   * *   General-purpose: general-purpose instance type.
+   * *   Compute-optimized: compute-optimized instance type.
+   * *   Memory-optimized: memory-optimized instance type.
+   * *   Big data: big data instance type.
+   * *   Local SSDs: instance type that uses local SSDs.
+   * *   High Clock Speed: instance type that has a high clock speed.
+   * *   Enhanced: enhanced instance type.
+   * *   Shared: shared instance type.
+   * *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+   * *   Visual Compute-optimized: visual compute-optimized instance type.
+   * *   Heterogeneous Service: heterogeneous service instance type.
+   * *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+   * *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+   * *   ECS Bare Metal: ECS Bare Metal Instance type.
+   * *   High Performance Compute: HPC-optimized instance type.
    */
   instanceCategories?: string[];
   /**
    * @remarks
-   * The level of the instance family. You can specify this parameter to filter the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+   * The level of the instance family. You can specify this parameter to obtain the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
    * 
-   * *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-   * *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios in which high stability is required. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-   * *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+   * *   EntryLevel: entry-level (shared instance types). Instance types of this level are the most cost-effective but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+   * *   EnterpriseLevel: enterprise-level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+   * *   CreditEntryLevel: credit entry-level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
    * 
    * @example
    * EnterpriseLevel
@@ -36886,7 +37298,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   instanceTypeFamilies?: string[];
   /**
    * @remarks
-   * The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to filter the available instance types.
+   * The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to obtain the available instance types.
    * 
    * >  If you set SpotStrategy to SpotWithPriceLimit, you must specify this parameter. In other cases, this parameter is optional.
    * 
@@ -36930,7 +37342,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   memory?: number;
   /**
    * @remarks
-   * The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+   * The baseline vCPU computing performance (overall baseline performance of all vCPUs) of each t5 or t6 burstable instance.
    * 
    * @example
    * 12
@@ -36978,7 +37390,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   minimumGpuAmount?: number;
   /**
    * @remarks
-   * The initial vCPU credits per t5 or t6 burstable instance.
+   * The initial vCPU credits of each t5 or t6 burstable instance.
    * 
    * @example
    * 12
@@ -36994,7 +37406,7 @@ export class ModifyScalingConfigurationShrinkRequestInstancePatternInfos extends
   minimumMemorySize?: number;
   /**
    * @remarks
-   * The processor models of instance types. You can specify up to 10 processor models.
+   * The processor models of the instance types. You can specify up to 10 processor models.
    */
   physicalProcessorModels?: string[];
   static names(): { [key: string]: string } {
@@ -37251,9 +37663,49 @@ export class ModifyScalingConfigurationShrinkRequestSpotPriceLimits extends $tea
 }
 
 export class ModifyScalingGroupRequestCapacityOptions extends $tea.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as cost-related issues and insufficient resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
   compensateWithOnDemand?: boolean;
+  /**
+   * @remarks
+   * The minimum number of pay-as-you-go instances that must be contained in the scaling group. When the actual number of pay-as-you-go instances in the scaling group drops below the value of this parameter, Auto Scaling preferentially creates pay-as-you-go instances. Valid values: 0 to 1000.
+   * 
+   * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 0.
+   * 
+   * @example
+   * 30
+   */
   onDemandBaseCapacity?: number;
+  /**
+   * @remarks
+   * The percentage of pay-as-you-go instances in the excess instances when the minimum number of pay-as-you-go instances is reached. `OnDemandBaseCapacity` specifies the minimum number of pay-as-you-go instances that must be contained in the scaling group. Valid values: 0 to 100
+   * 
+   * If you set `MultiAZPolicy` to `COMPOSABLE`, the default value is 100.
+   * 
+   * @example
+   * 20
+   */
   onDemandPercentageAboveBaseCapacity?: number;
+  /**
+   * @remarks
+   * Specifies whether to replace pay-as-you-go ECS instances with preemptible ECS instances. If you specify `CompensateWithOnDemand`, it may result in a higher percentage of pay-as-you-go instances compared to the value of `OnDemandPercentageAboveBaseCapacity`. In this scenario, Auto Scaling will try to deploy preemptible ECS instances to replace the surplus pay-as-you-go ECS instances. When `CompensateWithOnDemand` is specified, Auto Scaling creates pay-as-you-go ECS instances if there are not enough preemptible instance types. To avoid keeping these pay-as-you-go ECS instances for long periods, Auto Scaling tries to replace them with preemptible instances as soon as enough of preemptible instance types become available. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * Default value: false.
+   * 
+   * @example
+   * true
+   */
   spotAutoReplaceOnDemand?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -37707,9 +38159,9 @@ export class StartInstanceRefreshRequestDesiredConfiguration extends $tea.Model 
 export class TagResourcesRequestTags extends $tea.Model {
   /**
    * @remarks
-   * The key of the tag that you want to add to the Auto Scaling resource.
+   * The tag key.
    * 
-   * You cannot specify empty strings as tag keys. The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+   * You cannot specify an empty string as a tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -37719,8 +38171,8 @@ export class TagResourcesRequestTags extends $tea.Model {
    * @remarks
    * Specifies whether to propagate the tag that you want to add. Valid values:
    * 
-   * *   true: propagates the tag only to instances that are newly created and does not propagate the tag to instances that are already running in the scaling group.
-   * *   false: does not propagate the tag to any instances.
+   * *   true: propagates the tag to new instances.
+   * *   false: does not propagate the tag to any instance.
    * 
    * Default value: false.
    * 
@@ -37730,9 +38182,9 @@ export class TagResourcesRequestTags extends $tea.Model {
   propagate?: boolean;
   /**
    * @remarks
-   * The value of the tag that you want to add to the Auto Scaling resource.
+   * The tag value.
    * 
-   * You can specify empty strings as tag values. The tag value must be 0 to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+   * You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -37764,6 +38216,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "Ess";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "ess.aliyuncs.com",
@@ -37877,7 +38332,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApplyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ApplyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<ApplyEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new ApplyEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -37966,7 +38426,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApplyScalingGroupResponse>(await this.callApi(params, req, runtime), new ApplyScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ApplyScalingGroupResponse>(await this.callApi(params, req, runtime), new ApplyScalingGroupResponse({}));
+    } else {
+      return $tea.cast<ApplyScalingGroupResponse>(await this.execute(params, req, runtime), new ApplyScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -38071,7 +38536,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    } else {
+      return $tea.cast<AttachAlbServerGroupsResponse>(await this.execute(params, req, runtime), new AttachAlbServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -38159,7 +38629,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachDBInstancesResponse>(await this.callApi(params, req, runtime), new AttachDBInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachDBInstancesResponse>(await this.callApi(params, req, runtime), new AttachDBInstancesResponse({}));
+    } else {
+      return $tea.cast<AttachDBInstancesResponse>(await this.execute(params, req, runtime), new AttachDBInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -38266,7 +38741,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachInstancesResponse>(await this.callApi(params, req, runtime), new AttachInstancesResponse({}));
+    } else {
+      return $tea.cast<AttachInstancesResponse>(await this.execute(params, req, runtime), new AttachInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -38361,7 +38841,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachLoadBalancersResponse>(await this.callApi(params, req, runtime), new AttachLoadBalancersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachLoadBalancersResponse>(await this.callApi(params, req, runtime), new AttachLoadBalancersResponse({}));
+    } else {
+      return $tea.cast<AttachLoadBalancersResponse>(await this.execute(params, req, runtime), new AttachLoadBalancersResponse({}));
+    }
+
   }
 
   /**
@@ -38436,7 +38921,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachServerGroupsResponse({}));
+    } else {
+      return $tea.cast<AttachServerGroupsResponse>(await this.execute(params, req, runtime), new AttachServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -38519,7 +39009,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AttachVServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachVServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AttachVServerGroupsResponse>(await this.callApi(params, req, runtime), new AttachVServerGroupsResponse({}));
+    } else {
+      return $tea.cast<AttachVServerGroupsResponse>(await this.execute(params, req, runtime), new AttachVServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -38551,7 +39046,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an instance refresh task. Take note that new instances that are used to replace old instances or that are scaled out still exist after you call this operation.
+   * Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
    * 
    * @remarks
    *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
@@ -38597,11 +39092,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelInstanceRefreshResponse>(await this.callApi(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CancelInstanceRefreshResponse>(await this.callApi(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    } else {
+      return $tea.cast<CancelInstanceRefreshResponse>(await this.execute(params, req, runtime), new CancelInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
-   * Cancels an instance refresh task. Take note that new instances that are used to replace old instances or that are scaled out still exist after you call this operation.
+   * Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
    * 
    * @remarks
    *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
@@ -38666,7 +39166,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new ChangeResourceGroupResponse({}));
+    } else {
+      return $tea.cast<ChangeResourceGroupResponse>(await this.execute(params, req, runtime), new ChangeResourceGroupResponse({}));
+    }
+
   }
 
   /**
@@ -38743,7 +39248,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CompleteLifecycleActionResponse>(await this.callApi(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CompleteLifecycleActionResponse>(await this.callApi(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    } else {
+      return $tea.cast<CompleteLifecycleActionResponse>(await this.execute(params, req, runtime), new CompleteLifecycleActionResponse({}));
+    }
+
   }
 
   /**
@@ -38867,7 +39377,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateAlarmResponse>(await this.callApi(params, req, runtime), new CreateAlarmResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateAlarmResponse>(await this.callApi(params, req, runtime), new CreateAlarmResponse({}));
+    } else {
+      return $tea.cast<CreateAlarmResponse>(await this.execute(params, req, runtime), new CreateAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -38889,7 +39404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * CreateDiagnoseReport
+   * Creates a diagnostic report.
    * 
    * @param request - CreateDiagnoseReportRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38912,11 +39427,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateDiagnoseReportResponse>(await this.callApi(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    } else {
+      return $tea.cast<CreateDiagnoseReportResponse>(await this.execute(params, req, runtime), new CreateDiagnoseReportResponse({}));
+    }
+
   }
 
   /**
-   * CreateDiagnoseReport
+   * Creates a diagnostic report.
    * 
    * @param request - CreateDiagnoseReportRequest
    * @returns CreateDiagnoseReportResponse
@@ -39154,7 +39674,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<CreateEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new CreateEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -39242,7 +39767,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateLifecycleHookResponse>(await this.callApi(params, req, runtime), new CreateLifecycleHookResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateLifecycleHookResponse>(await this.callApi(params, req, runtime), new CreateLifecycleHookResponse({}));
+    } else {
+      return $tea.cast<CreateLifecycleHookResponse>(await this.execute(params, req, runtime), new CreateLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -39266,9 +39796,9 @@ export default class Client extends OpenApi {
    * Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
    * 
    * @remarks
-   *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+   *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
    * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
-   *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
+   *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
    * 
    * @param request - CreateNotificationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39319,16 +39849,21 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    } else {
+      return $tea.cast<CreateNotificationConfigurationResponse>(await this.execute(params, req, runtime), new CreateNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
    * Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
    * 
    * @remarks
-   *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+   *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
    * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
-   *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
+   *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
    * 
    * @param request - CreateNotificationConfigurationRequest
    * @returns CreateNotificationConfigurationResponse
@@ -39617,7 +40152,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<CreateScalingConfigurationResponse>(await this.execute(params, req, runtime), new CreateScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -39876,7 +40416,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateScalingGroupResponse>(await this.callApi(params, req, runtime), new CreateScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateScalingGroupResponse>(await this.callApi(params, req, runtime), new CreateScalingGroupResponse({}));
+    } else {
+      return $tea.cast<CreateScalingGroupResponse>(await this.execute(params, req, runtime), new CreateScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -40060,7 +40605,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateScalingRuleResponse({}));
+    } else {
+      return $tea.cast<CreateScalingRuleResponse>(await this.execute(params, req, runtime), new CreateScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -40191,7 +40741,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduledTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateScheduledTaskResponse>(await this.callApi(params, req, runtime), new CreateScheduledTaskResponse({}));
+    } else {
+      return $tea.cast<CreateScheduledTaskResponse>(await this.execute(params, req, runtime), new CreateScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -40259,7 +40814,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeactivateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeactivateScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<DeactivateScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeactivateScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -40316,7 +40876,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteAlarmResponse>(await this.callApi(params, req, runtime), new DeleteAlarmResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteAlarmResponse>(await this.callApi(params, req, runtime), new DeleteAlarmResponse({}));
+    } else {
+      return $tea.cast<DeleteAlarmResponse>(await this.execute(params, req, runtime), new DeleteAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -40379,7 +40944,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<DeleteEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeleteEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -40455,7 +41025,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteLifecycleHookResponse>(await this.callApi(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteLifecycleHookResponse>(await this.callApi(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    } else {
+      return $tea.cast<DeleteLifecycleHookResponse>(await this.execute(params, req, runtime), new DeleteLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -40518,7 +41093,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    } else {
+      return $tea.cast<DeleteNotificationConfigurationResponse>(await this.execute(params, req, runtime), new DeleteNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -40577,7 +41157,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteScalingConfigurationResponse>(await this.callApi(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<DeleteScalingConfigurationResponse>(await this.execute(params, req, runtime), new DeleteScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -40656,7 +41241,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteScalingGroupResponse>(await this.callApi(params, req, runtime), new DeleteScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteScalingGroupResponse>(await this.callApi(params, req, runtime), new DeleteScalingGroupResponse({}));
+    } else {
+      return $tea.cast<DeleteScalingGroupResponse>(await this.execute(params, req, runtime), new DeleteScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -40726,7 +41316,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteScalingRuleResponse({}));
+    } else {
+      return $tea.cast<DeleteScalingRuleResponse>(await this.execute(params, req, runtime), new DeleteScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -40784,7 +41379,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteScheduledTaskResponse>(await this.callApi(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    } else {
+      return $tea.cast<DeleteScheduledTaskResponse>(await this.execute(params, req, runtime), new DeleteScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -40866,7 +41466,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAlarmsResponse>(await this.callApi(params, req, runtime), new DescribeAlarmsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeAlarmsResponse>(await this.callApi(params, req, runtime), new DescribeAlarmsResponse({}));
+    } else {
+      return $tea.cast<DescribeAlarmsResponse>(await this.execute(params, req, runtime), new DescribeAlarmsResponse({}));
+    }
+
   }
 
   /**
@@ -40920,7 +41525,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAlertConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeAlertConfigurationResponse>(await this.callApi(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    } else {
+      return $tea.cast<DescribeAlertConfigurationResponse>(await this.execute(params, req, runtime), new DescribeAlertConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -40935,7 +41545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeDiagnoseReports
+   * Queries the diagnostic reports.
    * 
    * @param request - DescribeDiagnoseReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40958,11 +41568,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeDiagnoseReportsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeDiagnoseReportsResponse>(await this.callApi(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    } else {
+      return $tea.cast<DescribeDiagnoseReportsResponse>(await this.execute(params, req, runtime), new DescribeDiagnoseReportsResponse({}));
+    }
+
   }
 
   /**
-   * DescribeDiagnoseReports
+   * Queries the diagnostic reports.
    * 
    * @param request - DescribeDiagnoseReportsRequest
    * @returns DescribeDiagnoseReportsResponse
@@ -41012,7 +41627,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEciScalingConfigurationDetailResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeEciScalingConfigurationDetailResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    } else {
+      return $tea.cast<DescribeEciScalingConfigurationDetailResponse>(await this.execute(params, req, runtime), new DescribeEciScalingConfigurationDetailResponse({}));
+    }
+
   }
 
   /**
@@ -41090,7 +41710,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEciScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeEciScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    } else {
+      return $tea.cast<DescribeEciScalingConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeEciScalingConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -41105,7 +41730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeElasticStrength
+   * Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
    * 
    * @param request - DescribeElasticStrengthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41128,11 +41753,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeElasticStrengthResponse>(await this.callApi(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeElasticStrengthResponse>(await this.callApi(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    } else {
+      return $tea.cast<DescribeElasticStrengthResponse>(await this.execute(params, req, runtime), new DescribeElasticStrengthResponse({}));
+    }
+
   }
 
   /**
-   * DescribeElasticStrength
+   * Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
    * 
    * @param request - DescribeElasticStrengthRequest
    * @returns DescribeElasticStrengthResponse
@@ -41202,7 +41832,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceRefreshesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeInstanceRefreshesResponse>(await this.callApi(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    } else {
+      return $tea.cast<DescribeInstanceRefreshesResponse>(await this.execute(params, req, runtime), new DescribeInstanceRefreshesResponse({}));
+    }
+
   }
 
   /**
@@ -41217,7 +41852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a lifecycle hook. If you want to query the details of a lifecycle hook, you can call the DescribeLifecycleActions operation. For example, you can query the execution status and ID of a lifecycle hook, along with the Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect. When you call this operation, you can specify parameters such as ScalingActivityId, LifecycleActionToken, and MaxResults to query the details of a lifecycle hook.
+   * Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
    * 
    * @remarks
    * If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
@@ -41275,11 +41910,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeLifecycleActionsResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeLifecycleActionsResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    } else {
+      return $tea.cast<DescribeLifecycleActionsResponse>(await this.execute(params, req, runtime), new DescribeLifecycleActionsResponse({}));
+    }
+
   }
 
   /**
-   * Queries the details of a lifecycle hook. If you want to query the details of a lifecycle hook, you can call the DescribeLifecycleActions operation. For example, you can query the execution status and ID of a lifecycle hook, along with the Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect. When you call this operation, you can specify parameters such as ScalingActivityId, LifecycleActionToken, and MaxResults to query the details of a lifecycle hook.
+   * Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
    * 
    * @remarks
    * If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
@@ -41297,7 +41937,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries lifecycle hooks. If you want to check whether the configurations of your lifecycle hooks are correct or you want to query the details of multiple lifecycle hooks at the same time, you can call the DescribeLifecycleHooks operation. You can specify lifecycle hook IDs or scaling group IDs when you call this operation. This operation returns details such as the default actions, scaling activities, Alibaba Cloud Resource Names (ARNs) of notification recipients, and timeout periods of lifecycle hooks.
+   * Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
    * 
    * @remarks
    * You can use one of the following methods to query lifecycle hooks:
@@ -41362,11 +42002,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeLifecycleHooksResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeLifecycleHooksResponse>(await this.callApi(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    } else {
+      return $tea.cast<DescribeLifecycleHooksResponse>(await this.execute(params, req, runtime), new DescribeLifecycleHooksResponse({}));
+    }
+
   }
 
   /**
-   * Queries lifecycle hooks. If you want to check whether the configurations of your lifecycle hooks are correct or you want to query the details of multiple lifecycle hooks at the same time, you can call the DescribeLifecycleHooks operation. You can specify lifecycle hook IDs or scaling group IDs when you call this operation. This operation returns details such as the default actions, scaling activities, Alibaba Cloud Resource Names (ARNs) of notification recipients, and timeout periods of lifecycle hooks.
+   * Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
    * 
    * @remarks
    * You can use one of the following methods to query lifecycle hooks:
@@ -41414,7 +42059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeLimitationResponse>(await this.callApi(params, req, runtime), new DescribeLimitationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeLimitationResponse>(await this.callApi(params, req, runtime), new DescribeLimitationResponse({}));
+    } else {
+      return $tea.cast<DescribeLimitationResponse>(await this.execute(params, req, runtime), new DescribeLimitationResponse({}));
+    }
+
   }
 
   /**
@@ -41468,7 +42118,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNotificationConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNotificationConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    } else {
+      return $tea.cast<DescribeNotificationConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeNotificationConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -41514,7 +42169,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNotificationTypesResponse>(await this.callApi(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNotificationTypesResponse>(await this.callApi(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    } else {
+      return $tea.cast<DescribeNotificationTypesResponse>(await this.execute(params, req, runtime), new DescribeNotificationTypesResponse({}));
+    }
+
   }
 
   /**
@@ -41552,7 +42212,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribePatternTypesResponse>(await this.callApi(params, req, runtime), new DescribePatternTypesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePatternTypesResponse>(await this.callApi(params, req, runtime), new DescribePatternTypesResponse({}));
+    } else {
+      return $tea.cast<DescribePatternTypesResponse>(await this.execute(params, req, runtime), new DescribePatternTypesResponse({}));
+    }
+
   }
 
   /**
@@ -41606,7 +42271,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -41693,7 +42363,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingActivitiesResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingActivitiesResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingActivitiesResponse>(await this.execute(params, req, runtime), new DescribeScalingActivitiesResponse({}));
+    }
+
   }
 
   /**
@@ -41713,7 +42388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a scaling activity. The DescribeScalingActivityDetail operation enables you to access and monitor the details of a scaling activity, which is beneficial for troubleshooting and performance analysis purposes.
+   * Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
    * 
    * @param request - DescribeScalingActivityDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41752,11 +42427,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingActivityDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingActivityDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingActivityDetailResponse>(await this.execute(params, req, runtime), new DescribeScalingActivityDetailResponse({}));
+    }
+
   }
 
   /**
-   * Queries the details of a scaling activity. The DescribeScalingActivityDetail operation enables you to access and monitor the details of a scaling activity, which is beneficial for troubleshooting and performance analysis purposes.
+   * Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
    * 
    * @param request - DescribeScalingActivityDetailRequest
    * @returns DescribeScalingActivityDetailResponse
@@ -41830,7 +42510,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingConfigurationsResponse>(await this.callApi(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingConfigurationsResponse>(await this.execute(params, req, runtime), new DescribeScalingConfigurationsResponse({}));
+    }
+
   }
 
   /**
@@ -41884,7 +42569,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingGroupDetailResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingGroupDetailResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupDetailResponse({}));
+    }
+
   }
 
   /**
@@ -41899,7 +42589,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * DescribeScalingGroupDiagnoseDetails
+   * Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
    * 
    * @param request - DescribeScalingGroupDiagnoseDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41922,11 +42612,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingGroupDiagnoseDetailsResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupDiagnoseDetailsResponse({}));
+    }
+
   }
 
   /**
-   * DescribeScalingGroupDiagnoseDetails
+   * Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
    * 
    * @param request - DescribeScalingGroupDiagnoseDetailsRequest
    * @returns DescribeScalingGroupDiagnoseDetailsResponse
@@ -42012,7 +42707,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingGroupsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingGroupsResponse>(await this.callApi(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingGroupsResponse>(await this.execute(params, req, runtime), new DescribeScalingGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42114,7 +42814,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingInstancesResponse>(await this.callApi(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingInstancesResponse>(await this.callApi(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingInstancesResponse>(await this.execute(params, req, runtime), new DescribeScalingInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -42207,7 +42912,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeScalingRulesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeScalingRulesResponse({}));
+    } else {
+      return $tea.cast<DescribeScalingRulesResponse>(await this.execute(params, req, runtime), new DescribeScalingRulesResponse({}));
+    }
+
   }
 
   /**
@@ -42311,7 +43021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DescribeScheduledTasksResponse>(await this.callApi(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeScheduledTasksResponse>(await this.callApi(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    } else {
+      return $tea.cast<DescribeScheduledTasksResponse>(await this.execute(params, req, runtime), new DescribeScheduledTasksResponse({}));
+    }
+
   }
 
   /**
@@ -42380,7 +43095,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachAlbServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    } else {
+      return $tea.cast<DetachAlbServerGroupsResponse>(await this.execute(params, req, runtime), new DetachAlbServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42395,7 +43115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates one or more ApsaraDB RDS instances from a scaling group.
+   * Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
    * 
    * @param request - DetachDBInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42450,11 +43170,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachDBInstancesResponse>(await this.callApi(params, req, runtime), new DetachDBInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachDBInstancesResponse>(await this.callApi(params, req, runtime), new DetachDBInstancesResponse({}));
+    } else {
+      return $tea.cast<DetachDBInstancesResponse>(await this.execute(params, req, runtime), new DetachDBInstancesResponse({}));
+    }
+
   }
 
   /**
-   * Disassociates one or more ApsaraDB RDS instances from a scaling group.
+   * Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
    * 
    * @param request - DetachDBInstancesRequest
    * @returns DetachDBInstancesResponse
@@ -42544,7 +43269,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachInstancesResponse>(await this.callApi(params, req, runtime), new DetachInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachInstancesResponse>(await this.callApi(params, req, runtime), new DetachInstancesResponse({}));
+    } else {
+      return $tea.cast<DetachInstancesResponse>(await this.execute(params, req, runtime), new DetachInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -42626,7 +43356,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachLoadBalancersResponse>(await this.callApi(params, req, runtime), new DetachLoadBalancersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachLoadBalancersResponse>(await this.callApi(params, req, runtime), new DetachLoadBalancersResponse({}));
+    } else {
+      return $tea.cast<DetachLoadBalancersResponse>(await this.execute(params, req, runtime), new DetachLoadBalancersResponse({}));
+    }
+
   }
 
   /**
@@ -42692,7 +43427,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachServerGroupsResponse({}));
+    } else {
+      return $tea.cast<DetachServerGroupsResponse>(await this.execute(params, req, runtime), new DetachServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42766,7 +43506,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DetachVServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachVServerGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DetachVServerGroupsResponse>(await this.callApi(params, req, runtime), new DetachVServerGroupsResponse({}));
+    } else {
+      return $tea.cast<DetachVServerGroupsResponse>(await this.execute(params, req, runtime), new DetachVServerGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42831,7 +43576,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableAlarmResponse>(await this.callApi(params, req, runtime), new DisableAlarmResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DisableAlarmResponse>(await this.callApi(params, req, runtime), new DisableAlarmResponse({}));
+    } else {
+      return $tea.cast<DisableAlarmResponse>(await this.execute(params, req, runtime), new DisableAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -42897,7 +43647,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DisableScalingGroupResponse>(await this.callApi(params, req, runtime), new DisableScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DisableScalingGroupResponse>(await this.callApi(params, req, runtime), new DisableScalingGroupResponse({}));
+    } else {
+      return $tea.cast<DisableScalingGroupResponse>(await this.execute(params, req, runtime), new DisableScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -42956,7 +43711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableAlarmResponse>(await this.callApi(params, req, runtime), new EnableAlarmResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnableAlarmResponse>(await this.callApi(params, req, runtime), new EnableAlarmResponse({}));
+    } else {
+      return $tea.cast<EnableAlarmResponse>(await this.execute(params, req, runtime), new EnableAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -43050,7 +43810,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnableScalingGroupResponse>(await this.callApi(params, req, runtime), new EnableScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnableScalingGroupResponse>(await this.callApi(params, req, runtime), new EnableScalingGroupResponse({}));
+    } else {
+      return $tea.cast<EnableScalingGroupResponse>(await this.execute(params, req, runtime), new EnableScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -43127,7 +43892,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<EnterStandbyResponse>(await this.callApi(params, req, runtime), new EnterStandbyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnterStandbyResponse>(await this.callApi(params, req, runtime), new EnterStandbyResponse({}));
+    } else {
+      return $tea.cast<EnterStandbyResponse>(await this.execute(params, req, runtime), new EnterStandbyResponse({}));
+    }
+
   }
 
   /**
@@ -43218,7 +43988,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExecuteScalingRuleResponse>(await this.callApi(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExecuteScalingRuleResponse>(await this.callApi(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    } else {
+      return $tea.cast<ExecuteScalingRuleResponse>(await this.execute(params, req, runtime), new ExecuteScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -43301,7 +44076,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExitStandbyResponse>(await this.callApi(params, req, runtime), new ExitStandbyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExitStandbyResponse>(await this.callApi(params, req, runtime), new ExitStandbyResponse({}));
+    } else {
+      return $tea.cast<ExitStandbyResponse>(await this.execute(params, req, runtime), new ExitStandbyResponse({}));
+    }
+
   }
 
   /**
@@ -43370,7 +44150,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagKeysResponse>(await this.callApi(params, req, runtime), new ListTagKeysResponse({}));
+    } else {
+      return $tea.cast<ListTagKeysResponse>(await this.execute(params, req, runtime), new ListTagKeysResponse({}));
+    }
+
   }
 
   /**
@@ -43385,7 +44170,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient management. This operation aids in the automation of resource categorization and permission management processes.
+   * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
    * 
    * @remarks
    *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
@@ -43440,11 +44225,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
-   * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient management. This operation aids in the automation of resource categorization and permission management processes.
+   * Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
    * 
    * @remarks
    *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
@@ -43510,7 +44300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagValuesResponse>(await this.callApi(params, req, runtime), new ListTagValuesResponse({}));
+    } else {
+      return $tea.cast<ListTagValuesResponse>(await this.execute(params, req, runtime), new ListTagValuesResponse({}));
+    }
+
   }
 
   /**
@@ -43631,7 +44426,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAlarmResponse>(await this.callApi(params, req, runtime), new ModifyAlarmResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyAlarmResponse>(await this.callApi(params, req, runtime), new ModifyAlarmResponse({}));
+    } else {
+      return $tea.cast<ModifyAlarmResponse>(await this.execute(params, req, runtime), new ModifyAlarmResponse({}));
+    }
+
   }
 
   /**
@@ -43696,7 +44496,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyAlertConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyAlertConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    } else {
+      return $tea.cast<ModifyAlertConfigurationResponse>(await this.execute(params, req, runtime), new ModifyAlertConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -43942,7 +44747,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyEciScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<ModifyEciScalingConfigurationResponse>(await this.execute(params, req, runtime), new ModifyEciScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -44008,7 +44818,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    } else {
+      return $tea.cast<ModifyInstanceAttributeResponse>(await this.execute(params, req, runtime), new ModifyInstanceAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -44103,7 +44918,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyLifecycleHookResponse>(await this.callApi(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyLifecycleHookResponse>(await this.callApi(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    } else {
+      return $tea.cast<ModifyLifecycleHookResponse>(await this.execute(params, req, runtime), new ModifyLifecycleHookResponse({}));
+    }
+
   }
 
   /**
@@ -44174,7 +44994,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyNotificationConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    } else {
+      return $tea.cast<ModifyNotificationConfigurationResponse>(await this.execute(params, req, runtime), new ModifyNotificationConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -44456,7 +45281,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyScalingConfigurationResponse>(await this.callApi(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    } else {
+      return $tea.cast<ModifyScalingConfigurationResponse>(await this.execute(params, req, runtime), new ModifyScalingConfigurationResponse({}));
+    }
+
   }
 
   /**
@@ -44651,7 +45481,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyScalingGroupResponse>(await this.callApi(params, req, runtime), new ModifyScalingGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyScalingGroupResponse>(await this.callApi(params, req, runtime), new ModifyScalingGroupResponse({}));
+    } else {
+      return $tea.cast<ModifyScalingGroupResponse>(await this.execute(params, req, runtime), new ModifyScalingGroupResponse({}));
+    }
+
   }
 
   /**
@@ -44808,7 +45643,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyScalingRuleResponse>(await this.callApi(params, req, runtime), new ModifyScalingRuleResponse({}));
+    } else {
+      return $tea.cast<ModifyScalingRuleResponse>(await this.execute(params, req, runtime), new ModifyScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -44882,6 +45722,10 @@ export default class Client extends OpenApi {
       query["RecurrenceValue"] = request.recurrenceValue;
     }
 
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -44924,7 +45768,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyScheduledTaskResponse>(await this.callApi(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    } else {
+      return $tea.cast<ModifyScheduledTaskResponse>(await this.execute(params, req, runtime), new ModifyScheduledTaskResponse({}));
+    }
+
   }
 
   /**
@@ -45001,7 +45850,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RebalanceInstancesResponse>(await this.callApi(params, req, runtime), new RebalanceInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RebalanceInstancesResponse>(await this.callApi(params, req, runtime), new RebalanceInstancesResponse({}));
+    } else {
+      return $tea.cast<RebalanceInstancesResponse>(await this.execute(params, req, runtime), new RebalanceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -45028,8 +45882,8 @@ export default class Client extends OpenApi {
    * Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
    * 
    * @remarks
-   * You can call this operation only when the desired ECS instance enters a Pending state.\\
-   * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in a Pending state up to 20 times.
+   * You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+   * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
    * 
    * @param request - RecordLifecycleActionHeartbeatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45080,15 +45934,20 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RecordLifecycleActionHeartbeatResponse>(await this.callApi(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RecordLifecycleActionHeartbeatResponse>(await this.callApi(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    } else {
+      return $tea.cast<RecordLifecycleActionHeartbeatResponse>(await this.execute(params, req, runtime), new RecordLifecycleActionHeartbeatResponse({}));
+    }
+
   }
 
   /**
    * Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
    * 
    * @remarks
-   * You can call this operation only when the desired ECS instance enters a Pending state.\\
-   * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in a Pending state up to 20 times.
+   * You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+   * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
    * 
    * @param request - RecordLifecycleActionHeartbeatRequest
    * @returns RecordLifecycleActionHeartbeatResponse
@@ -45180,7 +46039,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveInstancesResponse>(await this.callApi(params, req, runtime), new RemoveInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RemoveInstancesResponse>(await this.callApi(params, req, runtime), new RemoveInstancesResponse({}));
+    } else {
+      return $tea.cast<RemoveInstancesResponse>(await this.execute(params, req, runtime), new RemoveInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -45248,7 +46112,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResumeInstanceRefreshResponse>(await this.callApi(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ResumeInstanceRefreshResponse>(await this.callApi(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    } else {
+      return $tea.cast<ResumeInstanceRefreshResponse>(await this.execute(params, req, runtime), new ResumeInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
@@ -45263,7 +46132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes suspended processes in a scaling group.
+   * Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
    * 
    * @param request - ResumeProcessesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45310,11 +46179,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ResumeProcessesResponse>(await this.callApi(params, req, runtime), new ResumeProcessesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ResumeProcessesResponse>(await this.callApi(params, req, runtime), new ResumeProcessesResponse({}));
+    } else {
+      return $tea.cast<ResumeProcessesResponse>(await this.execute(params, req, runtime), new ResumeProcessesResponse({}));
+    }
+
   }
 
   /**
-   * Resumes suspended processes in a scaling group.
+   * Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
    * 
    * @param request - ResumeProcessesRequest
    * @returns ResumeProcessesResponse
@@ -45325,7 +46199,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Rolls back an instance refresh task. If the configurations of an instance refresh task cannot meet your business requirements, you can call this operation to roll back the task. During the rollback process, Auto Scaling creates instances based on the active scaling configuration to replace instances that are created based on the configurations of the instance refresh task.
+   * Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
    * 
    * @param request - RollbackInstanceRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45368,11 +46242,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RollbackInstanceRefreshResponse>(await this.callApi(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RollbackInstanceRefreshResponse>(await this.callApi(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    } else {
+      return $tea.cast<RollbackInstanceRefreshResponse>(await this.execute(params, req, runtime), new RollbackInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
-   * Rolls back an instance refresh task. If the configurations of an instance refresh task cannot meet your business requirements, you can call this operation to roll back the task. During the rollback process, Auto Scaling creates instances based on the active scaling configuration to replace instances that are created based on the configurations of the instance refresh task.
+   * Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
    * 
    * @param request - RollbackInstanceRefreshRequest
    * @returns RollbackInstanceRefreshResponse
@@ -45469,7 +46348,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ScaleWithAdjustmentResponse>(await this.callApi(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ScaleWithAdjustmentResponse>(await this.callApi(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    } else {
+      return $tea.cast<ScaleWithAdjustmentResponse>(await this.execute(params, req, runtime), new ScaleWithAdjustmentResponse({}));
+    }
+
   }
 
   /**
@@ -45536,7 +46420,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetGroupDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetGroupDeletionProtectionResponse>(await this.callApi(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    } else {
+      return $tea.cast<SetGroupDeletionProtectionResponse>(await this.execute(params, req, runtime), new SetGroupDeletionProtectionResponse({}));
+    }
+
   }
 
   /**
@@ -45593,7 +46482,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetInstanceHealthResponse>(await this.callApi(params, req, runtime), new SetInstanceHealthResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetInstanceHealthResponse>(await this.callApi(params, req, runtime), new SetInstanceHealthResponse({}));
+    } else {
+      return $tea.cast<SetInstanceHealthResponse>(await this.execute(params, req, runtime), new SetInstanceHealthResponse({}));
+    }
+
   }
 
   /**
@@ -45660,7 +46554,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SetInstancesProtectionResponse>(await this.callApi(params, req, runtime), new SetInstancesProtectionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SetInstancesProtectionResponse>(await this.callApi(params, req, runtime), new SetInstancesProtectionResponse({}));
+    } else {
+      return $tea.cast<SetInstancesProtectionResponse>(await this.execute(params, req, runtime), new SetInstancesProtectionResponse({}));
+    }
+
   }
 
   /**
@@ -45681,13 +46580,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts an instance refresh task. If you want to batch update instance images, modify information in scaling configurations, and scale out instances based on new configurations, you can call the StartInstanceRefresh.html operation. After you start an instance refresh task, Auto Scaling gradually creates new instances from the desired configurations provided by the task to replace old instances. When all replacements are complete, the configurations of instances in your scaling group perfectly match your expectations.
+   * Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
    * 
    * @remarks
    *   Only one instance refresh task can be executed at a time in a scaling group.
-   * *   Instance refresh tasks are currently supported only by scaling groups of the Elastic Compute Service (ECS) type and using **the priority policy**. Scaling groups that use the number of vCPUs as the method to calculate the group capacity or scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support instance refresh tasks.
-   * *   During the execution of an instance refresh task, scaling events can be complete as expected. Take note that instances that are scaled out use the desired configurations provided by the instance refresh task.
-   * *   Instance refresh tasks does not take effect on instances that are manually added and instances that are in the Standby and Protected states.
+   * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
+   * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
+   * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
    * 
    * @param request - StartInstanceRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45746,17 +46645,22 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartInstanceRefreshResponse>(await this.callApi(params, req, runtime), new StartInstanceRefreshResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartInstanceRefreshResponse>(await this.callApi(params, req, runtime), new StartInstanceRefreshResponse({}));
+    } else {
+      return $tea.cast<StartInstanceRefreshResponse>(await this.execute(params, req, runtime), new StartInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
-   * Starts an instance refresh task. If you want to batch update instance images, modify information in scaling configurations, and scale out instances based on new configurations, you can call the StartInstanceRefresh.html operation. After you start an instance refresh task, Auto Scaling gradually creates new instances from the desired configurations provided by the task to replace old instances. When all replacements are complete, the configurations of instances in your scaling group perfectly match your expectations.
+   * Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
    * 
    * @remarks
    *   Only one instance refresh task can be executed at a time in a scaling group.
-   * *   Instance refresh tasks are currently supported only by scaling groups of the Elastic Compute Service (ECS) type and using **the priority policy**. Scaling groups that use the number of vCPUs as the method to calculate the group capacity or scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support instance refresh tasks.
-   * *   During the execution of an instance refresh task, scaling events can be complete as expected. Take note that instances that are scaled out use the desired configurations provided by the instance refresh task.
-   * *   Instance refresh tasks does not take effect on instances that are manually added and instances that are in the Standby and Protected states.
+   * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
+   * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
+   * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
    * 
    * @param request - StartInstanceRefreshRequest
    * @returns StartInstanceRefreshResponse
@@ -45767,7 +46671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Suspends an instance refresh task. You can call this operation to suspend an ongoing instance refresh task for observation.
+   * Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
    * 
    * @remarks
    *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
@@ -45813,11 +46717,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SuspendInstanceRefreshResponse>(await this.callApi(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SuspendInstanceRefreshResponse>(await this.callApi(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    } else {
+      return $tea.cast<SuspendInstanceRefreshResponse>(await this.execute(params, req, runtime), new SuspendInstanceRefreshResponse({}));
+    }
+
   }
 
   /**
-   * Suspends an instance refresh task. You can call this operation to suspend an ongoing instance refresh task for observation.
+   * Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
    * 
    * @remarks
    *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
@@ -45878,7 +46787,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SuspendProcessesResponse>(await this.callApi(params, req, runtime), new SuspendProcessesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SuspendProcessesResponse>(await this.callApi(params, req, runtime), new SuspendProcessesResponse({}));
+    } else {
+      return $tea.cast<SuspendProcessesResponse>(await this.execute(params, req, runtime), new SuspendProcessesResponse({}));
+    }
+
   }
 
   /**
@@ -45893,7 +46807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and attaches tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+   * Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
    * 
    * @remarks
    *   You can attach up to 20 tags to a scaling group.
@@ -45949,11 +46863,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
-   * Creates and attaches tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+   * Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
    * 
    * @remarks
    *   You can attach up to 20 tags to a scaling group.
@@ -46024,7 +46943,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -46039,7 +46963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether Auto Scaling is authorized to access Elastic Compute Service (ECS) and Elastic Container Instance resources.
+   * Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
    * 
    * @param request - VerifyAuthenticationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -46082,11 +47006,16 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyAuthenticationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<VerifyAuthenticationResponse>(await this.callApi(params, req, runtime), new VerifyAuthenticationResponse({}));
+    } else {
+      return $tea.cast<VerifyAuthenticationResponse>(await this.execute(params, req, runtime), new VerifyAuthenticationResponse({}));
+    }
+
   }
 
   /**
-   * Checks whether Auto Scaling is authorized to access Elastic Compute Service (ECS) and Elastic Container Instance resources.
+   * Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
    * 
    * @param request - VerifyAuthenticationRequest
    * @returns VerifyAuthenticationResponse
@@ -46136,7 +47065,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<VerifyUserResponse>(await this.callApi(params, req, runtime), new VerifyUserResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<VerifyUserResponse>(await this.callApi(params, req, runtime), new VerifyUserResponse({}));
+    } else {
+      return $tea.cast<VerifyUserResponse>(await this.execute(params, req, runtime), new VerifyUserResponse({}));
+    }
+
   }
 
   /**
