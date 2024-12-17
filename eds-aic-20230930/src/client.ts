@@ -266,11 +266,13 @@ export class BackupFileResponseBody extends $tea.Model {
    * 6C8439B9-7DBF-57F4-92AE-55A9B9D3****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       data: 'Data',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -279,6 +281,7 @@ export class BackupFileResponseBody extends $tea.Model {
       count: 'number',
       data: { 'type': 'array', 'itemType': BackupFileResponseBodyData },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -1734,6 +1737,7 @@ export class DescribeAppsRequest extends $tea.Model {
    * INSTALLING
    */
   installationStatus?: string;
+  MD5?: string;
   /**
    * @example
    * 10
@@ -1755,6 +1759,7 @@ export class DescribeAppsRequest extends $tea.Model {
       appName: 'AppName',
       bizRegionId: 'BizRegionId',
       installationStatus: 'InstallationStatus',
+      MD5: 'MD5',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
       status: 'Status',
@@ -1767,6 +1772,7 @@ export class DescribeAppsRequest extends $tea.Model {
       appName: 'string',
       bizRegionId: 'string',
       installationStatus: 'string',
+      MD5: 'string',
       maxResults: 'number',
       nextToken: 'string',
       status: 'string',
@@ -2510,11 +2516,14 @@ export class DescribeSpecResponse extends $tea.Model {
 }
 
 export class DescribeTasksRequest extends $tea.Model {
+  instanceId?: string;
+  instanceName?: string;
   /**
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
    */
   invokeId?: string;
+  level?: number;
   /**
    * @example
    * 10
@@ -2525,6 +2534,8 @@ export class DescribeTasksRequest extends $tea.Model {
    * FFbc8N4E1iOlcSxC+8boa0HHH2LKWbggYUinyrZWvtS1oTrMYCg1HuMLGuftj0****
    */
   nextToken?: string;
+  param?: string;
+  parentTaskId?: string;
   resourceIds?: string[];
   taskIds?: string[];
   /**
@@ -2532,32 +2543,48 @@ export class DescribeTasksRequest extends $tea.Model {
    * Processing
    */
   taskStatus?: string;
+  taskStatuses?: string[];
   /**
    * @example
    * StartInstance
    */
   taskType?: string;
+  taskTypes?: string[];
   static names(): { [key: string]: string } {
     return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       invokeId: 'InvokeId',
+      level: 'Level',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      param: 'Param',
+      parentTaskId: 'ParentTaskId',
       resourceIds: 'ResourceIds',
       taskIds: 'TaskIds',
       taskStatus: 'TaskStatus',
+      taskStatuses: 'TaskStatuses',
       taskType: 'TaskType',
+      taskTypes: 'TaskTypes',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      instanceId: 'string',
+      instanceName: 'string',
       invokeId: 'string',
+      level: 'number',
       maxResults: 'number',
       nextToken: 'string',
+      param: 'string',
+      parentTaskId: 'string',
       resourceIds: { 'type': 'array', 'itemType': 'string' },
       taskIds: { 'type': 'array', 'itemType': 'string' },
       taskStatus: 'string',
+      taskStatuses: { 'type': 'array', 'itemType': 'string' },
       taskType: 'string',
+      taskTypes: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -2954,10 +2981,12 @@ export class FetchFileResponseBody extends $tea.Model {
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -2965,6 +2994,7 @@ export class FetchFileResponseBody extends $tea.Model {
     return {
       data: { 'type': 'array', 'itemType': FetchFileResponseBodyData },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -3116,15 +3146,18 @@ export class InstallAppResponseBody extends $tea.Model {
    * E5138F7E-46B5-526A-8C99-82DEAE6B****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -3915,11 +3948,13 @@ export class RecoveryFileResponseBody extends $tea.Model {
    * 6AD56E39-430B-5401-AB4A-7B086454****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       count: 'Count',
       data: 'Data',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -3928,6 +3963,7 @@ export class RecoveryFileResponseBody extends $tea.Model {
       count: 'number',
       data: { 'type': 'array', 'itemType': RecoveryFileResponseBodyData },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4285,10 +4321,12 @@ export class SendFileResponseBody extends $tea.Model {
    * 425F351C-3F8E-5218-A520-B6311D0D****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       data: 'Data',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -4296,6 +4334,7 @@ export class SendFileResponseBody extends $tea.Model {
     return {
       data: { 'type': 'array', 'itemType': SendFileResponseBodyData },
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -4469,10 +4508,12 @@ export class StopAndroidInstanceResponse extends $tea.Model {
 export class UninstallAppRequest extends $tea.Model {
   appIdList?: string[];
   instanceGroupIdList?: string[];
+  instanceIdList?: string[];
   static names(): { [key: string]: string } {
     return {
       appIdList: 'AppIdList',
       instanceGroupIdList: 'InstanceGroupIdList',
+      instanceIdList: 'InstanceIdList',
     };
   }
 
@@ -4480,6 +4521,7 @@ export class UninstallAppRequest extends $tea.Model {
     return {
       appIdList: { 'type': 'array', 'itemType': 'string' },
       instanceGroupIdList: { 'type': 'array', 'itemType': 'string' },
+      instanceIdList: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -4494,15 +4536,18 @@ export class UninstallAppResponseBody extends $tea.Model {
    * E5138F7E-46B5-526A-8C99-82DEAE6B****
    */
   requestId?: string;
+  taskId?: string;
   static names(): { [key: string]: string } {
     return {
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       requestId: 'string',
+      taskId: 'string',
     };
   }
 
@@ -5424,6 +5469,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
    * 1.0.0
    */
   androidAppVersion?: string;
+  apkSize?: string;
   /**
    * @example
    * 10404
@@ -5457,6 +5503,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
    */
   installationStatus?: string;
   instanceGroupList?: string[];
+  MD5?: string;
   packageName?: string;
   /**
    * @example
@@ -5466,6 +5513,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       androidAppVersion: 'AndroidAppVersion',
+      apkSize: 'ApkSize',
       appId: 'AppId',
       appName: 'AppName',
       bizRegionId: 'BizRegionId',
@@ -5475,6 +5523,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       iconUrl: 'IconUrl',
       installationStatus: 'InstallationStatus',
       instanceGroupList: 'InstanceGroupList',
+      MD5: 'MD5',
       packageName: 'PackageName',
       status: 'Status',
     };
@@ -5483,6 +5532,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       androidAppVersion: 'string',
+      apkSize: 'string',
       appId: 'number',
       appName: 'string',
       bizRegionId: 'string',
@@ -5492,6 +5542,7 @@ export class DescribeAppsResponseBodyData extends $tea.Model {
       iconUrl: 'string',
       installationStatus: 'string',
       instanceGroupList: { 'type': 'array', 'itemType': 'string' },
+      MD5: 'string',
       packageName: 'string',
       status: 'string',
     };
@@ -5900,16 +5951,23 @@ export class DescribeSpecResponseBodySpecInfoModel extends $tea.Model {
 export class DescribeTasksResponseBodyData extends $tea.Model {
   errorCode?: string;
   errorMsg?: string;
+  failedChildCount?: number;
   /**
    * @example
    * 2022-10-11T08:53:32Z
    */
   finishTime?: string;
+  instanceId?: string;
+  instanceName?: string;
   /**
    * @example
    * B8ED2BA9-0C6A-5643-818F-B5D60A64****
    */
   invokeId?: string;
+  level?: number;
+  operator?: string;
+  param?: string;
+  parentTaskId?: string;
   /**
    * @example
    * cn-hangzhou
@@ -5921,11 +5979,13 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
    */
   resourceId?: string;
   result?: string;
+  runningChildCount?: number;
   /**
    * @example
    * 2022-10-11T08:53:32Z
    */
   startTime?: string;
+  successChildCount?: number;
   /**
    * @example
    * t-bp67acfmxazb4p****
@@ -5941,19 +6001,30 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
    * StartInstance
    */
   taskType?: string;
+  totalChildCount?: number;
   static names(): { [key: string]: string } {
     return {
       errorCode: 'ErrorCode',
       errorMsg: 'ErrorMsg',
+      failedChildCount: 'FailedChildCount',
       finishTime: 'FinishTime',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
       invokeId: 'InvokeId',
+      level: 'Level',
+      operator: 'Operator',
+      param: 'Param',
+      parentTaskId: 'ParentTaskId',
       regionId: 'RegionId',
       resourceId: 'ResourceId',
       result: 'Result',
+      runningChildCount: 'RunningChildCount',
       startTime: 'StartTime',
+      successChildCount: 'SuccessChildCount',
       taskId: 'TaskId',
       taskStatus: 'TaskStatus',
       taskType: 'TaskType',
+      totalChildCount: 'TotalChildCount',
     };
   }
 
@@ -5961,15 +6032,25 @@ export class DescribeTasksResponseBodyData extends $tea.Model {
     return {
       errorCode: 'string',
       errorMsg: 'string',
+      failedChildCount: 'number',
       finishTime: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
       invokeId: 'string',
+      level: 'number',
+      operator: 'string',
+      param: 'string',
+      parentTaskId: 'string',
       regionId: 'string',
       resourceId: 'string',
       result: 'string',
+      runningChildCount: 'number',
       startTime: 'string',
+      successChildCount: 'number',
       taskId: 'string',
       taskStatus: 'string',
       taskType: 'string',
+      totalChildCount: 'number',
     };
   }
 
@@ -7270,6 +7351,10 @@ export default class Client extends OpenApi {
       query["InstallationStatus"] = request.installationStatus;
     }
 
+    if (!Util.isUnset(request.MD5)) {
+      query["MD5"] = request.MD5;
+    }
+
     if (!Util.isUnset(request.maxResults)) {
       query["MaxResults"] = request.maxResults;
     }
@@ -7664,8 +7749,20 @@ export default class Client extends OpenApi {
   async describeTasksWithOptions(request: DescribeTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTasksResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
     if (!Util.isUnset(request.invokeId)) {
       query["InvokeId"] = request.invokeId;
+    }
+
+    if (!Util.isUnset(request.level)) {
+      query["Level"] = request.level;
     }
 
     if (!Util.isUnset(request.maxResults)) {
@@ -7674,6 +7771,14 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.param)) {
+      query["Param"] = request.param;
+    }
+
+    if (!Util.isUnset(request.parentTaskId)) {
+      query["ParentTaskId"] = request.parentTaskId;
     }
 
     if (!Util.isUnset(request.resourceIds)) {
@@ -7688,8 +7793,16 @@ export default class Client extends OpenApi {
       query["TaskStatus"] = request.taskStatus;
     }
 
+    if (!Util.isUnset(request.taskStatuses)) {
+      query["TaskStatuses"] = request.taskStatuses;
+    }
+
     if (!Util.isUnset(request.taskType)) {
       query["TaskType"] = request.taskType;
+    }
+
+    if (!Util.isUnset(request.taskTypes)) {
+      query["TaskTypes"] = request.taskTypes;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -8762,6 +8875,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.instanceGroupIdList)) {
       query["InstanceGroupIdList"] = request.instanceGroupIdList;
+    }
+
+    if (!Util.isUnset(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
     }
 
     let req = new $OpenApi.OpenApiRequest({
