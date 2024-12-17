@@ -2,12 +2,14 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AnchorResponse extends $tea.Model {
+  anchorCategory?: string;
   anchorId?: string;
   anchorMaterialName?: string;
   anchorType?: string;
@@ -24,6 +26,7 @@ export class AnchorResponse extends $tea.Model {
   useScene?: string;
   static names(): { [key: string]: string } {
     return {
+      anchorCategory: 'anchorCategory',
       anchorId: 'anchorId',
       anchorMaterialName: 'anchorMaterialName',
       anchorType: 'anchorType',
@@ -43,6 +46,7 @@ export class AnchorResponse extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      anchorCategory: 'string',
       anchorId: 'string',
       anchorMaterialName: 'string',
       anchorType: 'string',
@@ -1754,6 +1758,8 @@ export class FinishAICoachTaskSessionResponse extends $tea.Model {
 }
 
 export class GetAICoachTaskSessionHistoryRequest extends $tea.Model {
+  pageNumber?: number;
+  pageSize?: number;
   /**
    * @example
    * 111
@@ -1766,6 +1772,8 @@ export class GetAICoachTaskSessionHistoryRequest extends $tea.Model {
   uid?: string;
   static names(): { [key: string]: string } {
     return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
       sessionId: 'sessionId',
       uid: 'uid',
     };
@@ -1773,6 +1781,8 @@ export class GetAICoachTaskSessionHistoryRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      pageNumber: 'number',
+      pageSize: 'number',
       sessionId: 'string',
       uid: 'string',
     };
@@ -1807,6 +1817,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $tea.Model {
    */
   startTime?: string;
   status?: string;
+  total?: number;
   /**
    * @example
    * 1579404690269235
@@ -1821,6 +1832,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $tea.Model {
       scriptName: 'scriptName',
       startTime: 'startTime',
       status: 'status',
+      total: 'total',
       uid: 'uid',
     };
   }
@@ -1834,6 +1846,7 @@ export class GetAICoachTaskSessionHistoryResponseBody extends $tea.Model {
       scriptName: 'string',
       startTime: 'string',
       status: 'string',
+      total: 'number',
       uid: 'string',
     };
   }
@@ -1914,6 +1927,7 @@ export class GetAICoachTaskSessionReportResponseBody extends $tea.Model {
    * {}
    */
   evaluationResult?: string;
+  feedback?: boolean;
   /**
    * @example
    * 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
@@ -1936,6 +1950,7 @@ export class GetAICoachTaskSessionReportResponseBody extends $tea.Model {
       duration: 'duration',
       endTime: 'endTime',
       evaluationResult: 'evaluationResult',
+      feedback: 'feedback',
       requestId: 'requestId',
       scriptName: 'scriptName',
       startTime: 'startTime',
@@ -1949,6 +1964,7 @@ export class GetAICoachTaskSessionReportResponseBody extends $tea.Model {
       duration: 'number',
       endTime: 'string',
       evaluationResult: 'string',
+      feedback: 'boolean',
       requestId: 'string',
       scriptName: 'string',
       startTime: 'string',
@@ -2552,6 +2568,7 @@ export class ListAICoachTaskPageResponse extends $tea.Model {
 }
 
 export class ListAnchorRequest extends $tea.Model {
+  anchorCategory?: string;
   /**
    * @example
    * PUBLIC_MODEL
@@ -2585,6 +2602,7 @@ export class ListAnchorRequest extends $tea.Model {
   useScene?: string;
   static names(): { [key: string]: string } {
     return {
+      anchorCategory: 'anchorCategory',
       anchorType: 'anchorType',
       coverRate: 'coverRate',
       digitalHumanType: 'digitalHumanType',
@@ -2597,6 +2615,7 @@ export class ListAnchorRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      anchorCategory: 'string',
       anchorType: 'string',
       coverRate: 'string',
       digitalHumanType: 'string',
@@ -4603,25 +4622,31 @@ export class CreateAICoachTaskSessionResponseBodyScriptInfo extends $tea.Model {
 }
 
 export class GetAICoachTaskSessionHistoryResponseBodyConversationList extends $tea.Model {
+  audioUrl?: string;
   /**
    * @example
    * {}
    */
   evaluationResult?: string;
   message?: string;
+  recordId?: string;
   role?: string;
   static names(): { [key: string]: string } {
     return {
+      audioUrl: 'audioUrl',
       evaluationResult: 'evaluationResult',
       message: 'message',
+      recordId: 'recordId',
       role: 'role',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      audioUrl: 'string',
       evaluationResult: 'string',
       message: 'string',
+      recordId: 'string',
       role: 'string',
     };
   }
@@ -5226,6 +5251,7 @@ export class SelectResourceResponseBodyResourceInfoList extends $tea.Model {
 }
 
 export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
+  anchorStyleLevel?: string;
   /**
    * @example
    * video/mp4
@@ -5245,6 +5271,7 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
   volume?: number;
   static names(): { [key: string]: string } {
     return {
+      anchorStyleLevel: 'anchorStyleLevel',
       format: 'format',
       id: 'id',
       speed: 'speed',
@@ -5255,6 +5282,7 @@ export class SubmitProjectTaskRequestFramesLayersMaterial extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      anchorStyleLevel: 'string',
       format: 'string',
       id: 'string',
       speed: 'string',
@@ -5509,6 +5537,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "IntelligentCreation";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("intelligentcreation", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -5565,7 +5596,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AddTextFeedbackResponse>(await this.callApi(params, req, runtime), new AddTextFeedbackResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddTextFeedbackResponse>(await this.callApi(params, req, runtime), new AddTextFeedbackResponse({}));
+    } else {
+      return $tea.cast<AddTextFeedbackResponse>(await this.execute(params, req, runtime), new AddTextFeedbackResponse({}));
+    }
+
   }
 
   /**
@@ -5616,7 +5652,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BatchGetProjectTaskResponse>(await this.callApi(params, req, runtime), new BatchGetProjectTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BatchGetProjectTaskResponse>(await this.callApi(params, req, runtime), new BatchGetProjectTaskResponse({}));
+    } else {
+      return $tea.cast<BatchGetProjectTaskResponse>(await this.execute(params, req, runtime), new BatchGetProjectTaskResponse({}));
+    }
+
   }
 
   /**
@@ -5665,7 +5706,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CheckSessionResponse>(await this.callApi(params, req, runtime), new CheckSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CheckSessionResponse>(await this.callApi(params, req, runtime), new CheckSessionResponse({}));
+    } else {
+      return $tea.cast<CheckSessionResponse>(await this.execute(params, req, runtime), new CheckSessionResponse({}));
+    }
+
   }
 
   /**
@@ -5714,7 +5760,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CloseAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CloseAICoachTaskSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CloseAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CloseAICoachTaskSessionResponse({}));
+    } else {
+      return $tea.cast<CloseAICoachTaskSessionResponse>(await this.execute(params, req, runtime), new CloseAICoachTaskSessionResponse({}));
+    }
+
   }
 
   /**
@@ -5771,7 +5822,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CountTextResponse>(await this.callApi(params, req, runtime), new CountTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CountTextResponse>(await this.callApi(params, req, runtime), new CountTextResponse({}));
+    } else {
+      return $tea.cast<CountTextResponse>(await this.execute(params, req, runtime), new CountTextResponse({}));
+    }
+
   }
 
   /**
@@ -5820,7 +5876,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CreateAICoachTaskSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new CreateAICoachTaskSessionResponse({}));
+    } else {
+      return $tea.cast<CreateAICoachTaskSessionResponse>(await this.execute(params, req, runtime), new CreateAICoachTaskSessionResponse({}));
+    }
+
   }
 
   /**
@@ -5860,7 +5921,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateIllustrationTaskResponse>(await this.callApi(params, req, runtime), new CreateIllustrationTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateIllustrationTaskResponse>(await this.callApi(params, req, runtime), new CreateIllustrationTaskResponse({}));
+    } else {
+      return $tea.cast<CreateIllustrationTaskResponse>(await this.execute(params, req, runtime), new CreateIllustrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -5957,7 +6023,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateRealisticPortraitResponse>(await this.callApi(params, req, runtime), new CreateRealisticPortraitResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateRealisticPortraitResponse>(await this.callApi(params, req, runtime), new CreateRealisticPortraitResponse({}));
+    } else {
+      return $tea.cast<CreateRealisticPortraitResponse>(await this.execute(params, req, runtime), new CreateRealisticPortraitResponse({}));
+    }
+
   }
 
   /**
@@ -5997,7 +6068,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateTextTaskResponse>(await this.callApi(params, req, runtime), new CreateTextTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateTextTaskResponse>(await this.callApi(params, req, runtime), new CreateTextTaskResponse({}));
+    } else {
+      return $tea.cast<CreateTextTaskResponse>(await this.execute(params, req, runtime), new CreateTextTaskResponse({}));
+    }
+
   }
 
   /**
@@ -6046,7 +6122,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<FinishAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new FinishAICoachTaskSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<FinishAICoachTaskSessionResponse>(await this.callApi(params, req, runtime), new FinishAICoachTaskSessionResponse({}));
+    } else {
+      return $tea.cast<FinishAICoachTaskSessionResponse>(await this.execute(params, req, runtime), new FinishAICoachTaskSessionResponse({}));
+    }
+
   }
 
   /**
@@ -6072,6 +6153,14 @@ export default class Client extends OpenApi {
   async getAICoachTaskSessionHistoryWithOptions(request: GetAICoachTaskSessionHistoryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetAICoachTaskSessionHistoryResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
     if (!Util.isUnset(request.sessionId)) {
       query["sessionId"] = request.sessionId;
     }
@@ -6095,7 +6184,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAICoachTaskSessionHistoryResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionHistoryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetAICoachTaskSessionHistoryResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionHistoryResponse({}));
+    } else {
+      return $tea.cast<GetAICoachTaskSessionHistoryResponse>(await this.execute(params, req, runtime), new GetAICoachTaskSessionHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -6144,7 +6238,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAICoachTaskSessionReportResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionReportResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetAICoachTaskSessionReportResponse>(await this.callApi(params, req, runtime), new GetAICoachTaskSessionReportResponse({}));
+    } else {
+      return $tea.cast<GetAICoachTaskSessionReportResponse>(await this.execute(params, req, runtime), new GetAICoachTaskSessionReportResponse({}));
+    }
+
   }
 
   /**
@@ -6181,7 +6280,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetIllustrationResponse>(await this.callApi(params, req, runtime), new GetIllustrationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetIllustrationResponse>(await this.callApi(params, req, runtime), new GetIllustrationResponse({}));
+    } else {
+      return $tea.cast<GetIllustrationResponse>(await this.execute(params, req, runtime), new GetIllustrationResponse({}));
+    }
+
   }
 
   /**
@@ -6216,7 +6320,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetIllustrationTaskResponse>(await this.callApi(params, req, runtime), new GetIllustrationTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetIllustrationTaskResponse>(await this.callApi(params, req, runtime), new GetIllustrationTaskResponse({}));
+    } else {
+      return $tea.cast<GetIllustrationTaskResponse>(await this.execute(params, req, runtime), new GetIllustrationTaskResponse({}));
+    }
+
   }
 
   /**
@@ -6263,7 +6372,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetOssUploadTokenResponse>(await this.callApi(params, req, runtime), new GetOssUploadTokenResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetOssUploadTokenResponse>(await this.callApi(params, req, runtime), new GetOssUploadTokenResponse({}));
+    } else {
+      return $tea.cast<GetOssUploadTokenResponse>(await this.execute(params, req, runtime), new GetOssUploadTokenResponse({}));
+    }
+
   }
 
   /**
@@ -6312,7 +6426,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetProjectTaskResponse>(await this.callApi(params, req, runtime), new GetProjectTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetProjectTaskResponse>(await this.callApi(params, req, runtime), new GetProjectTaskResponse({}));
+    } else {
+      return $tea.cast<GetProjectTaskResponse>(await this.execute(params, req, runtime), new GetProjectTaskResponse({}));
+    }
+
   }
 
   /**
@@ -6349,7 +6468,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTextResponse>(await this.callApi(params, req, runtime), new GetTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTextResponse>(await this.callApi(params, req, runtime), new GetTextResponse({}));
+    } else {
+      return $tea.cast<GetTextResponse>(await this.execute(params, req, runtime), new GetTextResponse({}));
+    }
+
   }
 
   /**
@@ -6384,7 +6508,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTextTaskResponse>(await this.callApi(params, req, runtime), new GetTextTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTextTaskResponse>(await this.callApi(params, req, runtime), new GetTextTaskResponse({}));
+    } else {
+      return $tea.cast<GetTextTaskResponse>(await this.execute(params, req, runtime), new GetTextTaskResponse({}));
+    }
+
   }
 
   /**
@@ -6427,7 +6556,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetTextTemplateResponse>(await this.callApi(params, req, runtime), new GetTextTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTextTemplateResponse>(await this.callApi(params, req, runtime), new GetTextTemplateResponse({}));
+    } else {
+      return $tea.cast<GetTextTemplateResponse>(await this.execute(params, req, runtime), new GetTextTemplateResponse({}));
+    }
+
   }
 
   /**
@@ -6480,7 +6614,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<InteractTextResponse>(await this.callApi(params, req, runtime), new InteractTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<InteractTextResponse>(await this.callApi(params, req, runtime), new InteractTextResponse({}));
+    } else {
+      return $tea.cast<InteractTextResponse>(await this.execute(params, req, runtime), new InteractTextResponse({}));
+    }
+
   }
 
   /**
@@ -6541,7 +6680,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAICoachTaskPageResponse>(await this.callApi(params, req, runtime), new ListAICoachTaskPageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAICoachTaskPageResponse>(await this.callApi(params, req, runtime), new ListAICoachTaskPageResponse({}));
+    } else {
+      return $tea.cast<ListAICoachTaskPageResponse>(await this.execute(params, req, runtime), new ListAICoachTaskPageResponse({}));
+    }
+
   }
 
   /**
@@ -6567,6 +6711,10 @@ export default class Client extends OpenApi {
   async listAnchorWithOptions(request: ListAnchorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ListAnchorResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorCategory)) {
+      query["anchorCategory"] = request.anchorCategory;
+    }
+
     if (!Util.isUnset(request.anchorType)) {
       query["anchorType"] = request.anchorType;
     }
@@ -6610,7 +6758,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAnchorResponse>(await this.callApi(params, req, runtime), new ListAnchorResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAnchorResponse>(await this.callApi(params, req, runtime), new ListAnchorResponse({}));
+    } else {
+      return $tea.cast<ListAnchorResponse>(await this.execute(params, req, runtime), new ListAnchorResponse({}));
+    }
+
   }
 
   /**
@@ -6661,7 +6814,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAvatarProjectResponse>(await this.callApi(params, req, runtime), new ListAvatarProjectResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAvatarProjectResponse>(await this.callApi(params, req, runtime), new ListAvatarProjectResponse({}));
+    } else {
+      return $tea.cast<ListAvatarProjectResponse>(await this.execute(params, req, runtime), new ListAvatarProjectResponse({}));
+    }
+
   }
 
   /**
@@ -6706,7 +6864,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTextThemesResponse>(await this.callApi(params, req, runtime), new ListTextThemesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTextThemesResponse>(await this.callApi(params, req, runtime), new ListTextThemesResponse({}));
+    } else {
+      return $tea.cast<ListTextThemesResponse>(await this.execute(params, req, runtime), new ListTextThemesResponse({}));
+    }
+
   }
 
   /**
@@ -6779,7 +6942,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTextsResponse>(await this.callApi(params, req, runtime), new ListTextsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTextsResponse>(await this.callApi(params, req, runtime), new ListTextsResponse({}));
+    } else {
+      return $tea.cast<ListTextsResponse>(await this.execute(params, req, runtime), new ListTextsResponse({}));
+    }
+
   }
 
   /**
@@ -6840,7 +7008,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListVoiceModelsResponse>(await this.callApi(params, req, runtime), new ListVoiceModelsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListVoiceModelsResponse>(await this.callApi(params, req, runtime), new ListVoiceModelsResponse({}));
+    } else {
+      return $tea.cast<ListVoiceModelsResponse>(await this.execute(params, req, runtime), new ListVoiceModelsResponse({}));
+    }
+
   }
 
   /**
@@ -6897,7 +7070,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<OperateAvatarProjectResponse>(await this.callApi(params, req, runtime), new OperateAvatarProjectResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<OperateAvatarProjectResponse>(await this.callApi(params, req, runtime), new OperateAvatarProjectResponse({}));
+    } else {
+      return $tea.cast<OperateAvatarProjectResponse>(await this.execute(params, req, runtime), new OperateAvatarProjectResponse({}));
+    }
+
   }
 
   /**
@@ -6942,7 +7120,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<QueryAvatarProjectResponse>(await this.callApi(params, req, runtime), new QueryAvatarProjectResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryAvatarProjectResponse>(await this.callApi(params, req, runtime), new QueryAvatarProjectResponse({}));
+    } else {
+      return $tea.cast<QueryAvatarProjectResponse>(await this.execute(params, req, runtime), new QueryAvatarProjectResponse({}));
+    }
+
   }
 
   /**
@@ -6987,7 +7170,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<QueryAvatarResourceResponse>(await this.callApi(params, req, runtime), new QueryAvatarResourceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryAvatarResourceResponse>(await this.callApi(params, req, runtime), new QueryAvatarResourceResponse({}));
+    } else {
+      return $tea.cast<QueryAvatarResourceResponse>(await this.execute(params, req, runtime), new QueryAvatarResourceResponse({}));
+    }
+
   }
 
   /**
@@ -7050,7 +7238,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<QuerySessionInfoResponse>(await this.callApi(params, req, runtime), new QuerySessionInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QuerySessionInfoResponse>(await this.callApi(params, req, runtime), new QuerySessionInfoResponse({}));
+    } else {
+      return $tea.cast<QuerySessionInfoResponse>(await this.execute(params, req, runtime), new QuerySessionInfoResponse({}));
+    }
+
   }
 
   /**
@@ -7087,7 +7280,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<QueryTextStreamResponse>(await this.callApi(params, req, runtime), new QueryTextStreamResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryTextStreamResponse>(await this.callApi(params, req, runtime), new QueryTextStreamResponse({}));
+    } else {
+      return $tea.cast<QueryTextStreamResponse>(await this.execute(params, req, runtime), new QueryTextStreamResponse({}));
+    }
+
   }
 
   /**
@@ -7154,7 +7352,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SaveAvatarProjectResponse>(await this.callApi(params, req, runtime), new SaveAvatarProjectResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SaveAvatarProjectResponse>(await this.callApi(params, req, runtime), new SaveAvatarProjectResponse({}));
+    } else {
+      return $tea.cast<SaveAvatarProjectResponse>(await this.execute(params, req, runtime), new SaveAvatarProjectResponse({}));
+    }
+
   }
 
   /**
@@ -7191,7 +7394,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SelectImageTaskResponse>(await this.callApi(params, req, runtime), new SelectImageTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SelectImageTaskResponse>(await this.callApi(params, req, runtime), new SelectImageTaskResponse({}));
+    } else {
+      return $tea.cast<SelectImageTaskResponse>(await this.execute(params, req, runtime), new SelectImageTaskResponse({}));
+    }
+
   }
 
   /**
@@ -7234,7 +7442,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SelectResourceResponse>(await this.callApi(params, req, runtime), new SelectResourceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SelectResourceResponse>(await this.callApi(params, req, runtime), new SelectResourceResponse({}));
+    } else {
+      return $tea.cast<SelectResourceResponse>(await this.execute(params, req, runtime), new SelectResourceResponse({}));
+    }
+
   }
 
   /**
@@ -7295,7 +7508,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SendTextMsgResponse>(await this.callApi(params, req, runtime), new SendTextMsgResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SendTextMsgResponse>(await this.callApi(params, req, runtime), new SendTextMsgResponse({}));
+    } else {
+      return $tea.cast<SendTextMsgResponse>(await this.execute(params, req, runtime), new SendTextMsgResponse({}));
+    }
+
   }
 
   /**
@@ -7348,7 +7566,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartAvatarSessionResponse>(await this.callApi(params, req, runtime), new StartAvatarSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartAvatarSessionResponse>(await this.callApi(params, req, runtime), new StartAvatarSessionResponse({}));
+    } else {
+      return $tea.cast<StartAvatarSessionResponse>(await this.execute(params, req, runtime), new StartAvatarSessionResponse({}));
+    }
+
   }
 
   /**
@@ -7397,7 +7620,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopAvatarSessionResponse>(await this.callApi(params, req, runtime), new StopAvatarSessionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopAvatarSessionResponse>(await this.callApi(params, req, runtime), new StopAvatarSessionResponse({}));
+    } else {
+      return $tea.cast<StopAvatarSessionResponse>(await this.execute(params, req, runtime), new StopAvatarSessionResponse({}));
+    }
+
   }
 
   /**
@@ -7442,7 +7670,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopProjectTaskResponse>(await this.callApi(params, req, runtime), new StopProjectTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopProjectTaskResponse>(await this.callApi(params, req, runtime), new StopProjectTaskResponse({}));
+    } else {
+      return $tea.cast<StopProjectTaskResponse>(await this.execute(params, req, runtime), new StopProjectTaskResponse({}));
+    }
+
   }
 
   /**
@@ -7499,7 +7732,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SubmitProjectTaskResponse>(await this.callApi(params, req, runtime), new SubmitProjectTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitProjectTaskResponse>(await this.callApi(params, req, runtime), new SubmitProjectTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitProjectTaskResponse>(await this.execute(params, req, runtime), new SubmitProjectTaskResponse({}));
+    }
+
   }
 
   /**
@@ -7564,7 +7802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<TransferPortraitStyleResponse>(await this.callApi(params, req, runtime), new TransferPortraitStyleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TransferPortraitStyleResponse>(await this.callApi(params, req, runtime), new TransferPortraitStyleResponse({}));
+    } else {
+      return $tea.cast<TransferPortraitStyleResponse>(await this.execute(params, req, runtime), new TransferPortraitStyleResponse({}));
+    }
+
   }
 
   /**
