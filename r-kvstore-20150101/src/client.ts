@@ -432,6 +432,110 @@ export class AllocateInstancePublicConnectionResponse extends $tea.Model {
   }
 }
 
+export class CancelActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of O\\&M events that you want to cancel at a time. Separate multiple IDs with commas (,).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1508850,1508310,1507849,1506274,1505811
+   */
+  ids?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of O\\&M events that are canceled at a time. Separate multiple IDs with commas (,).
+   * 
+   * @example
+   * 1508850,1508310,1507849,1506274
+   */
+  ids?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * F16A51B0-436E-5B84-8326-A18AA150D1C4
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ids: 'Ids',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ids: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckCloudResourceAuthorizedRequest extends $tea.Model {
   /**
    * @remarks
@@ -1504,6 +1608,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  replicaCount?: number;
   /**
    * @remarks
    * The ID of the resource group.
@@ -1555,6 +1660,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * 2
    */
   slaveReadOnlyCount?: number;
+  slaveReplicaCount?: number;
   /**
    * @remarks
    * If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
@@ -1636,6 +1742,7 @@ export class CreateInstanceRequest extends $tea.Model {
       readOnlyCount: 'ReadOnlyCount',
       recoverConfigMode: 'RecoverConfigMode',
       regionId: 'RegionId',
+      replicaCount: 'ReplicaCount',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -1644,6 +1751,7 @@ export class CreateInstanceRequest extends $tea.Model {
       securityToken: 'SecurityToken',
       shardCount: 'ShardCount',
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
+      slaveReplicaCount: 'SlaveReplicaCount',
       srcDBInstanceId: 'SrcDBInstanceId',
       tag: 'Tag',
       token: 'Token',
@@ -1687,6 +1795,7 @@ export class CreateInstanceRequest extends $tea.Model {
       readOnlyCount: 'number',
       recoverConfigMode: 'string',
       regionId: 'string',
+      replicaCount: 'number',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -1695,6 +1804,7 @@ export class CreateInstanceRequest extends $tea.Model {
       securityToken: 'string',
       shardCount: 'number',
       slaveReadOnlyCount: 'number',
+      slaveReplicaCount: 'number',
       srcDBInstanceId: 'string',
       tag: { 'type': 'array', 'itemType': CreateInstanceRequestTag },
       token: 'string',
@@ -2198,6 +2308,11 @@ export class CreateInstancesResponse extends $tea.Model {
 export class CreateParameterGroupRequest extends $tea.Model {
   /**
    * @remarks
+   * The service category. Valid values:
+   * 
+   * *   **standard**: Community Edition
+   * *   **enterprise**: Enhanced Edition (Tair)
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2206,6 +2321,12 @@ export class CreateParameterGroupRequest extends $tea.Model {
   category?: string;
   /**
    * @remarks
+   * The engine type. Valid values:
+   * 
+   * *   **redis**: ApsaraDB for Redis Community Edition instance or Tair DRAM-based instance
+   * *   **tair_pena**: Tair persistent memory-optimized instance
+   * *   **tair_pdb**: Tair ESSD/SSD-based instance
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2214,6 +2335,13 @@ export class CreateParameterGroupRequest extends $tea.Model {
   engineType?: string;
   /**
    * @remarks
+   * The compatible engine version. Valid values:
+   * 
+   * *   For ApsaraDB for Redis Community Edition instances, set the parameter to **5.0**, **6.0**, or **7.0**.
+   * *   For Tair DRAM-based instances that are compatible with Redis 5.0, 6.0, or 7.0, set the parameter to **5.0**, **6.0**, or **7.0**.
+   * *   For Tair persistent memory-optimized instances that are compatible with Redis 6.0, set the parameter to **1.0**.
+   * *   For Tair ESSD-based instances that are compatible with Redis 6.0, set the parameter to **1.0**. For Tair SSD-based instances that are compatible with Redis 6.0, set the parameter to **2.0**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2223,12 +2351,20 @@ export class CreateParameterGroupRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The description of the parameter template. The description must be 0 to 200 characters in length.
+   * 
    * @example
    * test
    */
   parameterGroupDesc?: string;
   /**
    * @remarks
+   * The new name of the parameter template. The name must meet the following requirements:
+   * 
+   * *   The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
+   * *   The name can be 8 to 64 characters in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2237,6 +2373,10 @@ export class CreateParameterGroupRequest extends $tea.Model {
   parameterGroupName?: string;
   /**
    * @remarks
+   * A JSON-formatted object that specifies the parameter-value pairs. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. The specified value overwrites the original content.
+   * 
+   * >  The parameters that can be added for different editions are displayed in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2245,6 +2385,8 @@ export class CreateParameterGroupRequest extends $tea.Model {
   parameters?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2295,11 +2437,17 @@ export class CreateParameterGroupRequest extends $tea.Model {
 
 export class CreateParameterGroupResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The parameter template ID.
+   * 
    * @example
    * g-51ii2ienn0dg0xi8****
    */
   paramGroupId?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 62DA5BE5-F9C9-527C-ACCB-4D783C297A3A
    */
@@ -2340,6 +2488,254 @@ export class CreateParameterGroupResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateParameterGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTCInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  autoRenew?: string;
+  /**
+   * @example
+   * 1
+   */
+  autoRenewPeriod?: string;
+  /**
+   * @example
+   * false
+   */
+  autoUseCoupon?: string;
+  /**
+   * @example
+   * 000000000
+   */
+  businessInfo?: string;
+  /**
+   * @example
+   * ETnLKlblzczshOTUbOCz****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  couponNo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  dataDisk?: CreateTCInstanceRequestDataDisk[];
+  /**
+   * @example
+   * false
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ubuntu_20_04_64_20G_alibase_20210412
+   */
+  imageId?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  instanceChargeType?: string;
+  /**
+   * @example
+   * tair.kvcache.guis.8.gu60
+   */
+  instanceClass?: string;
+  /**
+   * @example
+   * newinstancename
+   */
+  instanceName?: string;
+  needEni?: boolean;
+  /**
+   * @example
+   * VPC
+   */
+  networkType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 12
+   */
+  period?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmyiu4e******
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * sg-bpcfmyiu4ekp****
+   */
+  securityGroupId?: string;
+  securityToken?: string;
+  tag?: CreateTCInstanceRequestTag[];
+  /**
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
+      autoUseCoupon: 'AutoUseCoupon',
+      businessInfo: 'BusinessInfo',
+      clientToken: 'ClientToken',
+      couponNo: 'CouponNo',
+      dataDisk: 'DataDisk',
+      dryRun: 'DryRun',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceClass: 'InstanceClass',
+      instanceName: 'InstanceName',
+      needEni: 'NeedEni',
+      networkType: 'NetworkType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      period: 'Period',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityGroupId: 'SecurityGroupId',
+      securityToken: 'SecurityToken',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoRenew: 'string',
+      autoRenewPeriod: 'string',
+      autoUseCoupon: 'string',
+      businessInfo: 'string',
+      clientToken: 'string',
+      couponNo: 'string',
+      dataDisk: { 'type': 'array', 'itemType': CreateTCInstanceRequestDataDisk },
+      dryRun: 'boolean',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceClass: 'string',
+      instanceName: 'string',
+      needEni: 'boolean',
+      networkType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      period: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityGroupId: 'string',
+      securityToken: 'string',
+      tag: { 'type': 'array', 'itemType': CreateTCInstanceRequestTag },
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTCInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 22179******0904
+   */
+  orderId?: number;
+  /**
+   * @example
+   * 561AFBF1-BE20-44DB-9BD1-6988B53E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      orderId: 'number',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateTCInstanceResponseBody,
     };
   }
 
@@ -2437,6 +2833,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
    * cb-hyxdof5x9kqb****
    */
   clusterBackupId?: string;
+  connectionStringPrefix?: string;
   /**
    * @remarks
    * The coupon code.
@@ -2599,6 +2996,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  replicaCount?: number;
   /**
    * @remarks
    * The ID of the resource group to which you want to assign the instance.
@@ -2668,6 +3066,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
    * 1
    */
   slaveReadOnlyCount?: number;
+  slaveReplicaCount?: number;
   /**
    * @remarks
    * If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
@@ -2751,6 +3150,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       chargeType: 'ChargeType',
       clientToken: 'ClientToken',
       clusterBackupId: 'ClusterBackupId',
+      connectionStringPrefix: 'ConnectionStringPrefix',
       couponNo: 'CouponNo',
       dryRun: 'DryRun',
       engineVersion: 'EngineVersion',
@@ -2769,6 +3169,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       readOnlyCount: 'ReadOnlyCount',
       recoverConfigMode: 'RecoverConfigMode',
       regionId: 'RegionId',
+      replicaCount: 'ReplicaCount',
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
@@ -2778,6 +3179,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       shardCount: 'ShardCount',
       shardType: 'ShardType',
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
+      slaveReplicaCount: 'SlaveReplicaCount',
       srcDBInstanceId: 'SrcDBInstanceId',
       storage: 'Storage',
       storageType: 'StorageType',
@@ -2799,6 +3201,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       chargeType: 'string',
       clientToken: 'string',
       clusterBackupId: 'string',
+      connectionStringPrefix: 'string',
       couponNo: 'string',
       dryRun: 'boolean',
       engineVersion: 'string',
@@ -2817,6 +3220,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       readOnlyCount: 'number',
       recoverConfigMode: 'string',
       regionId: 'string',
+      replicaCount: 'number',
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
@@ -2826,6 +3230,7 @@ export class CreateTairInstanceRequest extends $tea.Model {
       shardCount: 'number',
       shardType: 'string',
       slaveReadOnlyCount: 'number',
+      slaveReplicaCount: 'number',
       srcDBInstanceId: 'string',
       storage: 'number',
       storageType: 'string',
@@ -3924,26 +4329,53 @@ export class DescribeActiveOperationTaskResponse extends $tea.Model {
 
 export class DescribeActiveOperationTasksRequest extends $tea.Model {
   /**
+   * @remarks
+   * The filter condition that is used to return tasks based on the settings of task cancellation. Default value: -1. Valid values:
+   * 
+   * *   **-1**: returns all tasks.
+   * *   **0**: returns only tasks that cannot be canceled.
+   * *   **1**: returns only tasks that can be canceled.
+   * 
    * @example
    * 1
    */
   allowCancel?: number;
   /**
+   * @remarks
+   * The filter condition that is used to return tasks based on the settings of the switching time. Default value: -1. Valid values:
+   * 
+   * *   **-1**: returns all tasks.
+   * *   **0**: returns only tasks for which the switching time cannot be changed.
+   * *   **1**: returns only tasks for which the switching time can be changed.
+   * 
    * @example
    * -1
    */
   allowChange?: number;
   /**
+   * @remarks
+   * The type of task configuration change. Valid values:
+   * 
+   * *   **all** (default): The configurations of all O\\&M tasks are changed.
+   * *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
+   * *   **S1**: The configurations of system O\\&M tasks are changed.
+   * 
    * @example
    * all
    */
   changeLevel?: string;
   /**
+   * @remarks
+   * The database type. Valid values: **redis**
+   * 
    * @example
    * redis
    */
   dbType?: string;
   /**
+   * @remarks
+   * The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+   * 
    * @example
    * r-wz96fzmpvpr2qnqnlb
    */
@@ -3951,21 +4383,35 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The page number. Pages start from page 1. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 25. Maximum value: 100.
+   * 
    * @example
    * 25
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
+   * 
    * @example
    * Redis
    */
   productId?: string;
   /**
+   * @remarks
+   * The region ID of the O&M task. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+   * 
+   * > A value of **all** indicates all region IDs.
+   * 
    * @example
    * cn-shanghai
    */
@@ -3974,11 +4420,24 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
   resourceOwnerId?: number;
   securityToken?: string;
   /**
+   * @remarks
+   * The status of operation and maintenance events. It is used to filter and return tasks. The values are as follows:. Valid values:
+   * 
+   * *   **-1**: All events.
+   * *   **3**: Events awaiting processing.
+   * *   **4**: Events being processed.
+   * *   **5**: Events that have successfully ended.
+   * *   **6**: Events that have ended in failure.
+   * *   **7**: Events that have been canceled.
+   * 
    * @example
    * 3
    */
   status?: number;
   /**
+   * @remarks
+   * The type of the O\\&M task. If left blank, all types will be queried.
+   * 
    * @example
    * all
    */
@@ -4031,23 +4490,39 @@ export class DescribeActiveOperationTasksRequest extends $tea.Model {
 }
 
 export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The list of details of O\\&M tasks.
+   */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page. Default 25.
+   * 
    * @example
    * 25
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2D9F3768-EDA9-4811-943E-42C8006E****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 1
    */
@@ -5063,6 +5538,9 @@ export class DescribeBackupsRequest extends $tea.Model {
    */
   backupId?: number;
   /**
+   * @remarks
+   * The backup task ID, returned by CreateBackup. If CreateBackup returns multiple BackupJobIds, you need to use this interface to query each of them separately.
+   * 
    * @example
    * 10001
    */
@@ -5104,7 +5582,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+   * The page number. The value must be an integer that is greater than **0**. Default value: **1**.
    * 
    * @example
    * 1
@@ -5112,7 +5590,7 @@ export class DescribeBackupsRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: 30, 50, 100, 200, and 300.
+   * The maximum number of entries per page. Valid values: 30, 50, 100, 200, and 300.
    * 
    * @example
    * 30
@@ -7515,18 +7993,20 @@ export class DescribeHistoryMonitorValuesRequest extends $tea.Model {
    * @remarks
    * The monitoring metrics. Separate the metrics with commas (,). Take CpuUsage as an example:
    * 
-   * *   To query the overall CPU utilization of all data nodes, specify **CpuUsage$db**.
-   * *   To query the CPU utilization of a single data node, specify **CpuUsage** and NodeId.
+   * *   Cluster or read/write splitting instances
    * 
-   * For more information about the monitoring metrics, see **Additional description of MonitorKeys**.
+   *     *   To query the overall CPU utilization of all data nodes, specify **CpuUsage$db**.
+   *     *   To query the CPU utilization of a single data node, specify **CpuUsage** and NodeId.
+   * 
+   * *   Standard master-replica instances: Specify only **CpuUsage**.
+   * 
+   * For more information about monitoring metrics and their descriptions, see [Additional description of MonitorKeys](https://www.alibabacloud.com/help/zh/redis/developer-reference/api-r-kvstore-2015-01-01-describehistorymonitorvalues-redis#monitorKeys-note).
    * 
    * > 
    * 
    * *   This parameter is empty by default, which indicates that the UsedMemory and quotaMemory metrics are returned.
    * 
    * *   To ensure query efficiency, we recommend that you specify no more than five metrics for a single node at a time, and specify only a single metric when you query aggregate metrics.
-   * 
-   * [Additional description of MonitorKeys](https://help.aliyun.com/zh/redis/developer-reference/api-r-kvstore-2015-01-01-describehistorymonitorvalues-redis)
    * 
    * @example
    * memoryUsage
@@ -8255,6 +8735,12 @@ export class DescribeInstanceConfigResponseBody extends $tea.Model {
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
    */
   config?: string;
+  paramNoLooseSentinelEnabled?: string;
+  paramNoLooseSentinelPasswordFreeAccess?: string;
+  paramNoLooseSentinelPasswordFreeCommands?: string;
+  paramReplMode?: string;
+  paramReplTimeout?: string;
+  paramSentinelCompatEnable?: string;
   /**
    * @remarks
    * The request ID.
@@ -8266,6 +8752,12 @@ export class DescribeInstanceConfigResponseBody extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       config: 'Config',
+      paramNoLooseSentinelEnabled: 'ParamNoLooseSentinelEnabled',
+      paramNoLooseSentinelPasswordFreeAccess: 'ParamNoLooseSentinelPasswordFreeAccess',
+      paramNoLooseSentinelPasswordFreeCommands: 'ParamNoLooseSentinelPasswordFreeCommands',
+      paramReplMode: 'ParamReplMode',
+      paramReplTimeout: 'ParamReplTimeout',
+      paramSentinelCompatEnable: 'ParamSentinelCompatEnable',
       requestId: 'RequestId',
     };
   }
@@ -8273,6 +8765,12 @@ export class DescribeInstanceConfigResponseBody extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       config: 'string',
+      paramNoLooseSentinelEnabled: 'string',
+      paramNoLooseSentinelPasswordFreeAccess: 'string',
+      paramNoLooseSentinelPasswordFreeCommands: 'string',
+      paramReplMode: 'string',
+      paramReplTimeout: 'string',
+      paramSentinelCompatEnable: 'string',
       requestId: 'string',
     };
   }
@@ -11963,6 +12461,638 @@ export class DescribeSlowLogRecordsResponse extends $tea.Model {
   }
 }
 
+export class DescribeTairKVCacheCustomInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * tair_custom
+   */
+  architectureType?: string;
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 2
+   */
+  cpu?: number;
+  /**
+   * @example
+   * 2024-02-21T08:23Z
+   */
+  createTime?: string;
+  disks?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisks;
+  /**
+   * @example
+   * 2024-05-28T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * m-bp10k5694v6yfevajw**
+   */
+  imageId?: string;
+  /**
+   * @example
+   * tair.gpu.test.16g
+   */
+  instanceClass?: string;
+  /**
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * newinstancename
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * Normal
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * TairCustom
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * true
+   */
+  isOrderCompleted?: boolean;
+  /**
+   * @example
+   * 262144
+   */
+  memory?: number;
+  /**
+   * @example
+   * VPC
+   */
+  networkType?: string;
+  /**
+   * @example
+   * 172.16.49.***
+   */
+  privateIp?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 2BE6E619-A657-42E3-AD2D-18F8428A****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * sg-bpcfmyiu4ekp****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * 60
+   */
+  storage?: number;
+  /**
+   * @example
+   * essd_pl1
+   */
+  storageType?: string;
+  tags?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyTags;
+  /**
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-b
+   */
+  zoneId?: string;
+  /**
+   * @example
+   * singlezone
+   */
+  zoneType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      architectureType: 'ArchitectureType',
+      chargeType: 'ChargeType',
+      cpu: 'Cpu',
+      createTime: 'CreateTime',
+      disks: 'Disks',
+      endTime: 'EndTime',
+      imageId: 'ImageId',
+      instanceClass: 'InstanceClass',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      isOrderCompleted: 'IsOrderCompleted',
+      memory: 'Memory',
+      networkType: 'NetworkType',
+      privateIp: 'PrivateIp',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+      securityGroupId: 'SecurityGroupId',
+      storage: 'Storage',
+      storageType: 'StorageType',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+      zoneType: 'ZoneType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      architectureType: 'string',
+      chargeType: 'string',
+      cpu: 'number',
+      createTime: 'string',
+      disks: DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisks,
+      endTime: 'string',
+      imageId: 'string',
+      instanceClass: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      isOrderCompleted: 'boolean',
+      memory: 'number',
+      networkType: 'string',
+      privateIp: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+      securityGroupId: 'string',
+      storage: 'number',
+      storageType: 'string',
+      tags: DescribeTairKVCacheCustomInstanceAttributeResponseBodyTags,
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+      zoneType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTairKVCacheCustomInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTairKVCacheCustomInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-20T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * {\\"extend\\":{\\"workers\\":\\"avg_dispatchers\\"}}
+   */
+  express?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 1000
+   */
+  length?: string;
+  /**
+   * @example
+   * CPUUtilization
+   */
+  metricName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 60
+   */
+  period?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-05T08:49:27Z
+   */
+  startTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      express: 'Express',
+      instanceId: 'InstanceId',
+      length: 'Length',
+      metricName: 'MetricName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      period: 'Period',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'string',
+      express: 'string',
+      instanceId: 'string',
+      length: 'string',
+      metricName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      period: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      startTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * { “timestamp”: 1490164200000, “Maximum”: 100, “userId”: “1234567898765432”, “Minimum”: 4.55, “instanceId”: “i-bp18abl200xk9599ck7c”, “Average”: 93.84 }
+   */
+  datapoints?: string;
+  /**
+   * @example
+   * 212db86sca4384811e0b5e8707ec2****
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 60
+   */
+  period?: string;
+  /**
+   * @example
+   * F3F44BE3-5419-4B61-9BAC-E66E295A****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datapoints: 'Datapoints',
+      nextToken: 'NextToken',
+      period: 'Period',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datapoints: 'string',
+      nextToken: 'string',
+      period: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesRequest extends $tea.Model {
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * false
+   */
+  expired?: string;
+  /**
+   * @example
+   * tair.gpu.test.16g
+   */
+  instanceClass?: string;
+  /**
+   * @example
+   * tc-bp16e70a4338****
+   */
+  instanceIds?: string;
+  /**
+   * @example
+   * Normal
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * TairCustom
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * VPC
+   */
+  networkType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * apitest
+   */
+  searchKey?: string;
+  securityToken?: string;
+  tag?: DescribeTairKVCacheCustomInstancesRequestTag[];
+  /**
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-h
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      expired: 'Expired',
+      instanceClass: 'InstanceClass',
+      instanceIds: 'InstanceIds',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      networkType: 'NetworkType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      searchKey: 'SearchKey',
+      securityToken: 'SecurityToken',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      expired: 'string',
+      instanceClass: 'string',
+      instanceIds: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      networkType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      searchKey: 'string',
+      securityToken: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeTairKVCacheCustomInstancesRequestTag },
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponseBody extends $tea.Model {
+  instances?: DescribeTairKVCacheCustomInstancesResponseBodyInstances;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * B79C1A90-495B-4E99-A2AA-A4DB13B8****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 40
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      instances: 'Instances',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instances: DescribeTairKVCacheCustomInstancesResponseBodyInstances,
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeTairKVCacheCustomInstancesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeTairKVCacheCustomInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTasksRequest extends $tea.Model {
   /**
    * @remarks
@@ -13313,6 +14443,168 @@ export class LockDBInstanceWriteResponse extends $tea.Model {
   }
 }
 
+export class MasterNodeShutDownFailOverRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The resource category. Set the value to instance.
+   * 
+   * @example
+   * instance
+   */
+  category?: string;
+  /**
+   * @remarks
+   * *   Specify: This mode allows you to specify a database node to use.
+   * *   Random: In this mode, a random database node is selected when no database node is specified.
+   * 
+   * @example
+   * Random
+   */
+  DBFaultMode?: string;
+  /**
+   * @remarks
+   * The IDs of the database nodes.
+   * 
+   * @example
+   * r-rdsdavinx01003-db-0,r-rdsdavinx01003-db-1
+   */
+  DBNodes?: string;
+  /**
+   * @remarks
+   * *   Safe: safe shutdown. This mode involves using redis_safe to shut down the Redis process.
+   * *   UnSafe: non-secure shutdown. This mode involves using the shutdown command to shut down the Redis process.
+   * 
+   * @example
+   * Safe
+   */
+  failMode?: string;
+  /**
+   * @remarks
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * *   Specify: This mode allows you to specify a proxy node to use.
+   * *   Random: In this mode, a random proxy node is selected when no proxy node is specified.
+   * 
+   * @example
+   * Specify
+   */
+  proxyFaultMode?: string;
+  /**
+   * @remarks
+   * The IDs of the proxy nodes.
+   * 
+   * @example
+   * 6981,6982
+   */
+  proxyInstanceIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      DBFaultMode: 'DBFaultMode',
+      DBNodes: 'DBNodes',
+      failMode: 'FailMode',
+      instanceId: 'InstanceId',
+      proxyFaultMode: 'ProxyFaultMode',
+      proxyInstanceIds: 'ProxyInstanceIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      DBFaultMode: 'string',
+      DBNodes: 'string',
+      failMode: 'string',
+      instanceId: 'string',
+      proxyFaultMode: 'string',
+      proxyInstanceIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MasterNodeShutDownFailOverResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 12123216-4B00-4378-BE4B-08005BFC****
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The task ID. For information about how to obtain the ID of a task, see [ListTasks](https://help.aliyun.com/document_detail/454662.html).
+   * 
+   * @example
+   * 17566
+   */
+  taskID?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+      taskID: 'TaskID',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      requestId: 'string',
+      taskID: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MasterNodeShutDownFailOverResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MasterNodeShutDownFailOverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: MasterNodeShutDownFailOverResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class MigrateToOtherZoneRequest extends $tea.Model {
   /**
    * @remarks
@@ -13726,7 +15018,7 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
    * @remarks
    * The ID of the O\\&M task. Separate multiple IDs with commas (,).
    * 
-   * > You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/197387.html) operation to query the ID of an O\\&M task.
+   * > You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) operation to query the ID of an O\\&M task.
    * 
    * This parameter is required.
    * 
@@ -13743,7 +15035,7 @@ export class ModifyActiveOperationTaskRequest extends $tea.Model {
    * @remarks
    * The scheduled switchover time to be specified. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
    * 
-   * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/197387.html) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
+   * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
    * 
    * This parameter is required.
    * 
@@ -13844,6 +15136,8 @@ export class ModifyActiveOperationTaskResponse extends $tea.Model {
 export class ModifyActiveOperationTasksRequest extends $tea.Model {
   /**
    * @remarks
+   * The IDs of the O\\&M events. Separate multiple event IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13851,6 +15145,14 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
    */
   ids?: string;
   /**
+   * @remarks
+   * Specifies whether to immediately start scheduling. Valid values:
+   * 
+   * *   0 (default): Scheduling is not started immediately.
+   * *   1: Scheduling is started immediately.
+   * 
+   * >  If you set this parameter to 0, the SwitchTime parameter takes effect. If you set this parameter to 1, the SwitchTime parameter does not take effect. In this case, the start time of the event is set to the current time, and the system determines the switching time based on the start time. Scheduling is started immediately, which is a prerequisite for the switchover. Then, the switchover is performed. You can call the DescribeActiveOperationTasks operation to query the preparation time that is returned for the PrepareInterval parameter.
+   * 
    * @example
    * 0
    */
@@ -13862,6 +15164,10 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
   securityToken?: string;
   /**
    * @remarks
+   * The scheduled switching time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+   * 
+   * >  The time that is specified by the SwitchTime parameter cannot be later than the time that is specified by the Deadline parameter. You can call the DescribeActiveOperationTasks operation to query the latest switching time that is returned for the Deadline parameter.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13901,11 +15207,17 @@ export class ModifyActiveOperationTasksRequest extends $tea.Model {
 
 export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The IDs of the O\\&M events. Separate multiple event IDs with commas (,).
+   * 
    * @example
    * 11111,22222
    */
   ids?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * E278D833-BB4B-50BF-8646-7BC1BAB2373B
    */
@@ -15141,6 +16453,124 @@ export class ModifyInstanceAutoRenewalAttributeResponse extends $tea.Model {
   }
 }
 
+export class ModifyInstanceBandwidthRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the ID of the instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @remarks
+   * The total expected bandwidth of the instance.
+   * 
+   * > If the instance is a cluster instance, the TargetIntranetBandwidth must be divisible by the number of shards in the instance. This operation is not supported for read/write splitting instances.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 260
+   */
+  targetIntranetBandwidth?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      targetIntranetBandwidth: 'TargetIntranetBandwidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      targetIntranetBandwidth: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceBandwidthResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the order.
+   * 
+   * @example
+   * 236934422960904
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyInstanceBandwidthResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyInstanceBandwidthResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyInstanceBandwidthResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyInstanceConfigRequest extends $tea.Model {
   /**
    * @remarks
@@ -15149,8 +16579,6 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
    * **
    * 
    * **Description** For more information, see [Supported parameters](https://help.aliyun.com/document_detail/259681.html).
-   * 
-   * This parameter is required.
    * 
    * @example
    * {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
@@ -15168,6 +16596,12 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
   instanceId?: string;
   ownerAccount?: string;
   ownerId?: number;
+  paramNoLooseSentinelEnabled?: string;
+  paramNoLooseSentinelPasswordFreeAccess?: string;
+  paramNoLooseSentinelPasswordFreeCommands?: string;
+  paramReplMode?: string;
+  paramSemisyncReplTimeout?: string;
+  paramSentinelCompatEnable?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -15177,6 +16611,12 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
+      paramNoLooseSentinelEnabled: 'ParamNoLooseSentinelEnabled',
+      paramNoLooseSentinelPasswordFreeAccess: 'ParamNoLooseSentinelPasswordFreeAccess',
+      paramNoLooseSentinelPasswordFreeCommands: 'ParamNoLooseSentinelPasswordFreeCommands',
+      paramReplMode: 'ParamReplMode',
+      paramSemisyncReplTimeout: 'ParamSemisyncReplTimeout',
+      paramSentinelCompatEnable: 'ParamSentinelCompatEnable',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
@@ -15189,6 +16629,12 @@ export class ModifyInstanceConfigRequest extends $tea.Model {
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
+      paramNoLooseSentinelEnabled: 'string',
+      paramNoLooseSentinelPasswordFreeAccess: 'string',
+      paramNoLooseSentinelPasswordFreeCommands: 'string',
+      paramReplMode: 'string',
+      paramSemisyncReplTimeout: 'string',
+      paramSentinelCompatEnable: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
@@ -15749,6 +17195,8 @@ export class ModifyInstanceNetExpireTimeResponse extends $tea.Model {
 export class ModifyInstanceParameterRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -15758,18 +17206,31 @@ export class ModifyInstanceParameterRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The parameter template ID.
+   * 
+   * > You can view the list of parameter templates in the target region, including the parameter template ID, through the DescribeParameterGroups interface.
+   * 
    * @example
    * g-idhwofwofewhf****
    */
   parameterGroupId?: string;
   /**
+   * @remarks
+   * The information about parameters.
+   * 
    * @example
    * {"hz": "50"}
    */
   parameters?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
    */
   regionId?: string;
   resourceOwnerAccount?: string;
@@ -15810,6 +17271,9 @@ export class ModifyInstanceParameterRequest extends $tea.Model {
 
 export class ModifyInstanceParameterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * r-bp1zxszhcgatnx****
    */
@@ -15823,6 +17287,9 @@ export class ModifyInstanceParameterResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the task.
+   * 
    * @example
    * 578678678
    */
@@ -16153,6 +17620,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  replicaCount?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   securityToken?: string;
@@ -16172,6 +17640,7 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
    * 2
    */
   slaveReadOnlyCount?: number;
+  slaveReplicaCount?: number;
   /**
    * @remarks
    * The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
@@ -16180,6 +17649,8 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
    * SDK
    */
   sourceBiz?: string;
+  storage?: number;
+  storageType?: string;
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
@@ -16198,12 +17669,16 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       ownerId: 'OwnerId',
       readOnlyCount: 'ReadOnlyCount',
       regionId: 'RegionId',
+      replicaCount: 'ReplicaCount',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       securityToken: 'SecurityToken',
       shardCount: 'ShardCount',
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
+      slaveReplicaCount: 'SlaveReplicaCount',
       sourceBiz: 'SourceBiz',
+      storage: 'Storage',
+      storageType: 'StorageType',
     };
   }
 
@@ -16225,12 +17700,16 @@ export class ModifyInstanceSpecRequest extends $tea.Model {
       ownerId: 'number',
       readOnlyCount: 'number',
       regionId: 'string',
+      replicaCount: 'number',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       securityToken: 'string',
       shardCount: 'number',
       slaveReadOnlyCount: 'number',
+      slaveReplicaCount: 'number',
       sourceBiz: 'string',
+      storage: 'number',
+      storageType: 'string',
     };
   }
 
@@ -17225,6 +18704,247 @@ export class ModifySecurityIpsResponse extends $tea.Model {
   }
 }
 
+export class ModifyTairKVCacheCustomInstanceAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * redistest
+   */
+  instanceName?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * SDK
+   */
+  sourceBiz?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      instanceName: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      sourceBiz: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTairKVCacheCustomInstanceAttributeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 2FF6158E-3394-4A90-B634-79C49184****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTairKVCacheCustomInstanceAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTairKVCacheCustomInstanceAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTairKVCacheCustomInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTaskInfoRequest extends $tea.Model {
+  /**
+   * @example
+   * {\\"recoverMode\\":\\"immediate\\"}
+   */
+  actionParams?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * exec_task
+   */
+  stepName?: string;
+  /**
+   * @example
+   * modifySwitchTime
+   */
+  taskAction?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * t-0mq3kfhn8i1nlt****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      actionParams: 'ActionParams',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      stepName: 'StepName',
+      taskAction: 'TaskAction',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      actionParams: 'string',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      stepName: 'string',
+      taskAction: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTaskInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * mst.errorcode.success.errormessage
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * t-0mqaj5hnyofczv****
+   */
+  errorTaskId?: string;
+  /**
+   * @example
+   * 2B98499B-E62B-56D4-8D7F-3D6D4DB260F2
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  successCount?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorTaskId: 'ErrorTaskId',
+      requestId: 'RequestId',
+      successCount: 'SuccessCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorTaskId: 'string',
+      requestId: 'string',
+      successCount: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyTaskInfoResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyTaskInfoResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyTaskInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ReleaseDirectConnectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -18007,6 +19727,232 @@ export class ResetAccountPasswordResponse extends $tea.Model {
   }
 }
 
+export class ResetTairKVCacheCustomInstancePasswordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Pass!123456
+   */
+  password?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * SDK
+   */
+  sourceBiz?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      password: 'Password',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      sourceBiz: 'SourceBiz',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      password: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      sourceBiz: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetTairKVCacheCustomInstancePasswordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResetTairKVCacheCustomInstancePasswordResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetTairKVCacheCustomInstancePasswordResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResetTairKVCacheCustomInstancePasswordResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeTairKVCacheCustomInstanceDiskRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  autoPay?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * d-5v1aggi3ffoxufb57**
+   */
+  diskId?: string;
+  /**
+   * @example
+   * 5000
+   */
+  diskSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      diskId: 'DiskId',
+      diskSize: 'DiskSize',
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      diskId: 'string',
+      diskSize: 'string',
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeTairKVCacheCustomInstanceDiskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 20905403119****
+   */
+  orderId?: string;
+  /**
+   * @example
+   * ABAF95F6-35C1-4177-AF3A-70969EBD****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ResizeTairKVCacheCustomInstanceDiskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResizeTairKVCacheCustomInstanceDiskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ResizeTairKVCacheCustomInstanceDiskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RestartInstanceRequest extends $tea.Model {
   /**
    * @remarks
@@ -18141,6 +20087,109 @@ export class RestartInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RestartInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartTairKVCacheCustomInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartTairKVCacheCustomInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 5D622714-AEDD-4609-9167-F5DDD3D1****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 578678678
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RestartTairKVCacheCustomInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartTairKVCacheCustomInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RestartTairKVCacheCustomInstanceResponseBody,
     };
   }
 
@@ -18302,6 +20351,212 @@ export class RestoreInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RestoreInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTairKVCacheCustomInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTairKVCacheCustomInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * AD425AD3-CC7B-4EE2-A5CB-2F61BA73****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 11111****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartTairKVCacheCustomInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTairKVCacheCustomInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartTairKVCacheCustomInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTairKVCacheCustomInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTairKVCacheCustomInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * 20C8341E-B5AD-4B24-BD82-D73241522ABF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 578678678
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StopTairKVCacheCustomInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTairKVCacheCustomInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StopTairKVCacheCustomInstanceResponseBody,
     };
   }
 
@@ -18532,6 +20787,110 @@ export class SwitchInstanceProxyResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SwitchInstanceProxyResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchInstanceZoneFailOverRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * r-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @remarks
+   * The duration for which the fault lasts. Unit: minutes.
+   * 
+   * Valid values:
+   * 
+   * *   5
+   * *   10
+   * 
+   * @example
+   * 5
+   */
+  siteFaultTime?: string;
+  /**
+   * @remarks
+   * The ID of the destination zone.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
+  targetZoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      siteFaultTime: 'SiteFaultTime',
+      targetZoneId: 'TargetZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      siteFaultTime: 'string',
+      targetZoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchInstanceZoneFailOverResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2D9F3768-EDA9-4811-943E-42C8006E****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SwitchInstanceZoneFailOverResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SwitchInstanceZoneFailOverResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SwitchInstanceZoneFailOverResponseBody,
     };
   }
 
@@ -19159,6 +21518,8 @@ export class TransformToPrePaidRequest extends $tea.Model {
    * true
    */
   autoPay?: boolean;
+  autoRenew?: string;
+  autoRenewPeriod?: number;
   /**
    * @remarks
    * The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
@@ -19187,6 +21548,8 @@ export class TransformToPrePaidRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      autoRenewPeriod: 'AutoRenewPeriod',
       instanceId: 'InstanceId',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -19200,6 +21563,8 @@ export class TransformToPrePaidRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       autoPay: 'boolean',
+      autoRenew: 'string',
+      autoRenewPeriod: 'number',
       instanceId: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
@@ -19659,6 +22024,82 @@ export class CreateInstancesResponseBodyInstanceIds extends $tea.Model {
   }
 }
 
+export class CreateTCInstanceRequestDataDisk extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cloud_essd
+   */
+  category?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PL0
+   */
+  performanceLevel?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateTCInstanceRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key1_test
+   */
+  key?: string;
+  /**
+   * @example
+   * testvalue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTairInstanceRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -19995,114 +22436,204 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $tea.Model {
 
 export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether the task can be canceled. The value 1 indicates that the task can be canceled. The value 0 indicates that the task cannot be canceled.
+   * 
    * @example
    * 1
    */
   allowCancel?: string;
   /**
+   * @remarks
+   * Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
+   * 
    * @example
    * 1
    */
   allowChange?: string;
   /**
+   * @remarks
+   * The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
+   * 
    * @example
    * S1
    */
   changeLevel?: string;
   /**
+   * @remarks
+   * The level of the task in English.
+   * 
    * @example
    * System maintenance
    */
   changeLevelEn?: string;
+  /**
+   * @remarks
+   * The level of the task in Chinese.
+   * 
+   * @example
+   * 系统运维
+   */
   changeLevelZh?: string;
   /**
+   * @remarks
+   * The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2018-05-30T14:30:00Z
    */
   createdTime?: string;
   /**
+   * @remarks
+   * The current zone.
+   * 
    * @example
    * cn-beijing-h
    */
   currentAVZ?: string;
   /**
+   * @remarks
+   * The database type of the instance. The return value is **Redis**.
+   * 
    * @example
    * redis
    */
   dbType?: string;
   /**
+   * @remarks
+   * The version of the database engine.
+   * 
    * @example
    * 5.0
    */
   dbVersion?: string;
   /**
+   * @remarks
+   * The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+   * 
    * @example
    * 2018-05-30T23:59:59Z
    */
   deadline?: string;
   /**
+   * @remarks
+   * The ID of the O\\&M event.
+   * 
    * @example
    * 11111
    */
   id?: number;
   /**
+   * @remarks
+   * The impact of the task.
+   * 
    * @example
    * TransientDisconnection
    */
   impact?: string;
   /**
+   * @remarks
+   * The impact of the task in English.
+   * 
    * @example
    * Transient instance disconnection
    */
   impactEn?: string;
+  /**
+   * @remarks
+   * The impact of the task in Chinese.
+   * 
+   * @example
+   * 实例闪断
+   */
   impactZh?: string;
   /**
+   * @remarks
+   * The alias and description of the instance.
+   * 
    * @example
    * test
    */
   insComment?: string;
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
    * @example
    * r-bp1lgal1sdvxrz****
    */
   insName?: string;
   /**
+   * @remarks
+   * The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2018-05-30T14:30:00Z
    */
   modifiedTime?: string;
   /**
+   * @remarks
+   * The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+   * 
    * @example
    * 04:00:00
    */
   prepareInterval?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-hanghzou
    */
   region?: string;
   /**
+   * @remarks
+   * The information about the execution result.
+   * 
    * @example
    * userCancel
    */
   resultInfo?: string;
   /**
+   * @remarks
+   * The time when the O\\&M task was preformed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2018-05-30T00:00:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The status of operation and maintenance events. Return values
+   * 
+   * *   **3**: Events awaiting processing.
+   * *   **4**: Events being processed.
+   * *   **5**: Events that have successfully ended.
+   * *   **6**: Events that have ended in failure.
+   * *   **7**: Events that have been canceled.
+   * 
    * @example
    * 5
    */
   status?: number;
+  /**
+   * @remarks
+   * The list of the subinstances.
+   */
   subInsNames?: string[];
   /**
+   * @remarks
+   * The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+   * 
    * @example
    * 2018-05-30T14:30:00Z
    */
   switchTime?: string;
   /**
+   * @remarks
+   * The parameters of the task.
+   * 
    * @example
    * {
    *       "Action": "UpgradeDBInstance"
@@ -20110,15 +22641,28 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
    */
   taskParams?: string;
   /**
+   * @remarks
+   * The type of the O\\&M event.
+   * 
    * @example
    * rds_apsaradb_transfer
    */
   taskType?: string;
   /**
+   * @remarks
+   * The reason for the task in English.
+   * 
    * @example
    * Minor version update
    */
   taskTypeEn?: string;
+  /**
+   * @remarks
+   * The reason for the task in Chinese.
+   * 
+   * @example
+   * 小版本升级
+   */
   taskTypeZh?: string;
   static names(): { [key: string]: string } {
     return {
@@ -21318,6 +23862,13 @@ export class DescribeBackupsResponseBodyBackupsBackup extends $tea.Model {
    * r-bp10noxlhcoim2****-db-1
    */
   nodeInstanceId?: string;
+  /**
+   * @remarks
+   * If the backup includes account information, kernel parameters and whitelist details.
+   * 
+   * @example
+   * {"whitelist":true,"config":true,"account":true}
+   */
   recoverConfigMode?: string;
   static names(): { [key: string]: string } {
     return {
@@ -23897,6 +26448,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
    * cn-hangzhou
    */
   regionId?: string;
+  replicaCount?: number;
   /**
    * @remarks
    * The ID of the replica node.
@@ -23958,6 +26510,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
    * 2
    */
   slaveReadOnlyCount?: number;
+  slaveReplicaCount?: number;
   /**
    * @remarks
    * The storage capacity of the cloud disk.
@@ -24072,6 +26625,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       readOnlyCount: 'ReadOnlyCount',
       realInstanceClass: 'RealInstanceClass',
       regionId: 'RegionId',
+      replicaCount: 'ReplicaCount',
       replicaId: 'ReplicaId',
       replicationMode: 'ReplicationMode',
       resourceGroupId: 'ResourceGroupId',
@@ -24079,6 +26633,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       securityIPList: 'SecurityIPList',
       shardCount: 'ShardCount',
       slaveReadOnlyCount: 'SlaveReadOnlyCount',
+      slaveReplicaCount: 'SlaveReplicaCount',
       storage: 'Storage',
       storageType: 'StorageType',
       tags: 'Tags',
@@ -24130,6 +26685,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       readOnlyCount: 'number',
       realInstanceClass: 'string',
       regionId: 'string',
+      replicaCount: 'number',
       replicaId: 'string',
       replicationMode: 'string',
       resourceGroupId: 'string',
@@ -24137,6 +26693,7 @@ export class DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttribute e
       securityIPList: 'string',
       shardCount: 'number',
       slaveReadOnlyCount: 'number',
+      slaveReplicaCount: 'number',
       storage: 'string',
       storageType: 'string',
       tags: DescribeInstanceAttributeResponseBodyInstancesDBInstanceAttributeTags,
@@ -24623,6 +27180,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
    * 100000
    */
   QPS?: number;
+  readOnlyCount?: string;
   /**
    * @remarks
    * The region ID.
@@ -24639,6 +27197,7 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
    * grr-bp11381ebc16****
    */
   replacateId?: string;
+  replicaCount?: number;
   /**
    * @remarks
    * The ID of the resource group to which the instance belongs.
@@ -24677,6 +27236,8 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
    * 3
    */
   shardCount?: number;
+  slaveReadOnlyCount?: number;
+  slaveReplicaCount?: number;
   /**
    * @remarks
    * Details about the tags.
@@ -24745,12 +27306,16 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       port: 'Port',
       privateIp: 'PrivateIp',
       QPS: 'QPS',
+      readOnlyCount: 'ReadOnlyCount',
       regionId: 'RegionId',
       replacateId: 'ReplacateId',
+      replicaCount: 'ReplicaCount',
       resourceGroupId: 'ResourceGroupId',
       secondaryZoneId: 'SecondaryZoneId',
       shardClass: 'ShardClass',
       shardCount: 'ShardCount',
+      slaveReadOnlyCount: 'SlaveReadOnlyCount',
+      slaveReplicaCount: 'SlaveReplicaCount',
       tags: 'Tags',
       userName: 'UserName',
       vSwitchId: 'VSwitchId',
@@ -24790,12 +27355,16 @@ export class DescribeInstancesResponseBodyInstancesKVStoreInstance extends $tea.
       port: 'number',
       privateIp: 'string',
       QPS: 'number',
+      readOnlyCount: 'string',
       regionId: 'string',
       replacateId: 'string',
+      replicaCount: 'number',
       resourceGroupId: 'string',
       secondaryZoneId: 'string',
       shardClass: 'string',
       shardCount: 'number',
+      slaveReadOnlyCount: 'number',
+      slaveReplicaCount: 'number',
       tags: DescribeInstancesResponseBodyInstancesKVStoreInstanceTags,
       userName: 'string',
       vSwitchId: 'string',
@@ -27606,6 +30175,347 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisksDisk extends $tea.Model {
+  /**
+   * @example
+   * d-5v1aggi3ffoxufb57**
+   */
+  diskId?: string;
+  /**
+   * @example
+   * 100
+   */
+  size?: string;
+  /**
+   * @example
+   * data
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      diskId: 'DiskId',
+      size: 'Size',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      diskId: 'string',
+      size: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisks extends $tea.Model {
+  disk?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisksDisk[];
+  static names(): { [key: string]: string } {
+    return {
+      disk: 'Disk',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disk: { 'type': 'array', 'itemType': DescribeTairKVCacheCustomInstanceAttributeResponseBodyDisksDisk },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyTagsTag extends $tea.Model {
+  /**
+   * @example
+   * tag1
+   */
+  key?: string;
+  /**
+   * @example
+   * value1
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstanceAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeTairKVCacheCustomInstanceAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeTairKVCacheCustomInstanceAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesRequestTag extends $tea.Model {
+  /**
+   * @example
+   * key1_test
+   */
+  key?: string;
+  /**
+   * @example
+   * value1_test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTagsTag extends $tea.Model {
+  /**
+   * @example
+   * tagkey
+   */
+  key?: string;
+  /**
+   * @example
+   * tagvalue
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTags extends $tea.Model {
+  tag?: DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstance extends $tea.Model {
+  /**
+   * @example
+   * PrePaid
+   */
+  chargeType?: string;
+  /**
+   * @example
+   * 2018-11-07T08:49:00Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 2019-04-28T10:03:01Z
+   */
+  destroyTime?: string;
+  /**
+   * @example
+   * 2024-05-21T00:00:00Z
+   */
+  endTime?: string;
+  /**
+   * @example
+   * tair.gpu.test.16g
+   */
+  instanceClass?: string;
+  /**
+   * @example
+   * tc-bp1zxszhcgatnx****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * testdb
+   */
+  instanceName?: string;
+  /**
+   * @example
+   * Normal
+   */
+  instanceStatus?: string;
+  /**
+   * @example
+   * TairCustom
+   */
+  instanceType?: string;
+  /**
+   * @example
+   * VPC
+   */
+  networkType?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmyiu4ekp****
+   */
+  resourceGroupId?: string;
+  /**
+   * @example
+   * 50
+   */
+  storage?: number;
+  /**
+   * @example
+   * essd_pl1
+   */
+  storageType?: string;
+  tags?: DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTags;
+  /**
+   * @example
+   * vsw-bp1e7clcw529l773d****
+   */
+  vSwitchId?: string;
+  /**
+   * @example
+   * vpc-bp1nme44gek34slfc****
+   */
+  vpcId?: string;
+  /**
+   * @example
+   * cn-hangzhou-e
+   */
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chargeType: 'ChargeType',
+      createTime: 'CreateTime',
+      destroyTime: 'DestroyTime',
+      endTime: 'EndTime',
+      instanceClass: 'InstanceClass',
+      instanceId: 'InstanceId',
+      instanceName: 'InstanceName',
+      instanceStatus: 'InstanceStatus',
+      instanceType: 'InstanceType',
+      networkType: 'NetworkType',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      storage: 'Storage',
+      storageType: 'StorageType',
+      tags: 'Tags',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chargeType: 'string',
+      createTime: 'string',
+      destroyTime: 'string',
+      endTime: 'string',
+      instanceClass: 'string',
+      instanceId: 'string',
+      instanceName: 'string',
+      instanceStatus: 'string',
+      instanceType: 'string',
+      networkType: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      storage: 'number',
+      storageType: 'string',
+      tags: DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstanceTags,
+      vSwitchId: 'string',
+      vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeTairKVCacheCustomInstancesResponseBodyInstances extends $tea.Model {
+  KVStoreInstance?: DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstance[];
+  static names(): { [key: string]: string } {
+    return {
+      KVStoreInstance: 'KVStoreInstance',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      KVStoreInstance: { 'type': 'array', 'itemType': DescribeTairKVCacheCustomInstancesResponseBodyInstancesKVStoreInstance },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTasksResponseBodyItems extends $tea.Model {
   /**
    * @remarks
@@ -28406,6 +31316,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Cancels O\\\\\\&M events at a time.
+   * 
+   * @remarks
+   * O\\&M events cannot be canceled in the following scenarios:
+   * *   The allowCancel parameter is set to 0.
+   * *   The current time is later than the start time of the O\\&M event.
+   * *   The state value of the O\\&M event is not 3.
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ids)) {
+      query["Ids"] = request.ids;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * Cancels O\\\\\\&M events at a time.
+   * 
+   * @remarks
+   * O\\&M events cannot be canceled in the following scenarios:
+   * *   The allowCancel parameter is set to 0.
+   * *   The current time is later than the start time of the O\\&M event.
+   * *   The state value of the O\\&M event is not 3.
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Queries whether an ApsaraDB for Redis instance is authorized to use Key Management Service (KMS).
    * 
    * @remarks
@@ -29014,6 +31998,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.replicaCount)) {
+      query["ReplicaCount"] = request.replicaCount;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -29044,6 +32032,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.slaveReadOnlyCount)) {
       query["SlaveReadOnlyCount"] = request.slaveReadOnlyCount;
+    }
+
+    if (!Util.isUnset(request.slaveReplicaCount)) {
+      query["SlaveReplicaCount"] = request.slaveReplicaCount;
     }
 
     if (!Util.isUnset(request.srcDBInstanceId)) {
@@ -29206,7 +32198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例参数模板。
+   * Creates a parameter template.
    * 
    * @param request - CreateParameterGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29281,7 +32273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建实例参数模板。
+   * Creates a parameter template.
    * 
    * @param request - CreateParameterGroupRequest
    * @returns CreateParameterGroupResponse
@@ -29289,6 +32281,152 @@ export default class Client extends OpenApi {
   async createParameterGroup(request: CreateParameterGroupRequest): Promise<CreateParameterGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createParameterGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建TairCustom实例
+   * 
+   * @param request - CreateTCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTCInstanceResponse
+   */
+  async createTCInstanceWithOptions(request: CreateTCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<CreateTCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewPeriod)) {
+      query["AutoRenewPeriod"] = request.autoRenewPeriod;
+    }
+
+    if (!Util.isUnset(request.autoUseCoupon)) {
+      query["AutoUseCoupon"] = request.autoUseCoupon;
+    }
+
+    if (!Util.isUnset(request.businessInfo)) {
+      query["BusinessInfo"] = request.businessInfo;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.couponNo)) {
+      query["CouponNo"] = request.couponNo;
+    }
+
+    if (!Util.isUnset(request.dataDisk)) {
+      query["DataDisk"] = request.dataDisk;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.instanceClass)) {
+      query["InstanceClass"] = request.instanceClass;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.needEni)) {
+      query["NeedEni"] = request.needEni;
+    }
+
+    if (!Util.isUnset(request.networkType)) {
+      query["NetworkType"] = request.networkType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.vpcId)) {
+      query["VpcId"] = request.vpcId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateTCInstance",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateTCInstanceResponse>(await this.callApi(params, req, runtime), new CreateTCInstanceResponse({}));
+  }
+
+  /**
+   * 创建TairCustom实例
+   * 
+   * @param request - CreateTCInstanceRequest
+   * @returns CreateTCInstanceResponse
+   */
+  async createTCInstance(request: CreateTCInstanceRequest): Promise<CreateTCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createTCInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -29341,6 +32479,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.clusterBackupId)) {
       query["ClusterBackupId"] = request.clusterBackupId;
+    }
+
+    if (!Util.isUnset(request.connectionStringPrefix)) {
+      query["ConnectionStringPrefix"] = request.connectionStringPrefix;
     }
 
     if (!Util.isUnset(request.couponNo)) {
@@ -29415,6 +32557,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.replicaCount)) {
+      query["ReplicaCount"] = request.replicaCount;
+    }
+
     if (!Util.isUnset(request.resourceGroupId)) {
       query["ResourceGroupId"] = request.resourceGroupId;
     }
@@ -29449,6 +32595,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.slaveReadOnlyCount)) {
       query["SlaveReadOnlyCount"] = request.slaveReadOnlyCount;
+    }
+
+    if (!Util.isUnset(request.slaveReplicaCount)) {
+      query["SlaveReplicaCount"] = request.slaveReplicaCount;
     }
 
     if (!Util.isUnset(request.srcDBInstanceId)) {
@@ -30056,6 +33206,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details about the O\\\\\\&M tasks of an ApsaraDB for Redis instance.
+   * 
    * @param request - DescribeActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeActiveOperationTasksResponse
@@ -30145,6 +33297,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details about the O\\\\\\&M tasks of an ApsaraDB for Redis instance.
+   * 
    * @param request - DescribeActiveOperationTasksRequest
    * @returns DescribeActiveOperationTasksResponse
    */
@@ -33678,6 +36832,120 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看TairCustom实例
+   * 
+   * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTairKVCacheCustomInstanceAttributeResponse
+   */
+  async describeTairKVCacheCustomInstanceAttributeWithOptions(request: DescribeTairKVCacheCustomInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTairKVCacheCustomInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTairKVCacheCustomInstanceAttribute",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTairKVCacheCustomInstanceAttributeResponse>(await this.callApi(params, req, runtime), new DescribeTairKVCacheCustomInstanceAttributeResponse({}));
+  }
+
+  /**
+   * 查看TairCustom实例
+   * 
+   * @param request - DescribeTairKVCacheCustomInstanceAttributeRequest
+   * @returns DescribeTairKVCacheCustomInstanceAttributeResponse
+   */
+  async describeTairKVCacheCustomInstanceAttribute(request: DescribeTairKVCacheCustomInstanceAttributeRequest): Promise<DescribeTairKVCacheCustomInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTairKVCacheCustomInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询TairCustom主机监控
+   * 
+   * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+   */
+  async describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions(request: DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTairKVCacheCustomInstanceHistoryMonitorValues",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse>(await this.callApi(params, req, runtime), new DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse({}));
+  }
+
+  /**
+   * 查询TairCustom主机监控
+   * 
+   * @param request - DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
+   * @returns DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+   */
+  async describeTairKVCacheCustomInstanceHistoryMonitorValues(request: DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest): Promise<DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查看TairCustom实例
+   * 
+   * @param request - DescribeTairKVCacheCustomInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTairKVCacheCustomInstancesResponse
+   */
+  async describeTairKVCacheCustomInstancesWithOptions(request: DescribeTairKVCacheCustomInstancesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeTairKVCacheCustomInstancesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeTairKVCacheCustomInstances",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeTairKVCacheCustomInstancesResponse>(await this.callApi(params, req, runtime), new DescribeTairKVCacheCustomInstancesResponse({}));
+  }
+
+  /**
+   * 查看TairCustom实例
+   * 
+   * @param request - DescribeTairKVCacheCustomInstancesRequest
+   * @returns DescribeTairKVCacheCustomInstancesResponse
+   */
+  async describeTairKVCacheCustomInstances(request: DescribeTairKVCacheCustomInstancesRequest): Promise<DescribeTairKVCacheCustomInstancesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeTairKVCacheCustomInstancesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
    * 
    * @remarks
@@ -34442,6 +37710,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Simulates database node failures.
+   * 
+   * @param request - MasterNodeShutDownFailOverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MasterNodeShutDownFailOverResponse
+   */
+  async masterNodeShutDownFailOverWithOptions(request: MasterNodeShutDownFailOverRequest, runtime: $Util.RuntimeOptions): Promise<MasterNodeShutDownFailOverResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!Util.isUnset(request.DBFaultMode)) {
+      query["DBFaultMode"] = request.DBFaultMode;
+    }
+
+    if (!Util.isUnset(request.DBNodes)) {
+      query["DBNodes"] = request.DBNodes;
+    }
+
+    if (!Util.isUnset(request.failMode)) {
+      query["FailMode"] = request.failMode;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.proxyFaultMode)) {
+      query["ProxyFaultMode"] = request.proxyFaultMode;
+    }
+
+    if (!Util.isUnset(request.proxyInstanceIds)) {
+      query["ProxyInstanceIds"] = request.proxyInstanceIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "MasterNodeShutDownFailOver",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<MasterNodeShutDownFailOverResponse>(await this.callApi(params, req, runtime), new MasterNodeShutDownFailOverResponse({}));
+  }
+
+  /**
+   * Simulates database node failures.
+   * 
+   * @param request - MasterNodeShutDownFailOverRequest
+   * @returns MasterNodeShutDownFailOverResponse
+   */
+  async masterNodeShutDownFailOver(request: MasterNodeShutDownFailOverRequest): Promise<MasterNodeShutDownFailOverResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.masterNodeShutDownFailOverWithOptions(request, runtime);
+  }
+
+  /**
    * Migrates an ApsaraDB for Redis instance to another zone in the same region.
    * 
    * @remarks
@@ -34690,7 +38024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the scheduled switchover time of an O&M task.
+   * Changes the scheduled switchover time of an O\\&amp;M task.
    * 
    * @remarks
    * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
@@ -34748,7 +38082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the scheduled switchover time of an O&M task.
+   * Changes the scheduled switchover time of an O\\&amp;M task.
    * 
    * @remarks
    * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
@@ -34762,6 +38096,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+   * 
    * @param request - ModifyActiveOperationTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyActiveOperationTasksResponse
@@ -34819,6 +38155,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+   * 
    * @param request - ModifyActiveOperationTasksRequest
    * @returns ModifyActiveOperationTasksResponse
    */
@@ -35520,6 +38858,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the bandwidth of an instance.
+   * 
+   * @param request - ModifyInstanceBandwidthRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyInstanceBandwidthResponse
+   */
+  async modifyInstanceBandwidthWithOptions(request: ModifyInstanceBandwidthRequest, runtime: $Util.RuntimeOptions): Promise<ModifyInstanceBandwidthResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.targetIntranetBandwidth)) {
+      query["TargetIntranetBandwidth"] = request.targetIntranetBandwidth;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyInstanceBandwidth",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyInstanceBandwidthResponse>(await this.callApi(params, req, runtime), new ModifyInstanceBandwidthResponse({}));
+  }
+
+  /**
+   * Modifies the bandwidth of an instance.
+   * 
+   * @param request - ModifyInstanceBandwidthRequest
+   * @returns ModifyInstanceBandwidthResponse
+   */
+  async modifyInstanceBandwidth(request: ModifyInstanceBandwidthRequest): Promise<ModifyInstanceBandwidthResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyInstanceBandwidthWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the parameter settings of an ApsaraDB for Redis instance.
    * 
    * @param request - ModifyInstanceConfigRequest
@@ -35543,6 +38947,30 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.ownerId)) {
       query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.paramNoLooseSentinelEnabled)) {
+      query["ParamNoLooseSentinelEnabled"] = request.paramNoLooseSentinelEnabled;
+    }
+
+    if (!Util.isUnset(request.paramNoLooseSentinelPasswordFreeAccess)) {
+      query["ParamNoLooseSentinelPasswordFreeAccess"] = request.paramNoLooseSentinelPasswordFreeAccess;
+    }
+
+    if (!Util.isUnset(request.paramNoLooseSentinelPasswordFreeCommands)) {
+      query["ParamNoLooseSentinelPasswordFreeCommands"] = request.paramNoLooseSentinelPasswordFreeCommands;
+    }
+
+    if (!Util.isUnset(request.paramReplMode)) {
+      query["ParamReplMode"] = request.paramReplMode;
+    }
+
+    if (!Util.isUnset(request.paramSemisyncReplTimeout)) {
+      query["ParamSemisyncReplTimeout"] = request.paramSemisyncReplTimeout;
+    }
+
+    if (!Util.isUnset(request.paramSentinelCompatEnable)) {
+      query["ParamSentinelCompatEnable"] = request.paramSentinelCompatEnable;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -35898,7 +39326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例参数
+   * Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
    * 
    * @param request - ModifyInstanceParameterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35961,7 +39389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改实例参数
+   * Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
    * 
    * @param request - ModifyInstanceParameterRequest
    * @returns ModifyInstanceParameterResponse
@@ -36122,6 +39550,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.replicaCount)) {
+      query["ReplicaCount"] = request.replicaCount;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -36142,8 +39574,20 @@ export default class Client extends OpenApi {
       query["SlaveReadOnlyCount"] = request.slaveReadOnlyCount;
     }
 
+    if (!Util.isUnset(request.slaveReplicaCount)) {
+      query["SlaveReplicaCount"] = request.slaveReplicaCount;
+    }
+
     if (!Util.isUnset(request.sourceBiz)) {
       query["SourceBiz"] = request.sourceBiz;
+    }
+
+    if (!Util.isUnset(request.storage)) {
+      query["Storage"] = request.storage;
+    }
+
+    if (!Util.isUnset(request.storageType)) {
+      query["StorageType"] = request.storageType;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -36730,6 +40174,146 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改TairCustom实例基本参数
+   * 
+   * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTairKVCacheCustomInstanceAttributeResponse
+   */
+  async modifyTairKVCacheCustomInstanceAttributeWithOptions(request: ModifyTairKVCacheCustomInstanceAttributeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTairKVCacheCustomInstanceAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTairKVCacheCustomInstanceAttribute",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTairKVCacheCustomInstanceAttributeResponse>(await this.callApi(params, req, runtime), new ModifyTairKVCacheCustomInstanceAttributeResponse({}));
+  }
+
+  /**
+   * 修改TairCustom实例基本参数
+   * 
+   * @param request - ModifyTairKVCacheCustomInstanceAttributeRequest
+   * @returns ModifyTairKVCacheCustomInstanceAttributeResponse
+   */
+  async modifyTairKVCacheCustomInstanceAttribute(request: ModifyTairKVCacheCustomInstanceAttributeRequest): Promise<ModifyTairKVCacheCustomInstanceAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTairKVCacheCustomInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 任务中心修改任务信息
+   * 
+   * @param request - ModifyTaskInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyTaskInfoResponse
+   */
+  async modifyTaskInfoWithOptions(request: ModifyTaskInfoRequest, runtime: $Util.RuntimeOptions): Promise<ModifyTaskInfoResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.actionParams)) {
+      query["ActionParams"] = request.actionParams;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.stepName)) {
+      query["StepName"] = request.stepName;
+    }
+
+    if (!Util.isUnset(request.taskAction)) {
+      query["TaskAction"] = request.taskAction;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      query["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyTaskInfo",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyTaskInfoResponse>(await this.callApi(params, req, runtime), new ModifyTaskInfoResponse({}));
+  }
+
+  /**
+   * 任务中心修改任务信息
+   * 
+   * @param request - ModifyTaskInfoRequest
+   * @returns ModifyTaskInfoResponse
+   */
+  async modifyTaskInfo(request: ModifyTaskInfoRequest): Promise<ModifyTaskInfoResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyTaskInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Releases the private endpoint of an ApsaraDB for Redis cluster instance.
    * 
    * @remarks
@@ -37210,6 +40794,150 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 重置TairCustom上主机密码
+   * 
+   * @param request - ResetTairKVCacheCustomInstancePasswordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetTairKVCacheCustomInstancePasswordResponse
+   */
+  async resetTairKVCacheCustomInstancePasswordWithOptions(request: ResetTairKVCacheCustomInstancePasswordRequest, runtime: $Util.RuntimeOptions): Promise<ResetTairKVCacheCustomInstancePasswordResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.sourceBiz)) {
+      query["SourceBiz"] = request.sourceBiz;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResetTairKVCacheCustomInstancePassword",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResetTairKVCacheCustomInstancePasswordResponse>(await this.callApi(params, req, runtime), new ResetTairKVCacheCustomInstancePasswordResponse({}));
+  }
+
+  /**
+   * 重置TairCustom上主机密码
+   * 
+   * @param request - ResetTairKVCacheCustomInstancePasswordRequest
+   * @returns ResetTairKVCacheCustomInstancePasswordResponse
+   */
+  async resetTairKVCacheCustomInstancePassword(request: ResetTairKVCacheCustomInstancePasswordRequest): Promise<ResetTairKVCacheCustomInstancePasswordResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resetTairKVCacheCustomInstancePasswordWithOptions(request, runtime);
+  }
+
+  /**
+   * 变配TairCustom的主机的磁盘
+   * 
+   * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeTairKVCacheCustomInstanceDiskResponse
+   */
+  async resizeTairKVCacheCustomInstanceDiskWithOptions(request: ResizeTairKVCacheCustomInstanceDiskRequest, runtime: $Util.RuntimeOptions): Promise<ResizeTairKVCacheCustomInstanceDiskResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.diskId)) {
+      query["DiskId"] = request.diskId;
+    }
+
+    if (!Util.isUnset(request.diskSize)) {
+      query["DiskSize"] = request.diskSize;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ResizeTairKVCacheCustomInstanceDisk",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ResizeTairKVCacheCustomInstanceDiskResponse>(await this.callApi(params, req, runtime), new ResizeTairKVCacheCustomInstanceDiskResponse({}));
+  }
+
+  /**
+   * 变配TairCustom的主机的磁盘
+   * 
+   * @param request - ResizeTairKVCacheCustomInstanceDiskRequest
+   * @returns ResizeTairKVCacheCustomInstanceDiskResponse
+   */
+  async resizeTairKVCacheCustomInstanceDisk(request: ResizeTairKVCacheCustomInstanceDiskRequest): Promise<ResizeTairKVCacheCustomInstanceDiskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.resizeTairKVCacheCustomInstanceDiskWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts a running ApsaraDB for Redis instance.
    * 
    * @param request - RestartInstanceRequest
@@ -37277,6 +41005,68 @@ export default class Client extends OpenApi {
   async restartInstance(request: RestartInstanceRequest): Promise<RestartInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 重启TairCustom的主机
+   * 
+   * @param request - RestartTairKVCacheCustomInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartTairKVCacheCustomInstanceResponse
+   */
+  async restartTairKVCacheCustomInstanceWithOptions(request: RestartTairKVCacheCustomInstanceRequest, runtime: $Util.RuntimeOptions): Promise<RestartTairKVCacheCustomInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RestartTairKVCacheCustomInstance",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RestartTairKVCacheCustomInstanceResponse>(await this.callApi(params, req, runtime), new RestartTairKVCacheCustomInstanceResponse({}));
+  }
+
+  /**
+   * 重启TairCustom的主机
+   * 
+   * @param request - RestartTairKVCacheCustomInstanceRequest
+   * @returns RestartTairKVCacheCustomInstanceResponse
+   */
+  async restartTairKVCacheCustomInstance(request: RestartTairKVCacheCustomInstanceRequest): Promise<RestartTairKVCacheCustomInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.restartTairKVCacheCustomInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -37367,6 +41157,130 @@ export default class Client extends OpenApi {
   async restoreInstance(request: RestoreInstanceRequest): Promise<RestoreInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restoreInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 启动TairCustom的主机
+   * 
+   * @param request - StartTairKVCacheCustomInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTairKVCacheCustomInstanceResponse
+   */
+  async startTairKVCacheCustomInstanceWithOptions(request: StartTairKVCacheCustomInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StartTairKVCacheCustomInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartTairKVCacheCustomInstance",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StartTairKVCacheCustomInstanceResponse>(await this.callApi(params, req, runtime), new StartTairKVCacheCustomInstanceResponse({}));
+  }
+
+  /**
+   * 启动TairCustom的主机
+   * 
+   * @param request - StartTairKVCacheCustomInstanceRequest
+   * @returns StartTairKVCacheCustomInstanceResponse
+   */
+  async startTairKVCacheCustomInstance(request: StartTairKVCacheCustomInstanceRequest): Promise<StartTairKVCacheCustomInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.startTairKVCacheCustomInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 停止TairCustom的主机
+   * 
+   * @param request - StopTairKVCacheCustomInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTairKVCacheCustomInstanceResponse
+   */
+  async stopTairKVCacheCustomInstanceWithOptions(request: StopTairKVCacheCustomInstanceRequest, runtime: $Util.RuntimeOptions): Promise<StopTairKVCacheCustomInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StopTairKVCacheCustomInstance",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<StopTairKVCacheCustomInstanceResponse>(await this.callApi(params, req, runtime), new StopTairKVCacheCustomInstanceResponse({}));
+  }
+
+  /**
+   * 停止TairCustom的主机
+   * 
+   * @param request - StopTairKVCacheCustomInstanceRequest
+   * @returns StopTairKVCacheCustomInstanceResponse
+   */
+  async stopTairKVCacheCustomInstance(request: StopTairKVCacheCustomInstanceRequest): Promise<StopTairKVCacheCustomInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.stopTairKVCacheCustomInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -37529,6 +41443,56 @@ export default class Client extends OpenApi {
   async switchInstanceProxy(request: SwitchInstanceProxyRequest): Promise<SwitchInstanceProxyResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.switchInstanceProxyWithOptions(request, runtime);
+  }
+
+  /**
+   * Switches an instance from the current zone to the specified zone in the event of a fault.
+   * 
+   * @param request - SwitchInstanceZoneFailOverRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SwitchInstanceZoneFailOverResponse
+   */
+  async switchInstanceZoneFailOverWithOptions(request: SwitchInstanceZoneFailOverRequest, runtime: $Util.RuntimeOptions): Promise<SwitchInstanceZoneFailOverResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.siteFaultTime)) {
+      query["SiteFaultTime"] = request.siteFaultTime;
+    }
+
+    if (!Util.isUnset(request.targetZoneId)) {
+      query["TargetZoneId"] = request.targetZoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SwitchInstanceZoneFailOver",
+      version: "2015-01-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SwitchInstanceZoneFailOverResponse>(await this.callApi(params, req, runtime), new SwitchInstanceZoneFailOverResponse({}));
+  }
+
+  /**
+   * Switches an instance from the current zone to the specified zone in the event of a fault.
+   * 
+   * @param request - SwitchInstanceZoneFailOverRequest
+   * @returns SwitchInstanceZoneFailOverResponse
+   */
+  async switchInstanceZoneFailOver(request: SwitchInstanceZoneFailOverRequest): Promise<SwitchInstanceZoneFailOverResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.switchInstanceZoneFailOverWithOptions(request, runtime);
   }
 
   /**
@@ -37883,6 +41847,14 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.autoPay)) {
       query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.autoRenewPeriod)) {
+      query["AutoRenewPeriod"] = request.autoRenewPeriod;
     }
 
     if (!Util.isUnset(request.instanceId)) {
