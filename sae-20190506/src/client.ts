@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -3694,6 +3695,7 @@ export class ScaleConfig extends $tea.Model {
 }
 
 export class SidecarContainerConfig extends $tea.Model {
+  acrInstanceId?: string;
   command?: string;
   commandArgs?: string;
   configMapMountDesc?: string;
@@ -3705,6 +3707,7 @@ export class SidecarContainerConfig extends $tea.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      acrInstanceId: 'AcrInstanceId',
       command: 'Command',
       commandArgs: 'CommandArgs',
       configMapMountDesc: 'ConfigMapMountDesc',
@@ -3719,6 +3722,7 @@ export class SidecarContainerConfig extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      acrInstanceId: 'string',
       command: 'string',
       commandArgs: 'string',
       configMapMountDesc: 'string',
@@ -6465,6 +6469,7 @@ export class CreateApplicationRequest extends $tea.Model {
   enableCpuBurst?: boolean;
   enableEbpf?: string;
   enableNewArms?: boolean;
+  enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
    * [{"name":"envtmp","value":"0"}]
@@ -6719,6 +6724,7 @@ export class CreateApplicationRequest extends $tea.Model {
    */
   securityGroupId?: string;
   serviceTags?: string;
+  sidecarContainersConfig?: SidecarContainerConfig[];
   /**
    * @remarks
    * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -6804,6 +6810,7 @@ export class CreateApplicationRequest extends $tea.Model {
       enableCpuBurst: 'EnableCpuBurst',
       enableEbpf: 'EnableEbpf',
       enableNewArms: 'EnableNewArms',
+      enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -6843,6 +6850,7 @@ export class CreateApplicationRequest extends $tea.Model {
       secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
+      sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -6875,6 +6883,7 @@ export class CreateApplicationRequest extends $tea.Model {
       enableCpuBurst: 'boolean',
       enableEbpf: 'string',
       enableNewArms: 'boolean',
+      enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -6914,6 +6923,591 @@ export class CreateApplicationRequest extends $tea.Model {
       secretMountDesc: 'string',
       securityGroupId: 'string',
       serviceTags: 'string',
+      sidecarContainersConfig: { 'type': 'array', 'itemType': SidecarContainerConfig },
+      slsConfigs: 'string',
+      terminationGracePeriodSeconds: 'number',
+      timezone: 'string',
+      tomcatConfig: 'string',
+      vSwitchId: 'string',
+      vpcId: 'string',
+      warStartOptions: 'string',
+      webContainer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateApplicationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * acs:ram::123456789012\\*\\*\\*\\*:role/adminrole
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
+  acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * cri-xxxxxx
+   * 
+   * @example
+   * cri-xxxxxx
+   */
+  acrInstanceId?: string;
+  /**
+   * @remarks
+   * This is a test description.
+   * 
+   * @example
+   * This is a test description.
+   */
+  appDescription?: string;
+  /**
+   * @remarks
+   * test
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * test
+   */
+  appName?: string;
+  appSource?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
+  associateEip?: boolean;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
+  autoConfig?: boolean;
+  baseAppId?: string;
+  /**
+   * @remarks
+   * sleep
+   * 
+   * @example
+   * echo
+   */
+  command?: string;
+  /**
+   * @remarks
+   * 1d
+   * 
+   * @example
+   * ["a","b"]
+   */
+  commandArgs?: string;
+  /**
+   * @remarks
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
+  configMapMountDesc?: string;
+  /**
+   * @remarks
+   * 1000
+   * 
+   * @example
+   * 1000
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
+  customHostAlias?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
+  deploy?: boolean;
+  dotnet?: string;
+  /**
+   * @remarks
+   * 3.5.3
+   * 
+   * @example
+   * 3.5.3
+   */
+  edasContainerVersion?: string;
+  enableCpuBurst?: boolean;
+  enableEbpf?: string;
+  enableNewArms?: boolean;
+  enableSidecarResourceIsolated?: boolean;
+  /**
+   * @remarks
+   * [{"name":"envtmp","value":"0"}]
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
+  envs?: string;
+  /**
+   * @example
+   * 10
+   */
+  imagePullSecrets?: string;
+  /**
+   * @remarks
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * custom-args
+   * 
+   * @example
+   * custom-args
+   */
+  jarStartArgs?: string;
+  /**
+   * @remarks
+   * \\-Xms4G -Xmx4G
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
+  jarStartOptions?: string;
+  /**
+   * @remarks
+   * Open JDK 8
+   * 
+   * @example
+   * Open JDK 8
+   */
+  jdk?: string;
+  /**
+   * @example
+   * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+   */
+  kafkaConfigs?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
+  liveness?: string;
+  /**
+   * @remarks
+   * 1024
+   * 
+   * @example
+   * 1024
+   */
+  memory?: number;
+  /**
+   * @example
+   * "0"
+   */
+  microRegistration?: string;
+  microRegistrationConfig?: string;
+  /**
+   * @remarks
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
+  mountDesc?: string;
+  /**
+   * @remarks
+   * example.com
+   * 
+   * @example
+   * example.com
+   */
+  mountHost?: string;
+  /**
+   * @remarks
+   * cn-beijing:test
+   * 
+   * @example
+   * cn-beijing:test
+   */
+  namespaceId?: string;
+  /**
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
+  nasConfigs?: string;
+  /**
+   * @remarks
+   * KSAK\\*\\*\\*\\*
+   * 
+   * @example
+   * KSAK****
+   */
+  nasId?: string;
+  oidcRoleName?: string;
+  /**
+   * @remarks
+   * xxxxxx
+   * 
+   * @example
+   * xxxxxx
+   */
+  ossAkId?: string;
+  /**
+   * @remarks
+   * xxxxxx
+   * 
+   * @example
+   * xxxxxx
+   */
+  ossAkSecret?: string;
+  /**
+   * @remarks
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
+  ossMountDescs?: string;
+  /**
+   * @remarks
+   * FatJar
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * FatJar
+   */
+  packageType?: string;
+  /**
+   * @remarks
+   * http://myoss.oss-cn-\\*\\*\\*\\*.aliyuncs.com/my-buc/2019-06-30/\\*\\*\\*\\*.jar
+   * 
+   * @example
+   * http://myoss.oss-cn-****.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
+  packageUrl?: string;
+  /**
+   * @remarks
+   * 1.0.0
+   * 
+   * @example
+   * 1.0.0
+   */
+  packageVersion?: string;
+  /**
+   * @example
+   * PHP-FPM 7.0
+   */
+  php?: string;
+  /**
+   * @remarks
+   * /usr/local/etc/php/conf.d/arms.ini
+   * 
+   * @example
+   * /usr/local/etc/php/conf.d/arms.ini
+   */
+  phpArmsConfigLocation?: string;
+  /**
+   * @remarks
+   * k1=v1
+   * 
+   * @example
+   * k1=v1
+   */
+  phpConfig?: string;
+  /**
+   * @remarks
+   * /usr/local/etc/php/php.ini
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
+  phpConfigLocation?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["cat","/etc/group"]}}
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
+  postStart?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["cat","/etc/group"]}}
+   * 
+   * @example
+   * {"exec":{"command":["cat","/etc/group"]}}
+   */
+  preStop?: string;
+  /**
+   * @example
+   * java
+   */
+  programmingLanguage?: string;
+  /**
+   * @example
+   * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
+   */
+  pvtzDiscoverySvc?: string;
+  /**
+   * @example
+   * PYTHON 3.9.15
+   */
+  python?: string;
+  /**
+   * @example
+   * Flask==2.0
+   */
+  pythonModules?: string;
+  /**
+   * @remarks
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","cat /home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}
+   */
+  readiness?: string;
+  /**
+   * @remarks
+   * 1
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  replicas?: number;
+  saeVersion?: string;
+  secretMountDesc?: string;
+  /**
+   * @remarks
+   * sg-wz969ngg2e49q5i4\\*\\*\\*\\*
+   * 
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
+  securityGroupId?: string;
+  serviceTags?: string;
+  sidecarContainersConfigShrink?: string;
+  /**
+   * @remarks
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
+  slsConfigs?: string;
+  /**
+   * @remarks
+   * 30
+   * 
+   * @example
+   * 30
+   */
+  terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * Asia/Shanghai
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
+  /**
+   * @remarks
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
+  tomcatConfig?: string;
+  /**
+   * @remarks
+   * vsw-bp12mw1f8k3jgygk9\\*\\*\\*\\*
+   * 
+   * @example
+   * vsw-bp12mw1f8k3jgygk9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * vpc-bp1aevy8sofi8mh1q\\*\\*\\*\\*
+   * 
+   * @example
+   * vpc-bp1aevy8sofi8mh1q****
+   */
+  vpcId?: string;
+  /**
+   * @remarks
+   * CATALINA_OPTS=\\\\"$CATALINA_OPTS $Options\\\\" catalina.sh run
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
+  warStartOptions?: string;
+  /**
+   * @remarks
+   * apache-tomcat-7.0.91
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
+  webContainer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acrAssumeRoleArn: 'AcrAssumeRoleArn',
+      acrInstanceId: 'AcrInstanceId',
+      appDescription: 'AppDescription',
+      appName: 'AppName',
+      appSource: 'AppSource',
+      associateEip: 'AssociateEip',
+      autoConfig: 'AutoConfig',
+      baseAppId: 'BaseAppId',
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      cpu: 'Cpu',
+      customHostAlias: 'CustomHostAlias',
+      deploy: 'Deploy',
+      dotnet: 'Dotnet',
+      edasContainerVersion: 'EdasContainerVersion',
+      enableCpuBurst: 'EnableCpuBurst',
+      enableEbpf: 'EnableEbpf',
+      enableNewArms: 'EnableNewArms',
+      enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
+      envs: 'Envs',
+      imagePullSecrets: 'ImagePullSecrets',
+      imageUrl: 'ImageUrl',
+      jarStartArgs: 'JarStartArgs',
+      jarStartOptions: 'JarStartOptions',
+      jdk: 'Jdk',
+      kafkaConfigs: 'KafkaConfigs',
+      liveness: 'Liveness',
+      memory: 'Memory',
+      microRegistration: 'MicroRegistration',
+      microRegistrationConfig: 'MicroRegistrationConfig',
+      mountDesc: 'MountDesc',
+      mountHost: 'MountHost',
+      namespaceId: 'NamespaceId',
+      nasConfigs: 'NasConfigs',
+      nasId: 'NasId',
+      oidcRoleName: 'OidcRoleName',
+      ossAkId: 'OssAkId',
+      ossAkSecret: 'OssAkSecret',
+      ossMountDescs: 'OssMountDescs',
+      packageType: 'PackageType',
+      packageUrl: 'PackageUrl',
+      packageVersion: 'PackageVersion',
+      php: 'Php',
+      phpArmsConfigLocation: 'PhpArmsConfigLocation',
+      phpConfig: 'PhpConfig',
+      phpConfigLocation: 'PhpConfigLocation',
+      postStart: 'PostStart',
+      preStop: 'PreStop',
+      programmingLanguage: 'ProgrammingLanguage',
+      pvtzDiscoverySvc: 'PvtzDiscoverySvc',
+      python: 'Python',
+      pythonModules: 'PythonModules',
+      readiness: 'Readiness',
+      replicas: 'Replicas',
+      saeVersion: 'SaeVersion',
+      secretMountDesc: 'SecretMountDesc',
+      securityGroupId: 'SecurityGroupId',
+      serviceTags: 'ServiceTags',
+      sidecarContainersConfigShrink: 'SidecarContainersConfig',
+      slsConfigs: 'SlsConfigs',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
+      timezone: 'Timezone',
+      tomcatConfig: 'TomcatConfig',
+      vSwitchId: 'VSwitchId',
+      vpcId: 'VpcId',
+      warStartOptions: 'WarStartOptions',
+      webContainer: 'WebContainer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrAssumeRoleArn: 'string',
+      acrInstanceId: 'string',
+      appDescription: 'string',
+      appName: 'string',
+      appSource: 'string',
+      associateEip: 'boolean',
+      autoConfig: 'boolean',
+      baseAppId: 'string',
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: 'string',
+      cpu: 'number',
+      customHostAlias: 'string',
+      deploy: 'boolean',
+      dotnet: 'string',
+      edasContainerVersion: 'string',
+      enableCpuBurst: 'boolean',
+      enableEbpf: 'string',
+      enableNewArms: 'boolean',
+      enableSidecarResourceIsolated: 'boolean',
+      envs: 'string',
+      imagePullSecrets: 'string',
+      imageUrl: 'string',
+      jarStartArgs: 'string',
+      jarStartOptions: 'string',
+      jdk: 'string',
+      kafkaConfigs: 'string',
+      liveness: 'string',
+      memory: 'number',
+      microRegistration: 'string',
+      microRegistrationConfig: 'string',
+      mountDesc: 'string',
+      mountHost: 'string',
+      namespaceId: 'string',
+      nasConfigs: 'string',
+      nasId: 'string',
+      oidcRoleName: 'string',
+      ossAkId: 'string',
+      ossAkSecret: 'string',
+      ossMountDescs: 'string',
+      packageType: 'string',
+      packageUrl: 'string',
+      packageVersion: 'string',
+      php: 'string',
+      phpArmsConfigLocation: 'string',
+      phpConfig: 'string',
+      phpConfigLocation: 'string',
+      postStart: 'string',
+      preStop: 'string',
+      programmingLanguage: 'string',
+      pvtzDiscoverySvc: 'string',
+      python: 'string',
+      pythonModules: 'string',
+      readiness: 'string',
+      replicas: 'number',
+      saeVersion: 'string',
+      secretMountDesc: 'string',
+      securityGroupId: 'string',
+      serviceTags: 'string',
+      sidecarContainersConfigShrink: 'string',
       slsConfigs: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
@@ -10783,6 +11377,7 @@ export class DeployApplicationRequest extends $tea.Model {
    */
   enableGreyTagRoute?: boolean;
   enableNewArms?: boolean;
+  enableSidecarResourceIsolated?: boolean;
   /**
    * @remarks
    * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
@@ -11133,6 +11728,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * {\\"alicloud.service.tag\\":\\"g1\\"}
    */
   serviceTags?: string;
+  sidecarContainersConfig?: SidecarContainerConfig[];
   /**
    * @remarks
    * The logging configurations of Log Service.
@@ -11257,6 +11853,7 @@ export class DeployApplicationRequest extends $tea.Model {
       enableCpuBurst: 'EnableCpuBurst',
       enableGreyTagRoute: 'EnableGreyTagRoute',
       enableNewArms: 'EnableNewArms',
+      enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
       envs: 'Envs',
       imagePullSecrets: 'ImagePullSecrets',
       imageUrl: 'ImageUrl',
@@ -11295,6 +11892,7 @@ export class DeployApplicationRequest extends $tea.Model {
       secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
+      sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
       timezone: 'Timezone',
@@ -11327,6 +11925,7 @@ export class DeployApplicationRequest extends $tea.Model {
       enableCpuBurst: 'boolean',
       enableGreyTagRoute: 'boolean',
       enableNewArms: 'boolean',
+      enableSidecarResourceIsolated: 'boolean',
       envs: 'string',
       imagePullSecrets: 'string',
       imageUrl: 'string',
@@ -11365,6 +11964,779 @@ export class DeployApplicationRequest extends $tea.Model {
       secretMountDesc: 'string',
       securityGroupId: 'string',
       serviceTags: 'string',
+      sidecarContainersConfig: { 'type': 'array', 'itemType': SidecarContainerConfig },
+      slsConfigs: 'string',
+      terminationGracePeriodSeconds: 'number',
+      timezone: 'string',
+      tomcatConfig: 'string',
+      updateStrategy: 'string',
+      vSwitchId: 'string',
+      warStartOptions: 'string',
+      webContainer: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeployApplicationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
+   * 
+   * @example
+   * acs:ram::123456789012****:role/adminrole
+   */
+  acrAssumeRoleArn?: string;
+  /**
+   * @remarks
+   * The ID of Container Registry Enterprise Edition instance N. This parameter is required when the **ImageUrl** parameter is set to the URL of an image in an ACR Enterprise Edition instance.
+   * 
+   * @example
+   * cri-xxxxxx
+   */
+  acrInstanceId?: string;
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
+  appId?: string;
+  /**
+   * @remarks
+   * Specifies whether to associate an EIP with the node pool. Take note of the following rules:
+   * 
+   * *   **true**: The EIP is associated with the application instance.
+   * *   **false**: The EIP is not associated with the application instance.
+   * 
+   * @example
+   * true
+   */
+  associateEip?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to automatically enable an auto scaling policy for the application. Take note of the following rules:
+   * 
+   * *   **true**: turns on Logon-free Sharing
+   * *   **false**: turns off Logon-free Sharing
+   * 
+   * @example
+   * true
+   */
+  autoEnableApplicationScalingRule?: boolean;
+  /**
+   * @remarks
+   * The interval between batches during a batch release. Unit: minutes.
+   * 
+   * @example
+   * 10
+   */
+  batchWaitTime?: number;
+  /**
+   * @remarks
+   * The description of the change order.
+   * 
+   * @example
+   * Start the application
+   */
+  changeOrderDesc?: string;
+  /**
+   * @remarks
+   * The command that is used to start the image. The command must be an existing executable object in the container. Sample statements:
+   * 
+   *     command:
+   *           - echo
+   *           - abc
+   *           - >
+   *           - file0
+   * 
+   * In this example, the Command parameter is set to `Command="echo", CommandArgs=["abc", ">", "file0"]`.
+   * 
+   * @example
+   * echo
+   */
+  command?: string;
+  /**
+   * @remarks
+   * The parameters of the image startup command. The CommandArgs parameter specifies the parameters that are required for the **Command** parameter. You can specify the name in one of the following formats:
+   * 
+   * `["a","b"]`
+   * 
+   * In the preceding example, the CommandArgs parameter is set to `CommandArgs=["abc", ">", "file0"]`. The data type of `["abc", ">", "file0"]` must be an array of strings in the JSON format. This parameter is optional.
+   * 
+   * @example
+   * ["a","b"]
+   */
+  commandArgs?: string;
+  /**
+   * @remarks
+   * The description of the **ConfigMap** instance mounted to the application. Use configurations created on the Configuration Items page to configure containers. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **congfigMapId**: the ID of the ConfigMap instance. You can call the [ListNamespacedConfigMaps](https://help.aliyun.com/document_detail/176917.html) operation to obtain the ID.
+   * *   **key**: the key.
+   * 
+   * > You can use `sae-sys-configmap-all` to mount all keys.
+   * 
+   * *   **mountPath**: the mount path in the container.
+   * 
+   * @example
+   * [{"configMapId":16,"key":"test","mountPath":"/tmp"}]
+   */
+  configMapMountDesc?: string;
+  /**
+   * @example
+   * 1000
+   */
+  cpu?: number;
+  /**
+   * @remarks
+   * The custom mappings between hostnames and IP addresses in the container. Take note of the following rules:
+   * 
+   * *   **hostName**: the domain name or hostname.
+   * *   **ip**: the IP address.
+   * 
+   * @example
+   * [{"hostName":"samplehost","ip":"127.0.0.1"}]
+   */
+  customHostAlias?: string;
+  /**
+   * @remarks
+   * This parameter takes effect only for applications that are in the Stopped state. If you call the **DeployApplication** operation to manage a running application, the application is immediately redeployed.
+   * 
+   * *   **true** (default): specifies that the system immediately deploys the application, enables new configurations, and pulls application instances.
+   * *   **false**: specifies that the system only enables the new configurations.
+   * 
+   * @example
+   * true
+   */
+  deploy?: string;
+  dotnet?: string;
+  /**
+   * @remarks
+   * The version of the container, such as Ali-Tomcat, in which an application developed based on High-speed Service Framework (HSF) is deployed.
+   * 
+   * @example
+   * 3.5.3
+   */
+  edasContainerVersion?: string;
+  /**
+   * @remarks
+   * Indicates whether access to Application High Availability Service (AHAS) is enabled. Take note of the following rules:
+   * 
+   * *   **true**: Access to AHAS is enabled.
+   * *   **false**: Access to AHAS is disabled.
+   * 
+   * @example
+   * false
+   */
+  enableAhas?: string;
+  enableCpuBurst?: boolean;
+  /**
+   * @remarks
+   * Indicates whether canary release rules are enabled. Canary release rules apply only to applications in Spring Cloud and Dubbo frameworks. Take note of the following rules:
+   * 
+   * *   **true**: The canary release rules are enabled.
+   * *   **false**: The canary release rules are disabled.
+   * 
+   * @example
+   * false
+   */
+  enableGreyTagRoute?: boolean;
+  enableNewArms?: boolean;
+  enableSidecarResourceIsolated?: boolean;
+  /**
+   * @remarks
+   * The environment variables. You can configure custom environment variables or reference a ConfigMap. If you want to reference a ConfigMap, you must first create a ConfigMap. For more information, see [CreateConfigMap](https://help.aliyun.com/document_detail/176914.html). Take note of the following rules:
+   * 
+   * *   Customize
+   * 
+   *     *   **name**: the name of the environment variable.
+   *     *   **value**: the value of the environment variable.
+   * 
+   * *   Reference ConfigMap
+   * 
+   *     *   **name**: the name of the environment variable. You can reference one or all keys. If you want to reference all keys, specify `sae-sys-configmap-all-<ConfigMap name>`. Example: `sae-sys-configmap-all-test1`.
+   *     *   **valueFrom**: the reference of the environment variable. Set the value to `configMapRef`.
+   *     *   **configMapId**: the ConfigMap ID.
+   *     *   **key**: the key. If you want to reference all keys, do not configure this parameter.
+   * 
+   * @example
+   * [{"name":"envtmp","value":"0"}]
+   */
+  envs?: string;
+  /**
+   * @remarks
+   * The ID of the corresponding Secret.
+   * 
+   * @example
+   * 10
+   */
+  imagePullSecrets?: string;
+  /**
+   * @remarks
+   * The URL of the image. This parameter is returned only if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * registry.cn-hangzhou.aliyuncs.com/sae_test/ali_sae_test:0.0.1
+   */
+  imageUrl?: string;
+  /**
+   * @remarks
+   * The arguments in the JAR package. The arguments are used to start the application container. The default startup command is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * -Xms4G -Xmx4G
+   */
+  jarStartArgs?: string;
+  /**
+   * @remarks
+   * The option settings in the JAR package. The settings are used to start the application container. The default startup command for application deployment is `$JAVA_HOME/bin/java $JarStartOptions -jar $CATALINA_OPTS "$package_path" $JarStartArgs`.
+   * 
+   * @example
+   * custom-option
+   */
+  jarStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Java development kit (JDK) on which the deployment package of the application depends. The following versions are supported:
+   * 
+   * *   **Open JDK 8**
+   * *   **Open JDK 7**
+   * *   **Dragonwell 11**
+   * *   **Dragonwell 8**
+   * *   **openjdk-8u191-jdk-alpine3.9**
+   * *   **openjdk-7u201-jdk-alpine3.9**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * Open JDK 8
+   */
+  jdk?: string;
+  /**
+   * @remarks
+   * The logging configurations of Message Queue for Apache Kafka. Take note of the following rules:
+   * 
+   * *   **kafkaEndpoint**: the endpoint of the Message Queue for Apache Kafka API.
+   * *   **kafkaInstanceId**: the ID of the Message Queue for Apache Kafka instance.
+   * *   **kafkaConfigs**: One or more logging configurations of Message Queue for Apache Kafka. For information about sample values and parameters, see the request parameter **KafkaLogfileConfig** in this topic.
+   * 
+   * @example
+   * {"kafkaEndpoint":"10.0.X.XXX:XXXX,10.0.X.XXX:XXXX,10.0.X.XXX:XXXX\\","kafkaInstanceId":"alikafka_pre-cn-7pp2l8kr****","kafkaConfigs":[{"logType":"file_log","logDir":"/tmp/a.log","kafkaTopic":"test2"},{"logType":"stdout","logDir":"","kafkaTopic":"test"}]}
+   */
+  kafkaConfigs?: string;
+  /**
+   * @remarks
+   * The details of the availability check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. You can use one of the following methods to perform the health check:
+   * 
+   * *   Example of **exec**: `{"exec":{"command":["sh","-c","cat/home/admin/start.sh"]},"initialDelaySeconds":30,"periodSeconds":30,"timeoutSeconds":2}`
+   * *   Sample code of the **httpGet** method: `{"httpGet":{"path":"/","port":18091,"scheme":"HTTP","isContainKeyWord":true,"keyWord":"SAE"},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * *   Sample code of the **tcpSocket** method: `{"tcpSocket":{"port":18091},"initialDelaySeconds":11,"periodSeconds":10,"timeoutSeconds":1}`
+   * 
+   * > You can use only one method to perform the health check.
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **exec.command**: the health check command.
+   * *   **httpGet.path**: the request path.
+   * *   **httpGet.scheme**: the protocol that is used to perform the health check. Valid values: **HTTP** and **HTTPS**.
+   * *   **httpGet.isContainKeyWord**: indicates whether the response contains keywords. Valid values: **true** and **false**. If this field is not returned, the advanced settings are not used.
+   * *   **httpGet.keyWord**: the custom keyword. This parameter is available only if the **isContainKeyWord** field is returned.
+   * *   **tcpSocket.port**: the port that is used to check the status of TCP connections.
+   * *   **initialDelaySeconds**: the delay of the health check. Default value: 10. Unit: seconds.
+   * *   **periodSeconds**: the interval at which health checks are performed. Default value: 30. Unit: seconds.
+   * *   **timeoutSeconds**: the timeout period of the health check. Default value: 1. Unit: seconds. If you set this parameter to 0 or leave this parameter empty, the timeout period is automatically set to 1 second.
+   * 
+   * @example
+   * {"exec":{"command":["sleep","5s"]},"initialDelaySeconds":10,"timeoutSeconds":11}
+   */
+  liveness?: string;
+  /**
+   * @example
+   * 1024
+   */
+  memory?: number;
+  /**
+   * @remarks
+   * The Nacos registry. Valid values:
+   * 
+   * *   **0**: SAE built-in Nacos registry
+   * *   **1**: self-managed Nacos registry
+   * *   **2** : MSE Nacos registry
+   * 
+   * @example
+   * "0"
+   */
+  microRegistration?: string;
+  /**
+   * @example
+   * {\\"instanceId\\":\\"mse-cn-zvp2bh6h70r\\",\\"namespace\\":\\"4c0aa74f-57cb-423c-b6af-5d9f2d0e3dbd\\"}
+   */
+  microRegistrationConfig?: string;
+  /**
+   * @remarks
+   * The percentage of the minimum number of available instances. Take note of the following rules:
+   * 
+   * *   If you set the value to **-1**, the minimum number of available instances is not determined based on this parameter. Default value: -1.
+   * *   If you set the value to a number **from 0 to 100**, the minimum number of available instances is calculated by using the following formula: Current number of instances × (Value of MinReadyInstanceRatio × 100%). The value is the nearest integer rounded up from the calculated result. For example, if the percentage is set to **50**% and five instances are available, the minimum number of available instances is 3.
+   * 
+   * > When both **MinReadyInstance** and **MinReadyInstanceRatio** are specified and **MinReadyInstanceRatio** is set to a number from 0 to 100, the value of **MinReadyInstanceRatio**** takes precedence. For example, if **MinReadyInstances** is set to **5, and **MinReadyInstanceRatio** is set to **50**, the minimum number of available instances is set to the nearest integer rounded up from the calculated result of the following formula: Current number of instances × **50%**.
+   * 
+   * @example
+   * -1
+   */
+  minReadyInstanceRatio?: number;
+  /**
+   * @remarks
+   * The minimum number of available instances. Special values:
+   * 
+   * *   If you set the value to **0**, business interruptions occur when the application is updated.
+   * *   If you set the value to \\*\\*-1\\*\\*, the minimum number of available instances is automatically set to a system-recommended value. The value is the nearest integer to which the calculated result of the following formula is rounded up: Current number of instances × 25%. For example, if five instances are available, the minimum number of available instances is calculated by using the following formula: 5 × 25% = 1.25. In this case, the minimum number of available instances is 2.
+   * 
+   * > Make sure that at least one instance is available during application deployment and rollback to prevent business interruptions.
+   * 
+   * @example
+   * 1
+   */
+  minReadyInstances?: number;
+  /**
+   * @remarks
+   * The configurations for mounting the NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **MountDesc** parameter in the requests. If you want to unmount the NAS file system, you must set the **MountDesc** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * [{mountPath: "/tmp", nasPath: "/"}]
+   */
+  mountDesc?: string;
+  /**
+   * @remarks
+   * The mount target of the NAS file system in the VPC where the application is deployed. If you do not need to modify this configuration during the deployment, configure the **MountHost** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you need to remove this configuration, leave the **MountHost** parameter empty in the request.
+   * 
+   * @example
+   * 10d3b4bc9****.com
+   */
+  mountHost?: string;
+  /**
+   * @remarks
+   * The configurations of mounting the NAS file system. Take note of the following rules:
+   * 
+   * *   **mountPath**: the mount path of the container.
+   * *   **readOnly**: If you set the value to **false**, the application has the read and write permissions.
+   * *   **nasId**: the ID of the NAS file system.
+   * *   **mountDomain**: the domain name of the mount target. For more information, see [DescribeMountTargets](https://help.aliyun.com/document_detail/62626.html).
+   * *   **nasPath**: the directory in the NAS file system.
+   * 
+   * @example
+   * [{"mountPath":"/test1","readOnly":false,"nasId":"nasId1","mountDomain":"nasId1.cn-shenzhen.nas.aliyuncs.com","nasPath":"/test1"},{"nasId":"nasId2","mountDomain":"nasId2.cn-shenzhen.nas.aliyuncs.com","readOnly":false,"nasPath":"/test2","mountPath":"/test2"}]
+   */
+  nasConfigs?: string;
+  /**
+   * @remarks
+   * The ID of the File Storage NAS file system. After the application is created, you may want to call other operations to manage the application. If you do not want to change the NAS configurations in these subsequent operations, you can omit the **NasId** parameter in the requests. If you want to unmount the NAS file system, you must set the **NasId** values in the subsequent requests to an empty string ("").
+   * 
+   * @example
+   * 10d3b4****
+   */
+  nasId?: string;
+  oidcRoleName?: string;
+  /**
+   * @remarks
+   * The AccessKey ID that is used to read data from and write data to Object Storage Service (OSS) buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
+  ossAkId?: string;
+  /**
+   * @remarks
+   * The AccessKey secret that is used to read data from and write data to OSS buckets.
+   * 
+   * @example
+   * xxxxxx
+   */
+  ossAkSecret?: string;
+  /**
+   * @remarks
+   * Information of the Object Storage Service (OSS) bucket mounted to the application. The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **bucketName**: the name of the OSS bucket.
+   * 
+   * *   **bucketPath**: the directory or object in OSS. If the specified directory or object does not exist, an error is returned.
+   * 
+   * *   **mountPath**: the directory of the container in SAE. If the path already exists, the newly specified path overwrites the previous one. If the path does not exist, it is created.
+   * 
+   * *   **readOnly**: specifies whether to only allow the container path to read data from the OSS directory. Valid values:
+   * 
+   *     *   **true**: The container path only has read permission on the OSS directory.
+   *     *   **false**: The application has read and write permissions.
+   * 
+   * @example
+   * [{"bucketName": "oss-bucket", "bucketPath": "data/user.data", "mountPath": "/usr/data/user.data", "readOnly": true}]
+   */
+  ossMountDescs?: string;
+  /**
+   * @example
+   * FatJar
+   */
+  packageType?: string;
+  /**
+   * @remarks
+   * The address of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * http://myoss.oss-cn-hangzhou.aliyuncs.com/my-buc/2019-06-30/****.jar
+   */
+  packageUrl?: string;
+  /**
+   * @remarks
+   * The version of the deployment package. This parameter is required when the **PackageType** parameter is set to **FatJar**, **War**, or **PythonZip**.
+   * 
+   * @example
+   * 1.0.1
+   */
+  packageVersion?: string;
+  /**
+   * @example
+   * PHP-FPM 7.0
+   */
+  php?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application monitoring is mounted. Make sure that the PHP server loads the configuration file. SAE automatically generates the corresponding configuration file. No manual operations are required.
+   * 
+   * @example
+   * /usr/local/etc/php/conf.d/arms.ini
+   */
+  phpArmsConfigLocation?: string;
+  /**
+   * @remarks
+   * The details of the PHP configuration file.
+   * 
+   * @example
+   * k1=v1
+   */
+  phpConfig?: string;
+  /**
+   * @remarks
+   * The path on which the PHP configuration file for application startup is mounted. Make sure that the PHP server uses this configuration file during the startup.
+   * 
+   * @example
+   * /usr/local/etc/php/php.ini
+   */
+  phpConfigLocation?: string;
+  /**
+   * @remarks
+   * The script that is run immediately after the container is started. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
+  postStart?: string;
+  /**
+   * @remarks
+   * The script that is run before the container is stopped. Example: `{"exec":{"command":["sh","-c","echo hello"\\]}}`
+   * 
+   * @example
+   * {"exec":{"command":["sh","-c","echo hello"]}}
+   */
+  preStop?: string;
+  /**
+   * @remarks
+   * The configurations of Kubernetes Service-based service registration and discovery. Take note of the following rules:
+   * 
+   * *   **serviceName**: the name of the Alibaba Cloud service. Format: `<Custom content>-<Namespace ID>`. `-<Namespace ID>` is automatically specified based on the namespace in which an application resides and cannot be changed. For example, if you select the default namespace in the China (Beijing) region, `-cn-beijing-default` is automatically specified.
+   * *   **namespaceId**: the namespace ID.
+   * *   **portAndProtocol**: the port number and protocol. Valid values of the port number: 1 to 65535. Valid values of the protocol: **TCP** and **UDP**.
+   * *   **enable**: enables the Kubernetes Service-based registration and discovery feature.
+   * 
+   * @example
+   * {"serviceName":"bwm-poc-sc-gateway-cn-beijing-front","namespaceId":"cn-beijing:front","portAndProtocol":{"18012":"TCP"},"enable":true}
+   */
+  pvtzDiscoverySvc?: string;
+  /**
+   * @remarks
+   * The Python environment. Set the value to **PYTHON 3.9.15**.
+   * 
+   * @example
+   * PYTHON 3.9.15
+   */
+  python?: string;
+  /**
+   * @remarks
+   * The configurations for installing custom module dependencies. By default, the dependencies defined by the requirements.txt file in the root directory are installed. If the package does not contain this file and you do not configure custom dependencies in the package, specify the dependencies that you want to install in the text box.
+   * 
+   * @example
+   * Flask==2.0
+   */
+  pythonModules?: string;
+  /**
+   * @remarks
+   * The details of the health check that was performed on the container. If the container fails this health check multiple times, the system disables and restarts the container. Containers that fail health checks cannot receive traffic from Server Load Balancer (SLB) instances. You can use the **exec**, **httpGet**, or **tcpSocket** method to perform health checks. For more information, see the description of the **Liveness** parameter.
+   * 
+   * > You can use only one method to perform the health check.
+   * 
+   * @example
+   * {"exec":{"command":["sleep","6s"]},"initialDelaySeconds":15,"timeoutSeconds":12}
+   */
+  readiness?: string;
+  /**
+   * @example
+   * 1
+   */
+  replicas?: number;
+  secretMountDesc?: string;
+  /**
+   * @example
+   * sg-wz969ngg2e49q5i4****
+   */
+  securityGroupId?: string;
+  /**
+   * @example
+   * {\\"alicloud.service.tag\\":\\"g1\\"}
+   */
+  serviceTags?: string;
+  sidecarContainersConfigShrink?: string;
+  /**
+   * @remarks
+   * The logging configurations of Log Service.
+   * 
+   * *   To use Log Service resources that are automatically created by SAE, set this parameter to `[{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]`.
+   * *   To use custom Log Service resources, set this parameter to `[{"projectName":"test-sls","logType":"stdout","logDir":"","logstoreName":"sae","logtailName":""},{"projectName":"test","logDir":"/tmp/a.log","logstoreName":"sae","logtailName":""}]`.
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **projectName**: the name of the Log Service project.
+   * *   **logDir**: the path in which logs are stored.
+   * *   **logType**: the log type. **stdout**: the standard output log of the container. You can specify only one stdout value for this parameter. If you leave this parameter empty, file logs are collected.
+   * *   **logstoreName**: the name of the Logstore in Log Service.
+   * *   **logtailName**: the name of the Logtail configuration in Log Service. If you do not configure this parameter, a new Logtail configuration is created.
+   * 
+   * If you do not need to modify the logging configurations when you deploy the application, configure the **SlsConfigs** parameter only in the first request. You do not need to include this parameter in subsequent requests. If you no longer need to use Log Service, leave the **SlsConfigs** parameter empty in the request.
+   * 
+   * > A Log Service project that is automatically created by SAE when you create an application is deleted when the application is deleted. Therefore, when you create an application, you cannot select a Log Service project that is automatically created by SAE for log collection.
+   * 
+   * @example
+   * [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
+   */
+  slsConfigs?: string;
+  /**
+   * @remarks
+   * The timeout period for a graceful shutdown. Default value: 30. Unit: seconds. Valid values: 1 to 300.
+   * 
+   * @example
+   * 10
+   */
+  terminationGracePeriodSeconds?: number;
+  /**
+   * @remarks
+   * The time zone. Default value: **Asia/Shanghai**.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
+  timezone?: string;
+  /**
+   * @remarks
+   * The Tomcat configuration. If you want to cancel this configuration, set this parameter to "" or "{}". The following variables are included in the configuration: Take note of the following rules:
+   * 
+   * *   **port**: the port number. The port number ranges from 1024 to 65535. Though the admin permissions are configured for the container, the root permissions are required to perform operations on ports whose number is smaller than 1024. Enter a value that ranges from 1025 to 65535 because the container has only the admin permissions. If you do not specify this parameter, the default port number 8080 is used.
+   * *   **contextPath**: the path. Default value: /. This value indicates the root directory.
+   * *   **maxThreads**: the maximum number of connections in the connection pool. Default value: 400.
+   * *   **uriEncoding**: the URI encoding scheme in the Tomcat container. Valid values: UTF-8, ISO-8859-1, GBK, and GB2312.************ If you do not specify this parameter, the default value **ISO-8859-1** is used.
+   * *   **useBodyEncoding**: specifies whether to use the encoding scheme specified in the request body for URI query parameters. Default value: true.
+   * 
+   * @example
+   * {"port":8080,"contextPath":"/","maxThreads":400,"uriEncoding":"ISO-8859-1","useBodyEncodingForUri":true}
+   */
+  tomcatConfig?: string;
+  /**
+   * @remarks
+   * The deployment policy. If the minimum number of available instances is 1, the value of the **UpdateStrategy** parameter is an empty string (""). If the minimum number of available instances is greater than 1, the following strategies can be configured:
+   * 
+   * *   The application is deployed on an instance. The remaining instances are automatically classified into two release batches whose interval is set to 1. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}`.
+   * *   The application is deployed on an instance. The remaining instances are manually classified into two release batches. In this case, the parameter is set to `{"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"manual"},"grayUpdate":{"gray":1}}`.
+   * *   All instances are automatically classified into two release batches. The application is deployed on the instances of the two batches in parallel. In this case, the parameter is set to `{"type":"BatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":0}}`
+   * 
+   * The following table describes the parameters that are used in the preceding statements.
+   * 
+   * *   **type**: the type of the release policy. Valid values: **GrayBatchUpdate** and **BatchUpdate**.
+   * 
+   * *   **batchUpdate**: the phased release policy.
+   * 
+   *     *   **batch**: the number of release batches.
+   *     *   **releaseType**: the processing method for the batches. Valid values: **auto** and **manual**.
+   *     *   **batchWaitTime**: the interval between release batches. Unit: seconds.
+   * 
+   * *   **grayUpdate**: the number of release batches in the phased release after a canary release. This parameter is returned only if the **type** parameter is set to **GrayBatchUpdate**.
+   * 
+   * @example
+   * {"type":"GrayBatchUpdate","batchUpdate":{"batch":2,"releaseType":"auto","batchWaitTime":1},"grayUpdate":{"gray":1}}
+   */
+  updateStrategy?: string;
+  /**
+   * @example
+   * vsw-bp12mw1f8k3jgygk9****
+   */
+  vSwitchId?: string;
+  /**
+   * @remarks
+   * The startup command of the WAR package. For information about how to configure the startup command, see [Configure startup commands](https://help.aliyun.com/document_detail/96677.html).
+   * 
+   * @example
+   * CATALINA_OPTS=\\"$CATALINA_OPTS $Options\\" catalina.sh run
+   */
+  warStartOptions?: string;
+  /**
+   * @remarks
+   * The version of the Tomcat container on which the deployment package depends. Valid values:
+   * 
+   * *   **apache-tomcat-7.0.91**
+   * *   **apache-tomcat-8.5.42**
+   * 
+   * This parameter is not returned if the **PackageType** parameter is set to **Image**.
+   * 
+   * @example
+   * apache-tomcat-7.0.91
+   */
+  webContainer?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acrAssumeRoleArn: 'AcrAssumeRoleArn',
+      acrInstanceId: 'AcrInstanceId',
+      appId: 'AppId',
+      associateEip: 'AssociateEip',
+      autoEnableApplicationScalingRule: 'AutoEnableApplicationScalingRule',
+      batchWaitTime: 'BatchWaitTime',
+      changeOrderDesc: 'ChangeOrderDesc',
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      cpu: 'Cpu',
+      customHostAlias: 'CustomHostAlias',
+      deploy: 'Deploy',
+      dotnet: 'Dotnet',
+      edasContainerVersion: 'EdasContainerVersion',
+      enableAhas: 'EnableAhas',
+      enableCpuBurst: 'EnableCpuBurst',
+      enableGreyTagRoute: 'EnableGreyTagRoute',
+      enableNewArms: 'EnableNewArms',
+      enableSidecarResourceIsolated: 'EnableSidecarResourceIsolated',
+      envs: 'Envs',
+      imagePullSecrets: 'ImagePullSecrets',
+      imageUrl: 'ImageUrl',
+      jarStartArgs: 'JarStartArgs',
+      jarStartOptions: 'JarStartOptions',
+      jdk: 'Jdk',
+      kafkaConfigs: 'KafkaConfigs',
+      liveness: 'Liveness',
+      memory: 'Memory',
+      microRegistration: 'MicroRegistration',
+      microRegistrationConfig: 'MicroRegistrationConfig',
+      minReadyInstanceRatio: 'MinReadyInstanceRatio',
+      minReadyInstances: 'MinReadyInstances',
+      mountDesc: 'MountDesc',
+      mountHost: 'MountHost',
+      nasConfigs: 'NasConfigs',
+      nasId: 'NasId',
+      oidcRoleName: 'OidcRoleName',
+      ossAkId: 'OssAkId',
+      ossAkSecret: 'OssAkSecret',
+      ossMountDescs: 'OssMountDescs',
+      packageType: 'PackageType',
+      packageUrl: 'PackageUrl',
+      packageVersion: 'PackageVersion',
+      php: 'Php',
+      phpArmsConfigLocation: 'PhpArmsConfigLocation',
+      phpConfig: 'PhpConfig',
+      phpConfigLocation: 'PhpConfigLocation',
+      postStart: 'PostStart',
+      preStop: 'PreStop',
+      pvtzDiscoverySvc: 'PvtzDiscoverySvc',
+      python: 'Python',
+      pythonModules: 'PythonModules',
+      readiness: 'Readiness',
+      replicas: 'Replicas',
+      secretMountDesc: 'SecretMountDesc',
+      securityGroupId: 'SecurityGroupId',
+      serviceTags: 'ServiceTags',
+      sidecarContainersConfigShrink: 'SidecarContainersConfig',
+      slsConfigs: 'SlsConfigs',
+      terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
+      timezone: 'Timezone',
+      tomcatConfig: 'TomcatConfig',
+      updateStrategy: 'UpdateStrategy',
+      vSwitchId: 'VSwitchId',
+      warStartOptions: 'WarStartOptions',
+      webContainer: 'WebContainer',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrAssumeRoleArn: 'string',
+      acrInstanceId: 'string',
+      appId: 'string',
+      associateEip: 'boolean',
+      autoEnableApplicationScalingRule: 'boolean',
+      batchWaitTime: 'number',
+      changeOrderDesc: 'string',
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: 'string',
+      cpu: 'number',
+      customHostAlias: 'string',
+      deploy: 'string',
+      dotnet: 'string',
+      edasContainerVersion: 'string',
+      enableAhas: 'string',
+      enableCpuBurst: 'boolean',
+      enableGreyTagRoute: 'boolean',
+      enableNewArms: 'boolean',
+      enableSidecarResourceIsolated: 'boolean',
+      envs: 'string',
+      imagePullSecrets: 'string',
+      imageUrl: 'string',
+      jarStartArgs: 'string',
+      jarStartOptions: 'string',
+      jdk: 'string',
+      kafkaConfigs: 'string',
+      liveness: 'string',
+      memory: 'number',
+      microRegistration: 'string',
+      microRegistrationConfig: 'string',
+      minReadyInstanceRatio: 'number',
+      minReadyInstances: 'number',
+      mountDesc: 'string',
+      mountHost: 'string',
+      nasConfigs: 'string',
+      nasId: 'string',
+      oidcRoleName: 'string',
+      ossAkId: 'string',
+      ossAkSecret: 'string',
+      ossMountDescs: 'string',
+      packageType: 'string',
+      packageUrl: 'string',
+      packageVersion: 'string',
+      php: 'string',
+      phpArmsConfigLocation: 'string',
+      phpConfig: 'string',
+      phpConfigLocation: 'string',
+      postStart: 'string',
+      preStop: 'string',
+      pvtzDiscoverySvc: 'string',
+      python: 'string',
+      pythonModules: 'string',
+      readiness: 'string',
+      replicas: 'number',
+      secretMountDesc: 'string',
+      securityGroupId: 'string',
+      serviceTags: 'string',
+      sidecarContainersConfigShrink: 'string',
       slsConfigs: 'string',
       terminationGracePeriodSeconds: 'number',
       timezone: 'string',
@@ -13814,6 +15186,7 @@ export class DescribeIngressResponse extends $tea.Model {
 }
 
 export class DescribeInstanceLogRequest extends $tea.Model {
+  containerId?: string;
   /**
    * @remarks
    * The ID of the request.
@@ -13826,12 +15199,14 @@ export class DescribeInstanceLogRequest extends $tea.Model {
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
+      containerId: 'ContainerId',
       instanceId: 'InstanceId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      containerId: 'string',
       instanceId: 'string',
     };
   }
@@ -28712,6 +30087,102 @@ export class DescribeApplicationConfigResponseBodyDataSecretMountDesc extends $t
   }
 }
 
+export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc extends $tea.Model {
+  configMapId?: number;
+  configMapName?: string;
+  key?: string;
+  mountPath?: string;
+  static names(): { [key: string]: string } {
+    return {
+      configMapId: 'ConfigMapId',
+      configMapName: 'ConfigMapName',
+      key: 'Key',
+      mountPath: 'MountPath',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      configMapId: 'number',
+      configMapName: 'string',
+      key: 'string',
+      mountPath: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc extends $tea.Model {
+  mountPath?: string;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      mountPath: 'MountPath',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      mountPath: 'string',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeApplicationConfigResponseBodyDataSidecarContainersConfig extends $tea.Model {
+  acrInstanceId?: string;
+  command?: string;
+  commandArgs?: string;
+  configMapMountDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc[];
+  cpu?: number;
+  emptyDirDesc?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc[];
+  envs?: string;
+  imageUrl?: string;
+  memory?: number;
+  name?: string;
+  static names(): { [key: string]: string } {
+    return {
+      acrInstanceId: 'AcrInstanceId',
+      command: 'Command',
+      commandArgs: 'CommandArgs',
+      configMapMountDesc: 'ConfigMapMountDesc',
+      cpu: 'Cpu',
+      emptyDirDesc: 'EmptyDirDesc',
+      envs: 'Envs',
+      imageUrl: 'ImageUrl',
+      memory: 'Memory',
+      name: 'Name',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      acrInstanceId: 'string',
+      command: 'string',
+      commandArgs: 'string',
+      configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfigConfigMapMountDesc },
+      cpu: 'number',
+      emptyDirDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfigEmptyDirDesc },
+      envs: 'string',
+      imageUrl: 'string',
+      memory: 'number',
+      name: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeApplicationConfigResponseBodyDataTags extends $tea.Model {
   /**
    * @remarks
@@ -29288,6 +30759,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    */
   securityGroupId?: string;
   serviceTags?: { [key: string]: string };
+  sidecarContainersConfig?: DescribeApplicationConfigResponseBodyDataSidecarContainersConfig[];
   /**
    * @remarks
    * The logging configurations of Log Service.
@@ -29470,6 +30942,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       secretMountDesc: 'SecretMountDesc',
       securityGroupId: 'SecurityGroupId',
       serviceTags: 'ServiceTags',
+      sidecarContainersConfig: 'SidecarContainersConfig',
       slsConfigs: 'SlsConfigs',
       tags: 'Tags',
       terminationGracePeriodSeconds: 'TerminationGracePeriodSeconds',
@@ -29548,6 +31021,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       secretMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSecretMountDesc },
       securityGroupId: 'string',
       serviceTags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      sidecarContainersConfig: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataSidecarContainersConfig },
       slsConfigs: 'string',
       tags: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataTags },
       terminationGracePeriodSeconds: 'number',
@@ -40317,6 +41791,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "sae";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sae", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -40365,7 +41842,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AbortAndRollbackChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortAndRollbackChangeOrderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AbortAndRollbackChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortAndRollbackChangeOrderResponse({}));
+    } else {
+      return $tea.cast<AbortAndRollbackChangeOrderResponse>(await this.execute(params, req, runtime), new AbortAndRollbackChangeOrderResponse({}));
+    }
+
   }
 
   /**
@@ -40408,7 +41890,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<AbortChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortChangeOrderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AbortChangeOrderResponse>(await this.callApi(params, req, runtime), new AbortChangeOrderResponse({}));
+    } else {
+      return $tea.cast<AbortChangeOrderResponse>(await this.execute(params, req, runtime), new AbortChangeOrderResponse({}));
+    }
+
   }
 
   /**
@@ -40459,7 +41946,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BatchStartApplicationsResponse>(await this.callApi(params, req, runtime), new BatchStartApplicationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BatchStartApplicationsResponse>(await this.callApi(params, req, runtime), new BatchStartApplicationsResponse({}));
+    } else {
+      return $tea.cast<BatchStartApplicationsResponse>(await this.execute(params, req, runtime), new BatchStartApplicationsResponse({}));
+    }
+
   }
 
   /**
@@ -40512,7 +42004,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BatchStopApplicationsResponse>(await this.callApi(params, req, runtime), new BatchStopApplicationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BatchStopApplicationsResponse>(await this.callApi(params, req, runtime), new BatchStopApplicationsResponse({}));
+    } else {
+      return $tea.cast<BatchStopApplicationsResponse>(await this.execute(params, req, runtime), new BatchStopApplicationsResponse({}));
+    }
+
   }
 
   /**
@@ -40579,7 +42076,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<BindSlbResponse>(await this.callApi(params, req, runtime), new BindSlbResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BindSlbResponse>(await this.callApi(params, req, runtime), new BindSlbResponse({}));
+    } else {
+      return $tea.cast<BindSlbResponse>(await this.execute(params, req, runtime), new BindSlbResponse({}));
+    }
+
   }
 
   /**
@@ -40624,7 +42126,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ConfirmPipelineBatchResponse>(await this.callApi(params, req, runtime), new ConfirmPipelineBatchResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ConfirmPipelineBatchResponse>(await this.callApi(params, req, runtime), new ConfirmPipelineBatchResponse({}));
+    } else {
+      return $tea.cast<ConfirmPipelineBatchResponse>(await this.execute(params, req, runtime), new ConfirmPipelineBatchResponse({}));
+    }
+
   }
 
   /**
@@ -40638,13 +42145,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - CreateApplicationRequest
+   * @param tmpReq - CreateApplicationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateApplicationResponse
    */
-  async createApplicationWithOptions(request: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
-    Util.validateModel(request);
+  async createApplicationWithOptions(tmpReq: CreateApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateApplicationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sidecarContainersConfig)) {
+      request.sidecarContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sidecarContainersConfig, "SidecarContainersConfig", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.acrAssumeRoleArn)) {
       query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn;
@@ -40883,6 +42396,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!Util.isUnset(request.enableSidecarResourceIsolated)) {
+      body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated;
+    }
+
     if (!Util.isUnset(request.microRegistrationConfig)) {
       body["MicroRegistrationConfig"] = request.microRegistrationConfig;
     }
@@ -40911,6 +42428,10 @@ export default class Client extends OpenApi {
       body["ServiceTags"] = request.serviceTags;
     }
 
+    if (!Util.isUnset(request.sidecarContainersConfigShrink)) {
+      body["SidecarContainersConfig"] = request.sidecarContainersConfigShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -40927,7 +42448,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateApplicationResponse>(await this.callApi(params, req, runtime), new CreateApplicationResponse({}));
+    } else {
+      return $tea.cast<CreateApplicationResponse>(await this.execute(params, req, runtime), new CreateApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -41009,7 +42535,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new CreateApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<CreateApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new CreateApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -41075,7 +42606,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateConfigMapResponse>(await this.callApi(params, req, runtime), new CreateConfigMapResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateConfigMapResponse>(await this.callApi(params, req, runtime), new CreateConfigMapResponse({}));
+    } else {
+      return $tea.cast<CreateConfigMapResponse>(await this.execute(params, req, runtime), new CreateConfigMapResponse({}));
+    }
+
   }
 
   /**
@@ -41143,7 +42679,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateGreyTagRouteResponse>(await this.callApi(params, req, runtime), new CreateGreyTagRouteResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateGreyTagRouteResponse>(await this.callApi(params, req, runtime), new CreateGreyTagRouteResponse({}));
+    } else {
+      return $tea.cast<CreateGreyTagRouteResponse>(await this.execute(params, req, runtime), new CreateGreyTagRouteResponse({}));
+    }
+
   }
 
   /**
@@ -41261,7 +42802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateIngressResponse>(await this.callApi(params, req, runtime), new CreateIngressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateIngressResponse>(await this.callApi(params, req, runtime), new CreateIngressResponse({}));
+    } else {
+      return $tea.cast<CreateIngressResponse>(await this.execute(params, req, runtime), new CreateIngressResponse({}));
+    }
+
   }
 
   /**
@@ -41520,7 +43066,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateJobResponse>(await this.callApi(params, req, runtime), new CreateJobResponse({}));
+    } else {
+      return $tea.cast<CreateJobResponse>(await this.execute(params, req, runtime), new CreateJobResponse({}));
+    }
+
   }
 
   /**
@@ -41581,7 +43132,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateNamespaceResponse>(await this.callApi(params, req, runtime), new CreateNamespaceResponse({}));
+    } else {
+      return $tea.cast<CreateNamespaceResponse>(await this.execute(params, req, runtime), new CreateNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -41644,7 +43200,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateSecretResponse>(await this.callApi(params, req, runtime), new CreateSecretResponse({}));
+    } else {
+      return $tea.cast<CreateSecretResponse>(await this.execute(params, req, runtime), new CreateSecretResponse({}));
+    }
+
   }
 
   /**
@@ -41690,7 +43251,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateWebApplicationResponse>(await this.callApi(params, req, runtime), new CreateWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateWebApplicationResponse>(await this.callApi(params, req, runtime), new CreateWebApplicationResponse({}));
+    } else {
+      return $tea.cast<CreateWebApplicationResponse>(await this.execute(params, req, runtime), new CreateWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -41736,7 +43302,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<CreateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateWebCustomDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new CreateWebCustomDomainResponse({}));
+    } else {
+      return $tea.cast<CreateWebCustomDomainResponse>(await this.execute(params, req, runtime), new CreateWebCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -41779,7 +43350,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteApplicationResponse>(await this.callApi(params, req, runtime), new DeleteApplicationResponse({}));
+    } else {
+      return $tea.cast<DeleteApplicationResponse>(await this.execute(params, req, runtime), new DeleteApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -41826,7 +43402,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DeleteApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<DeleteApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new DeleteApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -41869,7 +43450,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteConfigMapResponse>(await this.callApi(params, req, runtime), new DeleteConfigMapResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteConfigMapResponse>(await this.callApi(params, req, runtime), new DeleteConfigMapResponse({}));
+    } else {
+      return $tea.cast<DeleteConfigMapResponse>(await this.execute(params, req, runtime), new DeleteConfigMapResponse({}));
+    }
+
   }
 
   /**
@@ -41912,7 +43498,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGreyTagRouteResponse>(await this.callApi(params, req, runtime), new DeleteGreyTagRouteResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteGreyTagRouteResponse>(await this.callApi(params, req, runtime), new DeleteGreyTagRouteResponse({}));
+    } else {
+      return $tea.cast<DeleteGreyTagRouteResponse>(await this.execute(params, req, runtime), new DeleteGreyTagRouteResponse({}));
+    }
+
   }
 
   /**
@@ -41961,7 +43552,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteHistoryJobResponse>(await this.callApi(params, req, runtime), new DeleteHistoryJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteHistoryJobResponse>(await this.callApi(params, req, runtime), new DeleteHistoryJobResponse({}));
+    } else {
+      return $tea.cast<DeleteHistoryJobResponse>(await this.execute(params, req, runtime), new DeleteHistoryJobResponse({}));
+    }
+
   }
 
   /**
@@ -42004,7 +43600,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteIngressResponse>(await this.callApi(params, req, runtime), new DeleteIngressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteIngressResponse>(await this.callApi(params, req, runtime), new DeleteIngressResponse({}));
+    } else {
+      return $tea.cast<DeleteIngressResponse>(await this.execute(params, req, runtime), new DeleteIngressResponse({}));
+    }
+
   }
 
   /**
@@ -42047,7 +43648,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteJobResponse>(await this.callApi(params, req, runtime), new DeleteJobResponse({}));
+    } else {
+      return $tea.cast<DeleteJobResponse>(await this.execute(params, req, runtime), new DeleteJobResponse({}));
+    }
+
   }
 
   /**
@@ -42094,7 +43700,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteNamespaceResponse>(await this.callApi(params, req, runtime), new DeleteNamespaceResponse({}));
+    } else {
+      return $tea.cast<DeleteNamespaceResponse>(await this.execute(params, req, runtime), new DeleteNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -42141,7 +43752,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteSecretResponse>(await this.callApi(params, req, runtime), new DeleteSecretResponse({}));
+    } else {
+      return $tea.cast<DeleteSecretResponse>(await this.execute(params, req, runtime), new DeleteSecretResponse({}));
+    }
+
   }
 
   /**
@@ -42186,7 +43802,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteWebApplicationResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteWebApplicationResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationResponse({}));
+    } else {
+      return $tea.cast<DeleteWebApplicationResponse>(await this.execute(params, req, runtime), new DeleteWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -42231,7 +43852,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationRevisionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DeleteWebApplicationRevisionResponse({}));
+    } else {
+      return $tea.cast<DeleteWebApplicationRevisionResponse>(await this.execute(params, req, runtime), new DeleteWebApplicationRevisionResponse({}));
+    }
+
   }
 
   /**
@@ -42276,7 +43902,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DeleteWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteWebCustomDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DeleteWebCustomDomainResponse({}));
+    } else {
+      return $tea.cast<DeleteWebCustomDomainResponse>(await this.execute(params, req, runtime), new DeleteWebCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -42294,13 +43925,19 @@ export default class Client extends OpenApi {
   /**
    * Deploys an application.
    * 
-   * @param request - DeployApplicationRequest
+   * @param tmpReq - DeployApplicationRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeployApplicationResponse
    */
-  async deployApplicationWithOptions(request: DeployApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployApplicationResponse> {
-    Util.validateModel(request);
+  async deployApplicationWithOptions(tmpReq: DeployApplicationRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeployApplicationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeployApplicationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.sidecarContainersConfig)) {
+      request.sidecarContainersConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sidecarContainersConfig, "SidecarContainersConfig", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!Util.isUnset(request.acrAssumeRoleArn)) {
       query["AcrAssumeRoleArn"] = request.acrAssumeRoleArn;
@@ -42535,6 +44172,10 @@ export default class Client extends OpenApi {
       body["ConfigMapMountDesc"] = request.configMapMountDesc;
     }
 
+    if (!Util.isUnset(request.enableSidecarResourceIsolated)) {
+      body["EnableSidecarResourceIsolated"] = request.enableSidecarResourceIsolated;
+    }
+
     if (!Util.isUnset(request.microRegistrationConfig)) {
       body["MicroRegistrationConfig"] = request.microRegistrationConfig;
     }
@@ -42563,6 +44204,10 @@ export default class Client extends OpenApi {
       body["ServiceTags"] = request.serviceTags;
     }
 
+    if (!Util.isUnset(request.sidecarContainersConfigShrink)) {
+      body["SidecarContainersConfig"] = request.sidecarContainersConfigShrink;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -42579,7 +44224,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeployApplicationResponse>(await this.callApi(params, req, runtime), new DeployApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeployApplicationResponse>(await this.callApi(params, req, runtime), new DeployApplicationResponse({}));
+    } else {
+      return $tea.cast<DeployApplicationResponse>(await this.execute(params, req, runtime), new DeployApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -42648,7 +44298,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeAppServiceDetailResponse>(await this.callApi(params, req, runtime), new DescribeAppServiceDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeAppServiceDetailResponse>(await this.callApi(params, req, runtime), new DescribeAppServiceDetailResponse({}));
+    } else {
+      return $tea.cast<DescribeAppServiceDetailResponse>(await this.execute(params, req, runtime), new DescribeAppServiceDetailResponse({}));
+    }
+
   }
 
   /**
@@ -42697,7 +44352,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationConfigResponse>(await this.callApi(params, req, runtime), new DescribeApplicationConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationConfigResponse>(await this.callApi(params, req, runtime), new DescribeApplicationConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationConfigResponse>(await this.execute(params, req, runtime), new DescribeApplicationConfigResponse({}));
+    }
+
   }
 
   /**
@@ -42748,7 +44408,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApplicationGroupsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationGroupsResponse>(await this.callApi(params, req, runtime), new DescribeApplicationGroupsResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationGroupsResponse>(await this.execute(params, req, runtime), new DescribeApplicationGroupsResponse({}));
+    }
+
   }
 
   /**
@@ -42795,7 +44460,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationImageResponse>(await this.callApi(params, req, runtime), new DescribeApplicationImageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationImageResponse>(await this.callApi(params, req, runtime), new DescribeApplicationImageResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationImageResponse>(await this.execute(params, req, runtime), new DescribeApplicationImageResponse({}));
+    }
+
   }
 
   /**
@@ -42856,7 +44526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationInstancesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationInstancesResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationInstancesResponse>(await this.execute(params, req, runtime), new DescribeApplicationInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -42905,7 +44580,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new DescribeApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -42950,7 +44630,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRulesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationScalingRulesResponse>(await this.callApi(params, req, runtime), new DescribeApplicationScalingRulesResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationScalingRulesResponse>(await this.execute(params, req, runtime), new DescribeApplicationScalingRulesResponse({}));
+    }
+
   }
 
   /**
@@ -42995,7 +44680,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationSlbsResponse>(await this.callApi(params, req, runtime), new DescribeApplicationSlbsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationSlbsResponse>(await this.callApi(params, req, runtime), new DescribeApplicationSlbsResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationSlbsResponse>(await this.execute(params, req, runtime), new DescribeApplicationSlbsResponse({}));
+    }
+
   }
 
   /**
@@ -43038,7 +44728,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeApplicationStatusResponse>(await this.callApi(params, req, runtime), new DescribeApplicationStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeApplicationStatusResponse>(await this.callApi(params, req, runtime), new DescribeApplicationStatusResponse({}));
+    } else {
+      return $tea.cast<DescribeApplicationStatusResponse>(await this.execute(params, req, runtime), new DescribeApplicationStatusResponse({}));
+    }
+
   }
 
   /**
@@ -43079,7 +44774,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeChangeOrderResponse>(await this.callApi(params, req, runtime), new DescribeChangeOrderResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeChangeOrderResponse>(await this.callApi(params, req, runtime), new DescribeChangeOrderResponse({}));
+    } else {
+      return $tea.cast<DescribeChangeOrderResponse>(await this.execute(params, req, runtime), new DescribeChangeOrderResponse({}));
+    }
+
   }
 
   /**
@@ -43124,7 +44824,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeComponentsResponse>(await this.callApi(params, req, runtime), new DescribeComponentsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeComponentsResponse>(await this.callApi(params, req, runtime), new DescribeComponentsResponse({}));
+    } else {
+      return $tea.cast<DescribeComponentsResponse>(await this.execute(params, req, runtime), new DescribeComponentsResponse({}));
+    }
+
   }
 
   /**
@@ -43165,7 +44870,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeConfigMapResponse>(await this.callApi(params, req, runtime), new DescribeConfigMapResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeConfigMapResponse>(await this.callApi(params, req, runtime), new DescribeConfigMapResponse({}));
+    } else {
+      return $tea.cast<DescribeConfigMapResponse>(await this.execute(params, req, runtime), new DescribeConfigMapResponse({}));
+    }
+
   }
 
   /**
@@ -43214,7 +44924,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeConfigurationPriceResponse>(await this.callApi(params, req, runtime), new DescribeConfigurationPriceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeConfigurationPriceResponse>(await this.callApi(params, req, runtime), new DescribeConfigurationPriceResponse({}));
+    } else {
+      return $tea.cast<DescribeConfigurationPriceResponse>(await this.execute(params, req, runtime), new DescribeConfigurationPriceResponse({}));
+    }
+
   }
 
   /**
@@ -43247,7 +44962,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeEdasContainersResponse>(await this.callApi(params, req, runtime), new DescribeEdasContainersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeEdasContainersResponse>(await this.callApi(params, req, runtime), new DescribeEdasContainersResponse({}));
+    } else {
+      return $tea.cast<DescribeEdasContainersResponse>(await this.execute(params, req, runtime), new DescribeEdasContainersResponse({}));
+    }
+
   }
 
   /**
@@ -43289,7 +45009,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeGreyTagRouteResponse>(await this.callApi(params, req, runtime), new DescribeGreyTagRouteResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeGreyTagRouteResponse>(await this.callApi(params, req, runtime), new DescribeGreyTagRouteResponse({}));
+    } else {
+      return $tea.cast<DescribeGreyTagRouteResponse>(await this.execute(params, req, runtime), new DescribeGreyTagRouteResponse({}));
+    }
+
   }
 
   /**
@@ -43332,7 +45057,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeIngressResponse>(await this.callApi(params, req, runtime), new DescribeIngressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeIngressResponse>(await this.callApi(params, req, runtime), new DescribeIngressResponse({}));
+    } else {
+      return $tea.cast<DescribeIngressResponse>(await this.execute(params, req, runtime), new DescribeIngressResponse({}));
+    }
+
   }
 
   /**
@@ -43354,6 +45084,10 @@ export default class Client extends OpenApi {
   async describeInstanceLogWithOptions(request: DescribeInstanceLogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeInstanceLogResponse> {
     Util.validateModel(request);
     let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.containerId)) {
+      query["ContainerId"] = request.containerId;
+    }
+
     if (!Util.isUnset(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -43373,7 +45107,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceLogResponse>(await this.callApi(params, req, runtime), new DescribeInstanceLogResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeInstanceLogResponse>(await this.callApi(params, req, runtime), new DescribeInstanceLogResponse({}));
+    } else {
+      return $tea.cast<DescribeInstanceLogResponse>(await this.execute(params, req, runtime), new DescribeInstanceLogResponse({}));
+    }
+
   }
 
   /**
@@ -43406,7 +45145,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeInstanceSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecificationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeInstanceSpecificationsResponse>(await this.callApi(params, req, runtime), new DescribeInstanceSpecificationsResponse({}));
+    } else {
+      return $tea.cast<DescribeInstanceSpecificationsResponse>(await this.execute(params, req, runtime), new DescribeInstanceSpecificationsResponse({}));
+    }
+
   }
 
   /**
@@ -43452,7 +45196,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeJobResponse>(await this.callApi(params, req, runtime), new DescribeJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeJobResponse>(await this.callApi(params, req, runtime), new DescribeJobResponse({}));
+    } else {
+      return $tea.cast<DescribeJobResponse>(await this.execute(params, req, runtime), new DescribeJobResponse({}));
+    }
+
   }
 
   /**
@@ -43509,7 +45258,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeJobHistoryResponse>(await this.callApi(params, req, runtime), new DescribeJobHistoryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeJobHistoryResponse>(await this.callApi(params, req, runtime), new DescribeJobHistoryResponse({}));
+    } else {
+      return $tea.cast<DescribeJobHistoryResponse>(await this.execute(params, req, runtime), new DescribeJobHistoryResponse({}));
+    }
+
   }
 
   /**
@@ -43558,7 +45312,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeJobStatusResponse>(await this.callApi(params, req, runtime), new DescribeJobStatusResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeJobStatusResponse>(await this.callApi(params, req, runtime), new DescribeJobStatusResponse({}));
+    } else {
+      return $tea.cast<DescribeJobStatusResponse>(await this.execute(params, req, runtime), new DescribeJobStatusResponse({}));
+    }
+
   }
 
   /**
@@ -43607,7 +45366,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNamespaceResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResponse({}));
+    } else {
+      return $tea.cast<DescribeNamespaceResponse>(await this.execute(params, req, runtime), new DescribeNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -43656,7 +45420,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespaceListResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceListResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNamespaceListResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceListResponse({}));
+    } else {
+      return $tea.cast<DescribeNamespaceListResponse>(await this.execute(params, req, runtime), new DescribeNamespaceListResponse({}));
+    }
+
   }
 
   /**
@@ -43703,7 +45472,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespaceResourcesResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNamespaceResourcesResponse>(await this.callApi(params, req, runtime), new DescribeNamespaceResourcesResponse({}));
+    } else {
+      return $tea.cast<DescribeNamespaceResourcesResponse>(await this.execute(params, req, runtime), new DescribeNamespaceResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -43750,7 +45524,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeNamespacesResponse>(await this.callApi(params, req, runtime), new DescribeNamespacesResponse({}));
+    } else {
+      return $tea.cast<DescribeNamespacesResponse>(await this.execute(params, req, runtime), new DescribeNamespacesResponse({}));
+    }
+
   }
 
   /**
@@ -43795,7 +45574,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribePipelineResponse>(await this.callApi(params, req, runtime), new DescribePipelineResponse({}));
+    } else {
+      return $tea.cast<DescribePipelineResponse>(await this.execute(params, req, runtime), new DescribePipelineResponse({}));
+    }
+
   }
 
   /**
@@ -43832,7 +45616,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeRegionsResponse>(await this.callApi(params, req, runtime), new DescribeRegionsResponse({}));
+    } else {
+      return $tea.cast<DescribeRegionsResponse>(await this.execute(params, req, runtime), new DescribeRegionsResponse({}));
+    }
+
   }
 
   /**
@@ -43879,7 +45668,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeSecretResponse>(await this.callApi(params, req, runtime), new DescribeSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeSecretResponse>(await this.callApi(params, req, runtime), new DescribeSecretResponse({}));
+    } else {
+      return $tea.cast<DescribeSecretResponse>(await this.execute(params, req, runtime), new DescribeSecretResponse({}));
+    }
+
   }
 
   /**
@@ -43924,7 +45718,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebApplicationResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebApplicationResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResponse({}));
+    } else {
+      return $tea.cast<DescribeWebApplicationResponse>(await this.execute(params, req, runtime), new DescribeWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -43981,7 +45780,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebApplicationResourceStaticsResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResourceStaticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebApplicationResourceStaticsResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationResourceStaticsResponse({}));
+    } else {
+      return $tea.cast<DescribeWebApplicationResourceStaticsResponse>(await this.execute(params, req, runtime), new DescribeWebApplicationResourceStaticsResponse({}));
+    }
+
   }
 
   /**
@@ -44026,7 +45830,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationRevisionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationRevisionResponse({}));
+    } else {
+      return $tea.cast<DescribeWebApplicationRevisionResponse>(await this.execute(params, req, runtime), new DescribeWebApplicationRevisionResponse({}));
+    }
+
   }
 
   /**
@@ -44071,7 +45880,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationScalingConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationScalingConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeWebApplicationScalingConfigResponse>(await this.execute(params, req, runtime), new DescribeWebApplicationScalingConfigResponse({}));
+    }
+
   }
 
   /**
@@ -44116,7 +45930,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationTrafficConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new DescribeWebApplicationTrafficConfigResponse({}));
+    } else {
+      return $tea.cast<DescribeWebApplicationTrafficConfigResponse>(await this.execute(params, req, runtime), new DescribeWebApplicationTrafficConfigResponse({}));
+    }
+
   }
 
   /**
@@ -44161,7 +45980,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DescribeWebCustomDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebCustomDomainResponse>(await this.callApi(params, req, runtime), new DescribeWebCustomDomainResponse({}));
+    } else {
+      return $tea.cast<DescribeWebCustomDomainResponse>(await this.execute(params, req, runtime), new DescribeWebCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -44206,7 +46030,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DescribeWebInstanceLogsResponse>(await this.callApi(params, req, runtime), new DescribeWebInstanceLogsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DescribeWebInstanceLogsResponse>(await this.callApi(params, req, runtime), new DescribeWebInstanceLogsResponse({}));
+    } else {
+      return $tea.cast<DescribeWebInstanceLogsResponse>(await this.execute(params, req, runtime), new DescribeWebInstanceLogsResponse({}));
+    }
+
   }
 
   /**
@@ -44253,7 +46082,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DisableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DisableApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DisableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new DisableApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<DisableApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new DisableApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -44294,7 +46128,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<DowngradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new DowngradeApplicationApmServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DowngradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new DowngradeApplicationApmServiceResponse({}));
+    } else {
+      return $tea.cast<DowngradeApplicationApmServiceResponse>(await this.execute(params, req, runtime), new DowngradeApplicationApmServiceResponse({}));
+    }
+
   }
 
   /**
@@ -44341,7 +46180,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<EnableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new EnableApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<EnableApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new EnableApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<EnableApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new EnableApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -44420,7 +46264,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ExecJobResponse>(await this.callApi(params, req, runtime), new ExecJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExecJobResponse>(await this.callApi(params, req, runtime), new ExecJobResponse({}));
+    } else {
+      return $tea.cast<ExecJobResponse>(await this.execute(params, req, runtime), new ExecJobResponse({}));
+    }
+
   }
 
   /**
@@ -44471,7 +46320,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetApplicationResponse>(await this.callApi(params, req, runtime), new GetApplicationResponse({}));
+    } else {
+      return $tea.cast<GetApplicationResponse>(await this.execute(params, req, runtime), new GetApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -44540,7 +46394,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetArmsTopNMetricResponse>(await this.callApi(params, req, runtime), new GetArmsTopNMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetArmsTopNMetricResponse>(await this.callApi(params, req, runtime), new GetArmsTopNMetricResponse({}));
+    } else {
+      return $tea.cast<GetArmsTopNMetricResponse>(await this.execute(params, req, runtime), new GetArmsTopNMetricResponse({}));
+    }
+
   }
 
   /**
@@ -44597,7 +46456,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetAvailabilityMetricResponse>(await this.callApi(params, req, runtime), new GetAvailabilityMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetAvailabilityMetricResponse>(await this.callApi(params, req, runtime), new GetAvailabilityMetricResponse({}));
+    } else {
+      return $tea.cast<GetAvailabilityMetricResponse>(await this.execute(params, req, runtime), new GetAvailabilityMetricResponse({}));
+    }
+
   }
 
   /**
@@ -44662,7 +46526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetChangeOrderMetricResponse>(await this.callApi(params, req, runtime), new GetChangeOrderMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetChangeOrderMetricResponse>(await this.callApi(params, req, runtime), new GetChangeOrderMetricResponse({}));
+    } else {
+      return $tea.cast<GetChangeOrderMetricResponse>(await this.execute(params, req, runtime), new GetChangeOrderMetricResponse({}));
+    }
+
   }
 
   /**
@@ -44719,7 +46588,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetScaleAppMetricResponse>(await this.callApi(params, req, runtime), new GetScaleAppMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetScaleAppMetricResponse>(await this.callApi(params, req, runtime), new GetScaleAppMetricResponse({}));
+    } else {
+      return $tea.cast<GetScaleAppMetricResponse>(await this.execute(params, req, runtime), new GetScaleAppMetricResponse({}));
+    }
+
   }
 
   /**
@@ -44784,7 +46658,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetWarningEventMetricResponse>(await this.callApi(params, req, runtime), new GetWarningEventMetricResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetWarningEventMetricResponse>(await this.callApi(params, req, runtime), new GetWarningEventMetricResponse({}));
+    } else {
+      return $tea.cast<GetWarningEventMetricResponse>(await this.execute(params, req, runtime), new GetWarningEventMetricResponse({}));
+    }
+
   }
 
   /**
@@ -44831,7 +46710,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<GetWebshellTokenResponse>(await this.callApi(params, req, runtime), new GetWebshellTokenResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetWebshellTokenResponse>(await this.callApi(params, req, runtime), new GetWebshellTokenResponse({}));
+    } else {
+      return $tea.cast<GetWebshellTokenResponse>(await this.execute(params, req, runtime), new GetWebshellTokenResponse({}));
+    }
+
   }
 
   /**
@@ -44902,7 +46786,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAppEventsResponse>(await this.callApi(params, req, runtime), new ListAppEventsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAppEventsResponse>(await this.callApi(params, req, runtime), new ListAppEventsResponse({}));
+    } else {
+      return $tea.cast<ListAppEventsResponse>(await this.execute(params, req, runtime), new ListAppEventsResponse({}));
+    }
+
   }
 
   /**
@@ -44959,7 +46848,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAppServicesPageResponse>(await this.callApi(params, req, runtime), new ListAppServicesPageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAppServicesPageResponse>(await this.callApi(params, req, runtime), new ListAppServicesPageResponse({}));
+    } else {
+      return $tea.cast<ListAppServicesPageResponse>(await this.execute(params, req, runtime), new ListAppServicesPageResponse({}));
+    }
+
   }
 
   /**
@@ -45004,7 +46898,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListAppVersionsResponse>(await this.callApi(params, req, runtime), new ListAppVersionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAppVersionsResponse>(await this.callApi(params, req, runtime), new ListAppVersionsResponse({}));
+    } else {
+      return $tea.cast<ListAppVersionsResponse>(await this.execute(params, req, runtime), new ListAppVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -45085,7 +46984,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListApplicationsResponse>(await this.callApi(params, req, runtime), new ListApplicationsResponse({}));
+    } else {
+      return $tea.cast<ListApplicationsResponse>(await this.execute(params, req, runtime), new ListApplicationsResponse({}));
+    }
+
   }
 
   /**
@@ -45148,7 +47052,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListChangeOrdersResponse>(await this.callApi(params, req, runtime), new ListChangeOrdersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListChangeOrdersResponse>(await this.callApi(params, req, runtime), new ListChangeOrdersResponse({}));
+    } else {
+      return $tea.cast<ListChangeOrdersResponse>(await this.execute(params, req, runtime), new ListChangeOrdersResponse({}));
+    }
+
   }
 
   /**
@@ -45191,7 +47100,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListConsumedServicesResponse>(await this.callApi(params, req, runtime), new ListConsumedServicesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListConsumedServicesResponse>(await this.callApi(params, req, runtime), new ListConsumedServicesResponse({}));
+    } else {
+      return $tea.cast<ListConsumedServicesResponse>(await this.execute(params, req, runtime), new ListConsumedServicesResponse({}));
+    }
+
   }
 
   /**
@@ -45239,7 +47153,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListGreyTagRouteResponse>(await this.callApi(params, req, runtime), new ListGreyTagRouteResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListGreyTagRouteResponse>(await this.callApi(params, req, runtime), new ListGreyTagRouteResponse({}));
+    } else {
+      return $tea.cast<ListGreyTagRouteResponse>(await this.execute(params, req, runtime), new ListGreyTagRouteResponse({}));
+    }
+
   }
 
   /**
@@ -45293,7 +47212,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListIngressesResponse>(await this.callApi(params, req, runtime), new ListIngressesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListIngressesResponse>(await this.callApi(params, req, runtime), new ListIngressesResponse({}));
+    } else {
+      return $tea.cast<ListIngressesResponse>(await this.execute(params, req, runtime), new ListIngressesResponse({}));
+    }
+
   }
 
   /**
@@ -45376,7 +47300,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListJobsResponse>(await this.callApi(params, req, runtime), new ListJobsResponse({}));
+    } else {
+      return $tea.cast<ListJobsResponse>(await this.execute(params, req, runtime), new ListJobsResponse({}));
+    }
+
   }
 
   /**
@@ -45429,7 +47358,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListLogConfigsResponse>(await this.callApi(params, req, runtime), new ListLogConfigsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListLogConfigsResponse>(await this.callApi(params, req, runtime), new ListLogConfigsResponse({}));
+    } else {
+      return $tea.cast<ListLogConfigsResponse>(await this.execute(params, req, runtime), new ListLogConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -45492,7 +47426,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListNamespaceChangeOrdersResponse>(await this.callApi(params, req, runtime), new ListNamespaceChangeOrdersResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListNamespaceChangeOrdersResponse>(await this.callApi(params, req, runtime), new ListNamespaceChangeOrdersResponse({}));
+    } else {
+      return $tea.cast<ListNamespaceChangeOrdersResponse>(await this.execute(params, req, runtime), new ListNamespaceChangeOrdersResponse({}));
+    }
+
   }
 
   /**
@@ -45535,7 +47474,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListNamespacedConfigMapsResponse>(await this.callApi(params, req, runtime), new ListNamespacedConfigMapsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListNamespacedConfigMapsResponse>(await this.callApi(params, req, runtime), new ListNamespacedConfigMapsResponse({}));
+    } else {
+      return $tea.cast<ListNamespacedConfigMapsResponse>(await this.execute(params, req, runtime), new ListNamespacedConfigMapsResponse({}));
+    }
+
   }
 
   /**
@@ -45580,7 +47524,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListPublishedServicesResponse>(await this.callApi(params, req, runtime), new ListPublishedServicesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListPublishedServicesResponse>(await this.callApi(params, req, runtime), new ListPublishedServicesResponse({}));
+    } else {
+      return $tea.cast<ListPublishedServicesResponse>(await this.execute(params, req, runtime), new ListPublishedServicesResponse({}));
+    }
+
   }
 
   /**
@@ -45625,7 +47574,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListSecretsResponse>(await this.callApi(params, req, runtime), new ListSecretsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListSecretsResponse>(await this.callApi(params, req, runtime), new ListSecretsResponse({}));
+    } else {
+      return $tea.cast<ListSecretsResponse>(await this.execute(params, req, runtime), new ListSecretsResponse({}));
+    }
+
   }
 
   /**
@@ -45686,7 +47640,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTagResourcesResponse>(await this.callApi(params, req, runtime), new ListTagResourcesResponse({}));
+    } else {
+      return $tea.cast<ListTagResourcesResponse>(await this.execute(params, req, runtime), new ListTagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -45769,7 +47728,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListWebApplicationInstancesResponse>(await this.callApi(params, req, runtime), new ListWebApplicationInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListWebApplicationInstancesResponse>(await this.callApi(params, req, runtime), new ListWebApplicationInstancesResponse({}));
+    } else {
+      return $tea.cast<ListWebApplicationInstancesResponse>(await this.execute(params, req, runtime), new ListWebApplicationInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -45822,7 +47786,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListWebApplicationRevisionsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationRevisionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListWebApplicationRevisionsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationRevisionsResponse({}));
+    } else {
+      return $tea.cast<ListWebApplicationRevisionsResponse>(await this.execute(params, req, runtime), new ListWebApplicationRevisionsResponse({}));
+    }
+
   }
 
   /**
@@ -45879,7 +47848,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListWebApplicationsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListWebApplicationsResponse>(await this.callApi(params, req, runtime), new ListWebApplicationsResponse({}));
+    } else {
+      return $tea.cast<ListWebApplicationsResponse>(await this.execute(params, req, runtime), new ListWebApplicationsResponse({}));
+    }
+
   }
 
   /**
@@ -45940,7 +47914,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ListWebCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListWebCustomDomainsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListWebCustomDomainsResponse>(await this.callApi(params, req, runtime), new ListWebCustomDomainsResponse({}));
+    } else {
+      return $tea.cast<ListWebCustomDomainsResponse>(await this.execute(params, req, runtime), new ListWebCustomDomainsResponse({}));
+    }
+
   }
 
   /**
@@ -45980,7 +47959,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<OpenSaeServiceResponse>(await this.callApi(params, req, runtime), new OpenSaeServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<OpenSaeServiceResponse>(await this.callApi(params, req, runtime), new OpenSaeServiceResponse({}));
+    } else {
+      return $tea.cast<OpenSaeServiceResponse>(await this.execute(params, req, runtime), new OpenSaeServiceResponse({}));
+    }
+
   }
 
   /**
@@ -46027,7 +48011,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<PublishWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new PublishWebApplicationRevisionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PublishWebApplicationRevisionResponse>(await this.callApi(params, req, runtime), new PublishWebApplicationRevisionResponse({}));
+    } else {
+      return $tea.cast<PublishWebApplicationRevisionResponse>(await this.execute(params, req, runtime), new PublishWebApplicationRevisionResponse({}));
+    }
+
   }
 
   /**
@@ -46072,7 +48061,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<QueryResourceStaticsResponse>(await this.callApi(params, req, runtime), new QueryResourceStaticsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryResourceStaticsResponse>(await this.callApi(params, req, runtime), new QueryResourceStaticsResponse({}));
+    } else {
+      return $tea.cast<QueryResourceStaticsResponse>(await this.execute(params, req, runtime), new QueryResourceStaticsResponse({}));
+    }
+
   }
 
   /**
@@ -46121,7 +48115,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<ReduceApplicationCapacityByInstanceIdsResponse>(await this.callApi(params, req, runtime), new ReduceApplicationCapacityByInstanceIdsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReduceApplicationCapacityByInstanceIdsResponse>(await this.callApi(params, req, runtime), new ReduceApplicationCapacityByInstanceIdsResponse({}));
+    } else {
+      return $tea.cast<ReduceApplicationCapacityByInstanceIdsResponse>(await this.execute(params, req, runtime), new ReduceApplicationCapacityByInstanceIdsResponse({}));
+    }
+
   }
 
   /**
@@ -46182,7 +48181,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RescaleApplicationResponse>(await this.callApi(params, req, runtime), new RescaleApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RescaleApplicationResponse>(await this.callApi(params, req, runtime), new RescaleApplicationResponse({}));
+    } else {
+      return $tea.cast<RescaleApplicationResponse>(await this.execute(params, req, runtime), new RescaleApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46247,7 +48251,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RescaleApplicationVerticallyResponse>(await this.callApi(params, req, runtime), new RescaleApplicationVerticallyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RescaleApplicationVerticallyResponse>(await this.callApi(params, req, runtime), new RescaleApplicationVerticallyResponse({}));
+    } else {
+      return $tea.cast<RescaleApplicationVerticallyResponse>(await this.execute(params, req, runtime), new RescaleApplicationVerticallyResponse({}));
+    }
+
   }
 
   /**
@@ -46304,7 +48313,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RestartApplicationResponse>(await this.callApi(params, req, runtime), new RestartApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestartApplicationResponse>(await this.callApi(params, req, runtime), new RestartApplicationResponse({}));
+    } else {
+      return $tea.cast<RestartApplicationResponse>(await this.execute(params, req, runtime), new RestartApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46353,7 +48367,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RestartInstancesResponse>(await this.callApi(params, req, runtime), new RestartInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestartInstancesResponse>(await this.callApi(params, req, runtime), new RestartInstancesResponse({}));
+    } else {
+      return $tea.cast<RestartInstancesResponse>(await this.execute(params, req, runtime), new RestartInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -46422,7 +48441,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<RollbackApplicationResponse>(await this.callApi(params, req, runtime), new RollbackApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RollbackApplicationResponse>(await this.callApi(params, req, runtime), new RollbackApplicationResponse({}));
+    } else {
+      return $tea.cast<RollbackApplicationResponse>(await this.execute(params, req, runtime), new RollbackApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46467,7 +48491,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartApplicationResponse>(await this.callApi(params, req, runtime), new StartApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartApplicationResponse>(await this.callApi(params, req, runtime), new StartApplicationResponse({}));
+    } else {
+      return $tea.cast<StartApplicationResponse>(await this.execute(params, req, runtime), new StartApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46512,7 +48541,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StartWebApplicationResponse>(await this.callApi(params, req, runtime), new StartWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartWebApplicationResponse>(await this.callApi(params, req, runtime), new StartWebApplicationResponse({}));
+    } else {
+      return $tea.cast<StartWebApplicationResponse>(await this.execute(params, req, runtime), new StartWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46557,7 +48591,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopApplicationResponse>(await this.callApi(params, req, runtime), new StopApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopApplicationResponse>(await this.callApi(params, req, runtime), new StopApplicationResponse({}));
+    } else {
+      return $tea.cast<StopApplicationResponse>(await this.execute(params, req, runtime), new StopApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46602,7 +48641,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<StopWebApplicationResponse>(await this.callApi(params, req, runtime), new StopWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopWebApplicationResponse>(await this.callApi(params, req, runtime), new StopWebApplicationResponse({}));
+    } else {
+      return $tea.cast<StopWebApplicationResponse>(await this.execute(params, req, runtime), new StopWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -46651,7 +48695,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<SuspendJobResponse>(await this.callApi(params, req, runtime), new SuspendJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SuspendJobResponse>(await this.callApi(params, req, runtime), new SuspendJobResponse({}));
+    } else {
+      return $tea.cast<SuspendJobResponse>(await this.execute(params, req, runtime), new SuspendJobResponse({}));
+    }
+
   }
 
   /**
@@ -46708,7 +48757,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<TagResourcesResponse>(await this.callApi(params, req, runtime), new TagResourcesResponse({}));
+    } else {
+      return $tea.cast<TagResourcesResponse>(await this.execute(params, req, runtime), new TagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -46761,7 +48815,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UnbindSlbResponse>(await this.callApi(params, req, runtime), new UnbindSlbResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UnbindSlbResponse>(await this.callApi(params, req, runtime), new UnbindSlbResponse({}));
+    } else {
+      return $tea.cast<UnbindSlbResponse>(await this.execute(params, req, runtime), new UnbindSlbResponse({}));
+    }
+
   }
 
   /**
@@ -46820,7 +48879,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UntagResourcesResponse>(await this.callApi(params, req, runtime), new UntagResourcesResponse({}));
+    } else {
+      return $tea.cast<UntagResourcesResponse>(await this.execute(params, req, runtime), new UntagResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -46867,7 +48931,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateAppSecurityGroupResponse>(await this.callApi(params, req, runtime), new UpdateAppSecurityGroupResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateAppSecurityGroupResponse>(await this.callApi(params, req, runtime), new UpdateAppSecurityGroupResponse({}));
+    } else {
+      return $tea.cast<UpdateAppSecurityGroupResponse>(await this.execute(params, req, runtime), new UpdateAppSecurityGroupResponse({}));
+    }
+
   }
 
   /**
@@ -46916,7 +48985,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateApplicationDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateApplicationDescriptionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateApplicationDescriptionResponse>(await this.callApi(params, req, runtime), new UpdateApplicationDescriptionResponse({}));
+    } else {
+      return $tea.cast<UpdateApplicationDescriptionResponse>(await this.execute(params, req, runtime), new UpdateApplicationDescriptionResponse({}));
+    }
+
   }
 
   /**
@@ -46989,7 +49063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new UpdateApplicationScalingRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateApplicationScalingRuleResponse>(await this.callApi(params, req, runtime), new UpdateApplicationScalingRuleResponse({}));
+    } else {
+      return $tea.cast<UpdateApplicationScalingRuleResponse>(await this.execute(params, req, runtime), new UpdateApplicationScalingRuleResponse({}));
+    }
+
   }
 
   /**
@@ -47040,7 +49119,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateApplicationVswitchesResponse>(await this.callApi(params, req, runtime), new UpdateApplicationVswitchesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateApplicationVswitchesResponse>(await this.callApi(params, req, runtime), new UpdateApplicationVswitchesResponse({}));
+    } else {
+      return $tea.cast<UpdateApplicationVswitchesResponse>(await this.execute(params, req, runtime), new UpdateApplicationVswitchesResponse({}));
+    }
+
   }
 
   /**
@@ -47093,7 +49177,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateConfigMapResponse>(await this.callApi(params, req, runtime), new UpdateConfigMapResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateConfigMapResponse>(await this.callApi(params, req, runtime), new UpdateConfigMapResponse({}));
+    } else {
+      return $tea.cast<UpdateConfigMapResponse>(await this.execute(params, req, runtime), new UpdateConfigMapResponse({}));
+    }
+
   }
 
   /**
@@ -47154,7 +49243,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGreyTagRouteResponse>(await this.callApi(params, req, runtime), new UpdateGreyTagRouteResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGreyTagRouteResponse>(await this.callApi(params, req, runtime), new UpdateGreyTagRouteResponse({}));
+    } else {
+      return $tea.cast<UpdateGreyTagRouteResponse>(await this.execute(params, req, runtime), new UpdateGreyTagRouteResponse({}));
+    }
+
   }
 
   /**
@@ -47265,7 +49359,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateIngressResponse>(await this.callApi(params, req, runtime), new UpdateIngressResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateIngressResponse>(await this.callApi(params, req, runtime), new UpdateIngressResponse({}));
+    } else {
+      return $tea.cast<UpdateIngressResponse>(await this.execute(params, req, runtime), new UpdateIngressResponse({}));
+    }
+
   }
 
   /**
@@ -47488,7 +49587,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateJobResponse>(await this.callApi(params, req, runtime), new UpdateJobResponse({}));
+    } else {
+      return $tea.cast<UpdateJobResponse>(await this.execute(params, req, runtime), new UpdateJobResponse({}));
+    }
+
   }
 
   /**
@@ -47549,7 +49653,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateNamespaceResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceResponse({}));
+    } else {
+      return $tea.cast<UpdateNamespaceResponse>(await this.execute(params, req, runtime), new UpdateNamespaceResponse({}));
+    }
+
   }
 
   /**
@@ -47602,7 +49711,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateNamespaceVpcResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceVpcResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateNamespaceVpcResponse>(await this.callApi(params, req, runtime), new UpdateNamespaceVpcResponse({}));
+    } else {
+      return $tea.cast<UpdateNamespaceVpcResponse>(await this.execute(params, req, runtime), new UpdateNamespaceVpcResponse({}));
+    }
+
   }
 
   /**
@@ -47665,7 +49779,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateSecretResponse>(await this.callApi(params, req, runtime), new UpdateSecretResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateSecretResponse>(await this.callApi(params, req, runtime), new UpdateSecretResponse({}));
+    } else {
+      return $tea.cast<UpdateSecretResponse>(await this.execute(params, req, runtime), new UpdateSecretResponse({}));
+    }
+
   }
 
   /**
@@ -47715,7 +49834,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateWebApplicationResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateWebApplicationResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationResponse({}));
+    } else {
+      return $tea.cast<UpdateWebApplicationResponse>(await this.execute(params, req, runtime), new UpdateWebApplicationResponse({}));
+    }
+
   }
 
   /**
@@ -47761,7 +49885,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationScalingConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateWebApplicationScalingConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationScalingConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateWebApplicationScalingConfigResponse>(await this.execute(params, req, runtime), new UpdateWebApplicationScalingConfigResponse({}));
+    }
+
   }
 
   /**
@@ -47807,7 +49936,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationTrafficConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateWebApplicationTrafficConfigResponse>(await this.callApi(params, req, runtime), new UpdateWebApplicationTrafficConfigResponse({}));
+    } else {
+      return $tea.cast<UpdateWebApplicationTrafficConfigResponse>(await this.execute(params, req, runtime), new UpdateWebApplicationTrafficConfigResponse({}));
+    }
+
   }
 
   /**
@@ -47853,7 +49987,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpdateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateWebCustomDomainResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateWebCustomDomainResponse>(await this.callApi(params, req, runtime), new UpdateWebCustomDomainResponse({}));
+    } else {
+      return $tea.cast<UpdateWebCustomDomainResponse>(await this.execute(params, req, runtime), new UpdateWebCustomDomainResponse({}));
+    }
+
   }
 
   /**
@@ -47896,7 +50035,12 @@ export default class Client extends OpenApi {
       reqBodyType: "json",
       bodyType: "json",
     });
-    return $tea.cast<UpgradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new UpgradeApplicationApmServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpgradeApplicationApmServiceResponse>(await this.callApi(params, req, runtime), new UpgradeApplicationApmServiceResponse({}));
+    } else {
+      return $tea.cast<UpgradeApplicationApmServiceResponse>(await this.execute(params, req, runtime), new UpgradeApplicationApmServiceResponse({}));
+    }
+
   }
 
   /**
