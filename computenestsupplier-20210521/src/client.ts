@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -408,6 +409,21 @@ export class CreateArtifactRequest extends $tea.Model {
    * The build properties of the artifact, utilized for hosting and building the deployment package.
    */
   artifactBuildProperty?: CreateArtifactRequestArtifactBuildProperty;
+  /**
+   * @remarks
+   * The type of the artifact build task. Valid values:
+   * 
+   * - EcsImage: Build ECS (Elastic Container Service) image.
+   * 
+   * - Dockerfile: Build container image based on Dockerfile.
+   * 
+   * - Buildpacks: Build container image based on Buildpacks.
+   * 
+   * - ContainerImage: Rebuild container image by renaming an existing container image.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -437,6 +453,14 @@ export class CreateArtifactRequest extends $tea.Model {
    * EcsImage
    */
   artifactType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
   /**
    * @remarks
    * The description of the deployment package.
@@ -490,6 +514,7 @@ export class CreateArtifactRequest extends $tea.Model {
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
       artifactType: 'ArtifactType',
+      clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
@@ -506,6 +531,7 @@ export class CreateArtifactRequest extends $tea.Model {
       artifactId: 'string',
       artifactProperty: CreateArtifactRequestArtifactProperty,
       artifactType: 'string',
+      clientToken: 'string',
       description: 'string',
       name: 'string',
       resourceGroupId: 'string',
@@ -526,6 +552,21 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
    * The build properties of the artifact, utilized for hosting and building the deployment package.
    */
   artifactBuildPropertyShrink?: string;
+  /**
+   * @remarks
+   * The type of the artifact build task. Valid values:
+   * 
+   * - EcsImage: Build ECS (Elastic Container Service) image.
+   * 
+   * - Dockerfile: Build container image based on Dockerfile.
+   * 
+   * - Buildpacks: Build container image based on Buildpacks.
+   * 
+   * - ContainerImage: Rebuild container image by renaming an existing container image.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -555,6 +596,14 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
    * EcsImage
    */
   artifactType?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 10CM943JP0EN9D51H
+   */
+  clientToken?: string;
   /**
    * @remarks
    * The description of the deployment package.
@@ -608,6 +657,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
       artifactId: 'ArtifactId',
       artifactPropertyShrink: 'ArtifactProperty',
       artifactType: 'ArtifactType',
+      clientToken: 'ClientToken',
       description: 'Description',
       name: 'Name',
       resourceGroupId: 'ResourceGroupId',
@@ -624,6 +674,7 @@ export class CreateArtifactShrinkRequest extends $tea.Model {
       artifactId: 'string',
       artifactPropertyShrink: 'string',
       artifactType: 'string',
+      clientToken: 'string',
       description: 'string',
       name: 'string',
       resourceGroupId: 'string',
@@ -647,6 +698,13 @@ export class CreateArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package to be built.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -2084,10 +2142,21 @@ export class DeleteArtifactRequest extends $tea.Model {
    * 2
    */
   artifactVersion?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * @example
+   * 788E7CP0EN9D51P
+   */
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
       artifactVersion: 'ArtifactVersion',
+      clientToken: 'ClientToken',
     };
   }
 
@@ -2095,6 +2164,7 @@ export class DeleteArtifactRequest extends $tea.Model {
     return {
       artifactId: 'string',
       artifactVersion: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -2521,6 +2591,13 @@ export class GetArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package to be built.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -2864,7 +2941,21 @@ export class GetServiceRequest extends $tea.Model {
    * service-4ee86df83fd948******
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The Service Instance Id.
+   * 
+   * @example
+   * si-85b1exxx
+   */
   serviceInstanceId?: string;
+  /**
+   * @remarks
+   * The Service Name.
+   * 
+   * @example
+   * Wordpress社区版
+   */
   serviceName?: string;
   /**
    * @remarks
@@ -2977,6 +3068,10 @@ export class GetServiceResponseBody extends $tea.Model {
    * The commodity details.
    */
   commodity?: GetServiceResponseBodyCommodity;
+  /**
+   * @remarks
+   * Compliance check metadata.
+   */
   complianceMetadata?: GetServiceResponseBodyComplianceMetadata;
   /**
    * @remarks
@@ -3171,6 +3266,10 @@ export class GetServiceResponseBody extends $tea.Model {
    * DISCOVERABLE
    */
   serviceDiscoverable?: string;
+  /**
+   * @remarks
+   * Service document information.
+   */
   serviceDocumentInfos?: GetServiceResponseBodyServiceDocumentInfos[];
   /**
    * @remarks
@@ -4017,6 +4116,13 @@ export class GetServiceInstanceResponseBody extends $tea.Model {
    * 2022-01-28T06:48:56Z
    */
   operationEndTime?: string;
+  /**
+   * @remarks
+   * Operate extra info
+   * 
+   * @example
+   * 6cc5ce3590ed7f5529e85fec
+   */
   operationExtraInfo?: string;
   /**
    * @remarks
@@ -4640,15 +4746,28 @@ export class GetUploadCredentialsResponse extends $tea.Model {
 }
 
 export class LaunchServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The categories of the service.
+   */
   categories?: string[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
    * @example
    * 10CM943JP0EN9D51H
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Whether to set the recommended service publishing to the service directory.
+   */
   recommend?: boolean;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4657,6 +4776,8 @@ export class LaunchServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4665,6 +4786,8 @@ export class LaunchServiceRequest extends $tea.Model {
   serviceId?: string;
   /**
    * @remarks
+   * The service version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4700,16 +4823,29 @@ export class LaunchServiceRequest extends $tea.Model {
 
 export class LaunchServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
   requestId?: string;
   /**
+   * @remarks
+   * The mode of the service online. Valid Type
+   * 
+   * - PublishNewVersion: Launch new version
+   * - PublishOfflineVersion:  The offline version is online again.
+   * - UpdateLatestVersion: Update the latest version online
+   * 
    * @example
    * PublishNewVersion
    */
   serviceLaunchResultType?: string;
   /**
+   * @remarks
+   * The service version.
+   * 
    * @example
    * 1.0
    */
@@ -5674,6 +5810,10 @@ export class ListServiceSharedAccountsResponseBody extends $tea.Model {
    * CA3AE512-6D30-549A-B52D-B9042CA8D515
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Service shared account information.
+   */
   shareAccount?: ListServiceSharedAccountsResponseBodyShareAccount[];
   /**
    * @remarks
@@ -6157,12 +6297,19 @@ export class ModifyServiceInstanceResourcesResponse extends $tea.Model {
 
 export class PreLaunchServiceRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
    * @example
    * 10CM943JP0EN9D51H
    */
   clientToken?: string;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6171,6 +6318,8 @@ export class PreLaunchServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6200,6 +6349,9 @@ export class PreLaunchServiceRequest extends $tea.Model {
 
 export class PreLaunchServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
    */
@@ -6613,15 +6765,27 @@ export class ReleaseArtifactRequest extends $tea.Model {
    * artifact-9feded91880e4c78xxxx
    */
   artifactId?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * @example
+   * 788E7CP0EN9D51P
+   */
+  clientToken?: string;
   static names(): { [key: string]: string } {
     return {
       artifactId: 'ArtifactId',
+      clientToken: 'ClientToken',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       artifactId: 'string',
+      clientToken: 'string',
     };
   }
 
@@ -7322,6 +7486,7 @@ export class UpdateArtifactRequest extends $tea.Model {
    * This parameter is required.
    */
   artifactProperty?: UpdateArtifactRequestArtifactProperty;
+  clientToken?: string;
   /**
    * @remarks
    * The description of the deployment package.
@@ -7350,6 +7515,7 @@ export class UpdateArtifactRequest extends $tea.Model {
       artifactBuildProperty: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactProperty: 'ArtifactProperty',
+      clientToken: 'ClientToken',
       description: 'Description',
       supportRegionIds: 'SupportRegionIds',
       versionName: 'VersionName',
@@ -7361,6 +7527,7 @@ export class UpdateArtifactRequest extends $tea.Model {
       artifactBuildProperty: UpdateArtifactRequestArtifactBuildProperty,
       artifactId: 'string',
       artifactProperty: UpdateArtifactRequestArtifactProperty,
+      clientToken: 'string',
       description: 'string',
       supportRegionIds: { 'type': 'array', 'itemType': 'string' },
       versionName: 'string',
@@ -7395,6 +7562,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
    * This parameter is required.
    */
   artifactPropertyShrink?: string;
+  clientToken?: string;
   /**
    * @remarks
    * The description of the deployment package.
@@ -7423,6 +7591,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
       artifactBuildPropertyShrink: 'ArtifactBuildProperty',
       artifactId: 'ArtifactId',
       artifactPropertyShrink: 'ArtifactProperty',
+      clientToken: 'ClientToken',
       description: 'Description',
       supportRegionIds: 'SupportRegionIds',
       versionName: 'VersionName',
@@ -7434,6 +7603,7 @@ export class UpdateArtifactShrinkRequest extends $tea.Model {
       artifactBuildPropertyShrink: 'string',
       artifactId: 'string',
       artifactPropertyShrink: 'string',
+      clientToken: 'string',
       description: 'string',
       supportRegionIds: { 'type': 'array', 'itemType': 'string' },
       versionName: 'string',
@@ -7454,6 +7624,13 @@ export class UpdateArtifactResponseBody extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package to be built.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -7526,6 +7703,13 @@ export class UpdateArtifactResponseBody extends $tea.Model {
    * Available
    */
   status?: string;
+  /**
+   * @remarks
+   * The status of the deployment package.
+   * 
+   * @example
+   * "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+   */
   statusDetail?: string;
   /**
    * @remarks
@@ -7648,6 +7832,10 @@ export class UpdateServiceRequest extends $tea.Model {
    * This parameter is not publicly accessible.
    */
   commodity?: UpdateServiceRequestCommodity;
+  /**
+   * @remarks
+   * Compliance check metadata.
+   */
   complianceMetadata?: UpdateServiceRequestComplianceMetadata;
   /**
    * @remarks
@@ -7665,6 +7853,16 @@ export class UpdateServiceRequest extends $tea.Model {
    * ros
    */
   deployType?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   true: performs a dry run for the request, but does not update a service.
+   * *   false: performs a dry run for the request, and update a service if the request passes the dry run.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -7846,6 +8044,10 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
    * This parameter is not publicly accessible.
    */
   commodityShrink?: string;
+  /**
+   * @remarks
+   * Compliance check metadata.
+   */
   complianceMetadataShrink?: string;
   /**
    * @remarks
@@ -7863,6 +8065,16 @@ export class UpdateServiceShrinkRequest extends $tea.Model {
    * ros
    */
   deployType?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+   * 
+   * *   true: performs a dry run for the request, but does not update a service.
+   * *   false: performs a dry run for the request, and update a service if the request passes the dry run.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -8072,6 +8284,13 @@ export class UpdateServiceInstanceAttributeRequest extends $tea.Model {
    * The License Data
    */
   licenseData?: UpdateServiceInstanceAttributeRequestLicenseData;
+  /**
+   * @remarks
+   * Application reason, currently used for trial application extension.
+   * 
+   * @example
+   * \\"\\"
+   */
   reason?: string;
   /**
    * @remarks
@@ -8134,6 +8353,13 @@ export class UpdateServiceInstanceAttributeShrinkRequest extends $tea.Model {
    * The License Data
    */
   licenseDataShrink?: string;
+  /**
+   * @remarks
+   * Application reason, currently used for trial application extension.
+   * 
+   * @example
+   * \\"\\"
+   */
   reason?: string;
   /**
    * @remarks
@@ -8786,7 +9012,21 @@ export class ContinueDeployServiceInstanceResponseBodyDryRunResult extends $tea.
 }
 
 export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of a specific build argument.
+   * 
+   * @example
+   * ENV
+   */
   argumentName?: string;
+  /**
+   * @remarks
+   * The value of a specific build argument.
+   * 
+   * @example
+   * nginx:latest
+   */
   argumentValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8808,9 +9048,43 @@ export class CreateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Mo
 }
 
 export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the branch in the code repository.
+   * 
+   * @example
+   * main
+   */
   branch?: string;
+  /**
+   * @remarks
+   * The owner of the code repository.
+   * 
+   * >  This parameter is available only if the git repository is private.
+   * 
+   * @example
+   * aliyun-computenest
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The platform type. Valid values: 
+   * 
+   * - github
+   * 
+   * - gitee
+   * 
+   * @example
+   * github
+   */
   platform?: string;
+  /**
+   * @remarks
+   * The name of the repository.
+   * 
+   * @example
+   * aliyun-computenest/quickstart-Lobexxx
+   */
   repoName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8836,7 +9110,19 @@ export class CreateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Mod
 }
 
 export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The build arguments used during the image build process.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   */
   buildArgs?: CreateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  /**
+   * @remarks
+   * The address of the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   */
   codeRepo?: CreateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
@@ -8862,6 +9148,15 @@ export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * RunShellScript
    */
   commandType?: string;
+  /**
+   * @remarks
+   * The relative path to the Dockerfile within the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * 
+   * @example
+   * ./file/Dockerfile
+   */
   dockerfilePath?: string;
   /**
    * @remarks
@@ -8873,6 +9168,15 @@ export class CreateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * 
+   * @example
+   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+   */
   sourceContainerImage?: string;
   /**
    * @remarks
@@ -8944,14 +9248,6 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
   commodityVersion?: string;
   /**
    * @remarks
-   * The script metadata.
-   * 
-   * @example
-   * {\\"WorkDir\\":\\"/root\\",\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"echo hello\\"}
-   */
-  fileScriptMetadata?: string;
-  /**
-   * @remarks
    * The image ID.
    * 
    * >  This parameter is available only if the deployment package is an image.
@@ -8990,17 +9286,19 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
    * wordpress
    */
   repoName?: string;
-  repoType?: string;
   /**
    * @remarks
-   * The script content.
+   * The default repository type. Valid values:
    * 
-   * >  This parameter is available only if the deployment package is a script.
+   * *   `Public`: a public repository.
+   * *   `Private`: a private repository.
+   * 
+   * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
    * 
    * @example
-   * {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
+   * Public
    */
-  scriptMetadata?: string;
+  repoType?: string;
   /**
    * @remarks
    * The version tag of the image repository.
@@ -9023,13 +9321,11 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
     return {
       commodityCode: 'CommodityCode',
       commodityVersion: 'CommodityVersion',
-      fileScriptMetadata: 'FileScriptMetadata',
       imageId: 'ImageId',
       regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
       repoType: 'RepoType',
-      scriptMetadata: 'ScriptMetadata',
       tag: 'Tag',
       url: 'Url',
     };
@@ -9039,13 +9335,11 @@ export class CreateArtifactRequestArtifactProperty extends $tea.Model {
     return {
       commodityCode: 'string',
       commodityVersion: 'string',
-      fileScriptMetadata: 'string',
       imageId: 'string',
       regionId: 'string',
       repoId: 'string',
       repoName: 'string',
       repoType: 'string',
-      scriptMetadata: 'string',
       tag: 'string',
       url: 'string',
     };
@@ -10334,6 +10628,10 @@ export class GetServiceResponseBodyCommodity extends $tea.Model {
 }
 
 export class GetServiceResponseBodyComplianceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package is selected.
+   */
   compliancePacks?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -10353,8 +10651,29 @@ export class GetServiceResponseBodyComplianceMetadata extends $tea.Model {
 }
 
 export class GetServiceResponseBodyServiceDocumentInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The URL that is used to access the document.
+   * 
+   * @example
+   * http://docurl
+   */
   documentUrl?: string;
+  /**
+   * @remarks
+   * The language of the return data. Valid values: zh-CN and en-US.
+   * 
+   * @example
+   * zh-CN
+   */
   locale?: string;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * Default Template.
+   */
   templateName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10414,7 +10733,21 @@ export class GetServiceResponseBodyServiceInfosAgreements extends $tea.Model {
 }
 
 export class GetServiceResponseBodyServiceInfosSoftwares extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the software
+   * 
+   * @example
+   * MySQL
+   */
   name?: string;
+  /**
+   * @remarks
+   * The version of the software.
+   * 
+   * @example
+   * 5.7
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10484,6 +10817,10 @@ export class GetServiceResponseBodyServiceInfos extends $tea.Model {
    * B是A公司自主设计并研发的开源分布式的关系型数据库
    */
   shortDescription?: string;
+  /**
+   * @remarks
+   * The list of the information about the software in the service.
+   */
   softwares?: GetServiceResponseBodyServiceInfosSoftwares[];
   static names(): { [key: string]: string } {
     return {
@@ -10995,7 +11332,21 @@ export class GetServiceInstanceResponseBodyServiceServiceInfos extends $tea.Mode
 }
 
 export class GetServiceInstanceResponseBodyServiceUpgradableServiceInfos extends $tea.Model {
+  /**
+   * @remarks
+   * The upgradable service version.
+   * 
+   * @example
+   * 4
+   */
   version?: string;
+  /**
+   * @remarks
+   * The version name of an upgradable service version.
+   * 
+   * @example
+   * Init version
+   */
   versionName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11123,6 +11474,10 @@ export class GetServiceInstanceResponseBodyService extends $tea.Model {
    * http://example.com
    */
   supplierUrl?: string;
+  /**
+   * @remarks
+   * The upgradable service Info.
+   */
   upgradableServiceInfos?: GetServiceInstanceResponseBodyServiceUpgradableServiceInfos[];
   /**
    * @remarks
@@ -11643,6 +11998,13 @@ export class ListArtifactVersionsResponseBodyArtifacts extends $tea.Model {
    * "{\\"RegionId\\":\\"xxx\\", \\"SourceImageId\\":\\"xxx\\", \\"\\":\\"xxx\\", \\"CommandType\\":\\"xxx\\", \\"CommandContent\\":\\"xxx\\"}"
    */
   artifactBuildProperty?: string;
+  /**
+   * @remarks
+   * The type of the deployment package to be built.
+   * 
+   * @example
+   * Dockerfile
+   */
   artifactBuildType?: string;
   /**
    * @remarks
@@ -12725,6 +13087,9 @@ export class ListServiceSharedAccountsResponseBodyShareAccount extends $tea.Mode
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The user aliUid.
+   * 
    * @example
    * 127383705xxxxxx
    */
@@ -13556,7 +13921,21 @@ export class ListServicesResponseBodyServices extends $tea.Model {
 }
 
 export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Model {
+  /**
+   * @remarks
+   * The name of a specific build argument.
+   * 
+   * @example
+   * ENV
+   */
   argumentName?: string;
+  /**
+   * @remarks
+   * The value of a specific build argument.
+   * 
+   * @example
+   * nginx:latest
+   */
   argumentValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13578,9 +13957,39 @@ export class UpdateArtifactRequestArtifactBuildPropertyBuildArgs extends $tea.Mo
 }
 
 export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the branch in the code repository.
+   * 
+   * @example
+   * main
+   */
   branch?: string;
+  /**
+   * @remarks
+   * The owner of the code repository.
+   * 
+   * >  This parameter is available only if the git repository is private.
+   * 
+   * @example
+   * aliyun-computenest
+   */
   owner?: string;
+  /**
+   * @remarks
+   * The platform where the code repository is hosted.
+   * 
+   * @example
+   * github
+   */
   platform?: string;
+  /**
+   * @remarks
+   * The name of the repository.
+   * 
+   * @example
+   * aliyun-computenest/quickstart-Lobexxx
+   */
   repoName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13606,7 +14015,19 @@ export class UpdateArtifactRequestArtifactBuildPropertyCodeRepo extends $tea.Mod
 }
 
 export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
+  /**
+   * @remarks
+   * The build arguments used during the image build process.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   */
   buildArgs?: UpdateArtifactRequestArtifactBuildPropertyBuildArgs[];
+  /**
+   * @remarks
+   * The address of the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
+   */
   codeRepo?: UpdateArtifactRequestArtifactBuildPropertyCodeRepo;
   /**
    * @remarks
@@ -13632,6 +14053,15 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * RunShellScript
    */
   commandType?: string;
+  /**
+   * @remarks
+   * The relative path to the Dockerfile within the code repository.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+   * 
+   * @example
+   * ./file/Dockerfile
+   */
   dockerfilePath?: string;
   /**
    * @remarks
@@ -13643,6 +14073,15 @@ export class UpdateArtifactRequestArtifactBuildProperty extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+   * 
+   * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+   * 
+   * @example
+   * pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+   */
   sourceContainerImage?: string;
   /**
    * @remarks
@@ -13714,16 +14153,6 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   commodityVersion?: string;
   /**
    * @remarks
-   * The metadata of the Object Storage Service (OSS) object.
-   * 
-   * >  This parameter is available only if the deployment package is an OSS object.
-   * 
-   * @example
-   * {\\"WorkDir\\":\\"/root\\",\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"echo hello\\"}
-   */
-  fileScriptMetadata?: string;
-  /**
-   * @remarks
    * The image ID.
    * 
    * >  This parameter is available only if the deployment package is an image.
@@ -13745,16 +14174,6 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
   repoId?: string;
   repoName?: string;
   repoType?: string;
-  /**
-   * @remarks
-   * The script content of the deployment package.
-   * 
-   * >  This parameter is available only if the deployment package is a script.
-   * 
-   * @example
-   * {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
-   */
-  scriptMetadata?: string;
   tag?: string;
   /**
    * @remarks
@@ -13771,13 +14190,11 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
     return {
       commodityCode: 'CommodityCode',
       commodityVersion: 'CommodityVersion',
-      fileScriptMetadata: 'FileScriptMetadata',
       imageId: 'ImageId',
       regionId: 'RegionId',
       repoId: 'RepoId',
       repoName: 'RepoName',
       repoType: 'RepoType',
-      scriptMetadata: 'ScriptMetadata',
       tag: 'Tag',
       url: 'Url',
     };
@@ -13787,13 +14204,11 @@ export class UpdateArtifactRequestArtifactProperty extends $tea.Model {
     return {
       commodityCode: 'string',
       commodityVersion: 'string',
-      fileScriptMetadata: 'string',
       imageId: 'string',
       regionId: 'string',
       repoId: 'string',
       repoName: 'string',
       repoType: 'string',
-      scriptMetadata: 'string',
       tag: 'string',
       url: 'string',
     };
@@ -14045,6 +14460,10 @@ export class UpdateServiceRequestCommodity extends $tea.Model {
 }
 
 export class UpdateServiceRequestComplianceMetadata extends $tea.Model {
+  /**
+   * @remarks
+   * The compliance package is selected.
+   */
   compliancePacks?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -14344,6 +14763,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "ComputeNestSupplier";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("computenestsupplier", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -14406,7 +14828,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<AddServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<AddServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+    } else {
+      return $tea.cast<AddServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new AddServiceSharedAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -14468,7 +14895,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ApproveServiceUsageResponse>(await this.callApi(params, req, runtime), new ApproveServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ApproveServiceUsageResponse>(await this.callApi(params, req, runtime), new ApproveServiceUsageResponse({}));
+    } else {
+      return $tea.cast<ApproveServiceUsageResponse>(await this.execute(params, req, runtime), new ApproveServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -14526,7 +14958,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<ContinueDeployServiceInstanceResponse>(await this.execute(params, req, runtime), new ContinueDeployServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14580,6 +15017,10 @@ export default class Client extends OpenApi {
       query["ArtifactType"] = request.artifactType;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -14618,7 +15059,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateArtifactResponse>(await this.callApi(params, req, runtime), new CreateArtifactResponse({}));
+    } else {
+      return $tea.cast<CreateArtifactResponse>(await this.execute(params, req, runtime), new CreateArtifactResponse({}));
+    }
+
   }
 
   /**
@@ -14774,7 +15220,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceResponse>(await this.callApi(params, req, runtime), new CreateServiceResponse({}));
+    } else {
+      return $tea.cast<CreateServiceResponse>(await this.execute(params, req, runtime), new CreateServiceResponse({}));
+    }
+
   }
 
   /**
@@ -14870,7 +15321,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceInstanceResponse>(await this.callApi(params, req, runtime), new CreateServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<CreateServiceInstanceResponse>(await this.execute(params, req, runtime), new CreateServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -14920,7 +15376,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateServiceUsageResponse>(await this.callApi(params, req, runtime), new CreateServiceUsageResponse({}));
+    } else {
+      return $tea.cast<CreateServiceUsageResponse>(await this.execute(params, req, runtime), new CreateServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -14952,6 +15413,10 @@ export default class Client extends OpenApi {
       query["ArtifactVersion"] = request.artifactVersion;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -14966,7 +15431,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteArtifactResponse>(await this.callApi(params, req, runtime), new DeleteArtifactResponse({}));
+    } else {
+      return $tea.cast<DeleteArtifactResponse>(await this.execute(params, req, runtime), new DeleteArtifactResponse({}));
+    }
+
   }
 
   /**
@@ -15020,7 +15490,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteServiceResponse>(await this.callApi(params, req, runtime), new DeleteServiceResponse({}));
+    } else {
+      return $tea.cast<DeleteServiceResponse>(await this.execute(params, req, runtime), new DeleteServiceResponse({}));
+    }
+
   }
 
   /**
@@ -15070,7 +15545,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteServiceInstancesResponse>(await this.callApi(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    } else {
+      return $tea.cast<DeleteServiceInstancesResponse>(await this.execute(params, req, runtime), new DeleteServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -15120,7 +15600,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeployServiceInstanceResponse>(await this.callApi(params, req, runtime), new DeployServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<DeployServiceInstanceResponse>(await this.execute(params, req, runtime), new DeployServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -15170,7 +15655,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetArtifactResponse>(await this.callApi(params, req, runtime), new GetArtifactResponse({}));
+    } else {
+      return $tea.cast<GetArtifactResponse>(await this.execute(params, req, runtime), new GetArtifactResponse({}));
+    }
+
   }
 
   /**
@@ -15216,7 +15706,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.callApi(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.callApi(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
+    } else {
+      return $tea.cast<GetArtifactRepositoryCredentialsResponse>(await this.execute(params, req, runtime), new GetArtifactRepositoryCredentialsResponse({}));
+    }
+
   }
 
   /**
@@ -15286,7 +15781,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceResponse>(await this.callApi(params, req, runtime), new GetServiceResponse({}));
+    } else {
+      return $tea.cast<GetServiceResponse>(await this.execute(params, req, runtime), new GetServiceResponse({}));
+    }
+
   }
 
   /**
@@ -15370,7 +15870,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceEstimateCostResponse>(await this.callApi(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    } else {
+      return $tea.cast<GetServiceEstimateCostResponse>(await this.execute(params, req, runtime), new GetServiceEstimateCostResponse({}));
+    }
+
   }
 
   /**
@@ -15416,7 +15921,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceInstanceResponse>(await this.callApi(params, req, runtime), new GetServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<GetServiceInstanceResponse>(await this.execute(params, req, runtime), new GetServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -15490,7 +16000,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.callApi(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    } else {
+      return $tea.cast<GetServiceTemplateParameterConstraintsResponse>(await this.execute(params, req, runtime), new GetServiceTemplateParameterConstraintsResponse({}));
+    }
+
   }
 
   /**
@@ -15536,7 +16051,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetUploadCredentialsResponse>(await this.callApi(params, req, runtime), new GetUploadCredentialsResponse({}));
+    } else {
+      return $tea.cast<GetUploadCredentialsResponse>(await this.execute(params, req, runtime), new GetUploadCredentialsResponse({}));
+    }
+
   }
 
   /**
@@ -15596,7 +16116,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<LaunchServiceResponse>(await this.callApi(params, req, runtime), new LaunchServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<LaunchServiceResponse>(await this.callApi(params, req, runtime), new LaunchServiceResponse({}));
+    } else {
+      return $tea.cast<LaunchServiceResponse>(await this.execute(params, req, runtime), new LaunchServiceResponse({}));
+    }
+
   }
 
   /**
@@ -15648,7 +16173,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAcrImageRepositoriesResponse>(await this.callApi(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+    } else {
+      return $tea.cast<ListAcrImageRepositoriesResponse>(await this.execute(params, req, runtime), new ListAcrImageRepositoriesResponse({}));
+    }
+
   }
 
   /**
@@ -15702,7 +16232,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAcrImageTagsResponse>(await this.callApi(params, req, runtime), new ListAcrImageTagsResponse({}));
+    } else {
+      return $tea.cast<ListAcrImageTagsResponse>(await this.execute(params, req, runtime), new ListAcrImageTagsResponse({}));
+    }
+
   }
 
   /**
@@ -15762,7 +16297,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListArtifactVersionsResponse>(await this.callApi(params, req, runtime), new ListArtifactVersionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListArtifactVersionsResponse>(await this.callApi(params, req, runtime), new ListArtifactVersionsResponse({}));
+    } else {
+      return $tea.cast<ListArtifactVersionsResponse>(await this.execute(params, req, runtime), new ListArtifactVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -15820,7 +16360,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListArtifactsResponse>(await this.callApi(params, req, runtime), new ListArtifactsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListArtifactsResponse>(await this.callApi(params, req, runtime), new ListArtifactsResponse({}));
+    } else {
+      return $tea.cast<ListArtifactsResponse>(await this.execute(params, req, runtime), new ListArtifactsResponse({}));
+    }
+
   }
 
   /**
@@ -15886,7 +16431,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceInstancesResponse>(await this.callApi(params, req, runtime), new ListServiceInstancesResponse({}));
+    } else {
+      return $tea.cast<ListServiceInstancesResponse>(await this.execute(params, req, runtime), new ListServiceInstancesResponse({}));
+    }
+
   }
 
   /**
@@ -15901,6 +16451,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 调用ListServiceSharedAccounts查看服务共享账号列表。
+   * 
    * @param request - ListServiceSharedAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListServiceSharedAccountsResponse
@@ -15946,10 +16498,17 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+    } else {
+      return $tea.cast<ListServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new ListServiceSharedAccountsResponse({}));
+    }
+
   }
 
   /**
+   * 调用ListServiceSharedAccounts查看服务共享账号列表。
+   * 
    * @param request - ListServiceSharedAccountsRequest
    * @returns ListServiceSharedAccountsResponse
    */
@@ -15998,7 +16557,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServiceUsagesResponse>(await this.callApi(params, req, runtime), new ListServiceUsagesResponse({}));
+    } else {
+      return $tea.cast<ListServiceUsagesResponse>(await this.execute(params, req, runtime), new ListServiceUsagesResponse({}));
+    }
+
   }
 
   /**
@@ -16064,7 +16628,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListServicesResponse>(await this.callApi(params, req, runtime), new ListServicesResponse({}));
+    } else {
+      return $tea.cast<ListServicesResponse>(await this.execute(params, req, runtime), new ListServicesResponse({}));
+    }
+
   }
 
   /**
@@ -16114,7 +16683,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.callApi(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
+    } else {
+      return $tea.cast<ModifyServiceInstanceResourcesResponse>(await this.execute(params, req, runtime), new ModifyServiceInstanceResourcesResponse({}));
+    }
+
   }
 
   /**
@@ -16164,7 +16738,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PreLaunchServiceResponse>(await this.callApi(params, req, runtime), new PreLaunchServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PreLaunchServiceResponse>(await this.callApi(params, req, runtime), new PreLaunchServiceResponse({}));
+    } else {
+      return $tea.cast<PreLaunchServiceResponse>(await this.execute(params, req, runtime), new PreLaunchServiceResponse({}));
+    }
+
   }
 
   /**
@@ -16210,7 +16789,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<PushMeteringDataResponse>(await this.callApi(params, req, runtime), new PushMeteringDataResponse({}));
+    } else {
+      return $tea.cast<PushMeteringDataResponse>(await this.execute(params, req, runtime), new PushMeteringDataResponse({}));
+    }
+
   }
 
   /**
@@ -16260,7 +16844,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RegisterServiceResponse>(await this.callApi(params, req, runtime), new RegisterServiceResponse({}));
+    } else {
+      return $tea.cast<RegisterServiceResponse>(await this.execute(params, req, runtime), new RegisterServiceResponse({}));
+    }
+
   }
 
   /**
@@ -16318,7 +16907,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RejectServiceUsageResponse>(await this.callApi(params, req, runtime), new RejectServiceUsageResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RejectServiceUsageResponse>(await this.callApi(params, req, runtime), new RejectServiceUsageResponse({}));
+    } else {
+      return $tea.cast<RejectServiceUsageResponse>(await this.execute(params, req, runtime), new RejectServiceUsageResponse({}));
+    }
+
   }
 
   /**
@@ -16346,6 +16940,10 @@ export default class Client extends OpenApi {
       query["ArtifactId"] = request.artifactId;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -16360,7 +16958,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ReleaseArtifactResponse>(await this.callApi(params, req, runtime), new ReleaseArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ReleaseArtifactResponse>(await this.callApi(params, req, runtime), new ReleaseArtifactResponse({}));
+    } else {
+      return $tea.cast<ReleaseArtifactResponse>(await this.execute(params, req, runtime), new ReleaseArtifactResponse({}));
+    }
+
   }
 
   /**
@@ -16418,7 +17021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.callApi(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+    } else {
+      return $tea.cast<RemoveServiceSharedAccountsResponse>(await this.execute(params, req, runtime), new RemoveServiceSharedAccountsResponse({}));
+    }
+
   }
 
   /**
@@ -16468,7 +17076,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RestartServiceInstanceResponse>(await this.callApi(params, req, runtime), new RestartServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<RestartServiceInstanceResponse>(await this.execute(params, req, runtime), new RestartServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16518,7 +17131,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RollbackServiceInstanceResponse>(await this.callApi(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<RollbackServiceInstanceResponse>(await this.execute(params, req, runtime), new RollbackServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16568,7 +17186,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StartServiceInstanceResponse>(await this.callApi(params, req, runtime), new StartServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<StartServiceInstanceResponse>(await this.execute(params, req, runtime), new StartServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16618,7 +17241,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<StopServiceInstanceResponse>(await this.callApi(params, req, runtime), new StopServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<StopServiceInstanceResponse>(await this.execute(params, req, runtime), new StopServiceInstanceResponse({}));
+    }
+
   }
 
   /**
@@ -16664,6 +17292,10 @@ export default class Client extends OpenApi {
       query["ArtifactProperty"] = request.artifactPropertyShrink;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.description)) {
       query["Description"] = request.description;
     }
@@ -16690,7 +17322,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateArtifactResponse>(await this.callApi(params, req, runtime), new UpdateArtifactResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateArtifactResponse>(await this.callApi(params, req, runtime), new UpdateArtifactResponse({}));
+    } else {
+      return $tea.cast<UpdateArtifactResponse>(await this.execute(params, req, runtime), new UpdateArtifactResponse({}));
+    }
+
   }
 
   /**
@@ -16846,7 +17483,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceResponse>(await this.callApi(params, req, runtime), new UpdateServiceResponse({}));
+    } else {
+      return $tea.cast<UpdateServiceResponse>(await this.execute(params, req, runtime), new UpdateServiceResponse({}));
+    }
+
   }
 
   /**
@@ -16910,7 +17552,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+    } else {
+      return $tea.cast<UpdateServiceInstanceAttributeResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceAttributeResponse({}));
+    }
+
   }
 
   /**
@@ -16978,7 +17625,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.callApi(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    } else {
+      return $tea.cast<UpdateServiceInstanceSpecResponse>(await this.execute(params, req, runtime), new UpdateServiceInstanceSpecResponse({}));
+    }
+
   }
 
   /**
@@ -17046,7 +17698,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpgradeServiceInstanceResponse>(await this.callApi(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    } else {
+      return $tea.cast<UpgradeServiceInstanceResponse>(await this.execute(params, req, runtime), new UpgradeServiceInstanceResponse({}));
+    }
+
   }
 
   /**
