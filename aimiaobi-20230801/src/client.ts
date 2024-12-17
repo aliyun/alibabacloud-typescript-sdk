@@ -2,6 +2,7 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
@@ -11435,6 +11436,174 @@ export class RunKeywordsExtractionGenerationResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RunKeywordsExtractionGenerationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequest extends $tea.Model {
+  agentContext?: RunSearchGenerationRequestAgentContext;
+  /**
+   * @example
+   * xxx
+   */
+  chatConfig?: RunSearchGenerationRequestChatConfig;
+  /**
+   * @example
+   * xxx
+   */
+  originalSessionId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 7AA2AE16-D873-5C5F-9708-15396C382EB1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentContext: 'AgentContext',
+      chatConfig: 'ChatConfig',
+      originalSessionId: 'OriginalSessionId',
+      prompt: 'Prompt',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentContext: RunSearchGenerationRequestAgentContext,
+      chatConfig: RunSearchGenerationRequestChatConfig,
+      originalSessionId: 'string',
+      prompt: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationShrinkRequest extends $tea.Model {
+  agentContextShrink?: string;
+  /**
+   * @example
+   * xxx
+   */
+  chatConfigShrink?: string;
+  /**
+   * @example
+   * xxx
+   */
+  originalSessionId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  prompt?: string;
+  /**
+   * @example
+   * 7AA2AE16-D873-5C5F-9708-15396C382EB1
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      agentContextShrink: 'AgentContext',
+      chatConfigShrink: 'ChatConfig',
+      originalSessionId: 'OriginalSessionId',
+      prompt: 'Prompt',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentContextShrink: 'string',
+      chatConfigShrink: 'string',
+      originalSessionId: 'string',
+      prompt: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBody extends $tea.Model {
+  header?: RunSearchGenerationResponseBodyHeader;
+  payload?: RunSearchGenerationResponseBodyPayload;
+  /**
+   * @example
+   * xx
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'Header',
+      payload: 'Payload',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunSearchGenerationResponseBodyHeader,
+      payload: RunSearchGenerationResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunSearchGenerationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunSearchGenerationResponseBody,
     };
   }
 
@@ -23732,6 +23901,3189 @@ export class RunKeywordsExtractionGenerationResponseBodyPayload extends $tea.Mod
   }
 }
 
+export class RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResultSearchResult extends $tea.Model {
+  chunks?: string[];
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-11-25 14:25:59
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  score?: number;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * 新华社
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunks: 'Chunks',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunks: { 'type': 'array', 'itemType': 'string' },
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResult extends $tea.Model {
+  searchResult?: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResultSearchResult[];
+  static names(): { [key: string]: string } {
+    return {
+      searchResult: 'SearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResultSearchResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection extends $tea.Model {
+  /**
+   * @example
+   * 原始会话唯一标识：搜索结果取这个会话中的全量，目前仅媒资搜索场景需要
+   */
+  originalSessionId?: string;
+  /**
+   * @example
+   * TextGenerate
+   */
+  searchModel?: string;
+  /**
+   * @example
+   * 分类1
+   */
+  searchModelDataValue?: string;
+  /**
+   * @example
+   * all
+   */
+  selectionType?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  sessionId?: string;
+  textSearchResult?: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResult;
+  static names(): { [key: string]: string } {
+    return {
+      originalSessionId: 'OriginalSessionId',
+      searchModel: 'SearchModel',
+      searchModelDataValue: 'SearchModelDataValue',
+      selectionType: 'SelectionType',
+      sessionId: 'SessionId',
+      textSearchResult: 'TextSearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalSessionId: 'string',
+      searchModel: 'string',
+      searchModelDataValue: 'string',
+      selectionType: 'string',
+      sessionId: 'string',
+      textSearchResult: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelectionTextSearchResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestAgentContextBizContext extends $tea.Model {
+  multimodalMediaSelection?: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection;
+  static names(): { [key: string]: string } {
+    return {
+      multimodalMediaSelection: 'MultimodalMediaSelection',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      multimodalMediaSelection: RunSearchGenerationRequestAgentContextBizContextMultimodalMediaSelection,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestAgentContext extends $tea.Model {
+  bizContext?: RunSearchGenerationRequestAgentContextBizContext;
+  static names(): { [key: string]: string } {
+    return {
+      bizContext: 'BizContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizContext: RunSearchGenerationRequestAgentContextBizContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestChatConfigSearchParamSearchSources extends $tea.Model {
+  /**
+   * @example
+   * SystemSearch
+   */
+  code?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  datasetName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      datasetName: 'DatasetName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      datasetName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestChatConfigSearchParam extends $tea.Model {
+  /**
+   * @example
+   * 1725983999999
+   */
+  endTime?: number;
+  multimodalSearchTypes?: string[];
+  searchSources?: RunSearchGenerationRequestChatConfigSearchParamSearchSources[];
+  /**
+   * @example
+   * 1725983999999
+   */
+  startTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      endTime: 'EndTime',
+      multimodalSearchTypes: 'MultimodalSearchTypes',
+      searchSources: 'SearchSources',
+      startTime: 'StartTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endTime: 'number',
+      multimodalSearchTypes: { 'type': 'array', 'itemType': 'string' },
+      searchSources: { 'type': 'array', 'itemType': RunSearchGenerationRequestChatConfigSearchParamSearchSources },
+      startTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationRequestChatConfig extends $tea.Model {
+  /**
+   * @example
+   * concise
+   */
+  generateLevel?: string;
+  /**
+   * @example
+   * copilotPrecise
+   */
+  generateTechnology?: string;
+  searchModels?: string[];
+  searchParam?: RunSearchGenerationRequestChatConfigSearchParam;
+  static names(): { [key: string]: string } {
+    return {
+      generateLevel: 'GenerateLevel',
+      generateTechnology: 'GenerateTechnology',
+      searchModels: 'SearchModels',
+      searchParam: 'SearchParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateLevel: 'string',
+      generateTechnology: 'string',
+      searchModels: { 'type': 'array', 'itemType': 'string' },
+      searchParam: RunSearchGenerationRequestChatConfigSearchParam,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbid
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * xx
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-failed
+   */
+  event?: string;
+  /**
+   * @example
+   * xx
+   */
+  eventInfo?: string;
+  /**
+   * @example
+   * 3f7045e099474ba28ceca1b4eb6d6e21
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  responseTime?: number;
+  /**
+   * @example
+   * x
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * x
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      event: 'Event',
+      eventInfo: 'EventInfo',
+      originSessionId: 'OriginSessionId',
+      responseTime: 'ResponseTime',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      traceId: 'TraceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      eventInfo: 'string',
+      originSessionId: 'string',
+      responseTime: 'number',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle;
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResultArticle,
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult[];
+  /**
+   * @example
+   * 1
+   */
+  size?: number;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchResult: 'SearchResult',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResultSearchResult },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias[];
+  /**
+   * @example
+   * 2023-04-04 08:39:09
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      multimodalMedias: 'MultimodalMedias',
+      pubTime: 'PubTime',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      multimodalMedias: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResultMultimodalMedias },
+      pubTime: 'string',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult[];
+  /**
+   * @example
+   * 1
+   */
+  size?: number;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchResult: 'SearchResult',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResultSearchResult },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultClipInfos extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 0.9
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 1
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultClipInfos[];
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResult[];
+  /**
+   * @example
+   * 1
+   */
+  size?: number;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchResult: 'SearchResult',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResultSearchResult },
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics extends $tea.Model {
+  imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult;
+  textSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult;
+  /**
+   * @example
+   * xx
+   */
+  topic?: string;
+  videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult;
+  static names(): { [key: string]: string } {
+    return {
+      imageSearchResult: 'ImageSearchResult',
+      textSearchResult: 'TextSearchResult',
+      topic: 'Topic',
+      videoSearchResult: 'VideoSearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      imageSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsImageSearchResult,
+      textSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsTextSearchResult,
+      topic: 'string',
+      videoSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopicsVideoSearchResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult extends $tea.Model {
+  clusterTopics?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics[];
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  textGenerate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterTopics: 'ClusterTopics',
+      generateFinished: 'GenerateFinished',
+      textGenerate: 'TextGenerate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterTopics: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResultClusterTopics },
+      generateFinished: 'boolean',
+      textGenerate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xxx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaList extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaListArticle,
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 1
+   */
+  end?: number;
+  multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaList[];
+  /**
+   * @example
+   * 1
+   */
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docUuid: 'DocUuid',
+      end: 'End',
+      multimodalMediaList: 'MultimodalMediaList',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docUuid: 'string',
+      end: 'number',
+      multimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaListMultimodalMediaList },
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult extends $tea.Model {
+  chunks?: string[];
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  excerpt?: string;
+  multimodalMedias?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias[];
+  /**
+   * @example
+   * 2023-04-04 08:39:09
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 0.99
+   */
+  score?: number;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * true
+   */
+  select?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList[];
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: number;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunks: 'Chunks',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      excerpt: 'Excerpt',
+      multimodalMedias: 'MultimodalMedias',
+      pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      select: 'Select',
+      summary: 'Summary',
+      textGenerateMultimodalMediaList: 'TextGenerateMultimodalMediaList',
+      title: 'Title',
+      traceabilityId: 'TraceabilityId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunks: { 'type': 'array', 'itemType': 'string' },
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      excerpt: 'string',
+      multimodalMedias: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultMultimodalMedias },
+      pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      select: 'boolean',
+      summary: 'string',
+      textGenerateMultimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResultTextGenerateMultimodalMediaList },
+      title: 'string',
+      traceabilityId: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * concise
+   */
+  generateLevel?: string;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult[];
+  /**
+   * @example
+   * xx
+   */
+  textGenerate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'GenerateFinished',
+      generateLevel: 'GenerateLevel',
+      searchResult: 'SearchResult',
+      textGenerate: 'TextGenerate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      generateLevel: 'string',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResultSearchResult },
+      textGenerate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle;
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResultArticle,
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult extends $tea.Model {
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResult[];
+  static names(): { [key: string]: string } {
+    return {
+      searchResult: 'SearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResultSearchResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2023-04-04 08:39:09
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 0.99
+   */
+  score?: number;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * true
+   */
+  select?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      select: 'Select',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      select: 'boolean',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementListEvent extends $tea.Model {
+  causeList?: string[];
+  processList?: string[];
+  resultList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      causeList: 'CauseList',
+      processList: 'ProcessList',
+      resultList: 'ResultList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      causeList: { 'type': 'array', 'itemType': 'string' },
+      processList: { 'type': 'array', 'itemType': 'string' },
+      resultList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementList extends $tea.Model {
+  /**
+   * @example
+   * task-started
+   */
+  event?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementListEvent;
+  /**
+   * @example
+   * xx
+   */
+  location?: string;
+  /**
+   * @example
+   * xx
+   */
+  people?: string;
+  /**
+   * @example
+   * 时间
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      event: 'Event',
+      location: 'Location',
+      people: 'People',
+      time: 'Time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      event: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementListEvent,
+      location: 'string',
+      people: 'string',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleList extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle;
+  newsElementList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementList[];
+  /**
+   * @example
+   * xx
+   */
+  textGenerate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      newsElementList: 'NewsElementList',
+      textGenerate: 'TextGenerate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListArticle,
+      newsElementList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleListNewsElementList },
+      textGenerate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  newsElementArticleList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleList[];
+  /**
+   * @example
+   * x
+   */
+  textGenerate?: string;
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'GenerateFinished',
+      newsElementArticleList: 'NewsElementArticleList',
+      textGenerate: 'TextGenerate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      newsElementArticleList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResultNewsElementArticleList },
+      textGenerate: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesGenerateCoordinate extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  x?: number;
+  /**
+   * @example
+   * 1
+   */
+  y?: number;
+  /**
+   * @example
+   * 1
+   */
+  z?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      z: 'Z',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      z: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  x?: number;
+  /**
+   * @example
+   * 1
+   */
+  y?: number;
+  /**
+   * @example
+   * 1
+   */
+  z?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      z: 'Z',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      z: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinates extends $tea.Model {
+  generateCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesGenerateCoordinate;
+  newsCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate;
+  static names(): { [key: string]: string } {
+    return {
+      generateCoordinate: 'GenerateCoordinate',
+      newsCoordinate: 'NewsCoordinate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateCoordinate: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesGenerateCoordinate,
+      newsCoordinate: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinatesNewsCoordinate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability extends $tea.Model {
+  coordinates?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinates[];
+  /**
+   * @example
+   * 0.9
+   */
+  duplicate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coordinates: 'Coordinates',
+      duplicate: 'Duplicate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coordinates: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceabilityCoordinates },
+      duplicate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultClipInfos extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 0.1
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 1
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultClipInfos[];
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  /**
+   * @example
+   * xx
+   */
+  searchQuery?: string;
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResult[];
+  /**
+   * @example
+   * realtime
+   */
+  searchType?: string;
+  /**
+   * @example
+   * 1
+   */
+  size?: number;
+  /**
+   * @example
+   * 时间脉络-时间
+   */
+  timelineDateStr?: string;
+  /**
+   * @example
+   * 1
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      current: 'Current',
+      searchQuery: 'SearchQuery',
+      searchResult: 'SearchResult',
+      searchType: 'SearchType',
+      size: 'Size',
+      timelineDateStr: 'TimelineDateStr',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      current: 'number',
+      searchQuery: 'string',
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultListSearchResult },
+      searchType: 'string',
+      size: 'number',
+      timelineDateStr: 'string',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList extends $tea.Model {
+  chunks?: string[];
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2023-04-04 08:39:09
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 0.99
+   */
+  score?: number;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * true
+   */
+  select?: boolean;
+  /**
+   * @example
+   * 新华社
+   */
+  source?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: number;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunks: 'Chunks',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      select: 'Select',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      traceabilityId: 'TraceabilityId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunks: { 'type': 'array', 'itemType': 'string' },
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      select: 'boolean',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      traceabilityId: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaList extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaListArticle,
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  end?: number;
+  multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaList[];
+  /**
+   * @example
+   * 1
+   */
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      multimodalMediaList: 'MultimodalMediaList',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      multimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaListMultimodalMediaList },
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  /**
+   * @example
+   * concise
+   */
+  generateLevel?: string;
+  generateTraceability?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability;
+  multimodalSearchResultList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList[];
+  referenceList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList[];
+  /**
+   * @example
+   * xx
+   */
+  textGenerate?: string;
+  textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'GenerateFinished',
+      generateLevel: 'GenerateLevel',
+      generateTraceability: 'GenerateTraceability',
+      multimodalSearchResultList: 'MultimodalSearchResultList',
+      referenceList: 'ReferenceList',
+      textGenerate: 'TextGenerate',
+      textGenerateMultimodalMediaList: 'TextGenerateMultimodalMediaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      generateLevel: 'string',
+      generateTraceability: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultGenerateTraceability,
+      multimodalSearchResultList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultMultimodalSearchResultList },
+      referenceList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultReferenceList },
+      textGenerate: 'string',
+      textGenerateMultimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResultTextGenerateMultimodalMediaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  x?: number;
+  /**
+   * @example
+   * 1
+   */
+  y?: number;
+  /**
+   * @example
+   * 1
+   */
+  z?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      z: 'Z',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      z: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  x?: number;
+  /**
+   * @example
+   * 1
+   */
+  y?: number;
+  /**
+   * @example
+   * 1
+   */
+  z?: number;
+  static names(): { [key: string]: string } {
+    return {
+      x: 'X',
+      y: 'Y',
+      z: 'Z',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      x: 'number',
+      y: 'number',
+      z: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinates extends $tea.Model {
+  generateCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate;
+  newsCoordinate?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate;
+  static names(): { [key: string]: string } {
+    return {
+      generateCoordinate: 'GenerateCoordinate',
+      newsCoordinate: 'NewsCoordinate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateCoordinate: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesGenerateCoordinate,
+      newsCoordinate: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinatesNewsCoordinate,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability extends $tea.Model {
+  coordinates?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinates[];
+  /**
+   * @example
+   * 0.9
+   */
+  duplicate?: number;
+  static names(): { [key: string]: string } {
+    return {
+      coordinates: 'Coordinates',
+      duplicate: 'Duplicate',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      coordinates: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceabilityCoordinates },
+      duplicate: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultClipInfos extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 0.99
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 1
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultClipInfos[];
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList extends $tea.Model {
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResult[];
+  /**
+   * @example
+   * 2024-09-11
+   */
+  timelineDateStr?: string;
+  static names(): { [key: string]: string } {
+    return {
+      searchResult: 'SearchResult',
+      timelineDateStr: 'TimelineDateStr',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultListSearchResult },
+      timelineDateStr: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList extends $tea.Model {
+  chunks?: string[];
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2023-04-04 08:39:09
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 0.99
+   */
+  score?: number;
+  /**
+   * @example
+   * QuarkCommonNews
+   */
+  searchSource?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * SystemSearch
+   */
+  searchSourceType?: string;
+  /**
+   * @example
+   * true
+   */
+  select?: boolean;
+  /**
+   * @example
+   * 新华社
+   */
+  source?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * 1
+   */
+  traceabilityId?: number;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      chunks: 'Chunks',
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      score: 'Score',
+      searchSource: 'SearchSource',
+      searchSourceName: 'SearchSourceName',
+      searchSourceType: 'SearchSourceType',
+      select: 'Select',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      traceabilityId: 'TraceabilityId',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      chunks: { 'type': 'array', 'itemType': 'string' },
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      score: 'number',
+      searchSource: 'string',
+      searchSourceName: 'string',
+      searchSourceType: 'string',
+      select: 'boolean',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      traceabilityId: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaListArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaList extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaListArticle;
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * image
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaListArticle,
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  end?: number;
+  multimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaList[];
+  /**
+   * @example
+   * 1
+   */
+  start?: number;
+  static names(): { [key: string]: string } {
+    return {
+      end: 'End',
+      multimodalMediaList: 'MultimodalMediaList',
+      start: 'Start',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      end: 'number',
+      multimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaListMultimodalMediaList },
+      start: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  generateFinished?: boolean;
+  generateTraceability?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability;
+  multimodalSearchResultList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList[];
+  referenceList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList[];
+  /**
+   * @example
+   * xx
+   */
+  textGenerate?: string;
+  textGenerateMultimodalMediaList?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList[];
+  static names(): { [key: string]: string } {
+    return {
+      generateFinished: 'GenerateFinished',
+      generateTraceability: 'GenerateTraceability',
+      multimodalSearchResultList: 'MultimodalSearchResultList',
+      referenceList: 'ReferenceList',
+      textGenerate: 'TextGenerate',
+      textGenerateMultimodalMediaList: 'TextGenerateMultimodalMediaList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      generateFinished: 'boolean',
+      generateTraceability: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultGenerateTraceability,
+      multimodalSearchResultList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultMultimodalSearchResultList },
+      referenceList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultReferenceList },
+      textGenerate: 'string',
+      textGenerateMultimodalMediaList: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResultTextGenerateMultimodalMediaList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 互联网搜索
+   */
+  searchSourceName?: string;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      searchSourceName: 'SearchSourceName',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      searchSourceName: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  from?: number;
+  /**
+   * @example
+   * 0.8
+   */
+  score?: number;
+  /**
+   * @example
+   * xx
+   */
+  text?: string;
+  /**
+   * @example
+   * 1
+   */
+  to?: number;
+  /**
+   * @example
+   * asr
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      from: 'From',
+      score: 'Score',
+      text: 'Text',
+      to: 'To',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      from: 'number',
+      score: 'number',
+      text: 'string',
+      to: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult extends $tea.Model {
+  article?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle;
+  clipInfos?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos[];
+  /**
+   * @example
+   * xx
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * xx
+   */
+  mediaId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      article: 'Article',
+      clipInfos: 'ClipInfos',
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      article: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultArticle,
+      clipInfos: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResultClipInfos },
+      fileUrl: 'string',
+      mediaId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult extends $tea.Model {
+  searchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult[];
+  static names(): { [key: string]: string } {
+    return {
+      searchResult: 'SearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchResult: { 'type': 'array', 'itemType': RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResultSearchResult },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent extends $tea.Model {
+  clusterTopicResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult;
+  excerptResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult;
+  imageSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult;
+  newsElementResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult;
+  textGenerateResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult;
+  timelineResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult;
+  videoSearchResult?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult;
+  static names(): { [key: string]: string } {
+    return {
+      clusterTopicResult: 'ClusterTopicResult',
+      excerptResult: 'ExcerptResult',
+      imageSearchResult: 'ImageSearchResult',
+      newsElementResult: 'NewsElementResult',
+      textGenerateResult: 'TextGenerateResult',
+      timelineResult: 'TimelineResult',
+      videoSearchResult: 'VideoSearchResult',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterTopicResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentClusterTopicResult,
+      excerptResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentExcerptResult,
+      imageSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentImageSearchResult,
+      newsElementResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentNewsElementResult,
+      textGenerateResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTextGenerateResult,
+      timelineResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentTimelineResult,
+      videoSearchResult: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContentVideoSearchResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext extends $tea.Model {
+  /**
+   * @example
+   * start
+   */
+  currentStep?: string;
+  generatedContent?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent;
+  /**
+   * @example
+   * search
+   */
+  nextStep?: string;
+  recommendSearchQueryList?: string[];
+  searchKeywords?: string[];
+  searchQueryList?: string[];
+  /**
+   * @example
+   * searchQuery
+   */
+  supplementDataType?: string;
+  /**
+   * @example
+   * true
+   */
+  supplementEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      currentStep: 'CurrentStep',
+      generatedContent: 'GeneratedContent',
+      nextStep: 'NextStep',
+      recommendSearchQueryList: 'RecommendSearchQueryList',
+      searchKeywords: 'SearchKeywords',
+      searchQueryList: 'SearchQueryList',
+      supplementDataType: 'SupplementDataType',
+      supplementEnable: 'SupplementEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentStep: 'string',
+      generatedContent: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContextGeneratedContent,
+      nextStep: 'string',
+      recommendSearchQueryList: { 'type': 'array', 'itemType': 'string' },
+      searchKeywords: { 'type': 'array', 'itemType': 'string' },
+      searchQueryList: { 'type': 'array', 'itemType': 'string' },
+      supplementDataType: 'string',
+      supplementEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutputAgentContext extends $tea.Model {
+  bizContext?: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext;
+  static names(): { [key: string]: string } {
+    return {
+      bizContext: 'BizContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizContext: RunSearchGenerationResponseBodyPayloadOutputAgentContextBizContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadOutput extends $tea.Model {
+  agentContext?: RunSearchGenerationResponseBodyPayloadOutputAgentContext;
+  static names(): { [key: string]: string } {
+    return {
+      agentContext: 'AgentContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      agentContext: RunSearchGenerationResponseBodyPayloadOutputAgentContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 2
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 3
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'InputTokens',
+      outputTokens: 'OutputTokens',
+      totalTokens: 'TotalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchGenerationResponseBodyPayload extends $tea.Model {
+  output?: RunSearchGenerationResponseBodyPayloadOutput;
+  usage?: RunSearchGenerationResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'Output',
+      usage: 'Usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunSearchGenerationResponseBodyPayloadOutput,
+      usage: RunSearchGenerationResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunStepByStepWritingRequestReferenceDataArticles extends $tea.Model {
   /**
    * @example
@@ -26938,6 +30290,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
+    this._productId = "AiMiaoBi";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aimiaobi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -26990,7 +30345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
+    } else {
+      return $tea.cast<CancelAsyncTaskResponse>(await this.execute(params, req, runtime), new CancelAsyncTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27032,7 +30392,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
+    } else {
+      return $tea.cast<ClearIntervenesResponse>(await this.execute(params, req, runtime), new ClearIntervenesResponse({}));
+    }
+
   }
 
   /**
@@ -27114,7 +30479,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateGeneratedContentResponse>(await this.callApi(params, req, runtime), new CreateGeneratedContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateGeneratedContentResponse>(await this.callApi(params, req, runtime), new CreateGeneratedContentResponse({}));
+    } else {
+      return $tea.cast<CreateGeneratedContentResponse>(await this.execute(params, req, runtime), new CreateGeneratedContentResponse({}));
+    }
+
   }
 
   /**
@@ -27156,7 +30526,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<CreateTokenResponse>(await this.callApi(params, req, runtime), new CreateTokenResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateTokenResponse>(await this.callApi(params, req, runtime), new CreateTokenResponse({}));
+    } else {
+      return $tea.cast<CreateTokenResponse>(await this.execute(params, req, runtime), new CreateTokenResponse({}));
+    }
+
   }
 
   /**
@@ -27208,7 +30583,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomTextResponse>(await this.callApi(params, req, runtime), new DeleteCustomTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCustomTextResponse>(await this.callApi(params, req, runtime), new DeleteCustomTextResponse({}));
+    } else {
+      return $tea.cast<DeleteCustomTextResponse>(await this.execute(params, req, runtime), new DeleteCustomTextResponse({}));
+    }
+
   }
 
   /**
@@ -27256,7 +30636,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
+    } else {
+      return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.execute(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
+    }
+
   }
 
   /**
@@ -27304,7 +30689,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
+    } else {
+      return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.execute(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
+    }
+
   }
 
   /**
@@ -27356,7 +30746,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteDocsResponse>(await this.callApi(params, req, runtime), new DeleteDocsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteDocsResponse>(await this.callApi(params, req, runtime), new DeleteDocsResponse({}));
+    } else {
+      return $tea.cast<DeleteDocsResponse>(await this.execute(params, req, runtime), new DeleteDocsResponse({}));
+    }
+
   }
 
   /**
@@ -27408,7 +30803,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteGeneratedContentResponse>(await this.callApi(params, req, runtime), new DeleteGeneratedContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteGeneratedContentResponse>(await this.callApi(params, req, runtime), new DeleteGeneratedContentResponse({}));
+    } else {
+      return $tea.cast<DeleteGeneratedContentResponse>(await this.execute(params, req, runtime), new DeleteGeneratedContentResponse({}));
+    }
+
   }
 
   /**
@@ -27456,7 +30856,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
+    } else {
+      return $tea.cast<DeleteInterveneRuleResponse>(await this.execute(params, req, runtime), new DeleteInterveneRuleResponse({}));
+    }
+
   }
 
   /**
@@ -27504,7 +30909,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DeleteMaterialByIdResponse>(await this.callApi(params, req, runtime), new DeleteMaterialByIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteMaterialByIdResponse>(await this.callApi(params, req, runtime), new DeleteMaterialByIdResponse({}));
+    } else {
+      return $tea.cast<DeleteMaterialByIdResponse>(await this.execute(params, req, runtime), new DeleteMaterialByIdResponse({}));
+    }
+
   }
 
   /**
@@ -27558,7 +30968,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<DocumentExtractionResponse>(await this.callApi(params, req, runtime), new DocumentExtractionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DocumentExtractionResponse>(await this.callApi(params, req, runtime), new DocumentExtractionResponse({}));
+    } else {
+      return $tea.cast<DocumentExtractionResponse>(await this.execute(params, req, runtime), new DocumentExtractionResponse({}));
+    }
+
   }
 
   /**
@@ -27606,7 +31021,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportGeneratedContentResponse>(await this.callApi(params, req, runtime), new ExportGeneratedContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExportGeneratedContentResponse>(await this.callApi(params, req, runtime), new ExportGeneratedContentResponse({}));
+    } else {
+      return $tea.cast<ExportGeneratedContentResponse>(await this.execute(params, req, runtime), new ExportGeneratedContentResponse({}));
+    }
+
   }
 
   /**
@@ -27684,7 +31104,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.callApi(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.callApi(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
+    } else {
+      return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.execute(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
+    }
+
   }
 
   /**
@@ -27726,7 +31151,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
+    } else {
+      return $tea.cast<ExportIntervenesResponse>(await this.execute(params, req, runtime), new ExportIntervenesResponse({}));
+    }
+
   }
 
   /**
@@ -27804,7 +31234,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FeedbackDialogueResponse>(await this.callApi(params, req, runtime), new FeedbackDialogueResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<FeedbackDialogueResponse>(await this.callApi(params, req, runtime), new FeedbackDialogueResponse({}));
+    } else {
+      return $tea.cast<FeedbackDialogueResponse>(await this.execute(params, req, runtime), new FeedbackDialogueResponse({}));
+    }
+
   }
 
   /**
@@ -27862,7 +31297,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<FetchImageTaskResponse>(await this.callApi(params, req, runtime), new FetchImageTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<FetchImageTaskResponse>(await this.callApi(params, req, runtime), new FetchImageTaskResponse({}));
+    } else {
+      return $tea.cast<FetchImageTaskResponse>(await this.execute(params, req, runtime), new FetchImageTaskResponse({}));
+    }
+
   }
 
   /**
@@ -27914,7 +31354,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
+    } else {
+      return $tea.cast<GenerateFileUrlByKeyResponse>(await this.execute(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
+    }
+
   }
 
   /**
@@ -27980,7 +31425,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateImageTaskResponse>(await this.callApi(params, req, runtime), new GenerateImageTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateImageTaskResponse>(await this.callApi(params, req, runtime), new GenerateImageTaskResponse({}));
+    } else {
+      return $tea.cast<GenerateImageTaskResponse>(await this.execute(params, req, runtime), new GenerateImageTaskResponse({}));
+    }
+
   }
 
   /**
@@ -28032,7 +31482,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
+    } else {
+      return $tea.cast<GenerateUploadConfigResponse>(await this.execute(params, req, runtime), new GenerateUploadConfigResponse({}));
+    }
+
   }
 
   /**
@@ -28086,7 +31541,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GenerateViewPointResponse>(await this.callApi(params, req, runtime), new GenerateViewPointResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GenerateViewPointResponse>(await this.callApi(params, req, runtime), new GenerateViewPointResponse({}));
+    } else {
+      return $tea.cast<GenerateViewPointResponse>(await this.execute(params, req, runtime), new GenerateViewPointResponse({}));
+    }
+
   }
 
   /**
@@ -28132,7 +31592,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCategoriesByTaskIdResponse>(await this.callApi(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCategoriesByTaskIdResponse>(await this.callApi(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
+    } else {
+      return $tea.cast<GetCategoriesByTaskIdResponse>(await this.execute(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
+    }
+
   }
 
   /**
@@ -28178,7 +31643,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
+    } else {
+      return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.execute(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
+    }
+
   }
 
   /**
@@ -28230,7 +31700,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomTextResponse>(await this.callApi(params, req, runtime), new GetCustomTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCustomTextResponse>(await this.callApi(params, req, runtime), new GetCustomTextResponse({}));
+    } else {
+      return $tea.cast<GetCustomTextResponse>(await this.execute(params, req, runtime), new GetCustomTextResponse({}));
+    }
+
   }
 
   /**
@@ -28278,7 +31753,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -28326,7 +31806,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
+    } else {
+      return $tea.cast<GetDataSourceOrderConfigResponse>(await this.execute(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
+    }
+
   }
 
   /**
@@ -28374,7 +31859,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDocClusterTaskResponse>(await this.callApi(params, req, runtime), new GetDocClusterTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetDocClusterTaskResponse>(await this.callApi(params, req, runtime), new GetDocClusterTaskResponse({}));
+    } else {
+      return $tea.cast<GetDocClusterTaskResponse>(await this.execute(params, req, runtime), new GetDocClusterTaskResponse({}));
+    }
+
   }
 
   /**
@@ -28424,7 +31914,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetDocInfoResponse>(await this.callApi(params, req, runtime), new GetDocInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetDocInfoResponse>(await this.callApi(params, req, runtime), new GetDocInfoResponse({}));
+    } else {
+      return $tea.cast<GetDocInfoResponse>(await this.execute(params, req, runtime), new GetDocInfoResponse({}));
+    }
+
   }
 
   /**
@@ -28470,7 +31965,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -28518,7 +32018,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetGeneratedContentResponse>(await this.callApi(params, req, runtime), new GetGeneratedContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetGeneratedContentResponse>(await this.callApi(params, req, runtime), new GetGeneratedContentResponse({}));
+    } else {
+      return $tea.cast<GetGeneratedContentResponse>(await this.execute(params, req, runtime), new GetGeneratedContentResponse({}));
+    }
+
   }
 
   /**
@@ -28606,7 +32111,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetHotTopicBroadcastResponse>(await this.callApi(params, req, runtime), new GetHotTopicBroadcastResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetHotTopicBroadcastResponse>(await this.callApi(params, req, runtime), new GetHotTopicBroadcastResponse({}));
+    } else {
+      return $tea.cast<GetHotTopicBroadcastResponse>(await this.execute(params, req, runtime), new GetHotTopicBroadcastResponse({}));
+    }
+
   }
 
   /**
@@ -28648,7 +32158,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
+    } else {
+      return $tea.cast<GetInterveneGlobalReplyResponse>(await this.execute(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
+    }
+
   }
 
   /**
@@ -28696,7 +32211,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
+    } else {
+      return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.execute(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
+    }
+
   }
 
   /**
@@ -28744,7 +32264,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
+    } else {
+      return $tea.cast<GetInterveneRuleDetailResponse>(await this.execute(params, req, runtime), new GetInterveneRuleDetailResponse({}));
+    }
+
   }
 
   /**
@@ -28786,7 +32311,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
+    } else {
+      return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.execute(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
+    }
+
   }
 
   /**
@@ -28834,7 +32364,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetMaterialByIdResponse>(await this.callApi(params, req, runtime), new GetMaterialByIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetMaterialByIdResponse>(await this.callApi(params, req, runtime), new GetMaterialByIdResponse({}));
+    } else {
+      return $tea.cast<GetMaterialByIdResponse>(await this.execute(params, req, runtime), new GetMaterialByIdResponse({}));
+    }
+
   }
 
   /**
@@ -28876,7 +32411,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetPropertiesResponse>(await this.callApi(params, req, runtime), new GetPropertiesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetPropertiesResponse>(await this.callApi(params, req, runtime), new GetPropertiesResponse({}));
+    } else {
+      return $tea.cast<GetPropertiesResponse>(await this.execute(params, req, runtime), new GetPropertiesResponse({}));
+    }
+
   }
 
   /**
@@ -28922,7 +32462,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetSmartClipTaskResponse>(await this.callApi(params, req, runtime), new GetSmartClipTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetSmartClipTaskResponse>(await this.callApi(params, req, runtime), new GetSmartClipTaskResponse({}));
+    } else {
+      return $tea.cast<GetSmartClipTaskResponse>(await this.execute(params, req, runtime), new GetSmartClipTaskResponse({}));
+    }
+
   }
 
   /**
@@ -28970,7 +32515,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTopicByIdResponse>(await this.callApi(params, req, runtime), new GetTopicByIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTopicByIdResponse>(await this.callApi(params, req, runtime), new GetTopicByIdResponse({}));
+    } else {
+      return $tea.cast<GetTopicByIdResponse>(await this.execute(params, req, runtime), new GetTopicByIdResponse({}));
+    }
+
   }
 
   /**
@@ -29018,7 +32568,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -29074,7 +32629,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
+    } else {
+      return $tea.cast<ImportInterveneFileResponse>(await this.execute(params, req, runtime), new ImportInterveneFileResponse({}));
+    }
+
   }
 
   /**
@@ -29130,7 +32690,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
+    } else {
+      return $tea.cast<ImportInterveneFileAsyncResponse>(await this.execute(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
+    }
+
   }
 
   /**
@@ -29184,7 +32749,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
+    } else {
+      return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.execute(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
+    }
+
   }
 
   /**
@@ -29238,7 +32808,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
+    } else {
+      return $tea.cast<InsertInterveneRuleResponse>(await this.execute(params, req, runtime), new InsertInterveneRuleResponse({}));
+    }
+
   }
 
   /**
@@ -29310,7 +32885,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
+    } else {
+      return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.execute(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
+    }
+
   }
 
   /**
@@ -29404,7 +32984,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
+    } else {
+      return $tea.cast<ListAsyncTasksResponse>(await this.execute(params, req, runtime), new ListAsyncTasksResponse({}));
+    }
+
   }
 
   /**
@@ -29456,7 +33041,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListBuildConfigsResponse>(await this.callApi(params, req, runtime), new ListBuildConfigsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListBuildConfigsResponse>(await this.callApi(params, req, runtime), new ListBuildConfigsResponse({}));
+    } else {
+      return $tea.cast<ListBuildConfigsResponse>(await this.execute(params, req, runtime), new ListBuildConfigsResponse({}));
+    }
+
   }
 
   /**
@@ -29504,7 +33094,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCustomTextResponse>(await this.callApi(params, req, runtime), new ListCustomTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCustomTextResponse>(await this.callApi(params, req, runtime), new ListCustomTextResponse({}));
+    } else {
+      return $tea.cast<ListCustomTextResponse>(await this.execute(params, req, runtime), new ListCustomTextResponse({}));
+    }
+
   }
 
   /**
@@ -29590,7 +33185,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListCustomViewPointsResponse>(await this.callApi(params, req, runtime), new ListCustomViewPointsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListCustomViewPointsResponse>(await this.callApi(params, req, runtime), new ListCustomViewPointsResponse({}));
+    } else {
+      return $tea.cast<ListCustomViewPointsResponse>(await this.execute(params, req, runtime), new ListCustomViewPointsResponse({}));
+    }
+
   }
 
   /**
@@ -29658,7 +33258,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDialoguesResponse>(await this.callApi(params, req, runtime), new ListDialoguesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListDialoguesResponse>(await this.callApi(params, req, runtime), new ListDialoguesResponse({}));
+    } else {
+      return $tea.cast<ListDialoguesResponse>(await this.execute(params, req, runtime), new ListDialoguesResponse({}));
+    }
+
   }
 
   /**
@@ -29734,7 +33339,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListDocsResponse>(await this.callApi(params, req, runtime), new ListDocsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListDocsResponse>(await this.callApi(params, req, runtime), new ListDocsResponse({}));
+    } else {
+      return $tea.cast<ListDocsResponse>(await this.execute(params, req, runtime), new ListDocsResponse({}));
+    }
+
   }
 
   /**
@@ -29794,7 +33404,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListFreshViewPointsResponse>(await this.callApi(params, req, runtime), new ListFreshViewPointsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListFreshViewPointsResponse>(await this.callApi(params, req, runtime), new ListFreshViewPointsResponse({}));
+    } else {
+      return $tea.cast<ListFreshViewPointsResponse>(await this.execute(params, req, runtime), new ListFreshViewPointsResponse({}));
+    }
+
   }
 
   /**
@@ -29870,7 +33485,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListGeneratedContentsResponse>(await this.callApi(params, req, runtime), new ListGeneratedContentsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListGeneratedContentsResponse>(await this.callApi(params, req, runtime), new ListGeneratedContentsResponse({}));
+    } else {
+      return $tea.cast<ListGeneratedContentsResponse>(await this.execute(params, req, runtime), new ListGeneratedContentsResponse({}));
+    }
+
   }
 
   /**
@@ -29936,7 +33556,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotNewsWithTypeResponse>(await this.callApi(params, req, runtime), new ListHotNewsWithTypeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListHotNewsWithTypeResponse>(await this.callApi(params, req, runtime), new ListHotNewsWithTypeResponse({}));
+    } else {
+      return $tea.cast<ListHotNewsWithTypeResponse>(await this.execute(params, req, runtime), new ListHotNewsWithTypeResponse({}));
+    }
+
   }
 
   /**
@@ -29988,7 +33613,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotSourcesResponse>(await this.callApi(params, req, runtime), new ListHotSourcesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListHotSourcesResponse>(await this.callApi(params, req, runtime), new ListHotSourcesResponse({}));
+    } else {
+      return $tea.cast<ListHotSourcesResponse>(await this.execute(params, req, runtime), new ListHotSourcesResponse({}));
+    }
+
   }
 
   /**
@@ -30074,7 +33704,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotTopicsResponse>(await this.callApi(params, req, runtime), new ListHotTopicsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListHotTopicsResponse>(await this.callApi(params, req, runtime), new ListHotTopicsResponse({}));
+    } else {
+      return $tea.cast<ListHotTopicsResponse>(await this.execute(params, req, runtime), new ListHotTopicsResponse({}));
+    }
+
   }
 
   /**
@@ -30134,7 +33769,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListHotViewPointsResponse>(await this.callApi(params, req, runtime), new ListHotViewPointsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListHotViewPointsResponse>(await this.callApi(params, req, runtime), new ListHotViewPointsResponse({}));
+    } else {
+      return $tea.cast<ListHotViewPointsResponse>(await this.execute(params, req, runtime), new ListHotViewPointsResponse({}));
+    }
+
   }
 
   /**
@@ -30186,7 +33826,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
+    } else {
+      return $tea.cast<ListInterveneCntResponse>(await this.execute(params, req, runtime), new ListInterveneCntResponse({}));
+    }
+
   }
 
   /**
@@ -30238,7 +33883,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
+    } else {
+      return $tea.cast<ListInterveneImportTasksResponse>(await this.execute(params, req, runtime), new ListInterveneImportTasksResponse({}));
+    }
+
   }
 
   /**
@@ -30290,7 +33940,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
+    } else {
+      return $tea.cast<ListInterveneRulesResponse>(await this.execute(params, req, runtime), new ListInterveneRulesResponse({}));
+    }
+
   }
 
   /**
@@ -30354,7 +34009,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
+    } else {
+      return $tea.cast<ListIntervenesResponse>(await this.execute(params, req, runtime), new ListIntervenesResponse({}));
+    }
+
   }
 
   /**
@@ -30468,7 +34128,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListMaterialDocumentsResponse>(await this.callApi(params, req, runtime), new ListMaterialDocumentsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListMaterialDocumentsResponse>(await this.callApi(params, req, runtime), new ListMaterialDocumentsResponse({}));
+    } else {
+      return $tea.cast<ListMaterialDocumentsResponse>(await this.execute(params, req, runtime), new ListMaterialDocumentsResponse({}));
+    }
+
   }
 
   /**
@@ -30558,7 +34223,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListPlanningProposalResponse>(await this.callApi(params, req, runtime), new ListPlanningProposalResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListPlanningProposalResponse>(await this.callApi(params, req, runtime), new ListPlanningProposalResponse({}));
+    } else {
+      return $tea.cast<ListPlanningProposalResponse>(await this.execute(params, req, runtime), new ListPlanningProposalResponse({}));
+    }
+
   }
 
   /**
@@ -30618,7 +34288,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTimedViewAttitudeResponse>(await this.callApi(params, req, runtime), new ListTimedViewAttitudeResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTimedViewAttitudeResponse>(await this.callApi(params, req, runtime), new ListTimedViewAttitudeResponse({}));
+    } else {
+      return $tea.cast<ListTimedViewAttitudeResponse>(await this.execute(params, req, runtime), new ListTimedViewAttitudeResponse({}));
+    }
+
   }
 
   /**
@@ -30670,7 +34345,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTopicRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicRecommendEventListResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTopicRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicRecommendEventListResponse({}));
+    } else {
+      return $tea.cast<ListTopicRecommendEventListResponse>(await this.execute(params, req, runtime), new ListTopicRecommendEventListResponse({}));
+    }
+
   }
 
   /**
@@ -30726,7 +34406,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
+    } else {
+      return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.execute(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
+    }
+
   }
 
   /**
@@ -30768,7 +34453,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
+    } else {
+      return $tea.cast<ListVersionsResponse>(await this.execute(params, req, runtime), new ListVersionsResponse({}));
+    }
+
   }
 
   /**
@@ -30828,7 +34518,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ListWebReviewPointsResponse>(await this.callApi(params, req, runtime), new ListWebReviewPointsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ListWebReviewPointsResponse>(await this.callApi(params, req, runtime), new ListWebReviewPointsResponse({}));
+    } else {
+      return $tea.cast<ListWebReviewPointsResponse>(await this.execute(params, req, runtime), new ListWebReviewPointsResponse({}));
+    }
+
   }
 
   /**
@@ -30876,7 +34571,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<QueryAsyncTaskResponse>(await this.callApi(params, req, runtime), new QueryAsyncTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryAsyncTaskResponse>(await this.callApi(params, req, runtime), new QueryAsyncTaskResponse({}));
+    } else {
+      return $tea.cast<QueryAsyncTaskResponse>(await this.execute(params, req, runtime), new QueryAsyncTaskResponse({}));
+    }
+
   }
 
   /**
@@ -30922,7 +34622,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunAbbreviationContentResponse>(await this.callApi(params, req, runtime), new RunAbbreviationContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunAbbreviationContentResponse>(await this.callApi(params, req, runtime), new RunAbbreviationContentResponse({}));
+    } else {
+      return $tea.cast<RunAbbreviationContentResponse>(await this.execute(params, req, runtime), new RunAbbreviationContentResponse({}));
+    }
+
   }
 
   /**
@@ -30968,7 +34673,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunContinueContentResponse>(await this.callApi(params, req, runtime), new RunContinueContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunContinueContentResponse>(await this.callApi(params, req, runtime), new RunContinueContentResponse({}));
+    } else {
+      return $tea.cast<RunContinueContentResponse>(await this.execute(params, req, runtime), new RunContinueContentResponse({}));
+    }
+
   }
 
   /**
@@ -31034,7 +34744,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
+    } else {
+      return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.execute(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
+    }
+
   }
 
   /**
@@ -31112,7 +34827,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
+    } else {
+      return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.execute(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
+    }
+
   }
 
   /**
@@ -31162,7 +34882,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunDocBrainmapResponse>(await this.callApi(params, req, runtime), new RunDocBrainmapResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunDocBrainmapResponse>(await this.callApi(params, req, runtime), new RunDocBrainmapResponse({}));
+    } else {
+      return $tea.cast<RunDocBrainmapResponse>(await this.execute(params, req, runtime), new RunDocBrainmapResponse({}));
+    }
+
   }
 
   /**
@@ -31212,7 +34937,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunDocIntroductionResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunDocIntroductionResponse({}));
+    } else {
+      return $tea.cast<RunDocIntroductionResponse>(await this.execute(params, req, runtime), new RunDocIntroductionResponse({}));
+    }
+
   }
 
   /**
@@ -31296,7 +35026,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunDocQaResponse>(await this.callApi(params, req, runtime), new RunDocQaResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunDocQaResponse>(await this.callApi(params, req, runtime), new RunDocQaResponse({}));
+    } else {
+      return $tea.cast<RunDocQaResponse>(await this.execute(params, req, runtime), new RunDocQaResponse({}));
+    }
+
   }
 
   /**
@@ -31354,7 +35089,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunDocSummaryResponse>(await this.callApi(params, req, runtime), new RunDocSummaryResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunDocSummaryResponse>(await this.callApi(params, req, runtime), new RunDocSummaryResponse({}));
+    } else {
+      return $tea.cast<RunDocSummaryResponse>(await this.execute(params, req, runtime), new RunDocSummaryResponse({}));
+    }
+
   }
 
   /**
@@ -31412,7 +35152,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunDocTranslationResponse>(await this.callApi(params, req, runtime), new RunDocTranslationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunDocTranslationResponse>(await this.callApi(params, req, runtime), new RunDocTranslationResponse({}));
+    } else {
+      return $tea.cast<RunDocTranslationResponse>(await this.execute(params, req, runtime), new RunDocTranslationResponse({}));
+    }
+
   }
 
   /**
@@ -31458,7 +35203,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunExpandContentResponse>(await this.callApi(params, req, runtime), new RunExpandContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunExpandContentResponse>(await this.callApi(params, req, runtime), new RunExpandContentResponse({}));
+    } else {
+      return $tea.cast<RunExpandContentResponse>(await this.execute(params, req, runtime), new RunExpandContentResponse({}));
+    }
+
   }
 
   /**
@@ -31514,7 +35264,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.callApi(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.callApi(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
+    } else {
+      return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.execute(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
+    }
+
   }
 
   /**
@@ -31526,6 +35281,83 @@ export default class Client extends OpenApi {
   async runKeywordsExtractionGeneration(request: RunKeywordsExtractionGenerationRequest): Promise<RunKeywordsExtractionGenerationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.runKeywordsExtractionGenerationWithOptions(request, runtime);
+  }
+
+  /**
+   * AI妙搜-智能搜索生成
+   * 
+   * @param tmpReq - RunSearchGenerationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSearchGenerationResponse
+   */
+  async runSearchGenerationWithOptions(tmpReq: RunSearchGenerationRequest, runtime: $Util.RuntimeOptions): Promise<RunSearchGenerationResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunSearchGenerationShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.agentContext)) {
+      request.agentContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.agentContext, "AgentContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.chatConfig)) {
+      request.chatConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.chatConfig, "ChatConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.agentContextShrink)) {
+      body["AgentContext"] = request.agentContextShrink;
+    }
+
+    if (!Util.isUnset(request.chatConfigShrink)) {
+      body["ChatConfig"] = request.chatConfigShrink;
+    }
+
+    if (!Util.isUnset(request.originalSessionId)) {
+      body["OriginalSessionId"] = request.originalSessionId;
+    }
+
+    if (!Util.isUnset(request.prompt)) {
+      body["Prompt"] = request.prompt;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunSearchGeneration",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunSearchGenerationResponse>(await this.callApi(params, req, runtime), new RunSearchGenerationResponse({}));
+    } else {
+      return $tea.cast<RunSearchGenerationResponse>(await this.execute(params, req, runtime), new RunSearchGenerationResponse({}));
+    }
+
+  }
+
+  /**
+   * AI妙搜-智能搜索生成
+   * 
+   * @param request - RunSearchGenerationRequest
+   * @returns RunSearchGenerationResponse
+   */
+  async runSearchGeneration(request: RunSearchGenerationRequest): Promise<RunSearchGenerationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.runSearchGenerationWithOptions(request, runtime);
   }
 
   /**
@@ -31590,7 +35422,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunStepByStepWritingResponse>(await this.callApi(params, req, runtime), new RunStepByStepWritingResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunStepByStepWritingResponse>(await this.callApi(params, req, runtime), new RunStepByStepWritingResponse({}));
+    } else {
+      return $tea.cast<RunStepByStepWritingResponse>(await this.execute(params, req, runtime), new RunStepByStepWritingResponse({}));
+    }
+
   }
 
   /**
@@ -31650,7 +35487,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.callApi(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.callApi(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
+    } else {
+      return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.execute(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
+    }
+
   }
 
   /**
@@ -31700,7 +35542,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunSummaryGenerateResponse>(await this.callApi(params, req, runtime), new RunSummaryGenerateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunSummaryGenerateResponse>(await this.callApi(params, req, runtime), new RunSummaryGenerateResponse({}));
+    } else {
+      return $tea.cast<RunSummaryGenerateResponse>(await this.execute(params, req, runtime), new RunSummaryGenerateResponse({}));
+    }
+
   }
 
   /**
@@ -31746,7 +35593,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunTextPolishingResponse>(await this.callApi(params, req, runtime), new RunTextPolishingResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunTextPolishingResponse>(await this.callApi(params, req, runtime), new RunTextPolishingResponse({}));
+    } else {
+      return $tea.cast<RunTextPolishingResponse>(await this.execute(params, req, runtime), new RunTextPolishingResponse({}));
+    }
+
   }
 
   /**
@@ -31802,7 +35654,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunTitleGenerationResponse>(await this.callApi(params, req, runtime), new RunTitleGenerationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunTitleGenerationResponse>(await this.callApi(params, req, runtime), new RunTitleGenerationResponse({}));
+    } else {
+      return $tea.cast<RunTitleGenerationResponse>(await this.execute(params, req, runtime), new RunTitleGenerationResponse({}));
+    }
+
   }
 
   /**
@@ -31862,7 +35719,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunTranslateGenerationResponse>(await this.callApi(params, req, runtime), new RunTranslateGenerationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunTranslateGenerationResponse>(await this.callApi(params, req, runtime), new RunTranslateGenerationResponse({}));
+    } else {
+      return $tea.cast<RunTranslateGenerationResponse>(await this.execute(params, req, runtime), new RunTranslateGenerationResponse({}));
+    }
+
   }
 
   /**
@@ -31922,7 +35784,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunWriteToneGenerationResponse>(await this.callApi(params, req, runtime), new RunWriteToneGenerationResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunWriteToneGenerationResponse>(await this.callApi(params, req, runtime), new RunWriteToneGenerationResponse({}));
+    } else {
+      return $tea.cast<RunWriteToneGenerationResponse>(await this.execute(params, req, runtime), new RunWriteToneGenerationResponse({}));
+    }
+
   }
 
   /**
@@ -31998,7 +35865,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<RunWritingResponse>(await this.callApi(params, req, runtime), new RunWritingResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<RunWritingResponse>(await this.callApi(params, req, runtime), new RunWritingResponse({}));
+    } else {
+      return $tea.cast<RunWritingResponse>(await this.execute(params, req, runtime), new RunWritingResponse({}));
+    }
+
   }
 
   /**
@@ -32054,7 +35926,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveCustomTextResponse>(await this.callApi(params, req, runtime), new SaveCustomTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SaveCustomTextResponse>(await this.callApi(params, req, runtime), new SaveCustomTextResponse({}));
+    } else {
+      return $tea.cast<SaveCustomTextResponse>(await this.execute(params, req, runtime), new SaveCustomTextResponse({}));
+    }
+
   }
 
   /**
@@ -32112,7 +35989,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
+    } else {
+      return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.execute(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
+    }
+
   }
 
   /**
@@ -32214,7 +36096,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SaveMaterialDocumentResponse>(await this.callApi(params, req, runtime), new SaveMaterialDocumentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SaveMaterialDocumentResponse>(await this.callApi(params, req, runtime), new SaveMaterialDocumentResponse({}));
+    } else {
+      return $tea.cast<SaveMaterialDocumentResponse>(await this.execute(params, req, runtime), new SaveMaterialDocumentResponse({}));
+    }
+
   }
 
   /**
@@ -32288,7 +36175,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
+    } else {
+      return $tea.cast<SearchNewsResponse>(await this.execute(params, req, runtime), new SearchNewsResponse({}));
+    }
+
   }
 
   /**
@@ -32348,7 +36240,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitAsyncTaskResponse>(await this.callApi(params, req, runtime), new SubmitAsyncTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitAsyncTaskResponse>(await this.callApi(params, req, runtime), new SubmitAsyncTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitAsyncTaskResponse>(await this.execute(params, req, runtime), new SubmitAsyncTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32412,7 +36309,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
+    } else {
+      return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.execute(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
+    }
+
   }
 
   /**
@@ -32474,7 +36376,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32540,7 +36447,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitDocClusterTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocClusterTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitDocClusterTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocClusterTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitDocClusterTaskResponse>(await this.execute(params, req, runtime), new SubmitDocClusterTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32632,7 +36544,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32700,7 +36617,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitSmartClipTaskResponse>(await this.callApi(params, req, runtime), new SubmitSmartClipTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitSmartClipTaskResponse>(await this.callApi(params, req, runtime), new SubmitSmartClipTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitSmartClipTaskResponse>(await this.execute(params, req, runtime), new SubmitSmartClipTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32766,7 +36688,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    } else {
+      return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
+    }
+
   }
 
   /**
@@ -32826,7 +36753,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateCustomTextResponse>(await this.callApi(params, req, runtime), new UpdateCustomTextResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateCustomTextResponse>(await this.callApi(params, req, runtime), new UpdateCustomTextResponse({}));
+    } else {
+      return $tea.cast<UpdateCustomTextResponse>(await this.execute(params, req, runtime), new UpdateCustomTextResponse({}));
+    }
+
   }
 
   /**
@@ -32900,7 +36832,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
+    } else {
+      return $tea.cast<UpdateGeneratedContentResponse>(await this.execute(params, req, runtime), new UpdateGeneratedContentResponse({}));
+    }
+
   }
 
   /**
@@ -33006,7 +36943,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UpdateMaterialDocumentResponse>(await this.callApi(params, req, runtime), new UpdateMaterialDocumentResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UpdateMaterialDocumentResponse>(await this.callApi(params, req, runtime), new UpdateMaterialDocumentResponse({}));
+    } else {
+      return $tea.cast<UpdateMaterialDocumentResponse>(await this.execute(params, req, runtime), new UpdateMaterialDocumentResponse({}));
+    }
+
   }
 
   /**
@@ -33062,7 +37004,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<UploadDocResponse>(await this.callApi(params, req, runtime), new UploadDocResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<UploadDocResponse>(await this.callApi(params, req, runtime), new UploadDocResponse({}));
+    } else {
+      return $tea.cast<UploadDocResponse>(await this.execute(params, req, runtime), new UploadDocResponse({}));
+    }
+
   }
 
   /**
@@ -33116,7 +37063,12 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    return $tea.cast<ValidateUploadTemplateResponse>(await this.callApi(params, req, runtime), new ValidateUploadTemplateResponse({}));
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<ValidateUploadTemplateResponse>(await this.callApi(params, req, runtime), new ValidateUploadTemplateResponse({}));
+    } else {
+      return $tea.cast<ValidateUploadTemplateResponse>(await this.execute(params, req, runtime), new ValidateUploadTemplateResponse({}));
+    }
+
   }
 
   /**
