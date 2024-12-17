@@ -1049,6 +1049,98 @@ export class BatchGetProjectTaskResponse extends $tea.Model {
   }
 }
 
+export class BatchQueryIndividuationTextRequest extends $tea.Model {
+  textIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      textIdList: 'textIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      textIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryIndividuationTextShrinkRequest extends $tea.Model {
+  textIdListShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      textIdListShrink: 'textIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      textIdListShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryIndividuationTextResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 14878724-A835-578D-9DD5-4779ADCE9221
+   */
+  requestId?: string;
+  textList?: BatchQueryIndividuationTextResponseBodyTextList[];
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      textList: 'textList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      textList: { 'type': 'array', 'itemType': BatchQueryIndividuationTextResponseBodyTextList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchQueryIndividuationTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchQueryIndividuationTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchQueryIndividuationTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckSessionRequest extends $tea.Model {
   /**
    * @example
@@ -1428,6 +1520,128 @@ export class CreateAICoachTaskSessionResponse extends $tea.Model {
   }
 }
 
+export class CreateAnchorRequest extends $tea.Model {
+  anchorMaterialName?: string;
+  /**
+   * @example
+   * https://yic-pre.oss-cn-hangzhou.aliyuncs.com/common/image/anchor/1733474220549-1733474198960image.png?Expires=3311144948&OSSAccessKeyId=LTAI5tPHLyFPhh4UoRias4Zg&Signature=qldDufvRDj9IUTmOtb9r2451RIU%3D
+   */
+  coverUrl?: string;
+  digitalHumanType?: string;
+  /**
+   * @example
+   * F
+   */
+  gender?: string;
+  /**
+   * @example
+   * offlineSynthesis
+   */
+  useScene?: string;
+  static names(): { [key: string]: string } {
+    return {
+      anchorMaterialName: 'anchorMaterialName',
+      coverUrl: 'coverUrl',
+      digitalHumanType: 'digitalHumanType',
+      gender: 'gender',
+      useScene: 'useScene',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      anchorMaterialName: 'string',
+      coverUrl: 'string',
+      digitalHumanType: 'string',
+      gender: 'string',
+      useScene: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnchorResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 123456789
+   */
+  data?: string;
+  /**
+   * @example
+   * PARAM_ERROR
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * Failed to proxy flink ui request, message: An error occurred: Invalid UUID string: jobsn
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 10923AA3-F7A1-5EA0-ACCA-D704269EAA78
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAnchorResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAnchorResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateAnchorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIllustrationTaskRequest extends $tea.Model {
   body?: IllustrationTaskCreateCmd;
   static names(): { [key: string]: string } {
@@ -1464,6 +1678,184 @@ export class CreateIllustrationTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: IllustrationTaskResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationProjectRequest extends $tea.Model {
+  projectInfo?: string;
+  /**
+   * @example
+   * avatar-1
+   */
+  projectName?: string;
+  purpose?: string;
+  /**
+   * @example
+   * ail003
+   */
+  sceneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectInfo: 'projectInfo',
+      projectName: 'projectName',
+      purpose: 'purpose',
+      sceneId: 'sceneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectInfo: 'string',
+      projectName: 'string',
+      purpose: 'string',
+      sceneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationProjectResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 812907463682949120
+   */
+  projectId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4D902811-B75C-5D1B-8882-D515F8E2F977
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'projectId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIndividuationProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIndividuationProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationTextTaskRequest extends $tea.Model {
+  crowdPack?: string[][];
+  /**
+   * @example
+   * 840015278620459008
+   */
+  projectId?: string;
+  taskName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crowdPack: 'crowdPack',
+      projectId: 'projectId',
+      taskName: 'taskName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crowdPack: { 'type': 'array', 'itemType': { 'type': 'array', 'itemType': 'string' } },
+      projectId: 'string',
+      taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationTextTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 56AC346B-AF40-5E4F-AFFE-FD8BA5E6FB3A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 837091359375048704
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateIndividuationTextTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateIndividuationTextTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateIndividuationTextTaskResponseBody,
     };
   }
 
@@ -1668,6 +2060,170 @@ export class CreateTextTaskResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TextTaskResult,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationProjectRequest extends $tea.Model {
+  /**
+   * @example
+   * 840015278620459008
+   */
+  projectId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      projectId: 'projectId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      projectId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationProjectResponseBody extends $tea.Model {
+  desc?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
+  requestId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      requestId: 'requestId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationProjectResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndividuationProjectResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIndividuationProjectResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationTextRequest extends $tea.Model {
+  textIdList?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      textIdList: 'textIdList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      textIdList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationTextResponseBody extends $tea.Model {
+  desc?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 4830493A-728F-5F19-BBCC-1443292E9C49
+   */
+  requestId?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      desc: 'desc',
+      requestId: 'requestId',
+      status: 'status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      desc: 'string',
+      requestId: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteIndividuationTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteIndividuationTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteIndividuationTextResponseBody,
     };
   }
 
@@ -3369,6 +3925,104 @@ export class QueryAvatarResourceResponse extends $tea.Model {
   }
 }
 
+export class QueryIndividuationTextTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 829682927337963520
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskId: 'taskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIndividuationTextTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  createTime?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 56AC346B-AF40-5E4F-AFFE-FD8BA5E6FB3A
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  textList?: QueryIndividuationTextTaskResponseBodyTextList[];
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'createTime',
+      requestId: 'requestId',
+      status: 'status',
+      textList: 'textList',
+      updateTime: 'updateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      requestId: 'string',
+      status: 'number',
+      textList: { 'type': 'array', 'itemType': QueryIndividuationTextTaskResponseBodyTextList },
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIndividuationTextTaskResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryIndividuationTextTaskResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryIndividuationTextTaskResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QuerySessionInfoRequest extends $tea.Model {
   /**
    * @example
@@ -3920,6 +4574,132 @@ export class SelectResourceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: SelectResourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSdkMessageRequest extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  data?: string;
+  /**
+   * @example
+   * avatar
+   */
+  moduleName?: string;
+  /**
+   * @example
+   * getProject
+   */
+  operationName?: string;
+  /**
+   * @example
+   * 123
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      moduleName: 'moduleName',
+      operationName: 'operationName',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      moduleName: 'string',
+      operationName: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSdkMessageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  data?: string;
+  /**
+   * @example
+   * system-01
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * SYSTEM_ERROR
+   */
+  errorMessage?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * true
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SendSdkMessageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendSdkMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SendSdkMessageResponseBody,
     };
   }
 
@@ -4555,6 +5335,88 @@ export class BatchGetProjectTaskResponseBodyResultList extends $tea.Model {
   }
 }
 
+export class BatchQueryIndividuationTextResponseBodyTextList extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  errorMsg?: string;
+  /**
+   * @example
+   * 2849286
+   */
+  itemId?: string;
+  /**
+   * @example
+   * 812884915104530432
+   */
+  projectId?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: string;
+  /**
+   * @example
+   * 837074737851613184
+   */
+  taskId?: string;
+  /**
+   * @example
+   * 110825
+   */
+  textId?: string;
+  /**
+   * @example
+   * yyyy-MM-dd HH:mm:ss
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 11
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      createTime: 'createTime',
+      errorMsg: 'errorMsg',
+      itemId: 'itemId',
+      projectId: 'projectId',
+      status: 'status',
+      taskId: 'taskId',
+      textId: 'textId',
+      updateTime: 'updateTime',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      createTime: 'string',
+      errorMsg: 'string',
+      itemId: 'string',
+      projectId: 'string',
+      status: 'string',
+      taskId: 'string',
+      textId: 'string',
+      updateTime: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CountTextResponseBodyCountTextCmdList extends $tea.Model {
   /**
    * @example
@@ -4967,6 +5829,43 @@ export class QueryAvatarResourceResponseBodyQueryResourceInfoList extends $tea.M
       resourceId: 'string',
       type: 'string',
       validPeriodTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryIndividuationTextTaskResponseBodyTextList extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  status?: number;
+  /**
+   * @example
+   * 2761
+   */
+  textId?: string;
+  /**
+   * @example
+   * 11
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      status: 'status',
+      textId: 'textId',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      status: 'number',
+      textId: 'string',
+      userId: 'string',
     };
   }
 
@@ -5673,6 +6572,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 批量查询文案
+   * 
+   * @param tmpReq - BatchQueryIndividuationTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchQueryIndividuationTextResponse
+   */
+  async batchQueryIndividuationTextWithOptions(tmpReq: BatchQueryIndividuationTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<BatchQueryIndividuationTextResponse> {
+    Util.validateModel(tmpReq);
+    let request = new BatchQueryIndividuationTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.textIdList)) {
+      request.textIdListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.textIdList, "textIdList", "simple");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.textIdListShrink)) {
+      query["textIdList"] = request.textIdListShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchQueryIndividuationText",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/batchQueryText`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<BatchQueryIndividuationTextResponse>(await this.callApi(params, req, runtime), new BatchQueryIndividuationTextResponse({}));
+    } else {
+      return $tea.cast<BatchQueryIndividuationTextResponse>(await this.execute(params, req, runtime), new BatchQueryIndividuationTextResponse({}));
+    }
+
+  }
+
+  /**
+   * 批量查询文案
+   * 
+   * @param request - BatchQueryIndividuationTextRequest
+   * @returns BatchQueryIndividuationTextResponse
+   */
+  async batchQueryIndividuationText(request: BatchQueryIndividuationTextRequest): Promise<BatchQueryIndividuationTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.batchQueryIndividuationTextWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 检查会话状态
    * 
    * @param request - CheckSessionRequest
@@ -5897,6 +6852,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建照片数字人
+   * 
+   * @param request - CreateAnchorRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAnchorResponse
+   */
+  async createAnchorWithOptions(request: CreateAnchorRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateAnchorResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.anchorMaterialName)) {
+      body["anchorMaterialName"] = request.anchorMaterialName;
+    }
+
+    if (!Util.isUnset(request.coverUrl)) {
+      body["coverUrl"] = request.coverUrl;
+    }
+
+    if (!Util.isUnset(request.digitalHumanType)) {
+      body["digitalHumanType"] = request.digitalHumanType;
+    }
+
+    if (!Util.isUnset(request.gender)) {
+      body["gender"] = request.gender;
+    }
+
+    if (!Util.isUnset(request.useScene)) {
+      body["useScene"] = request.useScene;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateAnchor",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/digitalHuman/anchorOpen/createAnchor`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateAnchorResponse>(await this.callApi(params, req, runtime), new CreateAnchorResponse({}));
+    } else {
+      return $tea.cast<CreateAnchorResponse>(await this.execute(params, req, runtime), new CreateAnchorResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建照片数字人
+   * 
+   * @param request - CreateAnchorRequest
+   * @returns CreateAnchorResponse
+   */
+  async createAnchor(request: CreateAnchorRequest): Promise<CreateAnchorResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAnchorWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 创建配图生成任务
    * 
    * @param request - CreateIllustrationTaskRequest
@@ -5939,6 +6960,126 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createIllustrationTaskWithOptions(textId, request, headers, runtime);
+  }
+
+  /**
+   * 创建个性化文案项目
+   * 
+   * @param request - CreateIndividuationProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIndividuationProjectResponse
+   */
+  async createIndividuationProjectWithOptions(request: CreateIndividuationProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndividuationProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectInfo)) {
+      body["projectInfo"] = request.projectInfo;
+    }
+
+    if (!Util.isUnset(request.projectName)) {
+      body["projectName"] = request.projectName;
+    }
+
+    if (!Util.isUnset(request.purpose)) {
+      body["purpose"] = request.purpose;
+    }
+
+    if (!Util.isUnset(request.sceneId)) {
+      body["sceneId"] = request.sceneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIndividuationProject",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/createProject`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateIndividuationProjectResponse>(await this.callApi(params, req, runtime), new CreateIndividuationProjectResponse({}));
+    } else {
+      return $tea.cast<CreateIndividuationProjectResponse>(await this.execute(params, req, runtime), new CreateIndividuationProjectResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建个性化文案项目
+   * 
+   * @param request - CreateIndividuationProjectRequest
+   * @returns CreateIndividuationProjectResponse
+   */
+  async createIndividuationProject(request: CreateIndividuationProjectRequest): Promise<CreateIndividuationProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createIndividuationProjectWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 创建个性化文案任务
+   * 
+   * @param request - CreateIndividuationTextTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateIndividuationTextTaskResponse
+   */
+  async createIndividuationTextTaskWithOptions(request: CreateIndividuationTextTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateIndividuationTextTaskResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.crowdPack)) {
+      body["crowdPack"] = request.crowdPack;
+    }
+
+    if (!Util.isUnset(request.projectId)) {
+      body["projectId"] = request.projectId;
+    }
+
+    if (!Util.isUnset(request.taskName)) {
+      body["taskName"] = request.taskName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateIndividuationTextTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/createTextTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<CreateIndividuationTextTaskResponse>(await this.callApi(params, req, runtime), new CreateIndividuationTextTaskResponse({}));
+    } else {
+      return $tea.cast<CreateIndividuationTextTaskResponse>(await this.execute(params, req, runtime), new CreateIndividuationTextTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 创建个性化文案任务
+   * 
+   * @param request - CreateIndividuationTextTaskRequest
+   * @returns CreateIndividuationTextTaskResponse
+   */
+  async createIndividuationTextTask(request: CreateIndividuationTextTaskRequest): Promise<CreateIndividuationTextTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createIndividuationTextTaskWithOptions(request, headers, runtime);
   }
 
   /**
@@ -6086,6 +7227,106 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createTextTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除个性化文案项目
+   * 
+   * @param request - DeleteIndividuationProjectRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndividuationProjectResponse
+   */
+  async deleteIndividuationProjectWithOptions(request: DeleteIndividuationProjectRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndividuationProjectResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.projectId)) {
+      body["projectId"] = request.projectId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIndividuationProject",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/deleteProject`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteIndividuationProjectResponse>(await this.callApi(params, req, runtime), new DeleteIndividuationProjectResponse({}));
+    } else {
+      return $tea.cast<DeleteIndividuationProjectResponse>(await this.execute(params, req, runtime), new DeleteIndividuationProjectResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除个性化文案项目
+   * 
+   * @param request - DeleteIndividuationProjectRequest
+   * @returns DeleteIndividuationProjectResponse
+   */
+  async deleteIndividuationProject(request: DeleteIndividuationProjectRequest): Promise<DeleteIndividuationProjectResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteIndividuationProjectWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 删除个性化文案
+   * 
+   * @param request - DeleteIndividuationTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteIndividuationTextResponse
+   */
+  async deleteIndividuationTextWithOptions(request: DeleteIndividuationTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DeleteIndividuationTextResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.textIdList)) {
+      body["textIdList"] = request.textIdList;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteIndividuationText",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/deleteText`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<DeleteIndividuationTextResponse>(await this.callApi(params, req, runtime), new DeleteIndividuationTextResponse({}));
+    } else {
+      return $tea.cast<DeleteIndividuationTextResponse>(await this.execute(params, req, runtime), new DeleteIndividuationTextResponse({}));
+    }
+
+  }
+
+  /**
+   * 删除个性化文案
+   * 
+   * @param request - DeleteIndividuationTextRequest
+   * @returns DeleteIndividuationTextResponse
+   */
+  async deleteIndividuationText(request: DeleteIndividuationTextRequest): Promise<DeleteIndividuationTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteIndividuationTextWithOptions(request, headers, runtime);
   }
 
   /**
@@ -7191,6 +8432,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询个性化文案任务
+   * 
+   * @param request - QueryIndividuationTextTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryIndividuationTextTaskResponse
+   */
+  async queryIndividuationTextTaskWithOptions(request: QueryIndividuationTextTaskRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<QueryIndividuationTextTaskResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.taskId)) {
+      query["taskId"] = request.taskId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryIndividuationTextTask",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/individuationText/queryTextTask`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<QueryIndividuationTextTaskResponse>(await this.callApi(params, req, runtime), new QueryIndividuationTextTaskResponse({}));
+    } else {
+      return $tea.cast<QueryIndividuationTextTaskResponse>(await this.execute(params, req, runtime), new QueryIndividuationTextTaskResponse({}));
+    }
+
+  }
+
+  /**
+   * 查询个性化文案任务
+   * 
+   * @param request - QueryIndividuationTextTaskRequest
+   * @returns QueryIndividuationTextTaskResponse
+   */
+  async queryIndividuationTextTask(request: QueryIndividuationTextTaskRequest): Promise<QueryIndividuationTextTaskResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.queryIndividuationTextTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 查询会话信息
    * 
    * @param tmpReq - QuerySessionInfoRequest
@@ -7460,6 +8751,68 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.selectResourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 发送sdk消息
+   * 
+   * @param request - SendSdkMessageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendSdkMessageResponse
+   */
+  async sendSdkMessageWithOptions(request: SendSdkMessageRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SendSdkMessageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.data)) {
+      body["data"] = request.data;
+    }
+
+    if (!Util.isUnset(request.moduleName)) {
+      body["moduleName"] = request.moduleName;
+    }
+
+    if (!Util.isUnset(request.operationName)) {
+      body["operationName"] = request.operationName;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SendSdkMessage",
+      version: "2024-03-13",
+      protocol: "HTTPS",
+      pathname: `/yic/yic-console/openService/v1/sdk/sendMessage`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
+      return $tea.cast<SendSdkMessageResponse>(await this.callApi(params, req, runtime), new SendSdkMessageResponse({}));
+    } else {
+      return $tea.cast<SendSdkMessageResponse>(await this.execute(params, req, runtime), new SendSdkMessageResponse({}));
+    }
+
+  }
+
+  /**
+   * 发送sdk消息
+   * 
+   * @param request - SendSdkMessageRequest
+   * @returns SendSdkMessageResponse
+   */
+  async sendSdkMessage(request: SendSdkMessageRequest): Promise<SendSdkMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.sendSdkMessageWithOptions(request, headers, runtime);
   }
 
   /**
