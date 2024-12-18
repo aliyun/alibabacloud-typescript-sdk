@@ -2,11 +2,183 @@
 /**
  */
 import Util, * as $Util from '@alicloud/tea-util';
-import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
 import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
+
+export class AddDatasetDocumentRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  document?: AddDatasetDocumentRequestDocument;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      document: 'Document',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      document: AddDatasetDocumentRequestDocument,
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  documentShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      documentShrink: 'Document',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      documentShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: AddDatasetDocumentResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: AddDatasetDocumentResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDatasetDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDatasetDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
 
 export class CancelAsyncTaskRequest extends $tea.Model {
   /**
@@ -221,6 +393,211 @@ export class ClearIntervenesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ClearIntervenesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequest extends $tea.Model {
+  datasetConfig?: CreateDatasetRequestDatasetConfig;
+  /**
+   * @example
+   * 企业自定义数据集
+   */
+  datasetDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * businessDataset
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  documentHandleConfig?: CreateDatasetRequestDocumentHandleConfig;
+  /**
+   * @example
+   * 3
+   */
+  searchDatasetEnable?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetConfig: 'DatasetConfig',
+      datasetDescription: 'DatasetDescription',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      documentHandleConfig: 'DocumentHandleConfig',
+      searchDatasetEnable: 'SearchDatasetEnable',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetConfig: CreateDatasetRequestDatasetConfig,
+      datasetDescription: 'string',
+      datasetName: 'string',
+      datasetType: 'string',
+      documentHandleConfig: CreateDatasetRequestDocumentHandleConfig,
+      searchDatasetEnable: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetShrinkRequest extends $tea.Model {
+  datasetConfigShrink?: string;
+  /**
+   * @example
+   * 企业自定义数据集
+   */
+  datasetDescription?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * businessDataset
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  documentHandleConfigShrink?: string;
+  /**
+   * @example
+   * 3
+   */
+  searchDatasetEnable?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetConfigShrink: 'DatasetConfig',
+      datasetDescription: 'DatasetDescription',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      documentHandleConfigShrink: 'DocumentHandleConfig',
+      searchDatasetEnable: 'SearchDatasetEnable',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetConfigShrink: 'string',
+      datasetDescription: 'string',
+      datasetName: 'string',
+      datasetType: 'string',
+      documentHandleConfigShrink: 'string',
+      searchDatasetEnable: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: CreateDatasetResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: CreateDatasetResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDatasetResponseBody,
     };
   }
 
@@ -915,6 +1292,251 @@ export class DeleteCustomTopicViewPointByIdResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCustomTopicViewPointByIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetDocumentRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: string[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': 'string' },
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteDatasetDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDatasetDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteDatasetDocumentResponseBody,
     };
   }
 
@@ -3558,6 +4180,258 @@ export class GetDataSourceOrderConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetDataSourceOrderConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * businessDataset
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetDatasetResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDatasetResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetDocumentRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docUuid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: GetDatasetDocumentResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GetDatasetDocumentResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDatasetDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetDatasetDocumentResponseBody,
     };
   }
 
@@ -6765,6 +7639,464 @@ export class ListCustomViewPointsResponse extends $tea.Model {
   }
 }
 
+export class ListDatasetDocumentsRequest extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * text
+   */
+  docType?: string;
+  excludeFields?: string[];
+  includeFields?: string[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 搜索条件
+   */
+  query?: string;
+  /**
+   * @example
+   * 100
+   */
+  status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      docType: 'DocType',
+      excludeFields: 'ExcludeFields',
+      includeFields: 'IncludeFields',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      query: 'Query',
+      status: 'Status',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      docType: 'string',
+      excludeFields: { 'type': 'array', 'itemType': 'string' },
+      includeFields: { 'type': 'array', 'itemType': 'string' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      query: 'string',
+      status: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetDocumentsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * text
+   */
+  docType?: string;
+  excludeFieldsShrink?: string;
+  includeFieldsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 搜索条件
+   */
+  query?: string;
+  /**
+   * @example
+   * 100
+   */
+  status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      docType: 'DocType',
+      excludeFieldsShrink: 'ExcludeFields',
+      includeFieldsShrink: 'IncludeFields',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      query: 'Query',
+      status: 'Status',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      docType: 'string',
+      excludeFieldsShrink: 'string',
+      includeFieldsShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      query: 'string',
+      status: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListDatasetDocumentsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDatasetDocumentsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDatasetDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDatasetDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * businessDataset
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  /**
+   * @example
+   * 创建时间-结束
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @example
+   * 3
+   */
+  searchDatasetEnable?: number;
+  /**
+   * @example
+   * 创建时间-开始
+   */
+  startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      endTime: 'EndTime',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      searchDatasetEnable: 'SearchDatasetEnable',
+      startTime: 'StartTime',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      datasetType: 'string',
+      endTime: 'string',
+      pageNumber: 'number',
+      pageSize: 'string',
+      searchDatasetEnable: 'number',
+      startTime: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListDatasetsResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListDatasetsResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDatasetsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListDatasetsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesRequest extends $tea.Model {
   /**
    * @remarks
@@ -9333,6 +10665,566 @@ export class ListPlanningProposalResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListPlanningProposalResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  includeContent?: boolean;
+  /**
+   * @example
+   * text
+   */
+  multimodalSearchType?: string;
+  /**
+   * @example
+   * xx
+   */
+  originalSessionId?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xx
+   */
+  query?: string;
+  /**
+   * @example
+   * ClusterGenerate
+   */
+  searchModel?: string;
+  /**
+   * @example
+   * xxx
+   */
+  searchModelDataValue?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      includeContent: 'IncludeContent',
+      multimodalSearchType: 'MultimodalSearchType',
+      originalSessionId: 'OriginalSessionId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      query: 'Query',
+      searchModel: 'SearchModel',
+      searchModelDataValue: 'SearchModelDataValue',
+      sessionId: 'SessionId',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      includeContent: 'boolean',
+      multimodalSearchType: 'string',
+      originalSessionId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      query: 'string',
+      searchModel: 'string',
+      searchModelDataValue: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponseBody extends $tea.Model {
+  articles?: ListSearchTaskDialogueDatasResponseBodyArticles[];
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  images?: ListSearchTaskDialogueDatasResponseBodyImages[];
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * true
+   */
+  realtimeSearch?: boolean;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * realtime
+   */
+  searchType?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  videos?: ListSearchTaskDialogueDatasResponseBodyVideos[];
+  static names(): { [key: string]: string } {
+    return {
+      articles: 'Articles',
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      images: 'Images',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      realtimeSearch: 'RealtimeSearch',
+      requestId: 'RequestId',
+      searchType: 'SearchType',
+      success: 'Success',
+      totalCount: 'TotalCount',
+      videos: 'Videos',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      articles: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyArticles },
+      code: 'string',
+      httpStatusCode: 'number',
+      images: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyImages },
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      realtimeSearch: 'boolean',
+      requestId: 'string',
+      searchType: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+      videos: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyVideos },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSearchTaskDialogueDatasResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSearchTaskDialogueDatasResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialoguesRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialoguesResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListSearchTaskDialoguesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListSearchTaskDialoguesResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialoguesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSearchTaskDialoguesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSearchTaskDialoguesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 24
+   */
+  dialogueTypes?: number[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueTypes: 'DialogueTypes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueTypes: { 'type': 'array', 'itemType': 'number' },
+      pageNumber: 'number',
+      pageSize: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTasksShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 24
+   */
+  dialogueTypesShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * llm-xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dialogueTypesShrink: 'DialogueTypes',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogueTypesShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: ListSearchTasksResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      success: 'Success',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: { 'type': 'array', 'itemType': ListSearchTasksResponseBodyData },
+      httpStatusCode: 'number',
+      message: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      success: 'boolean',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSearchTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListSearchTasksResponseBody,
     };
   }
 
@@ -13308,6 +15200,156 @@ export class SaveMaterialDocumentResponse extends $tea.Model {
   }
 }
 
+export class SearchDatasetDocumentsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * 业务参数
+   */
+  extend1?: string;
+  /**
+   * @example
+   * false
+   */
+  includeContent?: boolean;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 搜索内容
+   */
+  query?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      extend1: 'Extend1',
+      includeContent: 'IncludeContent',
+      pageSize: 'PageSize',
+      query: 'Query',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      extend1: 'string',
+      includeContent: 'boolean',
+      pageSize: 'string',
+      query: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDatasetDocumentsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: SearchDatasetDocumentsResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: SearchDatasetDocumentsResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDatasetDocumentsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SearchDatasetDocumentsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SearchDatasetDocumentsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchNewsRequest extends $tea.Model {
   /**
    * @remarks
@@ -14890,6 +16932,352 @@ export class UpdateCustomTextResponse extends $tea.Model {
   }
 }
 
+export class UpdateDatasetRequest extends $tea.Model {
+  datasetConfig?: UpdateDatasetRequestDatasetConfig;
+  /**
+   * @example
+   * 企业自定义数据集
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 3
+   */
+  searchDatasetEnable?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetConfig: 'DatasetConfig',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      searchDatasetEnable: 'SearchDatasetEnable',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetConfig: UpdateDatasetRequestDatasetConfig,
+      datasetDescription: 'string',
+      datasetId: 'number',
+      searchDatasetEnable: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetShrinkRequest extends $tea.Model {
+  datasetConfigShrink?: string;
+  /**
+   * @example
+   * 企业自定义数据集
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 3
+   */
+  searchDatasetEnable?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetConfigShrink: 'DatasetConfig',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      searchDatasetEnable: 'SearchDatasetEnable',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetConfigShrink: 'string',
+      datasetDescription: 'string',
+      datasetId: 'number',
+      searchDatasetEnable: 'number',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: UpdateDatasetResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateDatasetResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDatasetResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDatasetResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  document?: UpdateDatasetDocumentRequestDocument;
+  /**
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      document: 'Document',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      document: UpdateDatasetDocumentRequestDocument,
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * 数据集名称
+   */
+  datasetName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  documentShrink?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      documentShrink: 'Document',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      datasetId: 'number',
+      datasetName: 'string',
+      documentShrink: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  data?: UpdateDatasetDocumentResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: UpdateDatasetDocumentResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDatasetDocumentResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateDatasetDocumentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateGeneratedContentRequest extends $tea.Model {
   /**
    * @remarks
@@ -15688,6 +18076,207 @@ export class ValidateUploadTemplateResponse extends $tea.Model {
   }
 }
 
+export class AddDatasetDocumentRequestDocumentMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * 图片或视频文件地址
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 多模态数据唯一标识
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 多模态数据类型
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentRequestDocument extends $tea.Model {
+  /**
+   * @example
+   * xxx
+   */
+  content?: string;
+  /**
+   * @example
+   * false
+   */
+  disableHandleMultimodalMedia?: boolean;
+  /**
+   * @example
+   * 业务文档唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 文档类型
+   */
+  docType?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 扩展字段1
+   */
+  extend1?: string;
+  /**
+   * @example
+   * 扩展字段2
+   */
+  extend2?: string;
+  /**
+   * @example
+   * 扩展字段3
+   */
+  extend3?: string;
+  /**
+   * @example
+   * 模型名称 todo 商业化 仅个别账号可传入
+   */
+  multimodalIndexName?: string;
+  multimodalMedias?: AddDatasetDocumentRequestDocumentMultimodalMedias[];
+  /**
+   * @example
+   * 2024-12-09 13:35:40
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 来源
+   */
+  sourceFrom?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * xxxxx@xxxxx.com
+   */
+  title?: string;
+  /**
+   * @example
+   * xxx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
+      docId: 'DocId',
+      docType: 'DocType',
+      docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      multimodalIndexName: 'MultimodalIndexName',
+      multimodalMedias: 'MultimodalMedias',
+      pubTime: 'PubTime',
+      sourceFrom: 'SourceFrom',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      disableHandleMultimodalMedia: 'boolean',
+      docId: 'string',
+      docType: 'string',
+      docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      multimodalIndexName: 'string',
+      multimodalMedias: { 'type': 'array', 'itemType': AddDatasetDocumentRequestDocumentMultimodalMedias },
+      pubTime: 'string',
+      sourceFrom: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDatasetDocumentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 文档业务唯一标识
+   */
+  docId?: string;
+  /**
+   * @example
+   * 8df2d69d63a247b6b52ff455b2d426b6
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * Success
+   */
+  errorCode?: string;
+  errorMessage?: string;
+  /**
+   * @example
+   * 1
+   */
+  status?: number;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      errorCode: 'ErrorCode',
+      errorMessage: 'ErrorMessage',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      errorCode: 'string',
+      errorMessage: 'string',
+      status: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ClearIntervenesResponseBodyData extends $tea.Model {
   failIdList?: string[];
   /**
@@ -15706,6 +18295,429 @@ export class ClearIntervenesResponseBodyData extends $tea.Model {
     return {
       failIdList: { 'type': 'array', 'itemType': 'string' },
       taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  body?: string;
+  /**
+   * @example
+   * 3000
+   */
+  connectTimeout?: number;
+  headers?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders[];
+  /**
+   * @example
+   * 请求方式
+   */
+  method?: string;
+  params?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams[];
+  /**
+   * @example
+   * true
+   */
+  pathParamsEnable?: boolean;
+  /**
+   * @example
+   * 3000
+   */
+  socketTimeout?: number;
+  /**
+   * @example
+   * api地址
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      connectTimeout: 'ConnectTimeout',
+      headers: 'Headers',
+      method: 'Method',
+      params: 'Params',
+      pathParamsEnable: 'PathParamsEnable',
+      socketTimeout: 'SocketTimeout',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      connectTimeout: 'number',
+      headers: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders },
+      method: 'string',
+      params: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams },
+      pathParamsEnable: 'boolean',
+      socketTimeout: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes extends $tea.Model {
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes extends $tea.Model {
+  jqNodes?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes[];
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes extends $tea.Model {
+  jqNodes?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes[];
+  /**
+   * @example
+   * 节点key
+   */
+  key?: string;
+  /**
+   * @example
+   * 节点路径
+   */
+  path?: string;
+  /**
+   * @example
+   * 节点数据类型：string number list object base
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig extends $tea.Model {
+  jqNodes?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfigSearchSourceConfigs extends $tea.Model {
+  /**
+   * @example
+   * 可以搜索到的关键词，用来验证是否可用
+   */
+  demoQuery?: string;
+  searchSourceRequestConfig?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig;
+  searchSourceResponseConfig?: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      demoQuery: 'DemoQuery',
+      searchSourceRequestConfig: 'SearchSourceRequestConfig',
+      searchSourceResponseConfig: 'SearchSourceResponseConfig',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoQuery: 'string',
+      searchSourceRequestConfig: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig,
+      searchSourceResponseConfig: CreateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig,
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDatasetConfig extends $tea.Model {
+  searchSourceConfigs?: CreateDatasetRequestDatasetConfigSearchSourceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      searchSourceConfigs: 'SearchSourceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchSourceConfigs: { 'type': 'array', 'itemType': CreateDatasetRequestDatasetConfigSearchSourceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetRequestDocumentHandleConfig extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  disableHandleMultimodalMedia?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableHandleMultimodalMedia: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDatasetResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-12 21:46:24
+   */
+  createTime?: string;
+  /**
+   * @example
+   * xxx
+   */
+  createUser?: string;
+  /**
+   * @example
+   * xxx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * xxx
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  /**
+   * @example
+   * 1
+   */
+  searchDatasetEnable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      searchDatasetEnable: 'SearchDatasetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createUser: 'string',
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      datasetType: 'string',
+      searchDatasetEnable: 'number',
     };
   }
 
@@ -16518,6 +19530,514 @@ export class GetDataSourceOrderConfigResponseBodyData extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       userConfigDataSourceList: { 'type': 'array', 'itemType': GetDataSourceOrderConfigResponseBodyDataUserConfigDataSourceList },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  body?: string;
+  /**
+   * @example
+   * 30
+   */
+  connectTimeout?: number;
+  headers?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders[];
+  /**
+   * @example
+   * 请求方式
+   */
+  method?: string;
+  params?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams[];
+  /**
+   * @example
+   * true
+   */
+  pathParamsEnable?: boolean;
+  /**
+   * @example
+   * 78
+   */
+  socketTimeout?: number;
+  /**
+   * @example
+   * api地址
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      connectTimeout: 'ConnectTimeout',
+      headers: 'Headers',
+      method: 'Method',
+      params: 'Params',
+      pathParamsEnable: 'PathParamsEnable',
+      socketTimeout: 'SocketTimeout',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      connectTimeout: 'number',
+      headers: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders },
+      method: 'string',
+      params: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams },
+      pathParamsEnable: 'boolean',
+      socketTimeout: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes extends $tea.Model {
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  /**
+   * @example
+   * .title
+   */
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes extends $tea.Model {
+  jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes[];
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  /**
+   * @example
+   * .title
+   */
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes extends $tea.Model {
+  jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes[];
+  /**
+   * @example
+   * 节点key
+   */
+  key?: string;
+  /**
+   * @example
+   * 节点路径
+   */
+  path?: string;
+  /**
+   * @example
+   * 节点数据类型：string number list object base
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfig extends $tea.Model {
+  jqNodes?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs extends $tea.Model {
+  /**
+   * @example
+   * 可以搜索到的关键词，用来验证是否可用
+   */
+  demoQuery?: string;
+  searchSourceRequestConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig;
+  searchSourceResponseConfig?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfig;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      demoQuery: 'DemoQuery',
+      searchSourceRequestConfig: 'SearchSourceRequestConfig',
+      searchSourceResponseConfig: 'SearchSourceResponseConfig',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoQuery: 'string',
+      searchSourceRequestConfig: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceRequestConfig,
+      searchSourceResponseConfig: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigsSearchSourceResponseConfig,
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDatasetConfig extends $tea.Model {
+  searchSourceConfigs?: GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      searchSourceConfigs: 'SearchSourceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchSourceConfigs: { 'type': 'array', 'itemType': GetDatasetResponseBodyDataDatasetConfigSearchSourceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyDataDocumentHandleConfig extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  disableHandleMultimodalMedia?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      disableHandleMultimodalMedia: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-12 21:46:24
+   */
+  createTime?: string;
+  /**
+   * @example
+   * xxx
+   */
+  createUser?: string;
+  datasetConfig?: GetDatasetResponseBodyDataDatasetConfig;
+  /**
+   * @example
+   * xxx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * xxx
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  documentHandleConfig?: GetDatasetResponseBodyDataDocumentHandleConfig;
+  /**
+   * @example
+   * 1
+   */
+  searchDatasetEnable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      datasetConfig: 'DatasetConfig',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      documentHandleConfig: 'DocumentHandleConfig',
+      searchDatasetEnable: 'SearchDatasetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createUser: 'string',
+      datasetConfig: GetDatasetResponseBodyDataDatasetConfig,
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      datasetType: 'string',
+      documentHandleConfig: GetDatasetResponseBodyDataDocumentHandleConfig,
+      searchDatasetEnable: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetDatasetDocumentResponseBodyData extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * true
+   */
+  disableHandleMultimodalMedia?: boolean;
+  /**
+   * @example
+   * 用户指定的文档唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-05-14 08:54:33
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 来源
+   */
+  sourceFrom?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  title?: string;
+  /**
+   * @example
+   * https://www.aliyun.com
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      sourceFrom: 'SourceFrom',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      disableHandleMultimodalMedia: 'boolean',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      sourceFrom: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
     };
   }
 
@@ -20077,6 +23597,235 @@ export class ListCustomViewPointsResponseBodyData extends $tea.Model {
   }
 }
 
+export class ListDatasetDocumentsResponseBodyDataMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * 图片或视频文件地址
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 多模态数据唯一标识
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 多模态数据类型
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetDocumentsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  categoryUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * false
+   */
+  disableHandleMultimodalMedia?: boolean;
+  /**
+   * @example
+   * xx
+   */
+  docId?: string;
+  /**
+   * @example
+   * text
+   */
+  docType?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend1?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend2?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend3?: string;
+  multimodalMedias?: ListDatasetDocumentsResponseBodyDataMultimodalMedias[];
+  /**
+   * @example
+   * 2022-01-01 00:00:00
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 来源
+   */
+  sourceFrom?: string;
+  /**
+   * @example
+   * 100
+   */
+  status?: number;
+  /**
+   * @example
+   * xx
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @remarks
+   * url
+   * 
+   * @example
+   * https://xxx/xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoryUuid: 'CategoryUuid',
+      content: 'Content',
+      disableHandleMultimodalMedia: 'DisableHandleMultimodalMedia',
+      docId: 'DocId',
+      docType: 'DocType',
+      docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      multimodalMedias: 'MultimodalMedias',
+      pubTime: 'PubTime',
+      sourceFrom: 'SourceFrom',
+      status: 'Status',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoryUuid: 'string',
+      content: 'string',
+      disableHandleMultimodalMedia: 'boolean',
+      docId: 'string',
+      docType: 'string',
+      docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      multimodalMedias: { 'type': 'array', 'itemType': ListDatasetDocumentsResponseBodyDataMultimodalMedias },
+      pubTime: 'string',
+      sourceFrom: 'string',
+      status: 'number',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListDatasetsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-12 21:46:24
+   */
+  createTime?: string;
+  /**
+   * @example
+   * xxx
+   */
+  createUser?: string;
+  /**
+   * @example
+   * xxx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * xxx
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  /**
+   * @example
+   * 1
+   */
+  searchDatasetEnable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      searchDatasetEnable: 'SearchDatasetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createUser: 'string',
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      datasetType: 'string',
+      searchDatasetEnable: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListDialoguesResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -21375,6 +25124,381 @@ export class ListPlanningProposalResponseBodyData extends $tea.Model {
       outlines: { 'type': 'array', 'itemType': ListPlanningProposalResponseBodyDataOutlines },
       summary: 'string',
       title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponseBodyArticlesMultimodalMedias extends $tea.Model {
+  /**
+   * @example
+   * 图片或视频文件地址
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 多模态数据唯一标识
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 多模态数据类型
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponseBodyArticles extends $tea.Model {
+  /**
+   * @example
+   * 作者
+   */
+  author?: string;
+  /**
+   * @example
+   * xx
+   */
+  categoryUuid?: string;
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 文档-自定义的唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * text
+   */
+  docType?: string;
+  /**
+   * @example
+   * xxx
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend1?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend2?: string;
+  /**
+   * @example
+   * xx
+   */
+  extend3?: string;
+  multimodalMedias?: ListSearchTaskDialogueDatasResponseBodyArticlesMultimodalMedias[];
+  /**
+   * @example
+   * 2024-11-25 14:25:59
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 新华社
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      author: 'Author',
+      categoryUuid: 'CategoryUuid',
+      content: 'Content',
+      docId: 'DocId',
+      docType: 'DocType',
+      docUuid: 'DocUuid',
+      extend1: 'Extend1',
+      extend2: 'Extend2',
+      extend3: 'Extend3',
+      multimodalMedias: 'MultimodalMedias',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      author: 'string',
+      categoryUuid: 'string',
+      content: 'string',
+      docId: 'string',
+      docType: 'string',
+      docUuid: 'string',
+      extend1: 'string',
+      extend2: 'string',
+      extend3: 'string',
+      multimodalMedias: { 'type': 'array', 'itemType': ListSearchTaskDialogueDatasResponseBodyArticlesMultimodalMedias },
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponseBodyImages extends $tea.Model {
+  /**
+   * @example
+   * 图片或视频文件地址
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 多模态数据唯一标识
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 多模态数据类型
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialogueDatasResponseBodyVideos extends $tea.Model {
+  /**
+   * @example
+   * 图片或视频文件地址
+   */
+  fileUrl?: string;
+  /**
+   * @example
+   * 多模态数据唯一标识
+   */
+  mediaId?: string;
+  /**
+   * @example
+   * 多模态数据类型
+   */
+  mediaType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      fileUrl: 'FileUrl',
+      mediaId: 'MediaId',
+      mediaType: 'MediaType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fileUrl: 'string',
+      mediaId: 'string',
+      mediaType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTaskDialoguesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-25 13:33:01
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 24
+   */
+  dialogueType?: number;
+  /**
+   * @example
+   * xxx
+   */
+  goodText?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  originSessionId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  prompt?: string;
+  /**
+   * @example
+   * thumbsUp
+   */
+  rating?: string;
+  /**
+   * @example
+   * {}
+   */
+  responseBodyStr?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  tags?: string[];
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dialogueType: 'DialogueType',
+      goodText: 'GoodText',
+      originSessionId: 'OriginSessionId',
+      prompt: 'Prompt',
+      rating: 'Rating',
+      responseBodyStr: 'ResponseBodyStr',
+      sessionId: 'SessionId',
+      tags: 'Tags',
+      taskId: 'TaskId',
+      text: 'Text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      dialogueType: 'number',
+      goodText: 'string',
+      originSessionId: 'string',
+      prompt: 'string',
+      rating: 'string',
+      responseBodyStr: 'string',
+      sessionId: 'string',
+      tags: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListSearchTasksResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-25 11:40:50
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 24
+   */
+  dialogueType?: number;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxx
+   */
+  taskName?: string;
+  /**
+   * @example
+   * 2024-11-25 11:40:50
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  username?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      dialogueType: 'DialogueType',
+      taskId: 'TaskId',
+      taskName: 'TaskName',
+      updateTime: 'UpdateTime',
+      username: 'Username',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      dialogueType: 'number',
+      taskId: 'string',
+      taskName: 'string',
+      updateTime: 'string',
+      username: 'string',
     };
   }
 
@@ -29131,6 +33255,97 @@ export class SaveDataSourceOrderConfigRequestUserConfigDataSourceList extends $t
   }
 }
 
+export class SearchDatasetDocumentsResponseBodyDataDocuments extends $tea.Model {
+  /**
+   * @example
+   * xx
+   */
+  content?: string;
+  /**
+   * @example
+   * 用户指定的文档唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * 2024-12-09 17:09:40
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 来源
+   */
+  sourceFrom?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  /**
+   * @example
+   * xx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      pubTime: 'PubTime',
+      sourceFrom: 'SourceFrom',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      docId: 'string',
+      docUuid: 'string',
+      pubTime: 'string',
+      sourceFrom: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SearchDatasetDocumentsResponseBodyData extends $tea.Model {
+  documents?: SearchDatasetDocumentsResponseBodyDataDocuments[];
+  static names(): { [key: string]: string } {
+    return {
+      documents: 'Documents',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      documents: { 'type': 'array', 'itemType': SearchDatasetDocumentsResponseBodyDataDocuments },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SearchNewsResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -30193,6 +34408,599 @@ export class SubmitTopicSelectionPerspectiveAnalysisTaskResponseBodyData extends
   }
 }
 
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams extends $tea.Model {
+  /**
+   * @example
+   * 参数名称
+   */
+  name?: string;
+  /**
+   * @example
+   * 参数值
+   */
+  value?: string;
+  /**
+   * @example
+   * valueType = time 时有效
+   */
+  valueFormat?: string;
+  /**
+   * @example
+   * 参数值数据类型: 默认string
+   */
+  valueType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'Name',
+      value: 'Value',
+      valueFormat: 'ValueFormat',
+      valueType: 'ValueType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      value: 'string',
+      valueFormat: 'string',
+      valueType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig extends $tea.Model {
+  /**
+   * @example
+   * {}
+   */
+  body?: string;
+  /**
+   * @example
+   * 3000
+   */
+  connectTimeout?: number;
+  headers?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders[];
+  /**
+   * @example
+   * 请求方式
+   */
+  method?: string;
+  params?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams[];
+  /**
+   * @example
+   * true
+   */
+  pathParamsEnable?: boolean;
+  /**
+   * @example
+   * 3000
+   */
+  socketTimeout?: number;
+  /**
+   * @example
+   * api地址
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      body: 'Body',
+      connectTimeout: 'ConnectTimeout',
+      headers: 'Headers',
+      method: 'Method',
+      params: 'Params',
+      pathParamsEnable: 'PathParamsEnable',
+      socketTimeout: 'SocketTimeout',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      body: 'string',
+      connectTimeout: 'number',
+      headers: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigHeaders },
+      method: 'string',
+      params: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfigParams },
+      pathParamsEnable: 'boolean',
+      socketTimeout: 'number',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes extends $tea.Model {
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  /**
+   * @example
+   * .title
+   */
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes extends $tea.Model {
+  jqNodes?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes[];
+  /**
+   * @example
+   * title
+   */
+  key?: string;
+  /**
+   * @example
+   * .title
+   */
+  path?: string;
+  /**
+   * @example
+   * string
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes extends $tea.Model {
+  jqNodes?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes[];
+  /**
+   * @example
+   * 节点key
+   */
+  key?: string;
+  /**
+   * @example
+   * 节点路径
+   */
+  path?: string;
+  /**
+   * @example
+   * 节点数据类型：string number list object base
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+      key: 'Key',
+      path: 'Path',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodesJqNodes },
+      key: 'string',
+      path: 'string',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig extends $tea.Model {
+  jqNodes?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes[];
+  static names(): { [key: string]: string } {
+    return {
+      jqNodes: 'JqNodes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      jqNodes: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfigJqNodes },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfigSearchSourceConfigs extends $tea.Model {
+  /**
+   * @example
+   * 可以搜索到的关键词，用来验证是否可用
+   */
+  demoQuery?: string;
+  searchSourceRequestConfig?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig;
+  searchSourceResponseConfig?: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      demoQuery: 'DemoQuery',
+      searchSourceRequestConfig: 'SearchSourceRequestConfig',
+      searchSourceResponseConfig: 'SearchSourceResponseConfig',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      demoQuery: 'string',
+      searchSourceRequestConfig: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceRequestConfig,
+      searchSourceResponseConfig: UpdateDatasetRequestDatasetConfigSearchSourceConfigsSearchSourceResponseConfig,
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetRequestDatasetConfig extends $tea.Model {
+  searchSourceConfigs?: UpdateDatasetRequestDatasetConfigSearchSourceConfigs[];
+  static names(): { [key: string]: string } {
+    return {
+      searchSourceConfigs: 'SearchSourceConfigs',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      searchSourceConfigs: { 'type': 'array', 'itemType': UpdateDatasetRequestDatasetConfigSearchSourceConfigs },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponseBodyDataNewsArticleResultsData extends $tea.Model {
+  /**
+   * @example
+   * 文章内容
+   */
+  content?: string;
+  /**
+   * @example
+   * 2024-11-12 15:12:14
+   */
+  pubTime?: string;
+  /**
+   * @example
+   * 央视网
+   */
+  source?: string;
+  /**
+   * @example
+   * 文章摘要
+   */
+  summary?: string;
+  /**
+   * @example
+   * 文章标题
+   */
+  title?: string;
+  /**
+   * @example
+   * https://www.example.com/aaa.docx
+   */
+  url?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      pubTime: 'PubTime',
+      source: 'Source',
+      summary: 'Summary',
+      title: 'Title',
+      url: 'Url',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      pubTime: 'string',
+      source: 'string',
+      summary: 'string',
+      title: 'string',
+      url: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponseBodyDataNewsArticleResults extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * 1
+   */
+  current?: number;
+  data?: UpdateDatasetResponseBodyDataNewsArticleResultsData[];
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 10
+   */
+  size?: number;
+  /**
+   * @example
+   * 100
+   */
+  total?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      current: 'Current',
+      data: 'Data',
+      message: 'Message',
+      size: 'Size',
+      total: 'Total',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      current: 'number',
+      data: { 'type': 'array', 'itemType': UpdateDatasetResponseBodyDataNewsArticleResultsData },
+      message: 'string',
+      size: 'number',
+      total: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2024-11-12 21:46:24
+   */
+  createTime?: string;
+  /**
+   * @example
+   * xxx
+   */
+  createUser?: string;
+  /**
+   * @example
+   * xxx
+   */
+  datasetDescription?: string;
+  /**
+   * @example
+   * 1
+   */
+  datasetId?: number;
+  /**
+   * @example
+   * xxx
+   */
+  datasetName?: string;
+  /**
+   * @example
+   * CustomSemanticSearch
+   */
+  datasetType?: string;
+  newsArticleResults?: UpdateDatasetResponseBodyDataNewsArticleResults[];
+  /**
+   * @example
+   * 1
+   */
+  searchDatasetEnable?: number;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      createUser: 'CreateUser',
+      datasetDescription: 'DatasetDescription',
+      datasetId: 'DatasetId',
+      datasetName: 'DatasetName',
+      datasetType: 'DatasetType',
+      newsArticleResults: 'NewsArticleResults',
+      searchDatasetEnable: 'SearchDatasetEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      createUser: 'string',
+      datasetDescription: 'string',
+      datasetId: 'number',
+      datasetName: 'string',
+      datasetType: 'string',
+      newsArticleResults: { 'type': 'array', 'itemType': UpdateDatasetResponseBodyDataNewsArticleResults },
+      searchDatasetEnable: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentRequestDocument extends $tea.Model {
+  /**
+   * @example
+   * 用户指定的文档唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  /**
+   * @example
+   * xx
+   */
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateDatasetDocumentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 用户指定的文档唯一ID
+   */
+  docId?: string;
+  /**
+   * @example
+   * 内部文档唯一ID
+   */
+  docUuid?: string;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'DocId',
+      docUuid: 'DocUuid',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      docUuid: 'string',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadDocRequestDocs extends $tea.Model {
   /**
    * @remarks
@@ -30290,9 +35098,6 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApi.Config) {
     super(config);
-    this._productId = "AiMiaoBi";
-    let gatewayClient = new GatewayClient();
-    this._spi = gatewayClient;
     this._endpointRule = "";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aimiaobi", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30309,6 +35114,66 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 添加文档到数据集
+   * 
+   * @param tmpReq - AddDatasetDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDatasetDocumentResponse
+   */
+  async addDatasetDocumentWithOptions(tmpReq: AddDatasetDocumentRequest, runtime: $Util.RuntimeOptions): Promise<AddDatasetDocumentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new AddDatasetDocumentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.document)) {
+      request.documentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.document, "Document", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.documentShrink)) {
+      body["Document"] = request.documentShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDatasetDocument",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDatasetDocumentResponse>(await this.callApi(params, req, runtime), new AddDatasetDocumentResponse({}));
+  }
+
+  /**
+   * 添加文档到数据集
+   * 
+   * @param request - AddDatasetDocumentRequest
+   * @returns AddDatasetDocumentResponse
+   */
+  async addDatasetDocument(request: AddDatasetDocumentRequest): Promise<AddDatasetDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.addDatasetDocumentWithOptions(request, runtime);
   }
 
   /**
@@ -30345,12 +35210,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
-    } else {
-      return $tea.cast<CancelAsyncTaskResponse>(await this.execute(params, req, runtime), new CancelAsyncTaskResponse({}));
-    }
-
+    return $tea.cast<CancelAsyncTaskResponse>(await this.callApi(params, req, runtime), new CancelAsyncTaskResponse({}));
   }
 
   /**
@@ -30392,12 +35252,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
-    } else {
-      return $tea.cast<ClearIntervenesResponse>(await this.execute(params, req, runtime), new ClearIntervenesResponse({}));
-    }
-
+    return $tea.cast<ClearIntervenesResponse>(await this.callApi(params, req, runtime), new ClearIntervenesResponse({}));
   }
 
   /**
@@ -30409,6 +35264,82 @@ export default class Client extends OpenApi {
   async clearIntervenes(request: ClearIntervenesRequest): Promise<ClearIntervenesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.clearIntervenesWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据集管理-创建
+   * 
+   * @param tmpReq - CreateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetResponse
+   */
+  async createDatasetWithOptions(tmpReq: CreateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<CreateDatasetResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.datasetConfig)) {
+      request.datasetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetConfig, "DatasetConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.documentHandleConfig)) {
+      request.documentHandleConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documentHandleConfig, "DocumentHandleConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetConfigShrink)) {
+      body["DatasetConfig"] = request.datasetConfigShrink;
+    }
+
+    if (!Util.isUnset(request.datasetDescription)) {
+      body["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.datasetType)) {
+      body["DatasetType"] = request.datasetType;
+    }
+
+    if (!Util.isUnset(request.documentHandleConfigShrink)) {
+      body["DocumentHandleConfig"] = request.documentHandleConfigShrink;
+    }
+
+    if (!Util.isUnset(request.searchDatasetEnable)) {
+      body["SearchDatasetEnable"] = request.searchDatasetEnable;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDataset",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDatasetResponse>(await this.callApi(params, req, runtime), new CreateDatasetResponse({}));
+  }
+
+  /**
+   * 数据集管理-创建
+   * 
+   * @param request - CreateDatasetRequest
+   * @returns CreateDatasetResponse
+   */
+  async createDataset(request: CreateDatasetRequest): Promise<CreateDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createDatasetWithOptions(request, runtime);
   }
 
   /**
@@ -30479,12 +35410,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateGeneratedContentResponse>(await this.callApi(params, req, runtime), new CreateGeneratedContentResponse({}));
-    } else {
-      return $tea.cast<CreateGeneratedContentResponse>(await this.execute(params, req, runtime), new CreateGeneratedContentResponse({}));
-    }
-
+    return $tea.cast<CreateGeneratedContentResponse>(await this.callApi(params, req, runtime), new CreateGeneratedContentResponse({}));
   }
 
   /**
@@ -30526,12 +35452,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<CreateTokenResponse>(await this.callApi(params, req, runtime), new CreateTokenResponse({}));
-    } else {
-      return $tea.cast<CreateTokenResponse>(await this.execute(params, req, runtime), new CreateTokenResponse({}));
-    }
-
+    return $tea.cast<CreateTokenResponse>(await this.callApi(params, req, runtime), new CreateTokenResponse({}));
   }
 
   /**
@@ -30583,12 +35504,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteCustomTextResponse>(await this.callApi(params, req, runtime), new DeleteCustomTextResponse({}));
-    } else {
-      return $tea.cast<DeleteCustomTextResponse>(await this.execute(params, req, runtime), new DeleteCustomTextResponse({}));
-    }
-
+    return $tea.cast<DeleteCustomTextResponse>(await this.callApi(params, req, runtime), new DeleteCustomTextResponse({}));
   }
 
   /**
@@ -30636,12 +35552,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
-    } else {
-      return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.execute(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
-    }
-
+    return $tea.cast<DeleteCustomTopicByTopicResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicByTopicResponse({}));
   }
 
   /**
@@ -30689,12 +35600,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
-    } else {
-      return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.execute(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
-    }
-
+    return $tea.cast<DeleteCustomTopicViewPointByIdResponse>(await this.callApi(params, req, runtime), new DeleteCustomTopicViewPointByIdResponse({}));
   }
 
   /**
@@ -30706,6 +35612,110 @@ export default class Client extends OpenApi {
   async deleteCustomTopicViewPointById(request: DeleteCustomTopicViewPointByIdRequest): Promise<DeleteCustomTopicViewPointByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCustomTopicViewPointByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据集管理-删除
+   * 
+   * @param request - DeleteDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDatasetWithOptions(request: DeleteDatasetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDataset",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetResponse>(await this.callApi(params, req, runtime), new DeleteDatasetResponse({}));
+  }
+
+  /**
+   * 数据集管理-删除
+   * 
+   * @param request - DeleteDatasetRequest
+   * @returns DeleteDatasetResponse
+   */
+  async deleteDataset(request: DeleteDatasetRequest): Promise<DeleteDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据集文档
+   * 
+   * @param request - DeleteDatasetDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetDocumentResponse
+   */
+  async deleteDatasetDocumentWithOptions(request: DeleteDatasetDocumentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDatasetDocumentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.docUuid)) {
+      body["DocUuid"] = request.docUuid;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteDatasetDocument",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteDatasetDocumentResponse>(await this.callApi(params, req, runtime), new DeleteDatasetDocumentResponse({}));
+  }
+
+  /**
+   * 删除数据集文档
+   * 
+   * @param request - DeleteDatasetDocumentRequest
+   * @returns DeleteDatasetDocumentResponse
+   */
+  async deleteDatasetDocument(request: DeleteDatasetDocumentRequest): Promise<DeleteDatasetDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteDatasetDocumentWithOptions(request, runtime);
   }
 
   /**
@@ -30746,12 +35756,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteDocsResponse>(await this.callApi(params, req, runtime), new DeleteDocsResponse({}));
-    } else {
-      return $tea.cast<DeleteDocsResponse>(await this.execute(params, req, runtime), new DeleteDocsResponse({}));
-    }
-
+    return $tea.cast<DeleteDocsResponse>(await this.callApi(params, req, runtime), new DeleteDocsResponse({}));
   }
 
   /**
@@ -30803,12 +35808,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteGeneratedContentResponse>(await this.callApi(params, req, runtime), new DeleteGeneratedContentResponse({}));
-    } else {
-      return $tea.cast<DeleteGeneratedContentResponse>(await this.execute(params, req, runtime), new DeleteGeneratedContentResponse({}));
-    }
-
+    return $tea.cast<DeleteGeneratedContentResponse>(await this.callApi(params, req, runtime), new DeleteGeneratedContentResponse({}));
   }
 
   /**
@@ -30856,12 +35856,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
-    } else {
-      return $tea.cast<DeleteInterveneRuleResponse>(await this.execute(params, req, runtime), new DeleteInterveneRuleResponse({}));
-    }
-
+    return $tea.cast<DeleteInterveneRuleResponse>(await this.callApi(params, req, runtime), new DeleteInterveneRuleResponse({}));
   }
 
   /**
@@ -30909,12 +35904,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DeleteMaterialByIdResponse>(await this.callApi(params, req, runtime), new DeleteMaterialByIdResponse({}));
-    } else {
-      return $tea.cast<DeleteMaterialByIdResponse>(await this.execute(params, req, runtime), new DeleteMaterialByIdResponse({}));
-    }
-
+    return $tea.cast<DeleteMaterialByIdResponse>(await this.callApi(params, req, runtime), new DeleteMaterialByIdResponse({}));
   }
 
   /**
@@ -30968,12 +35958,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<DocumentExtractionResponse>(await this.callApi(params, req, runtime), new DocumentExtractionResponse({}));
-    } else {
-      return $tea.cast<DocumentExtractionResponse>(await this.execute(params, req, runtime), new DocumentExtractionResponse({}));
-    }
-
+    return $tea.cast<DocumentExtractionResponse>(await this.callApi(params, req, runtime), new DocumentExtractionResponse({}));
   }
 
   /**
@@ -31021,12 +36006,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ExportGeneratedContentResponse>(await this.callApi(params, req, runtime), new ExportGeneratedContentResponse({}));
-    } else {
-      return $tea.cast<ExportGeneratedContentResponse>(await this.execute(params, req, runtime), new ExportGeneratedContentResponse({}));
-    }
-
+    return $tea.cast<ExportGeneratedContentResponse>(await this.callApi(params, req, runtime), new ExportGeneratedContentResponse({}));
   }
 
   /**
@@ -31104,12 +36084,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.callApi(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
-    } else {
-      return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.execute(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
-    }
-
+    return $tea.cast<ExportHotTopicPlanningProposalsResponse>(await this.callApi(params, req, runtime), new ExportHotTopicPlanningProposalsResponse({}));
   }
 
   /**
@@ -31151,12 +36126,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
-    } else {
-      return $tea.cast<ExportIntervenesResponse>(await this.execute(params, req, runtime), new ExportIntervenesResponse({}));
-    }
-
+    return $tea.cast<ExportIntervenesResponse>(await this.callApi(params, req, runtime), new ExportIntervenesResponse({}));
   }
 
   /**
@@ -31234,12 +36204,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<FeedbackDialogueResponse>(await this.callApi(params, req, runtime), new FeedbackDialogueResponse({}));
-    } else {
-      return $tea.cast<FeedbackDialogueResponse>(await this.execute(params, req, runtime), new FeedbackDialogueResponse({}));
-    }
-
+    return $tea.cast<FeedbackDialogueResponse>(await this.callApi(params, req, runtime), new FeedbackDialogueResponse({}));
   }
 
   /**
@@ -31297,12 +36262,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<FetchImageTaskResponse>(await this.callApi(params, req, runtime), new FetchImageTaskResponse({}));
-    } else {
-      return $tea.cast<FetchImageTaskResponse>(await this.execute(params, req, runtime), new FetchImageTaskResponse({}));
-    }
-
+    return $tea.cast<FetchImageTaskResponse>(await this.callApi(params, req, runtime), new FetchImageTaskResponse({}));
   }
 
   /**
@@ -31354,12 +36314,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
-    } else {
-      return $tea.cast<GenerateFileUrlByKeyResponse>(await this.execute(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
-    }
-
+    return $tea.cast<GenerateFileUrlByKeyResponse>(await this.callApi(params, req, runtime), new GenerateFileUrlByKeyResponse({}));
   }
 
   /**
@@ -31425,12 +36380,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GenerateImageTaskResponse>(await this.callApi(params, req, runtime), new GenerateImageTaskResponse({}));
-    } else {
-      return $tea.cast<GenerateImageTaskResponse>(await this.execute(params, req, runtime), new GenerateImageTaskResponse({}));
-    }
-
+    return $tea.cast<GenerateImageTaskResponse>(await this.callApi(params, req, runtime), new GenerateImageTaskResponse({}));
   }
 
   /**
@@ -31482,12 +36432,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
-    } else {
-      return $tea.cast<GenerateUploadConfigResponse>(await this.execute(params, req, runtime), new GenerateUploadConfigResponse({}));
-    }
-
+    return $tea.cast<GenerateUploadConfigResponse>(await this.callApi(params, req, runtime), new GenerateUploadConfigResponse({}));
   }
 
   /**
@@ -31541,12 +36486,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GenerateViewPointResponse>(await this.callApi(params, req, runtime), new GenerateViewPointResponse({}));
-    } else {
-      return $tea.cast<GenerateViewPointResponse>(await this.execute(params, req, runtime), new GenerateViewPointResponse({}));
-    }
-
+    return $tea.cast<GenerateViewPointResponse>(await this.callApi(params, req, runtime), new GenerateViewPointResponse({}));
   }
 
   /**
@@ -31592,12 +36532,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetCategoriesByTaskIdResponse>(await this.callApi(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
-    } else {
-      return $tea.cast<GetCategoriesByTaskIdResponse>(await this.execute(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
-    }
-
+    return $tea.cast<GetCategoriesByTaskIdResponse>(await this.callApi(params, req, runtime), new GetCategoriesByTaskIdResponse({}));
   }
 
   /**
@@ -31643,12 +36578,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
-    } else {
-      return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.execute(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
-    }
-
+    return $tea.cast<GetCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new GetCustomHotTopicBroadcastJobResponse({}));
   }
 
   /**
@@ -31700,12 +36630,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetCustomTextResponse>(await this.callApi(params, req, runtime), new GetCustomTextResponse({}));
-    } else {
-      return $tea.cast<GetCustomTextResponse>(await this.execute(params, req, runtime), new GetCustomTextResponse({}));
-    }
-
+    return $tea.cast<GetCustomTextResponse>(await this.callApi(params, req, runtime), new GetCustomTextResponse({}));
   }
 
   /**
@@ -31753,12 +36678,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<GetCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
   }
 
   /**
@@ -31806,12 +36726,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
-    } else {
-      return $tea.cast<GetDataSourceOrderConfigResponse>(await this.execute(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
-    }
-
+    return $tea.cast<GetDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new GetDataSourceOrderConfigResponse({}));
   }
 
   /**
@@ -31823,6 +36738,114 @@ export default class Client extends OpenApi {
   async getDataSourceOrderConfig(request: GetDataSourceOrderConfigRequest): Promise<GetDataSourceOrderConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDataSourceOrderConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据集管理-详情
+   * 
+   * @param request - GetDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetResponse
+   */
+  async getDatasetWithOptions(request: GetDatasetRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDataset",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatasetResponse>(await this.callApi(params, req, runtime), new GetDatasetResponse({}));
+  }
+
+  /**
+   * 数据集管理-详情
+   * 
+   * @param request - GetDatasetRequest
+   * @returns GetDatasetResponse
+   */
+  async getDataset(request: GetDatasetRequest): Promise<GetDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 获取数据集文档
+   * 
+   * @param request - GetDatasetDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDatasetDocumentResponse
+   */
+  async getDatasetDocumentWithOptions(request: GetDatasetDocumentRequest, runtime: $Util.RuntimeOptions): Promise<GetDatasetDocumentResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.docId)) {
+      body["DocId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.docUuid)) {
+      body["DocUuid"] = request.docUuid;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetDatasetDocument",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetDatasetDocumentResponse>(await this.callApi(params, req, runtime), new GetDatasetDocumentResponse({}));
+  }
+
+  /**
+   * 获取数据集文档
+   * 
+   * @param request - GetDatasetDocumentRequest
+   * @returns GetDatasetDocumentResponse
+   */
+  async getDatasetDocument(request: GetDatasetDocumentRequest): Promise<GetDatasetDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getDatasetDocumentWithOptions(request, runtime);
   }
 
   /**
@@ -31859,12 +36882,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetDocClusterTaskResponse>(await this.callApi(params, req, runtime), new GetDocClusterTaskResponse({}));
-    } else {
-      return $tea.cast<GetDocClusterTaskResponse>(await this.execute(params, req, runtime), new GetDocClusterTaskResponse({}));
-    }
-
+    return $tea.cast<GetDocClusterTaskResponse>(await this.callApi(params, req, runtime), new GetDocClusterTaskResponse({}));
   }
 
   /**
@@ -31914,12 +36932,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetDocInfoResponse>(await this.callApi(params, req, runtime), new GetDocInfoResponse({}));
-    } else {
-      return $tea.cast<GetDocInfoResponse>(await this.execute(params, req, runtime), new GetDocInfoResponse({}));
-    }
-
+    return $tea.cast<GetDocInfoResponse>(await this.callApi(params, req, runtime), new GetDocInfoResponse({}));
   }
 
   /**
@@ -31965,12 +36978,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<GetEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetEnterpriseVocAnalysisTaskResponse({}));
   }
 
   /**
@@ -32018,12 +37026,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetGeneratedContentResponse>(await this.callApi(params, req, runtime), new GetGeneratedContentResponse({}));
-    } else {
-      return $tea.cast<GetGeneratedContentResponse>(await this.execute(params, req, runtime), new GetGeneratedContentResponse({}));
-    }
-
+    return $tea.cast<GetGeneratedContentResponse>(await this.callApi(params, req, runtime), new GetGeneratedContentResponse({}));
   }
 
   /**
@@ -32111,12 +37114,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetHotTopicBroadcastResponse>(await this.callApi(params, req, runtime), new GetHotTopicBroadcastResponse({}));
-    } else {
-      return $tea.cast<GetHotTopicBroadcastResponse>(await this.execute(params, req, runtime), new GetHotTopicBroadcastResponse({}));
-    }
-
+    return $tea.cast<GetHotTopicBroadcastResponse>(await this.callApi(params, req, runtime), new GetHotTopicBroadcastResponse({}));
   }
 
   /**
@@ -32158,12 +37156,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
-    } else {
-      return $tea.cast<GetInterveneGlobalReplyResponse>(await this.execute(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
-    }
-
+    return $tea.cast<GetInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new GetInterveneGlobalReplyResponse({}));
   }
 
   /**
@@ -32211,12 +37204,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
-    } else {
-      return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.execute(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
-    }
-
+    return $tea.cast<GetInterveneImportTaskInfoResponse>(await this.callApi(params, req, runtime), new GetInterveneImportTaskInfoResponse({}));
   }
 
   /**
@@ -32264,12 +37252,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
-    } else {
-      return $tea.cast<GetInterveneRuleDetailResponse>(await this.execute(params, req, runtime), new GetInterveneRuleDetailResponse({}));
-    }
-
+    return $tea.cast<GetInterveneRuleDetailResponse>(await this.callApi(params, req, runtime), new GetInterveneRuleDetailResponse({}));
   }
 
   /**
@@ -32311,12 +37294,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
-    } else {
-      return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.execute(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
-    }
-
+    return $tea.cast<GetInterveneTemplateFileUrlResponse>(await this.callApi(params, req, runtime), new GetInterveneTemplateFileUrlResponse({}));
   }
 
   /**
@@ -32364,12 +37342,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetMaterialByIdResponse>(await this.callApi(params, req, runtime), new GetMaterialByIdResponse({}));
-    } else {
-      return $tea.cast<GetMaterialByIdResponse>(await this.execute(params, req, runtime), new GetMaterialByIdResponse({}));
-    }
-
+    return $tea.cast<GetMaterialByIdResponse>(await this.callApi(params, req, runtime), new GetMaterialByIdResponse({}));
   }
 
   /**
@@ -32411,12 +37384,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetPropertiesResponse>(await this.callApi(params, req, runtime), new GetPropertiesResponse({}));
-    } else {
-      return $tea.cast<GetPropertiesResponse>(await this.execute(params, req, runtime), new GetPropertiesResponse({}));
-    }
-
+    return $tea.cast<GetPropertiesResponse>(await this.callApi(params, req, runtime), new GetPropertiesResponse({}));
   }
 
   /**
@@ -32462,12 +37430,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetSmartClipTaskResponse>(await this.callApi(params, req, runtime), new GetSmartClipTaskResponse({}));
-    } else {
-      return $tea.cast<GetSmartClipTaskResponse>(await this.execute(params, req, runtime), new GetSmartClipTaskResponse({}));
-    }
-
+    return $tea.cast<GetSmartClipTaskResponse>(await this.callApi(params, req, runtime), new GetSmartClipTaskResponse({}));
   }
 
   /**
@@ -32515,12 +37478,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTopicByIdResponse>(await this.callApi(params, req, runtime), new GetTopicByIdResponse({}));
-    } else {
-      return $tea.cast<GetTopicByIdResponse>(await this.execute(params, req, runtime), new GetTopicByIdResponse({}));
-    }
-
+    return $tea.cast<GetTopicByIdResponse>(await this.callApi(params, req, runtime), new GetTopicByIdResponse({}));
   }
 
   /**
@@ -32568,12 +37526,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<GetTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new GetTopicSelectionPerspectiveAnalysisTaskResponse({}));
   }
 
   /**
@@ -32629,12 +37582,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
-    } else {
-      return $tea.cast<ImportInterveneFileResponse>(await this.execute(params, req, runtime), new ImportInterveneFileResponse({}));
-    }
-
+    return $tea.cast<ImportInterveneFileResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileResponse({}));
   }
 
   /**
@@ -32690,12 +37638,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
-    } else {
-      return $tea.cast<ImportInterveneFileAsyncResponse>(await this.execute(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
-    }
-
+    return $tea.cast<ImportInterveneFileAsyncResponse>(await this.callApi(params, req, runtime), new ImportInterveneFileAsyncResponse({}));
   }
 
   /**
@@ -32749,12 +37692,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
-    } else {
-      return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.execute(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
-    }
-
+    return $tea.cast<InsertInterveneGlobalReplyResponse>(await this.callApi(params, req, runtime), new InsertInterveneGlobalReplyResponse({}));
   }
 
   /**
@@ -32808,12 +37746,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
-    } else {
-      return $tea.cast<InsertInterveneRuleResponse>(await this.execute(params, req, runtime), new InsertInterveneRuleResponse({}));
-    }
-
+    return $tea.cast<InsertInterveneRuleResponse>(await this.callApi(params, req, runtime), new InsertInterveneRuleResponse({}));
   }
 
   /**
@@ -32885,12 +37818,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
-    } else {
-      return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.execute(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
-    }
-
+    return $tea.cast<ListAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ListAnalysisTagDetailByTaskIdResponse({}));
   }
 
   /**
@@ -32984,12 +37912,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
-    } else {
-      return $tea.cast<ListAsyncTasksResponse>(await this.execute(params, req, runtime), new ListAsyncTasksResponse({}));
-    }
-
+    return $tea.cast<ListAsyncTasksResponse>(await this.callApi(params, req, runtime), new ListAsyncTasksResponse({}));
   }
 
   /**
@@ -33041,12 +37964,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListBuildConfigsResponse>(await this.callApi(params, req, runtime), new ListBuildConfigsResponse({}));
-    } else {
-      return $tea.cast<ListBuildConfigsResponse>(await this.execute(params, req, runtime), new ListBuildConfigsResponse({}));
-    }
-
+    return $tea.cast<ListBuildConfigsResponse>(await this.callApi(params, req, runtime), new ListBuildConfigsResponse({}));
   }
 
   /**
@@ -33094,12 +38012,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListCustomTextResponse>(await this.callApi(params, req, runtime), new ListCustomTextResponse({}));
-    } else {
-      return $tea.cast<ListCustomTextResponse>(await this.execute(params, req, runtime), new ListCustomTextResponse({}));
-    }
-
+    return $tea.cast<ListCustomTextResponse>(await this.callApi(params, req, runtime), new ListCustomTextResponse({}));
   }
 
   /**
@@ -33185,12 +38098,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListCustomViewPointsResponse>(await this.callApi(params, req, runtime), new ListCustomViewPointsResponse({}));
-    } else {
-      return $tea.cast<ListCustomViewPointsResponse>(await this.execute(params, req, runtime), new ListCustomViewPointsResponse({}));
-    }
-
+    return $tea.cast<ListCustomViewPointsResponse>(await this.callApi(params, req, runtime), new ListCustomViewPointsResponse({}));
   }
 
   /**
@@ -33202,6 +38110,172 @@ export default class Client extends OpenApi {
   async listCustomViewPoints(request: ListCustomViewPointsRequest): Promise<ListCustomViewPointsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listCustomViewPointsWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询数据集文档列表
+   * 
+   * @param tmpReq - ListDatasetDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetDocumentsResponse
+   */
+  async listDatasetDocumentsWithOptions(tmpReq: ListDatasetDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetDocumentsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListDatasetDocumentsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.excludeFields)) {
+      request.excludeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.excludeFields, "ExcludeFields", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.includeFields)) {
+      request.includeFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.includeFields, "IncludeFields", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetDescription)) {
+      body["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.docType)) {
+      body["DocType"] = request.docType;
+    }
+
+    if (!Util.isUnset(request.excludeFieldsShrink)) {
+      body["ExcludeFields"] = request.excludeFieldsShrink;
+    }
+
+    if (!Util.isUnset(request.includeFieldsShrink)) {
+      body["IncludeFields"] = request.includeFieldsShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDatasetDocuments",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDatasetDocumentsResponse>(await this.callApi(params, req, runtime), new ListDatasetDocumentsResponse({}));
+  }
+
+  /**
+   * 查询数据集文档列表
+   * 
+   * @param request - ListDatasetDocumentsRequest
+   * @returns ListDatasetDocumentsResponse
+   */
+  async listDatasetDocuments(request: ListDatasetDocumentsRequest): Promise<ListDatasetDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDatasetDocumentsWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据集管理-查询
+   * 
+   * @param request - ListDatasetsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetsResponse
+   */
+  async listDatasetsWithOptions(request: ListDatasetsRequest, runtime: $Util.RuntimeOptions): Promise<ListDatasetsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.datasetType)) {
+      body["DatasetType"] = request.datasetType;
+    }
+
+    if (!Util.isUnset(request.endTime)) {
+      body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.searchDatasetEnable)) {
+      body["SearchDatasetEnable"] = request.searchDatasetEnable;
+    }
+
+    if (!Util.isUnset(request.startTime)) {
+      body["StartTime"] = request.startTime;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListDatasets",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListDatasetsResponse>(await this.callApi(params, req, runtime), new ListDatasetsResponse({}));
+  }
+
+  /**
+   * 数据集管理-查询
+   * 
+   * @param request - ListDatasetsRequest
+   * @returns ListDatasetsResponse
+   */
+  async listDatasets(request: ListDatasetsRequest): Promise<ListDatasetsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listDatasetsWithOptions(request, runtime);
   }
 
   /**
@@ -33258,12 +38332,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListDialoguesResponse>(await this.callApi(params, req, runtime), new ListDialoguesResponse({}));
-    } else {
-      return $tea.cast<ListDialoguesResponse>(await this.execute(params, req, runtime), new ListDialoguesResponse({}));
-    }
-
+    return $tea.cast<ListDialoguesResponse>(await this.callApi(params, req, runtime), new ListDialoguesResponse({}));
   }
 
   /**
@@ -33339,12 +38408,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListDocsResponse>(await this.callApi(params, req, runtime), new ListDocsResponse({}));
-    } else {
-      return $tea.cast<ListDocsResponse>(await this.execute(params, req, runtime), new ListDocsResponse({}));
-    }
-
+    return $tea.cast<ListDocsResponse>(await this.callApi(params, req, runtime), new ListDocsResponse({}));
   }
 
   /**
@@ -33404,12 +38468,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListFreshViewPointsResponse>(await this.callApi(params, req, runtime), new ListFreshViewPointsResponse({}));
-    } else {
-      return $tea.cast<ListFreshViewPointsResponse>(await this.execute(params, req, runtime), new ListFreshViewPointsResponse({}));
-    }
-
+    return $tea.cast<ListFreshViewPointsResponse>(await this.callApi(params, req, runtime), new ListFreshViewPointsResponse({}));
   }
 
   /**
@@ -33485,12 +38544,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListGeneratedContentsResponse>(await this.callApi(params, req, runtime), new ListGeneratedContentsResponse({}));
-    } else {
-      return $tea.cast<ListGeneratedContentsResponse>(await this.execute(params, req, runtime), new ListGeneratedContentsResponse({}));
-    }
-
+    return $tea.cast<ListGeneratedContentsResponse>(await this.callApi(params, req, runtime), new ListGeneratedContentsResponse({}));
   }
 
   /**
@@ -33556,12 +38610,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListHotNewsWithTypeResponse>(await this.callApi(params, req, runtime), new ListHotNewsWithTypeResponse({}));
-    } else {
-      return $tea.cast<ListHotNewsWithTypeResponse>(await this.execute(params, req, runtime), new ListHotNewsWithTypeResponse({}));
-    }
-
+    return $tea.cast<ListHotNewsWithTypeResponse>(await this.callApi(params, req, runtime), new ListHotNewsWithTypeResponse({}));
   }
 
   /**
@@ -33613,12 +38662,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListHotSourcesResponse>(await this.callApi(params, req, runtime), new ListHotSourcesResponse({}));
-    } else {
-      return $tea.cast<ListHotSourcesResponse>(await this.execute(params, req, runtime), new ListHotSourcesResponse({}));
-    }
-
+    return $tea.cast<ListHotSourcesResponse>(await this.callApi(params, req, runtime), new ListHotSourcesResponse({}));
   }
 
   /**
@@ -33704,12 +38748,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListHotTopicsResponse>(await this.callApi(params, req, runtime), new ListHotTopicsResponse({}));
-    } else {
-      return $tea.cast<ListHotTopicsResponse>(await this.execute(params, req, runtime), new ListHotTopicsResponse({}));
-    }
-
+    return $tea.cast<ListHotTopicsResponse>(await this.callApi(params, req, runtime), new ListHotTopicsResponse({}));
   }
 
   /**
@@ -33769,12 +38808,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListHotViewPointsResponse>(await this.callApi(params, req, runtime), new ListHotViewPointsResponse({}));
-    } else {
-      return $tea.cast<ListHotViewPointsResponse>(await this.execute(params, req, runtime), new ListHotViewPointsResponse({}));
-    }
-
+    return $tea.cast<ListHotViewPointsResponse>(await this.callApi(params, req, runtime), new ListHotViewPointsResponse({}));
   }
 
   /**
@@ -33826,12 +38860,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
-    } else {
-      return $tea.cast<ListInterveneCntResponse>(await this.execute(params, req, runtime), new ListInterveneCntResponse({}));
-    }
-
+    return $tea.cast<ListInterveneCntResponse>(await this.callApi(params, req, runtime), new ListInterveneCntResponse({}));
   }
 
   /**
@@ -33883,12 +38912,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
-    } else {
-      return $tea.cast<ListInterveneImportTasksResponse>(await this.execute(params, req, runtime), new ListInterveneImportTasksResponse({}));
-    }
-
+    return $tea.cast<ListInterveneImportTasksResponse>(await this.callApi(params, req, runtime), new ListInterveneImportTasksResponse({}));
   }
 
   /**
@@ -33940,12 +38964,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
-    } else {
-      return $tea.cast<ListInterveneRulesResponse>(await this.execute(params, req, runtime), new ListInterveneRulesResponse({}));
-    }
-
+    return $tea.cast<ListInterveneRulesResponse>(await this.callApi(params, req, runtime), new ListInterveneRulesResponse({}));
   }
 
   /**
@@ -34009,12 +39028,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
-    } else {
-      return $tea.cast<ListIntervenesResponse>(await this.execute(params, req, runtime), new ListIntervenesResponse({}));
-    }
-
+    return $tea.cast<ListIntervenesResponse>(await this.callApi(params, req, runtime), new ListIntervenesResponse({}));
   }
 
   /**
@@ -34128,12 +39142,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListMaterialDocumentsResponse>(await this.callApi(params, req, runtime), new ListMaterialDocumentsResponse({}));
-    } else {
-      return $tea.cast<ListMaterialDocumentsResponse>(await this.execute(params, req, runtime), new ListMaterialDocumentsResponse({}));
-    }
-
+    return $tea.cast<ListMaterialDocumentsResponse>(await this.callApi(params, req, runtime), new ListMaterialDocumentsResponse({}));
   }
 
   /**
@@ -34223,12 +39232,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListPlanningProposalResponse>(await this.callApi(params, req, runtime), new ListPlanningProposalResponse({}));
-    } else {
-      return $tea.cast<ListPlanningProposalResponse>(await this.execute(params, req, runtime), new ListPlanningProposalResponse({}));
-    }
-
+    return $tea.cast<ListPlanningProposalResponse>(await this.callApi(params, req, runtime), new ListPlanningProposalResponse({}));
   }
 
   /**
@@ -34240,6 +39244,202 @@ export default class Client extends OpenApi {
   async listPlanningProposal(request: ListPlanningProposalRequest): Promise<ListPlanningProposalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listPlanningProposalWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询搜索生成任务对话详情中数据列表
+   * 
+   * @param request - ListSearchTaskDialogueDatasRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSearchTaskDialogueDatasResponse
+   */
+  async listSearchTaskDialogueDatasWithOptions(request: ListSearchTaskDialogueDatasRequest, runtime: $Util.RuntimeOptions): Promise<ListSearchTaskDialogueDatasResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.includeContent)) {
+      body["IncludeContent"] = request.includeContent;
+    }
+
+    if (!Util.isUnset(request.multimodalSearchType)) {
+      body["MultimodalSearchType"] = request.multimodalSearchType;
+    }
+
+    if (!Util.isUnset(request.originalSessionId)) {
+      body["OriginalSessionId"] = request.originalSessionId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.searchModel)) {
+      body["SearchModel"] = request.searchModel;
+    }
+
+    if (!Util.isUnset(request.searchModelDataValue)) {
+      body["SearchModelDataValue"] = request.searchModelDataValue;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["SessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSearchTaskDialogueDatas",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSearchTaskDialogueDatasResponse>(await this.callApi(params, req, runtime), new ListSearchTaskDialogueDatasResponse({}));
+  }
+
+  /**
+   * 查询搜索生成任务对话详情中数据列表
+   * 
+   * @param request - ListSearchTaskDialogueDatasRequest
+   * @returns ListSearchTaskDialogueDatasResponse
+   */
+  async listSearchTaskDialogueDatas(request: ListSearchTaskDialogueDatasRequest): Promise<ListSearchTaskDialogueDatasResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSearchTaskDialogueDatasWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询妙搜搜索生成任务详情列表
+   * 
+   * @param request - ListSearchTaskDialoguesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSearchTaskDialoguesResponse
+   */
+  async listSearchTaskDialoguesWithOptions(request: ListSearchTaskDialoguesRequest, runtime: $Util.RuntimeOptions): Promise<ListSearchTaskDialoguesResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSearchTaskDialogues",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSearchTaskDialoguesResponse>(await this.callApi(params, req, runtime), new ListSearchTaskDialoguesResponse({}));
+  }
+
+  /**
+   * 查询妙搜搜索生成任务详情列表
+   * 
+   * @param request - ListSearchTaskDialoguesRequest
+   * @returns ListSearchTaskDialoguesResponse
+   */
+  async listSearchTaskDialogues(request: ListSearchTaskDialoguesRequest): Promise<ListSearchTaskDialoguesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSearchTaskDialoguesWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询妙搜搜索生成历史任务列表
+   * 
+   * @param tmpReq - ListSearchTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSearchTasksResponse
+   */
+  async listSearchTasksWithOptions(tmpReq: ListSearchTasksRequest, runtime: $Util.RuntimeOptions): Promise<ListSearchTasksResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListSearchTasksShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dialogueTypes)) {
+      request.dialogueTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dialogueTypes, "DialogueTypes", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dialogueTypesShrink)) {
+      body["DialogueTypes"] = request.dialogueTypesShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListSearchTasks",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListSearchTasksResponse>(await this.callApi(params, req, runtime), new ListSearchTasksResponse({}));
+  }
+
+  /**
+   * 查询妙搜搜索生成历史任务列表
+   * 
+   * @param request - ListSearchTasksRequest
+   * @returns ListSearchTasksResponse
+   */
+  async listSearchTasks(request: ListSearchTasksRequest): Promise<ListSearchTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listSearchTasksWithOptions(request, runtime);
   }
 
   /**
@@ -34288,12 +39488,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTimedViewAttitudeResponse>(await this.callApi(params, req, runtime), new ListTimedViewAttitudeResponse({}));
-    } else {
-      return $tea.cast<ListTimedViewAttitudeResponse>(await this.execute(params, req, runtime), new ListTimedViewAttitudeResponse({}));
-    }
-
+    return $tea.cast<ListTimedViewAttitudeResponse>(await this.callApi(params, req, runtime), new ListTimedViewAttitudeResponse({}));
   }
 
   /**
@@ -34345,12 +39540,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTopicRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicRecommendEventListResponse({}));
-    } else {
-      return $tea.cast<ListTopicRecommendEventListResponse>(await this.execute(params, req, runtime), new ListTopicRecommendEventListResponse({}));
-    }
-
+    return $tea.cast<ListTopicRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicRecommendEventListResponse({}));
   }
 
   /**
@@ -34406,12 +39596,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
-    } else {
-      return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.execute(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
-    }
-
+    return $tea.cast<ListTopicViewPointRecommendEventListResponse>(await this.callApi(params, req, runtime), new ListTopicViewPointRecommendEventListResponse({}));
   }
 
   /**
@@ -34453,12 +39638,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
-    } else {
-      return $tea.cast<ListVersionsResponse>(await this.execute(params, req, runtime), new ListVersionsResponse({}));
-    }
-
+    return $tea.cast<ListVersionsResponse>(await this.callApi(params, req, runtime), new ListVersionsResponse({}));
   }
 
   /**
@@ -34518,12 +39698,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ListWebReviewPointsResponse>(await this.callApi(params, req, runtime), new ListWebReviewPointsResponse({}));
-    } else {
-      return $tea.cast<ListWebReviewPointsResponse>(await this.execute(params, req, runtime), new ListWebReviewPointsResponse({}));
-    }
-
+    return $tea.cast<ListWebReviewPointsResponse>(await this.callApi(params, req, runtime), new ListWebReviewPointsResponse({}));
   }
 
   /**
@@ -34571,12 +39746,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<QueryAsyncTaskResponse>(await this.callApi(params, req, runtime), new QueryAsyncTaskResponse({}));
-    } else {
-      return $tea.cast<QueryAsyncTaskResponse>(await this.execute(params, req, runtime), new QueryAsyncTaskResponse({}));
-    }
-
+    return $tea.cast<QueryAsyncTaskResponse>(await this.callApi(params, req, runtime), new QueryAsyncTaskResponse({}));
   }
 
   /**
@@ -34622,12 +39792,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunAbbreviationContentResponse>(await this.callApi(params, req, runtime), new RunAbbreviationContentResponse({}));
-    } else {
-      return $tea.cast<RunAbbreviationContentResponse>(await this.execute(params, req, runtime), new RunAbbreviationContentResponse({}));
-    }
-
+    return $tea.cast<RunAbbreviationContentResponse>(await this.callApi(params, req, runtime), new RunAbbreviationContentResponse({}));
   }
 
   /**
@@ -34673,12 +39838,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunContinueContentResponse>(await this.callApi(params, req, runtime), new RunContinueContentResponse({}));
-    } else {
-      return $tea.cast<RunContinueContentResponse>(await this.execute(params, req, runtime), new RunContinueContentResponse({}));
-    }
-
+    return $tea.cast<RunContinueContentResponse>(await this.callApi(params, req, runtime), new RunContinueContentResponse({}));
   }
 
   /**
@@ -34744,12 +39904,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
-    } else {
-      return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.execute(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
-    }
-
+    return $tea.cast<RunCustomHotTopicAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicAnalysisResponse({}));
   }
 
   /**
@@ -34827,12 +39982,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
-    } else {
-      return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.execute(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
-    }
-
+    return $tea.cast<RunCustomHotTopicViewPointAnalysisResponse>(await this.callApi(params, req, runtime), new RunCustomHotTopicViewPointAnalysisResponse({}));
   }
 
   /**
@@ -34882,12 +40032,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunDocBrainmapResponse>(await this.callApi(params, req, runtime), new RunDocBrainmapResponse({}));
-    } else {
-      return $tea.cast<RunDocBrainmapResponse>(await this.execute(params, req, runtime), new RunDocBrainmapResponse({}));
-    }
-
+    return $tea.cast<RunDocBrainmapResponse>(await this.callApi(params, req, runtime), new RunDocBrainmapResponse({}));
   }
 
   /**
@@ -34937,12 +40082,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunDocIntroductionResponse({}));
-    } else {
-      return $tea.cast<RunDocIntroductionResponse>(await this.execute(params, req, runtime), new RunDocIntroductionResponse({}));
-    }
-
+    return $tea.cast<RunDocIntroductionResponse>(await this.callApi(params, req, runtime), new RunDocIntroductionResponse({}));
   }
 
   /**
@@ -35026,12 +40166,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunDocQaResponse>(await this.callApi(params, req, runtime), new RunDocQaResponse({}));
-    } else {
-      return $tea.cast<RunDocQaResponse>(await this.execute(params, req, runtime), new RunDocQaResponse({}));
-    }
-
+    return $tea.cast<RunDocQaResponse>(await this.callApi(params, req, runtime), new RunDocQaResponse({}));
   }
 
   /**
@@ -35089,12 +40224,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunDocSummaryResponse>(await this.callApi(params, req, runtime), new RunDocSummaryResponse({}));
-    } else {
-      return $tea.cast<RunDocSummaryResponse>(await this.execute(params, req, runtime), new RunDocSummaryResponse({}));
-    }
-
+    return $tea.cast<RunDocSummaryResponse>(await this.callApi(params, req, runtime), new RunDocSummaryResponse({}));
   }
 
   /**
@@ -35152,12 +40282,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunDocTranslationResponse>(await this.callApi(params, req, runtime), new RunDocTranslationResponse({}));
-    } else {
-      return $tea.cast<RunDocTranslationResponse>(await this.execute(params, req, runtime), new RunDocTranslationResponse({}));
-    }
-
+    return $tea.cast<RunDocTranslationResponse>(await this.callApi(params, req, runtime), new RunDocTranslationResponse({}));
   }
 
   /**
@@ -35203,12 +40328,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunExpandContentResponse>(await this.callApi(params, req, runtime), new RunExpandContentResponse({}));
-    } else {
-      return $tea.cast<RunExpandContentResponse>(await this.execute(params, req, runtime), new RunExpandContentResponse({}));
-    }
-
+    return $tea.cast<RunExpandContentResponse>(await this.callApi(params, req, runtime), new RunExpandContentResponse({}));
   }
 
   /**
@@ -35264,12 +40384,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.callApi(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
-    } else {
-      return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.execute(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
-    }
-
+    return $tea.cast<RunKeywordsExtractionGenerationResponse>(await this.callApi(params, req, runtime), new RunKeywordsExtractionGenerationResponse({}));
   }
 
   /**
@@ -35341,12 +40456,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunSearchGenerationResponse>(await this.callApi(params, req, runtime), new RunSearchGenerationResponse({}));
-    } else {
-      return $tea.cast<RunSearchGenerationResponse>(await this.execute(params, req, runtime), new RunSearchGenerationResponse({}));
-    }
-
+    return $tea.cast<RunSearchGenerationResponse>(await this.callApi(params, req, runtime), new RunSearchGenerationResponse({}));
   }
 
   /**
@@ -35422,12 +40532,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunStepByStepWritingResponse>(await this.callApi(params, req, runtime), new RunStepByStepWritingResponse({}));
-    } else {
-      return $tea.cast<RunStepByStepWritingResponse>(await this.execute(params, req, runtime), new RunStepByStepWritingResponse({}));
-    }
-
+    return $tea.cast<RunStepByStepWritingResponse>(await this.callApi(params, req, runtime), new RunStepByStepWritingResponse({}));
   }
 
   /**
@@ -35487,12 +40592,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.callApi(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
-    } else {
-      return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.execute(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
-    }
-
+    return $tea.cast<RunStyleFeatureAnalysisResponse>(await this.callApi(params, req, runtime), new RunStyleFeatureAnalysisResponse({}));
   }
 
   /**
@@ -35542,12 +40642,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunSummaryGenerateResponse>(await this.callApi(params, req, runtime), new RunSummaryGenerateResponse({}));
-    } else {
-      return $tea.cast<RunSummaryGenerateResponse>(await this.execute(params, req, runtime), new RunSummaryGenerateResponse({}));
-    }
-
+    return $tea.cast<RunSummaryGenerateResponse>(await this.callApi(params, req, runtime), new RunSummaryGenerateResponse({}));
   }
 
   /**
@@ -35593,12 +40688,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunTextPolishingResponse>(await this.callApi(params, req, runtime), new RunTextPolishingResponse({}));
-    } else {
-      return $tea.cast<RunTextPolishingResponse>(await this.execute(params, req, runtime), new RunTextPolishingResponse({}));
-    }
-
+    return $tea.cast<RunTextPolishingResponse>(await this.callApi(params, req, runtime), new RunTextPolishingResponse({}));
   }
 
   /**
@@ -35654,12 +40744,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunTitleGenerationResponse>(await this.callApi(params, req, runtime), new RunTitleGenerationResponse({}));
-    } else {
-      return $tea.cast<RunTitleGenerationResponse>(await this.execute(params, req, runtime), new RunTitleGenerationResponse({}));
-    }
-
+    return $tea.cast<RunTitleGenerationResponse>(await this.callApi(params, req, runtime), new RunTitleGenerationResponse({}));
   }
 
   /**
@@ -35719,12 +40804,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunTranslateGenerationResponse>(await this.callApi(params, req, runtime), new RunTranslateGenerationResponse({}));
-    } else {
-      return $tea.cast<RunTranslateGenerationResponse>(await this.execute(params, req, runtime), new RunTranslateGenerationResponse({}));
-    }
-
+    return $tea.cast<RunTranslateGenerationResponse>(await this.callApi(params, req, runtime), new RunTranslateGenerationResponse({}));
   }
 
   /**
@@ -35784,12 +40864,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunWriteToneGenerationResponse>(await this.callApi(params, req, runtime), new RunWriteToneGenerationResponse({}));
-    } else {
-      return $tea.cast<RunWriteToneGenerationResponse>(await this.execute(params, req, runtime), new RunWriteToneGenerationResponse({}));
-    }
-
+    return $tea.cast<RunWriteToneGenerationResponse>(await this.callApi(params, req, runtime), new RunWriteToneGenerationResponse({}));
   }
 
   /**
@@ -35865,12 +40940,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<RunWritingResponse>(await this.callApi(params, req, runtime), new RunWritingResponse({}));
-    } else {
-      return $tea.cast<RunWritingResponse>(await this.execute(params, req, runtime), new RunWritingResponse({}));
-    }
-
+    return $tea.cast<RunWritingResponse>(await this.callApi(params, req, runtime), new RunWritingResponse({}));
   }
 
   /**
@@ -35926,12 +40996,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SaveCustomTextResponse>(await this.callApi(params, req, runtime), new SaveCustomTextResponse({}));
-    } else {
-      return $tea.cast<SaveCustomTextResponse>(await this.execute(params, req, runtime), new SaveCustomTextResponse({}));
-    }
-
+    return $tea.cast<SaveCustomTextResponse>(await this.callApi(params, req, runtime), new SaveCustomTextResponse({}));
   }
 
   /**
@@ -35989,12 +41054,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
-    } else {
-      return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.execute(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
-    }
-
+    return $tea.cast<SaveDataSourceOrderConfigResponse>(await this.callApi(params, req, runtime), new SaveDataSourceOrderConfigResponse({}));
   }
 
   /**
@@ -36096,12 +41156,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SaveMaterialDocumentResponse>(await this.callApi(params, req, runtime), new SaveMaterialDocumentResponse({}));
-    } else {
-      return $tea.cast<SaveMaterialDocumentResponse>(await this.execute(params, req, runtime), new SaveMaterialDocumentResponse({}));
-    }
-
+    return $tea.cast<SaveMaterialDocumentResponse>(await this.callApi(params, req, runtime), new SaveMaterialDocumentResponse({}));
   }
 
   /**
@@ -36113,6 +41168,72 @@ export default class Client extends OpenApi {
   async saveMaterialDocument(request: SaveMaterialDocumentRequest): Promise<SaveMaterialDocumentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.saveMaterialDocumentWithOptions(request, runtime);
+  }
+
+  /**
+   * 搜索数据集文档
+   * 
+   * @param request - SearchDatasetDocumentsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SearchDatasetDocumentsResponse
+   */
+  async searchDatasetDocumentsWithOptions(request: SearchDatasetDocumentsRequest, runtime: $Util.RuntimeOptions): Promise<SearchDatasetDocumentsResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.extend1)) {
+      body["Extend1"] = request.extend1;
+    }
+
+    if (!Util.isUnset(request.includeContent)) {
+      body["IncludeContent"] = request.includeContent;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SearchDatasetDocuments",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SearchDatasetDocumentsResponse>(await this.callApi(params, req, runtime), new SearchDatasetDocumentsResponse({}));
+  }
+
+  /**
+   * 搜索数据集文档
+   * 
+   * @param request - SearchDatasetDocumentsRequest
+   * @returns SearchDatasetDocumentsResponse
+   */
+  async searchDatasetDocuments(request: SearchDatasetDocumentsRequest): Promise<SearchDatasetDocumentsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.searchDatasetDocumentsWithOptions(request, runtime);
   }
 
   /**
@@ -36175,12 +41296,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
-    } else {
-      return $tea.cast<SearchNewsResponse>(await this.execute(params, req, runtime), new SearchNewsResponse({}));
-    }
-
+    return $tea.cast<SearchNewsResponse>(await this.callApi(params, req, runtime), new SearchNewsResponse({}));
   }
 
   /**
@@ -36240,12 +41356,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitAsyncTaskResponse>(await this.callApi(params, req, runtime), new SubmitAsyncTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitAsyncTaskResponse>(await this.execute(params, req, runtime), new SubmitAsyncTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitAsyncTaskResponse>(await this.callApi(params, req, runtime), new SubmitAsyncTaskResponse({}));
   }
 
   /**
@@ -36309,12 +41420,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
-    } else {
-      return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.execute(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
-    }
-
+    return $tea.cast<SubmitCustomHotTopicBroadcastJobResponse>(await this.callApi(params, req, runtime), new SubmitCustomHotTopicBroadcastJobResponse({}));
   }
 
   /**
@@ -36376,12 +41482,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitCustomTopicSelectionPerspectiveAnalysisTaskResponse({}));
   }
 
   /**
@@ -36447,12 +41548,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitDocClusterTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocClusterTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitDocClusterTaskResponse>(await this.execute(params, req, runtime), new SubmitDocClusterTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitDocClusterTaskResponse>(await this.callApi(params, req, runtime), new SubmitDocClusterTaskResponse({}));
   }
 
   /**
@@ -36544,12 +41640,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitEnterpriseVocAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitEnterpriseVocAnalysisTaskResponse({}));
   }
 
   /**
@@ -36617,12 +41708,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitSmartClipTaskResponse>(await this.callApi(params, req, runtime), new SubmitSmartClipTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitSmartClipTaskResponse>(await this.execute(params, req, runtime), new SubmitSmartClipTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitSmartClipTaskResponse>(await this.callApi(params, req, runtime), new SubmitSmartClipTaskResponse({}));
   }
 
   /**
@@ -36688,12 +41774,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    } else {
-      return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.execute(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
-    }
-
+    return $tea.cast<SubmitTopicSelectionPerspectiveAnalysisTaskResponse>(await this.callApi(params, req, runtime), new SubmitTopicSelectionPerspectiveAnalysisTaskResponse({}));
   }
 
   /**
@@ -36753,12 +41834,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateCustomTextResponse>(await this.callApi(params, req, runtime), new UpdateCustomTextResponse({}));
-    } else {
-      return $tea.cast<UpdateCustomTextResponse>(await this.execute(params, req, runtime), new UpdateCustomTextResponse({}));
-    }
-
+    return $tea.cast<UpdateCustomTextResponse>(await this.callApi(params, req, runtime), new UpdateCustomTextResponse({}));
   }
 
   /**
@@ -36770,6 +41846,130 @@ export default class Client extends OpenApi {
   async updateCustomText(request: UpdateCustomTextRequest): Promise<UpdateCustomTextResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCustomTextWithOptions(request, runtime);
+  }
+
+  /**
+   * 数据集管理-更新
+   * 
+   * @param tmpReq - UpdateDatasetRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetResponse
+   */
+  async updateDatasetWithOptions(tmpReq: UpdateDatasetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDatasetShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.datasetConfig)) {
+      request.datasetConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.datasetConfig, "DatasetConfig", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetConfigShrink)) {
+      body["DatasetConfig"] = request.datasetConfigShrink;
+    }
+
+    if (!Util.isUnset(request.datasetDescription)) {
+      body["DatasetDescription"] = request.datasetDescription;
+    }
+
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.searchDatasetEnable)) {
+      body["SearchDatasetEnable"] = request.searchDatasetEnable;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDataset",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDatasetResponse>(await this.callApi(params, req, runtime), new UpdateDatasetResponse({}));
+  }
+
+  /**
+   * 数据集管理-更新
+   * 
+   * @param request - UpdateDatasetRequest
+   * @returns UpdateDatasetResponse
+   */
+  async updateDataset(request: UpdateDatasetRequest): Promise<UpdateDatasetResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDatasetWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改数据集文档
+   * 
+   * @param tmpReq - UpdateDatasetDocumentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDatasetDocumentResponse
+   */
+  async updateDatasetDocumentWithOptions(tmpReq: UpdateDatasetDocumentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDatasetDocumentResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateDatasetDocumentShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.document)) {
+      request.documentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.document, "Document", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.datasetId)) {
+      body["DatasetId"] = request.datasetId;
+    }
+
+    if (!Util.isUnset(request.datasetName)) {
+      body["DatasetName"] = request.datasetName;
+    }
+
+    if (!Util.isUnset(request.documentShrink)) {
+      body["Document"] = request.documentShrink;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateDatasetDocument",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateDatasetDocumentResponse>(await this.callApi(params, req, runtime), new UpdateDatasetDocumentResponse({}));
+  }
+
+  /**
+   * 修改数据集文档
+   * 
+   * @param request - UpdateDatasetDocumentRequest
+   * @returns UpdateDatasetDocumentResponse
+   */
+  async updateDatasetDocument(request: UpdateDatasetDocumentRequest): Promise<UpdateDatasetDocumentResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateDatasetDocumentWithOptions(request, runtime);
   }
 
   /**
@@ -36832,12 +42032,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
-    } else {
-      return $tea.cast<UpdateGeneratedContentResponse>(await this.execute(params, req, runtime), new UpdateGeneratedContentResponse({}));
-    }
-
+    return $tea.cast<UpdateGeneratedContentResponse>(await this.callApi(params, req, runtime), new UpdateGeneratedContentResponse({}));
   }
 
   /**
@@ -36943,12 +42138,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UpdateMaterialDocumentResponse>(await this.callApi(params, req, runtime), new UpdateMaterialDocumentResponse({}));
-    } else {
-      return $tea.cast<UpdateMaterialDocumentResponse>(await this.execute(params, req, runtime), new UpdateMaterialDocumentResponse({}));
-    }
-
+    return $tea.cast<UpdateMaterialDocumentResponse>(await this.callApi(params, req, runtime), new UpdateMaterialDocumentResponse({}));
   }
 
   /**
@@ -37004,12 +42194,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<UploadDocResponse>(await this.callApi(params, req, runtime), new UploadDocResponse({}));
-    } else {
-      return $tea.cast<UploadDocResponse>(await this.execute(params, req, runtime), new UploadDocResponse({}));
-    }
-
+    return $tea.cast<UploadDocResponse>(await this.callApi(params, req, runtime), new UploadDocResponse({}));
   }
 
   /**
@@ -37063,12 +42248,7 @@ export default class Client extends OpenApi {
       reqBodyType: "formData",
       bodyType: "json",
     });
-    if (Util.isUnset(this._signatureVersion) || !Util.equalString(this._signatureVersion, "v4")) {
-      return $tea.cast<ValidateUploadTemplateResponse>(await this.callApi(params, req, runtime), new ValidateUploadTemplateResponse({}));
-    } else {
-      return $tea.cast<ValidateUploadTemplateResponse>(await this.execute(params, req, runtime), new ValidateUploadTemplateResponse({}));
-    }
-
+    return $tea.cast<ValidateUploadTemplateResponse>(await this.callApi(params, req, runtime), new ValidateUploadTemplateResponse({}));
   }
 
   /**
