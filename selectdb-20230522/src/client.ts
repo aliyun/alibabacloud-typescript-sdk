@@ -189,6 +189,9 @@ export class CheckCreateDBInstanceRequest extends $tea.Model {
   DBInstanceClass?: string;
   DBInstanceDescription?: string;
   /**
+   * @remarks
+   * The database engine of the instance.
+   * 
    * @example
    * SelectDB
    */
@@ -484,6 +487,9 @@ export class CreateDBClusterRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The database engine of the instance.
+   * 
    * @example
    * selectdb
    */
@@ -525,7 +531,7 @@ export class CreateDBClusterRequest extends $tea.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * VPC ID.
    * 
    * This parameter is required.
    * 
@@ -1010,6 +1016,136 @@ export class CreateDBInstanceResponse extends $tea.Model {
   }
 }
 
+export class CreateElasticRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-xxxb9f2w-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticRuleResponseBody extends $tea.Model {
+  data?: CreateElasticRuleResponseBodyData;
+  /**
+   * @example
+   * F8900A96-67F7-5274-A41B-7722E1ECF8C9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: CreateElasticRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateElasticRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateElasticRuleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateServiceLinkedRoleForSelectDBRequest extends $tea.Model {
   ownerAccount?: string;
   resourceOwnerId?: number;
@@ -1271,6 +1407,127 @@ export class DeleteDBInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteDBInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-xxx302i5-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * selectdb
+   */
+  product?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hanghzou
+   */
+  regionId?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100458
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticRuleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteElasticRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteElasticRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteElasticRuleResponseBody,
     };
   }
 
@@ -2427,6 +2684,113 @@ export class DescribeDBInstancesResponse extends $tea.Model {
   }
 }
 
+export class DescribeElasticRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-nwy3jv1oa02-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * selectdb
+   */
+  product?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeElasticRulesResponseBody extends $tea.Model {
+  data?: DescribeElasticRulesResponseBodyData;
+  /**
+   * @example
+   * F8900A96-67F7-5274-A41B-7722E1ECF8C9
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: DescribeElasticRulesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeElasticRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeElasticRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeElasticRulesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityIPListRequest extends $tea.Model {
   /**
    * @remarks
@@ -2530,6 +2894,123 @@ export class DescribeSecurityIPListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeSecurityIPListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnDisableScalingRulesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-nwy3jv1oa02-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * selectdb
+   */
+  product?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
+  scalingRulesEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      scalingRulesEnable: 'ScalingRulesEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      scalingRulesEnable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnDisableScalingRulesResponseBody extends $tea.Model {
+  data?: EnDisableScalingRulesResponseBodyData;
+  /**
+   * @example
+   * 4773E4EC-025D-509F-AEA9-D53123FDFB0F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: EnDisableScalingRulesResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnDisableScalingRulesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EnDisableScalingRulesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: EnDisableScalingRulesResponseBody,
     };
   }
 
@@ -2983,14 +3464,7 @@ export class ModifyBEClusterAttributeRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The cluster parameter to be modified.
-   * 
-   * *   Valid values:****
-   * 
-   * <!---->
-   * 
-   * *   MaintainTime
-   * *   DBInstanceDescription
+   * The attribute type of the instance. Set this parameter to DBInstanceDescription.
    * 
    * This parameter is required.
    * 
@@ -3009,7 +3483,7 @@ export class ModifyBEClusterAttributeRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The modfied cluster name.
+   * The new name of the cluster.
    * 
    * This parameter is required.
    * 
@@ -3094,6 +3568,9 @@ export class ModifyBEClusterAttributeResponse extends $tea.Model {
 
 export class ModifyDBClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The size of the reserved cache.
+   * 
    * @example
    * 200
    */
@@ -3493,6 +3970,144 @@ export class ModifyDBInstanceAttributeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBInstanceAttributeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticRuleRequest extends $tea.Model {
+  /**
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-nwy3jv1oa02-be
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @example
+   * selectdb
+   */
+  product?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 5467
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      product: 'Product',
+      regionId: 'RegionId',
+      resourceOwnerId: 'ResourceOwnerId',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      product: 'string',
+      regionId: 'string',
+      resourceOwnerId: 'number',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticRuleResponseBody extends $tea.Model {
+  data?: ModifyElasticRuleResponseBodyData;
+  /**
+   * @example
+   * 5ED62C81-9948-5612-81E1-EA3853752306
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'Data',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: ModifyElasticRuleResponseBodyData,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticRuleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyElasticRuleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyElasticRuleResponseBody,
     };
   }
 
@@ -3953,7 +4568,7 @@ export class RestartDBClusterRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * The ID of the region in which the ApsaraDB for SelectDB instance resides.
    * 
    * This parameter is required.
    * 
@@ -4452,6 +5067,64 @@ export class CreateDBInstanceResponseBodyData extends $tea.Model {
     return {
       DBInstanceId: 'string',
       orderId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateElasticRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @example
+   * selectdb-xxxb9f2w-be
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @example
+   * 5465
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      ruleId: 'number',
     };
   }
 
@@ -5767,6 +6440,83 @@ export class DescribeDBInstancesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeElasticRulesResponseBodyDataRules extends $tea.Model {
+  /**
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @example
+   * 5467
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      ruleId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeElasticRulesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * selectdb-cn-nwy3jv1oa02-be
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  rules?: DescribeElasticRulesResponseBodyDataRules[];
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      rules: 'Rules',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      rules: { 'type': 'array', 'itemType': DescribeElasticRulesResponseBodyDataRules },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeSecurityIPListResponseBodyGroupItems extends $tea.Model {
   /**
    * @remarks
@@ -5828,6 +6578,43 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $tea.Model {
       groupTag: 'string',
       securityIPList: 'string',
       whitelistNetType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class EnDisableScalingRulesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * selectdb-cn-pe33jc1nd01-be
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * true
+   */
+  scalingRulesEnable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      scalingRulesEnable: 'ScalingRulesEnable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      scalingRulesEnable: 'boolean',
     };
   }
 
@@ -5981,6 +6768,64 @@ export class ModifyDBClusterConfigResponseBodyData extends $tea.Model {
       dbInstanceId: 'string',
       dbInstanceName: 'string',
       taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyElasticRuleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * selectdb.2xlarge
+   */
+  clusterClass?: string;
+  /**
+   * @example
+   * selectdb-cn-zpr3if5wq03-be
+   */
+  clusterId?: string;
+  /**
+   * @example
+   * selectdb-cn-7213cjv****
+   */
+  dbInstanceId?: string;
+  /**
+   * @example
+   * 00:00
+   */
+  elasticRuleStartTime?: string;
+  /**
+   * @example
+   * Day
+   */
+  executionPeriod?: string;
+  /**
+   * @example
+   * 29252
+   */
+  ruleId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      clusterClass: 'ClusterClass',
+      clusterId: 'ClusterId',
+      dbInstanceId: 'DbInstanceId',
+      elasticRuleStartTime: 'ElasticRuleStartTime',
+      executionPeriod: 'ExecutionPeriod',
+      ruleId: 'RuleId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterClass: 'string',
+      clusterId: 'string',
+      dbInstanceId: 'string',
+      elasticRuleStartTime: 'string',
+      executionPeriod: 'string',
+      ruleId: 'number',
     };
   }
 
@@ -6259,7 +7104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
+   * Creates a cluster in an ApsaraDB for SelectDB instance.
+   * 
+   * @remarks
+   * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6344,7 +7192,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
+   * Creates a cluster in an ApsaraDB for SelectDB instance.
+   * 
+   * @remarks
+   * > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -6470,6 +7321,72 @@ export default class Client extends OpenApi {
   async createDBInstance(request: CreateDBInstanceRequest): Promise<CreateDBInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDBInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建分时弹性规则
+   * 
+   * @param request - CreateElasticRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateElasticRuleResponse
+   */
+  async createElasticRuleWithOptions(request: CreateElasticRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateElasticRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterClass)) {
+      query["ClusterClass"] = request.clusterClass;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!Util.isUnset(request.elasticRuleStartTime)) {
+      query["ElasticRuleStartTime"] = request.elasticRuleStartTime;
+    }
+
+    if (!Util.isUnset(request.executionPeriod)) {
+      query["ExecutionPeriod"] = request.executionPeriod;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateElasticRule",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateElasticRuleResponse>(await this.callApi(params, req, runtime), new CreateElasticRuleResponse({}));
+  }
+
+  /**
+   * 创建分时弹性规则
+   * 
+   * @param request - CreateElasticRuleRequest
+   * @returns CreateElasticRuleResponse
+   */
+  async createElasticRule(request: CreateElasticRuleRequest): Promise<CreateElasticRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createElasticRuleWithOptions(request, runtime);
   }
 
   /**
@@ -6631,7 +7548,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有实例规格信息
+   * 删除分时弹性规则
+   * 
+   * @param request - DeleteElasticRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteElasticRuleResponse
+   */
+  async deleteElasticRuleWithOptions(request: DeleteElasticRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteElasticRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!Util.isUnset(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteElasticRule",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteElasticRuleResponse>(await this.callApi(params, req, runtime), new DeleteElasticRuleResponse({}));
+  }
+
+  /**
+   * 删除分时弹性规则
+   * 
+   * @param request - DeleteElasticRuleRequest
+   * @returns DeleteElasticRuleResponse
+   */
+  async deleteElasticRule(request: DeleteElasticRuleRequest): Promise<DeleteElasticRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteElasticRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the information about all instance specifications.
    * 
    * @param request - DescribeAllDBInstanceClassRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6666,7 +7645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取所有实例规格信息
+   * Queries the information about all instance specifications.
    * 
    * @param request - DescribeAllDBInstanceClassRequest
    * @returns DescribeAllDBInstanceClassResponse
@@ -6973,6 +7952,44 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询分时弹性规则
+   * 
+   * @param request - DescribeElasticRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeElasticRulesResponse
+   */
+  async describeElasticRulesWithOptions(request: DescribeElasticRulesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeElasticRulesResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeElasticRules",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeElasticRulesResponse>(await this.callApi(params, req, runtime), new DescribeElasticRulesResponse({}));
+  }
+
+  /**
+   * 查询分时弹性规则
+   * 
+   * @param request - DescribeElasticRulesRequest
+   * @returns DescribeElasticRulesResponse
+   */
+  async describeElasticRules(request: DescribeElasticRulesRequest): Promise<DescribeElasticRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeElasticRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
    * 
    * @param request - DescribeSecurityIPListRequest
@@ -7020,6 +8037,68 @@ export default class Client extends OpenApi {
   async describeSecurityIPList(request: DescribeSecurityIPListRequest): Promise<DescribeSecurityIPListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeSecurityIPListWithOptions(request, runtime);
+  }
+
+  /**
+   * 开关分时弹性策略
+   * 
+   * @param request - EnDisableScalingRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnDisableScalingRulesResponse
+   */
+  async enDisableScalingRulesWithOptions(request: EnDisableScalingRulesRequest, runtime: $Util.RuntimeOptions): Promise<EnDisableScalingRulesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!Util.isUnset(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.scalingRulesEnable)) {
+      query["ScalingRulesEnable"] = request.scalingRulesEnable;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "EnDisableScalingRules",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<EnDisableScalingRulesResponse>(await this.callApi(params, req, runtime), new EnDisableScalingRulesResponse({}));
+  }
+
+  /**
+   * 开关分时弹性策略
+   * 
+   * @param request - EnDisableScalingRulesRequest
+   * @returns EnDisableScalingRulesResponse
+   */
+  async enDisableScalingRules(request: EnDisableScalingRulesRequest): Promise<EnDisableScalingRulesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.enDisableScalingRulesWithOptions(request, runtime);
   }
 
   /**
@@ -7099,7 +8178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改BE集群名称、属性、设置
+   * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ModifyBEClusterAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7150,7 +8229,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改BE集群名称、属性、设置
+   * Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
    * 
    * @param request - ModifyBEClusterAttributeRequest
    * @returns ModifyBEClusterAttributeResponse
@@ -7344,6 +8423,80 @@ export default class Client extends OpenApi {
   async modifyDBInstanceAttribute(request: ModifyDBInstanceAttributeRequest): Promise<ModifyDBInstanceAttributeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改分时弹性规则
+   * 
+   * @param request - ModifyElasticRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyElasticRuleResponse
+   */
+  async modifyElasticRuleWithOptions(request: ModifyElasticRuleRequest, runtime: $Util.RuntimeOptions): Promise<ModifyElasticRuleResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterClass)) {
+      query["ClusterClass"] = request.clusterClass;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.dbInstanceId)) {
+      query["DbInstanceId"] = request.dbInstanceId;
+    }
+
+    if (!Util.isUnset(request.elasticRuleStartTime)) {
+      query["ElasticRuleStartTime"] = request.elasticRuleStartTime;
+    }
+
+    if (!Util.isUnset(request.executionPeriod)) {
+      query["ExecutionPeriod"] = request.executionPeriod;
+    }
+
+    if (!Util.isUnset(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyElasticRule",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyElasticRuleResponse>(await this.callApi(params, req, runtime), new ModifyElasticRuleResponse({}));
+  }
+
+  /**
+   * 修改分时弹性规则
+   * 
+   * @param request - ModifyElasticRuleRequest
+   * @returns ModifyElasticRuleResponse
+   */
+  async modifyElasticRule(request: ModifyElasticRuleRequest): Promise<ModifyElasticRuleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyElasticRuleWithOptions(request, runtime);
   }
 
   /**
