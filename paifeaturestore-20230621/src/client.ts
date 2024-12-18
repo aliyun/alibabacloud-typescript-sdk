@@ -11,11 +11,13 @@ export class FeatureViewConfigValue extends $tea.Model {
   partitions?: { [key: string]: FeatureViewConfigValuePartitionsValue };
   eventTime?: string;
   equal?: boolean;
+  useMock?: boolean;
   static names(): { [key: string]: string } {
     return {
       partitions: 'Partitions',
       eventTime: 'EventTime',
       equal: 'Equal',
+      useMock: 'UseMock',
     };
   }
 
@@ -24,6 +26,7 @@ export class FeatureViewConfigValue extends $tea.Model {
       partitions: { 'type': 'map', 'keyType': 'string', 'valueType': FeatureViewConfigValuePartitionsValue },
       eventTime: 'string',
       equal: 'boolean',
+      useMock: 'boolean',
     };
   }
 
@@ -1742,6 +1745,11 @@ export class GetFeatureViewResponseBody extends $tea.Model {
   lastSyncConfig?: string;
   /**
    * @example
+   * item_table_mock_1
+   */
+  mockTableName?: string;
+  /**
+   * @example
    * featureView1
    */
   name?: string;
@@ -1818,6 +1826,7 @@ export class GetFeatureViewResponseBody extends $tea.Model {
       gmtSyncTime: 'GmtSyncTime',
       joinId: 'JoinId',
       lastSyncConfig: 'LastSyncConfig',
+      mockTableName: 'MockTableName',
       name: 'Name',
       owner: 'Owner',
       projectId: 'ProjectId',
@@ -1847,6 +1856,7 @@ export class GetFeatureViewResponseBody extends $tea.Model {
       gmtSyncTime: 'string',
       joinId: 'string',
       lastSyncConfig: 'string',
+      mockTableName: 'string',
       name: 'string',
       owner: 'string',
       projectId: 'string',
@@ -5111,10 +5121,6 @@ export class UpdateModelFeatureResponse extends $tea.Model {
 export class UpdateModelFeatureFGFeatureRequest extends $tea.Model {
   lookupFeatures?: UpdateModelFeatureFGFeatureRequestLookupFeatures[];
   rawFeatures?: UpdateModelFeatureFGFeatureRequestRawFeatures[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
   reserves?: string[];
   sequenceFeatures?: UpdateModelFeatureFGFeatureRequestSequenceFeatures[];
   static names(): { [key: string]: string } {
