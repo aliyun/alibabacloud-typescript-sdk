@@ -654,6 +654,75 @@ export class AllocateReadWriteSplittingConnectionResponse extends $tea.Model {
   }
 }
 
+export class AssociateEipAddressWithRCInstanceRequest extends $tea.Model {
+  allocationId?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateEipAddressWithRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AssociateEipAddressWithRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AssociateEipAddressWithRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AssociateEipAddressWithRCInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AttachRCDiskRequest extends $tea.Model {
   /**
    * @remarks
@@ -4768,6 +4837,18 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * 0
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the write optimization feature.
+   * 
+   * *   **optimized**: enables the feature.
+   * *   **none**: disables the feature.
+   * 
+   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+   * 
+   * @example
+   * optimized
+   */
   optimizedWrites?: string;
   /**
    * @remarks
@@ -5640,6 +5721,18 @@ export class CreateDBInstanceShrinkRequest extends $tea.Model {
    * 0
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the write optimization feature.
+   * 
+   * *   **optimized**: enables the feature.
+   * *   **none**: disables the feature.
+   * 
+   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+   * 
+   * @example
+   * optimized
+   */
   optimizedWrites?: string;
   /**
    * @remarks
@@ -10600,6 +10693,16 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false** (default): does not use a coupon.
+   * 
+   * @example
+   * true
+   */
   autoUseCoupon?: boolean;
   /**
    * @remarks
@@ -10814,6 +10917,13 @@ export class CreateReadOnlyDBInstanceRequest extends $tea.Model {
    * 172.16.XX.XX
    */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 717446260784
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -25572,6 +25682,13 @@ export class DescribeDBProxyPerformanceRequest extends $tea.Model {
    * DedicatedProxy
    */
   DBProxyInstanceType?: string;
+  /**
+   * @remarks
+   * Dimension.
+   * 
+   * @example
+   * service
+   */
   dimension?: string;
   /**
    * @remarks
@@ -33741,12 +33858,11 @@ export class DescribeRCInstanceAttributeRequest extends $tea.Model {
    * @remarks
    * The instance ID.
    * 
-   * This parameter is required.
-   * 
    * @example
    * rc-dh2jf9n6j4s14926****
    */
   instanceId?: string;
+  privateIpAddress?: string;
   /**
    * @remarks
    * The region ID.
@@ -33758,6 +33874,7 @@ export class DescribeRCInstanceAttributeRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      privateIpAddress: 'PrivateIpAddress',
       regionId: 'RegionId',
     };
   }
@@ -33765,6 +33882,7 @@ export class DescribeRCInstanceAttributeRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      privateIpAddress: 'string',
       regionId: 'string',
     };
   }
@@ -34070,6 +34188,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
    * Not-applicable
    */
   stoppedMode?: string;
+  tags?: DescribeRCInstanceAttributeResponseBodyTags;
   /**
    * @remarks
    * The virtual LAN (VLAN) ID of the instance.
@@ -34137,6 +34256,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       spotStrategy: 'SpotStrategy',
       status: 'Status',
       stoppedMode: 'StoppedMode',
+      tags: 'Tags',
       vlanId: 'VlanId',
       vpcAttributes: 'VpcAttributes',
       zoneId: 'ZoneId',
@@ -34184,6 +34304,7 @@ export class DescribeRCInstanceAttributeResponseBody extends $tea.Model {
       spotStrategy: 'string',
       status: 'string',
       stoppedMode: 'string',
+      tags: DescribeRCInstanceAttributeResponseBodyTags,
       vlanId: 'string',
       vpcAttributes: DescribeRCInstanceAttributeResponseBodyVpcAttributes,
       zoneId: 'string',
@@ -43929,6 +44050,26 @@ export class ModifyDBInstanceConfigRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The update time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+   * 
+   * @example
+   * 2022-05-06T09:24:00Z
+   */
+  switchTime?: string;
+  /**
+   * @remarks
+   * The time at which the modification takes effect. Valid values:
+   * 
+   * - **Immediate**: immediately modifies the parameter. This is the default value.
+   * - **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
+   * - **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
+   * 
+   * @example
+   * Immediate
+   */
+  switchTimeMode?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -43940,6 +44081,8 @@ export class ModifyDBInstanceConfigRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      switchTime: 'SwitchTime',
+      switchTimeMode: 'SwitchTimeMode',
     };
   }
 
@@ -43954,6 +44097,8 @@ export class ModifyDBInstanceConfigRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      switchTime: 'string',
+      switchTimeMode: 'string',
     };
   }
 
@@ -46456,6 +46601,18 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * None
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the write optimization feature.
+   * 
+   * *   **optimized**: enables the feature.
+   * *   **none**: disables the feature.
+   * 
+   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+   * 
+   * @example
+   * optimized
+   */
   optimizedWrites?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -46471,6 +46628,13 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 723298850895
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -46830,6 +46994,18 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * None
    */
   ioAccelerationEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the write optimization feature.
+   * 
+   * *   **optimized**: enables the feature.
+   * *   **none**: disables the feature.
+   * 
+   * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+   * 
+   * @example
+   * optimized
+   */
   optimizedWrites?: string;
   ownerAccount?: string;
   ownerId?: number;
@@ -46845,6 +47021,13 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * Postpaid
    */
   payType?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 723298850895
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -48113,6 +48296,13 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
    * test-proxy
    */
   dbEndpointAliases?: string;
+  /**
+   * @remarks
+   * The minimum number of reserved instances.
+   * 
+   * @example
+   * 2
+   */
   dbEndpointMinSlaveCount?: string;
   /**
    * @remarks
@@ -48188,9 +48378,13 @@ export class ModifyDBProxyEndpointRequest extends $tea.Model {
   readOnlyInstanceDistributionType?: string;
   /**
    * @remarks
-   * The latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the threshold that you specified, the system no longer forwards read requests to the read-only instance. Unit: seconds If you do not specify this parameter, the original value of this parameter is retained. Valid values: **0** to **3600**. Default value: **30**.
+   * The maximum latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the threshold that you specified, the system no longer forwards read requests to the read-only instance. If you do not specify this parameter, the original value of this parameter is retained. Valid values: **0** to **3600**.
    * 
-   * > You must specify this parameter only when the read/write splitting feature is enabled.
+   * > 
+   * 
+   * *   You must specify this parameter only when read/write splitting is enabled.
+   * 
+   * *   If the database proxy endpoint has the read and write attributes, the default value of this parameter is **30** and read/write splitting is supported. If the database proxy endpoint has the read-only attribute, the default value of this parameter is **-1** and read/write splitting is not supported. Unit: seconds.
    * 
    * @example
    * 30
@@ -51772,6 +51966,14 @@ export class ModifyResourceGroupRequest extends $tea.Model {
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The resource type.
+   * 
+   * @example
+   * Instance
+   */
+  resourceType?: string;
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -51781,6 +51983,7 @@ export class ModifyResourceGroupRequest extends $tea.Model {
       resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      resourceType: 'ResourceType',
     };
   }
 
@@ -51793,6 +51996,7 @@ export class ModifyResourceGroupRequest extends $tea.Model {
       resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      resourceType: 'string',
     };
   }
 
@@ -54793,6 +54997,16 @@ export class RenewInstanceRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * 
+   * *   **true**: uses a coupon.
+   * *   **false** (default): does not use a coupon.
+   * 
+   * @example
+   * true
+   */
   autoUseCoupon?: boolean;
   /**
    * @remarks
@@ -54830,6 +55044,13 @@ export class RenewInstanceRequest extends $tea.Model {
    * 12
    */
   period?: number;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 726702810223
+   */
   promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -57810,6 +58031,75 @@ export class SyncRCKeyPairResponse extends $tea.Model {
   }
 }
 
+export class SyncRCSecurityGroupRequest extends $tea.Model {
+  instanceId?: string;
+  regionId?: string;
+  securityGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+      securityGroupId: 'SecurityGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      regionId: 'string',
+      securityGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCSecurityGroupResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SyncRCSecurityGroupResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SyncRCSecurityGroupResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SyncRCSecurityGroupResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class TagResourcesRequest extends $tea.Model {
   ownerId?: number;
   /**
@@ -58044,6 +58334,16 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
    * true
    */
   autoRenew?: string;
+  /**
+   * @remarks
+   * Specifies whether to use vouchers to offset fees. Valid values:
+   * 
+   * *   **true**
+   * *   **false** (default)
+   * 
+   * @example
+   * true
+   */
   autoUseCoupon?: boolean;
   /**
    * @remarks
@@ -58099,6 +58399,13 @@ export class TransformDBInstancePayTypeRequest extends $tea.Model {
    * Month
    */
   period?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 726702810223
+   */
   promotionCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -58244,6 +58551,75 @@ export class TransformDBInstancePayTypeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TransformDBInstancePayTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassociateEipAddressWithRCInstanceRequest extends $tea.Model {
+  allocationId?: string;
+  instanceId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allocationId: 'AllocationId',
+      instanceId: 'InstanceId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allocationId: 'string',
+      instanceId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassociateEipAddressWithRCInstanceResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UnassociateEipAddressWithRCInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UnassociateEipAddressWithRCInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UnassociateEipAddressWithRCInstanceResponseBody,
     };
   }
 
@@ -65310,6 +65686,17 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * true
    */
   multipleTempUpgrade?: boolean;
+  /**
+   * @remarks
+   * OptimizedWritesInfo contains two fields:
+   * 
+   * - optimized_writes: Whether write optimization is enabled for the current instance.
+   * 
+   * - init_optimized_writes: Whether write optimization can be enabled for the instance. Some instances do not display the write optimization switch in the console because init_optimized_writes is false.
+   * 
+   * @example
+   * {"optimized_writes":true,"init_optimized_writes":true}
+   */
   optimizedWritesInfo?: string;
   /**
    * @remarks
@@ -69890,6 +70277,13 @@ export class DescribeDBProxyPerformanceResponseBodyPerformanceKeysPerformanceKey
    * cpu_ratio
    */
   key?: string;
+  /**
+   * @remarks
+   * The service dimension.
+   * 
+   * @example
+   * reserve_3
+   */
   service?: string;
   /**
    * @remarks
@@ -75918,7 +76312,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInst
   }
 }
 
-export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources extends $tea.Model {
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagsTag extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
   tagKey?: string;
@@ -75946,17 +76340,17 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagR
   }
 }
 
-export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources extends $tea.Model {
-  tagResources?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources[];
+export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags extends $tea.Model {
+  tag?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagsTag[];
   static names(): { [key: string]: string } {
     return {
-      tagResources: 'TagResources',
+      tag: 'Tag',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      tagResources: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResourcesTagResources },
+      tag: { 'type': 'array', 'itemType': DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagsTag },
     };
   }
 
@@ -76058,7 +76452,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
    * LooseDispersion
    */
   strategy?: string;
-  tagResources?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources;
+  tags?: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags;
   static names(): { [key: string]: string } {
     return {
       capacities: 'Capacities',
@@ -76073,7 +76467,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
       instanceAmount: 'InstanceAmount',
       instanceIds: 'InstanceIds',
       strategy: 'Strategy',
-      tagResources: 'TagResources',
+      tags: 'Tags',
     };
   }
 
@@ -76091,7 +76485,7 @@ export class DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSet ext
       instanceAmount: 'number',
       instanceIds: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetInstanceIds,
       strategy: 'string',
-      tagResources: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTagResources,
+      tags: DescribeRCDeploymentSetsResponseBodyDeploymentSetsDeploymentSetTags,
     };
   }
 
@@ -76887,6 +77281,53 @@ export class DescribeRCInstanceAttributeResponseBodySecurityGroupIds extends $te
   }
 }
 
+export class DescribeRCInstanceAttributeResponseBodyTagsTag extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstanceAttributeResponseBodyTags extends $tea.Model {
+  tag?: DescribeRCInstanceAttributeResponseBodyTagsTag[];
+  static names(): { [key: string]: string } {
+    return {
+      tag: 'Tag',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tag: { 'type': 'array', 'itemType': DescribeRCInstanceAttributeResponseBodyTagsTag },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeRCInstanceAttributeResponseBodyVpcAttributesPrivateIpAddress extends $tea.Model {
   ipAddress?: string[];
   static names(): { [key: string]: string } {
@@ -76960,6 +77401,34 @@ export class DescribeRCInstanceAttributeResponseBodyVpcAttributes extends $tea.M
 }
 
 export class DescribeRCInstancesResponseBodyRCInstancesTagResources extends $tea.Model {
+  resourceId?: string;
+  resourceType?: string;
+  tagKey?: string;
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      resourceId: 'ResourceId',
+      resourceType: 'ResourceType',
+      tagKey: 'TagKey',
+      tagValue: 'TagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      resourceId: 'string',
+      resourceType: 'string',
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCInstancesResponseBodyRCInstancesTags extends $tea.Model {
   resourceId?: string;
   resourceType?: string;
   tagKey?: string;
@@ -77072,6 +77541,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
    */
   status?: string;
   tagResources?: DescribeRCInstancesResponseBodyRCInstancesTagResources[];
+  tags?: DescribeRCInstancesResponseBodyRCInstancesTags[];
   /**
    * @remarks
    * The VPC ID.
@@ -77096,6 +77566,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       spotStrategy: 'SpotStrategy',
       status: 'Status',
       tagResources: 'TagResources',
+      tags: 'Tags',
       vpcId: 'VpcId',
       zoneId: 'ZoneId',
     };
@@ -77116,6 +77587,7 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       spotStrategy: 'string',
       status: 'string',
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
+      tags: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTags },
       vpcId: 'string',
       zoneId: 'string',
     };
@@ -83008,6 +83480,56 @@ export default class Client extends OpenApi {
   async allocateReadWriteSplittingConnection(request: AllocateReadWriteSplittingConnectionRequest): Promise<AllocateReadWriteSplittingConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.allocateReadWriteSplittingConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * 绑定弹性网卡到RDS Custom实例
+   * 
+   * @param request - AssociateEipAddressWithRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateEipAddressWithRCInstanceResponse
+   */
+  async associateEipAddressWithRCInstanceWithOptions(request: AssociateEipAddressWithRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<AssociateEipAddressWithRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allocationId)) {
+      query["AllocationId"] = request.allocationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "AssociateEipAddressWithRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<AssociateEipAddressWithRCInstanceResponse>(await this.callApi(params, req, runtime), new AssociateEipAddressWithRCInstanceResponse({}));
+  }
+
+  /**
+   * 绑定弹性网卡到RDS Custom实例
+   * 
+   * @param request - AssociateEipAddressWithRCInstanceRequest
+   * @returns AssociateEipAddressWithRCInstanceResponse
+   */
+  async associateEipAddressWithRCInstance(request: AssociateEipAddressWithRCInstanceRequest): Promise<AssociateEipAddressWithRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.associateEipAddressWithRCInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -97758,6 +98280,10 @@ export default class Client extends OpenApi {
       query["InstanceId"] = request.instanceId;
     }
 
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -102710,6 +103236,14 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.switchTimeMode)) {
+      query["SwitchTimeMode"] = request.switchTimeMode;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -106642,6 +107176,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!Util.isUnset(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -109911,6 +110449,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 同步RDS Custom的安全组
+   * 
+   * @param request - SyncRCSecurityGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SyncRCSecurityGroupResponse
+   */
+  async syncRCSecurityGroupWithOptions(request: SyncRCSecurityGroupRequest, runtime: $Util.RuntimeOptions): Promise<SyncRCSecurityGroupResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "SyncRCSecurityGroup",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<SyncRCSecurityGroupResponse>(await this.callApi(params, req, runtime), new SyncRCSecurityGroupResponse({}));
+  }
+
+  /**
+   * 同步RDS Custom的安全组
+   * 
+   * @param request - SyncRCSecurityGroupRequest
+   * @returns SyncRCSecurityGroupResponse
+   */
+  async syncRCSecurityGroup(request: SyncRCSecurityGroupRequest): Promise<SyncRCSecurityGroupResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.syncRCSecurityGroupWithOptions(request, runtime);
+  }
+
+  /**
    * Creates and adds tags to one or more instances.
    * 
    * @remarks
@@ -110182,6 +110770,56 @@ export default class Client extends OpenApi {
   async transformDBInstancePayType(request: TransformDBInstancePayTypeRequest): Promise<TransformDBInstancePayTypeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transformDBInstancePayTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 解绑RDS Custom实例的弹性公网
+   * 
+   * @param request - UnassociateEipAddressWithRCInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UnassociateEipAddressWithRCInstanceResponse
+   */
+  async unassociateEipAddressWithRCInstanceWithOptions(request: UnassociateEipAddressWithRCInstanceRequest, runtime: $Util.RuntimeOptions): Promise<UnassociateEipAddressWithRCInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allocationId)) {
+      query["AllocationId"] = request.allocationId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UnassociateEipAddressWithRCInstance",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UnassociateEipAddressWithRCInstanceResponse>(await this.callApi(params, req, runtime), new UnassociateEipAddressWithRCInstanceResponse({}));
+  }
+
+  /**
+   * 解绑RDS Custom实例的弹性公网
+   * 
+   * @param request - UnassociateEipAddressWithRCInstanceRequest
+   * @returns UnassociateEipAddressWithRCInstanceResponse
+   */
+  async unassociateEipAddressWithRCInstance(request: UnassociateEipAddressWithRCInstanceRequest): Promise<UnassociateEipAddressWithRCInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.unassociateEipAddressWithRCInstanceWithOptions(request, runtime);
   }
 
   /**
