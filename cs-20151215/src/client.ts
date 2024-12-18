@@ -1636,7 +1636,7 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
   minReplicaCount?: number;
   /**
    * @remarks
-   * Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false. Valid values:
+   * Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false Valid values:
    * 
    * *   `true`: deletes the corresponding Kubernetes node objects after nodes are removed in swift mode. We recommend that you do not set the value to true because data inconsistency may occur in Kubernetes objects.
    * *   `false`: retains the corresponding Kubernetes node objects after nodes are removed in swift mode.
@@ -1767,16 +1767,25 @@ export class CreateAutoscalingConfigRequest extends $tea.Model {
 
 export class CreateAutoscalingConfigResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The cluster ID.
+   * 
    * @example
    * cc212d04dfe184547bffaa596********
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AF8BE105-C32B-1269-9774-5510********
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
    * T-5fd211e924e1d007********
    */
@@ -2584,7 +2593,7 @@ export class CreateClusterRequest extends $tea.Model {
    * The kube-proxy mode. Valid values:
    * 
    * *   `iptables`: a mature and stable kube-proxy mode that uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
-   * *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios that require high load balancing performance.
+   * *   `ipvs`: a mode that provides high performance and uses IP Virtual Server (IPVS) to conduct service discovery and load balancing. This mode is suitable for clusters that run a large number of Services. We recommend that you use this mode in scenarios that require high-performance load balancing.
    * 
    * Default value: `ipvs`.
    * 
@@ -6085,7 +6094,7 @@ export class DescribeClusterDetailResponseBody extends $tea.Model {
   subnetCidr?: string;
   /**
    * @remarks
-   * The resource tags of the cluster.
+   * The resource labels of the cluster.
    */
   tags?: Tag[];
   /**
@@ -16969,9 +16978,9 @@ export class CreateClusterNodePoolRequestManagementAutoVulFixPolicy extends $tea
    * @remarks
    * The severity levels of CVEs that can be automatically patched. Separate multiple levels with commas (,). Example: `asap,later`. Valid values:
    * 
-   * *   `asap`: high severity.
-   * *   `later`: medium severity.
-   * *   `nntf`: low severity.
+   * *   `asap`: high
+   * *   `later`: medium
+   * *   `nntf`: low
    * 
    * If `auto_vul_fix` is set to true, the default value of this parameter is `asap`.
    * 
@@ -17745,7 +17754,7 @@ export class CreateClusterNodePoolRequestScalingGroup extends $tea.Model {
    * *   `cloud`: basic disk.
    * *   `cloud_efficiency`: ultra disk.
    * *   `cloud_ssd`: standard SSD.
-   * *   `cloud_essd`: Enterprise SSD (ESSD).
+   * *   `cloud_essd`: ESSD.
    * *   `cloud_auto`: ESSD AutoPL disk.
    * *   `cloud_essd_entry`: ESSD Entry disk.
    * 
@@ -18185,7 +18194,7 @@ export class DescribeAddonsResponseBodyComponentGroups extends $tea.Model {
 export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether auto-renewal is enabled for the node.
+   * Indicates whether auto-renewal is enabled for the nodes.
    * 
    * @example
    * true
@@ -18193,7 +18202,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $tea.Mo
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration for the node.
+   * The auto-renewal duration for the nodes.
    * 
    * @example
    * 1
@@ -18249,7 +18258,7 @@ export class DescribeClusterDetailResponseBodyControlPlaneConfig extends $tea.Mo
   imageType?: string;
   /**
    * @remarks
-   * The instance type of the node.
+   * The instance types of the nodes.
    */
   instanceTypes?: string[];
   /**
@@ -32856,8 +32865,7 @@ export default class Client extends OpenApi {
    * Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
    * 
    * @remarks
-   * *
-   * ****Only Alibaba Cloud accounts can call this API operation.
+   * You can call this operation only by using an Alibaba Cloud account.
    * 
    * @param request - DescribeSubaccountK8sClusterUserConfigRequest
    * @param headers - map
@@ -32897,8 +32905,7 @@ export default class Client extends OpenApi {
    * Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
    * 
    * @remarks
-   * *
-   * ****Only Alibaba Cloud accounts can call this API operation.
+   * You can call this operation only by using an Alibaba Cloud account.
    * 
    * @param request - DescribeSubaccountK8sClusterUserConfigRequest
    * @returns DescribeSubaccountK8sClusterUserConfigResponse
