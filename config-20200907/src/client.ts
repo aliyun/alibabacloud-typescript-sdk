@@ -54,13 +54,12 @@ export class ActiveAggregateConfigRulesRequest extends $tea.Model {
    * ca-a4e5626622af0079****
    */
   aggregatorId?: string;
+  compliancePackId?: string;
   /**
    * @remarks
    * The rule ID. Separate multiple rule IDs with commas (,).
    * 
    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
-   * 
-   * This parameter is required.
    * 
    * @example
    * cr-5772ba41209e007b****
@@ -69,6 +68,7 @@ export class ActiveAggregateConfigRulesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
+      compliancePackId: 'CompliancePackId',
       configRuleIds: 'ConfigRuleIds',
     };
   }
@@ -76,6 +76,7 @@ export class ActiveAggregateConfigRulesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aggregatorId: 'string',
+      compliancePackId: 'string',
       configRuleIds: 'string',
     };
   }
@@ -144,11 +145,10 @@ export class ActiveAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class ActiveConfigRulesRequest extends $tea.Model {
+  compliancePackId?: string;
   /**
    * @remarks
    * The rule ID. Separate multiple rule IDs with commas (,).
-   * 
-   * This parameter is required.
    * 
    * @example
    * cr-2da35180a8d1008e****,cr-2da35180a8d1008e****
@@ -156,12 +156,14 @@ export class ActiveConfigRulesRequest extends $tea.Model {
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
+      compliancePackId: 'CompliancePackId',
       configRuleIds: 'ConfigRuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      compliancePackId: 'string',
       configRuleIds: 'string',
     };
   }
@@ -1315,6 +1317,16 @@ export class CreateAggregateConfigDeliveryChannelRequest extends $tea.Model {
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots to Log Service at `04:00Z` and `16:00Z` every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled compliant snapshots.
+   * *   false: Cloud Config does not deliver scheduled compliant snapshots. This is the default value.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -1635,6 +1647,7 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
    */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateConfigRuleRequestExcludeTagsScope[];
+  extendContent?: string;
   /**
    * @remarks
    * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
@@ -1792,6 +1805,7 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       folderIdsScope: 'FolderIdsScope',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
@@ -1823,6 +1837,7 @@ export class CreateAggregateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleRequestExcludeTagsScope },
+      extendContent: 'string',
       folderIdsScope: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
@@ -1929,6 +1944,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
    */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: CreateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
+  extendContent?: string;
   /**
    * @remarks
    * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
@@ -2086,6 +2102,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       folderIdsScope: 'FolderIdsScope',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
@@ -2117,6 +2134,7 @@ export class CreateAggregateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': CreateAggregateConfigRuleShrinkRequestExcludeTagsScope },
+      extendContent: 'string',
       folderIdsScope: 'string',
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
@@ -2699,7 +2717,21 @@ export class CreateCompliancePackRequest extends $tea.Model {
    * Test pack description.
    */
   description?: string;
+  /**
+   * @remarks
+   * ExcludeRegionIdsScope
+   * 
+   * @example
+   * cn-hangzhou
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -2709,6 +2741,10 @@ export class CreateCompliancePackRequest extends $tea.Model {
    * eip-8vbf3x310fn56ijfd****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeTagsScope
+   */
   excludeTagsScope?: CreateCompliancePackRequestExcludeTagsScope[];
   /**
    * @remarks
@@ -2726,6 +2762,13 @@ export class CreateCompliancePackRequest extends $tea.Model {
    * rg-aekzdibsjjc****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * ResourceIdsScope
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -2757,6 +2800,10 @@ export class CreateCompliancePackRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * TagsScope
+   */
   tagsScope?: CreateCompliancePackRequestTagsScope[];
   /**
    * @remarks
@@ -2873,7 +2920,21 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
    * Test pack description.
    */
   description?: string;
+  /**
+   * @remarks
+   * ExcludeRegionIdsScope
+   * 
+   * @example
+   * cn-hangzhou
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -2883,6 +2944,10 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
    * eip-8vbf3x310fn56ijfd****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeTagsScope
+   */
   excludeTagsScope?: CreateCompliancePackShrinkRequestExcludeTagsScope[];
   /**
    * @remarks
@@ -2900,6 +2965,13 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
    * rg-aekzdibsjjc****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * ResourceIdsScope
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -2931,6 +3003,10 @@ export class CreateCompliancePackShrinkRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * TagsScope
+   */
   tagsScope?: CreateCompliancePackShrinkRequestTagsScope[];
   /**
    * @remarks
@@ -3063,6 +3139,16 @@ export class CreateConfigDeliveryChannelRequest extends $tea.Model {
    * 1594295238-f9361358-5843-4294-8d30-b5183fac****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to deliver scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled compliant snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -3311,6 +3397,9 @@ export class CreateConfigRuleRequest extends $tea.Model {
    * The name of the rule.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * required-tags
    */
   configRuleName?: string;
   /**
@@ -3331,9 +3420,26 @@ export class CreateConfigRuleRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
+  /**
+   * @remarks
+   * ExcludeRegionIdsScope
+   * 
+   * @example
+   * cn-shanghai
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeResourceGroupIdsScope
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -3345,7 +3451,19 @@ export class CreateConfigRuleRequest extends $tea.Model {
    * lb-t4nbowvtbkss7t326****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeTagsScope
+   */
   excludeTagsScope?: CreateConfigRuleRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+   * 
+   * @example
+   * {"fixedHour":"13"}
+   */
+  extendContent?: string;
   /**
    * @remarks
    * The input parameter of the rule.
@@ -3390,6 +3508,13 @@ export class CreateConfigRuleRequest extends $tea.Model {
    * rg-aekzc7r7rhx****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * ResourceIdsScope
+   * 
+   * @example
+   * lb-5cmbowstbkss9ta03****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -3474,6 +3599,10 @@ export class CreateConfigRuleRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * TagsScope
+   */
   tagsScope?: CreateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -3485,6 +3614,7 @@ export class CreateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
@@ -3511,6 +3641,7 @@ export class CreateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': CreateConfigRuleRequestExcludeTagsScope },
+      extendContent: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
@@ -3546,6 +3677,9 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
    * The name of the rule.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * required-tags
    */
   configRuleName?: string;
   /**
@@ -3566,9 +3700,26 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
+  /**
+   * @remarks
+   * ExcludeRegionIdsScope
+   * 
+   * @example
+   * cn-shanghai
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeResourceGroupIdsScope
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -3580,7 +3731,19 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
    * lb-t4nbowvtbkss7t326****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeTagsScope
+   */
   excludeTagsScope?: CreateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * @remarks
+   * Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+   * 
+   * @example
+   * {"fixedHour":"13"}
+   */
+  extendContent?: string;
   /**
    * @remarks
    * The input parameter of the rule.
@@ -3625,6 +3788,13 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
    * rg-aekzc7r7rhx****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * ResourceIdsScope
+   * 
+   * @example
+   * lb-5cmbowstbkss9ta03****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -3709,6 +3879,10 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * TagsScope
+   */
   tagsScope?: CreateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -3720,6 +3894,7 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
@@ -3746,6 +3921,7 @@ export class CreateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': CreateConfigRuleShrinkRequestExcludeTagsScope },
+      extendContent: 'string',
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
@@ -4256,13 +4432,12 @@ export class DeactiveAggregateConfigRulesRequest extends $tea.Model {
    * ca-04b3fd170e340007****
    */
   aggregatorId?: string;
+  compliancePackId?: string;
   /**
    * @remarks
    * The rule ID. Separate multiple rule IDs with commas (,).
    * 
    * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
-   * 
-   * This parameter is required.
    * 
    * @example
    * cr-5772ba41209e007b****
@@ -4271,6 +4446,7 @@ export class DeactiveAggregateConfigRulesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
+      compliancePackId: 'CompliancePackId',
       configRuleIds: 'ConfigRuleIds',
     };
   }
@@ -4278,6 +4454,7 @@ export class DeactiveAggregateConfigRulesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aggregatorId: 'string',
+      compliancePackId: 'string',
       configRuleIds: 'string',
     };
   }
@@ -4346,13 +4523,12 @@ export class DeactiveAggregateConfigRulesResponse extends $tea.Model {
 }
 
 export class DeactiveConfigRulesRequest extends $tea.Model {
+  compliancePackId?: string;
   /**
    * @remarks
    * The ID of the rule. Separate multiple rule IDs with commas (,).
    * 
    * For more information about how to obtain the ID of a rule, see [ListConfigRules](https://help.aliyun.com/document_detail/169607.html).
-   * 
-   * This parameter is required.
    * 
    * @example
    * cr-19a56457e0d90058****
@@ -4360,12 +4536,14 @@ export class DeactiveConfigRulesRequest extends $tea.Model {
   configRuleIds?: string;
   static names(): { [key: string]: string } {
     return {
+      compliancePackId: 'CompliancePackId',
       configRuleIds: 'ConfigRuleIds',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      compliancePackId: 'string',
       configRuleIds: 'string',
     };
   }
@@ -9902,6 +10080,7 @@ export class GetIntegratedServiceStatusRequest extends $tea.Model {
 }
 
 export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
+  aggregatorDeliveryDataType?: string;
   /**
    * @remarks
    * Indicates whether the product has been integrated. Valid values:
@@ -9934,6 +10113,7 @@ export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      aggregatorDeliveryDataType: 'AggregatorDeliveryDataType',
       data: 'Data',
       integratedTypes: 'IntegratedTypes',
       requestId: 'RequestId',
@@ -9942,6 +10122,7 @@ export class GetIntegratedServiceStatusResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggregatorDeliveryDataType: 'string',
       data: 'boolean',
       integratedTypes: 'string',
       requestId: 'string',
@@ -11349,7 +11530,7 @@ export class ListAggregateCompliancePacksRequest extends $tea.Model {
   aggregatorId?: string;
   /**
    * @remarks
-   * The page number.
+   * The number of the page to return.
    * 
    * Pages start from page 1. Default value: 1.
    * 
@@ -11359,9 +11540,9 @@ export class ListAggregateCompliancePacksRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
-   * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+   * Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 20
@@ -11404,7 +11585,7 @@ export class ListAggregateCompliancePacksRequest extends $tea.Model {
 export class ListAggregateCompliancePacksResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The compliance packages returned.
+   * The information about the compliance packages.
    */
   compliancePacksResult?: ListAggregateCompliancePacksResponseBodyCompliancePacksResult;
   /**
@@ -11852,6 +12033,7 @@ export class ListAggregateConfigRulesRequest extends $tea.Model {
    * ca-f632626622af0079****
    */
   aggregatorId?: string;
+  compliancePackId?: string;
   /**
    * @remarks
    * The compliance evaluation result. Valid values:
@@ -11939,6 +12121,7 @@ export class ListAggregateConfigRulesRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       aggregatorId: 'AggregatorId',
+      compliancePackId: 'CompliancePackId',
       complianceType: 'ComplianceType',
       configRuleName: 'ConfigRuleName',
       configRuleState: 'ConfigRuleState',
@@ -11953,6 +12136,7 @@ export class ListAggregateConfigRulesRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       aggregatorId: 'string',
+      compliancePackId: 'string',
       complianceType: 'string',
       configRuleName: 'string',
       configRuleState: 'string',
@@ -13123,7 +13307,7 @@ export class ListCompliancePacksRequest extends $tea.Model {
    * @remarks
    * The page number.
    * 
-   * Pages start from page 1. Default value: 1.
+   * Pages start from page 1. Default value: 1
    * 
    * @example
    * 1
@@ -13539,6 +13723,7 @@ export class ListConfigRuleEvaluationStatisticsResponse extends $tea.Model {
 }
 
 export class ListConfigRulesRequest extends $tea.Model {
+  compliancePackId?: string;
   /**
    * @remarks
    * The compliance evaluation result of the rule. Valid values:
@@ -13625,6 +13810,7 @@ export class ListConfigRulesRequest extends $tea.Model {
   riskLevel?: number;
   static names(): { [key: string]: string } {
     return {
+      compliancePackId: 'CompliancePackId',
       complianceType: 'ComplianceType',
       configRuleName: 'ConfigRuleName',
       configRuleState: 'ConfigRuleState',
@@ -13638,6 +13824,7 @@ export class ListConfigRulesRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      compliancePackId: 'string',
       complianceType: 'string',
       configRuleName: 'string',
       configRuleState: 'string',
@@ -15037,7 +15224,7 @@ export class ListResourcesByAdvancedSearchResponse extends $tea.Model {
 export class ListSupportedProductsRequest extends $tea.Model {
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of entries to return in a request.
    * 
    * Valid values: 1 to 500. Default value: 200.
    * 
@@ -17087,6 +17274,15 @@ export class UpdateAggregateConfigDeliveryChannelRequest extends $tea.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to deliver scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers scheduled compliant snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   * 
    * **if can be null:**
    * true
    */
@@ -17343,6 +17539,13 @@ export class UpdateAggregateConfigDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * @example
+   * 115748125982****
+   */
   accountIdsScope?: string;
   /**
    * @remarks
@@ -17381,6 +17584,9 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
    * The name of the rule.
    * 
    * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * test_rule
    */
   configRuleName?: string;
   /**
@@ -17399,6 +17605,9 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * test_description
    */
   description?: string;
   /**
@@ -17425,7 +17634,21 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
    * fd-pWmkqZ****
    */
   excludeFolderIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule not applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -17437,6 +17660,10 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
    * lb-t4nbowvtbkss7t326****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * Exclude the specific tag scope of resources .
+   */
   excludeTagsScope?: UpdateAggregateConfigRuleRequestExcludeTagsScope[];
   /**
    * @remarks
@@ -17496,6 +17723,13 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
    * rg-aekzc7r7rhx****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * lb-5cmbowstbkss9ta03****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -17548,6 +17782,10 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * The valid tag scope of resources.
+   */
   tagsScope?: UpdateAggregateConfigRuleRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -17615,6 +17853,13 @@ export class UpdateAggregateConfigRuleRequest extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
+   * 
+   * @example
+   * 115748125982****
+   */
   accountIdsScope?: string;
   /**
    * @remarks
@@ -17653,6 +17898,9 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
    * The name of the rule.
    * 
    * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+   * 
+   * @example
+   * test_rule
    */
   configRuleName?: string;
   /**
@@ -17671,6 +17919,9 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * test_description
    */
   description?: string;
   /**
@@ -17697,7 +17948,21 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
    * fd-pWmkqZ****
    */
   excludeFolderIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+   * 
+   * @example
+   * cn-shanghai
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resource groups to which the rule not applies. Separate multiple resource group IDs with commas (,).
+   * 
+   * @example
+   * rg-bnczc6r7rml****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -17709,6 +17974,10 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
    * lb-t4nbowvtbkss7t326****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * Exclude the specific tag scope of resources .
+   */
   excludeTagsScope?: UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope[];
   /**
    * @remarks
@@ -17768,6 +18037,13 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
    * rg-aekzc7r7rhx****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+   * 
+   * @example
+   * lb-5cmbowstbkss9ta03****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -17820,6 +18096,10 @@ export class UpdateAggregateConfigRuleShrinkRequest extends $tea.Model {
    * test
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * The valid tag scope of resources.
+   */
   tagsScope?: UpdateAggregateConfigRuleShrinkRequestTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -18162,6 +18442,9 @@ export class UpdateAggregatorRequest extends $tea.Model {
    * The description of the account group.
    * 
    * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * Test_Aggregator_Description
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -18235,6 +18518,9 @@ export class UpdateAggregatorShrinkRequest extends $tea.Model {
    * The description of the account group.
    * 
    * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+   * 
+   * @example
+   * Test_Aggregator_Description
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -18688,6 +18974,15 @@ export class UpdateConfigDeliveryChannelRequest extends $tea.Model {
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to deliver scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to  Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: Cloud Config delivers compliant snapshots.
+   * *   false (default): Cloud Config does not deliver scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   * 
    * **if can be null:**
    * true
    */
@@ -19001,6 +19296,11 @@ export class UpdateConfigRuleRequest extends $tea.Model {
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateConfigRuleRequestExcludeTagsScope[];
   /**
+   * **if can be null:**
+   * true
+   */
+  extendContent?: string;
+  /**
    * @remarks
    * The input parameters of the rule.
    * 
@@ -19108,6 +19408,7 @@ export class UpdateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       inputParameters: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
@@ -19133,6 +19434,7 @@ export class UpdateConfigRuleRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleRequestExcludeTagsScope },
+      extendContent: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
@@ -19211,6 +19513,11 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
    */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: UpdateConfigRuleShrinkRequestExcludeTagsScope[];
+  /**
+   * **if can be null:**
+   * true
+   */
+  extendContent?: string;
   /**
    * @remarks
    * The input parameters of the rule.
@@ -19319,6 +19626,7 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       inputParametersShrink: 'InputParameters',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
       regionIdsScope: 'RegionIdsScope',
@@ -19344,6 +19652,7 @@ export class UpdateConfigRuleShrinkRequest extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': UpdateConfigRuleShrinkRequestExcludeTagsScope },
+      extendContent: 'string',
       inputParametersShrink: 'string',
       maximumExecutionFrequency: 'string',
       regionIdsScope: 'string',
@@ -19754,6 +20063,7 @@ export class UpdateDeliveryChannelResponse extends $tea.Model {
 }
 
 export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
+  aggregatorDeliveryDataType?: string;
   /**
    * @remarks
    * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
@@ -19794,6 +20104,7 @@ export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      aggregatorDeliveryDataType: 'AggregatorDeliveryDataType',
       integratedTypes: 'IntegratedTypes',
       serviceCode: 'ServiceCode',
       status: 'Status',
@@ -19802,6 +20113,7 @@ export class UpdateIntegratedServiceStatusRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggregatorDeliveryDataType: 'string',
       integratedTypes: 'string',
       serviceCode: 'string',
       status: 'boolean',
@@ -20794,7 +21106,21 @@ export class CreateCompliancePackRequestConfigRules extends $tea.Model {
 }
 
 export class CreateCompliancePackRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20816,7 +21142,21 @@ export class CreateCompliancePackRequestExcludeTagsScope extends $tea.Model {
 }
 
 export class CreateCompliancePackRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * Tagkey
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20838,7 +21178,21 @@ export class CreateCompliancePackRequestTagsScope extends $tea.Model {
 }
 
 export class CreateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20860,7 +21214,21 @@ export class CreateCompliancePackShrinkRequestExcludeTagsScope extends $tea.Mode
 }
 
 export class CreateCompliancePackShrinkRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * Tagkey
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20882,7 +21250,21 @@ export class CreateCompliancePackShrinkRequestTagsScope extends $tea.Model {
 }
 
 export class CreateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20904,7 +21286,21 @@ export class CreateConfigRuleRequestExcludeTagsScope extends $tea.Model {
 }
 
 export class CreateConfigRuleRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20926,7 +21322,21 @@ export class CreateConfigRuleRequestTagsScope extends $tea.Model {
 }
 
 export class CreateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -20948,7 +21358,21 @@ export class CreateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
 }
 
 export class CreateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -22900,6 +23324,16 @@ export class GetAggregateConfigDeliveryChannelResponseBodyDeliveryChannel extend
    * ca-a4e5626622af0079****
    */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled compliant snapshots.
+   * *   false: The specified destination does not receive scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -23712,6 +24146,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
    */
   excludeResourceIdsScope?: string;
   excludeTagsScope?: GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
+  extendContent?: string;
   /**
    * @remarks
    * The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
@@ -23849,6 +24284,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       folderIdsScope: 'FolderIdsScope',
       inputParameters: 'InputParameters',
       managedRule: 'ManagedRule',
@@ -23887,6 +24323,7 @@ export class GetAggregateConfigRuleResponseBodyConfigRule extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': GetAggregateConfigRuleResponseBodyConfigRuleExcludeTagsScope },
+      extendContent: 'string',
       folderIdsScope: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       managedRule: GetAggregateConfigRuleResponseBodyConfigRuleManagedRule,
@@ -24158,6 +24595,19 @@ export class GetAggregateDiscoveredResourceResponseBodyDiscoveredResourceDetail 
    * cn-hangzhou-h
    */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resource.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * *   IGNORED: The resource is ignored during compliance evaluation.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
   /**
    * @remarks
@@ -25140,6 +25590,9 @@ export class GetAggregatorResponseBodyAggregatorAggregatorAccounts extends $tea.
    * 
    * @example
    * Alice
+   * 
+   * **if can be null:**
+   * false
    */
   accountName?: string;
   /**
@@ -25369,6 +25822,9 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
   /**
    * @remarks
    * The rule name.
+   * 
+   * @example
+   * eip-bandwidth-limit
    */
   configRuleName?: string;
   /**
@@ -25379,6 +25835,9 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
   /**
    * @remarks
    * The rule description.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
   /**
@@ -25439,7 +25898,21 @@ export class GetCompliancePackResponseBodyCompliancePackConfigRules extends $tea
 }
 
 export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25461,7 +25934,21 @@ export class GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope ex
 }
 
 export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -25483,7 +25970,21 @@ export class GetCompliancePackResponseBodyCompliancePackScopeTagsScope extends $
 }
 
 export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model {
+  /**
+   * @remarks
+   * Excluded region scope, multiple regions should be separated by commas.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * Excluded resourceGroup scope, multiple resourceGroup should be separated by commas.
+   * 
+   * @example
+   * rg-aekzc7r7rhx****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -25495,6 +25996,8 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model
   excludeResourceIdsScope?: string;
   /**
    * @remarks
+   * Exclude tag scope.
+   * 
    * This parameter is required.
    */
   excludeTagsScope?: GetCompliancePackResponseBodyCompliancePackScopeExcludeTagsScope[];
@@ -25514,6 +26017,13 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model
    * rg-aekzc7r7rhx****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * Include ResourceId scope, multiple resourceIds should be separated by commas.
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -25533,6 +26043,8 @@ export class GetCompliancePackResponseBodyCompliancePackScope extends $tea.Model
   tagValueScope?: string;
   /**
    * @remarks
+   * Include tag scope.
+   * 
    * This parameter is required.
    */
   tagsScope?: GetCompliancePackResponseBodyCompliancePackScopeTagsScope[];
@@ -25591,6 +26103,9 @@ export class GetCompliancePackResponseBodyCompliancePack extends $tea.Model {
   /**
    * @remarks
    * The name of the compliance package.
+   * 
+   * @example
+   * example-pack-name
    */
   compliancePackName?: string;
   /**
@@ -25617,6 +26132,9 @@ export class GetCompliancePackResponseBodyCompliancePack extends $tea.Model {
   /**
    * @remarks
    * The description of the compliance package.
+   * 
+   * @example
+   * example-name
    */
   description?: string;
   /**
@@ -25650,6 +26168,38 @@ export class GetCompliancePackResponseBodyCompliancePack extends $tea.Model {
   /**
    * @remarks
    * The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
+   * 
+   * @example
+   * {
+   *       "configRuleTemplates": [
+   *         {
+   *           "configRuleName": "弹性IP实例带宽满足最低要求",
+   *           "scope": {
+   *             "complianceResourceTypes": [
+   *               "ACS::EIP::EipAddress"
+   *             ]
+   *           },
+   *           "description": "弹性IP实例可用带宽大于等于指定参数值，视为“合规”。默认值：10MB",
+   *           "source": {
+   *             "owner": "ALIYUN",
+   *             "identifier": "eip-bandwidth-limit",
+   *             "sourceDetails": [
+   *               {
+   *                 "messageType": "ConfigurationItemChangeNotification"
+   *               }
+   *             ]
+   *           },
+   *           "inputParameters": {
+   *             "bandwidth": "10"
+   *           }
+   *         }
+   *       ],
+   *       "compliancePackTemplate": {
+   *         "riskLevel": 2,
+   *         "compliancePackName": "gy-test",
+   *         "description": ""
+   *       }
+   *     }
    */
   templateContent?: string;
   static names(): { [key: string]: string } {
@@ -25907,6 +26457,16 @@ export class GetConfigDeliveryChannelResponseBodyDeliveryChannel extends $tea.Mo
    * 120886317861****
    */
   accountId?: number;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled compliant snapshots.
+   * *   false: The specified destination does not receive scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -26249,6 +26809,9 @@ export class GetConfigRuleResponseBodyConfigRuleCreateBy extends $tea.Model {
   /**
    * @remarks
    * The name of the compliance package.
+   * 
+   * @example
+   * example-name
    */
   compliancePackName?: string;
   /**
@@ -26291,7 +26854,21 @@ export class GetConfigRuleResponseBodyConfigRuleCreateBy extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26375,11 +26952,17 @@ export class GetConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
   /**
    * @remarks
    * The settings of the required input parameters for the managed rule.
+   * 
+   * @example
+   * {}
    */
   compulsoryInputParameterDetails?: { [key: string]: any };
   /**
    * @remarks
    * The description of the managed rule.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
   /**
@@ -26398,11 +26981,17 @@ export class GetConfigRuleResponseBodyConfigRuleManagedRule extends $tea.Model {
   /**
    * @remarks
    * The name of the managed rule.
+   * 
+   * @example
+   * example-name
    */
   managedRuleName?: string;
   /**
    * @remarks
    * The settings of the optional input parameters for the managed rule.
+   * 
+   * @example
+   * {}
    */
   optionalInputParameterDetails?: { [key: string]: any };
   /**
@@ -26571,7 +27160,21 @@ export class GetConfigRuleResponseBodyConfigRuleSource extends $tea.Model {
 }
 
 export class GetConfigRuleResponseBodyConfigRuleTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * TagKey
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * TagValue
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -26630,6 +27233,9 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   /**
    * @remarks
    * The name of the rule.
+   * 
+   * @example
+   * ecs-disk-auto-snapshot-policy
    */
   configRuleName?: string;
   /**
@@ -26672,9 +27278,26 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
   /**
    * @remarks
    * The description of the managed rule.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
+  /**
+   * @remarks
+   * ExcludeRegionIdsScope
+   * 
+   * @example
+   * cn-shanghai
+   */
   excludeRegionIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeResourceGroupIdsScope
+   * 
+   * @example
+   * rg-aekzdibsjjc****
+   */
   excludeResourceGroupIdsScope?: string;
   /**
    * @remarks
@@ -26684,10 +27307,25 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
    * 23642660635687****
    */
   excludeResourceIdsScope?: string;
+  /**
+   * @remarks
+   * ExcludeTagsScope
+   */
   excludeTagsScope?: GetConfigRuleResponseBodyConfigRuleExcludeTagsScope[];
   /**
    * @remarks
+   * Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+   * 
+   * @example
+   * {"fixedHour":"12"}
+   */
+  extendContent?: string;
+  /**
+   * @remarks
    * The input parameters of the rule.
+   * 
+   * @example
+   * {}
    */
   inputParameters?: { [key: string]: any };
   /**
@@ -26735,6 +27373,13 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
    * rg-aekzdibsjjc****
    */
   resourceGroupIdsScope?: string;
+  /**
+   * @remarks
+   * ResourceIdsScope
+   * 
+   * @example
+   * eip-8vbf3x310fn56ijfd****
+   */
   resourceIdsScope?: string;
   /**
    * @remarks
@@ -26796,6 +27441,10 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
    * MFA
    */
   tagValueScope?: string;
+  /**
+   * @remarks
+   * TagsScope
+   */
   tagsScope?: GetConfigRuleResponseBodyConfigRuleTagsScope[];
   static names(): { [key: string]: string } {
     return {
@@ -26814,6 +27463,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       excludeResourceGroupIdsScope: 'ExcludeResourceGroupIdsScope',
       excludeResourceIdsScope: 'ExcludeResourceIdsScope',
       excludeTagsScope: 'ExcludeTagsScope',
+      extendContent: 'ExtendContent',
       inputParameters: 'InputParameters',
       managedRule: 'ManagedRule',
       maximumExecutionFrequency: 'MaximumExecutionFrequency',
@@ -26849,6 +27499,7 @@ export class GetConfigRuleResponseBodyConfigRule extends $tea.Model {
       excludeResourceGroupIdsScope: 'string',
       excludeResourceIdsScope: 'string',
       excludeTagsScope: { 'type': 'array', 'itemType': GetConfigRuleResponseBodyConfigRuleExcludeTagsScope },
+      extendContent: 'string',
       inputParameters: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       managedRule: GetConfigRuleResponseBodyConfigRuleManagedRule,
       maximumExecutionFrequency: 'string',
@@ -27148,6 +27799,18 @@ export class GetDiscoveredResourceResponseBodyDiscoveredResourceDetail extends $
    * cn-hangzhou-h
    */
   availabilityZone?: string;
+  /**
+   * @remarks
+   * The compliance evaluation result of the resource. Valid values:
+   * 
+   * *   COMPLIANT: The resource is evaluated as compliant.
+   * *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+   * *   NOT_APPLICABLE: The rule does not apply to the resources.
+   * *   INSUFFICIENT_DATA: No data is available.
+   * 
+   * @example
+   * COMPLIANT
+   */
   complianceType?: string;
   /**
    * @remarks
@@ -27563,6 +28226,9 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea
   /**
    * @remarks
    * The parameters of the automatic remediation template.
+   * 
+   * @example
+   * {\\"Parameters\\":{\\"regionId\\":{\\"AssociationProperty\\":\\"RegionId\\",\\"CreateDated\\":\\"2023-09-08T16:36:15\\",\\"Default\\":\\"{regionId}\\",\\"Description\\":{\\"en\\":\\"regionId\\",\\"zh-cn\\":\\"regionId\\"},\\"Id\\":538,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:15\\",\\"Name\\":\\"regionId\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"String\\",\\"Version\\":\\"LASTEST\\"},\\"loadBalancerIds\\":{\\"CreateDated\\":\\"2023-09-08T16:36:16\\",\\"Default\\":\\"[\\\\\\"{resourceId}\\\\\\"]\\",\\"Description\\":{\\"en\\":\\"loadBalancerIds\\",\\"zh-cn\\":\\"loadBalancerIds\\"},\\"Id\\":539,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:16\\",\\"Name\\":\\"loadBalancerIds\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"ARRAY\\",\\"Version\\":\\"LASTEST\\"}}}
    */
   templateDefinition?: string;
   /**
@@ -27570,6 +28236,9 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea
    * The description of the automatic remediation template.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 调用接口EnableDeletionProtection，开启ALB实例删除保护，请您知晓风险谨慎操作。
    */
   templateDescription?: string;
   /**
@@ -27583,6 +28252,9 @@ export class GetRemediationTemplateResponseBodyRemediationTemplates extends $tea
   /**
    * @remarks
    * The name of the automatic remediation template.
+   * 
+   * @example
+   * 开启ALB实例删除保护
    */
   templateName?: string;
   static names(): { [key: string]: string } {
@@ -28549,7 +29221,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   accountId?: number;
   /**
    * @remarks
-   * The account group ID.
+   * The ID of the account group.
    * 
    * @example
    * ca-f632626622af0079****
@@ -28557,7 +29229,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   aggregatorId?: string;
   /**
    * @remarks
-   * The compliance package ID.
+   * The ID of the compliance package.
    * 
    * @example
    * cp-fdc8626622af00f9****
@@ -28566,6 +29238,9 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   /**
    * @remarks
    * The name of the compliance package.
+   * 
+   * @example
+   * example-name
    */
   compliancePackName?: string;
   /**
@@ -28587,15 +29262,18 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
   /**
    * @remarks
    * The description of the compliance package.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
   /**
    * @remarks
-   * The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+   * The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
    * 
-   * *   1: high
-   * *   2: medium
-   * *   3: low
+   * *   1: high risk level.
+   * *   2: medium risk level.
+   * *   3: low risk level.
    * 
    * @example
    * 1
@@ -28605,7 +29283,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
    * @remarks
    * The status of the compliance package. Valid values:
    * 
-   * *   ACTIVE: The compliance package is normal.
+   * *   ACTIVE: The compliance package is available for use.
    * *   CREATING: The compliance package is being created.
    * 
    * @example
@@ -28648,7 +29326,7 @@ export class ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompli
 export class ListAggregateCompliancePacksResponseBodyCompliancePacksResult extends $tea.Model {
   /**
    * @remarks
-   * The compliance packages.
+   * The details of the compliance package.
    */
   compliancePacks?: ListAggregateCompliancePacksResponseBodyCompliancePacksResultCompliancePacks[];
   /**
@@ -28715,6 +29393,16 @@ export class ListAggregateConfigDeliveryChannelsResponseBodyDeliveryChannels ext
    * ca-a4e5626622af0079****
    */
   aggregatorId?: string;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled compliant snapshots.
+   * *   false: The specified destination does not receive scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -30684,6 +31372,9 @@ export class ListAggregatorsResponseBodyAggregatorsResultAggregators extends $te
   /**
    * @remarks
    * The description of the account group.
+   * 
+   * @example
+   * Example-description
    */
   description?: string;
   /**
@@ -30847,6 +31538,9 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * If the expiration time of the SLB certificate is later than the specified number of days after the check time, the configuration is considered compliant. Default value: 90 days.
    */
   description?: string;
   /**
@@ -30860,6 +31554,9 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   /**
    * @remarks
    * The name of the managed rule.
+   * 
+   * @example
+   * slb-servercertificate-expired-check
    */
   managedRuleName?: string;
   /**
@@ -30927,6 +31624,9 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   /**
    * @remarks
    * The name of the compliance package template.
+   * 
+   * @example
+   * BestPracticesForResourceStability
    */
   compliancePackTemplateName?: string;
   /**
@@ -30937,11 +31637,17 @@ export class ListCompliancePackTemplatesResponseBodyCompliancePackTemplatesResul
   /**
    * @remarks
    * The description of the compliance package.
+   * 
+   * @example
+   * example-description
    */
   description?: string;
   /**
    * @remarks
    * The tag of the compliance package.
+   * 
+   * @example
+   * tagKey-1
    */
   labels?: string;
   /**
@@ -31066,6 +31772,9 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   /**
    * @remarks
    * The name of the compliance package.
+   * 
+   * @example
+   * ClassifiedProtectionPreCheck
    */
   compliancePackName?: string;
   /**
@@ -31087,6 +31796,9 @@ export class ListCompliancePacksResponseBodyCompliancePacksResultCompliancePacks
   /**
    * @remarks
    * The description of the compliance package.
+   * 
+   * @example
+   * Based on the Level 3 standards Equal Protection 2.0, this template provides continuous compliance monitoring recommendations to help you perform self-inspections and fix issues in advance, ensuring a quick pass during the official inspection.
    */
   description?: string;
   /**
@@ -31205,6 +31917,16 @@ export class ListConfigDeliveryChannelsResponseBodyDeliveryChannels extends $tea
    * 120886317861****
    */
   accountId?: number;
+  /**
+   * @remarks
+   * Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to  Log Service every day. The time is displayed in UTC. Valid values:
+   * 
+   * *   true: The specified destination receives scheduled compliant snapshots.
+   * *   false: The specified destination does not receive scheduled compliant snapshots.
+   * 
+   * @example
+   * false
+   */
   compliantSnapshot?: boolean;
   /**
    * @remarks
@@ -32287,6 +33009,7 @@ export class ListDiscoveredResourcesResponseBodyDiscoveredResourceProfiles exten
 }
 
 export class ListIntegratedServiceResponseBodyData extends $tea.Model {
+  aggregatorDeliveryDataType?: string;
   /**
    * @remarks
    * The types of the integrated events. Separate multiple event types with commas (,). Valid values:
@@ -32331,6 +33054,7 @@ export class ListIntegratedServiceResponseBodyData extends $tea.Model {
   status?: boolean;
   static names(): { [key: string]: string } {
     return {
+      aggregatorDeliveryDataType: 'AggregatorDeliveryDataType',
       integratedTypes: 'IntegratedTypes',
       serviceCode: 'ServiceCode',
       serviceName: 'ServiceName',
@@ -32340,6 +33064,7 @@ export class ListIntegratedServiceResponseBodyData extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      aggregatorDeliveryDataType: 'string',
       integratedTypes: 'string',
       serviceCode: 'string',
       serviceName: 'string',
@@ -32559,11 +33284,17 @@ export class ListPreManagedRulesResponseBodyManagedRules extends $tea.Model {
   /**
    * @remarks
    * The name of the rule.
+   * 
+   * @example
+   * ram-user-ak-used-expired-check
    */
   configRuleName?: string;
   /**
    * @remarks
    * The description of the rule.
+   * 
+   * @example
+   * Example description
    */
   description?: string;
   /**
@@ -33485,6 +34216,9 @@ export class ListSupportedProductsResponseBodyProductsResourceTypeList extends $
   /**
    * @remarks
    * The Chinese name of the resource type.
+   * 
+   * @example
+   * ECS实例
    */
   typeNameZh?: string;
   /**
@@ -33530,6 +34264,9 @@ export class ListSupportedProductsResponseBodyProducts extends $tea.Model {
   /**
    * @remarks
    * The Chinese name of the Alibaba Cloud service.
+   * 
+   * @example
+   * 云服务器ECS
    */
   productNameZh?: string;
   /**
@@ -34103,7 +34840,21 @@ export class UpdateAggregateCompliancePackShrinkRequestTagsScope extends $tea.Mo
 }
 
 export class UpdateAggregateConfigRuleRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34125,7 +34876,21 @@ export class UpdateAggregateConfigRuleRequestExcludeTagsScope extends $tea.Model
 }
 
 export class UpdateAggregateConfigRuleRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34147,7 +34912,21 @@ export class UpdateAggregateConfigRuleRequestTagsScope extends $tea.Model {
 }
 
 export class UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-2
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-2
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34169,7 +34948,21 @@ export class UpdateAggregateConfigRuleShrinkRequestExcludeTagsScope extends $tea
 }
 
 export class UpdateAggregateConfigRuleShrinkRequestTagsScope extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * key-1
+   */
   tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value-1
+   */
   tagValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -34622,6 +35415,10 @@ export default class Client extends OpenApi {
       query["AggregatorId"] = request.aggregatorId;
     }
 
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.configRuleIds)) {
       query["ConfigRuleIds"] = request.configRuleIds;
     }
@@ -34674,6 +35471,10 @@ export default class Client extends OpenApi {
   async activeConfigRulesWithOptions(request: ActiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ActiveConfigRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.configRuleIds)) {
       query["ConfigRuleIds"] = request.configRuleIds;
     }
@@ -35314,6 +36115,10 @@ export default class Client extends OpenApi {
       bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
+    if (!Util.isUnset(request.extendContent)) {
+      body["ExtendContent"] = request.extendContent;
+    }
+
     if (!Util.isUnset(request.folderIdsScope)) {
       body["FolderIdsScope"] = request.folderIdsScope;
     }
@@ -35848,6 +36653,10 @@ export default class Client extends OpenApi {
       bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
     }
 
+    if (!Util.isUnset(request.extendContent)) {
+      body["ExtendContent"] = request.extendContent;
+    }
+
     if (!Util.isUnset(request.inputParametersShrink)) {
       body["InputParameters"] = request.inputParametersShrink;
     }
@@ -36122,6 +36931,10 @@ export default class Client extends OpenApi {
       query["AggregatorId"] = request.aggregatorId;
     }
 
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.configRuleIds)) {
       query["ConfigRuleIds"] = request.configRuleIds;
     }
@@ -36176,6 +36989,10 @@ export default class Client extends OpenApi {
   async deactiveConfigRulesWithOptions(request: DeactiveConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<DeactiveConfigRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.configRuleIds)) {
       query["ConfigRuleIds"] = request.configRuleIds;
     }
@@ -39783,6 +40600,10 @@ export default class Client extends OpenApi {
       query["AggregatorId"] = request.aggregatorId;
     }
 
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.complianceType)) {
       query["ComplianceType"] = request.complianceType;
     }
@@ -40218,7 +41039,7 @@ export default class Client extends OpenApi {
    * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -40260,7 +41081,7 @@ export default class Client extends OpenApi {
    * Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -40275,7 +41096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups that the current account manages or to which the current account belongs.
+   * Queries all account groups within the current management account or delegated administrator account.
    * 
    * @remarks
    * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
@@ -40313,7 +41134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of account groups that the current account manages or to which the current account belongs.
+   * Queries all account groups within the current management account or delegated administrator account.
    * 
    * @remarks
    * The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
@@ -40330,7 +41151,7 @@ export default class Client extends OpenApi {
    * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+   * A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
    * 
    * @param request - ListCompliancePackTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40376,7 +41197,7 @@ export default class Client extends OpenApi {
    * Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
    * 
    * @remarks
-   * This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+   * A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
    * 
    * @param request - ListCompliancePackTemplatesRequest
    * @returns ListCompliancePackTemplatesResponse
@@ -40573,6 +41394,10 @@ export default class Client extends OpenApi {
   async listConfigRulesWithOptions(request: ListConfigRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListConfigRulesResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.compliancePackId)) {
+      query["CompliancePackId"] = request.compliancePackId;
+    }
+
     if (!Util.isUnset(request.complianceType)) {
       query["ComplianceType"] = request.complianceType;
     }
@@ -41212,7 +42037,7 @@ export default class Client extends OpenApi {
    * Obtains resources based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -41250,7 +42075,7 @@ export default class Client extends OpenApi {
    * Obtains resources based on the fields in the resource properties by using a SELECT statement.
    * 
    * @remarks
-   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
+   * When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
    * > 
    * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
    * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -42628,7 +43453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a delivery channel.
+   * Modifies a delivery channel by using the current account.
    * 
    * @remarks
    * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
@@ -42710,7 +43535,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a delivery channel.
+   * Modifies a delivery channel by using the current account.
    * 
    * @remarks
    * In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
@@ -42781,6 +43606,10 @@ export default class Client extends OpenApi {
     let bodyFlat : {[key: string ]: any} = { };
     if (!Util.isUnset(request.excludeTagsScope)) {
       bodyFlat["ExcludeTagsScope"] = request.excludeTagsScope;
+    }
+
+    if (!Util.isUnset(request.extendContent)) {
+      body["ExtendContent"] = request.extendContent;
     }
 
     if (!Util.isUnset(request.inputParametersShrink)) {
@@ -43018,6 +43847,10 @@ export default class Client extends OpenApi {
   async updateIntegratedServiceStatusWithOptions(request: UpdateIntegratedServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<UpdateIntegratedServiceStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.aggregatorDeliveryDataType)) {
+      body["AggregatorDeliveryDataType"] = request.aggregatorDeliveryDataType;
+    }
+
     if (!Util.isUnset(request.integratedTypes)) {
       body["IntegratedTypes"] = request.integratedTypes;
     }
