@@ -7835,7 +7835,9 @@ export class CreateExpressConnectTrafficQosRequest extends $tea.Model {
    * cn-shanghai
    */
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  tags?: CreateExpressConnectTrafficQosRequestTags[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -7844,7 +7846,9 @@ export class CreateExpressConnectTrafficQosRequest extends $tea.Model {
       qosDescription: 'QosDescription',
       qosName: 'QosName',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      tags: 'Tags',
     };
   }
 
@@ -7856,7 +7860,9 @@ export class CreateExpressConnectTrafficQosRequest extends $tea.Model {
       qosDescription: 'string',
       qosName: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      tags: { 'type': 'array', 'itemType': CreateExpressConnectTrafficQosRequestTags },
     };
   }
 
@@ -8916,6 +8922,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
    * 0c593ea1-3bea-11e9-b96b-88e9fe6****
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * *   The EIP that can be accessed over the Internet when you configure a DNAT entry for an Internet NAT gateway.
@@ -9035,6 +9042,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       externalIp: 'ExternalIp',
       externalPort: 'ExternalPort',
       forwardEntryName: 'ForwardEntryName',
@@ -9054,6 +9062,7 @@ export class CreateForwardEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       externalIp: 'string',
       externalPort: 'string',
       forwardEntryName: 'string',
@@ -14360,6 +14369,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
    * 02fb3da4-130e-11e9-8e44****
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * Specifies whether to enable EIP affinity. Valid values:
@@ -14475,6 +14485,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       eipAffinity: 'EipAffinity',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
@@ -14493,6 +14504,7 @@ export class CreateSnatEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       eipAffinity: 'number',
       networkInterfaceId: 'string',
       ownerAccount: 'string',
@@ -29353,7 +29365,9 @@ export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
    * cn-shanghai
    */
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  tags?: DescribeExpressConnectTrafficQosRequestTags[];
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
@@ -29364,7 +29378,9 @@ export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
       qosIdList: 'QosIdList',
       qosNameList: 'QosNameList',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
+      tags: 'Tags',
     };
   }
 
@@ -29378,7 +29394,9 @@ export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
       qosIdList: { 'type': 'array', 'itemType': 'string' },
       qosNameList: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosRequestTags },
     };
   }
 
@@ -53698,6 +53716,7 @@ export class ModifyForwardEntryRequest extends $tea.Model {
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  dryRun?: boolean;
   /**
    * @remarks
    * *   When you modify DNAT entries of Internet NAT gateways, this parameter specifies the elastic IP addresses (EIPs) that are used to access the Internet.
@@ -53811,6 +53830,7 @@ export class ModifyForwardEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       externalIp: 'ExternalIp',
       externalPort: 'ExternalPort',
       forwardEntryId: 'ForwardEntryId',
@@ -53831,6 +53851,7 @@ export class ModifyForwardEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       externalIp: 'string',
       externalPort: 'string',
       forwardEntryId: 'string',
@@ -57533,6 +57554,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
    * 02fb3da4-130e-11e9-8e44-001****
    */
   clientToken?: string;
+  dryRun?: boolean;
   eipAffinity?: number;
   networkInterfaceId?: string;
   ownerAccount?: string;
@@ -57596,6 +57618,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       clientToken: 'ClientToken',
+      dryRun: 'DryRun',
       eipAffinity: 'EipAffinity',
       networkInterfaceId: 'NetworkInterfaceId',
       ownerAccount: 'OwnerAccount',
@@ -57613,6 +57636,7 @@ export class ModifySnatEntryRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       clientToken: 'string',
+      dryRun: 'boolean',
       eipAffinity: 'number',
       networkInterfaceId: 'string',
       ownerAccount: 'string',
@@ -70323,6 +70347,28 @@ export class CreateDhcpOptionsSetRequestTag extends $tea.Model {
   }
 }
 
+export class CreateExpressConnectTrafficQosRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateFlowLogRequestTag extends $tea.Model {
   /**
    * @remarks
@@ -76114,6 +76160,28 @@ export class DescribeEipSegmentResponseBodyEipSegments extends $tea.Model {
   }
 }
 
+export class DescribeExpressConnectTrafficQosRequestTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList extends $tea.Model {
   /**
    * @example
@@ -76219,6 +76287,28 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
   }
 }
 
+export class DescribeExpressConnectTrafficQosResponseBodyQosListTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Model {
   associatedInstanceList?: DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList[];
   /**
@@ -76242,11 +76332,13 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Mo
    */
   qosName?: string;
   queueList?: DescribeExpressConnectTrafficQosResponseBodyQosListQueueList[];
+  resourceGroupId?: string;
   /**
    * @example
    * Normal
    */
   status?: string;
+  tags?: DescribeExpressConnectTrafficQosResponseBodyQosListTags[];
   static names(): { [key: string]: string } {
     return {
       associatedInstanceList: 'AssociatedInstanceList',
@@ -76255,7 +76347,9 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Mo
       qosId: 'QosId',
       qosName: 'QosName',
       queueList: 'QueueList',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
+      tags: 'Tags',
     };
   }
 
@@ -76267,7 +76361,9 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Mo
       qosId: 'string',
       qosName: 'string',
       queueList: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosResponseBodyQosListQueueList },
+      resourceGroupId: 'string',
       status: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeExpressConnectTrafficQosResponseBodyQosListTags },
     };
   }
 
@@ -104566,8 +104662,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -105050,6 +105154,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.externalIp)) {
@@ -107613,6 +107721,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.eipAffinity)) {
@@ -115438,8 +115550,16 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.tags)) {
+      query["Tags"] = request.tags;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -125534,6 +125654,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!Util.isUnset(request.externalIp)) {
       query["ExternalIp"] = request.externalIp;
     }
@@ -127566,6 +127690,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!Util.isUnset(request.clientToken)) {
       query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!Util.isUnset(request.eipAffinity)) {
