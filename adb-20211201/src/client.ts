@@ -14375,6 +14375,143 @@ export class ExistRunningSQLEngineResponse extends $tea.Model {
   }
 }
 
+export class GetCreateTableSQLRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * amv-2ze8mbuai974s4y2
+   */
+  DBClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * The region ID of the cluster.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/143074.html) operation to query the most recent region list.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * adb_demo
+   */
+  schemaName?: string;
+  /**
+   * @remarks
+   * The name of the table.
+   * 
+   * @example
+   * test
+   */
+  tableName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterId: 'DBClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      schemaName: 'SchemaName',
+      tableName: 'TableName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      schemaName: 'string',
+      tableName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateTableSQLResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 109462AF-B5FA-3D5A-9377-B27E5B******
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The SQL statement.
+   * 
+   * @example
+   * create table (
+   *  id varchar(32)
+   * );
+   */
+  SQL?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      SQL: 'SQL',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      SQL: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetCreateTableSQLResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCreateTableSQLResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetCreateTableSQLResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDatabaseObjectsRequest extends $tea.Model {
   /**
    * @remarks
@@ -36740,6 +36877,76 @@ export default class Client extends OpenApi {
   async existRunningSQLEngine(request: ExistRunningSQLEngineRequest): Promise<ExistRunningSQLEngineResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.existRunningSQLEngineWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the table creation statement for tables.
+   * 
+   * @param request - GetCreateTableSQLRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCreateTableSQLResponse
+   */
+  async getCreateTableSQLWithOptions(request: GetCreateTableSQLRequest, runtime: $Util.RuntimeOptions): Promise<GetCreateTableSQLResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.schemaName)) {
+      query["SchemaName"] = request.schemaName;
+    }
+
+    if (!Util.isUnset(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetCreateTableSQL",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetCreateTableSQLResponse>(await this.callApi(params, req, runtime), new GetCreateTableSQLResponse({}));
+  }
+
+  /**
+   * Queries the table creation statement for tables.
+   * 
+   * @param request - GetCreateTableSQLRequest
+   * @returns GetCreateTableSQLResponse
+   */
+  async getCreateTableSQL(request: GetCreateTableSQLRequest): Promise<GetCreateTableSQLResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getCreateTableSQLWithOptions(request, runtime);
   }
 
   /**
