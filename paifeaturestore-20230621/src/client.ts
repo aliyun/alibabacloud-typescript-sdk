@@ -853,61 +853,6 @@ export class CreateModelFeatureResponse extends $tea.Model {
   }
 }
 
-export class CreateModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
-  /**
-   * @example
-   * project_model_training_set_fg
-   */
-  trainingSetFGTableName?: string;
-  /**
-   * @example
-   * 93FF6A91-5326-5FA1-9D89-DB46DAA99E55
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      trainingSetFGTableName: 'TrainingSetFGTableName',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trainingSetFGTableName: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateModelFeatureTrainingSetFGTableResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateModelFeatureTrainingSetFGTableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateModelFeatureTrainingSetFGTableResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateProjectRequest extends $tea.Model {
   /**
    * @example
@@ -1401,84 +1346,6 @@ export class DeleteProjectResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteProjectResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportModelFeatureTrainingSetFGTableRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  trainingSetFgConfig?: ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig;
-  static names(): { [key: string]: string } {
-    return {
-      trainingSetFgConfig: 'TrainingSetFgConfig',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      trainingSetFgConfig: ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportModelFeatureTrainingSetFGTableResponseBody extends $tea.Model {
-  /**
-   * @example
-   * 3
-   */
-  taskId?: string;
-  /**
-   * @example
-   * 514F82AF-3C04-5C3D-8F38-A11261BF37B0
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      taskId: 'TaskId',
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      taskId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportModelFeatureTrainingSetFGTableResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ExportModelFeatureTrainingSetFGTableResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ExportModelFeatureTrainingSetFGTableResponseBody,
     };
   }
 
@@ -5161,6 +5028,11 @@ export class UpdateModelFeatureRequest extends $tea.Model {
   features?: UpdateModelFeatureRequestFeatures[];
   /**
    * @example
+   * 0
+   */
+  labelPriorityLevel?: number;
+  /**
+   * @example
    * 4
    */
   labelTableId?: string;
@@ -5168,6 +5040,7 @@ export class UpdateModelFeatureRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       features: 'Features',
+      labelPriorityLevel: 'LabelPriorityLevel',
       labelTableId: 'LabelTableId',
       sequenceFeatureViewIds: 'SequenceFeatureViewIds',
     };
@@ -5176,6 +5049,7 @@ export class UpdateModelFeatureRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       features: { 'type': 'array', 'itemType': UpdateModelFeatureRequestFeatures },
+      labelPriorityLevel: 'number',
       labelTableId: 'string',
       sequenceFeatureViewIds: { 'type': 'array', 'itemType': 'string' },
     };
@@ -5306,80 +5180,6 @@ export class UpdateModelFeatureFGFeatureResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateModelFeatureFGFeatureResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateModelFeatureFGInfoRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   * 
-   * @example
-   * {"features": [{"feature_name": "item_id","feature_type": "id_feature","value_type": "String","expression": "item:item_id","default_value": "-1024","combiner": "mean","need_prefix": false},{"feature_name": "f1","feature_type": "lookup_feature","value_type": "Integer","map": "item:f1","key": "user:1","default_value": "0","combiner": "mean","need_prefix": false,"needDiscrete": false,"needWeighting": false,"needKey": false}],"reserves": ["f1"]}
-   */
-  content?: string;
-  static names(): { [key: string]: string } {
-    return {
-      content: 'Content',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      content: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateModelFeatureFGInfoResponseBody extends $tea.Model {
-  /**
-   * @example
-   * E8CA47C5-B3E8-5BD7-9910-245432A365EB
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'requestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateModelFeatureFGInfoResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateModelFeatureFGInfoResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateModelFeatureFGInfoResponseBody,
     };
   }
 
@@ -5670,43 +5470,6 @@ export class CreateModelFeatureRequestFeatures extends $tea.Model {
       featureViewId: 'string',
       name: 'string',
       type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ExportModelFeatureTrainingSetFGTableRequestTrainingSetFgConfig extends $tea.Model {
-  /**
-   * @example
-   * rank_v1_fg.json
-   */
-  fgJsonName?: string;
-  /**
-   * @example
-   * fg_on_odps-1.3.60-jar-with-dependencies.jar
-   */
-  jarName?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  partitions?: { [key: string]: {[key: string]: any} };
-  static names(): { [key: string]: string } {
-    return {
-      fgJsonName: 'FgJsonName',
-      jarName: 'JarName',
-      partitions: 'Partitions',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fgJsonName: 'string',
-      jarName: 'string',
-      partitions: { 'type': 'map', 'keyType': 'string', 'valueType': '{[key: string]: any}' },
     };
   }
 
@@ -8075,41 +7838,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建训练样本FG表。
-   * 
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateModelFeatureTrainingSetFGTableResponse
-   */
-  async createModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateModelFeatureTrainingSetFGTable",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/trainingsetfgtable`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new CreateModelFeatureTrainingSetFGTableResponse({}));
-  }
-
-  /**
-   * 创建训练样本FG表。
-   * @returns CreateModelFeatureTrainingSetFGTableResponse
-   */
-  async createModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string): Promise<CreateModelFeatureTrainingSetFGTableResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.createModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, headers, runtime);
-  }
-
-  /**
    * 创建FeatureStore项目
    * 
    * @param request - CreateProjectRequest
@@ -8427,51 +8155,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteProjectWithOptions(InstanceId, ProjectId, headers, runtime);
-  }
-
-  /**
-   * 导出训练样本FG表。
-   * 
-   * @param request - ExportModelFeatureTrainingSetFGTableRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ExportModelFeatureTrainingSetFGTableResponse
-   */
-  async exportModelFeatureTrainingSetFGTableWithOptions(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.trainingSetFgConfig)) {
-      body["TrainingSetFgConfig"] = request.trainingSetFgConfig;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "ExportModelFeatureTrainingSetFGTable",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/action/exporttrainingsetfgtable`,
-      method: "POST",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<ExportModelFeatureTrainingSetFGTableResponse>(await this.callApi(params, req, runtime), new ExportModelFeatureTrainingSetFGTableResponse({}));
-  }
-
-  /**
-   * 导出训练样本FG表。
-   * 
-   * @param request - ExportModelFeatureTrainingSetFGTableRequest
-   * @returns ExportModelFeatureTrainingSetFGTableResponse
-   */
-  async exportModelFeatureTrainingSetFGTable(InstanceId: string, ModelFeatureId: string, request: ExportModelFeatureTrainingSetFGTableRequest): Promise<ExportModelFeatureTrainingSetFGTableResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.exportModelFeatureTrainingSetFGTableWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
   /**
@@ -10083,6 +9766,10 @@ export default class Client extends OpenApi {
       body["Features"] = request.features;
     }
 
+    if (!Util.isUnset(request.labelPriorityLevel)) {
+      body["LabelPriorityLevel"] = request.labelPriorityLevel;
+    }
+
     if (!Util.isUnset(request.labelTableId)) {
       body["LabelTableId"] = request.labelTableId;
     }
@@ -10176,51 +9863,6 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelFeatureFGFeatureWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
-  }
-
-  /**
-   * 更新模型特征的fg.json文件配置信息。
-   * 
-   * @param request - UpdateModelFeatureFGInfoRequest
-   * @param headers - map
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateModelFeatureFGInfoResponse
-   */
-  async updateModelFeatureFGInfoWithOptions(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateModelFeatureFGInfoResponse> {
-    Util.validateModel(request);
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.content)) {
-      body["Content"] = request.content;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      headers: headers,
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateModelFeatureFGInfo",
-      version: "2023-06-21",
-      protocol: "HTTPS",
-      pathname: `/api/v1/instances/${OpenApiUtil.getEncodeParam(InstanceId)}/modelfeatures/${OpenApiUtil.getEncodeParam(ModelFeatureId)}/fginfo`,
-      method: "PUT",
-      authType: "AK",
-      style: "ROA",
-      reqBodyType: "json",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateModelFeatureFGInfoResponse>(await this.callApi(params, req, runtime), new UpdateModelFeatureFGInfoResponse({}));
-  }
-
-  /**
-   * 更新模型特征的fg.json文件配置信息。
-   * 
-   * @param request - UpdateModelFeatureFGInfoRequest
-   * @returns UpdateModelFeatureFGInfoResponse
-   */
-  async updateModelFeatureFGInfo(InstanceId: string, ModelFeatureId: string, request: UpdateModelFeatureFGInfoRequest): Promise<UpdateModelFeatureFGInfoResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    let headers : {[key: string ]: string} = { };
-    return await this.updateModelFeatureFGInfoWithOptions(InstanceId, ModelFeatureId, request, headers, runtime);
   }
 
   /**
