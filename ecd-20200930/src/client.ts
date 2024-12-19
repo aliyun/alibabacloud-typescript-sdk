@@ -43002,6 +43002,28 @@ export class DescribeModificationPriceResponseBodyPriceInfo extends $tea.Model {
   }
 }
 
+export class DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups extends $tea.Model {
+  appInstanceGroupId?: string;
+  appInstanceGroupName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      appInstanceGroupName: 'AppInstanceGroupName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      appInstanceGroupName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends $tea.Model {
   /**
    * @remarks
@@ -43038,7 +43060,31 @@ export class DescribeNASFileSystemsResponseBodyFileSystemsDesktopGroups extends 
   }
 }
 
+export class DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites extends $tea.Model {
+  officeSiteId?: string;
+  officeSiteName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      officeSiteId: 'OfficeSiteId',
+      officeSiteName: 'OfficeSiteName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      officeSiteId: 'string',
+      officeSiteName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
+  allowOperateUserDrive?: boolean;
+  appInstanceGroups?: DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups[];
   /**
    * @remarks
    * The total capacity of the NAS file system. Unit: GiB.
@@ -43164,6 +43210,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
    * test
    */
   officeSiteName?: string;
+  officeSites?: DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites[];
   /**
    * @remarks
    * Indicates whether the User Profile Management (UPM) feature is supported.
@@ -43180,6 +43227,7 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  scene?: string;
   /**
    * @remarks
    * The storage type of the NAS file system. Valid values:
@@ -43209,6 +43257,8 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {
+      allowOperateUserDrive: 'AllowOperateUserDrive',
+      appInstanceGroups: 'AppInstanceGroups',
       capacity: 'Capacity',
       createTime: 'CreateTime',
       description: 'Description',
@@ -43223,8 +43273,10 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
       mountTargetStatus: 'MountTargetStatus',
       officeSiteId: 'OfficeSiteId',
       officeSiteName: 'OfficeSiteName',
+      officeSites: 'OfficeSites',
       profileCompatible: 'ProfileCompatible',
       regionId: 'RegionId',
+      scene: 'Scene',
       storageType: 'StorageType',
       supportAcl: 'SupportAcl',
       zoneId: 'ZoneId',
@@ -43233,6 +43285,8 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowOperateUserDrive: 'boolean',
+      appInstanceGroups: { 'type': 'array', 'itemType': DescribeNASFileSystemsResponseBodyFileSystemsAppInstanceGroups },
       capacity: 'number',
       createTime: 'string',
       description: 'string',
@@ -43247,8 +43301,10 @@ export class DescribeNASFileSystemsResponseBodyFileSystems extends $tea.Model {
       mountTargetStatus: 'string',
       officeSiteId: 'string',
       officeSiteName: 'string',
+      officeSites: { 'type': 'array', 'itemType': DescribeNASFileSystemsResponseBodyFileSystemsOfficeSites },
       profileCompatible: 'boolean',
       regionId: 'string',
+      scene: 'string',
       storageType: 'string',
       supportAcl: 'boolean',
       zoneId: 'string',
@@ -44815,6 +44871,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    * 70
    */
   cpuSingleRateLimit?: number;
+  desktopCount?: number;
+  desktopGroupCount?: number;
   deviceRedirects?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects[];
   deviceRules?: DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules[];
   displayMode?: string;
@@ -44986,6 +45044,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    * 30
    */
   memorySingleRateLimit?: number;
+  mobileRestart?: string;
+  mobileShutdown?: string;
   /**
    * @remarks
    * The policy name.
@@ -45196,6 +45256,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    * fullControl
    */
   remoteCoordinate?: string;
+  resourceGroupCount?: number;
   resourceRegionId?: string;
   /**
    * @remarks
@@ -45214,6 +45275,7 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
    */
   scopeValue?: string[];
   smoothEnhancement?: string;
+  statusMonitor?: string;
   streamingMode?: string;
   targetFps?: number;
   /**
@@ -45404,6 +45466,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cpuRateLimit: 'CpuRateLimit',
       cpuSampleDuration: 'CpuSampleDuration',
       cpuSingleRateLimit: 'CpuSingleRateLimit',
+      desktopCount: 'DesktopCount',
+      desktopGroupCount: 'DesktopGroupCount',
       deviceRedirects: 'DeviceRedirects',
       deviceRules: 'DeviceRules',
       displayMode: 'DisplayMode',
@@ -45425,6 +45489,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       memoryRateLimit: 'MemoryRateLimit',
       memorySampleDuration: 'MemorySampleDuration',
       memorySingleRateLimit: 'MemorySingleRateLimit',
+      mobileRestart: 'MobileRestart',
+      mobileShutdown: 'MobileShutdown',
       name: 'Name',
       netRedirect: 'NetRedirect',
       netRedirectRule: 'NetRedirectRule',
@@ -45447,10 +45513,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingUserNotify: 'RecordingUserNotify',
       recordingUserNotifyMessage: 'RecordingUserNotifyMessage',
       remoteCoordinate: 'RemoteCoordinate',
+      resourceGroupCount: 'ResourceGroupCount',
       resourceRegionId: 'ResourceRegionId',
       scope: 'Scope',
       scopeValue: 'ScopeValue',
       smoothEnhancement: 'SmoothEnhancement',
+      statusMonitor: 'StatusMonitor',
       streamingMode: 'StreamingMode',
       targetFps: 'TargetFps',
       usbRedirect: 'UsbRedirect',
@@ -45495,6 +45563,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       cpuRateLimit: 'number',
       cpuSampleDuration: 'number',
       cpuSingleRateLimit: 'number',
+      desktopCount: 'number',
+      desktopGroupCount: 'number',
       deviceRedirects: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRedirects },
       deviceRules: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsDeviceRules },
       displayMode: 'string',
@@ -45516,6 +45586,8 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       memoryRateLimit: 'number',
       memorySampleDuration: 'number',
       memorySingleRateLimit: 'number',
+      mobileRestart: 'string',
+      mobileShutdown: 'string',
       name: 'string',
       netRedirect: 'string',
       netRedirectRule: { 'type': 'array', 'itemType': DescribePolicyGroupsResponseBodyDescribePolicyGroupsNetRedirectRule },
@@ -45538,10 +45610,12 @@ export class DescribePolicyGroupsResponseBodyDescribePolicyGroups extends $tea.M
       recordingUserNotify: 'string',
       recordingUserNotifyMessage: 'string',
       remoteCoordinate: 'string',
+      resourceGroupCount: 'number',
       resourceRegionId: 'string',
       scope: 'string',
       scopeValue: { 'type': 'array', 'itemType': 'string' },
       smoothEnhancement: 'string',
+      statusMonitor: 'string',
       streamingMode: 'string',
       targetFps: 'number',
       usbRedirect: 'string',
