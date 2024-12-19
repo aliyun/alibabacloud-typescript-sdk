@@ -353,7 +353,7 @@ export class ApplyDataFlowAutoRefreshRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -564,7 +564,7 @@ export class CancelDataFlowAutoRefreshRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-123456
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -589,7 +589,7 @@ export class CancelDataFlowAutoRefreshRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * cpfs-12345678
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**
@@ -737,7 +737,7 @@ export class CancelDataFlowSubTaskRequest extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
+   * *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
    * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data streaming task is created.
    * 
    * @example
@@ -1114,17 +1114,36 @@ export class CancelDirQuotaResponse extends $tea.Model {
 
 export class CancelFilesetQuotaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
+   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no fileset quota is canceled and no fee is incurred.
+   * 
+   * Valid values:
+   * 
+   * *   true: performs a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the DataFlowld parameter.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, the fileset quota is canceled.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The ID of the CPFS for LINGJUN file system. The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1133,7 +1152,7 @@ export class CancelFilesetQuotaRequest extends $tea.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * Fileset ID。
+   * The fileset ID.
    * 
    * This parameter is required.
    * 
@@ -1166,6 +1185,9 @@ export class CancelFilesetQuotaRequest extends $tea.Model {
 
 export class CancelFilesetQuotaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
    */
@@ -1634,7 +1656,7 @@ export class CreateAccessPointRequest extends $tea.Model {
    * @remarks
    * The name of the permission group.
    * 
-   * This parameter is required for a General-purpose Apsara File Storage NAS (NAS) file system.
+   * This parameter is required for a General-purpose File Storage NAS (NAS) file system.
    * 
    * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
    * 
@@ -1659,7 +1681,7 @@ export class CreateAccessPointRequest extends $tea.Model {
    * *   true: The RAM policy is enabled.
    * *   false (default): The RAM policy is disabled.
    * 
-   * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted.
+   * >  After the RAM policy is enabled for access points, no RAM user is allowed to use access points to mount and access data by default. To use access points to mount and access data as a RAM user, you must grant the related access permissions to the RAM user. If the RAM policy is disabled, access points can be anonymously mounted. For more information about how to configure permissions on access points, see [Configure a policy for the access point](https://help.aliyun.com/document_detail/2545998.html).
    * 
    * @example
    * false
@@ -2337,7 +2359,7 @@ export class CreateDataFlowRequest extends $tea.Model {
    * 
    * *   storage type: Only OSS is supported.
    * 
-   * *   account id (optional): the UID of the account of the source storage.
+   * *   account id (optional): the UID of the account of the source storage. This parameter is required when you use OSS buckets across accounts.
    * 
    * *   path: the name of the OSS bucket. Limits:
    * 
@@ -2345,13 +2367,8 @@ export class CreateDataFlowRequest extends $tea.Model {
    *     *   The name can be up to 128 characters in length.
    *     *   The name must be encoded in UTF-8.
    * 
-   * > 
-   * 
-   * *   The OSS bucket must be an existing bucket in the region.
-   * 
-   * *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
-   * 
-   * *   The account id parameter is optional. This parameter is required when you use OSS buckets across accounts.
+   * > *   The OSS bucket must be an existing bucket in the region.
+   * > *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
    * 
    * This parameter is required.
    * 
@@ -2492,34 +2509,68 @@ export class CreateDataFlowResponse extends $tea.Model {
 
 export class CreateDataFlowSubTaskRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The check conditions. The check must be passed after the following conditions are specified.
+   */
   condition?: CreateDataFlowSubTaskRequestCondition;
   /**
    * @remarks
+   * The ID of the data flow.
+   * 
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
    * @remarks
+   * The ID of the data flow task.
+   * 
+   * >  Only the IDs of data streaming tasks are supported.
+   * 
    * This parameter is required.
    * 
    * @example
-   * taskId-12345678
+   * task-38aa8e890f45****
    */
   dataFlowTaskId?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run.
+   * 
+   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no data streaming subtask is created and no fee is incurred.
+   * 
+   * Valid values:
+   * 
+   * *   true: performs a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the DataFlowSubTaskId parameter.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data streaming subtask is created.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
    * @remarks
+   * The path of the destination file. Limits:
+   * 
+   * *   The path must be 1 to 1,023 characters in length.
+   * *   The path must be encoded in UTF-8.
+   * *   The path must start with a forward slash (/).
+   * *   The path must end with the file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2528,6 +2579,8 @@ export class CreateDataFlowSubTaskRequest extends $tea.Model {
   dstFilePath?: string;
   /**
    * @remarks
+   * The ID of the file system.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2536,6 +2589,13 @@ export class CreateDataFlowSubTaskRequest extends $tea.Model {
   fileSystemId?: string;
   /**
    * @remarks
+   * The path of the source file. Limits:
+   * 
+   * *   The path must be 1 to 1,023 characters in length.
+   * *   The path must be encoded in UTF-8.
+   * *   The path must start with a forward slash (/).
+   * *   The path must end with the file name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2575,11 +2635,17 @@ export class CreateDataFlowSubTaskRequest extends $tea.Model {
 
 export class CreateDataFlowSubTaskResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the data streaming task.
+   * 
    * @example
    * subTaskId-370kyfmyknxcyzw****
    */
   dataFlowSubTaskId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A70BEE5D-76D3-49FB-B58F-1F398211A5C3
    */
@@ -2649,12 +2715,25 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * *   KEEP_LATEST: compares the update time and keeps the latest version.
    * *   OVERWRITE_EXISTING: forcibly overwrites the existing file.
    * 
-   * >  This parameter does not take effect for CPFS file systems.
+   * >  This parameter is required for CPFS for LINGJUN file systems.
    * 
    * @example
    * SKIP_THE_FILE
    */
   conflictPolicy?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically create a directory if no directory exists. Valid values:
+   * 
+   * *   true: automatically creates a directory.
+   * *   false (default): does not automatically create a directory.
+   * 
+   * > - This parameter is required if the TaskAction parameter is set to Import.
+   * > - Only CPFS for LINGJUN V2.6.0 and later support this parameter.
+   * 
+   * @example
+   * false
+   */
   createDirIfNotExist?: boolean;
   /**
    * @remarks
@@ -2663,7 +2742,7 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-123456
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -2682,7 +2761,7 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
   dataType?: string;
   /**
    * @remarks
-   * The directory in which the data flow task is executed.
+   * The source directory of the data.
    * 
    * Limits:
    * 
@@ -2692,6 +2771,10 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * *   Only one directory can be listed at a time.
    * *   If the TaskAction parameter is set to Export, the directory must be a relative path within the FileSystemPath.
    * *   If the TaskAction parameter is set to Import, the directory must be a relative path within the SourceStoragePath.
+   * *   If the TaskAction parameter is set to StreamExport, the directory must be a relative path within the FileSystemPath.
+   * *   If the TaskAction parameter is set to StreamImport, the directory must be a relative path within the SourceStoragePath.
+   * 
+   * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
    * 
    * @example
    * /path_in_cpfs/
@@ -2701,17 +2784,35 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * @remarks
    * Specifies whether to perform a dry run.
    * 
-   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no file system is created and no fee is incurred.
+   * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no data flow task is created and no fee is incurred.
    * 
    * Valid values:
    * 
-   * *   true: performs a dry run. The system checks the required parameters, request syntax, limits, and available NAS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
-   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a file system is created.
+   * *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the TaskId parameter.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data flow task is created.
    * 
    * @example
    * false
    */
   dryRun?: boolean;
+  /**
+   * @remarks
+   * The directory mapped to the data flow task. Limits:
+   * 
+   * *   The directory must start and end with a forward slash (/). The directory cannot be /../.
+   * *   The directory must be 1 to 1,023 characters in length.
+   * *   The directory must be encoded in UTF-8.
+   * *   Only one directory can be listed at a time.
+   * *   If the TaskAction parameter is set to Export, the directory must be a relative path within the SourceStoragePath.
+   * *   If the TaskAction parameter is set to Import, the directory must be a relative path within the FileSystemPath.
+   * *   If the TaskAction parameter is set to StreamExport, the directory must be a relative path within the SourceStoragePath.
+   * *   If the TaskAction parameter is set to StreamImport, the directory must be a relative path within the FileSystemPath.
+   * 
+   * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
+   * 
+   * @example
+   * /path_in_cpfs/
+   */
   dstDirectory?: string;
   /**
    * @remarks
@@ -2737,12 +2838,12 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
    * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
    * 
-   * >  CPFS file systems are available only on the China site (aliyun.com).
+   * >  CPFS is not supported on the international site.
    * 
    * This parameter is required.
    * 
    * @example
-   * cpfs-12345678
+   * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
   /**
@@ -2750,7 +2851,7 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * If you specify SrcTaskId, the configurations of the TaskAction, DataType, and EntryList parameters are copied from the desired dataflow task. You do not need to specify them.
    * 
    * @example
-   * task-xxxx
+   * task-27aa8e890f45****
    */
   srcTaskId?: string;
   /**
@@ -2761,10 +2862,10 @@ export class CreateDataFlowTaskRequest extends $tea.Model {
    * 
    * *   Import: imports data stored in the source storage to a CPFS file system.
    * *   Export: exports specified data from a CPFS file system to the source storage.
-   * *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
-   * *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
+   * *   StreamImport: batch imports the specified data from the source storage to a CPFS file system.
+   * *   StreamExport: batch exports specified data from a CPFS file system to the source storage.
    * 
-   * >  CPFS for LINGJUN supports only the Import and Export tasks.
+   * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
    * 
    * @example
    * Import
@@ -2823,7 +2924,7 @@ export class CreateDataFlowTaskResponseBody extends $tea.Model {
    * The ID of the dataflow task.
    * 
    * @example
-   * taskId-12345678
+   * task-38aa8e890f45****
    */
   taskId?: string;
   static names(): { [key: string]: string } {
@@ -3254,7 +3355,7 @@ export class CreateFileSystemRequest extends $tea.Model {
    * *   2: A KMS-managed key is used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
    * 
    * >  *   Extreme NAS file system: All regions support KMS-managed keys.
-   * > *   General-purpose NAS file system: KMS-managed keys are supported in the following regions: China (Chengdu), China (Qingdao), China (Hohhot), China (Ulanqab), China (Heyuan), China (Hangzhou), China (Shanghai), China (Beijing), China (Zhangjiakou), China (Shenzhen), China (Guangzhou), China (Hong Kong), Japan (Tokyo), Philippines (Manila), Thailand (Bangkok), Malaysia (Kuala Lumpur), US (Silicon Valley), Indonesia (Jakarta), UK (London), Singapore, US (Virginia), Germany (Frankfurt), Australia (Sydney) Closing Down, and China East 1 Finance.
+   * > *   General-purpose NAS file system: KMS-managed keys are supported in the following regions: China (Chengdu), China (Qingdao), China (Hohhot), China (Ulanqab), China (Heyuan), China (Hangzhou), China (Shanghai), China (Beijing), China (Zhangjiakou), China (Shenzhen), China (Guangzhou), China (Hong Kong), Japan (Tokyo), Philippines (Manila), Thailand (Bangkok), Malaysia (Kuala Lumpur), US (Silicon Valley), Indonesia (Jakarta), UK (London), Singapore, US (Virginia), Germany (Frankfurt),  and China East 1 Finance.
    * 
    * @example
    * 1
@@ -3496,7 +3597,7 @@ export class CreateFilesetRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
    * 
    * *   true: enables release protection.
    * *   false (default): disables release protection.
@@ -3538,19 +3639,27 @@ export class CreateFilesetRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
-   * cpfs-099394bd928c****
+   * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
   /**
    * @remarks
    * The absolute path of the fileset.
    * 
-   * *   The parent directory of the path that you specify must be an existing directory in the file system.
-   * *   The path must be 2 to 1,024 characters in length.
+   * *   The path must be 2 to 1024 characters in length.
    * *   The path must start and end with a forward slash (/).
+   * *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
+   * *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
+   * *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
+   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
    * 
    * This parameter is required.
    * 
@@ -3558,6 +3667,12 @@ export class CreateFilesetRequest extends $tea.Model {
    * /test/
    */
   fileSystemPath?: string;
+  /**
+   * @remarks
+   * The quota information.
+   * 
+   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   */
   quota?: CreateFilesetRequestQuota;
   static names(): { [key: string]: string } {
     return {
@@ -5737,14 +5852,14 @@ export class DeleteFilesetRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform only a dry run, without performing the actual request.
+   * Specifies whether to perform a dry run.
    * 
    * During the dry run, the system checks whether the request parameters are valid and whether the requested resources are available. During the dry run, no fileset is deleted.
    * 
    * Valid values:
    * 
    * *   true: performs only a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
-   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, a fileset is deleted.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, the fileset is deleted.
    * 
    * @example
    * false
@@ -5753,6 +5868,11 @@ export class DeleteFilesetRequest extends $tea.Model {
   /**
    * @remarks
    * The ID of the file system.
+   * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
    * 
    * This parameter is required.
    * 
@@ -6833,7 +6953,7 @@ export class DescribeAccessPointsRequest extends $tea.Model {
    * @remarks
    * The name of the permission group.
    * 
-   * This parameter is required for a General-purpose Apsara File Storage NAS (NAS) file system.
+   * This parameter is required for a General-purpose File Storage NAS (NAS) file system.
    * 
    * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
    * 
@@ -7150,7 +7270,7 @@ export class DescribeAutoSnapshotPoliciesRequest extends $tea.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid value: extreme, which indicates Extreme Apsara File Storage NAS (NAS) file systems.
+   * Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
    * 
    * @example
    * extreme
@@ -7707,6 +7827,13 @@ export class DescribeDataFlowSubTasksResponse extends $tea.Model {
 export class DescribeDataFlowTasksRequest extends $tea.Model {
   /**
    * @remarks
+   * The ID of the file system.
+   * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -7714,16 +7841,29 @@ export class DescribeDataFlowTasksRequest extends $tea.Model {
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * The details about filters.
+   * 
    * **if can be null:**
    * false
    */
   filters?: DescribeDataFlowTasksRequestFilters[];
   /**
+   * @remarks
+   * The number of results for each query.
+   * 
+   * Valid values: 10 to 100.
+   * 
+   * Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
    */
@@ -7753,15 +7893,25 @@ export class DescribeDataFlowTasksRequest extends $tea.Model {
 
 export class DescribeDataFlowTasksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+   * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF518948****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The information about data flow tasks.
+   */
   taskInfo?: DescribeDataFlowTasksResponseBodyTaskInfo;
   static names(): { [key: string]: string } {
     return {
@@ -7822,7 +7972,7 @@ export class DescribeDataFlowsRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * cpfs-12345678
+   * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
   /**
@@ -8429,10 +8579,15 @@ export class DescribeFilesetsRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
-   * cpfs-099394bd928c****
+   * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
   /**
@@ -8491,8 +8646,13 @@ export class DescribeFilesetsResponseBody extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * @example
-   * cpfs-099394bd928c****
+   * bmcpfs-290w65p03ok64ya****
    * 
    * @deprecated
    */
@@ -9899,7 +10059,7 @@ export class DescribeSnapshotsRequest extends $tea.Model {
    * @remarks
    * The type of the file system.
    * 
-   * Valid value: extreme, which indicates Extreme Apsara File Storage NAS (NAS) file systems.
+   * Valid value: extreme, which indicates Extreme File Storage NAS (NAS) file systems.
    * 
    * @example
    * extreme
@@ -12064,7 +12224,7 @@ export class ModifyAccessPointRequest extends $tea.Model {
    * @remarks
    * The name of the permission group.
    * 
-   * This parameter is required for a General-purpose Apsara File Storage NAS (NAS) file system.
+   * This parameter is required for a General-purpose File Storage NAS (NAS) file system.
    * 
    * The default permission group for virtual private clouds (VPCs) is named DEFAULT_VPC_GROUP_NAME.
    * 
@@ -12536,7 +12696,7 @@ export class ModifyDataFlowRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * dfid-194433a5be31****
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -12572,6 +12732,11 @@ export class ModifyDataFlowRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12586,7 +12751,7 @@ export class ModifyDataFlowRequest extends $tea.Model {
    * *   1200
    * *   1500
    * 
-   * >  The data flow throughput must be less than the I/O throughput of the file system.
+   * >  The data flow throughput must be less than the I/O throughput of the file system. This parameter is required for CPFS file systems.
    * 
    * @example
    * 600
@@ -12995,7 +13160,7 @@ export class ModifyFilesetRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
    * 
    * *   true: enables release protection.
    * *   false: disables release protection.
@@ -13036,10 +13201,15 @@ export class ModifyFilesetRequest extends $tea.Model {
    * @remarks
    * The ID of the file system.
    * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
    * This parameter is required.
    * 
    * @example
-   * cpfs-099394bd928c****
+   * bmcpfs-290w65p03ok64ya****
    */
   fileSystemId?: string;
   /**
@@ -13443,7 +13613,7 @@ export class ModifyMountTargetRequest extends $tea.Model {
    * *   Active: The mount target is available.
    * *   Inactive: The mount target is unavailable.
    * 
-   * >  Only General-purpose Apsara File Storage NAS (NAS) file systems support changing the mount target status.
+   * >  Only General-purpose File Storage NAS (NAS) file systems support changing the mount target status.
    * 
    * @example
    * Inactive
@@ -14621,22 +14791,45 @@ export class SetDirQuotaResponse extends $tea.Model {
 
 export class SetFilesetQuotaRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+   * 
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence?](https://help.aliyun.com/document_detail/25693.html)
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to perform a dry run. The dry run checks parameter validity and prerequisites. The dry run does not delete the specified quota or incur fees.
+   * 
+   * Valid values:
+   * 
+   * *   true: performs only a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
+   * *   false (default): performs a dry run and sends the request. If the request passes the dry run, the quota is deleted.
+   * 
    * @example
    * false
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The limit of the file quantity of the quota. Valid values:
+   * 
+   * *   Minimum value: 10000.
+   * *   Maximum value: 10000000000.
+   * 
    * @example
    * 10000
    */
   fileCountLimit?: number;
   /**
    * @remarks
+   * The ID of the CPFS for LINGJUN file system. The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14645,7 +14838,7 @@ export class SetFilesetQuotaRequest extends $tea.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * Fileset ID。
+   * The fileset ID.
    * 
    * This parameter is required.
    * 
@@ -14654,6 +14847,15 @@ export class SetFilesetQuotaRequest extends $tea.Model {
    */
   fsetId?: string;
   /**
+   * @remarks
+   * The limit of the total capacity of the quota. Unit: bytes.
+   * 
+   * Valid values:
+   * 
+   * *   Minimum value: 10737418240 (10 GiB).
+   * *   Maximum value: 1073741824000 (1024000 GiB).
+   * *   Step size: 1073741824 (1 GiB).
+   * 
    * @example
    * 10737418240
    */
@@ -14687,6 +14889,9 @@ export class SetFilesetQuotaRequest extends $tea.Model {
 
 export class SetFilesetQuotaResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF518948****
    */
@@ -15569,11 +15774,17 @@ export class CreateDataFlowRequestAutoRefreshs extends $tea.Model {
 
 export class CreateDataFlowSubTaskRequestCondition extends $tea.Model {
   /**
+   * @remarks
+   * The modification time. The value must be a UNIX timestamp. Unit: ns.
+   * 
    * @example
    * 1725897600000000000
    */
   modifyTime?: number;
   /**
+   * @remarks
+   * The file size. Unit: bytes.
+   * 
    * @example
    * 68
    */
@@ -15598,7 +15809,30 @@ export class CreateDataFlowSubTaskRequestCondition extends $tea.Model {
 }
 
 export class CreateFilesetRequestQuota extends $tea.Model {
+  /**
+   * @remarks
+   * The number of files of the quota. Valid values:
+   * 
+   * *   Minimum value: 100000.
+   * *   Maximum value: 10000000000.
+   * 
+   * @example
+   * 10000
+   */
   fileCountLimit?: number;
+  /**
+   * @remarks
+   * The total capacity of the quota. Unit: bytes.
+   * 
+   * Valid values:
+   * 
+   * *   Minimum value: 10737418240 (10 GiB).
+   * *   Maximum value: 1073741824000 (1024000 GiB).
+   * *   Step size: 1073741824 (1 GiB).
+   * 
+   * @example
+   * 10737418240
+   */
   sizeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15684,7 +15918,7 @@ export class DescribeAccessGroupsResponseBodyAccessGroupsAccessGroup extends $te
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+   * *   standard: General-purpose File Storage NAS (NAS) file system
    * *   extreme: Extreme NAS file system
    * *   cpfs: Cloud Parallel File Storage (CPFS) file system
    * 
@@ -16349,7 +16583,7 @@ export class DescribeAccessRulesResponseBodyAccessRulesAccessRule extends $tea.M
    * 
    * Valid values:
    * 
-   * *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+   * *   standard: General-purpose File Storage NAS (NAS) file system
    * *   extreme: Extreme NAS file system
    * 
    * @example
@@ -17023,18 +17257,22 @@ export class DescribeDataFlowSubTasksResponseBodyDataFlowSubTask extends $tea.Mo
 export class DescribeDataFlowTasksRequestFilters extends $tea.Model {
   /**
    * @remarks
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
-   * *
+   * The filter name.
+   * 
+   * Valid values:
+   * 
+   * *   DataFlowIds: filters data flow tasks by data flow ID.
+   * *   TaskIds: filters data flow tasks by task ID.
+   * *   Originator: filters data flow tasks by task initiator.
+   * *   TaskActions: filters data flow tasks by task type.
+   * *   DataTypes: filters data flow tasks by data type.
+   * *   Status: filters data flow tasks by data flow status.
+   * *   CreateTimeBegin: filters data flow tasks that are created after a specified time.
+   * *   CreateTimeEnd: filters data flow tasks that are created before a specified time.
+   * *   StartTimeBegin: filters data flow tasks that are started after a specified time.
+   * *   StartTimeEnd: filters data flow tasks that are started before a specified time.
+   * *   EndTimeBegin: filters data flow tasks that are stopped after a specified time.
+   * *   EndTimeEnd: filters data flow tasks that are stopped before a specified time.
    * 
    * @example
    * DataFlowIds
@@ -17042,18 +17280,20 @@ export class DescribeDataFlowTasksRequestFilters extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * *   ````
-   * *   ````
-   * *
-   * *
-   * *
-   * *
-   * *   ``
-   * *   ``
-   * *   ``
-   * *   ``
-   * *   ``
-   * *   ``
+   * The filter value. This parameter does not support wildcards.
+   * 
+   * *   If Key is set to DataFlowIds, set Value to a data flow ID or a part of the data flow ID. You can specify a data flow ID or a group of data flow IDs. You can specify a maximum of 10 data flow IDs. Example: `df-194433a5be31****` or `df-194433a512a2****,df-234533a5be31****`.
+   * *   If Key is set to TaskId, set Value to a data flow task ID or a part of the data flow task ID. You can specify a data flow task ID or a group of data flow task IDs. You can specify a maximum of 10 data flow task IDs. Example: `task-38aa8e890f45****` or `task-38aa8e890f45****,task-29ae8e890f45****`.
+   * *   If Key is set to TaskActions, set Value to the type of data flow task. The task type can be **Import**, **Export**, **Evict**, **Inventory**, **StreamImport**, or **StreamExport**. Combined query is supported. CPFS for LINGJUN supports only the Import, Export, StreamImport, and StreamExport tasks. Only CPFS for LINGJUN V2.6.0 and later support the StreamImport and StreamExport tasks.
+   * *   If Key is set to DataTypes, set Value to the data type of the data flow task. The data type can be MetaAndData, Metadata, or Data. Combined query is supported.
+   * *   If Key is set to Originator, set Value to the initiator of the data flow task. The initiator can be User or System.
+   * *   If Key is set to Status, set Value to the status of the data flow task. The status can be Pending, Executing, Failed, Completed, Canceling, or Canceled. Combined query is supported.
+   * *   If Key is set to CreateTimeBegin, set Value to the beginning of the time range to create the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
+   * *   If Key is set to CreateTimeEnd, set Value to the end of the time range to create the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
+   * *   If Key is set to StartTimeBegin, set Value to the beginning of the time range to start the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
+   * *   If Key is set to StartTimeEnd, set Value to the end of the time range to start the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
+   * *   If Key is set to EndTimeBegin, set Value to the beginning of the time range to stop the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
+   * *   If Key is set to EndTimeEnd, set Value to the end of the time range to stop the data flow task. Time format: `yyyy-MM-ddThh:mmZ`.
    * 
    * @example
    * dfid-12345678
@@ -17079,13 +17319,69 @@ export class DescribeDataFlowTasksRequestFilters extends $tea.Model {
 }
 
 export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends $tea.Model {
+  /**
+   * @remarks
+   * The actual amount of data for which the data flow task is complete. Unit: bytes.
+   * 
+   * @example
+   * 131092971520
+   */
   actualBytes?: number;
+  /**
+   * @remarks
+   * The actual number of files for which the data flow task is complete.
+   * 
+   * @example
+   * 3
+   */
   actualFiles?: number;
+  /**
+   * @remarks
+   * The average flow velocity. Unit: bytes/s.
+   * 
+   * @example
+   * 342279299
+   */
   averageSpeed?: number;
+  /**
+   * @remarks
+   * The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+   * 
+   * @example
+   * 131092971520
+   */
   bytesDone?: number;
+  /**
+   * @remarks
+   * The amount of data scanned on the source. Unit: bytes.
+   * 
+   * @example
+   * 131092971520
+   */
   bytesTotal?: number;
+  /**
+   * @remarks
+   * The number of files (including skipped files) for which the data flow task is complete.
+   * 
+   * @example
+   * 3
+   */
   filesDone?: number;
+  /**
+   * @remarks
+   * The number of files scanned on the source.
+   * 
+   * @example
+   * 3
+   */
   filesTotal?: number;
+  /**
+   * @remarks
+   * The estimated remaining execution time. Unit: seconds.
+   * 
+   * @example
+   * 437
+   */
   remainTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17119,7 +17415,28 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats extends 
 }
 
 export class DescribeDataFlowTasksResponseBodyTaskInfoTaskReportsReport extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the report.
+   * 
+   * *   CPFS:
+   * 
+   *     TotalFilesReport: task reports.
+   * 
+   * *   CPFS for LINGJUN:
+   * 
+   *     *   FailedFilesReport: failed file reports.
+   *     *   SkippedFilesReport: skipped file reports.
+   *     *   SuccessFilesReport: successful file reports.
+   * 
+   * @example
+   * TotalFilesReport
+   */
   name?: string;
+  /**
+   * @remarks
+   * The report URL.
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17161,6 +17478,13 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTaskReports extends $tea.M
 
 export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   /**
+   * @remarks
+   * The conflict policy for files with the same name. Valid values:
+   * 
+   * *   SKIP_THE_FILE: skips files with the same name.
+   * *   KEEP_LATEST: compares the update time and keeps the latest version.
+   * *   OVERWRITE_EXISTING: forcibly overwrites the existing file.
+   * 
    * @example
    * KEEP_LATEST
    */
@@ -17174,23 +17498,42 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
    */
   createTime?: string;
   /**
+   * @remarks
+   * The ID of the data flow.
+   * 
    * @example
    * dfid-194433a5be3****
    */
   dataFlowId?: string;
   /**
    * @remarks
-   * null Valid values:
+   * The type of data on which operations are performed by the data flow task. Valid values:
    * 
-   * *   null null
-   * *   null
-   * *   null
+   * *   Metadata: the metadata of a file, including the timestamp, ownership, and permission information of the file. If you select Metadata, only the metadata of the file is imported. You can only query the file. When you access the file data, the file is loaded from the source storage as required.
+   * *   Data: the data blocks of the file.
+   * *   MetaAndData: the metadata and data blocks of the file.
+   * 
+   * >  CPFS for LINGJUN supports only the MetaAndData type.
    * 
    * @example
    * Metadata
    */
   dataType?: string;
+  /**
+   * @remarks
+   * The directory in which the data flow task is executed.
+   * 
+   * @example
+   * /path_in_cpfs/
+   */
   directory?: string;
+  /**
+   * @remarks
+   * The directory mapped to the data flow task.
+   * 
+   * @example
+   * /path_in_cpfs/
+   */
   dstDirectory?: string;
   /**
    * @remarks
@@ -17200,26 +17543,41 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
    * 2021-08-04 18:27:35
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The cause of the task exception.
+   * 
+   * >  If this parameter is not returned or the return value is empty, no error occurs.
+   */
   errorMsg?: string;
   /**
    * @remarks
-   * *
-   * *
-   * *
-   * *   null
+   * The directory of the fileset in the CPFS file system.
+   * 
+   * Limits:
+   * 
+   * *   The directory must be 2 to 1024 characters in length.
+   * *   The directory must be encoded in UTF-8.
+   * *   The directory must start and end with a forward slash (/).
+   * *   The directory must be a fileset directory in the CPFS file system.
+   * 
+   * >  Only CPFS supports this parameter.
    * 
    * @example
    * /a/b/c/
    */
   fileSystemPath?: string;
   /**
+   * @remarks
+   * The ID of the file system.
+   * 
    * @example
    * cpfs-099394bd928c****
    */
   filesystemId?: string;
   /**
    * @remarks
-   * null
+   * The path of the smart directory.
    * 
    * @example
    * /aa/
@@ -17227,10 +17585,12 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   fsPath?: string;
   /**
    * @remarks
-   * null Valid values:
+   * The initiator of the data flow task. Valid values:
    * 
-   * *   null
-   * *   null
+   * *   User: The task is initiated by a user.
+   * *   System: The task is automatically initiated by CPFS based on the automatic update interval.
+   * 
+   * >  Only CPFS supports this parameter.
    * 
    * @example
    * User
@@ -17238,23 +17598,23 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   originator?: string;
   /**
    * @remarks
-   * null null
+   * The progress of the data flow task. The number of operations that have been performed by the data flow task.
    * 
    * @example
    * 240
    */
   progress?: number;
+  /**
+   * @remarks
+   * The progress of the data flow task.
+   */
   progressStats?: DescribeDataFlowTasksResponseBodyTaskInfoTaskProgressStats;
   /**
    * @remarks
-   * null
+   * The save path of data flow task reports in the CPFS file system.
    * 
-   * null``
-   * 
-   * Limits:
-   * 
-   * *   null
-   * *   The name must be encoded in UTF-8.
+   * *   The task reports for a CPFS file system are generated in the `.dataflow_report` directory of the CPFS file system.
+   * *   CPFS for LINGJUN returns an OSS download link for you to download the task reports.
    * 
    * @example
    * /path_in_cpfs/reportfile.cvs
@@ -17262,20 +17622,34 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
    * @deprecated
    */
   reportPath?: string;
+  /**
+   * @remarks
+   * The reports.
+   * 
+   * >  Streaming tasks do not support reports.
+   */
   reports?: DescribeDataFlowTasksResponseBodyTaskInfoTaskReports;
   /**
    * @remarks
-   * ://
+   * The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
    * 
-   * *
-   * *   *
-   *     *
-   *     *
-   *     *   [](http://https://。)
+   * Parameters:
    * 
-   * **
+   * *   storage type: Only Object Storage Service (OSS) is supported.
    * 
-   * ****
+   * *   account id: the UID of the account of the source storage.
+   * 
+   * *   path: the name of the OSS bucket. Limits:
+   * 
+   *     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
+   *     *   The name can be up to 128 characters in length.
+   *     *   The name must be encoded in UTF-8.
+   * 
+   * > 
+   * 
+   * *   The OSS bucket must be an existing bucket in the region.
+   * 
+   * *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
    * 
    * @example
    * oss://bucket1
@@ -17283,7 +17657,7 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   sourceStorage?: string;
   /**
    * @remarks
-   * null
+   * The time when the task started.
    * 
    * @example
    * 2021-08-04 18:27:35
@@ -17291,14 +17665,14 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * null Valid values:
+   * The status of the data flow task. Valid values:
    * 
-   * *   null
-   * *   null
-   * *   null
-   * *   null
-   * *   null
-   * *   null
+   * *   Pending: The data flow task has been created and has not started.
+   * *   Executing: The data flow task is being executed.
+   * *   Failed: The data flow task failed to be executed. You can view the cause of the failure in the data flow task report.
+   * *   Completed: The data flow task is completed. You can check that all the files have been correctly transferred in the data flow task report.
+   * *   Canceled: The data flow task is canceled and is not completed.
+   * *   Canceling: The data flow task is being canceled.
    * 
    * @example
    * Executing
@@ -17306,18 +17680,25 @@ export class DescribeDataFlowTasksResponseBodyTaskInfoTask extends $tea.Model {
   status?: string;
   /**
    * @remarks
-   * null Valid values:
+   * The type of the data flow task. Valid values:
    * 
-   * *   null
-   * *   null
-   * *   null null
-   * *   null
+   * *   Import: imports data stored in the source storage to a CPFS file system.
+   * *   Export: exports specified data from a CPFS file system to the source storage.
+   * *   StreamImport: imports the specified data from the source storage to a CPFS file system in streaming mode.
+   * *   StreamExport: exports specified data from a CPFS file system to the source storage in streaming mode.
+   * *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
+   * *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
+   * 
+   * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
    * 
    * @example
    * Import
    */
   taskAction?: string;
   /**
+   * @remarks
+   * The ID of the data flow task.
+   * 
    * @example
    * taskId-12345678
    */
@@ -17419,8 +17800,8 @@ export class DescribeDataFlowsRequestFilters extends $tea.Model {
    * @remarks
    * The filter value. This parameter does not support wildcards.
    * 
-   * *   If Key is set to DataFlowIds, set Value to a data flow ID or a part of the data flow ID. You can specify a data flow ID or a group of data flow IDs. You can specify a maximum of 10 data flow IDs. Example: `dfid-12345678` or `dfid-12345678,dfid-12345679`.
-   * *   If Key is set to FsetIds, set Value to a fileset ID or a part of the fileset ID. You can specify a fileset ID or a group of fileset IDs. You can specify a maximum of 10 fileset IDs. Example: `fset-12345678` or `fset-12345678,fset-12345679`.
+   * *   If Key is set to DataFlowIds, set Value to a data flow ID or a part of the data flow ID. You can specify a data flow ID or a group of data flow IDs. You can specify a maximum of 10 data flow IDs. Example: `df-194433a5be31****` or `df-194433a5be31****,df-184433a5be31****`.
+   * *   If Key is set to FsetIds, set Value to a fileset ID or a part of the fileset ID. You can specify a fileset ID or a group of fileset IDs. You can specify a maximum of 10 fileset IDs. Example: `fset-1902718ea0ae****` or `fset-1902718ea0ae****,fset-1242718ea0ae****`.
    * *   If Key is set to FileSystemPath, set Value to the path or a part of the path of a fileset in a CPFS file system. The value of the parameter must be 1 to 1,024 characters in length.
    * *   If Key is set to SourceStorage, set Value to the access path or a part of the access path of the source storage. The path can be up to 1,024 characters in length.
    * *   If Key is set to ThroughputList, set Value to the data flow throughput. Combined query is supported.
@@ -17552,7 +17933,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $tea.Mode
    * The dataflow ID.
    * 
    * @example
-   * dfid-123456
+   * df-194433a5be31****
    */
   dataFlowId?: string;
   /**
@@ -17586,7 +17967,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $tea.Mode
    * The ID of the file system.
    * 
    * @example
-   * cpfs-12345678
+   * cpfs-099394bd928c****
    */
   fileSystemId?: string;
   /**
@@ -17621,7 +18002,7 @@ export class DescribeDataFlowsResponseBodyDataFlowInfoDataFlow extends $tea.Mode
    * The fileset ID.
    * 
    * @example
-   * fset-123456
+   * fset-1902718ea0ae****
    */
   fsetId?: string;
   /**
@@ -18880,6 +19261,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * 1
    */
   accessPointCount?: string;
+  /**
+   * @remarks
+   * The ID of the automatic snapshot policy.
+   * 
+   * @example
+   * sp-extreme-233e6****
+   */
   autoSnapshotPolicyId?: string;
   /**
    * @remarks
@@ -19050,6 +19438,13 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * NFS
    */
   protocolType?: string;
+  /**
+   * @remarks
+   * The ID of the vSwitch.
+   * 
+   * @example
+   * vsw-2ze37k6jh8ums2fw2****
+   */
   quorumVswId?: string;
   /**
    * @remarks
@@ -19117,7 +19512,18 @@ export class DescribeFileSystemsResponseBodyFileSystemsFileSystem extends $tea.M
    * 2.3.4
    */
   version?: string;
+  /**
+   * @remarks
+   * The ID of the virtual private cloud (VPC).
+   * 
+   * @example
+   * vpc-bp1cbv1ljve4j5hlw****
+   */
   vpcId?: string;
+  /**
+   * @remarks
+   * A collection of vSwitch IDs.
+   */
   vswIds?: DescribeFileSystemsResponseBodyFileSystemsFileSystemVswIds;
   /**
    * @remarks
@@ -19231,6 +19637,9 @@ export class DescribeFilesetsRequestFilters extends $tea.Model {
    * *   FsetIds: filters filesets by fileset ID.
    * *   FileSystemPath: filters filesets based on the path of a fileset in a CPFS file system.
    * *   Description: filters filesets based on the fileset description.
+   * *   QuotaExists: filters filesets based on whether quotas exist.
+   * 
+   * >  Only CPFS for LINGJUN V2.7.0 and later support the QuotaExists parameter.
    * 
    * @example
    * FsetIds
@@ -19240,9 +19649,10 @@ export class DescribeFilesetsRequestFilters extends $tea.Model {
    * @remarks
    * The filter value. This parameter does not support wildcards.
    * 
-   * *   If Key is set to FsetIds, set Value to a fileset ID or a part of the fileset ID. You can specify a fileset ID or a group of fileset IDs. You can specify a maximum of 10 fileset IDs. Example: `fset-12345678` or `fset-12345678,fset-12345679`.
-   * *   If Key is set to FileSystemPath, set Value to the path or a part of the path of a fileset in a CPFS file system. The value must be 2 to 1,024 characters in length. The value must be encoded in UTF-8.
+   * *   If Key is set to FsetIds, set Value to a fileset ID or a part of the fileset ID. You can specify a fileset ID or a group of fileset IDs. You can specify a maximum of 10 fileset IDs. Example: `fset-1902718ea0ae****` or `fset-1902718ea0ae****,fset-3212718ea0ae****`.
+   * *   If Key is set to FileSystemPath, set Value to the path or a part of the path of a fileset in a CPFS file system. The value must be 2 to 1024 characters in length. The value must be encoded in UTF-8.
    * *   If Key is set to Description, set Value to a fileset description or a part of the fileset description.
+   * *   If Key is set to QuotaExists, set Value to true or false. If you do not specify the parameter, all filesets are returned.
    * 
    * @example
    * fset-12345678,fset-12345679
@@ -19268,7 +19678,31 @@ export class DescribeFilesetsRequestFilters extends $tea.Model {
 }
 
 export class DescribeFilesetsResponseBodyEntriesEntrieQuota extends $tea.Model {
+  /**
+   * @remarks
+   * The limit of the file quantity of the quota. Valid values:
+   * 
+   * Minimum value: 10000.
+   * 
+   * Maximum value: 10000000000.
+   * 
+   * @example
+   * 10000
+   */
   fileCountLimit?: number;
+  /**
+   * @remarks
+   * The limit of the quota capacity. Unit: bytes.
+   * 
+   * Minimum value: 10737418240 (10 GiB).
+   * 
+   * Maximum value: 1073741824000 (1024000 GiB).
+   * 
+   * Step size: 1073741824 (1 GiB).
+   * 
+   * @example
+   * 10737418240
+   */
   sizeLimit?: number;
   static names(): { [key: string]: string } {
     return {
@@ -19302,7 +19736,7 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
+   * Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation. Valid values:
    * 
    * *   true
    * *   false
@@ -19321,7 +19755,28 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * The usage of the file quantity.
+   * 
+   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   * 
+   * @example
+   * 1024
+   */
   fileCountUsage?: number;
+  /**
+   * @remarks
+   * The ID of the file system.
+   * 
+   * *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+   * *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * 
+   * >  CPFS is not supported on the international site.
+   * 
+   * @example
+   * bmcpfs-290w65p03ok64ya****
+   */
   fileSystemId?: string;
   /**
    * @remarks
@@ -19339,7 +19794,22 @@ export class DescribeFilesetsResponseBodyEntriesEntrie extends $tea.Model {
    * fset-1902718ea0ae****
    */
   fsetId?: string;
+  /**
+   * @remarks
+   * The quota information.
+   * 
+   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   */
   quota?: DescribeFilesetsResponseBodyEntriesEntrieQuota;
+  /**
+   * @remarks
+   * The capacity usage. Unit: bytes.
+   * 
+   * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+   * 
+   * @example
+   * 1024
+   */
   spaceUsage?: number;
   /**
    * @remarks
@@ -20407,6 +20877,7 @@ export class DescribeSmbAclResponseBodyAcl extends $tea.Model {
 }
 
 export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
+  completedTime?: string;
   /**
    * @remarks
    * The time when the snapshot was created.
@@ -20552,6 +21023,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
   status?: string;
   static names(): { [key: string]: string } {
     return {
+      completedTime: 'CompletedTime',
       createTime: 'CreateTime',
       description: 'Description',
       encryptType: 'EncryptType',
@@ -20571,6 +21043,7 @@ export class DescribeSnapshotsResponseBodySnapshotsSnapshot extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      completedTime: 'string',
       createTime: 'string',
       description: 'string',
       encryptType: 'number',
@@ -22169,7 +22642,7 @@ export default class Client extends OpenApi {
    * Applies an automatic snapshot policy to one or more file systems.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * *   You can apply only one automatic snapshot policy to each file system.
    * *   Each automatic snapshot policy can be applied to multiple file systems.
@@ -22211,7 +22684,7 @@ export default class Client extends OpenApi {
    * Applies an automatic snapshot policy to one or more file systems.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * *   You can apply only one automatic snapshot policy to each file system.
    * *   Each automatic snapshot policy can be applied to multiple file systems.
@@ -22233,10 +22706,9 @@ export default class Client extends OpenApi {
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the dataflow status.
    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *     **
-   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+   *     > The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
@@ -22301,10 +22773,9 @@ export default class Client extends OpenApi {
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can add AutoRefresh configurations only to the dataflows that are in the `Running` state.
    * *   You can add a maximum of five AutoRefresh configurations to a dataflow.
-   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the dataflow status.
+   * *   It generally takes 2 to 5 minutes to create an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the dataflow status.
    * *   AutoRefresh depends on the object modification events collected by EventBridge from the source Object Storage Service (OSS) bucket. You must first [activate EventBridge](https://help.aliyun.com/document_detail/182246.html).
-   *     **
-   *     **Note** The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
+   *     > The event buses and event rules created for CPFS in the EventBridge console contain the `Create for cpfs auto refresh` description. The event buses and event rules cannot be modified or deleted. Otherwise, AutoRefresh cannot work properly.
    * *   The AutoRefresh configuration applies only to the prefix and is specified by the RefreshPath parameter. When you add an AutoRefresh configuration to the prefix for a CPFS dataflow, an event bus is created at the user side and an event rule is created for the prefix of the source OSS bucket. When an object is modified in the prefix of the source OSS bucket, an OSS event is generated in the EventBridge console. The event is processed by the CPFS dataflow.
    * *   After AutoRefresh is configured, if the data in the source OSS bucket is updated, the updated metadata is automatically synchronized to the CPFS file system. You can load the updated data when you access files, or run a dataflow task to load the updated data.
    * *   AutoRefreshInterval refers to the interval at which CPFS checks whether data is updated in the prefix of the source OSS bucket. If data is updated, CPFS runs an AutoRefresh task. If the frequency of triggering the object modification event in the source OSS bucket exceeds the processing capability of the CPFS dataflow, AutoRefresh tasks are accumulated, metadata updates are delayed, and the dataflow status becomes Misconfigured. To resolve these issues, you can increase the dataflow specifications or reduce the frequency of triggering the object modification event.
@@ -22321,7 +22792,7 @@ export default class Client extends OpenApi {
    * Removes automatic snapshot policies from one or more file systems.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
@@ -22356,7 +22827,7 @@ export default class Client extends OpenApi {
    * Removes automatic snapshot policies from one or more file systems.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - CancelAutoSnapshotPolicyRequest
@@ -22374,7 +22845,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the AutoRefresh tasks.
    * 
    * @param request - CancelDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22427,7 +22898,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can cancel AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the AutoRefresh tasks.
+   * *   It generally takes 2 to 5 minutes to cancel the AutoRefresh configurations. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the AutoRefresh tasks.
    * 
    * @param request - CancelDataFlowAutoRefreshRequest
    * @returns CancelDataFlowAutoRefreshResponse
@@ -22515,7 +22986,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
    * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22567,7 +23038,7 @@ export default class Client extends OpenApi {
    * @remarks
    *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flow tasks. You can view the version information on the file system details page in the console.
    * *   You can cancel only the data flow tasks that are in the `Pending` and `Executing` states.
-   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2402275.html) operation.
+   * *   It generally takes 5 to 10 minutes to cancel a data flow task. You can query the task execution status by calling the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation.
    * 
    * @param request - CancelDataFlowTaskRequest
    * @returns CancelDataFlowTaskResponse
@@ -22638,7 +23109,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消设置智能目录配额
+   * Cancels the quota set for a fileset.
+   * 
+   * @remarks
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
    * 
    * @param request - CancelFilesetQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22681,7 +23155,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消设置智能目录配额
+   * Cancels the quota set for a fileset.
+   * 
+   * @remarks
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
    * 
    * @param request - CancelFilesetQuotaRequest
    * @returns CancelFilesetQuotaResponse
@@ -22901,9 +23378,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you perform the CreateAccessPoint operation successfully, call the DescribeAccessPoints or DescribeAccessPoint operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   Only General-purpose Network File System (NFS) file systems support this operation.
-   * *   If you want to perform the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
+   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
+   * *   Only General-purpose Network File System (NFS) file systems support access points.
+   * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
    * 
    * @param request - CreateAccessPointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22985,9 +23462,9 @@ export default class Client extends OpenApi {
    * Creates an access point.
    * 
    * @remarks
-   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you perform the CreateAccessPoint operation successfully, call the DescribeAccessPoints or DescribeAccessPoint operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
-   * *   Only General-purpose Network File System (NFS) file systems support this operation.
-   * *   If you want to perform the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
+   *   After you call the CreateAccessPoint operation, an access point is not immediately created. Therefore, after you call the CreateAccessPoint operation successfully, call the [DescribeAccessPoints](https://help.aliyun.com/document_detail/2712239.html) or [DescribeAccessPoint](https://help.aliyun.com/document_detail/2712240.html) operation to query the status of the access point. If the status is **Active**, mount the file system. Otherwise, the file system may fail to be mounted.
+   * *   Only General-purpose Network File System (NFS) file systems support access points.
+   * *   If you want to call the EnabledRam operation to enable a Resource Access Management (RAM) policy, you must configure the corresponding RAM permissions. For more information, see [Manage endpoints](https://help.aliyun.com/document_detail/2545998.html).
    * 
    * @param request - CreateAccessPointRequest
    * @returns CreateAccessPointResponse
@@ -23067,7 +23544,7 @@ export default class Client extends OpenApi {
    * Creates an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
@@ -23126,7 +23603,7 @@ export default class Client extends OpenApi {
    * Creates an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   You can create a maximum of 100 automatic snapshot policies in each region for an Alibaba Cloud account.
    * *   If an auto snapshot is being created when the scheduled time for a new auto snapshot arrives, the creation of the new snapshot is skipped. This occurs if the file system stores a large volume of data. For example, you have scheduled auto snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a file system. The system starts to create an auto snapshot at 09:00:00 and does not complete the process until 10:20:00. The process takes 80 minutes because the file system has a large volume of data. In this case, the system does not create an auto snapshot at 10:00:00, but creates an auto snapshot at 11:00:00.
@@ -23155,18 +23632,17 @@ export default class Client extends OpenApi {
    *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
    *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
    * *   Permissions
-   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/2837688.html).
    * *   CPFS for LINGJUN usage notes
-   *     *   Source storage
-   *         *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         *   CPFS for LINGJUN V2.6.0 and later allows you to create data flows for OSS buckets across accounts.
-   *         *   The account id parameter is required only when you use OSS buckets across accounts.
-   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/182246.html).
-   *             **
-   *             **Note** Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
+   *      *   Source storage
+   *          *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
+   *          *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+   *          *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
+   *          *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+   *          *   CPFS for LINGJUN V2.6.0 and later allow you to create data flows for OSS buckets across accounts.
+   *          *   The account id parameter is required only when you use OSS buckets across accounts.
+   *          *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/2713462.html).
+   *          >  Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
    *     *   Limits of data flows on file systems
    *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
    *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
@@ -23267,18 +23743,17 @@ export default class Client extends OpenApi {
    *     *   A maximum of 10 data flows can be created for a CPFS for LINGJUN file system.
    *     *   It generally takes 2 to 5 minutes to create a data flow. You can call the DescribeDataFlows operation to check whether the data flow has been created.
    * *   Permissions
-   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/185138.html).
+   *     When you create a data flow, CPFS for LINGJUN obtains the following two service-linked roles: `AliyunServiceRoleForNasOssDataflow` and `AliyunServiceRoleForNasEventNotification`. For more information, see [CPFS service-linked roles](https://help.aliyun.com/document_detail/2837688.html).
    * *   CPFS for LINGJUN usage notes
-   *     *   Source storage
-   *         *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
-   *         *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
-   *         *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
-   *         *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
-   *         *   CPFS for LINGJUN V2.6.0 and later allows you to create data flows for OSS buckets across accounts.
-   *         *   The account id parameter is required only when you use OSS buckets across accounts.
-   *         *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/182246.html).
-   *             **
-   *             **Note** Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
+   *      *   Source storage
+   *          *   The source storage is an Object Storage Service (OSS) bucket. SourceStorage for a data flow must be an OSS bucket.
+   *          *   CPFS for LINGJUN data flows support both encrypted and unencrypted access to OSS. If you select SSL-encrypted access to OSS, make sure that encryption in transit for OSS buckets supports encrypted access.
+   *          *   If data flows for multiple CPFS for LINGJUN file systems or multiple data flows for the same CPFS for LINGJUN file system are stored in the same OSS bucket, you must enable versioning for the OSS bucket to prevent data conflicts caused by data export from multiple CPFS for LINGJUN file systems to one OSS bucket.
+   *          *   Data flows are not supported for OSS buckets across regions. The OSS bucket must reside in the same region as the CPFS file system.
+   *          *   CPFS for LINGJUN V2.6.0 and later allow you to create data flows for OSS buckets across accounts.
+   *          *   The account id parameter is required only when you use OSS buckets across accounts.
+   *          *   To use OSS buckets across accounts, you must first grant permissions to the related accounts. For more information, see [Cross-account authorization on data flows](https://help.aliyun.com/document_detail/2713462.html).
+   *          >  Before you create a data flow, you must configure a tag (key: cpfs-dataflow, value: true) for the source OSS bucket. This way, the created data flow can access the data in the OSS bucket. When a data flow is being used, do not delete or modify the tag. Otherwise, the data flow for CPFS for LINGJUN cannot access the data in the OSS bucket.
    *     *   Limits of data flows on file systems
    *         *   You cannot rename a non-empty directory in a path that is associated with a data flow. Otherwise, the Permission Denied error message or an error message indicating that the directory is not empty is returned.
    *         *   Proceed with caution when you use special characters in the names of directories and files. The following characters are supported: letters, digits, exclamation points (!), hyphens (-), underscores (_), periods (.), asterisks (\\*), and parentheses (()).
@@ -23302,7 +23777,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据流动子任务
+   * Creates a data streaming subtask.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   You can create subtasks only for a data streaming subtask in the Executing state.
+   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
+   * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
    * 
    * @param request - CreateDataFlowSubTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23361,7 +23842,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建数据流动子任务
+   * Creates a data streaming subtask.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.6.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   You can create subtasks only for a data streaming subtask in the Executing state.
+   * *   Data streaming tasks are executed asynchronously. You can call the DescribeDataFlowSubTasks operation to query the task execution status.
+   * *   When the type of data flow task is streaming, the running status only indicates that a streaming import or export task can be created. It does not indicate that the import or export task is running.
    * 
    * @param request - CreateDataFlowSubTaskRequest
    * @returns CreateDataFlowSubTaskResponse
@@ -23375,11 +23862,12 @@ export default class Client extends OpenApi {
    * Creates a dataflow task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.3.4 and later support data flows. You can view the version information on the file system details page in the console.
+   *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
    * *   You can create a data flow task only for a data flow that is in the Running state.
-   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
    * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
    * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
+   * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23457,11 +23945,12 @@ export default class Client extends OpenApi {
    * Creates a dataflow task.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.3.4 and later support data flows. You can view the version information on the file system details page in the console.
+   *   Only Cloud Parallel File Storage CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
    * *   You can create a data flow task only for a data flow that is in the Running state.
-   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/336914.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
+   * *   Data flow tasks are executed asynchronously. You can call the [DescribeDataFlowTasks](https://help.aliyun.com/document_detail/2838089.html) operation to query the task execution status. The task duration depends on the amount of data to be imported and exported. If a large amount of data exists, we recommend that you create multiple tasks.
    * *   When you manually run a data flow task, the automatic data update task for the data flow is interrupted and enters the pending state.
    * *   When you create an export task, make sure that the total length of the absolute path of the files to be exported from a CPFS or CPFS for LINGJUN file system does not exceed 1,023 characters.
+   * *   CPFS for LINGJUN supports two types of tasks: batch tasks and streaming tasks. For more information, see [Task types](https://help.aliyun.com/document_detail/2845429.html).
    * 
    * @param request - CreateDataFlowTaskRequest
    * @returns CreateDataFlowTaskResponse
@@ -23609,7 +24098,7 @@ export default class Client extends OpenApi {
    * Creates a file system.
    * 
    * @remarks
-   *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+   *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
    * *   Before you create a file system, you must complete real-name verification.
    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
    * 
@@ -23709,7 +24198,7 @@ export default class Client extends OpenApi {
    * Creates a file system.
    * 
    * @remarks
-   *   Before you call this operation, you must understand the billing and pricing of Apsara File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
+   *   Before you call this operation, you must understand the billing and pricing of File Storage NAS. For more information, see [Billing](https://help.aliyun.com/document_detail/178365.html) and [Pricing](https://www.alibabacloud.com/product/nas/pricing).
    * *   Before you create a file system, you must complete real-name verification.
    * *   When you call this operation, a service-linked role of NAS is automatically created. For more information, see [Manage the service-linked roles of NAS](https://help.aliyun.com/document_detail/208530.html).
    * 
@@ -23725,12 +24214,16 @@ export default class Client extends OpenApi {
    * Creates a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-   * *   A maximum of 10 filesets can be created for a CPFS file system.
-   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   A maximum of 500 filesets can be created for a CPFS file system.
+   * *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
+   * *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
+   * *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
+   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
+   * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB. The maximum capacity quota is 1,000 TiB. The capacity quota cannot exceed the total capacity of the file system.
+   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
+   * *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
+   * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
    * 
    * @param request - CreateFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23788,12 +24281,16 @@ export default class Client extends OpenApi {
    * Creates a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset creation. You can view the version information on the file system details page in the console.
-   * *   A maximum of 10 filesets can be created for a CPFS file system.
-   * *   The maximum depth supported by a fileset is eight levels. The depth of the root directory / is 0 levels. For example, the /test/aaa/ccc/ fileset has three levels.
-   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset.
-   * *   A fileset supports a maximum of one million files. If the number of files exceeds the upper limit, the `no space` error message is returned when you add new files.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
+   * *   A maximum of 500 filesets can be created for a CPFS file system.
+   * *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
+   * *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
+   * *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
+   * *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
+   * *   The minimum capacity quota of a fileset is 10 GiB. The scaling step size is 1 GiB. The maximum capacity quota is 1,000 TiB. The capacity quota cannot exceed the total capacity of the file system.
+   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
+   * *   When you modify a directory quota, you must set the quota capacity or the number of files to be greater than the capacity or file quantity that has been used.
+   * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
    * 
    * @param request - CreateFilesetRequest
    * @returns CreateFilesetResponse
@@ -23806,10 +24303,13 @@ export default class Client extends OpenApi {
   /**
    * Creates LDAP configurations.
    * 
+   * @deprecated OpenAPI CreateLDAPConfig is deprecated
+   * 
    * @param request - CreateLDAPConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateLDAPConfigResponse
    */
+  // Deprecated
   async createLDAPConfigWithOptions(request: CreateLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<CreateLDAPConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23849,9 +24349,12 @@ export default class Client extends OpenApi {
   /**
    * Creates LDAP configurations.
    * 
+   * @deprecated OpenAPI CreateLDAPConfig is deprecated
+   * 
    * @param request - CreateLDAPConfigRequest
    * @returns CreateLDAPConfigResponse
    */
+  // Deprecated
   async createLDAPConfig(request: CreateLDAPConfigRequest): Promise<CreateLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createLDAPConfigWithOptions(request, runtime);
@@ -24413,7 +24916,7 @@ export default class Client extends OpenApi {
    * Creates a snapshot.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   You can create a maximum of 128 snapshots for a file system.
    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
@@ -24467,7 +24970,7 @@ export default class Client extends OpenApi {
    * Creates a snapshot.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   You can create a maximum of 128 snapshots for a file system.
    * *   The compute node on which a file system is mounted must function as expected. Otherwise, you cannot create a snapshot for the file system.
@@ -24651,7 +25154,7 @@ export default class Client extends OpenApi {
    * Deletes an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
    * 
@@ -24687,7 +25190,7 @@ export default class Client extends OpenApi {
    * Deletes an automatic snapshot policy.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * *   If you delete an automatic snapshot policy that is applied to a file system, snapshots for the file system are no longer created based on the policy.
    * 
@@ -24819,8 +25322,8 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
    * 
    * @param request - DeleteFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24866,8 +25369,8 @@ export default class Client extends OpenApi {
    * Deletes a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset deletion. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. After you delete a fileset, all data in the fileset is deleted and cannot be restored. Proceed with caution.
+   * *   If deletion protection is enabled for the fileset, you must disable deletion protection before you delete the fileset.
    * 
    * @param request - DeleteFilesetRequest
    * @returns DeleteFilesetResponse
@@ -24878,10 +25381,15 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除LDAP配置
+   * 
+   * @deprecated OpenAPI DeleteLDAPConfig is deprecated
+   * 
    * @param request - DeleteLDAPConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteLDAPConfigResponse
    */
+  // Deprecated
   async deleteLDAPConfigWithOptions(request: DeleteLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<DeleteLDAPConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24907,9 +25415,14 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除LDAP配置
+   * 
+   * @deprecated OpenAPI DeleteLDAPConfig is deprecated
+   * 
    * @param request - DeleteLDAPConfigRequest
    * @returns DeleteLDAPConfigResponse
    */
+  // Deprecated
   async deleteLDAPConfig(request: DeleteLDAPConfigRequest): Promise<DeleteLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteLDAPConfigWithOptions(request, runtime);
@@ -25195,7 +25708,7 @@ export default class Client extends OpenApi {
    * Deletes a snapshot or cancels a snapshot that is being created.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DeleteSnapshotRequest
@@ -25230,7 +25743,7 @@ export default class Client extends OpenApi {
    * Deletes a snapshot or cancels a snapshot that is being created.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DeleteSnapshotRequest
@@ -25473,7 +25986,7 @@ export default class Client extends OpenApi {
    * Queries automatic snapshot policies.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DescribeAutoSnapshotPoliciesRequest
@@ -25520,7 +26033,7 @@ export default class Client extends OpenApi {
    * Queries automatic snapshot policies.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DescribeAutoSnapshotPoliciesRequest
@@ -25535,7 +26048,7 @@ export default class Client extends OpenApi {
    * Queries automatic snapshot tasks.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * 
    * @param request - DescribeAutoSnapshotTasksRequest
@@ -25586,7 +26099,7 @@ export default class Client extends OpenApi {
    * Queries automatic snapshot tasks.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support the snapshot feature.
    * 
    * @param request - DescribeAutoSnapshotTasksRequest
@@ -25720,12 +26233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据流动任务
+   * Queries the details of data flow tasks.
    * 
    * @remarks
-   * ###
-   * *
-   * *
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25768,12 +26279,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询数据流动任务
+   * Queries the details of data flow tasks.
    * 
    * @remarks
-   * ###
-   * *
-   * *
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support query of data flow tasks. You can view the version information on the file system details page in the console.
    * 
    * @param request - DescribeDataFlowTasksRequest
    * @returns DescribeDataFlowTasksResponse
@@ -25787,7 +26296,7 @@ export default class Client extends OpenApi {
    * Queries the dataflows of a CPFS file system.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+   *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
    * *   Combined query is supported.
    * 
@@ -25835,7 +26344,7 @@ export default class Client extends OpenApi {
    * Queries the dataflows of a CPFS file system.
    * 
    * @remarks
-   *   Only Cloud Parallel File Storage (CPFS) V2.2.0 and later and CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
+   *   Only CPFS for LINGJUN V2.4.0 and later support data flows. You can view the version information on the file system details page in the console.
    * *   In Filters, FsetIds, DataFlowlds, SourceStorage, ThroughputList, and Status support exact match only. FileSystemPath, Description, and SourceStoragePath support fuzzy match.
    * *   Combined query is supported.
    * 
@@ -25910,10 +26419,13 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of file systems that are owned by the current account.
    * 
+   * @deprecated OpenAPI DescribeFileSystemStatistics is deprecated, please use NAS::2017-06-26::DescribeResourceStatistics instead.
+   * 
    * @param request - DescribeFileSystemStatisticsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeFileSystemStatisticsResponse
    */
+  // Deprecated
   async describeFileSystemStatisticsWithOptions(request: DescribeFileSystemStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<DescribeFileSystemStatisticsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -25945,9 +26457,12 @@ export default class Client extends OpenApi {
   /**
    * Queries the statistics of file systems that are owned by the current account.
    * 
+   * @deprecated OpenAPI DescribeFileSystemStatistics is deprecated, please use NAS::2017-06-26::DescribeResourceStatistics instead.
+   * 
    * @param request - DescribeFileSystemStatisticsRequest
    * @returns DescribeFileSystemStatisticsResponse
    */
+  // Deprecated
   async describeFileSystemStatistics(request: DescribeFileSystemStatisticsRequest): Promise<DescribeFileSystemStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeFileSystemStatisticsWithOptions(request, runtime);
@@ -26023,8 +26538,7 @@ export default class Client extends OpenApi {
    * Queries the information about created filesets.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
    * *   Combined query is supported.
    * 
@@ -26072,8 +26586,7 @@ export default class Client extends OpenApi {
    * Queries the information about created filesets.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support filesets. You can view the version information on the file system details page in the console.
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation. You can view the version information on the file system details page in the console.
    * *   In Filters, FsetIds supports exact match only. FileSystemPath and Description support fuzzy match.
    * *   Combined query is supported.
    * 
@@ -26490,7 +27003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions in which Apsara File Storage NAS is available.
+   * Queries the regions in which File Storage NAS is available.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26529,7 +27042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions in which Apsara File Storage NAS is available.
+   * Queries the regions in which File Storage NAS is available.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -26585,7 +27098,7 @@ export default class Client extends OpenApi {
    * Queries the information about one or more snapshots of a file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DescribeSnapshotsRequest
@@ -26648,7 +27161,7 @@ export default class Client extends OpenApi {
    * Queries the information about one or more snapshots of a file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - DescribeSnapshotsRequest
@@ -27091,7 +27604,7 @@ export default class Client extends OpenApi {
    * Queries the recycle bin configurations of a General-purpose NAS file system.
    * 
    * @remarks
-   * Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
+   * Only General-purpose File Storage NAS (NAS) file systems support this operation.
    * 
    * @param request - GetRecycleBinAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27121,7 +27634,7 @@ export default class Client extends OpenApi {
    * Queries the recycle bin configurations of a General-purpose NAS file system.
    * 
    * @remarks
-   * Only General-purpose Apsara File Storage NAS (NAS) file systems support this operation.
+   * Only General-purpose File Storage NAS (NAS) file systems support this operation.
    * 
    * @param request - GetRecycleBinAttributeRequest
    * @returns GetRecycleBinAttributeResponse
@@ -27651,7 +28164,7 @@ export default class Client extends OpenApi {
    * An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - ModifyAutoSnapshotPolicyRequest
@@ -27702,7 +28215,7 @@ export default class Client extends OpenApi {
    * An automatic snapshot policy is modified. After you modify an automatic snapshot policy that is applied to a file system, the modification immediately applies to subsequent snapshots that are created for the file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * 
    * @param request - ModifyAutoSnapshotPolicyRequest
@@ -27717,15 +28230,9 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflows.
-   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
-   * *   Data flow specifications:
-   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-   * *   Billing
-   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+   * *   You can modify the attributes only of the data flows that are in the `Running` state.
+   * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the data flow to be modified.
    * 
    * @param request - ModifyDataFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27779,15 +28286,9 @@ export default class Client extends OpenApi {
    * Modifies the attributes of a dataflow.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support dataflows.
-   * *   You can modify the attributes only of the dataflows that are in the `Running` state.
-   * *   It generally takes 2 to 5 minutes to modify the attributes of a dataflow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/336901.html) operation to query the status of the dataflow to be modified.
-   * *   Data flow specifications:
-   *     *   The dataflow throughput supports the following specifications: 600 MB/s, 1,200 MB/s, and 1,500 MB/s. The dataflow throughput is the maximum transmission bandwidth that can be reached when data is imported or exported for a dataflow.
-   *     *   Inventory query: If you set the DryRun parameter to true, you can check whether the resources for the dataflow whose throughput is changed meet the requirements.
-   * *   Billing
-   *     Changing the dataflow throughput involves the billing of dataflow bandwidth. We recommend that you understand CPFS billing methods in advance. For more information, see [Billing methods and billable items of CPFS](https://help.aliyun.com/document_detail/111858.html).
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.4.0 and later support data flows.
+   * *   You can modify the attributes only of the data flows that are in the `Running` state.
+   * *   It generally takes 2 to 5 minutes to modify the attributes of a data flow. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the status of the data flow to be modified.
    * 
    * @param request - ModifyDataFlowRequest
    * @returns ModifyDataFlowResponse
@@ -27804,7 +28305,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
+   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the task of modifying an AutoRefresh configuration.
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27861,7 +28362,7 @@ export default class Client extends OpenApi {
    *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
    * *   Only CPFS V2.2.0 and later support dataflows. You can view the version information on the file system details page in the console.
    * *   You can modify the AutoRefresh configurations only for the dataflows that are in the `Running` or `Stopped` state.
-   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2402270.html) operation to query the task of modifying an AutoRefresh configuration.
+   * *   It generally takes 2 to 5 minutes to modify an AutoRefresh configuration. You can call the [DescribeDataFlows](https://help.aliyun.com/document_detail/2838084.html) operation to query the task of modifying an AutoRefresh configuration.
    * 
    * @param request - ModifyDataFlowAutoRefreshRequest
    * @returns ModifyDataFlowAutoRefreshResponse
@@ -27931,8 +28432,7 @@ export default class Client extends OpenApi {
    * Modifies a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset modification.
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
    * 
    * @param request - ModifyFilesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27986,8 +28486,7 @@ export default class Client extends OpenApi {
    * Modifies a fileset.
    * 
    * @remarks
-   *   This operation is available only to Cloud Parallel File Storage (CPFS) file systems on the China site (aliyun.com).
-   * *   Only CPFS V2.2.0 and later support fileset modification.
+   * Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
    * 
    * @param request - ModifyFilesetRequest
    * @returns ModifyFilesetResponse
@@ -27998,13 +28497,18 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改LDAP配置
+   * 
    * @remarks
    * The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
+   * 
+   * @deprecated OpenAPI ModifyLDAPConfig is deprecated
    * 
    * @param request - ModifyLDAPConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ModifyLDAPConfigResponse
    */
+  // Deprecated
   async modifyLDAPConfigWithOptions(request: ModifyLDAPConfigRequest, runtime: $Util.RuntimeOptions): Promise<ModifyLDAPConfigResponse> {
     Util.validateModel(request);
     let query = { };
@@ -28042,12 +28546,17 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 修改LDAP配置
+   * 
    * @remarks
    * The API operation is available only for Cloud Parallel File Storage (CPFS) file systems.
+   * 
+   * @deprecated OpenAPI ModifyLDAPConfig is deprecated
    * 
    * @param request - ModifyLDAPConfigRequest
    * @returns ModifyLDAPConfigResponse
    */
+  // Deprecated
   async modifyLDAPConfig(request: ModifyLDAPConfigRequest): Promise<ModifyLDAPConfigResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyLDAPConfigWithOptions(request, runtime);
@@ -28378,7 +28887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates Apsara File Storage NAS.
+   * Activates File Storage NAS.
    * 
    * @param request - OpenNASServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28401,7 +28910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates Apsara File Storage NAS.
+   * Activates File Storage NAS.
    * @returns OpenNASServiceResponse
    */
   async openNASService(): Promise<OpenNASServiceResponse> {
@@ -28539,7 +29048,7 @@ export default class Client extends OpenApi {
    * Rolls back a file system to a snapshot of the file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * *   The file system must be in the Running state.
    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
@@ -28580,7 +29089,7 @@ export default class Client extends OpenApi {
    * Rolls back a file system to a snapshot of the file system.
    * 
    * @remarks
-   *   The snapshot feature is in public preview and is provided free of charge. [Apsara File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
+   *   The snapshot feature is in public preview and is provided free of charge. [File Storage NAS Service Level Agreement (SLA)](https://www.alibabacloud.com/help/legal/latest/network-attached-storage-service-level-agreement) is not guaranteed in public preview.
    * *   Only advanced Extreme NAS file systems support this feature.
    * *   The file system must be in the Running state.
    * *   To roll back a file system to a snapshot, you must specify the ID of the snapshot that is created from the file system.
@@ -28645,7 +29154,7 @@ export default class Client extends OpenApi {
    * Creates a directory quota for a file system.
    * 
    * @remarks
-   * Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
+   * Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
    * 
    * @param request - SetDirQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28703,7 +29212,7 @@ export default class Client extends OpenApi {
    * Creates a directory quota for a file system.
    * 
    * @remarks
-   * Only General-purpose Apsara File Storage NAS (NAS) file systems support the directory quota feature.
+   * Only General-purpose File Storage NAS (NAS) file systems support the directory quota feature.
    * 
    * @param request - SetDirQuotaRequest
    * @returns SetDirQuotaResponse
@@ -28714,7 +29223,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置智能目录配额
+   * Sets the quota for a fileset.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+   * *   The minimum capacity quota of a fileset is 10 GiB, and the maximum capacity quota is 1,000 TiB. The scaling step size is 1 GiB. The capacity quota cannot exceed the total capacity of the file system.
+   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
+   * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+   * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
    * 
    * @param request - SetFilesetQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28765,7 +29281,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 设置智能目录配额
+   * Sets the quota for a fileset.
+   * 
+   * @remarks
+   *   Only Cloud Parallel File Storage (CPFS) for LINGJUN V2.7.0 and later support this operation.
+   * *   The minimum capacity quota of a fileset is 10 GiB, and the maximum capacity quota is 1,000 TiB. The scaling step size is 1 GiB. The capacity quota cannot exceed the total capacity of the file system.
+   * *   A fileset supports a minimum of 10,000 files or directories and a maximum of 10 billion files or directories. The scaling step size is 1.
+   * *   When you modify a directory quota, you must set the quota capacity or the file quantity to be greater than the capacity or file quantity that has been used.
+   * *   The quota statistics have a 5-minute latency. The actual usage takes effect after 5 minutes.
    * 
    * @param request - SetFilesetQuotaRequest
    * @returns SetFilesetQuotaResponse
