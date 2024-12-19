@@ -457,6 +457,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
@@ -481,6 +482,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
       ownerId: 'OwnerId',
       poolRegionId: 'PoolRegionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       sourceIpamPoolId: 'SourceIpamPoolId',
@@ -504,6 +506,7 @@ export class CreateIpamPoolRequest extends $tea.Model {
       ownerId: 'number',
       poolRegionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       sourceIpamPoolId: 'string',
@@ -754,6 +757,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   tag?: CreateIpamScopeRequestTag[];
@@ -768,6 +772,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
       tag: 'Tag',
@@ -785,6 +790,7 @@ export class CreateIpamScopeRequest extends $tea.Model {
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
       tag: { 'type': 'array', 'itemType': CreateIpamScopeRequestTag },
@@ -1379,6 +1385,181 @@ export class DeleteIpamScopeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteIpamScopeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolAllocationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ipam-pool-alloc-112za33e4****
+   */
+  ipamPoolAllocationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ipamPoolAllocationId: 'IpamPoolAllocationId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ipamPoolAllocationId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolAllocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 192.168.1.0/24
+   */
+  cidr?: string;
+  /**
+   * @example
+   * 2024-10-15T10:24:19+08:00
+   */
+  creationTime?: string;
+  /**
+   * @example
+   * ipam pool allocation description
+   */
+  ipamPoolAllocationDescription?: string;
+  /**
+   * @example
+   * ipam-pool-alloc-112za33e4****
+   */
+  ipamPoolAllocationId?: string;
+  /**
+   * @example
+   * ipam pool allocation name
+   */
+  ipamPoolAllocationName?: string;
+  /**
+   * @example
+   * ipam-pool-6rcq3tobayc20t****
+   */
+  ipamPoolId?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * 3748DEFF-68BE-5EED-9937-7C1D0C21BAB4
+   */
+  requestId?: string;
+  /**
+   * @example
+   * vpc-bp16qjewdsunr41m1****
+   */
+  resourceId?: string;
+  /**
+   * @example
+   * 1616080591216318
+   */
+  resourceOwnerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  resourceRegionId?: string;
+  /**
+   * @example
+   * VPC
+   */
+  resourceType?: string;
+  /**
+   * @example
+   * 192.168.0.0/16
+   */
+  sourceCidr?: string;
+  /**
+   * @example
+   * Created
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cidr: 'Cidr',
+      creationTime: 'CreationTime',
+      ipamPoolAllocationDescription: 'IpamPoolAllocationDescription',
+      ipamPoolAllocationId: 'IpamPoolAllocationId',
+      ipamPoolAllocationName: 'IpamPoolAllocationName',
+      ipamPoolId: 'IpamPoolId',
+      regionId: 'RegionId',
+      requestId: 'RequestId',
+      resourceId: 'ResourceId',
+      resourceOwnerId: 'ResourceOwnerId',
+      resourceRegionId: 'ResourceRegionId',
+      resourceType: 'ResourceType',
+      sourceCidr: 'SourceCidr',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cidr: 'string',
+      creationTime: 'string',
+      ipamPoolAllocationDescription: 'string',
+      ipamPoolAllocationId: 'string',
+      ipamPoolAllocationName: 'string',
+      ipamPoolId: 'string',
+      regionId: 'string',
+      requestId: 'string',
+      resourceId: 'string',
+      resourceOwnerId: 'number',
+      resourceRegionId: 'string',
+      resourceType: 'string',
+      sourceCidr: 'string',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetIpamPoolAllocationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIpamPoolAllocationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetIpamPoolAllocationResponseBody,
     };
   }
 
@@ -4109,6 +4290,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @example
    * ipam-pool-lfnwi4jok1ss0g****
@@ -4141,6 +4323,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       poolDepth: 'PoolDepth',
       poolRegionId: 'PoolRegionId',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       sourceIpamPoolId: 'SourceIpamPoolId',
       status: 'Status',
       tags: 'Tags',
@@ -4168,6 +4351,7 @@ export class ListIpamPoolsResponseBodyIpamPools extends $tea.Model {
       poolDepth: 'number',
       poolRegionId: 'string',
       regionId: 'string',
+      resourceGroupId: 'string',
       sourceIpamPoolId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListIpamPoolsResponseBodyIpamPoolsTags },
@@ -4566,6 +4750,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  resourceGroupId?: string;
   /**
    * @example
    * Created
@@ -4584,6 +4769,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $tea.Model {
       ownerId: 'OwnerId',
       poolCount: 'PoolCount',
       regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
       status: 'Status',
       tags: 'Tags',
     };
@@ -4601,6 +4787,7 @@ export class ListIpamScopesResponseBodyIpamScopes extends $tea.Model {
       ownerId: 'number',
       poolCount: 'number',
       regionId: 'string',
+      resourceGroupId: 'string',
       status: 'string',
       tags: { 'type': 'array', 'itemType': ListIpamScopesResponseBodyIpamScopesTags },
     };
@@ -5176,6 +5363,10 @@ export default class Client extends OpenApi {
       query["RegionId"] = request.regionId;
     }
 
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     if (!Util.isUnset(request.resourceOwnerAccount)) {
       query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
     }
@@ -5326,6 +5517,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     if (!Util.isUnset(request.resourceOwnerAccount)) {
@@ -5666,6 +5861,44 @@ export default class Client extends OpenApi {
   async deleteIpamScope(request: DeleteIpamScopeRequest): Promise<DeleteIpamScopeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteIpamScopeWithOptions(request, runtime);
+  }
+
+  /**
+   * 查询指定IPAM地址池CIDR分配的信息
+   * 
+   * @param request - GetIpamPoolAllocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIpamPoolAllocationResponse
+   */
+  async getIpamPoolAllocationWithOptions(request: GetIpamPoolAllocationRequest, runtime: $Util.RuntimeOptions): Promise<GetIpamPoolAllocationResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetIpamPoolAllocation",
+      version: "2023-02-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetIpamPoolAllocationResponse>(await this.callApi(params, req, runtime), new GetIpamPoolAllocationResponse({}));
+  }
+
+  /**
+   * 查询指定IPAM地址池CIDR分配的信息
+   * 
+   * @param request - GetIpamPoolAllocationRequest
+   * @returns GetIpamPoolAllocationResponse
+   */
+  async getIpamPoolAllocation(request: GetIpamPoolAllocationRequest): Promise<GetIpamPoolAllocationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getIpamPoolAllocationWithOptions(request, runtime);
   }
 
   /**
