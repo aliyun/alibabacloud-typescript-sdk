@@ -9231,6 +9231,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
    * 20
    */
   attachedSystemPoliciesPerUserQuota?: number;
+  conditionsPerAKPolicyQuota?: number;
   /**
    * @remarks
    * The number of RAM user groups.
@@ -9255,6 +9256,7 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
    * 50
    */
   groupsQuota?: number;
+  IPItemsPerAKPolicyQuota?: number;
   /**
    * @remarks
    * The number of virtual multi-factor authentication (MFA) devices.
@@ -9352,9 +9354,11 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
       attachedSystemPoliciesPerGroupQuota: 'AttachedSystemPoliciesPerGroupQuota',
       attachedSystemPoliciesPerRoleQuota: 'AttachedSystemPoliciesPerRoleQuota',
       attachedSystemPoliciesPerUserQuota: 'AttachedSystemPoliciesPerUserQuota',
+      conditionsPerAKPolicyQuota: 'ConditionsPerAKPolicyQuota',
       groups: 'Groups',
       groupsPerUserQuota: 'GroupsPerUserQuota',
       groupsQuota: 'GroupsQuota',
+      IPItemsPerAKPolicyQuota: 'IPItemsPerAKPolicyQuota',
       MFADevices: 'MFADevices',
       MFADevicesInUse: 'MFADevicesInUse',
       policies: 'Policies',
@@ -9378,9 +9382,11 @@ export class GetAccountSummaryResponseBodySummaryMap extends $tea.Model {
       attachedSystemPoliciesPerGroupQuota: 'number',
       attachedSystemPoliciesPerRoleQuota: 'number',
       attachedSystemPoliciesPerUserQuota: 'number',
+      conditionsPerAKPolicyQuota: 'number',
       groups: 'number',
       groupsPerUserQuota: 'number',
       groupsQuota: 'number',
+      IPItemsPerAKPolicyQuota: 'number',
       MFADevices: 'number',
       MFADevicesInUse: 'number',
       policies: 'number',
@@ -9789,6 +9795,7 @@ export class GetGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
+  autoDisableLoginStatus?: string;
   /**
    * @remarks
    * The time of the most recent logon. The time is displayed in UTC.
@@ -9848,6 +9855,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoDisableLoginStatus: 'AutoDisableLoginStatus',
       lastLoginTime: 'LastLoginTime',
       MFABindRequired: 'MFABindRequired',
       passwordResetRequired: 'PasswordResetRequired',
@@ -9859,6 +9867,7 @@ export class GetLoginProfileResponseBodyLoginProfile extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoDisableLoginStatus: 'string',
       lastLoginTime: 'string',
       MFABindRequired: 'boolean',
       passwordResetRequired: 'boolean',
@@ -10348,6 +10357,28 @@ export class GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
+export class GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $tea.Model {
+  maxIdleDaysForAccessKeys?: number;
+  maxIdleDaysForUsers?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxIdleDaysForAccessKeys: 'MaxIdleDaysForAccessKeys',
+      maxIdleDaysForUsers: 'MaxIdleDaysForUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxIdleDaysForAccessKeys: 'number',
+      maxIdleDaysForUsers: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
   /**
    * @remarks
@@ -10416,6 +10447,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
    * The MFA preference.
    */
   MFAPreference?: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  maxIdleDays?: GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays;
   /**
    * @remarks
    * The personal information preference.
@@ -10431,6 +10463,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
+      maxIdleDays: 'MaxIdleDays',
       personalInfoPreference: 'PersonalInfoPreference',
       verificationPreference: 'VerificationPreference',
     };
@@ -10441,6 +10474,7 @@ export class GetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: GetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: GetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: GetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
+      maxIdleDays: GetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays,
       personalInfoPreference: GetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
       verificationPreference: GetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
@@ -12837,6 +12871,28 @@ export class SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference ex
   }
 }
 
+export class SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays extends $tea.Model {
+  maxIdleDaysForAccessKeys?: number;
+  maxIdleDaysForUsers?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxIdleDaysForAccessKeys: 'MaxIdleDaysForAccessKeys',
+      maxIdleDaysForUsers: 'MaxIdleDaysForUsers',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxIdleDaysForAccessKeys: 'number',
+      maxIdleDaysForUsers: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference extends $tea.Model {
   /**
    * @remarks
@@ -12902,6 +12958,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
    * The MFA preference.
    */
   MFAPreference?: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference;
+  maxIdleDays?: SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays;
   /**
    * @remarks
    * The personal information preference.
@@ -12917,6 +12974,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: 'AccessKeyPreference',
       loginProfilePreference: 'LoginProfilePreference',
       MFAPreference: 'MFAPreference',
+      maxIdleDays: 'MaxIdleDays',
       personalInfoPreference: 'PersonalInfoPreference',
       verificationPreference: 'VerificationPreference',
     };
@@ -12927,6 +12985,7 @@ export class SetSecurityPreferenceResponseBodySecurityPreference extends $tea.Mo
       accessKeyPreference: SetSecurityPreferenceResponseBodySecurityPreferenceAccessKeyPreference,
       loginProfilePreference: SetSecurityPreferenceResponseBodySecurityPreferenceLoginProfilePreference,
       MFAPreference: SetSecurityPreferenceResponseBodySecurityPreferenceMFAPreference,
+      maxIdleDays: SetSecurityPreferenceResponseBodySecurityPreferenceMaxIdleDays,
       personalInfoPreference: SetSecurityPreferenceResponseBodySecurityPreferencePersonalInfoPreference,
       verificationPreference: SetSecurityPreferenceResponseBodySecurityPreferenceVerificationPreference,
     };
@@ -13381,6 +13440,7 @@ export class UpdateGroupResponseBodyGroup extends $tea.Model {
 }
 
 export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
+  autoDisableLoginStatus?: string;
   /**
    * @remarks
    * Indicates whether MFA must be enabled.
@@ -13423,6 +13483,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
   userPrincipalName?: string;
   static names(): { [key: string]: string } {
     return {
+      autoDisableLoginStatus: 'AutoDisableLoginStatus',
       MFABindRequired: 'MFABindRequired',
       passwordResetRequired: 'PasswordResetRequired',
       status: 'Status',
@@ -13433,6 +13494,7 @@ export class UpdateLoginProfileResponseBodyLoginProfile extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      autoDisableLoginStatus: 'string',
       MFABindRequired: 'boolean',
       passwordResetRequired: 'boolean',
       status: 'string',
