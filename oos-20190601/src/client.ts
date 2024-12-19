@@ -438,6 +438,13 @@ export class CreateApplicationRequest extends $tea.Model {
    * The configurations of application alerts.
    */
   alarmConfig?: CreateApplicationRequestAlarmConfig;
+  /**
+   * @remarks
+   * The source of application.
+   * 
+   * @example
+   * {"Platform":"github","Owner":"githubUser","RepoName":"githubUser/repoName"}
+   */
   applicationSource?: string;
   /**
    * @remarks
@@ -483,7 +490,7 @@ export class CreateApplicationRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The ID of the Compute Nest service that corresponds to the application template.
    * 
    * @example
    * service-79538e30e44541b699d8
@@ -536,6 +543,13 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
    * The configurations of application alerts.
    */
   alarmConfigShrink?: string;
+  /**
+   * @remarks
+   * The source of application.
+   * 
+   * @example
+   * {"Platform":"github","Owner":"githubUser","RepoName":"githubUser/repoName"}
+   */
   applicationSource?: string;
   /**
    * @remarks
@@ -581,7 +595,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The ID of the Compute Nest service that corresponds to the application template.
    * 
    * @example
    * service-79538e30e44541b699d8
@@ -5997,16 +6011,25 @@ export class GetTemplateResponse extends $tea.Model {
 
 export class GetTemplateParameterConstraintsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The information about the parameters.
+   * 
    * @example
    * {\\"endDate\\": \\"2022-04-13T03:31:20Z\\", \\"Status\\": \\"Stopped\\"}
    */
   parameters?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The content of the template in the JSON or YAML format. This parameter is the same as the Content parameter that you can specify when you call the CreateTemplate operation. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
    * @example
    * {
    * 	"Description": "Example template, describe instances in some status",
@@ -6028,16 +6051,25 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
    */
   templateContent?: string;
   /**
+   * @remarks
+   * The name of the template.
+   * 
    * @example
    * MyTemplate
    */
   templateName?: string;
   /**
+   * @remarks
+   * The URL that is used to store the content of the Operation Orchestration Service (OOS) template in the Alibaba Cloud Object Storage Service (OSS). Only the public-read URL is supported. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+   * 
    * @example
    * http://oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-test-template.json
    */
   templateURL?: string;
   /**
+   * @remarks
+   * The version of the template. The default value is the latest version of the template.
+   * 
    * @example
    * v1
    */
@@ -6071,6 +6103,9 @@ export class GetTemplateParameterConstraintsRequest extends $tea.Model {
 
 export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The constraints of the parameters.
+   * 
    * @example
    * [
    *     {
@@ -6106,6 +6141,9 @@ export class GetTemplateParameterConstraintsResponseBody extends $tea.Model {
    */
   parameterConstraints?: { [key: string]: any };
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * CBEC8072-BEC2-478E-8EAE-E723BA79CF19
    */
@@ -17679,6 +17717,13 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
    * MyApplication
    */
   applicationName?: string;
+  /**
+   * @remarks
+   * The source of application.
+   * 
+   * @example
+   * {"Platform":"github","RepoName":"wenle/springboot-ecs-sourcecode-demo","Owner":"wenle","Branch":"main","CommitHash":"8559ff3ac7568fc7951ff63f841883ee3f06c6fe","CommitMessage":"Init computenest project"}
+   */
   applicationSource?: string;
   /**
    * @remarks
@@ -17754,10 +17799,10 @@ export class GetApplicationGroupResponseBodyApplicationGroup extends $tea.Model 
   name?: string;
   /**
    * @remarks
-   * The operation metadata.
+   * The hosted O\\&M configurations.
    * 
    * @example
-   * {\\"PrometheusConfigMap\\":{\\"模板1\\":{\\"EnablePrometheus\\":false}}}
+   * {\\\\"PrometheusConfigMap\\\\":{\\\\"Template 1\\\\":{\\\\"EnablePrometheus\\\\":false}}}
    */
   operationMetadata?: string;
   /**
@@ -26685,11 +26730,7 @@ export default class Client extends OpenApi {
    */
   async getServiceSettingsWithOptions(request: GetServiceSettingsRequest, runtime: $Util.RuntimeOptions): Promise<GetServiceSettingsResponse> {
     Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.regionId)) {
-      query["RegionId"] = request.regionId;
-    }
-
+    let query = OpenApiUtil.query(Util.toMap(request));
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -26698,7 +26739,7 @@ export default class Client extends OpenApi {
       version: "2019-06-01",
       protocol: "HTTPS",
       pathname: "/",
-      method: "POST",
+      method: "GET",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
