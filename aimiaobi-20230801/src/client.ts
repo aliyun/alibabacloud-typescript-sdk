@@ -2185,6 +2185,167 @@ export class DocumentExtractionResponse extends $tea.Model {
   }
 }
 
+export class ExportAnalysisTagDetailByTaskIdRequest extends $tea.Model {
+  categories?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categories: 'Categories',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categories: { 'type': 'array', 'itemType': 'string' },
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdShrinkRequest extends $tea.Model {
+  categoriesShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xxxx
+   */
+  workspaceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      categoriesShrink: 'Categories',
+      taskId: 'TaskId',
+      workspaceId: 'WorkspaceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      categoriesShrink: 'string',
+      taskId: 'string',
+      workspaceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * NoData
+   */
+  code?: string;
+  /**
+   * @example
+   * http://www.example.com/xxx.xlsx
+   */
+  data?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * 1813ceee-7fe5-41b4-87e5-982a4d18cca5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      data: 'Data',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ExportAnalysisTagDetailByTaskIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ExportAnalysisTagDetailByTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ExportAnalysisTagDetailByTaskIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ExportGeneratedContentRequest extends $tea.Model {
   /**
    * @remarks
@@ -35970,6 +36131,62 @@ export default class Client extends OpenApi {
   async documentExtraction(request: DocumentExtractionRequest): Promise<DocumentExtractionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.documentExtractionWithOptions(request, runtime);
+  }
+
+  /**
+   * 导出企业VOC分析任务明细列表
+   * 
+   * @param tmpReq - ExportAnalysisTagDetailByTaskIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ExportAnalysisTagDetailByTaskIdResponse
+   */
+  async exportAnalysisTagDetailByTaskIdWithOptions(tmpReq: ExportAnalysisTagDetailByTaskIdRequest, runtime: $Util.RuntimeOptions): Promise<ExportAnalysisTagDetailByTaskIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ExportAnalysisTagDetailByTaskIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.categories)) {
+      request.categoriesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.categories, "Categories", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.categoriesShrink)) {
+      body["Categories"] = request.categoriesShrink;
+    }
+
+    if (!Util.isUnset(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!Util.isUnset(request.workspaceId)) {
+      body["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ExportAnalysisTagDetailByTaskId",
+      version: "2023-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ExportAnalysisTagDetailByTaskIdResponse>(await this.callApi(params, req, runtime), new ExportAnalysisTagDetailByTaskIdResponse({}));
+  }
+
+  /**
+   * 导出企业VOC分析任务明细列表
+   * 
+   * @param request - ExportAnalysisTagDetailByTaskIdRequest
+   * @returns ExportAnalysisTagDetailByTaskIdResponse
+   */
+  async exportAnalysisTagDetailByTaskId(request: ExportAnalysisTagDetailByTaskIdRequest): Promise<ExportAnalysisTagDetailByTaskIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.exportAnalysisTagDetailByTaskIdWithOptions(request, runtime);
   }
 
   /**
