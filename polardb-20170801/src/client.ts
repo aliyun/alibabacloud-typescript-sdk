@@ -7,6 +7,112 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class CancelActiveOperationTasksRequest extends $tea.Model {
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2355,2352
+   */
+  taskIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      taskIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 25C70FF3-D49B-594D-BECE-0DE2BA1D8BBB
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2355,2352
+   */
+  taskIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CancelActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CancelActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CancelScheduleTasksRequest extends $tea.Model {
   /**
    * @remarks
@@ -844,8 +950,8 @@ export class CreateAccountRequest extends $tea.Model {
    * @remarks
    * The password of the account. The password must meet the following requirements:
    * 
-   * *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   It must be 8 to 32 characters in length.
+   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * *   The password must be 8 to 32 characters in length.
    * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
    * 
    * This parameter is required.
@@ -881,14 +987,15 @@ export class CreateAccountRequest extends $tea.Model {
    * The type of the account. Valid values:
    * 
    * *   **Normal**: standard account
-   * *   **Super**: privileged account
+   * *   **Super**: privileged account.
    * 
    * > 
    * 
    * *   If you leave this parameter empty, the default value **Super** is used.
    * 
-   * *   You can create multiple privileged accounts for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
-   * *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
+   * *   You can create multiple privileged accounts for a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster. A privileged account has more permissions than a standard account. For more information, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
+   * 
+   * *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account has more permissions than a standard account. For more information, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
    * 
    * @example
    * Normal
@@ -924,22 +1031,6 @@ export class CreateAccountRequest extends $tea.Model {
   DBName?: string;
   ownerAccount?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * Specifies whether to grant the specified account required permissions on all existing databases in the current cluster and databases that will be further created for the current cluster. Valid values:
-   * 
-   * *   **0 or unspecified**: does not grant required permissions.
-   * *   **1**: grants required permissions.
-   * 
-   * > 
-   * 
-   * *   The parameter is valid only after you configure the `AccountPrivilege` parameter.
-   * 
-   * *   If you set the parameter to `1`, the current account is granted to the required permissions on all databases in the current cluster that are specified by the `AccountPrivilege` parameter.
-   * 
-   * @example
-   * 0
-   */
   privForAllDB?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -1696,12 +1787,16 @@ export class CreateDBClusterRequest extends $tea.Model {
   DBNodeClass?: string;
   /**
    * @remarks
-   * Number of standard edition nodes. Values are as follows:
+   * The number of nodes. This parameter is supported for Standard Edition clusters. Valid values:
    * 
-   * - **1** (default): Indicates there is only one read-write node.
-   * - **2**: Indicates there is one read-only node and one read-write node.
-   * > - Enterprise edition defaults to 2 nodes, while the standard edition defaults to 1 node.
-   * > - Only supported by PolarDB MySQL edition.
+   * *   **1** (default): only one primary node.
+   * *   **2**: one read-only node and one primary node.
+   * 
+   * > 
+   * 
+   * *   By default, an Enterprise Edition cluster has two nodes and a Standard Edition cluster has one node.
+   * 
+   * *   This parameter is supported only for PolarDB for MySQL clusters.
    * 
    * @example
    * 1
@@ -2091,6 +2186,7 @@ export class CreateDBClusterRequest extends $tea.Model {
    * List of tags.
    */
   tag?: CreateDBClusterRequestTag[];
+  targetMinorVersion?: string;
   /**
    * @remarks
    * If the payment type is **Prepaid**, this parameter is required.
@@ -2182,6 +2278,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       strictConsistency: 'StrictConsistency',
       TDEStatus: 'TDEStatus',
       tag: 'Tag',
+      targetMinorVersion: 'TargetMinorVersion',
       usedTime: 'UsedTime',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
@@ -2242,6 +2339,7 @@ export class CreateDBClusterRequest extends $tea.Model {
       strictConsistency: 'string',
       TDEStatus: 'boolean',
       tag: { 'type': 'array', 'itemType': CreateDBClusterRequestTag },
+      targetMinorVersion: 'string',
       usedTime: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
@@ -5730,6 +5828,9 @@ export class DescribeAITaskStatusResponseBody extends $tea.Model {
   /**
    * @remarks
    * The name of the database account that is used to connect to the AI nodes in the cluster.
+   * 
+   * @example
+   * testacc
    */
   accountName?: string;
   /**
@@ -5973,12 +6074,17 @@ export class DescribeAccountsResponse extends $tea.Model {
 
 export class DescribeActivationCodeDetailsRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the activation code.
+   * 
    * @example
    * 123
    */
   activationCodeId?: number;
   /**
    * @remarks
+   * The Alibaba Cloud order ID (including the virtual order ID).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6018,59 +6124,89 @@ export class DescribeActivationCodeDetailsRequest extends $tea.Model {
 
 export class DescribeActivationCodeDetailsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the activation code takes effect.
+   * 
    * @example
    * 2024-10-16 16:46:20
    */
   activateAt?: string;
   /**
+   * @remarks
+   * The activation code in the base64 format. The activation code is decoded and stored into a file named license.lic. PolarDB can access and read the license.lic file upon startup to validate the license or perform related operations.
+   * 
    * @example
    * AAEAA******AAA=
    */
   certContentB64?: string;
   /**
+   * @remarks
+   * The description of the activation code.
+   * 
    * @example
    * testCode
    */
   description?: string;
   /**
+   * @remarks
+   * The time when the activation code expires.
+   * 
    * @example
    * 2054-10-09 16:46:20
    */
   expireAt?: string;
   /**
+   * @remarks
+   * The time when the activation code was created.
+   * 
    * @example
    * 2024-10-16 16:46:20
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The time when the activation code was last updated.
+   * 
    * @example
    * 2024-10-16 16:46:20
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the activation code.
+   * 
    * @example
    * 123
    */
   id?: number;
   /**
+   * @remarks
+   * The MAC address.
+   * 
    * @example
    * 12:34:56:78:98:00
    */
   macAddress?: string;
   /**
+   * @remarks
+   * The name of the activation code.
+   * 
    * @example
    * testName
    */
   name?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F2A9EFA7-915F-4572-8299-85A307******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The system identifier of the database.
+   * 
    * @example
    * 1234567890123456
    */
@@ -6277,6 +6413,182 @@ export class DescribeActivationCodesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeActivationCodesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * -1
+   */
+  allowCancel?: number;
+  /**
+   * @example
+   * -1
+   */
+  allowChange?: number;
+  /**
+   * @example
+   * all
+   */
+  changeLevel?: string;
+  /**
+   * @example
+   * pc-3ns***********d5d
+   */
+  DBClusterId?: string;
+  /**
+   * @example
+   * MySQL
+   */
+  DBType?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * -1
+   */
+  status?: number;
+  /**
+   * @example
+   * DatabaseProxyUpgrading
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      DBClusterId: 'DBClusterId',
+      DBType: 'DBType',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      status: 'Status',
+      taskType: 'TaskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      DBClusterId: 'string',
+      DBType: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      pageNumber: 'number',
+      pageSize: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      status: 'number',
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponseBody extends $tea.Model {
+  items?: DescribeActiveOperationTasksResponseBodyItems[];
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 30
+   */
+  pageSize?: number;
+  /**
+   * @example
+   * FAF88508-D5F8-52B1-8824-262601769E31
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 1
+   */
+  totalRecordCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      items: 'Items',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      requestId: 'RequestId',
+      totalRecordCount: 'TotalRecordCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      items: { 'type': 'array', 'itemType': DescribeActiveOperationTasksResponseBodyItems },
+      pageNumber: 'number',
+      pageSize: 'number',
+      requestId: 'string',
+      totalRecordCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeActiveOperationTasksResponseBody,
     };
   }
 
@@ -7195,7 +7507,7 @@ export class DescribeBackupsRequest extends $tea.Model {
 export class DescribeBackupsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The details of backup sets.
+   * The queried backup sets.
    */
   items?: DescribeBackupsResponseBodyItems;
   /**
@@ -7222,6 +7534,10 @@ export class DescribeBackupsResponseBody extends $tea.Model {
    * 24A1990B-4F6E-482B-B8CB-75C612******
    */
   requestId?: string;
+  /**
+   * @example
+   * 4639948800
+   */
   totalLevel2BackupSize?: string;
   /**
    * @remarks
@@ -7511,7 +7827,7 @@ export class DescribeClassListRequest extends $tea.Model {
 export class DescribeClassListResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The specifications of the cluster.
+   * The cluster specifications.
    */
   items?: DescribeClassListResponseBodyItems[];
   /**
@@ -7966,6 +8282,16 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
    * StandbyClusterON
    */
   hotStandbyCluster?: string;
+  /**
+   * @remarks
+   * Indicates whether the automatic IMCI-based query acceleration feature is enabled. Valid values:
+   * 
+   * *   `ON`: enabled
+   * *   `OFF`: disabled
+   * 
+   * @example
+   * OFF
+   */
   imciAutoIndex?: string;
   /**
    * @remarks
@@ -8212,7 +8538,8 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   /**
    * @remarks
    * Storage billing type. Valid values are as follows:
-   * - **Postpaid**：Pay-as-you-go (by capacity). - **Prepaid**：Subscription (by space).
+   * - **Postpaid**: Pay-as-you-go (by capacity).
+   * - **Prepaid**: Subscription (by space).
    * 
    * @example
    * Prepaid
@@ -8266,7 +8593,7 @@ export class DescribeDBClusterAttributeResponseBody extends $tea.Model {
   subCategory?: string;
   /**
    * @remarks
-   * Indicates whether the failover with hot replica feature is supported if the cluster has In-Memory Column Index (IMCI) nodes.
+   * Indicates whether queries based on In-Memory Column Indexes (IMCIs) are supported during and after a failover with hot replica.
    * 
    * @example
    * ON
@@ -9140,7 +9467,7 @@ export class DescribeDBClusterMigrationResponseBody extends $tea.Model {
   migrationStatus?: string;
   /**
    * @remarks
-   * The port number.
+   * The endpoints of the ApsaraDB RDS instance.
    */
   rdsEndpointList?: DescribeDBClusterMigrationResponseBodyRdsEndpointList[];
   /**
@@ -9168,6 +9495,12 @@ export class DescribeDBClusterMigrationResponseBody extends $tea.Model {
    */
   sourceRDSDBInstanceId?: string;
   /**
+   * @remarks
+   * The type of the source database. Valid values:
+   * 
+   * - **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
+   * - **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
+   * 
    * @example
    * PolarDBMySQL
    */
@@ -9591,7 +9924,7 @@ export class DescribeDBClusterPerformanceRequest extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * The Query Type
+   * The query type.
    * 
    * @example
    * orca
@@ -9850,7 +10183,7 @@ export class DescribeDBClusterSSLResponse extends $tea.Model {
 export class DescribeDBClusterServerlessConfRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the serverless cluster.
+   * Serverless cluster ID.
    * 
    * This parameter is required.
    * 
@@ -9891,10 +10224,11 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   agileScaleMax?: string;
   /**
    * @remarks
-   * Indicates whether the no-activity suspension feature is enabled. Default value: false. Valid values:
+   * Whether to enable idle shutdown. Values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enable
+   * 
+   * - **false**: Disable (default)
    * 
    * @example
    * true
@@ -9902,7 +10236,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   allowShutDown?: string;
   /**
    * @remarks
-   * The ID of the serverless cluster.
+   * Serverless cluster ID.
    * 
    * @example
    * pc-bp10gr51qasnl****
@@ -9910,17 +10244,31 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 5E71541A-6007-4DCC-A38A-F872C31FEB45
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Maximum limit for the number of read-only column storage nodes. Range: 0~7.
+   * 
+   * @example
+   * 1
+   */
   scaleApRoNumMax?: string;
+  /**
+   * @remarks
+   * Minimum limit for the number of read-only column storage nodes. Range: 0~7.
+   * 
+   * @example
+   * 1
+   */
   scaleApRoNumMin?: string;
   /**
    * @remarks
-   * The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
+   * Maximum scaling limit for a single node. Range: 1 PCU~32 PCU.
    * 
    * @example
    * 3
@@ -9928,7 +10276,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of PCUs per node for scaling. Valid values: 1 PCU to 31 PCUs.
+   * Minimum scaling limit for a single node. Range: 1 PCU~31 PCU.
    * 
    * @example
    * 1
@@ -9936,7 +10284,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   scaleMin?: string;
   /**
    * @remarks
-   * The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+   * Maximum scaling limit for the number of read-only nodes. Range: 0~15.
    * 
    * @example
    * 4
@@ -9944,7 +10292,7 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   scaleRoNumMax?: string;
   /**
    * @remarks
-   * The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+   * Minimum scaling limit for the number of read-only nodes. Range: 0~15.
    * 
    * @example
    * 2
@@ -9952,15 +10300,51 @@ export class DescribeDBClusterServerlessConfResponseBody extends $tea.Model {
   scaleRoNumMin?: string;
   /**
    * @remarks
-   * The detection period for no-activity suspension. Valid values: 300 to 86400. Unit: seconds. The value must be a multiple of 300.
+   * Detection duration for idle shutdown. Range: 300~86,400. Unit: seconds. The detection duration must be a multiple of 300 seconds.
    * 
    * @example
    * 10
    */
   secondsUntilAutoPause?: string;
+  /**
+   * @remarks
+   * CPU upscale threshold.
+   * 
+   * @example
+   * 60
+   */
   serverlessRuleCpuEnlargeThreshold?: string;
+  /**
+   * @remarks
+   * CPU downscale threshold.
+   * 
+   * @example
+   * 30
+   */
   serverlessRuleCpuShrinkThreshold?: string;
+  /**
+   * @remarks
+   * Elasticity sensitivity. Values:
+   * 
+   * - normal: Standard
+   * 
+   * - flexible: Sensitive
+   * 
+   * @example
+   * normal
+   */
   serverlessRuleMode?: string;
+  /**
+   * @remarks
+   * Whether steady state is enabled. Values:
+   * 
+   * 1: Enabled
+   * 
+   * 0: Disabled
+   * 
+   * @example
+   * 1
+   */
   switchs?: string;
   traditionalScaleMaxThreshold?: string;
   static names(): { [key: string]: string } {
@@ -12999,6 +13383,8 @@ export class DescribeGlobalSecurityIPGroupRelationResponse extends $tea.Model {
 export class DescribeLicenseOrderDetailsRequest extends $tea.Model {
   /**
    * @remarks
+   * The Alibaba Cloud order ID (or virtual order ID).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13036,71 +13422,119 @@ export class DescribeLicenseOrderDetailsRequest extends $tea.Model {
 
 export class DescribeLicenseOrderDetailsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of generated activation codes.
+   * 
    * @example
    * 2
    */
   activatedCodeCount?: number;
   /**
+   * @remarks
+   * The maximum number of activation codes that you can apply for.
+   * 
    * @example
    * 8
    */
   activationCodeQuota?: number;
   /**
+   * @remarks
+   * The Alibaba Cloud order ID (including the virtual order ID).
+   * 
    * @example
    * 239618016570503
    */
   aliyunOrderId?: string;
   /**
+   * @remarks
+   * Indicates whether activation codes can be generated without the system identifier.
+   * 
    * @example
    * false
    */
   allowEmptySystemIdentifier?: boolean;
   /**
+   * @remarks
+   * The type of the engine. Valid values: PG, Oracle, and MySQL.
+   * 
    * @example
    * PG
    */
   engine?: string;
   /**
+   * @remarks
+   * The time when the order was created.
+   * 
    * @example
    * 2021-10-19 01:13:45
    */
   gmtCreated?: string;
   /**
+   * @remarks
+   * The time when the order was last updated.
+   * 
    * @example
    * 2024-10-16 16:46:20
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * Indicates whether the order is a virtual order (virtual orders allow pre-generation of activation codes).
+   * 
    * @example
    * false
    */
   isVirtualOrder?: boolean;
   /**
+   * @remarks
+   * Indicates whether the virtual order is frozen (activation codes cannot be generated for a frozen virtual order).
+   * 
    * @example
    * false
    */
   isVirtualOrderFrozen?: boolean;
   /**
+   * @remarks
+   * The plan type. Valid values:
+   * 
+   * *   single_node_subscribe
+   * *   single_node_long_term
+   * *   primary_backup_subscribe
+   * *   primary_backup_long_term
+   * *   pre_generation_long_term
+   * 
    * @example
    * pre_generation_long_term
    */
   packageType?: string;
   /**
+   * @remarks
+   * The validity period of the plan, which is one year (common) or thirty years (long-term).
+   * 
    * @example
    * 1 year
    */
   packageValidity?: string;
   /**
+   * @remarks
+   * The plan validity period, one year (common) or thirty years (long-term).
+   * 
    * @example
    * aliyun_market
    */
   purchaseChannel?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 22C0ACF0-DD29-4B67-9190-B7A48C******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The virtual order ID.
+   * 
    * @example
    * 239618016570503
    */
@@ -13227,6 +13661,9 @@ export class DescribeLicenseOrdersRequest extends $tea.Model {
   /**
    * @remarks
    * Specifies whether to query only virtual orders.
+   * 
+   * @example
+   * true
    */
   virtualOrder?: boolean;
   static names(): { [key: string]: string } {
@@ -17588,6 +18025,126 @@ export class ModifyAccountPasswordResponse extends $tea.Model {
   }
 }
 
+export class ModifyActiveOperationTasksRequest extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  immediateStart?: number;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  securityToken?: string;
+  /**
+   * @example
+   * 2023-04-25T06:00:00Z
+   */
+  switchTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 11111,22222
+   */
+  taskIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      immediateStart: 'ImmediateStart',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      securityToken: 'SecurityToken',
+      switchTime: 'SwitchTime',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      immediateStart: 'number',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      securityToken: 'string',
+      switchTime: 'string',
+      taskIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 42CD2EF5-D77E-5AD4-961B-159330D98286
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 11111,22222
+   */
+  taskIds?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskIds: 'TaskIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskIds: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyActiveOperationTasksResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyActiveOperationTasksResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyActiveOperationTasksResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyAutoRenewAttributeRequest extends $tea.Model {
   /**
    * @remarks
@@ -18536,6 +19093,7 @@ export class ModifyDBClusterAndNodesParametersRequest extends $tea.Model {
   plannedStartTime?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  standbyClusterIdListNeedToSync?: string;
   static names(): { [key: string]: string } {
     return {
       DBClusterId: 'DBClusterId',
@@ -18549,6 +19107,7 @@ export class ModifyDBClusterAndNodesParametersRequest extends $tea.Model {
       plannedStartTime: 'PlannedStartTime',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      standbyClusterIdListNeedToSync: 'StandbyClusterIdListNeedToSync',
     };
   }
 
@@ -18565,6 +19124,7 @@ export class ModifyDBClusterAndNodesParametersRequest extends $tea.Model {
       plannedStartTime: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      standbyClusterIdListNeedToSync: 'string',
     };
   }
 
@@ -25369,6 +25929,204 @@ export class DescribeActivationCodesResponseBodyItems extends $tea.Model {
   }
 }
 
+export class DescribeActiveOperationTasksResponseBodyItems extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  allowCancel?: number;
+  /**
+   * @example
+   * 0
+   */
+  allowChange?: number;
+  /**
+   * @example
+   * S0
+   */
+  changeLevel?: string;
+  /**
+   * @example
+   * System maintenance
+   */
+  changeLevelEn?: string;
+  changeLevelZh?: string;
+  /**
+   * @example
+   * 2020-06-09T22:00:42Z
+   */
+  createdTime?: string;
+  /**
+   * @example
+   * cn-beijing-h
+   */
+  currentAVZ?: string;
+  /**
+   * @example
+   * pc-*****************
+   */
+  DBClusterId?: string;
+  DBNodeIds?: string[];
+  /**
+   * @example
+   * MySQL
+   */
+  DBType?: string;
+  /**
+   * @example
+   * 8.0
+   */
+  DBVersion?: string;
+  /**
+   * @example
+   * 2020-06-11T15:59:59Z
+   */
+  deadline?: string;
+  /**
+   * @example
+   * TransientDisconnection
+   */
+  impact?: string;
+  /**
+   * @example
+   * Transient instance disconnection
+   */
+  impactEn?: string;
+  impactZh?: string;
+  /**
+   * @example
+   * test
+   */
+  insComment?: string;
+  /**
+   * @example
+   * 2020-06-09T22:00:42Z
+   */
+  modifiedTime?: string;
+  /**
+   * @example
+   * 04:00:00
+   */
+  prepareInterval?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  region?: string;
+  /**
+   * @example
+   * userCancel
+   */
+  resultInfo?: string;
+  /**
+   * @example
+   * 2023-05-19T02:48:17Z
+   */
+  startTime?: string;
+  /**
+   * @example
+   * 3
+   */
+  status?: number;
+  /**
+   * @example
+   * 2020-06-09T22:00:00Z
+   */
+  switchTime?: string;
+  /**
+   * @example
+   * 107202351
+   */
+  taskId?: number;
+  /**
+   * @example
+   * {
+   *       "Action": "UpgradeDBInstance"
+   * }
+   */
+  taskParams?: string;
+  /**
+   * @example
+   * DatabaseSoftwareUpgrading
+   */
+  taskType?: string;
+  /**
+   * @example
+   * Minor version update
+   */
+  taskTypeEn?: string;
+  taskTypeZh?: string;
+  static names(): { [key: string]: string } {
+    return {
+      allowCancel: 'AllowCancel',
+      allowChange: 'AllowChange',
+      changeLevel: 'ChangeLevel',
+      changeLevelEn: 'ChangeLevelEn',
+      changeLevelZh: 'ChangeLevelZh',
+      createdTime: 'CreatedTime',
+      currentAVZ: 'CurrentAVZ',
+      DBClusterId: 'DBClusterId',
+      DBNodeIds: 'DBNodeIds',
+      DBType: 'DBType',
+      DBVersion: 'DBVersion',
+      deadline: 'Deadline',
+      impact: 'Impact',
+      impactEn: 'ImpactEn',
+      impactZh: 'ImpactZh',
+      insComment: 'InsComment',
+      modifiedTime: 'ModifiedTime',
+      prepareInterval: 'PrepareInterval',
+      region: 'Region',
+      resultInfo: 'ResultInfo',
+      startTime: 'StartTime',
+      status: 'Status',
+      switchTime: 'SwitchTime',
+      taskId: 'TaskId',
+      taskParams: 'TaskParams',
+      taskType: 'TaskType',
+      taskTypeEn: 'TaskTypeEn',
+      taskTypeZh: 'TaskTypeZh',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      allowCancel: 'number',
+      allowChange: 'number',
+      changeLevel: 'string',
+      changeLevelEn: 'string',
+      changeLevelZh: 'string',
+      createdTime: 'string',
+      currentAVZ: 'string',
+      DBClusterId: 'string',
+      DBNodeIds: { 'type': 'array', 'itemType': 'string' },
+      DBType: 'string',
+      DBVersion: 'string',
+      deadline: 'string',
+      impact: 'string',
+      impactEn: 'string',
+      impactZh: 'string',
+      insComment: 'string',
+      modifiedTime: 'string',
+      prepareInterval: 'string',
+      region: 'string',
+      resultInfo: 'string',
+      startTime: 'string',
+      status: 'number',
+      switchTime: 'string',
+      taskId: 'number',
+      taskParams: 'string',
+      taskType: 'string',
+      taskTypeEn: 'string',
+      taskTypeZh: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAutoRenewAttributeResponseBodyItemsAutoRenewAttribute extends $tea.Model {
   /**
    * @remarks
@@ -25799,8 +26557,7 @@ export class DescribeBackupsResponseBodyItemsBackup extends $tea.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The expected expiration time of the backup set.
-   * > This parameter is supported only for instances that are enabled with sparse backup.
+   * The expected expiration time of the backup set (This parameter is supported only for clusters for which sparse backup is enabled).
    * 
    * @example
    * 2022-10-24T08:13:23Z
@@ -27144,6 +27901,12 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems e
    */
   port?: string;
   /**
+   * @remarks
+   * Indicates whether SSL encryption is enabled. Valid values:
+   * 
+   * - **Enabled**
+   * - **Disabled**
+   * 
    * @example
    * Enabled
    */
@@ -27200,6 +27963,9 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
    */
   addressItems?: DescribeDBClusterMigrationResponseBodyRdsEndpointListAddressItems[];
   /**
+   * @remarks
+   * The instance type.
+   * 
    * @example
    * ReadOnly
    * Maxscale
@@ -27207,11 +27973,20 @@ export class DescribeDBClusterMigrationResponseBodyRdsEndpointList extends $tea.
    */
   custinsType?: string;
   /**
+   * @remarks
+   * The ID of the endpoint.
+   * 
    * @example
    * rm-************-normal
    */
   DBEndpointId?: string;
   /**
+   * @remarks
+   * The type of the endpoint. Valid values:
+   * 
+   * - **Normal**: the standard endpoint
+   * - **ReadWriteSplitting**: the read/write splitting endpoint
+   * 
    * @example
    * Normal
    */
@@ -27727,6 +28502,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $tea.Model {
    * pe-************
    */
   DBEndpointId?: string;
+  SSLAutoRotate?: string;
   /**
    * @remarks
    * The SSL connection string.
@@ -27757,6 +28533,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBEndpointId: 'DBEndpointId',
+      SSLAutoRotate: 'SSLAutoRotate',
       SSLConnectionString: 'SSLConnectionString',
       SSLEnabled: 'SSLEnabled',
       SSLExpireTime: 'SSLExpireTime',
@@ -27766,6 +28543,7 @@ export class DescribeDBClusterSSLResponseBodyItems extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBEndpointId: 'string',
+      SSLAutoRotate: 'string',
       SSLConnectionString: 'string',
       SSLEnabled: 'string',
       SSLExpireTime: 'string',
@@ -32659,6 +33437,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户侧取消任务
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasksWithOptions(request: CancelActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<CancelActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CancelActiveOperationTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CancelActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new CancelActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * 用户侧取消任务
+   * 
+   * @param request - CancelActiveOperationTasksRequest
+   * @returns CancelActiveOperationTasksResponse
+   */
+  async cancelActiveOperationTasks(request: CancelActiveOperationTasksRequest): Promise<CancelActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.cancelActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Cancels scheduled tasks that are not yet started.
    * 
    * @param request - CancelScheduleTasksRequest
@@ -33411,7 +34255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Database Cluster
+   * CreateDBCluster.
    * 
    * @param request - CreateDBClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -33624,6 +34468,10 @@ export default class Client extends OpenApi {
       query["Tag"] = request.tag;
     }
 
+    if (!Util.isUnset(request.targetMinorVersion)) {
+      query["TargetMinorVersion"] = request.targetMinorVersion;
+    }
+
     if (!Util.isUnset(request.usedTime)) {
       query["UsedTime"] = request.usedTime;
     }
@@ -33658,7 +34506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create Database Cluster
+   * CreateDBCluster.
    * 
    * @param request - CreateDBClusterRequest
    * @returns CreateDBClusterResponse
@@ -35507,7 +36355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询激活码详情
+   * Queries the details of an activation code.
    * 
    * @param request - DescribeActivationCodeDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -35558,7 +36406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询激活码详情
+   * Queries the details of an activation code.
    * 
    * @param request - DescribeActivationCodeDetailsRequest
    * @returns DescribeActivationCodeDetailsResponse
@@ -35632,6 +36480,104 @@ export default class Client extends OpenApi {
   async describeActivationCodes(request: DescribeActivationCodesRequest): Promise<DescribeActivationCodesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeActivationCodesWithOptions(request, runtime);
+  }
+
+  /**
+   * 用户侧查询运维任务
+   * 
+   * @param request - DescribeActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasksWithOptions(request: DescribeActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<DescribeActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.allowCancel)) {
+      query["AllowCancel"] = request.allowCancel;
+    }
+
+    if (!Util.isUnset(request.allowChange)) {
+      query["AllowChange"] = request.allowChange;
+    }
+
+    if (!Util.isUnset(request.changeLevel)) {
+      query["ChangeLevel"] = request.changeLevel;
+    }
+
+    if (!Util.isUnset(request.DBClusterId)) {
+      query["DBClusterId"] = request.DBClusterId;
+    }
+
+    if (!Util.isUnset(request.DBType)) {
+      query["DBType"] = request.DBType;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.taskType)) {
+      query["TaskType"] = request.taskType;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeActiveOperationTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new DescribeActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * 用户侧查询运维任务
+   * 
+   * @param request - DescribeActiveOperationTasksRequest
+   * @returns DescribeActiveOperationTasksResponse
+   */
+  async describeActiveOperationTasks(request: DescribeActiveOperationTasksRequest): Promise<DescribeActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeActiveOperationTasksWithOptions(request, runtime);
   }
 
   /**
@@ -36861,7 +37807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a serverless cluster.
+   * Query serverless configuration.
    * 
    * @param request - DescribeDBClusterServerlessConfRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -36908,7 +37854,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configurations of a serverless cluster.
+   * Query serverless configuration.
    * 
    * @param request - DescribeDBClusterServerlessConfRequest
    * @returns DescribeDBClusterServerlessConfResponse
@@ -38127,7 +39073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看License订单详情
+   * Queries the information of a license order.
    * 
    * @param request - DescribeLicenseOrderDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -38174,7 +39120,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查看License订单详情
+   * Queries the information of a license order.
    * 
    * @param request - DescribeLicenseOrderDetailsRequest
    * @returns DescribeLicenseOrderDetailsResponse
@@ -40175,6 +41121,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 用户侧修改任务
+   * 
+   * @param request - ModifyActiveOperationTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasksWithOptions(request: ModifyActiveOperationTasksRequest, runtime: $Util.RuntimeOptions): Promise<ModifyActiveOperationTasksResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.immediateStart)) {
+      query["ImmediateStart"] = request.immediateStart;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.securityToken)) {
+      query["SecurityToken"] = request.securityToken;
+    }
+
+    if (!Util.isUnset(request.switchTime)) {
+      query["SwitchTime"] = request.switchTime;
+    }
+
+    if (!Util.isUnset(request.taskIds)) {
+      query["TaskIds"] = request.taskIds;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyActiveOperationTasks",
+      version: "2017-08-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyActiveOperationTasksResponse>(await this.callApi(params, req, runtime), new ModifyActiveOperationTasksResponse({}));
+  }
+
+  /**
+   * 用户侧修改任务
+   * 
+   * @param request - ModifyActiveOperationTasksRequest
+   * @returns ModifyActiveOperationTasksResponse
+   */
+  async modifyActiveOperationTasks(request: ModifyActiveOperationTasksRequest): Promise<ModifyActiveOperationTasksResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyActiveOperationTasksWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the auto-renewal attributes of a subscription PolarDB cluster.
    * 
    * @param request - ModifyAutoRenewAttributeRequest
@@ -40592,6 +41612,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.resourceOwnerId)) {
       query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    if (!Util.isUnset(request.standbyClusterIdListNeedToSync)) {
+      query["StandbyClusterIdListNeedToSync"] = request.standbyClusterIdListNeedToSync;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -41989,7 +43013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the hot standby node in a cluster.
+   * Enables or disables the failover with hot replica feature for a node in a cluster.
    * 
    * @param request - ModifyDBNodeHotReplicaModeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42044,7 +43068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the hot standby node in a cluster.
+   * Enables or disables the failover with hot replica feature for a node in a cluster.
    * 
    * @param request - ModifyDBNodeHotReplicaModeRequest
    * @returns ModifyDBNodeHotReplicaModeResponse
