@@ -112,7 +112,6 @@ export class WafRuleConfig extends $tea.Model {
   managedGroupId?: number;
   managedList?: string;
   managedRulesets?: WafRuleConfigManagedRulesets[];
-  match?: WafRuleMatch;
   name?: string;
   notes?: string;
   rateLimit?: WafRuleConfigRateLimit;
@@ -132,7 +131,6 @@ export class WafRuleConfig extends $tea.Model {
       managedGroupId: 'ManagedGroupId',
       managedList: 'ManagedList',
       managedRulesets: 'ManagedRulesets',
-      match: 'Match',
       name: 'Name',
       notes: 'Notes',
       rateLimit: 'RateLimit',
@@ -155,7 +153,6 @@ export class WafRuleConfig extends $tea.Model {
       managedGroupId: 'number',
       managedList: 'string',
       managedRulesets: { 'type': 'array', 'itemType': WafRuleConfigManagedRulesets },
-      match: WafRuleMatch,
       name: 'string',
       notes: 'string',
       rateLimit: WafRuleConfigRateLimit,
@@ -695,194 +692,6 @@ export class BatchCreateRecordsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchCreateRecordsResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchCreateWafRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the rules.
-   */
-  configs?: WafRuleConfig[];
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The configurations shared by multiple rules.
-   */
-  shared?: WafBatchRuleShared;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      phase: 'Phase',
-      shared: 'Shared',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'array', 'itemType': WafRuleConfig },
-      phase: 'string',
-      shared: WafBatchRuleShared,
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchCreateWafRulesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of the rules.
-   */
-  configsShrink?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The configurations shared by multiple rules.
-   */
-  sharedShrink?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configsShrink: 'Configs',
-      phase: 'Phase',
-      sharedShrink: 'Shared',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configsShrink: 'string',
-      phase: 'string',
-      sharedShrink: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchCreateWafRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The IDs of the WAF rules.[](~~2850237~~)
-   */
-  ids?: number[];
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the WAF ruleset.[](~~2850233~~)
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ids: 'Ids',
-      requestId: 'RequestId',
-      rulesetId: 'RulesetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ids: { 'type': 'array', 'itemType': 'number' },
-      requestId: 'string',
-      rulesetId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchCreateWafRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchCreateWafRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchCreateWafRulesResponseBody,
     };
   }
 
@@ -1601,197 +1410,6 @@ export class BatchPutKvWithHighCapacityResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: BatchPutKvWithHighCapacityResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateWafRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of rules.
-   */
-  configs?: WafRuleConfig[];
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  /**
-   * @remarks
-   * The configurations shared by multiple rules.
-   */
-  shared?: WafBatchRuleShared;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configs: 'Configs',
-      phase: 'Phase',
-      rulesetId: 'RulesetId',
-      shared: 'Shared',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configs: { 'type': 'array', 'itemType': WafRuleConfig },
-      phase: 'string',
-      rulesetId: 'number',
-      shared: WafBatchRuleShared,
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateWafRulesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configurations of rules.
-   */
-  configsShrink?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  /**
-   * @remarks
-   * The configurations shared by multiple rules.
-   */
-  sharedShrink?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configsShrink: 'Configs',
-      phase: 'Phase',
-      rulesetId: 'RulesetId',
-      sharedShrink: 'Shared',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configsShrink: 'string',
-      phase: 'string',
-      rulesetId: 'number',
-      sharedShrink: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateWafRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class BatchUpdateWafRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: BatchUpdateWafRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: BatchUpdateWafRulesResponseBody,
     };
   }
 
@@ -6196,191 +5814,6 @@ export class CreateUserDeliveryTaskResponse extends $tea.Model {
   }
 }
 
-export class CreateWafRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the rule that you want to create.
-   */
-  config?: WafRuleConfig;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      phase: 'Phase',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: WafRuleConfig,
-      phase: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWafRuleShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the rule that you want to create.
-   */
-  configShrink?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      configShrink: 'Config',
-      phase: 'Phase',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configShrink: 'string',
-      phase: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWafRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF rule.[](~~2850237~~)
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The ID of the WAF ruleset.[](~~2850233~~)
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-      rulesetId: 'RulesetId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-      rulesetId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateWafRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateWafRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateWafRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
@@ -9404,206 +8837,6 @@ export class DeleteUserDeliveryTaskResponse extends $tea.Model {
   }
 }
 
-export class DeleteWafRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWafRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWafRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteWafRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteWafRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWafRulesetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWafRulesetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteWafRulesetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteWafRulesetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteWafRulesetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class DeleteWaitingRoomRequest extends $tea.Model {
   /**
    * @remarks
@@ -11710,12 +10943,17 @@ export class GetClientCertificateResponse extends $tea.Model {
 
 export class GetClientCertificateHostnamesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The certificate ID.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11742,23 +10980,39 @@ export class GetClientCertificateHostnamesRequest extends $tea.Model {
 }
 
 export class GetClientCertificateHostnamesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The domain names with which the certificate is associated.
+   */
   hostnames?: string[];
   /**
+   * @remarks
+   * The ID of the client CA certificate.
+   * 
    * @example
    * baba39055622c008b90285a8838ed09a
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -15814,333 +15068,6 @@ export class GetWafQuotaResponse extends $tea.Model {
   }
 }
 
-export class GetWafRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWafRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the rule.
-   */
-  config?: WafRuleConfig;
-  /**
-   * @remarks
-   * The ID of the WAF rule.[](~~2850237~~)
-   * 
-   * @example
-   * 2000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * example
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The order of the rule in the ruleset.
-   * 
-   * @example
-   * 1
-   */
-  position?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the rule was last modified.
-   * 
-   * @example
-   * 2024-01-01T00:00:00Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      id: 'Id',
-      name: 'Name',
-      phase: 'Phase',
-      position: 'Position',
-      requestId: 'RequestId',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: WafRuleConfig,
-      id: 'number',
-      name: 'string',
-      phase: 'string',
-      position: 'number',
-      requestId: 'string',
-      status: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWafRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWafRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWafRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWafRulesetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
-   * 
-   * @example
-   * 10000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The WAF rule category of rulesets to query.
-   * 
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      phase: 'Phase',
-      siteId: 'SiteId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      phase: 'string',
-      siteId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWafRulesetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ruleset ID.
-   * 
-   * @example
-   * 10000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ruleset name.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * example
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The WAF rule category of the ruleset.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The rule configurations in the ruleset.
-   */
-  rules?: WafRuleConfig[];
-  /**
-   * @remarks
-   * The configurations shared by the rules in the ruleset.
-   */
-  shared?: WafBatchRuleShared;
-  /**
-   * @remarks
-   * The ruleset status.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The time when the ruleset was last modified.
-   * 
-   * @example
-   * 2024-01-01T00:00:00Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      name: 'Name',
-      phase: 'Phase',
-      requestId: 'RequestId',
-      rules: 'Rules',
-      shared: 'Shared',
-      status: 'Status',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      name: 'string',
-      phase: 'string',
-      requestId: 'string',
-      rules: { 'type': 'array', 'itemType': WafRuleConfig },
-      shared: WafBatchRuleShared,
-      status: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetWafRulesetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetWafRulesetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetWafRulesetResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListCacheReserveInstancesRequest extends $tea.Model {
   /**
    * @remarks
@@ -19519,6 +18446,10 @@ export class ListSitesRequest extends $tea.Model {
    * false
    */
   onlyEnterprise?: boolean;
+  /**
+   * @example
+   * visitTime
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -19662,6 +18593,10 @@ export class ListSitesShrinkRequest extends $tea.Model {
    * false
    */
   onlyEnterprise?: boolean;
+  /**
+   * @example
+   * visitTime
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -20507,7 +19442,7 @@ export class ListWafManagedRulesRequest extends $tea.Model {
   attackType?: number;
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20550,7 +19485,7 @@ export class ListWafManagedRulesRequest extends $tea.Model {
   queryArgs?: ListWafManagedRulesRequestQueryArgs;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20613,7 +19548,7 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
   attackType?: number;
   /**
    * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
+   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20656,7 +19591,7 @@ export class ListWafManagedRulesShrinkRequest extends $tea.Model {
   queryArgsShrink?: string;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -20871,530 +19806,6 @@ export class ListWafPhasesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListWafPhasesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * http_custom
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The WAF rule category. You can filter rules of a specific category.
-   * 
-   * @example
-   * 0
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The filter conditions.
-   * 
-   * @example
-   * http_custom
-   */
-  queryArgs?: ListWafRulesRequestQueryArgs;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      phase: 'Phase',
-      queryArgs: 'QueryArgs',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      phase: 'string',
-      queryArgs: ListWafRulesRequestQueryArgs,
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * http_custom
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 1
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The WAF rule category. You can filter rules of a specific category.
-   * 
-   * @example
-   * 0
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The filter conditions.
-   * 
-   * @example
-   * http_custom
-   */
-  queryArgsShrink?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      phase: 'Phase',
-      queryArgsShrink: 'QueryArgs',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      phase: 'string',
-      queryArgsShrink: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The rule usage of the instance that corresponds to the website in the WAF rule category.
-   * 
-   * @example
-   * 10
-   */
-  instanceUsage?: number;
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The rules returned.
-   */
-  rules?: ListWafRulesResponseBodyRules[];
-  /**
-   * @remarks
-   * The rule usage of the website.
-   * 
-   * @example
-   * 5
-   */
-  siteUsage?: number;
-  /**
-   * @remarks
-   * The total number of filtered rules.
-   * 
-   * @example
-   * 20
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceUsage: 'InstanceUsage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      rules: 'Rules',
-      siteUsage: 'SiteUsage',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceUsage: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      rules: { 'type': 'array', 'itemType': ListWafRulesResponseBodyRules },
-      siteUsage: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListWafRulesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListWafRulesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The WAF rule category of rulesets to query.
-   * 
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The query arguments in the JSON format, which contain filter conditions.
-   * 
-   * @example
-   * http_bot
-   */
-  queryArgs?: ListWafRulesetsRequestQueryArgs;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      phase: 'Phase',
-      queryArgs: 'QueryArgs',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      phase: 'string',
-      queryArgs: ListWafRulesetsRequestQueryArgs,
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The page number.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The WAF rule category of rulesets to query.
-   * 
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The query arguments in the JSON format, which contain filter conditions.
-   * 
-   * @example
-   * http_bot
-   */
-  queryArgsShrink?: string;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  static names(): { [key: string]: string } {
-    return {
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      phase: 'Phase',
-      queryArgsShrink: 'QueryArgs',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      pageNumber: 'number',
-      pageSize: 'number',
-      phase: 'string',
-      queryArgsShrink: 'string',
-      siteId: 'number',
-      siteVersion: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The number of WAF rulesets that are used by the instance in the WAF rule category.
-   * 
-   * @example
-   * 10
-   */
-  instanceUsage?: number;
-  /**
-   * @remarks
-   * The page number returned.
-   * 
-   * @example
-   * 1
-   */
-  pageNumber?: number;
-  /**
-   * @remarks
-   * The number of entries per page.
-   * 
-   * @example
-   * 20
-   */
-  pageSize?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The details of the rulesets.
-   */
-  rulesets?: ListWafRulesetsResponseBodyRulesets[];
-  /**
-   * @remarks
-   * The number of WAF rulesets that are used by the website in the WAF rule category.
-   * 
-   * @example
-   * 5
-   */
-  siteUsage?: number;
-  /**
-   * @remarks
-   * The total number of filtered rulesets.
-   * 
-   * @example
-   * 5
-   */
-  totalCount?: number;
-  static names(): { [key: string]: string } {
-    return {
-      instanceUsage: 'InstanceUsage',
-      pageNumber: 'PageNumber',
-      pageSize: 'PageSize',
-      requestId: 'RequestId',
-      rulesets: 'Rulesets',
-      siteUsage: 'SiteUsage',
-      totalCount: 'TotalCount',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceUsage: 'number',
-      pageNumber: 'number',
-      pageSize: 'number',
-      requestId: 'string',
-      rulesets: { 'type': 'array', 'itemType': ListWafRulesetsResponseBodyRulesets },
-      siteUsage: 'number',
-      totalCount: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: ListWafRulesetsResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListWafRulesetsResponseBody,
     };
   }
 
@@ -23830,16 +22241,23 @@ export class SetCertificateResponse extends $tea.Model {
 export class SetClientCertificateHostnamesRequest extends $tea.Model {
   /**
    * @remarks
+   * The domain names to associate.
+   * 
    * This parameter is required.
    */
   hostnames?: string[];
   /**
+   * @remarks
+   * The ID of the client CA certificate.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
    */
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23870,16 +22288,23 @@ export class SetClientCertificateHostnamesRequest extends $tea.Model {
 export class SetClientCertificateHostnamesShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * The domain names to associate.
+   * 
    * This parameter is required.
    */
   hostnamesShrink?: string;
   /**
+   * @remarks
+   * The ID of the client CA certificate.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
    */
   id?: string;
   /**
    * @remarks
+   * The website ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23909,21 +22334,33 @@ export class SetClientCertificateHostnamesShrinkRequest extends $tea.Model {
 
 export class SetClientCertificateHostnamesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the client CA certificate.
+   * 
    * @example
    * babab9db65ee5efcca9f3d41d4b50d66
    */
   id?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ET5BF670-09D5-4D0B-BEBY-D96A2A528000
    */
   requestId?: string;
   /**
+   * @remarks
+   * The website ID.
+   * 
    * @example
    * 1234567890123
    */
   siteId?: number;
   /**
+   * @remarks
+   * The website name.
+   * 
    * @example
    * example.com
    */
@@ -26911,330 +25348,6 @@ export class UpdateUserDeliveryTaskStatusResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateUserDeliveryTaskStatusResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRuleRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the rule.
-   */
-  config?: WafRuleConfig;
-  /**
-   * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The order of the rule in the ruleset.
-   * 
-   * @example
-   * 1
-   */
-  position?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  /**
-   * @remarks
-   * The status of the rule.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      config: 'Config',
-      id: 'Id',
-      position: 'Position',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      config: WafRuleConfig,
-      id: 'number',
-      position: 'number',
-      siteId: 'number',
-      siteVersion: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRuleShrinkRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The configuration of the rule.
-   */
-  configShrink?: string;
-  /**
-   * @remarks
-   * The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The order of the rule in the ruleset.
-   * 
-   * @example
-   * 1
-   */
-  position?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 0
-   */
-  siteVersion?: number;
-  /**
-   * @remarks
-   * The status of the rule.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configShrink: 'Config',
-      id: 'Id',
-      position: 'Position',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configShrink: 'string',
-      id: 'number',
-      position: 'number',
-      siteId: 'number',
-      siteVersion: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRuleResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF rule.[](~~2850237~~)
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRuleResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateWafRuleResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateWafRuleResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRulesetRequest extends $tea.Model {
-  /**
-   * @remarks
-   * The ID of the WAF ruleset, which can be obtained by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2850233.html) operation.
-   * 
-   * This parameter is required.
-   * 
-   * @example
-   * 10000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-   * 
-   * @example
-   * 1
-   */
-  siteId?: number;
-  /**
-   * @remarks
-   * The version of the website.
-   * 
-   * @example
-   * 1
-   */
-  siteVersion?: number;
-  /**
-   * @remarks
-   * The status to which you want to change the ruleset.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      id: 'Id',
-      siteId: 'SiteId',
-      siteVersion: 'SiteVersion',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      id: 'number',
-      siteId: 'number',
-      siteVersion: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRulesetResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * 36af3fcc-43d0-441c-86b1-428951dc8225
-   */
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateWafRulesetResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateWafRulesetResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateWafRulesetResponseBody,
     };
   }
 
@@ -38783,6 +36896,10 @@ export class ListSitesResponseBodySites extends $tea.Model {
    * verify_d516cb3740f81f0cef77d162edd1****
    */
   verifyCode?: string;
+  /**
+   * @example
+   * 2023-12-24T02:01:11Z
+   */
   visitTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39340,7 +37457,7 @@ export class ListWafManagedRulesRequestQueryArgs extends $tea.Model {
   protectionLevels?: number[];
   /**
    * @remarks
-   * The status.
+   * The status of the rule.
    * 
    * @example
    * on
@@ -39507,389 +37624,6 @@ export class ListWafPhasesResponseBodyPhases extends $tea.Model {
     return {
       phase: 'string',
       rulesets: { 'type': 'array', 'itemType': ListWafPhasesResponseBodyPhasesRulesets },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesRequestQueryArgs extends $tea.Model {
-  configValueLike?: string;
-  /**
-   * @remarks
-   * Specifies whether to sort the returned data in descending order.
-   * 
-   * @example
-   * true
-   */
-  desc?: boolean;
-  /**
-   * @remarks
-   * The ID of a WAF rule for exact search.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ID or name of a WAF rule for fuzzy search.
-   * 
-   * @example
-   * example
-   */
-  idNameLike?: string;
-  /**
-   * @remarks
-   * The name of a WAF rule for fuzzy search.
-   * 
-   * @example
-   * example
-   */
-  nameLike?: string;
-  /**
-   * @remarks
-   * The column by which you want to sort the returned data.
-   * 
-   * @example
-   * position
-   */
-  orderBy?: string;
-  /**
-   * @remarks
-   * The ID of a WAF ruleset for exact search.
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  /**
-   * @remarks
-   * The status of a WAF rule for exact search.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      configValueLike: 'ConfigValueLike',
-      desc: 'Desc',
-      id: 'Id',
-      idNameLike: 'IdNameLike',
-      nameLike: 'NameLike',
-      orderBy: 'OrderBy',
-      rulesetId: 'RulesetId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      configValueLike: 'string',
-      desc: 'boolean',
-      id: 'number',
-      idNameLike: 'string',
-      nameLike: 'string',
-      orderBy: 'string',
-      rulesetId: 'number',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesResponseBodyRules extends $tea.Model {
-  /**
-   * @remarks
-   * The action triggered when requests match conditions defined in the rule.
-   * 
-   * @example
-   * deny
-   */
-  action?: string;
-  /**
-   * @remarks
-   * The fields in rate limiting rules.
-   */
-  characteristicsFields?: string[];
-  /**
-   * @remarks
-   * The configuration of the rule.
-   */
-  config?: WafRuleConfig;
-  /**
-   * @remarks
-   * The fields in the rule.
-   */
-  fields?: string[];
-  /**
-   * @remarks
-   * The rule ID.
-   * 
-   * @example
-   * 20000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The rule name.
-   * 
-   * @example
-   * example
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_custom
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The position of the rule in the ruleset.
-   * 
-   * @example
-   * 1
-   */
-  position?: number;
-  /**
-   * @remarks
-   * The ruleset ID.
-   * 
-   * @example
-   * 10000001
-   */
-  rulesetId?: number;
-  /**
-   * @remarks
-   * The skip scope applied when requests match conditions defined in the whitelist rule.
-   * 
-   * @example
-   * part
-   */
-  skip?: string;
-  /**
-   * @remarks
-   * Indicates whether the rule is enabled.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The skipped WAF rule categories when requests match conditions defined in the whitelist rule.
-   */
-  tags?: string[];
-  /**
-   * @remarks
-   * The time when the rule takes effect.
-   */
-  timer?: WafTimer;
-  /**
-   * @remarks
-   * The WAF rule type.
-   * 
-   * @example
-   * http_custom
-   */
-  type?: string;
-  /**
-   * @remarks
-   * The time when the rule was modified.
-   * 
-   * @example
-   * 2024-01-01T00:00:00Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      action: 'Action',
-      characteristicsFields: 'CharacteristicsFields',
-      config: 'Config',
-      fields: 'Fields',
-      id: 'Id',
-      name: 'Name',
-      phase: 'Phase',
-      position: 'Position',
-      rulesetId: 'RulesetId',
-      skip: 'Skip',
-      status: 'Status',
-      tags: 'Tags',
-      timer: 'Timer',
-      type: 'Type',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      action: 'string',
-      characteristicsFields: { 'type': 'array', 'itemType': 'string' },
-      config: WafRuleConfig,
-      fields: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      name: 'string',
-      phase: 'string',
-      position: 'number',
-      rulesetId: 'number',
-      skip: 'string',
-      status: 'string',
-      tags: { 'type': 'array', 'itemType': 'string' },
-      timer: WafTimer,
-      type: 'string',
-      updateTime: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsRequestQueryArgs extends $tea.Model {
-  /**
-   * @remarks
-   * The ruleset ID, ruleset name, rule ID, or rule name for fuzzy search.
-   * 
-   * @example
-   * example
-   */
-  anyLike?: string;
-  /**
-   * @remarks
-   * Specifies whether to sort the returned data in descending order.
-   */
-  desc?: boolean;
-  /**
-   * @remarks
-   * The ruleset name for fuzzy search.
-   * 
-   * @example
-   * example
-   */
-  nameLike?: string;
-  /**
-   * @remarks
-   * The column by which you want to sort the returned data.
-   * 
-   * @example
-   * id
-   */
-  orderBy?: string;
-  static names(): { [key: string]: string } {
-    return {
-      anyLike: 'AnyLike',
-      desc: 'Desc',
-      nameLike: 'NameLike',
-      orderBy: 'OrderBy',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      anyLike: 'string',
-      desc: 'boolean',
-      nameLike: 'string',
-      orderBy: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListWafRulesetsResponseBodyRulesets extends $tea.Model {
-  /**
-   * @remarks
-   * The matched objects.
-   */
-  fields?: string[];
-  /**
-   * @remarks
-   * The ID of the WAF ruleset.[](~~2850233~~)
-   * 
-   * @example
-   * 10000001
-   */
-  id?: number;
-  /**
-   * @remarks
-   * The ruleset name.
-   * 
-   * @example
-   * example
-   */
-  name?: string;
-  /**
-   * @remarks
-   * The WAF rule category.
-   * 
-   * @example
-   * http_bot
-   */
-  phase?: string;
-  /**
-   * @remarks
-   * The ruleset status.
-   * 
-   * @example
-   * on
-   */
-  status?: string;
-  /**
-   * @remarks
-   * The type of the protection target in the http_bot rule category.
-   * 
-   * @example
-   * web
-   */
-  target?: string;
-  /**
-   * @remarks
-   * The types of rules.
-   */
-  types?: string[];
-  /**
-   * @remarks
-   * The time when the ruleset was last modified.
-   * 
-   * @example
-   * 2024-01-01T00:00:00Z
-   */
-  updateTime?: string;
-  static names(): { [key: string]: string } {
-    return {
-      fields: 'Fields',
-      id: 'Id',
-      name: 'Name',
-      phase: 'Phase',
-      status: 'Status',
-      target: 'Target',
-      types: 'Types',
-      updateTime: 'UpdateTime',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      fields: { 'type': 'array', 'itemType': 'string' },
-      id: 'number',
-      name: 'string',
-      phase: 'string',
-      status: 'string',
-      target: 'string',
-      types: { 'type': 'array', 'itemType': 'string' },
-      updateTime: 'string',
     };
   }
 
@@ -41053,76 +38787,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
-   * 
-   * @param tmpReq - BatchCreateWafRulesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns BatchCreateWafRulesResponse
-   */
-  async batchCreateWafRulesWithOptions(tmpReq: BatchCreateWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateWafRulesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchCreateWafRulesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.configs)) {
-      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.shared)) {
-      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.configsShrink)) {
-      body["Configs"] = request.configsShrink;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      body["Phase"] = request.phase;
-    }
-
-    if (!Util.isUnset(request.sharedShrink)) {
-      body["Shared"] = request.sharedShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "BatchCreateWafRules",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<BatchCreateWafRulesResponse>(await this.callApi(params, req, runtime), new BatchCreateWafRulesResponse({}));
-  }
-
-  /**
-   * Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
-   * 
-   * @param request - BatchCreateWafRulesRequest
-   * @returns BatchCreateWafRulesResponse
-   */
-  async batchCreateWafRules(request: BatchCreateWafRulesRequest): Promise<BatchCreateWafRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchCreateWafRulesWithOptions(request, runtime);
-  }
-
-  /**
    * Deletes key-value pairs from a namespace at a time based on keys.
    * 
    * @param tmpReq - BatchDeleteKvRequest
@@ -41692,80 +39356,6 @@ export default class Client extends OpenApi {
 
     let batchPutKvWithHighCapacityResp = await this.batchPutKvWithHighCapacityWithOptions(batchPutKvWithHighCapacityReq, runtime);
     return batchPutKvWithHighCapacityResp;
-  }
-
-  /**
-   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
-   * 
-   * @param tmpReq - BatchUpdateWafRulesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns BatchUpdateWafRulesResponse
-   */
-  async batchUpdateWafRulesWithOptions(tmpReq: BatchUpdateWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<BatchUpdateWafRulesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new BatchUpdateWafRulesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.configs)) {
-      request.configsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.configs, "Configs", "json");
-    }
-
-    if (!Util.isUnset(tmpReq.shared)) {
-      request.sharedShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shared, "Shared", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.configsShrink)) {
-      body["Configs"] = request.configsShrink;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      body["Phase"] = request.phase;
-    }
-
-    if (!Util.isUnset(request.rulesetId)) {
-      body["RulesetId"] = request.rulesetId;
-    }
-
-    if (!Util.isUnset(request.sharedShrink)) {
-      body["Shared"] = request.sharedShrink;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "BatchUpdateWafRules",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<BatchUpdateWafRulesResponse>(await this.callApi(params, req, runtime), new BatchUpdateWafRulesResponse({}));
-  }
-
-  /**
-   * Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
-   * 
-   * @param request - BatchUpdateWafRulesRequest
-   * @returns BatchUpdateWafRulesResponse
-   */
-  async batchUpdateWafRules(request: BatchUpdateWafRulesRequest): Promise<BatchUpdateWafRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.batchUpdateWafRulesWithOptions(request, runtime);
   }
 
   /**
@@ -43307,68 +40897,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
-   * 
-   * @param tmpReq - CreateWafRuleRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateWafRuleResponse
-   */
-  async createWafRuleWithOptions(tmpReq: CreateWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateWafRuleResponse> {
-    Util.validateModel(tmpReq);
-    let request = new CreateWafRuleShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.config)) {
-      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.configShrink)) {
-      body["Config"] = request.configShrink;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      body["Phase"] = request.phase;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateWafRule",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateWafRuleResponse>(await this.callApi(params, req, runtime), new CreateWafRuleResponse({}));
-  }
-
-  /**
-   * Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
-   * 
-   * @param request - CreateWafRuleRequest
-   * @returns CreateWafRuleResponse
-   */
-  async createWafRule(request: CreateWafRuleRequest): Promise<CreateWafRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createWafRuleWithOptions(request, runtime);
-  }
-
-  /**
    * Creates a waiting room for a website.
    * 
    * @param tmpReq - CreateWaitingRoomRequest
@@ -44631,110 +42159,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
-   * 
-   * @param request - DeleteWafRuleRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteWafRuleResponse
-   */
-  async deleteWafRuleWithOptions(request: DeleteWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWafRuleResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteWafRule",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteWafRuleResponse>(await this.callApi(params, req, runtime), new DeleteWafRuleResponse({}));
-  }
-
-  /**
-   * Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
-   * 
-   * @param request - DeleteWafRuleRequest
-   * @returns DeleteWafRuleResponse
-   */
-  async deleteWafRule(request: DeleteWafRuleRequest): Promise<DeleteWafRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWafRuleWithOptions(request, runtime);
-  }
-
-  /**
-   * Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
-   * 
-   * @param request - DeleteWafRulesetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteWafRulesetResponse
-   */
-  async deleteWafRulesetWithOptions(request: DeleteWafRulesetRequest, runtime: $Util.RuntimeOptions): Promise<DeleteWafRulesetResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteWafRuleset",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteWafRulesetResponse>(await this.callApi(params, req, runtime), new DeleteWafRulesetResponse({}));
-  }
-
-  /**
-   * Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
-   * 
-   * @param request - DeleteWafRulesetRequest
-   * @returns DeleteWafRulesetResponse
-   */
-  async deleteWafRuleset(request: DeleteWafRulesetRequest): Promise<DeleteWafRulesetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteWafRulesetWithOptions(request, runtime);
-  }
-
-  /**
    * Deletes a waiting room.
    * 
    * @param request - DeleteWaitingRoomRequest
@@ -45503,7 +42927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书绑定的域名列表
+   * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
    * 
    * @param request - GetClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45530,7 +42954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取客户端证书绑定的域名列表
+   * Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
    * 
    * @param request - GetClientCertificateHostnamesRequest
    * @returns GetClientCertificateHostnamesResponse
@@ -46929,102 +44353,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
-   * 
-   * @param request - GetWafRuleRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetWafRuleResponse
-   */
-  async getWafRuleWithOptions(request: GetWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<GetWafRuleResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetWafRule",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetWafRuleResponse>(await this.callApi(params, req, runtime), new GetWafRuleResponse({}));
-  }
-
-  /**
-   * Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
-   * 
-   * @param request - GetWafRuleRequest
-   * @returns GetWafRuleResponse
-   */
-  async getWafRule(request: GetWafRuleRequest): Promise<GetWafRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWafRuleWithOptions(request, runtime);
-  }
-
-  /**
-   * Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
-   * 
-   * @param request - GetWafRulesetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetWafRulesetResponse
-   */
-  async getWafRulesetWithOptions(request: GetWafRulesetRequest, runtime: $Util.RuntimeOptions): Promise<GetWafRulesetResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.id)) {
-      query["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      query["Phase"] = request.phase;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetWafRuleset",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetWafRulesetResponse>(await this.callApi(params, req, runtime), new GetWafRulesetResponse({}));
-  }
-
-  /**
-   * Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
-   * 
-   * @param request - GetWafRulesetRequest
-   * @returns GetWafRulesetResponse
-   */
-  async getWafRuleset(request: GetWafRulesetRequest): Promise<GetWafRulesetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getWafRulesetWithOptions(request, runtime);
-  }
-
-  /**
    * Queries the cache reserve instances in your Alibaba Cloud account.
    * 
    * @param request - ListCacheReserveInstancesRequest
@@ -48313,142 +45641,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-   * 
-   * @param tmpReq - ListWafRulesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListWafRulesResponse
-   */
-  async listWafRulesWithOptions(tmpReq: ListWafRulesRequest, runtime: $Util.RuntimeOptions): Promise<ListWafRulesResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListWafRulesShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queryArgs)) {
-      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      query["Phase"] = request.phase;
-    }
-
-    if (!Util.isUnset(request.queryArgsShrink)) {
-      query["QueryArgs"] = request.queryArgsShrink;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListWafRules",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListWafRulesResponse>(await this.callApi(params, req, runtime), new ListWafRulesResponse({}));
-  }
-
-  /**
-   * Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-   * 
-   * @param request - ListWafRulesRequest
-   * @returns ListWafRulesResponse
-   */
-  async listWafRules(request: ListWafRulesRequest): Promise<ListWafRulesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listWafRulesWithOptions(request, runtime);
-  }
-
-  /**
-   * Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
-   * 
-   * @param tmpReq - ListWafRulesetsRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns ListWafRulesetsResponse
-   */
-  async listWafRulesetsWithOptions(tmpReq: ListWafRulesetsRequest, runtime: $Util.RuntimeOptions): Promise<ListWafRulesetsResponse> {
-    Util.validateModel(tmpReq);
-    let request = new ListWafRulesetsShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.queryArgs)) {
-      request.queryArgsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryArgs, "QueryArgs", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.pageNumber)) {
-      query["PageNumber"] = request.pageNumber;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.phase)) {
-      query["Phase"] = request.phase;
-    }
-
-    if (!Util.isUnset(request.queryArgsShrink)) {
-      query["QueryArgs"] = request.queryArgsShrink;
-    }
-
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListWafRulesets",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListWafRulesetsResponse>(await this.callApi(params, req, runtime), new ListWafRulesetsResponse({}));
-  }
-
-  /**
-   * Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
-   * 
-   * @param request - ListWafRulesetsRequest
-   * @returns ListWafRulesetsResponse
-   */
-  async listWafRulesets(request: ListWafRulesetsRequest): Promise<ListWafRulesetsResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listWafRulesetsWithOptions(request, runtime);
-  }
-
-  /**
    * Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
    * 
    * @param tmpReq - ListWafTemplateRulesRequest
@@ -49476,7 +46668,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为客户端证书绑定域名
+   * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
    * 
    * @param tmpReq - SetClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49523,7 +46715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 为客户端证书绑定域名
+   * Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
    * 
    * @param request - SetClientCertificateHostnamesRequest
    * @returns SetClientCertificateHostnamesResponse
@@ -50665,132 +47857,6 @@ export default class Client extends OpenApi {
   async updateUserDeliveryTaskStatus(request: UpdateUserDeliveryTaskStatusRequest): Promise<UpdateUserDeliveryTaskStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateUserDeliveryTaskStatusWithOptions(request, runtime);
-  }
-
-  /**
-   * Modifies the configuration or status of a Web Application Firewall (WAF) rule.
-   * 
-   * @param tmpReq - UpdateWafRuleRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateWafRuleResponse
-   */
-  async updateWafRuleWithOptions(tmpReq: UpdateWafRuleRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWafRuleResponse> {
-    Util.validateModel(tmpReq);
-    let request = new UpdateWafRuleShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!Util.isUnset(tmpReq.config)) {
-      request.configShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.config, "Config", "json");
-    }
-
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.configShrink)) {
-      body["Config"] = request.configShrink;
-    }
-
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.position)) {
-      body["Position"] = request.position;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateWafRule",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateWafRuleResponse>(await this.callApi(params, req, runtime), new UpdateWafRuleResponse({}));
-  }
-
-  /**
-   * Modifies the configuration or status of a Web Application Firewall (WAF) rule.
-   * 
-   * @param request - UpdateWafRuleRequest
-   * @returns UpdateWafRuleResponse
-   */
-  async updateWafRule(request: UpdateWafRuleRequest): Promise<UpdateWafRuleResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateWafRuleWithOptions(request, runtime);
-  }
-
-  /**
-   * Updates a WAF ruleset based on its ID.
-   * 
-   * @param request - UpdateWafRulesetRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateWafRulesetResponse
-   */
-  async updateWafRulesetWithOptions(request: UpdateWafRulesetRequest, runtime: $Util.RuntimeOptions): Promise<UpdateWafRulesetResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.siteId)) {
-      query["SiteId"] = request.siteId;
-    }
-
-    if (!Util.isUnset(request.siteVersion)) {
-      query["SiteVersion"] = request.siteVersion;
-    }
-
-    let body : {[key: string ]: any} = { };
-    if (!Util.isUnset(request.id)) {
-      body["Id"] = request.id;
-    }
-
-    if (!Util.isUnset(request.status)) {
-      body["Status"] = request.status;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-      body: OpenApiUtil.parseToMap(body),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateWafRuleset",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateWafRulesetResponse>(await this.callApi(params, req, runtime), new UpdateWafRulesetResponse({}));
-  }
-
-  /**
-   * Updates a WAF ruleset based on its ID.
-   * 
-   * @param request - UpdateWafRulesetRequest
-   * @returns UpdateWafRulesetResponse
-   */
-  async updateWafRuleset(request: UpdateWafRulesetRequest): Promise<UpdateWafRulesetResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateWafRulesetWithOptions(request, runtime);
   }
 
   /**
