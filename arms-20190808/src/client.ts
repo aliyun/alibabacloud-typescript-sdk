@@ -21255,6 +21255,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
    * 16643
    */
   exceptionThreadId?: string;
+  extraInfo?: string;
   /**
    * @remarks
    * The application ID.
@@ -21290,6 +21291,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
       exceptionBinaryImages: 'ExceptionBinaryImages',
       exceptionStack: 'ExceptionStack',
       exceptionThreadId: 'ExceptionThreadId',
+      extraInfo: 'ExtraInfo',
       pid: 'Pid',
       regionId: 'RegionId',
       sourcemapType: 'SourcemapType',
@@ -21301,6 +21303,7 @@ export class GetRumExceptionStackRequest extends $tea.Model {
       exceptionBinaryImages: 'string',
       exceptionStack: 'string',
       exceptionThreadId: 'string',
+      extraInfo: 'string',
       pid: 'string',
       regionId: 'string',
       sourcemapType: 'string',
@@ -78283,6 +78286,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.exceptionThreadId)) {
       query["ExceptionThreadId"] = request.exceptionThreadId;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      query["ExtraInfo"] = request.extraInfo;
     }
 
     if (!Util.isUnset(request.pid)) {
