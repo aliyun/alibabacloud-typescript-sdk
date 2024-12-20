@@ -9,10 +9,7 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class AnalyzeConversationRequest extends $tea.Model {
   categoryTags?: AnalyzeConversationRequestCategoryTags[];
-  /**
-   * @remarks
-   * This parameter is required.
-   */
+  customPrompt?: string;
   dialogue?: AnalyzeConversationRequestDialogue;
   examples?: AnalyzeConversationRequestExamples[];
   fields?: AnalyzeConversationRequestFields[];
@@ -42,6 +39,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       categoryTags: 'categoryTags',
+      customPrompt: 'customPrompt',
       dialogue: 'dialogue',
       examples: 'examples',
       fields: 'fields',
@@ -59,6 +57,7 @@ export class AnalyzeConversationRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       categoryTags: { 'type': 'array', 'itemType': AnalyzeConversationRequestCategoryTags },
+      customPrompt: 'string',
       dialogue: AnalyzeConversationRequestDialogue,
       examples: { 'type': 'array', 'itemType': AnalyzeConversationRequestExamples },
       fields: { 'type': 'array', 'itemType': AnalyzeConversationRequestFields },
@@ -1688,6 +1687,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.categoryTags)) {
       body["categoryTags"] = request.categoryTags;
+    }
+
+    if (!Util.isUnset(request.customPrompt)) {
+      body["customPrompt"] = request.customPrompt;
     }
 
     if (!Util.isUnset(request.dialogue)) {
