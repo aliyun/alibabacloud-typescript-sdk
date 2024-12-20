@@ -2498,6 +2498,24 @@ export class CreateServerGroupRequest extends $tea.Model {
    * >*   Server groups of the instance and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
    */
   connectionDrainConfig?: CreateServerGroupRequestConnectionDrainConfig;
+  /**
+   * @remarks
+   * Specifies whether to enable cross-zone load balancing. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * > 
+   * 
+   * *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
+   * 
+   * *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
+   * 
+   * *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+   * 
+   * @example
+   * true
+   */
   crossZoneEnabled?: boolean;
   /**
    * @remarks
@@ -3449,7 +3467,7 @@ export class DeleteRulesRequest extends $tea.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the forwarding rule. Valid values of N: **1** to **5**.
+   * The forwarding rules.
    * 
    * This parameter is required.
    */
@@ -3759,7 +3777,7 @@ export class DeleteServerGroupResponse extends $tea.Model {
 export class DescribeRegionsRequest extends $tea.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The supported language. Valid values:
    * 
    * *   **zh-CN** (default): Chinese
    * *   **en-US**: English
@@ -3847,7 +3865,7 @@ export class DescribeRegionsResponse extends $tea.Model {
 export class DescribeZonesRequest extends $tea.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The supported language. Valid values:
    * 
    * *   **zh-CN** (default): Chinese
    * *   **en-US**: English
@@ -11931,6 +11949,24 @@ export class UpdateServerGroupAttributeRequest extends $tea.Model {
    * *   Server groups of the server and IP types support connection draining. Server groups of the Function Compute type do not support connection draining.
    */
   connectionDrainConfig?: UpdateServerGroupAttributeRequestConnectionDrainConfig;
+  /**
+   * @remarks
+   * Indicates whether cross-zone load balancing is enabled for the server group. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
+   * 
+   * > 
+   * 
+   * *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
+   * 
+   * *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
+   * 
+   * *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+   * 
+   * @example
+   * true
+   */
   crossZoneEnabled?: boolean;
   /**
    * @remarks
@@ -13048,6 +13084,8 @@ export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
    * true
    */
   XForwardedForEnabled?: boolean;
+  XForwardedForHostEnabled?: boolean;
+  XForwardedForProcessingMode?: string;
   /**
    * @remarks
    * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
@@ -13101,6 +13139,8 @@ export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
       XForwardedForClientSourceIpsTrusted: 'XForwardedForClientSourceIpsTrusted',
       XForwardedForClientSrcPortEnabled: 'XForwardedForClientSrcPortEnabled',
       XForwardedForEnabled: 'XForwardedForEnabled',
+      XForwardedForHostEnabled: 'XForwardedForHostEnabled',
+      XForwardedForProcessingMode: 'XForwardedForProcessingMode',
       XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XForwardedForSLBIdEnabled: 'XForwardedForSLBIdEnabled',
       XForwardedForSLBPortEnabled: 'XForwardedForSLBPortEnabled',
@@ -13121,6 +13161,8 @@ export class CreateListenerRequestXForwardedForConfig extends $tea.Model {
       XForwardedForClientSourceIpsTrusted: 'string',
       XForwardedForClientSrcPortEnabled: 'boolean',
       XForwardedForEnabled: 'boolean',
+      XForwardedForHostEnabled: 'boolean',
+      XForwardedForProcessingMode: 'string',
       XForwardedForProtoEnabled: 'boolean',
       XForwardedForSLBIdEnabled: 'boolean',
       XForwardedForSLBPortEnabled: 'boolean',
@@ -16447,6 +16489,8 @@ export class GetListenerAttributeResponseBodyXForwardedForConfig extends $tea.Mo
    * true
    */
   XForwardedForEnabled?: boolean;
+  XForwardedForHostEnabled?: boolean;
+  XForwardedForProcessingMode?: string;
   /**
    * @remarks
    * Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
@@ -16500,6 +16544,8 @@ export class GetListenerAttributeResponseBodyXForwardedForConfig extends $tea.Mo
       XForwardedForClientSourceIpsTrusted: 'XForwardedForClientSourceIpsTrusted',
       XForwardedForClientSrcPortEnabled: 'XForwardedForClientSrcPortEnabled',
       XForwardedForEnabled: 'XForwardedForEnabled',
+      XForwardedForHostEnabled: 'XForwardedForHostEnabled',
+      XForwardedForProcessingMode: 'XForwardedForProcessingMode',
       XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XForwardedForSLBIdEnabled: 'XForwardedForSLBIdEnabled',
       XForwardedForSLBPortEnabled: 'XForwardedForSLBPortEnabled',
@@ -16520,6 +16566,8 @@ export class GetListenerAttributeResponseBodyXForwardedForConfig extends $tea.Mo
       XForwardedForClientSourceIpsTrusted: 'string',
       XForwardedForClientSrcPortEnabled: 'boolean',
       XForwardedForEnabled: 'boolean',
+      XForwardedForHostEnabled: 'boolean',
+      XForwardedForProcessingMode: 'string',
       XForwardedForProtoEnabled: 'boolean',
       XForwardedForSLBIdEnabled: 'boolean',
       XForwardedForSLBPortEnabled: 'boolean',
@@ -18714,6 +18762,8 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.
    * true
    */
   XForwardedForEnabled?: boolean;
+  XForwardedForHostEnabled?: boolean;
+  XForwardedForProcessingMode?: string;
   /**
    * @remarks
    * Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listener protocol. Valid values:
@@ -18767,6 +18817,8 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.
       XForwardedForClientSourceIpsTrusted: 'XForwardedForClientSourceIpsTrusted',
       XForwardedForClientSrcPortEnabled: 'XForwardedForClientSrcPortEnabled',
       XForwardedForEnabled: 'XForwardedForEnabled',
+      XForwardedForHostEnabled: 'XForwardedForHostEnabled',
+      XForwardedForProcessingMode: 'XForwardedForProcessingMode',
       XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XForwardedForSLBIdEnabled: 'XForwardedForSLBIdEnabled',
       XForwardedForSLBPortEnabled: 'XForwardedForSLBPortEnabled',
@@ -18787,6 +18839,8 @@ export class ListListenersResponseBodyListenersXForwardedForConfig extends $tea.
       XForwardedForClientSourceIpsTrusted: 'string',
       XForwardedForClientSrcPortEnabled: 'boolean',
       XForwardedForEnabled: 'boolean',
+      XForwardedForHostEnabled: 'boolean',
+      XForwardedForProcessingMode: 'string',
       XForwardedForProtoEnabled: 'boolean',
       XForwardedForSLBIdEnabled: 'boolean',
       XForwardedForSLBPortEnabled: 'boolean',
@@ -21626,7 +21680,10 @@ export class ListServerGroupsResponseBodyServerGroups extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * 是否开启跨可用区转发。（默认开启）
+   * Indicates whether cross-zone load balancing is enabled. Valid values:
+   * 
+   * *   **true** (default)
+   * *   **false**
    * 
    * @example
    * true
@@ -22827,6 +22884,8 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $tea.Mode
    * true
    */
   XForwardedForEnabled?: boolean;
+  XForwardedForHostEnabled?: boolean;
+  XForwardedForProcessingMode?: string;
   /**
    * @remarks
    * Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
@@ -22880,6 +22939,8 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $tea.Mode
       XForwardedForClientSourceIpsTrusted: 'XForwardedForClientSourceIpsTrusted',
       XForwardedForClientSrcPortEnabled: 'XForwardedForClientSrcPortEnabled',
       XForwardedForEnabled: 'XForwardedForEnabled',
+      XForwardedForHostEnabled: 'XForwardedForHostEnabled',
+      XForwardedForProcessingMode: 'XForwardedForProcessingMode',
       XForwardedForProtoEnabled: 'XForwardedForProtoEnabled',
       XForwardedForSLBIdEnabled: 'XForwardedForSLBIdEnabled',
       XForwardedForSLBPortEnabled: 'XForwardedForSLBPortEnabled',
@@ -22900,6 +22961,8 @@ export class UpdateListenerAttributeRequestXForwardedForConfig extends $tea.Mode
       XForwardedForClientSourceIpsTrusted: 'string',
       XForwardedForClientSrcPortEnabled: 'boolean',
       XForwardedForEnabled: 'boolean',
+      XForwardedForHostEnabled: 'boolean',
+      XForwardedForProcessingMode: 'string',
       XForwardedForProtoEnabled: 'boolean',
       XForwardedForSLBIdEnabled: 'boolean',
       XForwardedForSLBPortEnabled: 'boolean',
