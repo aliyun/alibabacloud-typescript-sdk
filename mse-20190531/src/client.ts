@@ -6615,25 +6615,12 @@ export class CreateClusterRequest extends $tea.Model {
   diskType?: string;
   /**
    * @remarks
-   * Specifies whether to enable Internet access (Elastic IP Address) if ConnectionType is set to `single_eni`.
+   * Specifies whether to enable elastic IP addresses. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
    * 
    * Valid values:
    * 
    * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * **if can be null:**
    * false
@@ -6757,11 +6744,6 @@ export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
    * The type of the security group to which the instance belongs. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
-   * 
-   * Valid values:
-   * 
-   * *   enterprise
-   * *   normal
    * 
    * @example
    * enterprise
@@ -21788,6 +21770,11 @@ export class ImportServicesRequest extends $tea.Model {
    */
   serviceList?: ImportServicesRequestServiceList[];
   /**
+   * @example
+   * 100
+   */
+  sourceId?: number;
+  /**
    * @remarks
    * The service source. Valid values:
    * 
@@ -21827,6 +21814,7 @@ export class ImportServicesRequest extends $tea.Model {
       fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
       serviceList: 'ServiceList',
+      sourceId: 'SourceId',
       sourceType: 'SourceType',
       tlsSetting: 'TlsSetting',
     };
@@ -21840,6 +21828,7 @@ export class ImportServicesRequest extends $tea.Model {
       fcVersion: 'string',
       gatewayUniqueId: 'string',
       serviceList: { 'type': 'array', 'itemType': ImportServicesRequestServiceList },
+      sourceId: 'number',
       sourceType: 'string',
       tlsSetting: 'string',
     };
@@ -21882,6 +21871,11 @@ export class ImportServicesShrinkRequest extends $tea.Model {
    */
   serviceListShrink?: string;
   /**
+   * @example
+   * 100
+   */
+  sourceId?: number;
+  /**
    * @remarks
    * The service source. Valid values:
    * 
@@ -21921,6 +21915,7 @@ export class ImportServicesShrinkRequest extends $tea.Model {
       fcVersion: 'FcVersion',
       gatewayUniqueId: 'GatewayUniqueId',
       serviceListShrink: 'ServiceList',
+      sourceId: 'SourceId',
       sourceType: 'SourceType',
       tlsSetting: 'TlsSetting',
     };
@@ -21934,6 +21929,7 @@ export class ImportServicesShrinkRequest extends $tea.Model {
       fcVersion: 'string',
       gatewayUniqueId: 'string',
       serviceListShrink: 'string',
+      sourceId: 'number',
       sourceType: 'string',
       tlsSetting: 'string',
     };
@@ -32836,6 +32832,11 @@ export class PullServicesRequest extends $tea.Model {
    */
   namespace?: string;
   /**
+   * @example
+   * 100
+   */
+  sourceId?: number;
+  /**
    * @remarks
    * The type of the service source.
    * 
@@ -32848,6 +32849,7 @@ export class PullServicesRequest extends $tea.Model {
       acceptLanguage: 'AcceptLanguage',
       gatewayUniqueId: 'GatewayUniqueId',
       namespace: 'Namespace',
+      sourceId: 'SourceId',
       sourceType: 'SourceType',
     };
   }
@@ -32857,6 +32859,7 @@ export class PullServicesRequest extends $tea.Model {
       acceptLanguage: 'string',
       gatewayUniqueId: 'string',
       namespace: 'string',
+      sourceId: 'number',
       sourceType: 'string',
     };
   }
@@ -68464,6 +68467,7 @@ export class PullServicesResponseBodyDataServices extends $tea.Model {
    * 1
    */
   sourceId?: string;
+  sourceIdList?: number[];
   /**
    * @remarks
    * The type of the service source.
@@ -68478,6 +68482,7 @@ export class PullServicesResponseBodyDataServices extends $tea.Model {
       name: 'Name',
       namespace: 'Namespace',
       sourceId: 'SourceId',
+      sourceIdList: 'SourceIdList',
       sourceType: 'SourceType',
     };
   }
@@ -68488,6 +68493,7 @@ export class PullServicesResponseBodyDataServices extends $tea.Model {
       name: 'string',
       namespace: 'string',
       sourceId: 'string',
+      sourceIdList: { 'type': 'array', 'itemType': 'number' },
       sourceType: 'string',
     };
   }
@@ -81379,6 +81385,10 @@ export default class Client extends OpenApi {
       query["ServiceList"] = request.serviceListShrink;
     }
 
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
+    }
+
     if (!Util.isUnset(request.sourceType)) {
       query["SourceType"] = request.sourceType;
     }
@@ -84743,6 +84753,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.namespace)) {
       query["Namespace"] = request.namespace;
+    }
+
+    if (!Util.isUnset(request.sourceId)) {
+      query["SourceId"] = request.sourceId;
     }
 
     if (!Util.isUnset(request.sourceType)) {
