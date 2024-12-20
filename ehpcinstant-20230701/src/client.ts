@@ -309,6 +309,129 @@ export class CreateJobResponse extends $tea.Model {
   }
 }
 
+export class CreatePoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  resourceLimits?: CreatePoolRequestResourceLimits;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+      priority: 'Priority',
+      resourceLimits: 'ResourceLimits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+      priority: 'number',
+      resourceLimits: CreatePoolRequestResourceLimits,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePoolShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  resourceLimitsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+      priority: 'Priority',
+      resourceLimitsShrink: 'ResourceLimits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+      priority: 'number',
+      resourceLimitsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreatePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreatePoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteJobsRequest extends $tea.Model {
   executorIds?: string[];
   jobSpec?: DeleteJobsRequestJobSpec[];
@@ -393,6 +516,83 @@ export class DeleteJobsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteJobsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeletePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeletePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeletePoolResponseBody,
     };
   }
 
@@ -956,6 +1156,86 @@ export class GetJobResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetJobResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPoolResponseBody extends $tea.Model {
+  poolInfo?: GetPoolResponseBodyPoolInfo;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      poolInfo: 'PoolInfo',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolInfo: GetPoolResponseBodyPoolInfo,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetPoolResponseBody,
     };
   }
 
@@ -1548,6 +1828,147 @@ export class ListJobsResponse extends $tea.Model {
   }
 }
 
+export class ListPoolsRequest extends $tea.Model {
+  filter?: ListPoolsRequestFilter;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filter: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filter: ListPoolsRequestFilter,
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoolsShrinkRequest extends $tea.Model {
+  filterShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      filterShrink: 'Filter',
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      filterShrink: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoolsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  poolList?: ListPoolsResponseBodyPoolList[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 896D338C-E4F4-41EC-A154-D605E5DE****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 2
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'PageNumber',
+      pageSize: 'PageSize',
+      poolList: 'PoolList',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+      poolList: { 'type': 'array', 'itemType': ListPoolsResponseBodyPoolList },
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoolsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListPoolsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListPoolsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequest extends $tea.Model {
   /**
    * @example
@@ -1907,6 +2328,129 @@ export class UnTagResourcesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UnTagResourcesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  resourceLimits?: UpdatePoolRequestResourceLimits;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+      priority: 'Priority',
+      resourceLimits: 'ResourceLimits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+      priority: 'number',
+      resourceLimits: UpdatePoolRequestResourceLimits,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePoolShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  resourceLimitsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+      priority: 'Priority',
+      resourceLimitsShrink: 'ResourceLimits',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: 'string',
+      priority: 'number',
+      resourceLimitsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePoolResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 04F0F334-1335-436C-A1D7-6C044FE7****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdatePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdatePoolResponseBody,
     };
   }
 
@@ -2478,6 +3022,29 @@ export class CreateJobResponseBodyTasks extends $tea.Model {
     return {
       executorIds: { 'type': 'array', 'itemType': 'string' },
       taskName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreatePoolRequestResourceLimits extends $tea.Model {
+  /**
+   * @example
+   * 2000
+   */
+  maxExectorNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxExectorNum: 'MaxExectorNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxExectorNum: 'number',
     };
   }
 
@@ -3290,6 +3857,85 @@ export class GetJobResponseBodyJobInfo extends $tea.Model {
   }
 }
 
+export class GetPoolResponseBodyPoolInfo extends $tea.Model {
+  /**
+   * @example
+   * 2024-12-01 20:00:00
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 1
+   */
+  exectorUsage?: number;
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * 2000
+   */
+  maxExectorNum?: number;
+  /**
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Fails to *** pool: ***.
+   */
+  reason?: string;
+  /**
+   * @example
+   * Working
+   */
+  status?: string;
+  /**
+   * @example
+   * 2024-12-01 20:00:00
+   */
+  updateTime?: string;
+  static names(): { [key: string]: string } {
+    return {
+      createTime: 'CreateTime',
+      exectorUsage: 'ExectorUsage',
+      isDefault: 'IsDefault',
+      maxExectorNum: 'MaxExectorNum',
+      poolName: 'PoolName',
+      priority: 'Priority',
+      reason: 'Reason',
+      status: 'Status',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      createTime: 'string',
+      exectorUsage: 'number',
+      isDefault: 'boolean',
+      maxExectorNum: 'number',
+      poolName: 'string',
+      priority: 'number',
+      reason: 'string',
+      status: 'string',
+      updateTime: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListExecutorsRequestFilter extends $tea.Model {
   executorIds?: string[];
   ipAddresses?: string[];
@@ -3555,6 +4201,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
    * v1.0
    */
   version?: string;
+  weight?: number;
   static names(): { [key: string]: string } {
     return {
       appId: 'AppId',
@@ -3567,6 +4214,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       osTag: 'OsTag',
       updateTime: 'UpdateTime',
       version: 'Version',
+      weight: 'Weight',
     };
   }
 
@@ -3582,6 +4230,7 @@ export class ListImagesResponseBodyImages extends $tea.Model {
       osTag: 'string',
       updateTime: 'string',
       version: 'string',
+      weight: 'number',
     };
   }
 
@@ -3917,6 +4566,93 @@ export class ListJobsResponseBodyJobList extends $tea.Model {
   }
 }
 
+export class ListPoolsRequestFilter extends $tea.Model {
+  poolName?: string[];
+  status?: string[];
+  /**
+   * @example
+   * 1703819914
+   */
+  timeCreatedAfter?: number;
+  /**
+   * @example
+   * 1703820113
+   */
+  timeCreatedBefore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      poolName: 'PoolName',
+      status: 'Status',
+      timeCreatedAfter: 'TimeCreatedAfter',
+      timeCreatedBefore: 'TimeCreatedBefore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      poolName: { 'type': 'array', 'itemType': 'string' },
+      status: { 'type': 'array', 'itemType': 'string' },
+      timeCreatedAfter: 'number',
+      timeCreatedBefore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListPoolsResponseBodyPoolList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
+  isDefault?: boolean;
+  /**
+   * @example
+   * 2000
+   */
+  maxExectorNum?: number;
+  /**
+   * @example
+   * PoolTest
+   */
+  poolName?: string;
+  /**
+   * @example
+   * 1
+   */
+  priority?: number;
+  /**
+   * @example
+   * Working
+   */
+  status?: string;
+  static names(): { [key: string]: string } {
+    return {
+      isDefault: 'IsDefault',
+      maxExectorNum: 'MaxExectorNum',
+      poolName: 'PoolName',
+      priority: 'Priority',
+      status: 'Status',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isDefault: 'boolean',
+      maxExectorNum: 'number',
+      poolName: 'string',
+      priority: 'number',
+      status: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTagResourcesRequestTag extends $tea.Model {
   /**
    * @example
@@ -4035,6 +4771,29 @@ export class TagResourcesRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdatePoolRequestResourceLimits extends $tea.Model {
+  /**
+   * @example
+   * 2000
+   */
+  maxExectorNum?: number;
+  static names(): { [key: string]: string } {
+    return {
+      maxExectorNum: 'MaxExectorNum',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      maxExectorNum: 'number',
     };
   }
 
@@ -4207,6 +4966,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建资源池
+   * 
+   * @param tmpReq - CreatePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreatePoolResponse
+   */
+  async createPoolWithOptions(tmpReq: CreatePoolRequest, runtime: $Util.RuntimeOptions): Promise<CreatePoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreatePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceLimits)) {
+      request.resourceLimitsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceLimits, "ResourceLimits", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.poolName)) {
+      query["PoolName"] = request.poolName;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.resourceLimitsShrink)) {
+      query["ResourceLimits"] = request.resourceLimitsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreatePool",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreatePoolResponse>(await this.callApi(params, req, runtime), new CreatePoolResponse({}));
+  }
+
+  /**
+   * 创建资源池
+   * 
+   * @param request - CreatePoolRequest
+   * @returns CreatePoolResponse
+   */
+  async createPool(request: CreatePoolRequest): Promise<CreatePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createPoolWithOptions(request, runtime);
+  }
+
+  /**
    * 删除作业
    * 
    * @param tmpReq - DeleteJobsRequest
@@ -4260,6 +5075,48 @@ export default class Client extends OpenApi {
   async deleteJobs(request: DeleteJobsRequest): Promise<DeleteJobsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除资源池
+   * 
+   * @param request - DeletePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeletePoolResponse
+   */
+  async deletePoolWithOptions(request: DeletePoolRequest, runtime: $Util.RuntimeOptions): Promise<DeletePoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.poolName)) {
+      query["PoolName"] = request.poolName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeletePool",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeletePoolResponse>(await this.callApi(params, req, runtime), new DeletePoolResponse({}));
+  }
+
+  /**
+   * 删除资源池
+   * 
+   * @param request - DeletePoolRequest
+   * @returns DeletePoolResponse
+   */
+  async deletePool(request: DeletePoolRequest): Promise<DeletePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deletePoolWithOptions(request, runtime);
   }
 
   /**
@@ -4529,6 +5386,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询队列详细信息
+   * 
+   * @param request - GetPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetPoolResponse
+   */
+  async getPoolWithOptions(request: GetPoolRequest, runtime: $Util.RuntimeOptions): Promise<GetPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.poolName)) {
+      query["PoolName"] = request.poolName;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetPool",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetPoolResponse>(await this.callApi(params, req, runtime), new GetPoolResponse({}));
+  }
+
+  /**
+   * 查询队列详细信息
+   * 
+   * @param request - GetPoolRequest
+   * @returns GetPoolResponse
+   */
+  async getPool(request: GetPoolRequest): Promise<GetPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getPoolWithOptions(request, runtime);
+  }
+
+  /**
    * 查询全局Executor信息
    * 
    * @param tmpReq - ListExecutorsRequest
@@ -4779,6 +5678,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询资源池列表
+   * 
+   * @param tmpReq - ListPoolsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListPoolsResponse
+   */
+  async listPoolsWithOptions(tmpReq: ListPoolsRequest, runtime: $Util.RuntimeOptions): Promise<ListPoolsResponse> {
+    Util.validateModel(tmpReq);
+    let request = new ListPoolsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filter)) {
+      request.filterShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filter, "Filter", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.filterShrink)) {
+      query["Filter"] = request.filterShrink;
+    }
+
+    if (!Util.isUnset(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!Util.isUnset(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListPools",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListPoolsResponse>(await this.callApi(params, req, runtime), new ListPoolsResponse({}));
+  }
+
+  /**
+   * 查询资源池列表
+   * 
+   * @param request - ListPoolsRequest
+   * @returns ListPoolsResponse
+   */
+  async listPools(request: ListPoolsRequest): Promise<ListPoolsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listPoolsWithOptions(request, runtime);
+  }
+
+  /**
    * 查询一个或多个资源已经绑定的标签列表
    * 
    * @param request - ListTagResourcesRequest
@@ -4984,6 +5939,62 @@ export default class Client extends OpenApi {
   async unTagResources(request: UnTagResourcesRequest): Promise<UnTagResourcesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.unTagResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * 更新资源池
+   * 
+   * @param tmpReq - UpdatePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdatePoolResponse
+   */
+  async updatePoolWithOptions(tmpReq: UpdatePoolRequest, runtime: $Util.RuntimeOptions): Promise<UpdatePoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdatePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.resourceLimits)) {
+      request.resourceLimitsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceLimits, "ResourceLimits", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.poolName)) {
+      query["PoolName"] = request.poolName;
+    }
+
+    if (!Util.isUnset(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!Util.isUnset(request.resourceLimitsShrink)) {
+      query["ResourceLimits"] = request.resourceLimitsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdatePool",
+      version: "2023-07-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdatePoolResponse>(await this.callApi(params, req, runtime), new UpdatePoolResponse({}));
+  }
+
+  /**
+   * 更新资源池
+   * 
+   * @param request - UpdatePoolRequest
+   * @returns UpdatePoolResponse
+   */
+  async updatePool(request: UpdatePoolRequest): Promise<UpdatePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updatePoolWithOptions(request, runtime);
   }
 
 }
