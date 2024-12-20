@@ -279,6 +279,300 @@ export class Personalizedtxt2imgModelTrainJobInfoDTO extends $tea.Model {
   }
 }
 
+export class AITeacherExpansionPracticeTaskGenerateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 13
+   */
+  grade?: string;
+  keySentences?: string[];
+  keyWords?: string[];
+  /**
+   * @example
+   * Understanding unique professions such as dog walkers, hotel test sleepers, and food tasters, including their job responsibilities and the benefits or challenges associated with each role.
+   */
+  learningObject?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dog walker Dog walking, as a profession, originated in the US. Some may think that it\\"s a perfect job, because dog walkers won\\"t be imprisoned in an office. But it\\"s actually manual labour. At their busiest, dog walkers may have more than ten dogs to take care of in a day. Hotel test sleeper A hotel test sleeper, as the name suggests, has to write expert reviews about the facilities, locations, prices, dining and other services of hotels, in order to provide evaluations and guides for travelers. Hotel test sleepers don\\"t need to punch in for work and they get about ten thousand yuan as income every month. What a comfortable job! Food taster In ancient times, a food taster was a person who tasted foods (or drinks) to be served to someone else, to confirm that it was safe to eat. But now, those working as food tasters just get to taste various new foods and drinks aimed at specific regions across the world. They then give their opinions on these products to the companies and suggest improvements.
+   */
+  textContent?: string;
+  textbook?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * talk about your dream job.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6440xxxxxxxxxx5fafc98c421
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grade: 'grade',
+      keySentences: 'keySentences',
+      keyWords: 'keyWords',
+      learningObject: 'learningObject',
+      textContent: 'textContent',
+      textbook: 'textbook',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grade: 'string',
+      keySentences: { 'type': 'array', 'itemType': 'string' },
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      learningObject: 'string',
+      textContent: 'string',
+      textbook: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherExpansionPracticeTaskGenerateResponseBody extends $tea.Model {
+  data?: AITeacherExpansionPracticeTaskGenerateResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AITeacherExpansionPracticeTaskGenerateResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherExpansionPracticeTaskGenerateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AITeacherExpansionPracticeTaskGenerateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AITeacherExpansionPracticeTaskGenerateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherSyncPracticeTaskGenerateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 13
+   */
+  grade?: string;
+  keySentences?: string[];
+  keyWords?: string[];
+  /**
+   * @example
+   * Understanding unique professions such as dog walkers, hotel test sleepers, and food tasters, including their job responsibilities and the benefits or challenges associated with each role.
+   */
+  learningObject?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Dog walker Dog walking, as a profession, originated in the US. Some may think that it\\"s a perfect job, because dog walkers won\\"t be imprisoned in an office. But it\\"s actually manual labour. At their busiest, dog walkers may have more than ten dogs to take care of in a day. Hotel test sleeper A hotel test sleeper, as the name suggests, has to write expert reviews about the facilities, locations, prices, dining and other services of hotels, in order to provide evaluations and guides for travelers. Hotel test sleepers don\\"t need to punch in for work and they get about ten thousand yuan as income every month. What a comfortable job! Food taster In ancient times, a food taster was a person who tasted foods (or drinks) to be served to someone else, to confirm that it was safe to eat. But now, those working as food tasters just get to taste various new foods and drinks aimed at specific regions across the world. They then give their opinions on these products to the companies and suggest improvements.
+   */
+  textContent?: string;
+  textbook?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * talk about your dream job.
+   */
+  topic?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 6440xxxxxxxxxx5fafc98c421
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      grade: 'grade',
+      keySentences: 'keySentences',
+      keyWords: 'keyWords',
+      learningObject: 'learningObject',
+      textContent: 'textContent',
+      textbook: 'textbook',
+      topic: 'topic',
+      userId: 'userId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      grade: 'string',
+      keySentences: { 'type': 'array', 'itemType': 'string' },
+      keyWords: { 'type': 'array', 'itemType': 'string' },
+      learningObject: 'string',
+      textContent: 'string',
+      textbook: 'string',
+      topic: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherSyncPracticeTaskGenerateResponseBody extends $tea.Model {
+  data?: AITeacherSyncPracticeTaskGenerateResponseBodyData;
+  /**
+   * @example
+   * UNKNOWN_ERROR
+   */
+  errCode?: string;
+  errMessage?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx-xxxx-xxxx-xxxxxxxx
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      data: 'data',
+      errCode: 'errCode',
+      errMessage: 'errMessage',
+      httpStatusCode: 'httpStatusCode',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      data: AITeacherSyncPracticeTaskGenerateResponseBodyData,
+      errCode: 'string',
+      errMessage: 'string',
+      httpStatusCode: 'number',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherSyncPracticeTaskGenerateResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AITeacherSyncPracticeTaskGenerateResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AITeacherSyncPracticeTaskGenerateResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponseBody extends $tea.Model {
   /**
    * @example
@@ -1559,6 +1853,165 @@ export class OpenApiSingleResponseData extends $tea.Model {
   }
 }
 
+export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet extends $tea.Model {
+  /**
+   * @example
+   * Alex
+   */
+  assistant?: string;
+  /**
+   * @example
+   * Jamie
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent extends $tea.Model {
+  /**
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherExpansionPracticeTaskGenerateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
+   */
+  backgroundDescription?: string;
+  roleSet?: AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet;
+  /**
+   * @example
+   * Hey Jamie, do you know what a travel blogger does?
+   */
+  startSentence?: string;
+  taskContent?: AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent[];
+  /**
+   * @example
+   * textbook_dialogue
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      backgroundDescription: 'backgroundDescription',
+      roleSet: 'roleSet',
+      startSentence: 'startSentence',
+      taskContent: 'taskContent',
+      taskType: 'taskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backgroundDescription: 'string',
+      roleSet: AITeacherExpansionPracticeTaskGenerateResponseBodyDataRoleSet,
+      startSentence: 'string',
+      taskContent: { 'type': 'array', 'itemType': AITeacherExpansionPracticeTaskGenerateResponseBodyDataTaskContent },
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent extends $tea.Model {
+  /**
+   * @example
+   * Why might some people think dog walking is a great job?
+   */
+  assistant?: string;
+  /**
+   * @example
+   * They think it\\"s great because they won\\"t be stuck in an office.
+   */
+  user?: string;
+  static names(): { [key: string]: string } {
+    return {
+      assistant: 'assistant',
+      user: 'user',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      assistant: 'string',
+      user: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AITeacherSyncPracticeTaskGenerateResponseBodyData extends $tea.Model {
+  taskContent?: AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent[];
+  /**
+   * @example
+   * textbook_question_answering
+   */
+  taskType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      taskContent: 'taskContent',
+      taskType: 'taskType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      taskContent: { 'type': 'array', 'itemType': AITeacherSyncPracticeTaskGenerateResponseBodyDataTaskContent },
+      taskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -2227,6 +2680,152 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 拓展练问答对生成
+   * 
+   * @param request - AITeacherExpansionPracticeTaskGenerateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AITeacherExpansionPracticeTaskGenerateResponse
+   */
+  async aITeacherExpansionPracticeTaskGenerateWithOptions(request: AITeacherExpansionPracticeTaskGenerateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AITeacherExpansionPracticeTaskGenerateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!Util.isUnset(request.keySentences)) {
+      body["keySentences"] = request.keySentences;
+    }
+
+    if (!Util.isUnset(request.keyWords)) {
+      body["keyWords"] = request.keyWords;
+    }
+
+    if (!Util.isUnset(request.learningObject)) {
+      body["learningObject"] = request.learningObject;
+    }
+
+    if (!Util.isUnset(request.textContent)) {
+      body["textContent"] = request.textContent;
+    }
+
+    if (!Util.isUnset(request.textbook)) {
+      body["textbook"] = request.textbook;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AITeacherExpansionPracticeTaskGenerate",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/expansionPractice/generateTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AITeacherExpansionPracticeTaskGenerateResponse>(await this.callApi(params, req, runtime), new AITeacherExpansionPracticeTaskGenerateResponse({}));
+  }
+
+  /**
+   * 拓展练问答对生成
+   * 
+   * @param request - AITeacherExpansionPracticeTaskGenerateRequest
+   * @returns AITeacherExpansionPracticeTaskGenerateResponse
+   */
+  async aITeacherExpansionPracticeTaskGenerate(request: AITeacherExpansionPracticeTaskGenerateRequest): Promise<AITeacherExpansionPracticeTaskGenerateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aITeacherExpansionPracticeTaskGenerateWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 同步基础练问答对生成
+   * 
+   * @param request - AITeacherSyncPracticeTaskGenerateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AITeacherSyncPracticeTaskGenerateResponse
+   */
+  async aITeacherSyncPracticeTaskGenerateWithOptions(request: AITeacherSyncPracticeTaskGenerateRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AITeacherSyncPracticeTaskGenerateResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.grade)) {
+      body["grade"] = request.grade;
+    }
+
+    if (!Util.isUnset(request.keySentences)) {
+      body["keySentences"] = request.keySentences;
+    }
+
+    if (!Util.isUnset(request.keyWords)) {
+      body["keyWords"] = request.keyWords;
+    }
+
+    if (!Util.isUnset(request.learningObject)) {
+      body["learningObject"] = request.learningObject;
+    }
+
+    if (!Util.isUnset(request.textContent)) {
+      body["textContent"] = request.textContent;
+    }
+
+    if (!Util.isUnset(request.textbook)) {
+      body["textbook"] = request.textbook;
+    }
+
+    if (!Util.isUnset(request.topic)) {
+      body["topic"] = request.topic;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["userId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AITeacherSyncPracticeTaskGenerate",
+      version: "20240611",
+      protocol: "HTTPS",
+      pathname: `/api/v1/aiteacher/syncPractice/generateTask`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AITeacherSyncPracticeTaskGenerateResponse>(await this.callApi(params, req, runtime), new AITeacherSyncPracticeTaskGenerateResponse({}));
+  }
+
+  /**
+   * 同步基础练问答对生成
+   * 
+   * @param request - AITeacherSyncPracticeTaskGenerateRequest
+   * @returns AITeacherSyncPracticeTaskGenerateResponse
+   */
+  async aITeacherSyncPracticeTaskGenerate(request: AITeacherSyncPracticeTaskGenerateRequest): Promise<AITeacherSyncPracticeTaskGenerateResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.aITeacherSyncPracticeTaskGenerateWithOptions(request, headers, runtime);
   }
 
   /**
