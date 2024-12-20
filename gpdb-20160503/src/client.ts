@@ -677,6 +677,13 @@ export class CancelUpsertCollectionDataJobRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -924,24 +931,36 @@ export class CheckHadoopDataSourceResponse extends $tea.Model {
 export class CheckHadoopNetConnectionRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * CheckHadoopNetConnection
+   * gp-xxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
+   * 2. If both of the above parameters are specified, EmrInstanceId will be used preferentially.
+   * 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
+   * 
+   * @example
+   * 126
+   */
   dataSourceId?: string;
   /**
    * @remarks
-   * The E-MapReduce (EMR) Hadoop cluster ID.
+   * EMR instance ID.
    * 
    * @example
    * c-xxx
    */
   emrInstanceId?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -972,15 +991,19 @@ export class CheckHadoopNetConnectionRequest extends $tea.Model {
 export class CheckHadoopNetConnectionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned message. If the connection failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+   * Return message: Returns error information if the connection fails, otherwise returns an empty string ("").
    * 
    * @example
-   * xxx
+   * connection timeout
    */
   connectionMessage?: string;
   /**
    * @remarks
-   * The connection status. Valid values: Success and Failed.
+   * Connection status:
+   * 
+   * - Network connected: Success
+   * 
+   * - Network not connected: Failed
    * 
    * @example
    * Success
@@ -988,7 +1011,7 @@ export class CheckHadoopNetConnectionResponseBody extends $tea.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -1043,7 +1066,7 @@ export class CheckHadoopNetConnectionResponse extends $tea.Model {
 export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -1051,18 +1074,25 @@ export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
    * gp-xxxxxxx
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * Either DataSourceId or JdbcConnectionString must be specified as input, otherwise an error will occur. If both parameters are specified, JdbcConnectionString will be used preferentially.
+   * 
+   * @example
+   * 123
+   */
   dataSourceId?: string;
   /**
    * @remarks
-   * The JDBC connection string.
+   * JDBC connection string.
    * 
    * @example
-   * xxx
+   * jdbc:mysql://rm-xxx.mysql.rds.aliyuncs.com:3306/testadmin
    */
   jdbcConnectionString?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance is located.
    * 
    * @example
    * cn-hangzhou
@@ -1094,18 +1124,19 @@ export class CheckJDBCSourceNetConnectionRequest extends $tea.Model {
 export class CheckJDBCSourceNetConnectionResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The returned message. If the connection failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+   * Return message: Error message returned when the connection fails, otherwise returns an empty string ("").
    * 
    * @example
-   * xxx
+   * connection timeout
    */
   connectionMessage?: string;
   /**
    * @remarks
-   * The connection status. Valid values:
+   * Service status:
    * 
-   * *   Success
-   * *   Failed
+   * - Network connected: Success
+   * 
+   * - Network not connected: Failed
    * 
    * @example
    * Success
@@ -1113,7 +1144,7 @@ export class CheckJDBCSourceNetConnectionResponseBody extends $tea.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -1328,14 +1359,6 @@ export class CreateAccountRequest extends $tea.Model {
    */
   databaseName?: string;
   ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is no longer used.
-   * 
-   * @example
-   * rg-bp67acfmxazb4p****
-   */
-  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       accountDescription: 'AccountDescription',
@@ -1345,7 +1368,6 @@ export class CreateAccountRequest extends $tea.Model {
       DBInstanceId: 'DBInstanceId',
       databaseName: 'DatabaseName',
       ownerId: 'OwnerId',
-      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -1358,7 +1380,6 @@ export class CreateAccountRequest extends $tea.Model {
       DBInstanceId: 'string',
       databaseName: 'string',
       ownerId: 'number',
-      resourceGroupId: 'string',
     };
   }
 
@@ -1466,6 +1487,9 @@ export class CreateCollectionRequest extends $tea.Model {
    */
   externalStorage?: number;
   /**
+   * @remarks
+   * Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+   * 
    * @example
    * title,content
    */
@@ -1490,6 +1514,10 @@ export class CreateCollectionRequest extends $tea.Model {
   hnswM?: number;
   /**
    * @remarks
+   * Name of the management account with rds_superuser permissions.
+   * 
+   * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1498,6 +1526,8 @@ export class CreateCollectionRequest extends $tea.Model {
   managerAccount?: string;
   /**
    * @remarks
+   * The password of the manager account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1508,16 +1538,15 @@ export class CreateCollectionRequest extends $tea.Model {
    * @remarks
    * The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
    * 
-   * > 
+   * >  Supported data types:
    * 
-   * *   For information about the supported data types, see [Data types](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/data-types-1/?spm=a2c4g.11186623.0.0.43e567a1C35QRD).
+   * *   For information about the supported data types, see [Data types](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
    * 
    * *   The money data type is not supported.
    * 
    * **
    * 
-   * **Warning**
-   * Reserved fields such as id, vector, to_tsvector, and source cannot be used.
+   * **Warning** Reserved fields such as id, vector, to_tsvector, and source cannot be used.
    * 
    * This parameter is required.
    * 
@@ -1525,7 +1554,16 @@ export class CreateCollectionRequest extends $tea.Model {
    * {"title":"text","content":"text","response":"int"}
    */
   metadata?: string;
+  metadataIndices?: string;
   /**
+   * @remarks
+   * Method used when building the vector index.
+   * 
+   * Value description:
+   * - **l2**: Euclidean distance.
+   * - **ip**: Inner product (dot product) distance.
+   * - **cosine** (default): Cosine similarity.
+   * 
    * @example
    * cosine
    */
@@ -1542,6 +1580,9 @@ export class CreateCollectionRequest extends $tea.Model {
   namespace?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The analyzer that is used for full-text search.
+   * 
    * @example
    * zh_cn
    */
@@ -1568,6 +1609,9 @@ export class CreateCollectionRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -1583,6 +1627,7 @@ export class CreateCollectionRequest extends $tea.Model {
       managerAccount: 'ManagerAccount',
       managerAccountPassword: 'ManagerAccountPassword',
       metadata: 'Metadata',
+      metadataIndices: 'MetadataIndices',
       metrics: 'Metrics',
       namespace: 'Namespace',
       ownerId: 'OwnerId',
@@ -1604,6 +1649,7 @@ export class CreateCollectionRequest extends $tea.Model {
       managerAccount: 'string',
       managerAccountPassword: 'string',
       metadata: 'string',
+      metadataIndices: 'string',
       metrics: 'string',
       namespace: 'string',
       ownerId: 'number',
@@ -1621,11 +1667,17 @@ export class CreateCollectionRequest extends $tea.Model {
 
 export class CreateCollectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * create successfully
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
@@ -1690,9 +1742,9 @@ export class CreateCollectionResponse extends $tea.Model {
 export class CreateDBInstanceRequest extends $tea.Model {
   /**
    * @remarks
-   * The ID of the backup set.
+   * Backup set ID.
    * 
-   * >  You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets in the instance.
+   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) interface to view the backup set IDs of all backup sets under the target instance.
    * 
    * @example
    * 1111111111
@@ -1700,7 +1752,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   backupId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88**********
@@ -1708,12 +1760,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to load a sample dataset after the instance is created. Valid values:
+   * Whether to load sample datasets after the instance is created. The values are as follows:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Load sample datasets.
+   * - **false**: Do not load sample datasets.
    * 
-   * >  If you do not specify this parameter, no sample dataset is loaded.
+   * > If this parameter is not specified, it defaults to not loading sample datasets.
    * 
    * @example
    * false
@@ -1721,12 +1773,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   createSampleData?: boolean;
   /**
    * @remarks
-   * The edition of the instance. Valid values:
+   * Instance series. The value description is as follows:
    * 
-   * - **HighAvailability**: High-availability Edition.
-   * - **Basic**: Basic Edition.
+   * - **HighAvailability**: High availability version.
+   * - **Basic**: Basic version.
    * 
-   * > This parameter must be specified when you create an instance in elastic storage mode.
+   * > This parameter is required when creating an instance in the storage elastic mode.
    * 
    * @example
    * HighAvailability
@@ -1734,9 +1786,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceCategory?: string;
   /**
    * @remarks
-   * The instance type of the instance. For information, see [Instance types](https://help.aliyun.com/document_detail/86942.html).
+   * Instance type. For more details, see the supplementary description of the DBInstanceClass parameter.
    * 
-   * > This parameter must be specified when you create an instance in reserved storage mode.
+   * > This parameter is required when creating a reserved storage mode instance.
    * 
    * @example
    * gpdb.group.segsdx1
@@ -1744,7 +1796,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The description of the instance.
+   * Instance description.
    * 
    * @example
    * test
@@ -1752,9 +1804,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The number of compute groups. Valid values: 2, 4, 8, 12, 16, 24, 32, 64, 96, and 128.
+   * Number of compute groups. The values are: 2, 4, 8, 12, 16, 24, 32, 64, 96, 128.
    * 
-   * > This parameter must be specified when you create an instance in reserved storage mode.
+   * > This parameter is required when creating a reserved storage mode instance.
    * 
    * @example
    * 2
@@ -1762,13 +1814,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
   DBInstanceGroupCount?: string;
   /**
    * @remarks
-   * The resource type of the instance. Valid values:
+   * Instance resource type. The value description is as follows:
    * 
-   * - **StorageElastic**: elastic storage mode.
+   * - **StorageElastic**: Storage elastic mode.
    * - **Serverless**: Serverless mode.
-   * - **Classic**: reserved storage mode.
+   * - **Classic**: Storage reserved mode.
    * 
-   * > This parameter must be specified.
+   * > This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -1776,12 +1828,35 @@ export class CreateDBInstanceRequest extends $tea.Model {
    * StorageElastic
    */
   DBInstanceMode?: string;
+  /**
+   * @remarks
+   * Deployment mode. The values are as follows:
+   * - multiple: Multi-zone deployment.
+   * - single: Single-zone deployment.
+   * 
+   * > 
+   * > - If this parameter is not specified, the default value is single-zone deployment.
+   * > - Currently, only single-zone deployment is supported.
+   * 
+   * @example
+   * single
+   */
+  deployMode?: string;
+  /**
+   * @remarks
+   * Indicates whether to enable SSL encryption. The values are as follows:
+   * - **true**: Enable SSL encryption.
+   * - **false** (default): Do not enable SSL encryption.
+   * 
+   * @example
+   * false
+   */
   enableSSL?: boolean;
   /**
    * @remarks
-   * The ID of the encryption key.
+   * Key ID.
    * 
-   * > If EncryptionType is set to CloudDisk, you must specify an encryption key that resides in the same region as the cloud disk that is specified by EncryptionType. Otherwise, leave this parameter empty.
+   * > If the value of the **EncryptionType** parameter is **CloudDisk**, you need to specify the encryption key ID within the same region through this parameter; otherwise, it should be empty.
    * 
    * @example
    * 0d2470df-da7b-4786-b981-88888888****
@@ -1789,12 +1864,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The encryption type. Valid values:
+   * Encryption type. The value description is as follows:
    * 
-   * - **NULL** (default): Encryption is disabled.
-   * - **CloudDisk**: Encryption is enabled on cloud disks, and EncryptionKey is used to specify an encryption key.
+   * - **NULL**: No encryption (default).
+   * - **CloudDisk**: Enable cloud disk encryption and specify the key through the **EncryptionKey** parameter.
    * 
-   * > Disk encryption cannot be disabled after it is enabled.
+   * > Once cloud disk encryption is enabled, it cannot be disabled.
    * 
    * @example
    * CloudDisk
@@ -1802,7 +1877,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   encryptionType?: string;
   /**
    * @remarks
-   * The database engine of the instance. Set the value to gpdb.
+   * Database engine, with the value **gpdb**.
    * 
    * This parameter is required.
    * 
@@ -1812,10 +1887,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   engine?: string;
   /**
    * @remarks
-   * The version of the database engine. Valid values:
-   * 
-   * - 6.0
-   * - 7.0
+   * Engine version. The values are as follows:
+   * - **6.0**: Version 6.0.
+   * - **7.0**: Version 7.0.
    * 
    * This parameter is required.
    * 
@@ -1825,9 +1899,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The wait time for the instance that has no traffic to become idle. Minimum value: 60. Default value: 600. Unit: seconds.
+   * The idle release wait time. When the duration without business traffic reaches the specified time, the instance will enter the idle state. The unit is seconds, with a minimum value of 60, and the default value is 600.
    * 
-   * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+   * > This parameter is required only for Serverless auto-scheduling mode instances.
    * 
    * @example
    * 600
@@ -1835,13 +1909,10 @@ export class CreateDBInstanceRequest extends $tea.Model {
   idleTime?: number;
   /**
    * @remarks
-   * The network type of the instance. Set the value to **VPC**.
+   * Instance network type, with the value **VPC**.
    * 
-   * > 
-   * 
-   * *   Only the Virtual Private Cloud (VPC) type is supported in Alibaba Cloud public cloud.
-   * 
-   * *   If you do not specify this parameter, VPC is used.
+   * > - Only VPC networks are supported in public cloud.
+   * > - If not specified, it defaults to VPC type.
    * 
    * @example
    * VPC
@@ -1849,27 +1920,24 @@ export class CreateDBInstanceRequest extends $tea.Model {
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The specifications of compute nodes.
+   * Compute node specifications.
    * 
-   * Valid values for High-availability Edition instances in elastic storage mode:
-   * 
+   * For high-availability versions of the elastic storage mode, the values are as follows:
    * - **2C16G**
    * - **4C32G**
    * - **16C128G**
    * 
-   * Valid values for Basic Edition instances in elastic storage mode:
-   * 
+   * For basic versions of the elastic storage mode, the values are as follows:
    * - **2C8G**
    * - **4C16G**
    * - **8C32G**
    * - **16C64G**
    * 
-   * Valid values for instances in Serverless mode:
-   * 
+   * For Serverless mode, the values are as follows:
    * - **4C16G**
    * - **8C32G**
    * 
-   * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
+   * > This parameter is required when creating an elastic storage mode instance or a Serverless mode instance.
    * 
    * @example
    * 2C16G
@@ -1877,15 +1945,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
   instanceSpec?: string;
   /**
    * @remarks
-   * The amount of coordinator node resources. Valid values:
-   * 
-   * *   2 CU
-   * *   4 CU
-   * *   8 CU
-   * *   16 CU
-   * *   32 CU
-   * 
-   * >  You are charged for coordinator node resources of more than 8 CUs.
+   * Master resources, with the following values: 
+   * - 2 CU 
+   * - 4 CU 
+   * - 8 CU 
+   * - 16 CU 
+   * - 32 CU 
+   * > Master resources above 8 CU will incur charges.
    * 
    * @example
    * 8 CU
@@ -1893,25 +1959,22 @@ export class CreateDBInstanceRequest extends $tea.Model {
   masterCU?: number;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated and should not be passed.
    * 
    * @example
-   * 1
+   * null
    */
   masterNodeNum?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * Billing type. The values are as follows:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * - **Postpaid**: Pay-as-you-go
+   * - **Prepaid**: Subscription
    * 
-   * > 
-   * 
-   * *   If you do not specify this parameter, Postpaid is used.
-   * 
-   * *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
+   * > - If not specified, it will default to pay-as-you-go.
+   * > - When using the subscription billing model, there may be discounts for purchasing one year or longer at once. It is recommended to choose the billing type according to your needs.
    * 
    * @example
    * Prepaid
@@ -1919,11 +1982,11 @@ export class CreateDBInstanceRequest extends $tea.Model {
   payType?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. Valid values:
+   * Unit of the duration for which resources are purchased. The values are as follows:
+   * - **Month**: Month
+   * - **Year**: Year
    * 
-   * - **Month**
-   * - **Year**
-   * > This parameter must be specified when PayType is set to Prepaid.
+   * > This parameter is required when creating a subscription-billed instance.
    * 
    * @example
    * Month
@@ -1931,16 +1994,29 @@ export class CreateDBInstanceRequest extends $tea.Model {
   period?: string;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated and should not be passed.
    * 
    * @example
-   * 1.1.1.*
+   * null
    */
   privateIpAddress?: string;
+  /**
+   * @remarks
+   * Product type. The values are as follows:
+   * - **standard**: Standard Edition.
+   * - **cost-effective**: Cost-Effective Edition.
+   * 
+   * > If this parameter is not specified, the default value is Standard Edition.
+   * 
+   * @example
+   * standard
+   */
   prodType?: string;
   /**
    * @remarks
-   * The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
    * 
    * This parameter is required.
    * 
@@ -1950,7 +2026,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * The ID of the enterprise resource group where the instance is located.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -1958,9 +2034,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The IP address whitelist of the instance.
+   * IP whitelist.
    * 
-   * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
+   * 127.0.0.1 indicates that no external IP addresses are allowed to access. You can modify the IP whitelist by calling the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) interface after the instance is created.
    * 
    * @example
    * 127.0.0.1
@@ -1968,17 +2044,14 @@ export class CreateDBInstanceRequest extends $tea.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The performance level of ESSDs. Valid values:
+   * ESSD cloud disk performance level. The values are as follows:
    * 
-   * *   **pl0**
-   * *   **pl1**
-   * *   **pl2**
+   * - **pl0**: PL0 level.
+   * - **pl1**: PL1 level.
+   * - **pl2**: PL2 level.
    * 
-   * > 
-   * 
-   * *   This parameter takes effect only when SegStorageType is set to cloud_essd.
-   * 
-   * *   If you do not specify this parameter, pl1 is used.
+   * > - This parameter is effective only if the disk storage type is ESSD cloud disk.
+   * > - If not specified, it defaults to PL1 level.
    * 
    * @example
    * pl1
@@ -1986,13 +2059,13 @@ export class CreateDBInstanceRequest extends $tea.Model {
   segDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The number of compute nodes.
+   * The number of compute nodes. The value description is as follows:
    * 
-   * - Valid values for High-availability Edition instances in elastic storage mode: multiples of 4 in the range of 4 to 512.
-   * - Valid values for Basic Edition instances in elastic storage mode: multiples of 2 in the range of 2 to 512.
-   * - Valid values for instances in Serverless mode: multiples of 2 in the range of 2 to 512.
+   * - For the high-availability version of the storage elastic mode, the value range is 4 to 512, and the value must be a multiple of 4.
+   * - For the basic version of the storage elastic mode, the value range is 2 to 512, and the value must be a multiple of 2.
+   * - For the Serverless mode, the value range is 2 to 512, and the value must be a multiple of 2.
    * 
-   * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
+   * > This parameter is required when creating instances in the storage elastic mode or Serverless mode.
    * 
    * @example
    * 4
@@ -2000,9 +2073,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   segNodeNum?: string;
   /**
    * @remarks
-   * The disk storage type of the instance. Only enhanced SSDs (ESSDs) are supported. Set the value to cloud_essd.
+   * Disk storage type, currently only ESSD cloud disks are supported, with the value **cloud_essd**.
    * 
-   * > This parameter must be specified when you create an instance in elastic storage mode.
+   * > This parameter is required when creating an elastic storage mode instance.
    * 
    * @example
    * cloud_essd
@@ -2010,12 +2083,12 @@ export class CreateDBInstanceRequest extends $tea.Model {
   segStorageType?: string;
   /**
    * @remarks
-   * The type of the Serverless mode. Valid values:
+   * The mode of the Serverless instance. The values are as follows:
    * 
-   * - **Manual** (default): manual scheduling.
-   * - **Auto**: automatic scheduling.
+   * - **Manual**: Manual scheduling (default).
+   * - **Auto**: Auto scheduling.
    * 
-   * > This parameter must be specified only when you create an instance in Serverless mode.
+   * > This parameter is required only for Serverless mode instances.
    * 
    * @example
    * Auto
@@ -2023,9 +2096,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   serverlessMode?: string;
   /**
    * @remarks
-   * The threshold of computing resources. Unit: AnalyticDB compute unit (ACU). Valid values: 8 to 32. The value must be in increments of 8 ACUs. Default value: 32.
+   * The threshold for computing resources. The value range is 8 to 32, with a step of 8, and the unit is ACU. The default value is 32.
    * 
-   * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+   * > This parameter is required only for Serverless auto-scheduling mode instances.
    * 
    * @example
    * 32
@@ -2033,9 +2106,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   serverlessResource?: number;
   /**
    * @remarks
-   * The ID of the source instance.
+   * ID of the source instance to be cloned.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) interface to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
    * @example
    * gp-bp***************
@@ -2043,9 +2116,34 @@ export class CreateDBInstanceRequest extends $tea.Model {
   srcDbInstanceName?: string;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: GB. Valid values: 50 to 6000.
+   * VSwitch ID of the standby zone.
    * 
-   * >  This parameter must be specified when you create an instance in elastic storage mode.
+   * > 
+   * > - This parameter is required for multi-zone deployment.
+   * > - The VSwitch ID of the standby zone must be in the same zone as the StandbyZoneId.
+   * 
+   * @example
+   * vsw-bp1cpq8mr64paltkb****
+   */
+  standbyVSwitchId?: string;
+  /**
+   * @remarks
+   * ID of the standby zone.
+   * 
+   * > 
+   * > - This parameter is required for multi-zone deployment.
+   * > - You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
+   * > - The ID of the standby zone must be different from the ID of the primary zone.
+   * 
+   * @example
+   * cn-hangzhou-j
+   */
+  standbyZoneId?: string;
+  /**
+   * @remarks
+   * The size of the storage space, in GB, with a value range of <props="china">50~8000<props="intl">50~6000.
+   * 
+   * > This parameter is required when creating an instance in the storage elastic mode.
    * 
    * @example
    * 200
@@ -2053,7 +2151,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
   storageSize?: number;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated and should not be passed.
    * 
    * @example
    * null
@@ -2061,16 +2159,16 @@ export class CreateDBInstanceRequest extends $tea.Model {
   storageType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The Nth tag. The value of N ranges from 1 to 20.
    */
   tag?: CreateDBInstanceRequestTag[];
   /**
    * @remarks
-   * The subscription duration.
+   * Duration for which resources are purchased. The values are as follows:
+   * - When **Period** is **Month**, the value ranges from 1 to 9.
+   * - When **Period** is **Year**, the value ranges from 1 to 3.
    * 
-   * - Valid values when Period is set to Month: 1 to 9.
-   * - Valid values when Period is set to Year: 1 to 3.
-   * > This parameter must be specified when PayType is set to Prepaid.
+   * > This parameter is required when creating a subscription-billed instance.
    * 
    * @example
    * 1
@@ -2078,44 +2176,34 @@ export class CreateDBInstanceRequest extends $tea.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The VPC ID of the instance.
+   * VPC ID.
    * 
-   * > 
-   * 
-   * *   **This parameter** must be specified.
-   * 
-   * *   The region where the **VPC** resides must be the same as the region that is specified by **RegionId**.
+   * > - **VPCId** is required.
+   * > - The region of the **VPC** must be consistent with **RegionId**.
    * 
    * @example
-   * vpc-bp*******************
+   * vpc-bp19ame5m1r3oejns****
    */
   VPCId?: string;
   /**
    * @remarks
-   * The vSwitch ID of the instance.
+   * vSwitch ID.
    * 
-   * > 
-   * 
-   * *   **This parameter** must be specified.
-   * 
-   * *   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
+   * > - **vSwitchId** is required.
+   * > - The availability zone of the **vSwitch** must be consistent with **ZoneId**.
    * 
    * @example
-   * vsw-bp*******************
+   * vsw-bp1cpq8mr64paltkb****
    */
   vSwitchId?: string;
   /**
    * @remarks
-   * Specifies whether to enable vector search engine optimization. Valid values:
+   * Whether to enable vector engine optimization. The value description is as follows:
+   * - **enabled**: Enable vector engine optimization.
+   * - **disabled** (default): Do not enable vector engine optimization.
    * 
-   * *   **enabled**
-   * *   **disabled** (default)
-   * 
-   * > 
-   * 
-   * *   We recommend that you **do not enable** vector search engine optimization in mainstream analysis, data warehousing, and real-time data warehousing scenarios.
-   * 
-   * *   We recommend that you **enable** vector search engine optimization in AI-generated content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+   * > - For mainstream analysis scenarios, data warehouse scenarios, and real-time data warehouse scenarios, it is recommended to **not enable** vector engine optimization.
+   * > - For users using the vector analysis engine for AIGC, vector retrieval, and other scenarios, it is recommended to **enable** vector engine optimization.
    * 
    * @example
    * enabled
@@ -2123,7 +2211,9 @@ export class CreateDBInstanceRequest extends $tea.Model {
   vectorConfigurationStatus?: string;
   /**
    * @remarks
-   * The zone ID of the read-only instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+   * Zone ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available zone IDs.
    * 
    * This parameter is required.
    * 
@@ -2141,6 +2231,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'DBInstanceDescription',
       DBInstanceGroupCount: 'DBInstanceGroupCount',
       DBInstanceMode: 'DBInstanceMode',
+      deployMode: 'DeployMode',
       enableSSL: 'EnableSSL',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
@@ -2165,6 +2256,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       serverlessMode: 'ServerlessMode',
       serverlessResource: 'ServerlessResource',
       srcDbInstanceName: 'SrcDbInstanceName',
+      standbyVSwitchId: 'StandbyVSwitchId',
+      standbyZoneId: 'StandbyZoneId',
       storageSize: 'StorageSize',
       storageType: 'StorageType',
       tag: 'Tag',
@@ -2186,6 +2279,7 @@ export class CreateDBInstanceRequest extends $tea.Model {
       DBInstanceDescription: 'string',
       DBInstanceGroupCount: 'string',
       DBInstanceMode: 'string',
+      deployMode: 'string',
       enableSSL: 'boolean',
       encryptionKey: 'string',
       encryptionType: 'string',
@@ -2210,6 +2304,8 @@ export class CreateDBInstanceRequest extends $tea.Model {
       serverlessMode: 'string',
       serverlessResource: 'number',
       srcDbInstanceName: 'string',
+      standbyVSwitchId: 'string',
+      standbyZoneId: 'string',
       storageSize: 'number',
       storageType: 'string',
       tag: { 'type': 'array', 'itemType': CreateDBInstanceRequestTag },
@@ -2229,25 +2325,25 @@ export class CreateDBInstanceRequest extends $tea.Model {
 export class CreateDBInstanceResponseBody extends $tea.Model {
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter is deprecated and will not return a value.
    * 
-   * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the endpoint that is used to connect to the instance.
+   * You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the connection address of the instance.
    * 
    * @example
-   * gp-bp***************.gpdb.rds.aliyuncs.com
+   * gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
    */
   connectionString?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
-   * gp-bp***************
+   * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The order ID.
+   * Order ID.
    * 
    * @example
    * 111111111111
@@ -2255,17 +2351,17 @@ export class CreateDBInstanceResponseBody extends $tea.Model {
   orderId?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter is deprecated and will not return a value.
    * 
-   * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the port number that is used to connect to the instance.
+   * You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the port number of the instance.
    * 
    * @example
-   * 5432
+   * 3432
    */
   port?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 5414A4E5-4C36-4461-95FC-************
@@ -2672,6 +2768,10 @@ export class CreateDBResourceGroupResponse extends $tea.Model {
 export class CreateDocumentCollectionRequest extends $tea.Model {
   /**
    * @remarks
+   * Name of the document library to be created.
+   * 
+   * > The name must comply with PostgreSQL object naming restrictions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2680,6 +2780,10 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2688,39 +2792,23 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The vectorization algorithm.
+   * Vectorization algorithm.
    * 
-   * >  Valid values:
-   * 
-   * *   text-embedding-v1: the algorithm that produces 1536-dimensional vectors.
-   * 
-   * *   text-embedding-v2: the algorithm that produces 1536-dimensional vectors.
-   * 
-   * *   text2vec: the algorithm that produces 1024-dimensional vectors.
-   * 
-   * *   m3e-base: the algorithm that produces 768-dimensional vectors.
-   * 
-   * *   m3e-small: the algorithm that produces 512-dimensional vectors.
-   * 
-   * *   multimodal-embedding-one-peace-v1: the image vectorization algorithm that produces 1536-dimensional vectors.
-   * 
-   * *   clip-vit-b-32: the image vectorization algorithm that uses the Contrastive Language-Image Pre-Training (CLIP) ViT-B/32 model and produces 512-dimensional vectors.
-   * 
-   * *   clip-vit-b-16: the image vectorization algorithm that uses the CLIP ViT-B/16 model and produces 512-dimensional vectors.
-   * 
-   * *   clip-vit-l-14: the image vectorization algorithm that uses the CLIP ViT-L/14 model and produces 768-dimensional vectors.
-   * 
-   * *   clip-vit-l-14-336px: the image vectorization algorithm that uses the CLIP ViT-L/14@336px model and produces 768-dimensional vectors.
-   * 
-   * *   clip-rn50: the image vectorization algorithm that uses the CLIP RN50 model and produces 1024-dimensional vectors.
-   * 
-   * *   clip-rn101: the image vectorization algorithm that uses the CLIP RN101 model and produces 512-dimensional vectors.
-   * 
-   * *   clip-rn50x4: the image vectorization algorithm that uses the CLIP RN50x4 model and produces 640-dimensional vectors.
-   * 
-   * *   clip-rn50x16: the image vectorization algorithm that uses the CLIP RN50x16 model and produces 768-dimensional vectors.
-   * 
-   * *   clip-rn50x64: the image vectorization algorithm that uses the CLIP RN50x64 model and produces 1024-dimensional vectors.
+   * > Supported algorithms:
+   * > - text-embedding-v1: 1536 dimensions
+   * > - text-embedding-v2: 1536 dimensions
+   * > - text2vec: 1024 dimensions
+   * > - m3e-base: 768 dimensions
+   * > - m3e-small: 512 dimensions
+   * > - clip-vit-b-32: CLIP ViT-B/32 model, 512 dimensions, image vectorization algorithm
+   * > - clip-vit-b-16: CLIP ViT-B/16 model, 512 dimensions, image vectorization algorithm
+   * > - clip-vit-l-14: CLIP ViT-L/14 model, 768 dimensions, image vectorization algorithm
+   * > - clip-vit-l-14-336px: CLIP ViT-L/14@336px model, 768 dimensions, image vectorization algorithm
+   * > - clip-rn50: CLIP RN50 model, 1024 dimensions, image vectorization algorithm
+   * > - clip-rn101: CLIP RN101 model, 512 dimensions, image vectorization algorithm
+   * > - clip-rn50x4: CLIP RN50x4 model, 640 dimensions, image vectorization algorithm
+   * > - clip-rn50x16: CLIP RN50x16 model, 768 dimensions, image vectorization algorithm
+   * > - clip-rn50x64: CLIP RN50x64 model, 1024 dimensions, image vectorization algorithm
    * 
    * @example
    * text-embedding-v1
@@ -2728,36 +2816,28 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   embeddingModel?: string;
   /**
    * @remarks
-   * Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+   * Whether to use mmap to build HNSW index, default is 0. If the data does not need to be deleted and there are requirements for the speed of uploading data, it is recommended to set this to 1.
    * 
    * > 
-   * 
-   * *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
-   * 
-   * *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+   * > - When set to 0, segment-page storage will be used by default to build the index. This mode can use PostgreSQL\\"s shared_buffer as a cache and supports operations such as deletion and updates.
+   * > - When set to 1, the index will be built using mmap. This mode does not support deletion or update operations.
    * 
    * @example
    * 0
    */
   externalStorage?: number;
   /**
+   * @remarks
+   * Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+   * 
    * @example
    * title,page
    */
   fullTextRetrievalFields?: string;
   /**
    * @remarks
-   * The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
-   * 
-   * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
-   * 
-   * *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
-   * 
-   * *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
-   * 
-   * *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
-   * 
-   * *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+   * The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The interface will automatically set this value based on the vector dimension, and it generally does not need to be manually configured.
+   * > It is recommended to set according to the vector dimension: >- For dimensions less than or equal to 384: 16 >- For dimensions greater than 384 but less than or equal to 768: 32 >- For dimensions greater than 768 but less than or equal to 1024: 64 >- For dimensions greater than 1024: 128
    * 
    * @example
    * 64
@@ -2765,6 +2845,10 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   hnswM?: number;
   /**
    * @remarks
+   * Name of the management account with rds_superuser permissions.
+   * 
+   * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2773,6 +2857,8 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   managerAccount?: string;
   /**
    * @remarks
+   * Management account password.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2781,52 +2867,65 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
+   * Metadata of vector data, in the form of a MAP JSON string. The key represents the field name, and the value represents the data type.
    * 
-   * > 
+   * > Supported data types
+   * > - For a list of data types, see: [Data Types](https://www.alibabacloud.com/help/en/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
+   * > - The money type is not supported at this time.
    * 
-   * *   For information about the supported data types, see [Data types](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/data-types-1/?spm=a2c4g.11186623.0.0.43e567a1C35QRD).
-   * 
-   * *   The money data type is not supported.
-   * 
-   * **
-   * 
-   * **Warning**
-   * Reserved fields such as id, vector, doc_name, content, loader_metadata, source, and to_tsvector cannot be used.
+   * >Warning: The fields id, vector, doc_name, content, loader_metadata, source, and to_tsvector are reserved and should not be used.
    * 
    * @example
    * {"title":"text","page":"int"}
    */
   metadata?: string;
+  metadataIndices?: string;
   /**
+   * @remarks
+   * Method used when building the vector index.
+   * 
+   * Value description:
+   * - **l2**: Euclidean distance.
+   * - **ip**: Inner product (dot product) distance.
+   * - **cosine** (default): Cosine similarity.
+   * 
    * @example
    * cosine
    */
   metrics?: string;
   /**
+   * @remarks
+   * Namespace, default is public.
+   * 
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+   * 
    * @example
    * mynamespace
    */
   namespace?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * Tokenizer used for full-text search, default is zh_cn.
+   * 
    * @example
    * zh_cn
    */
   parser?: string;
   /**
    * @remarks
-   * Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
-   * 
-   * *   0: no.
-   * *   1 (default): yes.
+   * Whether to enable PQ (Product Quantization) algorithm for index acceleration. It is recommended to enable this when the data volume exceeds 500,000. Value description:
+   * - 0: Disabled.
+   * - 1: Enabled (default).
    * 
    * @example
-   * 0
+   * 1
    */
   pqEnable?: number;
   /**
    * @remarks
+   * ID of the region where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2844,6 +2943,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
       managerAccount: 'ManagerAccount',
       managerAccountPassword: 'ManagerAccountPassword',
       metadata: 'Metadata',
+      metadataIndices: 'MetadataIndices',
       metrics: 'Metrics',
       namespace: 'Namespace',
       ownerId: 'OwnerId',
@@ -2864,6 +2964,7 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
       managerAccount: 'string',
       managerAccountPassword: 'string',
       metadata: 'string',
+      metadataIndices: 'string',
       metrics: 'string',
       namespace: 'string',
       ownerId: 'number',
@@ -2880,16 +2981,27 @@ export class CreateDocumentCollectionRequest extends $tea.Model {
 
 export class CreateDocumentCollectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * API execution status, with the following values:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
    * @example
    * successs
    */
@@ -3070,6 +3182,8 @@ export class CreateExtensionsResponse extends $tea.Model {
 export class CreateExternalDataServiceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3078,7 +3192,7 @@ export class CreateExternalDataServiceRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * Region ID, you can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
    * 
    * @example
    * cn-beijing
@@ -3086,14 +3200,16 @@ export class CreateExternalDataServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of the service.
+   * Service description.
    * 
    * @example
-   * test-adbpgss
+   * pxf test
    */
   serviceDescription?: string;
   /**
    * @remarks
+   * Service name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3102,14 +3218,14 @@ export class CreateExternalDataServiceRequest extends $tea.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The specifications of the service. Unit: compute units (CUs). Valid values:
+   * Service specification (in CU), value:
    * 
-   * *   8
+   * - 8
    * 
    * This parameter is required.
    * 
    * @example
-   * 2
+   * 8
    */
   serviceSpec?: string;
   static names(): { [key: string]: string } {
@@ -3139,11 +3255,17 @@ export class CreateExternalDataServiceRequest extends $tea.Model {
 
 export class CreateExternalDataServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Service ID.
+   * 
    * @example
    * 100
    */
@@ -3195,6 +3317,8 @@ export class CreateExternalDataServiceResponse extends $tea.Model {
 export class CreateHadoopDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3202,72 +3326,137 @@ export class CreateHadoopDataSourceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Service description.
+   * 
    * @example
    * pxf for hdfs data source
    */
   dataSourceDescription?: string;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * hdfs_pxf
    */
   dataSourceName?: string;
   /**
+   * @remarks
+   * Type of Hadoop external table to be enabled, with values:
+   * 
+   * - HDFS 
+   * 
+   * - Hive
+   * 
    * @example
    * HDFS
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * When HadoopCreateType=Emr, this field should contain the EMR instance ID.
+   * 
    * @example
    * c-1234567
    */
   emrInstanceId?: string;
   /**
    * @remarks
-   * The string that specifies the content of the Hadoop hdfs-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+   * Content string of the Hadoop hdfs-site.xml file. This field is required when enabling an HDFS external table.
    * 
    * @example
-   * xxxxxx
+   * <?xml version="1.0" ?>
+   * <!-- Created at 2023-08-15 13:52:43.945 -->
+   * <configuration>
+   *     <property>
+   *         <name>dfs.datanode.cache.revocation.timeout.ms</name>
+   *         <value>900000</value>
+   *     </property>
+   *     <property>
+   *         <name>dfs.namenode.resource.check.interval</name>
+   *         <value>5000</value>
+   *     </property>
+   * </configuration>
    */
   HDFSConf?: string;
   /**
    * @remarks
-   * The string that specifies the content of the Hadoop core-site.xml file.
+   * Content string of the Hadoop core-site.xml file.
    * 
    * @example
-   * xxxxxx
+   * <?xml version="1.0" ?>
+   * <!-- Created at 2023-08-15 13:52:39.527 -->
+   * <configuration>
+   *     <property>
+   *         <name>hadoop.http.authentication.kerberos.keytab</name>
+   *         <value>/etc/emr/hadoop-conf/http.keytab</value>
+   *     </property>
+   *     <property>
+   *         <name>fs.oss.idle.timeout.millisecond</name>
+   *         <value>30000</value>
+   *     </property>
+   *     <property>
+   *         <name>fs.oss.download.thread.concurrency</name>
+   *         <value>32</value>
+   *     </property>
+   * </configuration>
    */
   hadoopCoreConf?: string;
   /**
+   * @remarks
+   * External service type:
+   * 
+   * - emr
+   * 
+   * - hadoop: Self-built Hadoop
+   * 
    * @example
    * emr
    */
   hadoopCreateType?: string;
   /**
    * @remarks
-   * The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
+   * Address and hostname of the Hadoop cluster\\"s source node in the /etc/hosts file.
    * 
    * @example
-   * 127.0.0.1 localhost
+   * 192.168.220.128 master-1-1.c-xxx.cn-shanghai.emr.aliyuncs.com
+   * 192.168.220.129 core-1-1.c-xxx.cn-shanghai.emr.aliyuncs.com
+   * 192.168.220.130 core-1-2.c-xxx.cn-shanghai.emr.aliyuncs.com
    */
   hadoopHostsAddress?: string;
   /**
    * @remarks
-   * The string that specifies the content of the Hadoop hive-site.xml file. This parameter must be specified when DataSourceType is set to Hive.
+   * Content string of the Hadoop hive-site.xml file. This field is required when enabling a HIVE external table.
    * 
    * @example
-   * xxxxxx
+   * <?xml version="1.0" ?>
+   * <!-- Created at 2023-08-15 13:52:50.646 -->
+   * <configuration>
+   *     <property>
+   *         <name>hive.exec.reducers.bytes.per.reducer</name>
+   *         <value>256000000</value>
+   *     </property>
+   *     <property>
+   *         <name>hive.stats.column.autogather</name>
+   *         <value>false</value>
+   *     </property>
+   * </configuration>
    */
   hiveConf?: string;
   /**
+   * @remarks
+   * Content string of the Hadoop mapred-site.xml file. This field is required when enabling an HDFS external table.
+   * 
    * @example
    * xxxxxx
    */
   mapReduceConf?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -3275,10 +3464,21 @@ export class CreateHadoopDataSourceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The string that specifies the content of the Hadoop yarn-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+   * Content string of the Hadoop yarn-site.xml file. This field is required when enabling an HDFS external table.
    * 
    * @example
-   * xxxxxx
+   * <?xml version="1.0" ?>
+   * <!-- Created at 2023-08-15 13:53:29.021 -->
+   * <configuration>
+   *     <property>
+   *         <name>yarn.nodemanager.linux-container-executor.nonsecure-mode.local-user</name>
+   *         <value>hadoop</value>
+   *     </property>
+   *     <property>
+   *         <name>yarn.scheduler.fair.dynamic.max.assign</name>
+   *         <value>true</value>
+   *     </property>
+   * </configuration>
    */
   yarnConf?: string;
   static names(): { [key: string]: string } {
@@ -3324,11 +3524,17 @@ export class CreateHadoopDataSourceRequest extends $tea.Model {
 
 export class CreateHadoopDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 123
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2C125605-266F-41CA-8AC5-3A643D4F42C5
    */
@@ -3380,6 +3586,8 @@ export class CreateHadoopDataSourceResponse extends $tea.Model {
 export class CreateJDBCDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3387,16 +3595,25 @@ export class CreateJDBCDataSourceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Data source description.
+   * 
    * @example
    * test
    */
   dataSourceDescription?: string;
   /**
+   * @remarks
+   * The name of data soruce
+   * 
    * @example
    * jdbc_pxf
    */
   dataSourceName?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * mysql
    */
@@ -3466,11 +3683,17 @@ export class CreateJDBCDataSourceRequest extends $tea.Model {
 
 export class CreateJDBCDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 123
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2C125605-266F-41CA-8AC5-3A643D4F42C5
    */
@@ -3583,6 +3806,13 @@ export class CreateNamespaceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3681,6 +3911,199 @@ export class CreateNamespaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: CreateNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoteADBDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Customer-specified DataSourceName.
+   * 
+   * @example
+   * test
+   */
+  dataSourceName?: string;
+  /**
+   * @remarks
+   * Instance ID of the data being used (required).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-test1
+   */
+  localDBInstanceId?: string;
+  /**
+   * @remarks
+   * Database name of the data being used (required)
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * db1
+   */
+  localDatabase?: string;
+  /**
+   * @remarks
+   * Management account of the data-using instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * managerAccount
+   */
+  managerUserName?: string;
+  /**
+   * @remarks
+   * Password of the management account of the data-using instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * password2
+   */
+  managerUserPassword?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Instance ID providing the data (required).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-test2
+   */
+  remoteDBInstanceId?: string;
+  /**
+   * @remarks
+   * Database name providing the data (required).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * db2
+   */
+  remoteDatabase?: string;
+  /**
+   * @remarks
+   * Account name of the data-providing instance used for user mapping (required).
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * account1
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * Password of the data-providing instance account used for user mapping.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * password1
+   */
+  userPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      localDBInstanceId: 'LocalDBInstanceId',
+      localDatabase: 'LocalDatabase',
+      managerUserName: 'ManagerUserName',
+      managerUserPassword: 'ManagerUserPassword',
+      ownerId: 'OwnerId',
+      remoteDBInstanceId: 'RemoteDBInstanceId',
+      remoteDatabase: 'RemoteDatabase',
+      userName: 'UserName',
+      userPassword: 'UserPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      localDBInstanceId: 'string',
+      localDatabase: 'string',
+      managerUserName: 'string',
+      managerUserPassword: 'string',
+      ownerId: 'number',
+      remoteDBInstanceId: 'string',
+      remoteDatabase: 'string',
+      userName: 'string',
+      userPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoteADBDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returns the successfully added data sharing service data.
+   */
+  dataSourceItem?: CreateRemoteADBDataSourceResponseBodyDataSourceItem;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * e9d60eb1-e90d-4bc6-a470-c8b767460858
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Workflow task ID.
+   * 
+   * @example
+   * 90000
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceItem: 'DataSourceItem',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceItem: CreateRemoteADBDataSourceResponseBodyDataSourceItem,
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoteADBDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRemoteADBDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRemoteADBDataSourceResponseBody,
     };
   }
 
@@ -4084,6 +4507,8 @@ export class CreateServiceLinkedRoleResponse extends $tea.Model {
 export class CreateStreamingDataServiceRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4094,19 +4519,24 @@ export class CreateStreamingDataServiceRequest extends $tea.Model {
    * @remarks
    * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent list of regions.
    * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
+   * @remarks
+   * The description of the service.
+   * 
    * @example
    * test-adbpgss
    */
   serviceDescription?: string;
   /**
    * @remarks
+   * The name of the service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4115,6 +4545,8 @@ export class CreateStreamingDataServiceRequest extends $tea.Model {
   serviceName?: string;
   /**
    * @remarks
+   * The specifications of the service.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4148,6 +4580,9 @@ export class CreateStreamingDataServiceRequest extends $tea.Model {
 
 export class CreateStreamingDataServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -4207,6 +4642,8 @@ export class CreateStreamingDataServiceResponse extends $tea.Model {
 export class CreateStreamingDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4215,6 +4652,8 @@ export class CreateStreamingDataSourceRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Data source configuration information.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4222,12 +4661,17 @@ export class CreateStreamingDataSourceRequest extends $tea.Model {
    */
   dataSourceConfig?: string;
   /**
+   * @remarks
+   * Data source description.
+   * 
    * @example
    * test-kafka
    */
   dataSourceDescription?: string;
   /**
    * @remarks
+   * Data source name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4236,6 +4680,9 @@ export class CreateStreamingDataSourceRequest extends $tea.Model {
   dataSourceName?: string;
   /**
    * @remarks
+   * Data source type. Values:
+   *  -  kafka
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4243,13 +4690,18 @@ export class CreateStreamingDataSourceRequest extends $tea.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The real-time data service ID.
+   * Real-time data service ID.
    * 
    * This parameter is required.
    * 
@@ -4288,11 +4740,17 @@ export class CreateStreamingDataSourceRequest extends $tea.Model {
 
 export class CreateStreamingDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 1
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -4344,7 +4802,7 @@ export class CreateStreamingDataSourceResponse extends $tea.Model {
 export class CreateStreamingJobRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * Target database account.
    * 
    * @example
    * test-account
@@ -4352,12 +4810,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
   account?: string;
   /**
    * @remarks
-   * The delivery guarantee setting.
-   * 
-   * Valid values:
-   * 
-   * *   ATLEAST
-   * *   EXACTLY
+   * Delivery guarantee.
    * 
    * @example
    * ATLEAST / EXACTLY
@@ -4365,7 +4818,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
   consistency?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -4375,7 +4828,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * Data source ID.
    * 
    * This parameter is required.
    * 
@@ -4385,25 +4838,28 @@ export class CreateStreamingJobRequest extends $tea.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The destination fields.
+   * Target data table mapping field list.
    */
   destColumns?: string[];
   /**
    * @remarks
-   * The name of the destination database.
+   * Target database name.
    * 
    * @example
    * dest-db
    */
   destDatabase?: string;
   /**
+   * @remarks
+   * Target namespace.
+   * 
    * @example
    * dest-schema
    */
   destSchema?: string;
   /**
    * @remarks
-   * The name of the destination table.
+   * Target table name.
    * 
    * @example
    * dest-table
@@ -4411,25 +4867,33 @@ export class CreateStreamingJobRequest extends $tea.Model {
   destTable?: string;
   /**
    * @remarks
-   * The number of allowed error rows. Write failures occur when Kafka data does not match the destination table in AnalyticDB for PostgreSQL. If the specified value is exceeded, the job fails.
+   * When data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
    * 
    * @example
    * 5
    */
   errorLimitCount?: number;
   /**
+   * @remarks
+   * FallbackOffset, fallback offset
+   * 
+   * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific offset or the requested offset exceeds the current Kafka cluster\\"s recorded offset information. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+   * 
    * @example
-   * earliest /  latest
+   * EARLIEST /  LATEST
    */
   fallbackOffset?: string;
   /**
+   * @remarks
+   * Kafka group name
+   * 
    * @example
-   * group_name。
+   * group_name.
    */
   groupName?: string;
   /**
    * @remarks
-   * The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+   * Job configuration file, required for professional mode.
    * 
    * @example
    * DATABASE: adbpgss_test
@@ -4556,7 +5020,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * The description of the job.
+   * Job description.
    * 
    * @example
    * test-job
@@ -4564,7 +5028,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The name of the job.
+   * Job name.
    * 
    * This parameter is required.
    * 
@@ -4574,15 +5038,14 @@ export class CreateStreamingJobRequest extends $tea.Model {
   jobName?: string;
   /**
    * @remarks
-   * The update condition columns that are used to join the source data and the destination table. Typically, the columns are all the primary key columns of the destination table. If the values of all columns specified by this parameter in different rows are the same, the rows are considered duplicates.
+   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
    */
   matchColumns?: string[];
   /**
    * @remarks
-   * The configuration mode. Valid values:
-   * 
-   * 1.  basic: In basic mode, you must configure the configuration parameters.
-   * 2.  professional: In professional mode, you can submit a YAML configuration file.
+   * Configuration mode
+   * 1. Basic mode requires specifying some configuration fields
+   * 1. Professional mode supports submitting a YAML file
    * 
    * @example
    * basic / professional
@@ -4590,28 +5053,34 @@ export class CreateStreamingJobRequest extends $tea.Model {
   mode?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * Target database password.
    * 
    * @example
    * pwd123
    */
   password?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The source fields.
+   * Source data field list.
    */
   srcColumns?: string[];
   /**
    * @remarks
-   * Specifies whether to test the real-time job. Valid values:
+   * Whether to test the real-time task, values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -4621,21 +5090,15 @@ export class CreateStreamingJobRequest extends $tea.Model {
   tryRun?: boolean;
   /**
    * @remarks
-   * The columns to be updated if a row of data meets the update condition. Typically, the columns are all non-primary key columns of the destination table. When the columns specified by the MatchColumns parameter are used as conditions to join the source data and the destination table, data in columns of the UpdateColumns type is updated if data is matched.
+   * Update columns, usually all non-primary key columns of the target table. When data is determined to be duplicate through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
    */
   updateColumns?: string[];
   /**
    * @remarks
-   * The write mode.
-   * 
-   * Valid values:
-   * 
-   * *   insert
-   * *   update
-   * *   merge
+   * Write mode.
    * 
    * @example
-   * insert/update/merge
+   * INSERT/UPDATE/MERGE
    */
   writeMode?: string;
   static names(): { [key: string]: string } {
@@ -4700,7 +5163,7 @@ export class CreateStreamingJobRequest extends $tea.Model {
 export class CreateStreamingJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * Target database account.
    * 
    * @example
    * test-account
@@ -4708,12 +5171,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   account?: string;
   /**
    * @remarks
-   * The delivery guarantee setting.
-   * 
-   * Valid values:
-   * 
-   * *   ATLEAST
-   * *   EXACTLY
+   * Delivery guarantee.
    * 
    * @example
    * ATLEAST / EXACTLY
@@ -4721,7 +5179,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   consistency?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -4731,7 +5189,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * Data source ID.
    * 
    * This parameter is required.
    * 
@@ -4741,25 +5199,28 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The destination fields.
+   * Target data table mapping field list.
    */
   destColumnsShrink?: string;
   /**
    * @remarks
-   * The name of the destination database.
+   * Target database name.
    * 
    * @example
    * dest-db
    */
   destDatabase?: string;
   /**
+   * @remarks
+   * Target namespace.
+   * 
    * @example
    * dest-schema
    */
   destSchema?: string;
   /**
    * @remarks
-   * The name of the destination table.
+   * Target table name.
    * 
    * @example
    * dest-table
@@ -4767,25 +5228,33 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   destTable?: string;
   /**
    * @remarks
-   * The number of allowed error rows. Write failures occur when Kafka data does not match the destination table in AnalyticDB for PostgreSQL. If the specified value is exceeded, the job fails.
+   * When data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
    * 
    * @example
    * 5
    */
   errorLimitCount?: number;
   /**
+   * @remarks
+   * FallbackOffset, fallback offset
+   * 
+   * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific offset or the requested offset exceeds the current Kafka cluster\\"s recorded offset information. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+   * 
    * @example
-   * earliest /  latest
+   * EARLIEST /  LATEST
    */
   fallbackOffset?: string;
   /**
+   * @remarks
+   * Kafka group name
+   * 
    * @example
-   * group_name。
+   * group_name.
    */
   groupName?: string;
   /**
    * @remarks
-   * The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+   * Job configuration file, required for professional mode.
    * 
    * @example
    * DATABASE: adbpgss_test
@@ -4912,7 +5381,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * The description of the job.
+   * Job description.
    * 
    * @example
    * test-job
@@ -4920,7 +5389,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The name of the job.
+   * Job name.
    * 
    * This parameter is required.
    * 
@@ -4930,15 +5399,14 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   jobName?: string;
   /**
    * @remarks
-   * The update condition columns that are used to join the source data and the destination table. Typically, the columns are all the primary key columns of the destination table. If the values of all columns specified by this parameter in different rows are the same, the rows are considered duplicates.
+   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
    */
   matchColumnsShrink?: string;
   /**
    * @remarks
-   * The configuration mode. Valid values:
-   * 
-   * 1.  basic: In basic mode, you must configure the configuration parameters.
-   * 2.  professional: In professional mode, you can submit a YAML configuration file.
+   * Configuration mode
+   * 1. Basic mode requires specifying some configuration fields
+   * 1. Professional mode supports submitting a YAML file
    * 
    * @example
    * basic / professional
@@ -4946,28 +5414,34 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   mode?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * Target database password.
    * 
    * @example
    * pwd123
    */
   password?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The source fields.
+   * Source data field list.
    */
   srcColumnsShrink?: string;
   /**
    * @remarks
-   * Specifies whether to test the real-time job. Valid values:
+   * Whether to test the real-time task, values:
    * 
-   * *   true
-   * *   false
+   * - true
+   * 
+   * - false
    * 
    * Default value: false.
    * 
@@ -4977,21 +5451,15 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
   tryRun?: boolean;
   /**
    * @remarks
-   * The columns to be updated if a row of data meets the update condition. Typically, the columns are all non-primary key columns of the destination table. When the columns specified by the MatchColumns parameter are used as conditions to join the source data and the destination table, data in columns of the UpdateColumns type is updated if data is matched.
+   * Update columns, usually all non-primary key columns of the target table. When data is determined to be duplicate through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
    */
   updateColumnsShrink?: string;
   /**
    * @remarks
-   * The write mode.
-   * 
-   * Valid values:
-   * 
-   * *   insert
-   * *   update
-   * *   merge
+   * Write mode.
    * 
    * @example
-   * insert/update/merge
+   * INSERT/UPDATE/MERGE
    */
   writeMode?: string;
   static names(): { [key: string]: string } {
@@ -5056,7 +5524,7 @@ export class CreateStreamingJobShrinkRequest extends $tea.Model {
 export class CreateStreamingJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The job ID.
+   * Job ID.
    * 
    * @example
    * 1
@@ -5064,7 +5532,7 @@ export class CreateStreamingJobResponseBody extends $tea.Model {
   jobId?: number;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -5117,6 +5585,9 @@ export class CreateStreamingJobResponse extends $tea.Model {
 export class CreateVectorIndexRequest extends $tea.Model {
   /**
    * @remarks
+   * Collection name.
+   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5125,6 +5596,10 @@ export class CreateVectorIndexRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5133,6 +5608,9 @@ export class CreateVectorIndexRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Vector dimension.
+   * > This value must be consistent with the length of the vector data (Rows. Vector) uploaded via the [UpsertCollectionData](https://help.aliyun.com/document_detail/2401493.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5141,11 +5619,11 @@ export class CreateVectorIndexRequest extends $tea.Model {
   dimension?: number;
   /**
    * @remarks
-   * Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+   * Whether to use mmap to build the HNSW index, default is 0. If the data does not need to be deleted and there are performance requirements for uploading data, it is recommended to set this to 1.
    * 
-   * *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
-   * 
-   * *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+   * > 
+   * > - When set to 0, the segment-page storage mode is used to build the index, which can use the shared_buffer in PostgreSQL for caching and supports deletion and update operations.
+   * > - When set to 1, the index is built using mmap, which does not support deletion and update operations.
    * 
    * @example
    * 0
@@ -5153,17 +5631,13 @@ export class CreateVectorIndexRequest extends $tea.Model {
   externalStorage?: number;
   /**
    * @remarks
-   * The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+   * The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The API will automatically set this value based on the vector dimension, and it generally does not need to be manually set.
    * 
-   * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
-   * 
-   * *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
-   * 
-   * *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
-   * 
-   * *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
-   * 
-   * *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+   * > It is suggested to set this based on the vector dimension as follows:
+   * > - Less than or equal to 384: 16
+   * > - Greater than 384 and less than or equal to 768: 32
+   * > - Greater than 768 and less than or equal to 1024: 64
+   * > - Greater than 1024: 128
    * 
    * @example
    * 64
@@ -5171,6 +5645,10 @@ export class CreateVectorIndexRequest extends $tea.Model {
   hnswM?: number;
   /**
    * @remarks
+   * Name of the management account with rds_superuser permissions.
+   * 
+   * > You can create an account through the console -> Account Management, or by using the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5179,6 +5657,8 @@ export class CreateVectorIndexRequest extends $tea.Model {
   managerAccount?: string;
   /**
    * @remarks
+   * Management account password.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5187,19 +5667,21 @@ export class CreateVectorIndexRequest extends $tea.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * The method that is used to create vector indexes.Valid values:
-   * 
+   * Method used for building the vector index. Value description:
    * - l2: Euclidean distance.
-   * 
-   * - ip: inner product distance.
-   * 
-   * - cosine: cosine similarity.
+   * - ip: Inner product (dot product) distance.
+   * - cosine: Cosine similarity.
    * 
    * @example
    * cosine
    */
   metrics?: string;
   /**
+   * @remarks
+   * Namespace, default is public.
+   * 
+   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
+   * 
    * @example
    * mynamespace
    */
@@ -5207,10 +5689,9 @@ export class CreateVectorIndexRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
-   * 
-   * *   0: no.
-   * *   1 (default): yes.
+   * Whether to enable PQ (Product Quantization) algorithm acceleration for the index. It is recommended to enable this when the data volume exceeds 500,000. Value description:
+   * - 0: Disabled.
+   * - 1: Enabled (default).
    * 
    * @example
    * 1
@@ -5218,6 +5699,8 @@ export class CreateVectorIndexRequest extends $tea.Model {
   pqEnable?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5265,16 +5748,27 @@ export class CreateVectorIndexRequest extends $tea.Model {
 
 export class CreateVectorIndexResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Detailed information returned by the API.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * API execution status. Value description:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
    * @example
    * success
    */
@@ -5325,6 +5819,97 @@ export class CreateVectorIndexResponse extends $tea.Model {
   }
 }
 
+export class DeleteAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account. The privileged account cannot be deleted.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testuser
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-bp***************
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 7565770E-7C45-462D-BA4A-8A5396****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAccountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteCollectionRequest extends $tea.Model {
   /**
    * @remarks
@@ -5349,6 +5934,8 @@ export class DeleteCollectionRequest extends $tea.Model {
   /**
    * @remarks
    * The name of the namespace.
+   * 
+   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace
@@ -5377,6 +5964,13 @@ export class DeleteCollectionRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5520,7 +6114,9 @@ export class DeleteCollectionDataRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the namespace. Default value: public.
+   * 
+   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace
@@ -5549,6 +6145,13 @@ export class DeleteCollectionDataRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6012,9 +6615,10 @@ export class DeleteDBResourceGroupResponse extends $tea.Model {
 export class DeleteDocumentRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the document collection.
+   * Document collection name.
    * 
-   * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the list of created document collections.
    * 
    * This parameter is required.
    * 
@@ -6024,6 +6628,10 @@ export class DeleteDocumentRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6032,9 +6640,9 @@ export class DeleteDocumentRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the document.
+   * File name.
    * 
-   * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
+   * > The name of an uploaded file. You can query the list of files using the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API.
    * 
    * This parameter is required.
    * 
@@ -6044,9 +6652,9 @@ export class DeleteDocumentRequest extends $tea.Model {
   fileName?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -6054,9 +6662,9 @@ export class DeleteDocumentRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password for the namespace.
    * 
-   * >  This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
    * 
    * This parameter is required.
    * 
@@ -6067,6 +6675,8 @@ export class DeleteDocumentRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6104,16 +6714,25 @@ export class DeleteDocumentRequest extends $tea.Model {
 
 export class DeleteDocumentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Detailed information returned by the API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * Creation status, value description: - **success**: Success - **fail**: Fail
+   * 
    * @example
    * success
    */
@@ -6167,6 +6786,8 @@ export class DeleteDocumentResponse extends $tea.Model {
 export class DeleteDocumentCollectionRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the document collection to be deleted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6175,6 +6796,10 @@ export class DeleteDocumentCollectionRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6183,9 +6808,9 @@ export class DeleteDocumentCollectionRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -6193,9 +6818,9 @@ export class DeleteDocumentCollectionRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password for the namespace.
    * 
-   * >  This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
    * 
    * This parameter is required.
    * 
@@ -6206,7 +6831,7 @@ export class DeleteDocumentCollectionRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance is located.
    * 
    * This parameter is required.
    * 
@@ -6243,21 +6868,26 @@ export class DeleteDocumentCollectionRequest extends $tea.Model {
 
 export class DeleteDocumentCollectionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * Status, with the following possible values:
+   * - **success**: Success.
+   * - **fail**: Failure.
    * 
    * @example
    * success
@@ -6427,19 +7057,19 @@ export class DeleteExtensionResponse extends $tea.Model {
 export class DeleteExternalDataServiceRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * gp-bp10g78o9807yv9h3
+   * gp-xxx
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -6447,6 +7077,8 @@ export class DeleteExternalDataServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * Service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6476,6 +7108,9 @@ export class DeleteExternalDataServiceRequest extends $tea.Model {
 
 export class DeleteExternalDataServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -6623,6 +7258,8 @@ export class DeleteHadoopDataSourceResponse extends $tea.Model {
 export class DeleteJDBCDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6631,7 +7268,7 @@ export class DeleteJDBCDataSourceRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * Data source ID.
    * 
    * This parameter is required.
    * 
@@ -6641,9 +7278,9 @@ export class DeleteJDBCDataSourceRequest extends $tea.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -6672,6 +7309,9 @@ export class DeleteJDBCDataSourceRequest extends $tea.Model {
 
 export class DeleteJDBCDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -6775,6 +7415,9 @@ export class DeleteNamespaceRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -6874,6 +7517,110 @@ export class DeleteNamespaceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteNamespaceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRemoteADBDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The service ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * The ID of the instance that uses the data provided by another instance.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-test
+   */
+  localDBInstanceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      localDBInstanceId: 'LocalDBInstanceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      localDBInstanceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRemoteADBDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * e9d60eb1-e90d-4bc6-a470-c8b767460858
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The job ID.
+   * 
+   * @example
+   * 90000
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRemoteADBDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRemoteADBDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRemoteADBDataSourceResponseBody,
     };
   }
 
@@ -7534,6 +8281,13 @@ export class DescribeAccountsRequest extends $tea.Model {
    * testuser
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The type of the database account that you want to query. Valid values: Super, Normal, and All. Default value: Super. If you set this parameter to Super, the information about the privileged account is returned. If you set this parameter to Normal, the information about all standard accounts is returned. If you set this parameter to All, the information about all database accounts is returned.
+   * 
+   * @example
+   * Super
+   */
   accountType?: string;
   /**
    * @remarks
@@ -7571,7 +8325,7 @@ export class DescribeAccountsRequest extends $tea.Model {
 export class DescribeAccountsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The queried database accounts.
    */
   accounts?: DescribeAccountsResponseBodyAccounts;
   /**
@@ -7640,36 +8394,59 @@ export class DescribeActiveSQLRecordsRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The name of the database.
+   * 
    * @example
    * testdb
    */
   database?: string;
   /**
+   * @remarks
+   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The end time must be later than the start time.
+   * 
    * @example
    * 2022-05-07T07:59Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The keyword used to filter queries.
+   * 
    * @example
    * SELECT
    */
   keyword?: string;
   /**
+   * @remarks
+   * The maxmum amount of time consumed by traces. Unit: milliseconds.
+   * 
    * @example
    * 600
    */
   maxDuration?: string;
   /**
+   * @remarks
+   * The minimum amount of time consumed by traces. Unit: milliseconds.
+   * 
    * @example
    * 300
    */
   minDuration?: string;
   /**
+   * @remarks
+   * The field used to sort lock diagnostics records and the sorting order.
+   * 
+   * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that lock diagnostics records are sorted by the start time in descending order. No other values are supported.
+   * 
    * @example
    * {"Field":"StartTime","Type":"Desc"}
    */
   order?: string;
   /**
+   * @remarks
+   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+   * 
    * @example
    * 2021-08-03T09:30Z
    */
@@ -7730,6 +8507,9 @@ export class DescribeActiveSQLRecordsResponseBody extends $tea.Model {
    */
   queries?: DescribeActiveSQLRecordsResponseBodyQueries[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
@@ -8107,6 +8887,9 @@ export class DescribeCollectionRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -8611,9 +9394,9 @@ export class DescribeDBClusterPerformanceResponse extends $tea.Model {
 export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) interface to view the instance IDs of all AnalyticDB for PostgreSQL instances in the target region.
    * 
    * This parameter is required.
    * 
@@ -8624,10 +9407,10 @@ export class DescribeDBInstanceAttributeRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * This parameter is no longer used.
+   * This parameter is deprecated and should not be passed.
    * 
    * @example
-   * rg-bp67acfmxazb4p****
+   * null
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {
@@ -8659,7 +9442,7 @@ export class DescribeDBInstanceAttributeResponseBody extends $tea.Model {
   items?: DescribeDBInstanceAttributeResponseBodyItems;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * 5E6EDEB8-D73E-5F2D-B948-86C8AEB05A68
@@ -8722,7 +9505,21 @@ export class DescribeDBInstanceDataBloatRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test
+   */
   database?: string;
+  /**
+   * @remarks
+   * The sorting order.
+   * 
+   * @example
+   * {Field: TableName, Type: Desc}
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -8862,7 +9659,21 @@ export class DescribeDBInstanceDataSkewRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test
+   */
   database?: string;
+  /**
+   * @remarks
+   * order by condition
+   * 
+   * @example
+   * {Field: TableSkew, Type: Desc}
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -9512,7 +10323,21 @@ export class DescribeDBInstanceIndexUsageRequest extends $tea.Model {
    * gp-bp12ga6v69h86****
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The name of the database.
+   * 
+   * @example
+   * test
+   */
   database?: string;
+  /**
+   * @remarks
+   * order by search condition
+   * 
+   * @example
+   * {Field: TableName, Type: Desc}
+   */
   orderBy?: string;
   /**
    * @remarks
@@ -10299,6 +11124,10 @@ export class DescribeDBInstanceSupportMaxPerformanceResponseBody extends $tea.Mo
    * gp-bp***************
    */
   DBInstanceId?: string;
+  /**
+   * @remarks
+   * The queried performance metric.
+   */
   performances?: DescribeDBInstanceSupportMaxPerformanceResponseBodyPerformances;
   /**
    * @remarks
@@ -12444,9 +13273,9 @@ export class DescribeDiagnosisSQLInfoResponse extends $tea.Model {
 export class DescribeDocumentRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the document collection.
+   * Document collection name.
    * 
-   * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the already created document collections.
    * 
    * This parameter is required.
    * 
@@ -12456,6 +13285,10 @@ export class DescribeDocumentRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12464,9 +13297,9 @@ export class DescribeDocumentRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the document.
+   * Document name.
    * 
-   * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
+   * > You can view the list of documents using the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API.
    * 
    * This parameter is required.
    * 
@@ -12476,9 +13309,9 @@ export class DescribeDocumentRequest extends $tea.Model {
   fileName?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create it via the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list through the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -12486,9 +13319,9 @@ export class DescribeDocumentRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password for the namespace.
    * 
-   * >  This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
    * 
    * This parameter is required.
    * 
@@ -12499,6 +13332,8 @@ export class DescribeDocumentRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12536,81 +13371,131 @@ export class DescribeDocumentRequest extends $tea.Model {
 
 export class DescribeDocumentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * URL of the split file, valid for 2 hours. The file format is JSONL, with each line formatted as `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
+   * 
    * @example
    * http://oss.xxx/music_chunk.jsonl
    */
   chunkFileUrl?: string;
   /**
+   * @remarks
+   * Number of documents after splitting.
+   * 
    * @example
    * 100
    */
   docsCount?: number;
   /**
+   * @remarks
+   * Name of the document loader.
+   * 
    * @example
    * RapidOCRPDFLoader
    */
   documentLoader?: string;
   /**
+   * @remarks
+   * File extension.
+   * 
    * @example
    * txt
    */
   fileExt?: string;
   /**
+   * @remarks
+   * MD5 value of the file.
+   * 
    * @example
    * b8078c9591413550f8963e37e24abcea
    */
   fileMd5?: string;
   /**
+   * @remarks
+   * The last modified time of the document.
+   * 
    * @example
    * 2023-11-01 10:01:01.123456
    */
   fileMtime?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * music.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * File size, in bytes.
+   * 
    * @example
    * 10000
    */
   fileSize?: number;
   /**
+   * @remarks
+   * Download URL of the document, valid for 2 hours.
+   * 
    * @example
    * http://oss.xxx/music.txt
    */
   fileUrl?: string;
   /**
+   * @remarks
+   * Document version. This value increments by 1 each time the same document is updated and uploaded.
+   * 
    * @example
    * 1
    */
   fileVersion?: number;
   /**
+   * @remarks
+   * Detailed information returned by the API.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * Download URL for the plain text (without metadata) after splitting, each line is a chunk, valid for 2 hours.
+   * 
    * @example
    * http://oss.xxx/music_plain_chunk.txt
    */
   plainChunkFileUrl?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * Source of the document.
+   * 
    * @example
-   * http://oss.xxx/music.txt
+   * OSS
    */
   source?: string;
   /**
+   * @remarks
+   * API execution status, with values as follows:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
    * @example
    * success
    */
   status?: string;
   /**
+   * @remarks
+   * Name of the text splitter.
+   * 
    * @example
    * ChineseRecursiveTextSplitter
    */
@@ -12778,9 +13663,9 @@ export class DescribeDownloadRecordsResponse extends $tea.Model {
 export class DescribeDownloadSQLLogsRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
    * This parameter is required.
    * 
@@ -12808,12 +13693,12 @@ export class DescribeDownloadSQLLogsRequest extends $tea.Model {
 export class DescribeDownloadSQLLogsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The URL that is used to download the file.
+   * List of download records.
    */
   records?: DescribeDownloadSQLLogsResponseBodyRecords[];
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * FDE9942A-D919-527B-B559-5D0F6F20CCEC
@@ -12886,6 +13771,8 @@ export class DescribeExternalDataServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12915,16 +13802,25 @@ export class DescribeExternalDataServiceRequest extends $tea.Model {
 
 export class DescribeExternalDataServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the service was created.
+   * 
    * @example
    * 2019-09-08T16:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The time when the service was last modified.
+   * 
    * @example
    * 2019-09-08T17:00:00Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -12938,6 +13834,9 @@ export class DescribeExternalDataServiceResponseBody extends $tea.Model {
    */
   serviceDescription?: string;
   /**
+   * @remarks
+   * The service ID.
+   * 
    * @example
    * 1
    */
@@ -12959,6 +13858,9 @@ export class DescribeExternalDataServiceResponseBody extends $tea.Model {
    */
   serviceSpec?: string;
   /**
+   * @remarks
+   * The status of the operation.
+   * 
    * @example
    * Running
    */
@@ -13149,6 +14051,11 @@ export class DescribeHadoopConfigsRequest extends $tea.Model {
    */
   emrInstanceId?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -13192,6 +14099,9 @@ export class DescribeHadoopConfigsResponseBody extends $tea.Model {
    */
   configName?: string;
   /**
+   * @remarks
+   * The configuration value.
+   * 
    * @example
    * <?xml version="1.0"?>
    * <configuration>
@@ -13272,6 +14182,11 @@ export class DescribeHadoopDataSourceRequest extends $tea.Model {
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -13342,15 +14257,18 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
    * @remarks
    * The status of the service. Valid values:
    * 
-   * *   init
-   * *   running
-   * *   exception
+   * *   Init
+   * *   Running
+   * *   Exception
    * 
    * @example
    * Running
    */
   dataSourceStatus?: string;
   /**
+   * @remarks
+   * The type of the data source.
+   * 
    * @example
    * hive
    */
@@ -13363,6 +14281,13 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
    * c-1234567
    */
   emrInstanceId?: string;
+  /**
+   * @remarks
+   * The Id of External Data Service
+   * 
+   * @example
+   * 2988
+   */
   externalDataServiceId?: string;
   /**
    * @remarks
@@ -13384,8 +14309,8 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
    * @remarks
    * The type of the external service. Valid values:
    * 
-   * *   HDFS
-   * *   HIVE
+   * *   emr
+   * *   selfCreate
    * 
    * @example
    * HDFS
@@ -13393,8 +14318,7 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
   hadoopCreateType?: string;
   /**
    * @remarks
-   * *   The address and hostname of the Hadoop cluster (data source) in the /etc/hosts directory.
-   * *
+   * The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
    * 
    * @example
    * 127.0.0.1 localhost
@@ -13410,12 +14334,19 @@ export class DescribeHadoopDataSourceResponseBody extends $tea.Model {
   hiveConf?: string;
   /**
    * @remarks
-   * The content of the Hadoop MapReduceConf file.
+   * The content of the Hadoop mapred-site.xml file.
    * 
    * @example
    * xxxxxx
    */
   mapReduceConf?: string;
+  /**
+   * @remarks
+   * The time when the service was last modified.
+   * 
+   * @example
+   * 2024-08-23T02:11:47Z
+   */
   modifyTime?: string;
   /**
    * @remarks
@@ -13637,6 +14568,8 @@ export class DescribeHealthStatusResponse extends $tea.Model {
 export class DescribeIMVInfosRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13645,6 +14578,8 @@ export class DescribeIMVInfosRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * The name of the database.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13652,6 +14587,9 @@ export class DescribeIMVInfosRequest extends $tea.Model {
    */
   database?: string;
   /**
+   * @remarks
+   * The name of MV
+   * 
    * @example
    * public."mv1"
    */
@@ -13679,6 +14617,11 @@ export class DescribeIMVInfosRequest extends $tea.Model {
 
 export class DescribeIMVInfosResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * 
    * @example
    * gp-xxxxxxxxx
    */
@@ -13689,6 +14632,9 @@ export class DescribeIMVInfosResponseBody extends $tea.Model {
    */
   imvInfos?: DescribeIMVInfosResponseBodyImvInfos[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
@@ -13742,6 +14688,10 @@ export class DescribeIMVInfosResponse extends $tea.Model {
 export class DescribeJDBCDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13779,6 +14729,9 @@ export class DescribeJDBCDataSourceRequest extends $tea.Model {
 
 export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The time when the service was created.
+   * 
    * @example
    * 2019-09-08T16:00:00Z
    */
@@ -13792,11 +14745,17 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
    */
   dataSourceDescription?: string;
   /**
+   * @remarks
+   * The data source ID.
+   * 
    * @example
    * 123
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * The name of data soruce
+   * 
    * @example
    * hdfs_pxf
    */
@@ -13821,6 +14780,13 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
    * MySQL
    */
   dataSourceType?: string;
+  /**
+   * @remarks
+   * The id of the external data service
+   * 
+   * @example
+   * 2989
+   */
   externalDataServiceId?: string;
   /**
    * @remarks
@@ -13846,13 +14812,26 @@ export class DescribeJDBCDataSourceResponseBody extends $tea.Model {
    * xxxxxx
    */
   JDBCUserName?: string;
+  /**
+   * @remarks
+   * The time when the data source was last modified.
+   * 
+   * @example
+   * 2024-08-27T02:01:10Z
+   */
   modifyTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
   /**
+   * @remarks
+   * The message of the status
+   * 
    * @example
    * ""
    */
@@ -14266,6 +15245,9 @@ export class DescribeNamespaceRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -15685,7 +16667,15 @@ export class DescribeSQLLogsV2Request extends $tea.Model {
 export class DescribeSQLLogsV2ResponseBody extends $tea.Model {
   /**
    * @remarks
-   * Details of the SQL logs.
+   * The details about the access denial.
+   * 
+   * @example
+   * account name invalid
+   */
+  accessDeniedDetail?: string;
+  /**
+   * @remarks
+   * The queried SQL execution logs.
    */
   items?: DescribeSQLLogsV2ResponseBodyItems[];
   /**
@@ -15714,6 +16704,7 @@ export class DescribeSQLLogsV2ResponseBody extends $tea.Model {
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
+      accessDeniedDetail: 'AccessDeniedDetail',
       items: 'Items',
       pageNumber: 'PageNumber',
       pageRecordCount: 'PageRecordCount',
@@ -15723,6 +16714,7 @@ export class DescribeSQLLogsV2ResponseBody extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      accessDeniedDetail: 'string',
       items: { 'type': 'array', 'itemType': DescribeSQLLogsV2ResponseBodyItems },
       pageNumber: 'number',
       pageRecordCount: 'number',
@@ -15903,6 +16895,11 @@ export class DescribeStreamingDataServiceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
+   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-beijing
    */
@@ -15987,6 +16984,13 @@ export class DescribeStreamingDataServiceResponseBody extends $tea.Model {
    * 192.168.0.1
    */
   serviceIp?: string;
+  /**
+   * @remarks
+   * The service is managed by other aliyun product or not.
+   * 
+   * @example
+   * False
+   */
   serviceManaged?: boolean;
   /**
    * @remarks
@@ -15996,6 +17000,13 @@ export class DescribeStreamingDataServiceResponseBody extends $tea.Model {
    * test-adbpgss
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service account uid of the aliyun product
+   * 
+   * @example
+   * 123456
+   */
   serviceOwnerId?: string;
   /**
    * @remarks
@@ -16093,6 +17104,8 @@ export class DescribeStreamingDataServiceResponse extends $tea.Model {
 export class DescribeStreamingDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16101,6 +17114,8 @@ export class DescribeStreamingDataSourceRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -16108,6 +17123,11 @@ export class DescribeStreamingDataSourceRequest extends $tea.Model {
    */
   dataSourceId?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
@@ -16135,57 +17155,87 @@ export class DescribeStreamingDataSourceRequest extends $tea.Model {
 
 export class DescribeStreamingDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2019-09-08T16:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Data source configuration information.
+   * 
    * @example
    * {"brokers":"broker0:9091,broker1:9091","topic":"topic"}
    */
   dataSourceConfig?: string;
   /**
+   * @remarks
+   * Data source description.
+   * 
    * @example
    * test-kafka
    */
   dataSourceDescription?: string;
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * 1
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * Data source name.
+   * 
    * @example
    * test-kafka
    */
   dataSourceName?: string;
   /**
+   * @remarks
+   * Data source type, values include:
+   *  -  kafka
+   * 
    * @example
    * kafka
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * Service status message, for example, in case of an exception, it will show the reason for the exception. In normal Running state, this value is empty.
+   * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
   /**
+   * @remarks
+   * External data service ID.
+   * 
    * @example
    * 1
    */
   serviceId?: number;
   /**
    * @remarks
-   * The status of the service. Valid values:
+   * Service status:
    * 
-   * *   init
-   * *   running
-   * *   exception
+   * - Initializing init
+   * 
+   * - Running running
+   * 
+   * - Exception exception
    * 
    * @example
    * running
@@ -16254,7 +17304,7 @@ export class DescribeStreamingDataSourceResponse extends $tea.Model {
 export class DescribeStreamingJobRequest extends $tea.Model {
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -16264,7 +17314,7 @@ export class DescribeStreamingJobRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The job ID.
+   * Job ID.
    * 
    * This parameter is required.
    * 
@@ -16273,6 +17323,11 @@ export class DescribeStreamingJobRequest extends $tea.Model {
    */
   jobId?: number;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
@@ -16301,20 +17356,23 @@ export class DescribeStreamingJobRequest extends $tea.Model {
 export class DescribeStreamingJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The username of the account.
+   * Target database account.
    * 
    * @example
    * test-account
    */
   account?: string;
   /**
+   * @remarks
+   * Delivery guarantee.
+   * 
    * @example
    * ATLEAST / EXACTLY
    */
   consistency?: string;
   /**
    * @remarks
-   * The time when the job was created.
+   * Creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -16324,67 +17382,87 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the data source.
+   * Data source ID.
    * 
    * @example
-   * test-kafka
+   * 2
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * Data source name.
+   * 
    * @example
    * test_kafka
    */
   dataSourceName?: string;
   /**
    * @remarks
-   * The destination fields.
+   * Target data table mapping field list.
    */
   destColumns?: string[];
   /**
    * @remarks
-   * The name of the destination database.
+   * Target database name.
    * 
    * @example
    * dest-db
    */
   destDatabase?: string;
   /**
+   * @remarks
+   * Target namespace.
+   * 
    * @example
    * dest-schema
    */
   destSchema?: string;
   /**
    * @remarks
-   * The name of the destination table.
+   * Target table name.
    * 
    * @example
    * dest-table
    */
   destTable?: string;
   /**
+   * @remarks
+   * When data in Kafka does not match the ADBPG target table, it can cause write failures. This value represents the number of error rows allowed; if exceeded, the task will fail.
+   * 
    * @example
    * 5
    */
   errorLimitCount?: number;
   /**
    * @remarks
-   * The information about the job status. For example, if the job is in the Exception state, the cause of the exception is displayed. If the job is in the Running state, this parameter is left empty.
+   * Service status information, such as the reason for an exception. It is empty in the normal Running state.
    * 
    * @example
    * ""
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * Fallback offset, which is the fallback position
+   * 
+   * - The FallbackOffset parameter defines the behavior when the consumer has not requested a specific offset to consume or the requested offset exceeds the current record\\"s offset information in the Kafka cluster. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+   * 
    * @example
    * EARLIEST /  LATEST
    */
   fallbackOffset?: string;
   /**
+   * @remarks
+   * Kafka group name
+   * 
    * @example
    * test_group
    */
   groupName?: string;
   /**
+   * @remarks
+   * Job configuration file.
+   * 
    * @example
    * DATABASE: adbpgss_test
    * USER: adbpgss_test
@@ -16510,7 +17588,7 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * The description of the job.
+   * Job description.
    * 
    * @example
    * test_job
@@ -16518,7 +17596,7 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The job ID.
+   * Job ID.
    * 
    * @example
    * 1
@@ -16526,21 +17604,30 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the job.
+   * Job name.
    * 
    * @example
    * test-job
    */
   jobName?: string;
+  /**
+   * @remarks
+   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+   */
   matchColumns?: string[];
   /**
+   * @remarks
+   * Configuration mode
+   * 1. Basic mode requires specifying some configuration fields
+   * 1. Professional mode supports submitting YAML files
+   * 
    * @example
    * basic/professional
    */
   mode?: string;
   /**
    * @remarks
-   * The time when the job was last modified.
+   * Last modified time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -16550,7 +17637,7 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The password of the account.
+   * Target database password.
    * 
    * @example
    * pwd123
@@ -16558,7 +17645,7 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   password?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -16566,26 +17653,33 @@ export class DescribeStreamingJobResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The source fields.
+   * Source field list.
    */
   srcColumns?: string[];
   /**
    * @remarks
-   * The status of the job. Valid values:
+   * Service status, with possible values:
    * 
-   * *   Init: The job is being initialized.
-   * *   Running: The job is running.
-   * *   Exception: The job encounters an exception.
-   * *   Paused: The job is paused.
+   * - Init: Initializing
+   * 
+   * - Running: Running
+   * 
+   * - Exception: Exception
+   * 
+   * - Paused: Paused
    * 
    * @example
    * Running
    */
   status?: string;
+  /**
+   * @remarks
+   * Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+   */
   updateColumns?: string[];
   /**
    * @remarks
-   * The write mode.
+   * Write mode.
    * 
    * @example
    * INSERT/UPDATE/MERGE
@@ -18516,6 +19610,166 @@ export class ExecuteStatementResponse extends $tea.Model {
   }
 }
 
+export class GetAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The name of the database account.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * testuser
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountName: 'AccountName',
+      DBInstanceId: 'DBInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountName: 'string',
+      DBInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The new description of the database account.
+   * 
+   * *   The description must start with a letter.
+   * *   The description cannot start with `http://` or `https://`.
+   * *   The description can contain letters, underscores (_), hyphens (-), and digits.
+   * *   The description must be 2 to 256 characters in length.
+   * 
+   * @example
+   * The instance used by this account to log in is DBInstanceId. The name used to log in is AccountName.
+   */
+  accountDescription?: string;
+  /**
+   * @remarks
+   * The name of the initial account.
+   * 
+   * *   The name can contain lowercase letters, digits, and underscores (_).
+   * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+   * *   The name cannot start with gp.
+   * *   The name must be 2 to 16 characters in length.
+   * 
+   * @example
+   * testaccount
+   */
+  accountName?: string;
+  /**
+   * @remarks
+   * The status of the member that you want to query.
+   * 
+   * *   **enabled**: managed.
+   * *   **disabled**: not managed.
+   * *   **disabling**: being deleted.
+   * 
+   * @example
+   * 1
+   */
+  accountStatus?: string;
+  /**
+   * @remarks
+   * *   Normal: standard account
+   * *   Super: privileged account
+   * 
+   * @example
+   * Normal
+   */
+  accountType?: string;
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * CA7E4276-E2D5-5F8D-AF06-9EAB3F6C****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountDescription: 'AccountDescription',
+      accountName: 'AccountName',
+      accountStatus: 'AccountStatus',
+      accountType: 'AccountType',
+      DBInstanceId: 'DBInstanceId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountDescription: 'string',
+      accountName: 'string',
+      accountStatus: 'string',
+      accountType: 'string',
+      DBInstanceId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetAccountResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAccountResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetAccountResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetSecretValueRequest extends $tea.Model {
   /**
    * @remarks
@@ -18987,6 +20241,13 @@ export class GetUpsertCollectionDataJobRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19481,6 +20742,9 @@ export class InitVectorDatabaseRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -19629,6 +20893,9 @@ export class ListCollectionsRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -20140,6 +21407,10 @@ export class ListDocumentsRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20241,6 +21512,9 @@ export class ListDocumentsResponseBody extends $tea.Model {
    */
   items?: ListDocumentsResponseBodyItems;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * Successful
    */
@@ -20254,6 +21528,9 @@ export class ListDocumentsResponseBody extends $tea.Model {
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
@@ -20324,6 +21601,10 @@ export class ListDocumentsResponse extends $tea.Model {
 export class ListExternalDataServicesRequest extends $tea.Model {
   /**
    * @remarks
+   * The instance ID.
+   * 
+   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20331,11 +21612,17 @@ export class ListExternalDataServicesRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
@@ -20373,11 +21660,17 @@ export class ListExternalDataServicesRequest extends $tea.Model {
 
 export class ListExternalDataServicesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -20388,6 +21681,9 @@ export class ListExternalDataServicesResponseBody extends $tea.Model {
    */
   serviceItems?: ListExternalDataServicesResponseBodyServiceItems[];
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 2
    */
@@ -20474,6 +21770,9 @@ export class ListExternalDataSourcesRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The region ID of the instance.
+   * 
    * @example
    * cn-shanghai
    */
@@ -20670,6 +21969,10 @@ export class ListInstanceExtensionsRequest extends $tea.Model {
 }
 
 export class ListInstanceExtensionsResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The queried extensions.
+   */
   items?: ListInstanceExtensionsResponseBodyItems[];
   /**
    * @remarks
@@ -20798,6 +22101,9 @@ export class ListNamespacesRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -20932,6 +22238,115 @@ export class ListNamespacesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ListNamespacesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemoteADBDataSourcesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * Data source ID.
+   * 
+   * @example
+   * 119
+   */
+  dataSourceId?: string;
+  ownerId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      dataSourceId: 'DataSourceId',
+      ownerId: 'OwnerId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      dataSourceId: 'string',
+      ownerId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemoteADBDataSourcesResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returns the successfully added data sharing service data.
+   */
+  dataSourceItems?: ListRemoteADBDataSourcesResponseBodyDataSourceItems;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * e9d60eb1-e90d-4bc6-a470-c8b767460858
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task ID.
+   * 
+   * @example
+   * 90000
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceItems: 'DataSourceItems',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceItems: ListRemoteADBDataSourcesResponseBodyDataSourceItems,
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemoteADBDataSourcesResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRemoteADBDataSourcesResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ListRemoteADBDataSourcesResponseBody,
     };
   }
 
@@ -21271,6 +22686,8 @@ export class ListSecretsResponse extends $tea.Model {
 export class ListStreamingDataServicesRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21278,18 +22695,27 @@ export class ListStreamingDataServicesRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Page number, greater than 0 and not exceeding the maximum value of Integer, default value: **1**.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page, with the following values:
+   * - 30 (default)
+   * - 50
+   * - 100
+   * 
    * @example
    * 50
    */
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * Region ID
    * 
    * @example
    * cn-beijing
@@ -21320,12 +22746,22 @@ export class ListStreamingDataServicesRequest extends $tea.Model {
 
 export class ListStreamingDataServicesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returns real-time data service items
+   */
   serviceItems?: ListStreamingDataServicesResponseBodyServiceItems[];
   /**
+   * @remarks
+   * Total record count.
+   * 
    * @example
    * 1
    */
@@ -21523,6 +22959,8 @@ export class ListStreamingDataSourcesResponse extends $tea.Model {
 export class ListStreamingJobsRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21530,11 +22968,19 @@ export class ListStreamingJobsRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Page number, greater than 0 and not exceeding the maximum value of Integer. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page, with the following options:
+   * - **30** - **50** - **100**
+   * Default value: 30.
+   * 
    * @example
    * kafka
    */
@@ -21579,21 +23025,33 @@ export class ListStreamingJobsResponseBody extends $tea.Model {
    */
   jobItems?: ListStreamingJobsResponseBodyJobItems[];
   /**
+   * @remarks
+   * Current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of records per page.
+   * 
    * @example
    * 2
    */
   pageRecordCount?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 2
    */
@@ -22011,8 +23469,6 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
    * *   The description can contain letters, underscores (_), hyphens (-), and digits.
    * *   The description must be 2 to 256 characters in length.
    * 
-   * This parameter is required.
-   * 
    * @example
    * testAccoutdescribe
    */
@@ -22029,6 +23485,14 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
   accountName?: string;
   /**
    * @remarks
+   * Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88**********
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * The instance ID.
    * 
    * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
@@ -22043,6 +23507,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
     return {
       accountDescription: 'AccountDescription',
       accountName: 'AccountName',
+      clientToken: 'ClientToken',
       DBInstanceId: 'DBInstanceId',
     };
   }
@@ -22051,6 +23516,7 @@ export class ModifyAccountDescriptionRequest extends $tea.Model {
     return {
       accountDescription: 'string',
       accountName: 'string',
+      clientToken: 'string',
       DBInstanceId: 'string',
     };
   }
@@ -22421,6 +23887,14 @@ export class ModifyDBInstanceConfigResponse extends $tea.Model {
 export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
   /**
    * @remarks
+   * Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+   * 
+   * @example
+   * 0c593ea1-3bea-11e9-b96b-88**********
+   */
+  clientToken?: string;
+  /**
+   * @remarks
    * The endpoint prefix of the instance.
    * 
    * This parameter is required.
@@ -22461,6 +23935,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
   port?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       connectionStringPrefix: 'ConnectionStringPrefix',
       currentConnectionString: 'CurrentConnectionString',
       DBInstanceId: 'DBInstanceId',
@@ -22470,6 +23945,7 @@ export class ModifyDBInstanceConnectionStringRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       connectionStringPrefix: 'string',
       currentConnectionString: 'string',
       DBInstanceId: 'string',
@@ -22745,6 +24221,276 @@ export class ModifyDBInstanceMaintainTimeResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ModifyDBInstanceMaintainTimeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceNetworkTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-bp12ga6v69h86****
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The new network type of the instance. Valid values:
+   * 
+   * *   VPC
+   * *   Classic
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * VPC
+   */
+  instanceNetworkType?: string;
+  /**
+   * @remarks
+   * The internal IP address of the instance.
+   * 
+   * @example
+   * 10.10.XX.XX
+   */
+  privateIpAddress?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) ID of the instance.
+   * 
+   * @example
+   * vpc-bp19ame5m1r3oejns****
+   */
+  VPCId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID of the instance. This parameter must be specified when VPCId is specified.
+   * 
+   * @example
+   * vsw-bp1cpq8mr64paltkb****
+   */
+  vSwitchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      instanceNetworkType: 'InstanceNetworkType',
+      privateIpAddress: 'PrivateIpAddress',
+      VPCId: 'VPCId',
+      vSwitchId: 'VSwitchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      instanceNetworkType: 'string',
+      privateIpAddress: 'string',
+      VPCId: 'string',
+      vSwitchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceNetworkTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 2d0c35a9-f5da-44ba-852d-741e27b7eb0b
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstanceNetworkTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstanceNetworkTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstanceNetworkTypeResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstancePayTypeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-bp***************
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The billing method of the instance. Valid values:
+   * 
+   * *   Postpaid: pay-as-you-go.
+   * *   Prepaid: subscription.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * Postpaid
+   */
+  payType?: string;
+  /**
+   * @remarks
+   * The unit of the subscription duration. Valid values:
+   * 
+   * *   Month
+   * *   Year
+   * 
+   * This parameter must be specified only when PayType is set to Prepaid.
+   * 
+   * @example
+   * Month
+   */
+  period?: string;
+  /**
+   * @remarks
+   * The subscription duration.
+   * 
+   * *   Valid values when Period is set to Month: 1 to 9.
+   * *   Valid values when Period is set to Year: 1 to 3.
+   * 
+   * This parameter must be specified only when PayType is set to Prepaid.
+   * 
+   * @example
+   * 1
+   */
+  usedTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      payType: 'PayType',
+      period: 'Period',
+      usedTime: 'UsedTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      payType: 'string',
+      period: 'string',
+      usedTime: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstancePayTypeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The instance ID.
+   * 
+   * @example
+   * gp-bp***************
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * The order ID.
+   * 
+   * @example
+   * 50578361067****
+   */
+  orderId?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7565770E-7C45-462D-BA4A-8A5396F2****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyDBInstancePayTypeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyDBInstancePayTypeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyDBInstancePayTypeResponseBody,
     };
   }
 
@@ -23111,6 +24857,8 @@ export class ModifyDBResourceGroupResponse extends $tea.Model {
 export class ModifyExternalDataServiceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23119,9 +24867,9 @@ export class ModifyExternalDataServiceRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -23129,14 +24877,16 @@ export class ModifyExternalDataServiceRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The description of the service.
+   * Service description.
    * 
    * @example
-   * test-adbpgss
+   * pxf test
    */
   serviceDescription?: string;
   /**
    * @remarks
+   * Service ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23145,14 +24895,14 @@ export class ModifyExternalDataServiceRequest extends $tea.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The specifications of the service. Unit: compute units (CUs). Valid values:
+   * Service specification (in CU), value:
    * 
-   * *   8
+   * - 8
    * 
    * This parameter is required.
    * 
    * @example
-   * 2
+   * 8
    */
   serviceSpec?: string;
   static names(): { [key: string]: string } {
@@ -23182,6 +24932,9 @@ export class ModifyExternalDataServiceRequest extends $tea.Model {
 
 export class ModifyExternalDataServiceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
    */
@@ -23231,6 +24984,8 @@ export class ModifyExternalDataServiceResponse extends $tea.Model {
 export class ModifyHadoopDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23238,6 +24993,9 @@ export class ModifyHadoopDataSourceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Service description, with a maximum length of 256 characters.
+   * 
    * @example
    * pxf for hdfs data source
    */
@@ -23267,6 +25025,9 @@ export class ModifyHadoopDataSourceRequest extends $tea.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * When HadoopCreateType is Emr, the value of this field is the EMR instance ID.
+   * 
    * @example
    * c-1234567
    */
@@ -23394,6 +25155,9 @@ export class ModifyHadoopDataSourceRequest extends $tea.Model {
 
 export class ModifyHadoopDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2C125605-266F-41CA-8AC5-3A643D4F42C5
    */
@@ -23443,6 +25207,8 @@ export class ModifyHadoopDataSourceResponse extends $tea.Model {
 export class ModifyJDBCDataSourceRequest extends $tea.Model {
   /**
    * @remarks
+   * Instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23450,12 +25216,17 @@ export class ModifyJDBCDataSourceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * Data source description.
+   * 
    * @example
    * test
    */
   dataSourceDescription?: string;
   /**
    * @remarks
+   * Data source ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23463,6 +25234,9 @@ export class ModifyJDBCDataSourceRequest extends $tea.Model {
    */
   dataSourceId?: string;
   /**
+   * @remarks
+   * Database type: - mysql - postgresql - sqlserver
+   * 
    * @example
    * mysql
    */
@@ -23532,6 +25306,9 @@ export class ModifyJDBCDataSourceRequest extends $tea.Model {
 
 export class ModifyJDBCDataSourceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 2C125605-266F-41CA-8AC5-3A643D4F42C5
    */
@@ -23842,6 +25619,151 @@ export class ModifyParametersResponse extends $tea.Model {
   }
 }
 
+export class ModifyRemoteADBDataSourceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Service ID
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  dataSourceId?: string;
+  /**
+   * @remarks
+   * Specified dataSourceName.
+   * 
+   * @example
+   * test
+   */
+  dataSourceName?: string;
+  /**
+   * @remarks
+   * The ID of the local data instance being used.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-test
+   */
+  localDBInstanceId?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * New user name.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * newUserName
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * New user password, which must be transmitted in encrypted form.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * newUserPassword
+   */
+  userPassword?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceId: 'DataSourceId',
+      dataSourceName: 'DataSourceName',
+      localDBInstanceId: 'LocalDBInstanceId',
+      ownerId: 'OwnerId',
+      userName: 'UserName',
+      userPassword: 'UserPassword',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceId: 'string',
+      dataSourceName: 'string',
+      localDBInstanceId: 'string',
+      ownerId: 'number',
+      userName: 'string',
+      userPassword: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRemoteADBDataSourceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Returns the successfully modified data sharing service data.
+   */
+  dataSourceItem?: ModifyRemoteADBDataSourceResponseBodyDataSourceItem;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * e9d60eb1-e90d-4bc6-a470-c8b767460858
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Task ID.
+   * 
+   * @example
+   * 90000
+   */
+  taskId?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceItem: 'DataSourceItem',
+      requestId: 'RequestId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceItem: ModifyRemoteADBDataSourceResponseBodyDataSourceItem,
+      requestId: 'string',
+      taskId: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRemoteADBDataSourceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRemoteADBDataSourceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRemoteADBDataSourceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifySQLCollectorPolicyRequest extends $tea.Model {
   /**
    * @remarks
@@ -23998,7 +25920,7 @@ export class ModifySecurityIpsRequest extends $tea.Model {
    * This parameter is required.
    * 
    * @example
-   * 10.10.\*\*.**
+   * ``10.10.**.**``
    */
   securityIPList?: string;
   static names(): { [key: string]: string } {
@@ -24334,7 +26256,7 @@ export class ModifyStreamingDataSourceResponse extends $tea.Model {
 export class ModifyStreamingJobRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * Account name.
    * 
    * @example
    * test-account
@@ -24342,12 +26264,7 @@ export class ModifyStreamingJobRequest extends $tea.Model {
   account?: string;
   /**
    * @remarks
-   * The delivery guarantee setting.
-   * 
-   * Valid values:
-   * 
-   * *   ATLEAST
-   * *   EXACTLY
+   * Delivery guarantee.
    * 
    * @example
    * ATLEAST / EXACTLY
@@ -24355,7 +26272,7 @@ export class ModifyStreamingJobRequest extends $tea.Model {
   consistency?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID
    * 
    * This parameter is required.
    * 
@@ -24365,48 +26282,62 @@ export class ModifyStreamingJobRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The destination fields.
+   * Target data table mapping field list.
    */
   destColumns?: string[];
   /**
    * @remarks
-   * The name of the destination database.
+   * Target database name.
    * 
    * @example
    * dest-db
    */
   destDatabase?: string;
   /**
+   * @remarks
+   * Target schema.
+   * 
    * @example
    * dest-schema
    */
   destSchema?: string;
   /**
    * @remarks
-   * The name of the destination table.
+   * Target table name.
    * 
    * @example
    * dest-table
    */
   destTable?: string;
   /**
+   * @remarks
+   * When the data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
+   * 
    * @example
    * 5
    */
   errorLimitCount?: number;
   /**
+   * @remarks
+   * FallbackOffset rollback position, offset rollback
+   * 
+   * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific consumption point or the requested consumption point exceeds the current Kafka cluster\\"s recorded points. You can choose to start consuming from the earliest (newest) or latest (oldest) point.
+   * 
    * @example
-   * earliest /  latest
+   * EARLIEST /  LATEST
    */
   fallbackOffset?: string;
   /**
+   * @remarks
+   * Kafka group name
+   * 
    * @example
    * group_name
    */
   groupName?: string;
   /**
    * @remarks
-   * The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+   * Job configuration file, required for professional mode.
    * 
    * @example
    * DATABASE: adbpgss_test
@@ -24533,7 +26464,7 @@ export class ModifyStreamingJobRequest extends $tea.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * The description of the job.
+   * Job description.
    * 
    * @example
    * test-job
@@ -24541,7 +26472,7 @@ export class ModifyStreamingJobRequest extends $tea.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The job ID.
+   * Job ID.
    * 
    * This parameter is required.
    * 
@@ -24549,31 +26480,40 @@ export class ModifyStreamingJobRequest extends $tea.Model {
    * 1
    */
   jobId?: number;
+  /**
+   * @remarks
+   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+   */
   matchColumns?: string[];
   /**
    * @remarks
-   * The password of the database account.
+   * Password.
    * 
    * @example
    * pwd123
    */
   password?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The source fields.
+   * Source data field list.
    */
   srcColumns?: string[];
   /**
    * @remarks
-   * Specifies whether to test the real-time job. Valid values:
+   * Whether to test the real-time task, values:
    * 
-   * *   true
-   * *   false
+   * -  true
+   * - false
    * 
    * Default value: false.
    * 
@@ -24581,16 +26521,14 @@ export class ModifyStreamingJobRequest extends $tea.Model {
    * true
    */
   tryRun?: boolean;
+  /**
+   * @remarks
+   * Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+   */
   updateColumns?: string[];
   /**
    * @remarks
-   * The write mode.
-   * 
-   * Valid values:
-   * 
-   * *   insert
-   * *   update
-   * *   merge
+   * Write mode.
    * 
    * @example
    * INSERT/UPDATE/MERGE
@@ -24654,7 +26592,7 @@ export class ModifyStreamingJobRequest extends $tea.Model {
 export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * Account name.
    * 
    * @example
    * test-account
@@ -24662,12 +26600,7 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   account?: string;
   /**
    * @remarks
-   * The delivery guarantee setting.
-   * 
-   * Valid values:
-   * 
-   * *   ATLEAST
-   * *   EXACTLY
+   * Delivery guarantee.
    * 
    * @example
    * ATLEAST / EXACTLY
@@ -24675,7 +26608,7 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   consistency?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID
    * 
    * This parameter is required.
    * 
@@ -24685,48 +26618,62 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The destination fields.
+   * Target data table mapping field list.
    */
   destColumnsShrink?: string;
   /**
    * @remarks
-   * The name of the destination database.
+   * Target database name.
    * 
    * @example
    * dest-db
    */
   destDatabase?: string;
   /**
+   * @remarks
+   * Target schema.
+   * 
    * @example
    * dest-schema
    */
   destSchema?: string;
   /**
    * @remarks
-   * The name of the destination table.
+   * Target table name.
    * 
    * @example
    * dest-table
    */
   destTable?: string;
   /**
+   * @remarks
+   * When the data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
+   * 
    * @example
    * 5
    */
   errorLimitCount?: number;
   /**
+   * @remarks
+   * FallbackOffset rollback position, offset rollback
+   * 
+   * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific consumption point or the requested consumption point exceeds the current Kafka cluster\\"s recorded points. You can choose to start consuming from the earliest (newest) or latest (oldest) point.
+   * 
    * @example
-   * earliest /  latest
+   * EARLIEST /  LATEST
    */
   fallbackOffset?: string;
   /**
+   * @remarks
+   * Kafka group name
+   * 
    * @example
    * group_name
    */
   groupName?: string;
   /**
    * @remarks
-   * The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+   * Job configuration file, required for professional mode.
    * 
    * @example
    * DATABASE: adbpgss_test
@@ -24853,7 +26800,7 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * The description of the job.
+   * Job description.
    * 
    * @example
    * test-job
@@ -24861,7 +26808,7 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * The job ID.
+   * Job ID.
    * 
    * This parameter is required.
    * 
@@ -24869,31 +26816,40 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
    * 1
    */
   jobId?: number;
+  /**
+   * @remarks
+   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+   */
   matchColumnsShrink?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * Password.
    * 
    * @example
    * pwd123
    */
   password?: string;
   /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The source fields.
+   * Source data field list.
    */
   srcColumnsShrink?: string;
   /**
    * @remarks
-   * Specifies whether to test the real-time job. Valid values:
+   * Whether to test the real-time task, values:
    * 
-   * *   true
-   * *   false
+   * -  true
+   * - false
    * 
    * Default value: false.
    * 
@@ -24901,16 +26857,14 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
    * true
    */
   tryRun?: boolean;
+  /**
+   * @remarks
+   * Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+   */
   updateColumnsShrink?: string;
   /**
    * @remarks
-   * The write mode.
-   * 
-   * Valid values:
-   * 
-   * *   insert
-   * *   update
-   * *   merge
+   * Write mode.
    * 
    * @example
    * INSERT/UPDATE/MERGE
@@ -24974,7 +26928,7 @@ export class ModifyStreamingJobShrinkRequest extends $tea.Model {
 export class ModifyStreamingJobResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -25361,9 +27315,9 @@ export class PauseInstanceResponse extends $tea.Model {
 export class QueryCollectionDataRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * Collection name.
    * 
-   * >  You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
    * 
    * This parameter is required.
    * 
@@ -25373,9 +27327,9 @@ export class QueryCollectionDataRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
-   * The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
+   * Content for full-text search. When this value is empty, only vector search is used; when it is not empty, both vector and full-text search are used.
    * 
-   * >  You must specify at least one of the Content and Vector parameters.
+   * > The Vector parameter cannot be empty at the same time.
    * 
    * @example
    * hello_world
@@ -25383,9 +27337,9 @@ export class QueryCollectionDataRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -25393,11 +27347,10 @@ export class QueryCollectionDataRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * Filter conditions for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). Conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using keywords like IN, BETWEEN, and LIKE.
    * 
    * > 
-   * 
-   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
    * response > 200
@@ -25405,13 +27358,13 @@ export class QueryCollectionDataRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+   * Dual-path recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full-text).
    * 
-   * Valid values:
+   * Available values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text search and then vector search.
+   * - RRF: Reciprocal rank fusion, with a parameter k controlling the fusion effect. See HybridSearchArgs configuration for details;
+   * - Weight: Weighted sorting, using a parameter alpha to control the score ratio of vectors and full-text, then sorting. See HybridSearchArgs configuration for details;
+   * - Cascaded: Perform full-text search first, then vector search based on the full-text results;
    * 
    * @example
    * RRF
@@ -25444,7 +27397,7 @@ export class QueryCollectionDataRequest extends $tea.Model {
   hybridSearchArgs?: { [key: string]: {[key: string]: any} };
   /**
    * @remarks
-   * The metadata fields to be returned. Separate multiple fields with commas (,). This parameter is empty by default.
+   * Defaults to empty, indicating the metadata fields to return. Multiple fields should be separated by commas.
    * 
    * @example
    * title,content
@@ -25452,10 +27405,9 @@ export class QueryCollectionDataRequest extends $tea.Model {
   includeMetadataFields?: string;
   /**
    * @remarks
-   * Specifies whether to return vector data. Valid values:
-   * 
-   * *   **true**: returns vector data.
-   * *   **false**: does not return vector data. In full-text search scenarios, set this parameter to false.
+   * Whether to return vector data. Value descriptions:
+   * - **true**: Return vector data.
+   * - **false**: Do not return vector data, used for full-text search scenarios.
    * 
    * @example
    * true
@@ -25463,13 +27415,12 @@ export class QueryCollectionDataRequest extends $tea.Model {
   includeValues?: boolean;
   /**
    * @remarks
-   * The similarity algorithm for search. Valid values:
+   * Similarity algorithm used during retrieval. Value descriptions:
+   * - **l2**: Euclidean distance.
+   * - **ip**: Inner product (dot product) distance.
+   * - **cosine**: Cosine similarity.
    * 
-   * *   **l2**: Euclidean distance.
-   * *   **ip**: inner product distance.
-   * *   **cosine**: cosine similarity.
-   * 
-   * >  If you leave this parameter empty, the l2, ip, or cosine algorithm that is specified when you create an index is used.
+   * > If this value is empty, the algorithm specified during index creation is used.
    * 
    * @example
    * cosine
@@ -25477,9 +27428,9 @@ export class QueryCollectionDataRequest extends $tea.Model {
   metrics?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * Namespace.
    * 
-   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
    * 
    * @example
    * mynamespace
@@ -25487,6 +27438,8 @@ export class QueryCollectionDataRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * Password for the namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25495,13 +27448,12 @@ export class QueryCollectionDataRequest extends $tea.Model {
   namespacePassword?: string;
   /**
    * @remarks
-   * The starting point for paginated queries. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+   * Defaults to empty, indicating the starting point for pagination queries. Does not support hybrid search scenarios.
    * 
-   * The value must be greater than or equal to 0. If you do not leave this parameter empty, the Total parameter is returned to indicate the total number of matched entries. You must specify this parameter and the TopK parameter in pairs. For example, to paginate 20 chunks at a time for a total of 45 chunks whose chunk_id values are 0 to 44, three requests are involved:
-   * 
-   * *   First request: Set the Offset value to 0 and the TopK value to 20. The chunks whose chunk_id values are 0 to 19 are returned.
-   * *   Second request: Set the Offset value to 20 and the TopK value to 20. The chunks whose chunk_id values are 20 to 39 are returned.
-   * *   Third request: Set the Offset value to 30 and the TopK value to 20. The chunks whose chunk_id values are 40 to 44 are returned.
+   * The value must be >= 0. When this value is not empty, it will return `Total`, which indicates the total number of hits. This parameter works with `TopK`. For example, to paginate 20 and retrieve chunks with `chunk_id` from 0 to 44, you need to make three requests:
+   * - `Offset=0, TopK=20` returns `chunk_id` 0~19
+   * - `Offset=20, TopK=20` returns `chunk_id` 20~39
+   * - `Offset=30, TopK=20` returns `chunk_id` 40~44
    * 
    * @example
    * 0
@@ -25509,13 +27461,12 @@ export class QueryCollectionDataRequest extends $tea.Model {
   offset?: number;
   /**
    * @remarks
-   * The fields by which to sort the results. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+   * Defaults to empty, indicating the field for sorting. Does not support hybrid search scenarios.
    * 
-   * You must specify the default fields in the metadata or the table, such as id. You can specify the following number of fields:
-   * 
-   * *   One field, such as chunk_id.
-   * *   Multiple fields that are sorted in ascending order and separated by commas (,), such as block_id and chunk_id.
-   * *   Multiple fields that are sorted in descending order and separated by commas (,), such as block_id DESC, chunk_id DESC.
+   * The field must belong to metadata or be a default field in the table, such as `id`. The supported formats are:
+   * - A single field, e.g., `chunk_id`;
+   * - Multiple fields, separated by commas, e.g., `block_id, chunk_id`;
+   * - Supports reverse order, e.g., `block_id DESC, chunk_id DESC`;
    * 
    * @example
    * chunk_id
@@ -25524,7 +27475,7 @@ export class QueryCollectionDataRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID where the instance is located.
    * 
    * This parameter is required.
    * 
@@ -25532,9 +27483,17 @@ export class QueryCollectionDataRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Uses another relational table to filter vector data (similar to a Join function).
+   * 
+   * > Data from the relational table can be returned by setting the `IncludeMetadataFields` parameter. For example, `rds_table_name.id` indicates returning the `id` field from the relational table.
+   */
   relationalTableFilter?: QueryCollectionDataRequestRelationalTableFilter;
   /**
    * @remarks
+   * Set the number of top results to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25543,12 +27502,14 @@ export class QueryCollectionDataRequest extends $tea.Model {
   topK?: number;
   /**
    * @remarks
-   * The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
-   * 
-   * >  If you leave this parameter empty, only full-text search results are returned.
+   * Vector data, with the same dimension as specified in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) API.
+   * > When the vector is empty, only full-text search results are returned.
    */
   vector?: number[];
   /**
+   * @remarks
+   * The ID of the Workspace composed of multiple database instances. This parameter and `DBInstanceId` cannot both be empty. If both are specified, this parameter takes precedence.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -25609,9 +27570,9 @@ export class QueryCollectionDataRequest extends $tea.Model {
 export class QueryCollectionDataShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * Collection name.
    * 
-   * >  You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
    * 
    * This parameter is required.
    * 
@@ -25621,9 +27582,9 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
-   * The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
+   * Content for full-text search. When this value is empty, only vector search is used; when it is not empty, both vector and full-text search are used.
    * 
-   * >  You must specify at least one of the Content and Vector parameters.
+   * > The Vector parameter cannot be empty at the same time.
    * 
    * @example
    * hello_world
@@ -25631,9 +27592,9 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   content?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -25641,11 +27602,10 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * Filter conditions for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). Conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using keywords like IN, BETWEEN, and LIKE.
    * 
    * > 
-   * 
-   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
    * response > 200
@@ -25653,13 +27613,13 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+   * Dual-path recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full-text).
    * 
-   * Valid values:
+   * Available values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text search and then vector search.
+   * - RRF: Reciprocal rank fusion, with a parameter k controlling the fusion effect. See HybridSearchArgs configuration for details;
+   * - Weight: Weighted sorting, using a parameter alpha to control the score ratio of vectors and full-text, then sorting. See HybridSearchArgs configuration for details;
+   * - Cascaded: Perform full-text search first, then vector search based on the full-text results;
    * 
    * @example
    * RRF
@@ -25692,7 +27652,7 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   hybridSearchArgsShrink?: string;
   /**
    * @remarks
-   * The metadata fields to be returned. Separate multiple fields with commas (,). This parameter is empty by default.
+   * Defaults to empty, indicating the metadata fields to return. Multiple fields should be separated by commas.
    * 
    * @example
    * title,content
@@ -25700,10 +27660,9 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   includeMetadataFields?: string;
   /**
    * @remarks
-   * Specifies whether to return vector data. Valid values:
-   * 
-   * *   **true**: returns vector data.
-   * *   **false**: does not return vector data. In full-text search scenarios, set this parameter to false.
+   * Whether to return vector data. Value descriptions:
+   * - **true**: Return vector data.
+   * - **false**: Do not return vector data, used for full-text search scenarios.
    * 
    * @example
    * true
@@ -25711,13 +27670,12 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   includeValues?: boolean;
   /**
    * @remarks
-   * The similarity algorithm for search. Valid values:
+   * Similarity algorithm used during retrieval. Value descriptions:
+   * - **l2**: Euclidean distance.
+   * - **ip**: Inner product (dot product) distance.
+   * - **cosine**: Cosine similarity.
    * 
-   * *   **l2**: Euclidean distance.
-   * *   **ip**: inner product distance.
-   * *   **cosine**: cosine similarity.
-   * 
-   * >  If you leave this parameter empty, the l2, ip, or cosine algorithm that is specified when you create an index is used.
+   * > If this value is empty, the algorithm specified during index creation is used.
    * 
    * @example
    * cosine
@@ -25725,9 +27683,9 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   metrics?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * Namespace.
    * 
-   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
    * 
    * @example
    * mynamespace
@@ -25735,6 +27693,8 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * Password for the namespace.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25743,13 +27703,12 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   namespacePassword?: string;
   /**
    * @remarks
-   * The starting point for paginated queries. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+   * Defaults to empty, indicating the starting point for pagination queries. Does not support hybrid search scenarios.
    * 
-   * The value must be greater than or equal to 0. If you do not leave this parameter empty, the Total parameter is returned to indicate the total number of matched entries. You must specify this parameter and the TopK parameter in pairs. For example, to paginate 20 chunks at a time for a total of 45 chunks whose chunk_id values are 0 to 44, three requests are involved:
-   * 
-   * *   First request: Set the Offset value to 0 and the TopK value to 20. The chunks whose chunk_id values are 0 to 19 are returned.
-   * *   Second request: Set the Offset value to 20 and the TopK value to 20. The chunks whose chunk_id values are 20 to 39 are returned.
-   * *   Third request: Set the Offset value to 30 and the TopK value to 20. The chunks whose chunk_id values are 40 to 44 are returned.
+   * The value must be >= 0. When this value is not empty, it will return `Total`, which indicates the total number of hits. This parameter works with `TopK`. For example, to paginate 20 and retrieve chunks with `chunk_id` from 0 to 44, you need to make three requests:
+   * - `Offset=0, TopK=20` returns `chunk_id` 0~19
+   * - `Offset=20, TopK=20` returns `chunk_id` 20~39
+   * - `Offset=30, TopK=20` returns `chunk_id` 40~44
    * 
    * @example
    * 0
@@ -25757,13 +27716,12 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   offset?: number;
   /**
    * @remarks
-   * The fields by which to sort the results. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+   * Defaults to empty, indicating the field for sorting. Does not support hybrid search scenarios.
    * 
-   * You must specify the default fields in the metadata or the table, such as id. You can specify the following number of fields:
-   * 
-   * *   One field, such as chunk_id.
-   * *   Multiple fields that are sorted in ascending order and separated by commas (,), such as block_id and chunk_id.
-   * *   Multiple fields that are sorted in descending order and separated by commas (,), such as block_id DESC, chunk_id DESC.
+   * The field must belong to metadata or be a default field in the table, such as `id`. The supported formats are:
+   * - A single field, e.g., `chunk_id`;
+   * - Multiple fields, separated by commas, e.g., `block_id, chunk_id`;
+   * - Supports reverse order, e.g., `block_id DESC, chunk_id DESC`;
    * 
    * @example
    * chunk_id
@@ -25772,7 +27730,7 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID where the instance is located.
    * 
    * This parameter is required.
    * 
@@ -25780,9 +27738,17 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Uses another relational table to filter vector data (similar to a Join function).
+   * 
+   * > Data from the relational table can be returned by setting the `IncludeMetadataFields` parameter. For example, `rds_table_name.id` indicates returning the `id` field from the relational table.
+   */
   relationalTableFilterShrink?: string;
   /**
    * @remarks
+   * Set the number of top results to return.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25791,12 +27757,14 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
   topK?: number;
   /**
    * @remarks
-   * The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
-   * 
-   * >  If you leave this parameter empty, only full-text search results are returned.
+   * Vector data, with the same dimension as specified in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) API.
+   * > When the vector is empty, only full-text search results are returned.
    */
   vectorShrink?: string;
   /**
+   * @remarks
+   * The ID of the Workspace composed of multiple database instances. This parameter and `DBInstanceId` cannot both be empty. If both are specified, this parameter takes precedence.
+   * 
    * @example
    * gp-ws-*****
    */
@@ -25857,27 +27825,38 @@ export class QueryCollectionDataShrinkRequest extends $tea.Model {
 export class QueryCollectionDataResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The retrieved data.
+   * Data list.
    */
   matches?: QueryCollectionDataResponseBodyMatches;
   /**
+   * @remarks
+   * Detailed information when the request fails.
+   * 
    * @example
    * 0.1234
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * Status, with the following values:
+   * - **success**: Success.
+   * - **fail**: Failure.
+   * 
    * @example
    * success
    */
   status?: string;
   /**
    * @remarks
-   * The total number of entries that match the search conditions. This parameter is returned only when the Offset parameter is not 0.
+   * Only returned when the Offset is not 0, this value represents the total number of hits for the search criteria.
    * 
    * @example
    * 100
@@ -25936,15 +27915,30 @@ export class QueryCollectionDataResponse extends $tea.Model {
 export class QueryContentRequest extends $tea.Model {
   /**
    * @remarks
+   * Document collection name.
+   * 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the list of created document collections.
+   * 
    * This parameter is required.
    * 
    * @example
    * document
    */
   collection?: string;
+  /**
+   * @remarks
+   * Text content for retrieval.
+   * 
+   * @example
+   * What is ADBPG?
+   */
   content?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25952,36 +27946,45 @@ export class QueryContentRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * In image search scenarios, the source file name of the image to be searched.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * test.jpg
    */
   fileName?: string;
   /**
+   * @remarks
+   * In image search scenarios, the publicly accessible URL of the image file.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * https://xx/myImage.jpg
    */
   fileUrl?: string;
   /**
    * @remarks
-   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * Filter condition for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). The conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), and conditions using keywords like IN, BETWEEN, LIKE, etc.
    * 
    * > 
-   * 
-   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * title = \\"test\\"
+   * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
   /**
    * @remarks
-   * The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+   * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
    * 
-   * Valid values:
+   * Available values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text search and then vector search.
+   * - RRF: Reciprocal rank fusion, with a parameter k controlling the fusion effect. See HybridSearchArgs configuration for details;
+   * - Weight: Weighted ranking, using a parameter alpha to control the weight of vector and full-text scores, then sorting. See HybridSearchArgs configuration for details;
+   * - Cascaded: Perform full-text retrieval first, then vector retrieval on top of it;
    * 
    * @example
    * RRF
@@ -26029,20 +28032,33 @@ export class QueryContentRequest extends $tea.Model {
    */
   includeMetadataFields?: string;
   /**
+   * @remarks
+   * Whether to return vectors. Default is false.
+   * > - **false**: Do not return vectors.
+   * > - **true**: Return vectors.
+   * 
    * @example
    * true
    */
   includeVector?: boolean;
   /**
+   * @remarks
+   * Similarity algorithm used during retrieval. If this value is empty, the algorithm specified at the time of knowledge base creation is used. It is recommended not to set this unless there is a specific need.
+   * 
+   * > Value description:
+   * > - **l2**: Euclidean distance.
+   * > - **ip**: Inner product (dot product) distance.
+   * > - **cosine**: Cosine similarity.
+   * 
    * @example
    * cosine
    */
   metrics?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -26050,6 +28066,10 @@ export class QueryContentRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * Password for the namespace.
+   * 
+   * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26059,17 +28079,15 @@ export class QueryContentRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The recall window. If you specify this parameter, the context of the search result is returned. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
-   * 
-   * > 
-   * 
-   * *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces and you may fail to obtain the context.
-   * 
-   * *   The context of the search result is retrieved based on the recall window after the search result is reranked.
+   * Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+   * > - Recommended when documents are fragmented and retrieval may lose contextual information.
+   * > - Re-ranking takes precedence over windowing, i.e., re-rank first, then apply windowing.
    */
   recallWindow?: number[];
   /**
    * @remarks
+   * The region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26077,18 +28095,26 @@ export class QueryContentRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Re-ranking factor. When this value is not empty, it will re-rank the vector search results. The value range is 1 < RerankFactor <= 5.
+   * > - Re-ranking is slower when documents are sparsely split.
+   * > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
+   * 
    * @example
    * 2
    */
   rerankFactor?: number;
   /**
+   * @remarks
+   * Set the number of top results to return.
+   * 
    * @example
    * 10
    */
   topK?: number;
   /**
    * @remarks
-   * Specifies whether to use full-text search to implement two-way retrieval. The default value is false, which specifies that only vector search is used.
+   * Whether to use full-text retrieval (dual recall). Default is false, which means only vector retrieval is used.
    * 
    * @example
    * true
@@ -26152,15 +28178,30 @@ export class QueryContentRequest extends $tea.Model {
 export class QueryContentAdvanceRequest extends $tea.Model {
   /**
    * @remarks
+   * Document collection name.
+   * 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the list of created document collections.
+   * 
    * This parameter is required.
    * 
    * @example
    * document
    */
   collection?: string;
+  /**
+   * @remarks
+   * Text content for retrieval.
+   * 
+   * @example
+   * What is ADBPG?
+   */
   content?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26168,36 +28209,45 @@ export class QueryContentAdvanceRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * In image search scenarios, the source file name of the image to be searched.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * test.jpg
    */
   fileName?: string;
   /**
+   * @remarks
+   * In image search scenarios, the publicly accessible URL of the image file.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * https://xx/myImage.jpg
    */
   fileUrlObject?: Readable;
   /**
    * @remarks
-   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * Filter condition for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). The conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), and conditions using keywords like IN, BETWEEN, LIKE, etc.
    * 
    * > 
-   * 
-   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * title = \\"test\\"
+   * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
   /**
    * @remarks
-   * The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+   * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
    * 
-   * Valid values:
+   * Available values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text search and then vector search.
+   * - RRF: Reciprocal rank fusion, with a parameter k controlling the fusion effect. See HybridSearchArgs configuration for details;
+   * - Weight: Weighted ranking, using a parameter alpha to control the weight of vector and full-text scores, then sorting. See HybridSearchArgs configuration for details;
+   * - Cascaded: Perform full-text retrieval first, then vector retrieval on top of it;
    * 
    * @example
    * RRF
@@ -26245,20 +28295,33 @@ export class QueryContentAdvanceRequest extends $tea.Model {
    */
   includeMetadataFields?: string;
   /**
+   * @remarks
+   * Whether to return vectors. Default is false.
+   * > - **false**: Do not return vectors.
+   * > - **true**: Return vectors.
+   * 
    * @example
    * true
    */
   includeVector?: boolean;
   /**
+   * @remarks
+   * Similarity algorithm used during retrieval. If this value is empty, the algorithm specified at the time of knowledge base creation is used. It is recommended not to set this unless there is a specific need.
+   * 
+   * > Value description:
+   * > - **l2**: Euclidean distance.
+   * > - **ip**: Inner product (dot product) distance.
+   * > - **cosine**: Cosine similarity.
+   * 
    * @example
    * cosine
    */
   metrics?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -26266,6 +28329,10 @@ export class QueryContentAdvanceRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * Password for the namespace.
+   * 
+   * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26275,17 +28342,15 @@ export class QueryContentAdvanceRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The recall window. If you specify this parameter, the context of the search result is returned. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
-   * 
-   * > 
-   * 
-   * *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces and you may fail to obtain the context.
-   * 
-   * *   The context of the search result is retrieved based on the recall window after the search result is reranked.
+   * Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+   * > - Recommended when documents are fragmented and retrieval may lose contextual information.
+   * > - Re-ranking takes precedence over windowing, i.e., re-rank first, then apply windowing.
    */
   recallWindow?: number[];
   /**
    * @remarks
+   * The region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26293,18 +28358,26 @@ export class QueryContentAdvanceRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Re-ranking factor. When this value is not empty, it will re-rank the vector search results. The value range is 1 < RerankFactor <= 5.
+   * > - Re-ranking is slower when documents are sparsely split.
+   * > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
+   * 
    * @example
    * 2
    */
   rerankFactor?: number;
   /**
+   * @remarks
+   * Set the number of top results to return.
+   * 
    * @example
    * 10
    */
   topK?: number;
   /**
    * @remarks
-   * Specifies whether to use full-text search to implement two-way retrieval. The default value is false, which specifies that only vector search is used.
+   * Whether to use full-text retrieval (dual recall). Default is false, which means only vector retrieval is used.
    * 
    * @example
    * true
@@ -26368,15 +28441,30 @@ export class QueryContentAdvanceRequest extends $tea.Model {
 export class QueryContentShrinkRequest extends $tea.Model {
   /**
    * @remarks
+   * Document collection name.
+   * 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the list of created document collections.
+   * 
    * This parameter is required.
    * 
    * @example
    * document
    */
   collection?: string;
+  /**
+   * @remarks
+   * Text content for retrieval.
+   * 
+   * @example
+   * What is ADBPG?
+   */
   content?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26384,36 +28472,45 @@ export class QueryContentShrinkRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * In image search scenarios, the source file name of the image to be searched.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * test.jpg
    */
   fileName?: string;
   /**
+   * @remarks
+   * In image search scenarios, the publicly accessible URL of the image file.
+   * 
+   * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
+   * 
    * @example
    * https://xx/myImage.jpg
    */
   fileUrl?: string;
   /**
    * @remarks
-   * The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+   * Filter condition for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). The conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), and conditions using keywords like IN, BETWEEN, LIKE, etc.
    * 
    * > 
-   * 
-   * *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
+   * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
    * 
    * @example
-   * title = \\"test\\"
+   * title = \\"test\\" AND name like \\"test%\\"
    */
   filter?: string;
   /**
    * @remarks
-   * The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+   * Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
    * 
-   * Valid values:
+   * Available values:
    * 
-   * *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-   * *   Cascaded: This algorithm performs first full-text search and then vector search.
+   * - RRF: Reciprocal rank fusion, with a parameter k controlling the fusion effect. See HybridSearchArgs configuration for details;
+   * - Weight: Weighted ranking, using a parameter alpha to control the weight of vector and full-text scores, then sorting. See HybridSearchArgs configuration for details;
+   * - Cascaded: Perform full-text retrieval first, then vector retrieval on top of it;
    * 
    * @example
    * RRF
@@ -26461,20 +28558,33 @@ export class QueryContentShrinkRequest extends $tea.Model {
    */
   includeMetadataFields?: string;
   /**
+   * @remarks
+   * Whether to return vectors. Default is false.
+   * > - **false**: Do not return vectors.
+   * > - **true**: Return vectors.
+   * 
    * @example
    * true
    */
   includeVector?: boolean;
   /**
+   * @remarks
+   * Similarity algorithm used during retrieval. If this value is empty, the algorithm specified at the time of knowledge base creation is used. It is recommended not to set this unless there is a specific need.
+   * 
+   * > Value description:
+   * > - **l2**: Euclidean distance.
+   * > - **ip**: Inner product (dot product) distance.
+   * > - **cosine**: Cosine similarity.
+   * 
    * @example
    * cosine
    */
   metrics?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -26482,6 +28592,10 @@ export class QueryContentShrinkRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
+   * Password for the namespace.
+   * 
+   * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26491,17 +28605,15 @@ export class QueryContentShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The recall window. If you specify this parameter, the context of the search result is returned. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
-   * 
-   * > 
-   * 
-   * *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces and you may fail to obtain the context.
-   * 
-   * *   The context of the search result is retrieved based on the recall window after the search result is reranked.
+   * Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+   * > - Recommended when documents are fragmented and retrieval may lose contextual information.
+   * > - Re-ranking takes precedence over windowing, i.e., re-rank first, then apply windowing.
    */
   recallWindowShrink?: string;
   /**
    * @remarks
+   * The region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26509,18 +28621,26 @@ export class QueryContentShrinkRequest extends $tea.Model {
    */
   regionId?: string;
   /**
+   * @remarks
+   * Re-ranking factor. When this value is not empty, it will re-rank the vector search results. The value range is 1 < RerankFactor <= 5.
+   * > - Re-ranking is slower when documents are sparsely split.
+   * > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
+   * 
    * @example
    * 2
    */
   rerankFactor?: number;
   /**
+   * @remarks
+   * Set the number of top results to return.
+   * 
    * @example
    * 10
    */
   topK?: number;
   /**
    * @remarks
-   * Specifies whether to use full-text search to implement two-way retrieval. The default value is false, which specifies that only vector search is used.
+   * Whether to use full-text retrieval (dual recall). Default is false, which means only vector retrieval is used.
    * 
    * @example
    * true
@@ -26583,27 +28703,56 @@ export class QueryContentShrinkRequest extends $tea.Model {
 
 export class QueryContentResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Number of tokens used for vectorization.
+   * 
+   * > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
+   * 
    * @example
    * 100
    */
   embeddingTokens?: string;
+  /**
+   * @remarks
+   * The retrieved data.
+   */
   matches?: QueryContentResponseBodyMatches;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * The execution state of the operation. Valid values:
+   * 
+   * *   **false**: The operation fails.
+   * *   **true**: The operation is successful.
+   * 
    * @example
    * success
    */
   status?: string;
+  /**
+   * @remarks
+   * Resource usage for this query.
+   */
   usage?: QueryContentResponseBodyUsage;
+  /**
+   * @remarks
+   * List of windowed matches.
+   */
   windowMatches?: QueryContentResponseBodyWindowMatches;
   static names(): { [key: string]: string } {
     return {
@@ -26852,6 +29001,314 @@ export class ReleaseInstancePublicConnectionResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: ReleaseInstancePublicConnectionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * List of documents to be re-ordered.
+   */
+  documents?: string[];
+  /**
+   * @remarks
+   * Maximum number of chunks allowed when the text exceeds the model window:
+   * - bge-reranker-v2-m3: default value is 10.
+   * - bge-reranker-v2-minicpm-layerwise: default value is 5:
+   * 
+   * > Example of splitting
+   * > - If using the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2048 tokens. If the query is 48 tokens and the content of a single document parameter is 9000 tokens, it will be divided as follows: 1-2000 for the first, 2001-4000 for the second, and so on. If the number of splits exceeds MaxChunksPerDoc, the remaining sentences will be discarded.
+   * 
+   * @example
+   * 10
+   */
+  maxChunksPerDoc?: number;
+  /**
+   * @remarks
+   * Rerank model, currently supports:
+   * - bge-reranker-v2-m3: (default), better performance, supports 8192 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+   * - bge-reranker-v2-minicpm-layerwise: better performance than v2-m3, supports 2048 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+   * 
+   * @example
+   * bge-reranker-v2-m3
+   */
+  model?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Query statement for Rerank.
+   * 
+   * @example
+   * What is ADBPG?
+   */
+  query?: string;
+  /**
+   * @remarks
+   * Region ID where the instance is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * If set to false, does not return the Documents text, only returns the index of the document order and the rerank score.
+   * 
+   * @example
+   * false
+   */
+  returnDocuments?: boolean;
+  /**
+   * @remarks
+   * Number of most relevant documents to return.
+   * 
+   * @example
+   * 3
+   */
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      documents: 'Documents',
+      maxChunksPerDoc: 'MaxChunksPerDoc',
+      model: 'Model',
+      ownerId: 'OwnerId',
+      query: 'Query',
+      regionId: 'RegionId',
+      returnDocuments: 'ReturnDocuments',
+      topK: 'TopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      documents: { 'type': 'array', 'itemType': 'string' },
+      maxChunksPerDoc: 'number',
+      model: 'string',
+      ownerId: 'number',
+      query: 'string',
+      regionId: 'string',
+      returnDocuments: 'boolean',
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  /**
+   * @remarks
+   * List of documents to be re-ordered.
+   */
+  documentsShrink?: string;
+  /**
+   * @remarks
+   * Maximum number of chunks allowed when the text exceeds the model window:
+   * - bge-reranker-v2-m3: default value is 10.
+   * - bge-reranker-v2-minicpm-layerwise: default value is 5:
+   * 
+   * > Example of splitting
+   * > - If using the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2048 tokens. If the query is 48 tokens and the content of a single document parameter is 9000 tokens, it will be divided as follows: 1-2000 for the first, 2001-4000 for the second, and so on. If the number of splits exceeds MaxChunksPerDoc, the remaining sentences will be discarded.
+   * 
+   * @example
+   * 10
+   */
+  maxChunksPerDoc?: number;
+  /**
+   * @remarks
+   * Rerank model, currently supports:
+   * - bge-reranker-v2-m3: (default), better performance, supports 8192 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+   * - bge-reranker-v2-minicpm-layerwise: better performance than v2-m3, supports 2048 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+   * 
+   * @example
+   * bge-reranker-v2-m3
+   */
+  model?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * Query statement for Rerank.
+   * 
+   * @example
+   * What is ADBPG?
+   */
+  query?: string;
+  /**
+   * @remarks
+   * Region ID where the instance is located.
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * If set to false, does not return the Documents text, only returns the index of the document order and the rerank score.
+   * 
+   * @example
+   * false
+   */
+  returnDocuments?: boolean;
+  /**
+   * @remarks
+   * Number of most relevant documents to return.
+   * 
+   * @example
+   * 3
+   */
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      documentsShrink: 'Documents',
+      maxChunksPerDoc: 'MaxChunksPerDoc',
+      model: 'Model',
+      ownerId: 'OwnerId',
+      query: 'Query',
+      regionId: 'RegionId',
+      returnDocuments: 'ReturnDocuments',
+      topK: 'TopK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      documentsShrink: 'string',
+      maxChunksPerDoc: 'number',
+      model: 'string',
+      ownerId: 'number',
+      query: 'string',
+      regionId: 'string',
+      returnDocuments: 'boolean',
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Detailed information returned by the interface.
+   * 
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Request ID.
+   * 
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Rerank results.
+   */
+  results?: RerankResponseBodyResults;
+  /**
+   * @remarks
+   * API execution status, value description:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @remarks
+   * Number of consumed tokens.
+   * 
+   * @example
+   * 100
+   */
+  tokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      results: 'Results',
+      status: 'Status',
+      tokens: 'Tokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      results: RerankResponseBodyResults,
+      status: 'string',
+      tokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RerankResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RerankResponseBody,
     };
   }
 
@@ -27940,6 +30397,176 @@ export class TagResourcesResponse extends $tea.Model {
   }
 }
 
+export class TextEmbeddingRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  input?: string[];
+  /**
+   * @example
+   * text-embedding-v2
+   */
+  model?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      input: 'Input',
+      model: 'Model',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      input: { 'type': 'array', 'itemType': 'string' },
+      model: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextEmbeddingShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * gp-xxxxxxxxx
+   */
+  DBInstanceId?: string;
+  inputShrink?: string;
+  /**
+   * @example
+   * text-embedding-v2
+   */
+  model?: string;
+  ownerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      DBInstanceId: 'DBInstanceId',
+      inputShrink: 'Input',
+      model: 'Model',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBInstanceId: 'string',
+      inputShrink: 'string',
+      model: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextEmbeddingResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Successful
+   */
+  message?: string;
+  /**
+   * @example
+   * ABB39CC3-4488-4857-905D-2E4A051D0521
+   */
+  requestId?: string;
+  results?: TextEmbeddingResponseBodyResults;
+  /**
+   * @example
+   * success
+   */
+  status?: string;
+  /**
+   * @example
+   * 1000
+   */
+  textTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      message: 'Message',
+      requestId: 'RequestId',
+      results: 'Results',
+      status: 'Status',
+      textTokens: 'TextTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      message: 'string',
+      requestId: 'string',
+      results: TextEmbeddingResponseBodyResults,
+      status: 'string',
+      textTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextEmbeddingResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TextEmbeddingResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TextEmbeddingResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UnbindDBResourceGroupWithRoleRequest extends $tea.Model {
   /**
    * @remarks
@@ -28219,12 +30846,12 @@ export class UnloadSampleDataResponse extends $tea.Model {
 export class UntagResourcesRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from an instance. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+   * Whether to untag all tags on the instance. This parameter is only effective when TagKey.N is not set in the request. The value range is:
    * 
-   * *   true
-   * *   false
+   * - true
+   * - false
    * 
-   * Default value: false.
+   * Default value: false
    * 
    * @example
    * false
@@ -28234,7 +30861,7 @@ export class UntagResourcesRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * Region ID, you can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
    * 
    * This parameter is required.
    * 
@@ -28244,6 +30871,8 @@ export class UntagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * Instance ID. N\\"s value range: 1~50
+   * 
    * This parameter is required.
    */
   resourceId?: string[];
@@ -28251,10 +30880,9 @@ export class UntagResourcesRequest extends $tea.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The storage mode of the instance. Valid values:
-   * 
-   * *   `instance`: reserved storage mode
-   * *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+   * Resource type. The value range is:
+   * - `instance`: Reserved mode instance.
+   * - `ALIYUN::GPDB::INSTANCE`: Elastic mode instance.
    * 
    * This parameter is required.
    * 
@@ -28262,6 +30890,10 @@ export class UntagResourcesRequest extends $tea.Model {
    * instance
    */
   resourceType?: string;
+  /**
+   * @remarks
+   * Resource tag key. N\\"s value range: 1~20
+   */
   tagKey?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -28299,7 +30931,7 @@ export class UntagResourcesRequest extends $tea.Model {
 export class UntagResourcesResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 5414A4E5-4C36-4461-95FC-23757A20B5F8
@@ -28350,7 +30982,9 @@ export class UntagResourcesResponse extends $tea.Model {
 export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * Collection name.
+   * 
+   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
    * 
    * This parameter is required.
    * 
@@ -28360,17 +30994,17 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-j788ghhjjxxxx
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause. You cannot leave both this parameter and Ids empty.
+   * Filter condition for the data to be updated, in SQL WHERE format. This field cannot be empty at the same time as the Ids field.
    * 
    * @example
    * business_value = \\"chat_file_1\\"
@@ -28378,12 +31012,12 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The row IDs of the data to be updated. You cannot leave both this parameter and Filter empty.
+   * ID list of the data to be updated, i.e., the Row.Id specified when uploading the data. This field cannot be empty at the same time as the Filter field.
    */
   ids?: string[];
   /**
    * @remarks
-   * The data to be updated, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
+   * Data to be updated, in a JSON string of MAP format. The key is the field name, and the value is the new data value.
    * 
    * This parameter is required.
    * 
@@ -28396,7 +31030,9 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the namespace.
+   * Namespace.
+   * 
+   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
    * 
    * @example
    * mynamespace
@@ -28404,7 +31040,7 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password corresponding to the namespace.
    * 
    * This parameter is required.
    * 
@@ -28415,9 +31051,7 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * Region ID where the instance is located.
    * 
    * This parameter is required.
    * 
@@ -28425,6 +31059,13 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28464,7 +31105,9 @@ export class UpdateCollectionDataMetadataRequest extends $tea.Model {
 export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * Collection name.
+   * 
+   * > You can use the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) API to view the list.
    * 
    * This parameter is required.
    * 
@@ -28474,17 +31117,17 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
    * 
    * @example
-   * gp-xxxxxxxxx
+   * gp-j788ghhjjxxxx
    */
   DBInstanceId?: string;
   /**
    * @remarks
-   * The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause. You cannot leave both this parameter and Ids empty.
+   * Filter condition for the data to be updated, in SQL WHERE format. This field cannot be empty at the same time as the Ids field.
    * 
    * @example
    * business_value = \\"chat_file_1\\"
@@ -28492,12 +31135,12 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   filter?: string;
   /**
    * @remarks
-   * The row IDs of the data to be updated. You cannot leave both this parameter and Filter empty.
+   * ID list of the data to be updated, i.e., the Row.Id specified when uploading the data. This field cannot be empty at the same time as the Filter field.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * The data to be updated, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
+   * Data to be updated, in a JSON string of MAP format. The key is the field name, and the value is the new data value.
    * 
    * This parameter is required.
    * 
@@ -28510,7 +31153,9 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   metadataShrink?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * Namespace.
+   * 
+   * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
    * 
    * @example
    * mynamespace
@@ -28518,7 +31163,7 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password corresponding to the namespace.
    * 
    * This parameter is required.
    * 
@@ -28529,9 +31174,7 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * Region ID where the instance is located.
    * 
    * This parameter is required.
    * 
@@ -28539,6 +31182,13 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -28578,7 +31228,7 @@ export class UpdateCollectionDataMetadataShrinkRequest extends $tea.Model {
 export class UpdateCollectionDataMetadataResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The number of effective rows.
+   * Number of effective entries.
    * 
    * @example
    * 10
@@ -28586,7 +31236,7 @@ export class UpdateCollectionDataMetadataResponseBody extends $tea.Model {
   appliedRows?: number;
   /**
    * @remarks
-   * The error message returned.
+   * Detailed information when the request fails.
    * 
    * @example
    * failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
@@ -28594,7 +31244,7 @@ export class UpdateCollectionDataMetadataResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -28602,10 +31252,10 @@ export class UpdateCollectionDataMetadataResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Status, with the following values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: Success.
+   * - **fail**: Failure.
    * 
    * @example
    * success
@@ -28939,7 +31589,7 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The performance level of enhanced SSDs (ESSDs). Valid values:
+   * The performance level of Enterprise SSDs (ESSDs). Valid values:
    * 
    * *   **pl0**
    * *   **pl1**
@@ -28990,7 +31640,7 @@ export class UpgradeDBInstanceRequest extends $tea.Model {
    * 
    * > 
    * 
-   * *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Usage notes](https://help.aliyun.com/document_detail/50956.html)" section of the Change compute node configurations topic.
+   * *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "Usage notes" section of the [Change compute node configurations](https://help.aliyun.com/document_detail/50956.html) topic.
    * 
    * *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
    * *   The number of coordinator nodes can be changed only on the China site (aliyun.com).
@@ -29291,6 +31941,14 @@ export class UpgradeExtensionsRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
+   * Database name.
+   * 
+   * @example
+   * test01
+   */
+  databaseName?: string;
+  /**
+   * @remarks
    * The extensions that you want to update. Separate multiple extensions with commas (,).
    * 
    * This parameter is required.
@@ -29310,6 +31968,7 @@ export class UpgradeExtensionsRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       DBInstanceId: 'DBInstanceId',
+      databaseName: 'DatabaseName',
       extensions: 'Extensions',
       regionId: 'RegionId',
     };
@@ -29318,6 +31977,7 @@ export class UpgradeExtensionsRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       DBInstanceId: 'string',
+      databaseName: 'string',
       extensions: 'string',
       regionId: 'string',
     };
@@ -29391,12 +32051,18 @@ export class UploadDocumentAsyncRequest extends $tea.Model {
    */
   chunkOverlap?: number;
   /**
+   * @remarks
+   * Strategy for processing large data: the size of each chunk when the data is split into smaller parts. Maximum value is 2048.
+   * 
    * @example
    * 250
    */
   chunkSize?: number;
   /**
    * @remarks
+   * The name of the document library. 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the document libraries that have already been created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29405,6 +32071,8 @@ export class UploadDocumentAsyncRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID with vector engine optimization acceleration enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29460,6 +32128,9 @@ export class UploadDocumentAsyncRequest extends $tea.Model {
   fileName?: string;
   /**
    * @remarks
+   * The URL of the publicly accessible document.
+   * >  > - It is recommended to call this interface using the SDK, which provides a method called UploadDocumentAsyncAdvance for directly uploading local files. > - If the URL points to an image archive, the number of images in the archive should not exceed 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29472,12 +32143,17 @@ export class UploadDocumentAsyncRequest extends $tea.Model {
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * Namespace, default is public. You can create one through the CreateNamespace interface and view the list via the ListNamespaces interface.
+   * 
    * @example
    * mynamespace
    */
   namespace?: string;
   /**
    * @remarks
+   * The password corresponding to the namespace.  > This value is specified by the CreateNamespace interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29588,12 +32264,18 @@ export class UploadDocumentAsyncAdvanceRequest extends $tea.Model {
    */
   chunkOverlap?: number;
   /**
+   * @remarks
+   * Strategy for processing large data: the size of each chunk when the data is split into smaller parts. Maximum value is 2048.
+   * 
    * @example
    * 250
    */
   chunkSize?: number;
   /**
    * @remarks
+   * The name of the document library. 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the document libraries that have already been created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29602,6 +32284,8 @@ export class UploadDocumentAsyncAdvanceRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID with vector engine optimization acceleration enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29657,6 +32341,9 @@ export class UploadDocumentAsyncAdvanceRequest extends $tea.Model {
   fileName?: string;
   /**
    * @remarks
+   * The URL of the publicly accessible document.
+   * >  > - It is recommended to call this interface using the SDK, which provides a method called UploadDocumentAsyncAdvance for directly uploading local files. > - If the URL points to an image archive, the number of images in the archive should not exceed 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29669,12 +32356,17 @@ export class UploadDocumentAsyncAdvanceRequest extends $tea.Model {
    */
   metadata?: { [key: string]: any };
   /**
+   * @remarks
+   * Namespace, default is public. You can create one through the CreateNamespace interface and view the list via the ListNamespaces interface.
+   * 
    * @example
    * mynamespace
    */
   namespace?: string;
   /**
    * @remarks
+   * The password corresponding to the namespace.  > This value is specified by the CreateNamespace interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29785,12 +32477,18 @@ export class UploadDocumentAsyncShrinkRequest extends $tea.Model {
    */
   chunkOverlap?: number;
   /**
+   * @remarks
+   * Strategy for processing large data: the size of each chunk when the data is split into smaller parts. Maximum value is 2048.
+   * 
    * @example
    * 250
    */
   chunkSize?: number;
   /**
    * @remarks
+   * The name of the document library. 
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the document libraries that have already been created.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29799,6 +32497,8 @@ export class UploadDocumentAsyncShrinkRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID with vector engine optimization acceleration enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29854,6 +32554,9 @@ export class UploadDocumentAsyncShrinkRequest extends $tea.Model {
   fileName?: string;
   /**
    * @remarks
+   * The URL of the publicly accessible document.
+   * >  > - It is recommended to call this interface using the SDK, which provides a method called UploadDocumentAsyncAdvance for directly uploading local files. > - If the URL points to an image archive, the number of images in the archive should not exceed 100.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29866,12 +32569,17 @@ export class UploadDocumentAsyncShrinkRequest extends $tea.Model {
    */
   metadataShrink?: string;
   /**
+   * @remarks
+   * Namespace, default is public. You can create one through the CreateNamespace interface and view the list via the ListNamespaces interface.
+   * 
    * @example
    * mynamespace
    */
   namespace?: string;
   /**
    * @remarks
+   * The password corresponding to the namespace.  > This value is specified by the CreateNamespace interface.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29972,21 +32680,35 @@ export class UploadDocumentAsyncShrinkRequest extends $tea.Model {
 
 export class UploadDocumentAsyncResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The job ID.
+   * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
    */
   jobId?: string;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * API execution status, with the following values:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
    * @example
    * success
    */
@@ -30042,9 +32764,9 @@ export class UploadDocumentAsyncResponse extends $tea.Model {
 export class UpsertChunksRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the document collection.
+   * Document collection name.
    * 
-   * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the already created document collections.
    * 
    * This parameter is required.
    * 
@@ -30054,6 +32776,10 @@ export class UpsertChunksRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30061,15 +32787,20 @@ export class UpsertChunksRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * File name.
+   * 
+   * > If a file name is specified and not empty, it will overwrite the data for this file name; if empty, the chunks data will be appended directly to the document collection.
+   * 
    * @example
    * mydoc.txt
    */
   fileName?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create it using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -30077,9 +32808,9 @@ export class UpsertChunksRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password corresponding to the namespace.
    * 
-   * >  This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
    * 
    * This parameter is required.
    * 
@@ -30090,12 +32821,18 @@ export class UpsertChunksRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * List of split documents.
+   */
   textChunks?: UpsertChunksRequestTextChunks[];
   static names(): { [key: string]: string } {
     return {
@@ -30131,9 +32868,9 @@ export class UpsertChunksRequest extends $tea.Model {
 export class UpsertChunksShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The name of the document collection.
+   * Document collection name.
    * 
-   * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the already created document collections.
    * 
    * This parameter is required.
    * 
@@ -30143,6 +32880,10 @@ export class UpsertChunksShrinkRequest extends $tea.Model {
   collection?: string;
   /**
    * @remarks
+   * Instance ID.
+   * 
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30150,15 +32891,20 @@ export class UpsertChunksShrinkRequest extends $tea.Model {
    */
   DBInstanceId?: string;
   /**
+   * @remarks
+   * File name.
+   * 
+   * > If a file name is specified and not empty, it will overwrite the data for this file name; if empty, the chunks data will be appended directly to the document collection.
+   * 
    * @example
    * mydoc.txt
    */
   fileName?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * Namespace, default is public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can create it using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
    * 
    * @example
    * mynamespace
@@ -30166,9 +32912,9 @@ export class UpsertChunksShrinkRequest extends $tea.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * Password corresponding to the namespace.
    * 
-   * >  This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified by the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
    * 
    * This parameter is required.
    * 
@@ -30179,12 +32925,18 @@ export class UpsertChunksShrinkRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * Region ID where the instance is located.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * List of split documents.
+   */
   textChunksShrink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30219,21 +32971,37 @@ export class UpsertChunksShrinkRequest extends $tea.Model {
 
 export class UpsertChunksResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Number of tokens used during vectorization.
+   * 
+   * > A token refers to the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
+   * 
    * @example
    * 100
    */
   embeddingTokens?: string;
   /**
+   * @remarks
+   * Return message.
+   * 
    * @example
    * Successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
   /**
+   * @remarks
+   * API execution status, with the following values:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
+   * 
    * @example
    * success
    */
@@ -30309,7 +33077,9 @@ export class UpsertCollectionDataRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the namespace. Default value: public.
+   * 
+   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace
@@ -30339,6 +33109,13 @@ export class UpsertCollectionDataRequest extends $tea.Model {
    */
   regionId?: string;
   rows?: UpsertCollectionDataRequestRows[];
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30394,7 +33171,9 @@ export class UpsertCollectionDataShrinkRequest extends $tea.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The name of the namespace. Default value: public.
+   * 
+   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
    * 
    * @example
    * mynamespace
@@ -30424,6 +33203,13 @@ export class UpsertCollectionDataShrinkRequest extends $tea.Model {
    */
   regionId?: string;
   rowsShrink?: string;
+  /**
+   * @remarks
+   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30563,7 +33349,7 @@ export class UpsertCollectionDataAsyncRequest extends $tea.Model {
    * 
    * *   Data format of each line: `{String Id; Map<String, Object> Metadata; List<Double> Vector}`. Example: `{"Id":"myid", "Metadata": {"my_meta_key": "my_meta_value"}, "Vector": [1.234, -0.123]}`.
    * 
-   * *   We recommend that you SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
+   * *   We recommend that you use SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
    * 
    * This parameter is required.
    * 
@@ -30604,6 +33390,13 @@ export class UpsertCollectionDataAsyncRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30669,7 +33462,7 @@ export class UpsertCollectionDataAsyncAdvanceRequest extends $tea.Model {
    * 
    * *   Data format of each line: `{String Id; Map<String, Object> Metadata; List<Double> Vector}`. Example: `{"Id":"myid", "Metadata": {"my_meta_key": "my_meta_value"}, "Vector": [1.234, -0.123]}`.
    * 
-   * *   We recommend that you SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
+   * *   We recommend that you use SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
    * 
    * This parameter is required.
    * 
@@ -30710,6 +33503,13 @@ export class UpsertCollectionDataAsyncAdvanceRequest extends $tea.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+   * 
+   * @example
+   * gp-ws-*****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -30829,11 +33629,11 @@ export class UpsertCollectionDataAsyncResponse extends $tea.Model {
 export class CreateDBInstanceRequestTag extends $tea.Model {
   /**
    * @remarks
-   * The key of tag N. Take note of the following requirements:
+   * Tag key. The restrictions are as follows:
    * 
-   * - The tag key cannot be an empty string.
-   * - The tag key can be up to 128 characters in length.
-   * - The tag key cannot start with `aliyun` or `acs:`, and contain `http://` or `https://`.
+   * - It cannot be an empty string.
+   * - It supports up to 128 characters.
+   * - It cannot start with `aliyun` or `acs:`, and it cannot contain `http://` or `https://`.
    * 
    * @example
    * TestKey
@@ -30841,11 +33641,11 @@ export class CreateDBInstanceRequestTag extends $tea.Model {
   key?: string;
   /**
    * @remarks
-   * The value of tag N. Take note of the following requirements:
+   * Tag value. The restrictions are as follows:
    * 
-   * - The tag key cannot be an empty string.
-   * - The tag key can be up to 128 characters in length.
-   * - The tag key cannot start with `aliyun` or `acs:`, and contain `http://` or `https://`.
+   * - It can be an empty string.
+   * - It supports up to 128 characters.
+   * - It cannot start with `acs:`, and it cannot contain `http://` or `https://`.
    * 
    * @example
    * TestValue
@@ -30862,6 +33662,134 @@ export class CreateDBInstanceRequestTag extends $tea.Model {
     return {
       key: 'string',
       value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRemoteADBDataSourceResponseBodyDataSourceItem extends $tea.Model {
+  /**
+   * @remarks
+   * Data source name.
+   * 
+   * @example
+   * db1_gptest1_to_db2_gp-test2
+   */
+  dataSourceName?: string;
+  /**
+   * @remarks
+   * Description information.
+   * 
+   * @example
+   * userName
+   */
+  description?: string;
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Local database name
+   * 
+   * @example
+   * db1
+   */
+  localDatabase?: string;
+  /**
+   * @remarks
+   * Local instance name
+   * 
+   * @example
+   * gp-test1
+   */
+  localInstanceName?: string;
+  /**
+   * @remarks
+   * Management account user name
+   * 
+   * @example
+   * manager_user
+   */
+  managerUserName?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Remote database name
+   * 
+   * @example
+   * db2
+   */
+  remoteDatabase?: string;
+  /**
+   * @remarks
+   * Remote instance name
+   * 
+   * @example
+   * gp-test2
+   */
+  remoteInstanceName?: string;
+  /**
+   * @remarks
+   * Synchronization status
+   * 
+   * @example
+   * creating
+   */
+  status?: string;
+  /**
+   * @remarks
+   * User name
+   * 
+   * @example
+   * user1
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      description: 'Description',
+      id: 'Id',
+      localDatabase: 'LocalDatabase',
+      localInstanceName: 'LocalInstanceName',
+      managerUserName: 'ManagerUserName',
+      regionId: 'RegionId',
+      remoteDatabase: 'RemoteDatabase',
+      remoteInstanceName: 'RemoteInstanceName',
+      status: 'Status',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      description: 'string',
+      id: 'number',
+      localDatabase: 'string',
+      localInstanceName: 'string',
+      managerUserName: 'string',
+      regionId: 'string',
+      remoteDatabase: 'string',
+      remoteInstanceName: 'string',
+      status: 'string',
+      userName: 'string',
     };
   }
 
@@ -30899,6 +33827,13 @@ export class DescribeAccountsResponseBodyAccountsDBInstanceAccount extends $tea.
    * 1
    */
   accountStatus?: string;
+  /**
+   * @remarks
+   * The type of the database account. Valid values: Super and Normal. Super indicates a privileged account and Normal indicates a standard account.
+   * 
+   * @example
+   * Super
+   */
   accountType?: string;
   /**
    * @remarks
@@ -31193,6 +34128,9 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   /**
    * @remarks
    * The description of compute node specifications.
+   * 
+   * @example
+   * 2C16G
    */
   description?: string;
   /**
@@ -31483,7 +34421,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeys extends $te
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTagsTag extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
    * test-key
@@ -31491,7 +34429,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * Tag value.
    * 
    * @example
    * test-value
@@ -31538,9 +34476,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags
 export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute extends $tea.Model {
   /**
    * @remarks
-   * The service availability of the instance. Unit: %.
+   * Queries the current instance availability status, in percentage (%).
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to instances in the storage reserved mode.
    * 
    * @example
    * 100.0%
@@ -31548,11 +34486,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   availabilityValue?: string;
   /**
    * @remarks
-   * The access mode of the instance. Valid values:
+   * Access mode, with the following values:
    * 
-   * *   **Performance**: standard mode.
-   * *   **Safety**: safe mode.
-   * *   **LVS**: Linux Virtual Server (LVS) mode.
+   * - **Performance**: Standard access mode.
+   * - **Safty**: High-security access mode.
+   * - **LVS**: LVS link mode.
    * 
    * @example
    * LVS
@@ -31560,7 +34498,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   connectionMode?: string;
   /**
    * @remarks
-   * The endpoint that is used to connect to the instance.
+   * Instance connection address.
    * 
    * @example
    * gp-bp13ue79qk8y1****-master.gpdb.rds.aliyuncs.com
@@ -31568,7 +34506,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   connectionString?: string;
   /**
    * @remarks
-   * The number of the minor version.
+   * Minor version number of the kernel.
    * 
    * @example
    * mm.v6.3.10.1-202207141918
@@ -31576,7 +34514,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   coreVersion?: string;
   /**
    * @remarks
-   * The number of CPU cores per compute node.
+   * Number of CPU cores for the compute node, unit: Core.
    * 
    * @example
    * 2
@@ -31584,9 +34522,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   cpuCores?: number;
   /**
    * @remarks
-   * The number of CPU cores per node.
+   * Number of CPU cores per node.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to instances in the storage reserved mode.
    * 
    * @example
    * 0
@@ -31594,7 +34532,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   cpuCoresPerNode?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * Instance creation time.
    * 
    * @example
    * 2022-08-11T09:16:26Z
@@ -31602,10 +34540,10 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   creationTime?: string;
   /**
    * @remarks
-   * The edition of the instance. Valid values:
+   * Instance series, with the following values:
    * 
-   * *   **Basic**: Basic Edition.
-   * *   **HighAvailability**: High-availability Edition.
+   * - **Basic**: Basic Edition.
+   * - **HighAvailability**: High Availability Edition.
    * 
    * @example
    * HighAvailability
@@ -31613,9 +34551,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceCategory?: string;
   /**
    * @remarks
-   * The instance type of the instance.
+   * Instance specification.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to reserved storage mode instances.
    * 
    * @example
    * gpdb.group.segsdx1
@@ -31623,12 +34561,12 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceClass?: string;
   /**
    * @remarks
-   * The instance family of the instance. Valid values:
+   * Instance family, with the following values:
    * 
-   * *   **s**: shared.
-   * *   **x**: general-purpose.
-   * *   **d**: dedicated.
-   * *   **h**: dedicated host.
+   * - **s**: Shared type.
+   * - **x**: General type.
+   * - **d**: Dedicated package.
+   * - **h**: Dedicated physical machine.
    * 
    * @example
    * x
@@ -31636,7 +34574,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceClassType?: string;
   /**
    * @remarks
-   * The number of CPU cores.
+   * Number of CPU cores.
    * 
    * @example
    * 2
@@ -31644,7 +34582,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceCpuCores?: number;
   /**
    * @remarks
-   * The description of the instance.
+   * Instance description.
    * 
    * @example
    * gp-bp13ue79qk8y1****
@@ -31652,9 +34590,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceDescription?: string;
   /**
    * @remarks
-   * The maximum disk throughput of the compute group. Unit: Mbit/s.
+   * Maximum BPS (disk throughput) of the compute group, in Mbps.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to reserved storage mode instances.
    * 
    * @example
    * 0
@@ -31662,9 +34600,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceDiskMBPS?: number;
   /**
    * @remarks
-   * The number of compute groups.
+   * Number of compute groups.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to reserved storage mode instances.
    * 
    * @example
    * 0
@@ -31672,7 +34610,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceGroupCount?: string;
   /**
    * @remarks
-   * The instance ID.
+   * Instance ID.
    * 
    * @example
    * gp-bp13ue79qk8y1****
@@ -31680,9 +34618,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceId?: string;
   /**
    * @remarks
-   * The memory capacity per compute node.
+   * Memory of the compute node.
    * 
-   * >  The unit of this parameter is MB for instances in reserved storage mode and GB for instances in Serverless mode or elastic storage mode.
+   * > The unit for storage-reserved mode is MB; for Serverless and storage-elastic modes, it is GB.
    * 
    * @example
    * 16
@@ -31690,11 +34628,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceMemory?: number;
   /**
    * @remarks
-   * The resource type of the instance. Valid values:
+   * Instance resource type, with the following values:
    * 
-   * *   **Serverless**: Serverless mode.
-   * *   **StorageElastic**: elastic storage mode.
-   * *   **Classic**: reserved storage mode.
+   * - **Serverless**: Serverless mode.
+   * - **StorageElastic**: Storage elastic mode.
+   * - **Classic**: Storage reserved mode.
    * 
    * @example
    * StorageElastic
@@ -31702,15 +34640,15 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceMode?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter is deprecated and will not return any value.
    * 
    * @example
-   * 2
+   * null
    */
   DBInstanceNetType?: string;
   /**
    * @remarks
-   * The state of the instance. For more information, see the "Additional description of DBInstanceStatus" section of this topic.
+   * Instance status. For more details, see the supplementary explanation of the DBInstanceStatus parameter.
    * 
    * @example
    * Running
@@ -31718,7 +34656,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceStatus?: string;
   /**
    * @remarks
-   * The maximum storage capacity per node. Unit: GB.
+   * Maximum storage space of a single replica, in GB.
    * 
    * @example
    * 50
@@ -31726,9 +34664,17 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceStorage?: number;
   /**
    * @remarks
-   * The encryption key.
+   * The deployment mode.
    * 
-   * >  This parameter is returned only for instances that have disk encryption enabled.
+   * @example
+   * single
+   */
+  deployMode?: string;
+  /**
+   * @remarks
+   * Encryption key.
+   * 
+   * > This parameter is returned only for instances with disk encryption enabled.
    * 
    * @example
    * 0d2470df-da7b-4786-b981-************
@@ -31736,11 +34682,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   encryptionKey?: string;
   /**
    * @remarks
-   * The encryption type. Valid values:
+   * Encryption type, with the following value:
    * 
-   * *   **CloudDisk**: disk encryption.
+   * - **CloudDisk**: Cloud disk encryption.
    * 
-   * >  This parameter is returned only for instances that have disk encryption enabled.
+   * > This parameter is returned only for instances with cloud disk encryption.
    * 
    * @example
    * CloudDisk
@@ -31748,7 +34694,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   encryptionType?: string;
   /**
    * @remarks
-   * The database engine of the instance.
+   * Database engine.
    * 
    * @example
    * gpdb
@@ -31756,7 +34702,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   engine?: string;
   /**
    * @remarks
-   * The database engine version of the instance.
+   * Database version.
    * 
    * @example
    * 6.0
@@ -31764,9 +34710,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the instance. The time is displayed in UTC.
+   * Instance expiration time (in UTC).
    * 
-   * >  The expiration time of a pay-as-you-go instance is `2999-09-08T16:00:00Z`.
+   * > The expiration time for pay-as-you-go instances is `2999-09-08T16:00:00Z`.
    * 
    * @example
    * 2999-09-08T16:00:00Z
@@ -31774,12 +34720,11 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   expireTime?: string;
   /**
    * @remarks
-   * The disk type of the compute group. Valid values:
+   * Compute group machine type, with the following values:
+   * - **0**: SSD
+   * - **1**: HDD
    * 
-   * *   **0**: SSD.
-   * *   **1**: HDD.
-   * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter applies only to storage-reserved mode instances.
    * 
    * @example
    * 0
@@ -31787,9 +34732,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   hostType?: string;
   /**
    * @remarks
-   * The wait period for the instance that has no traffic to become idle. Unit: seconds.
+   * Idle release waiting time. Unit: seconds.
    * 
-   * >  This parameter is returned only for instances in Serverless automatic scheduling mode.
+   * > This parameter is returned only for instances in the Serverless automatic scheduling mode.
    * 
    * @example
    * 600
@@ -31797,10 +34742,10 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   idleTime?: number;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
+   * Instance network type, with the following values:
    * 
-   * *   **Classic**: classic network.
-   * *   **VPC**: VPC.
+   * - **Classic**: Classic network.
+   * - **VPC**: VPC network.
    * 
    * @example
    * VPC
@@ -31808,13 +34753,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   instanceNetworkType?: string;
   /**
    * @remarks
-   * The lock mode of the instance. Valid values:
+   * Lock mode, with the following values:
    * 
-   * *   **Unlock**: The instance is not locked.
-   * *   **ManualLock**: The instance is manually locked.
-   * *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
-   * *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
-   * *   **LockByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is full.
+   * - **Unlock**: Normal.
+   * - **ManualLock**: Manually triggered lock.
+   * - **LockByExpiration**: Automatically locked when the instance expires.
+   * - **LockByRestoration**: Automatically locked before the instance rolls back.
+   * - **LockByDiskQuota**: Automatically locked when the instance space is full.
    * 
    * @example
    * Unlock
@@ -31822,7 +34767,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   lockMode?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter is deprecated and will not return any value.
    * 
    * @example
    * null
@@ -31830,7 +34775,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   lockReason?: string;
   /**
    * @remarks
-   * The end time of the maintenance window.
+   * Maintenance end time.
    * 
    * @example
    * 22:00Z
@@ -31838,7 +34783,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
+   * Maintenance start time.
    * 
    * @example
    * 18:00Z
@@ -31846,7 +34791,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   maintainStartTime?: string;
   /**
    * @remarks
-   * The amount of coordinator node resources.
+   * Master resources.
    * 
    * @example
    * 4
@@ -31854,7 +34799,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   masterCU?: number;
   /**
    * @remarks
-   * The number of coordinator nodes.
+   * Number of Master nodes.
    * 
    * @example
    * 1
@@ -31862,9 +34807,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   masterNodeNum?: number;
   /**
    * @remarks
-   * The maximum number of concurrent connections to the instance.
+   * Maximum number of concurrent connections for the instance.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to reserved storage mode instances.
    * 
    * @example
    * 500
@@ -31872,9 +34817,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   maxConnections?: number;
   /**
    * @remarks
-   * The memory capacity per node. The unit of this parameter can be one of the valid values of **MemoryUnit**.
+   * Memory size per replica, see the **MemoryUnit** parameter for the unit.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to instances in the storage reserved mode.
    * 
    * @example
    * 0
@@ -31882,9 +34827,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   memoryPerNode?: number;
   /**
    * @remarks
-   * The memory capacity per compute node.
+   * Memory size of the compute node.
    * 
-   * >  The unit of this parameter is MB for instances in reserved storage mode and GB for instances in Serverless mode or elastic storage mode.
+   * > The unit is MB for the storage reserved mode; GB for Serverless and storage elastic modes.
    * 
    * @example
    * 16
@@ -31892,9 +34837,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   memorySize?: number;
   /**
    * @remarks
-   * The unit of the memory capacity.
+   * Memory unit.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to reserved storage mode instances.
    * 
    * @example
    * GB
@@ -31902,7 +34847,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   memoryUnit?: string;
   /**
    * @remarks
-   * The minor version of the instance.
+   * Minor version of the kernel.
    * 
    * @example
    * 6.3.10.1-202207141918
@@ -31910,10 +34855,10 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   minorVersion?: string;
   /**
    * @remarks
-   * The billing method of the instance. Valid values:
+   * Billing type, with the following values:
    * 
-   * *   **Postpaid**: pay-as-you-go.
-   * *   **Prepaid**: subscription.
+   * - **Postpaid**: Pay-as-you-go.
+   * - **Prepaid**: Subscription.
    * 
    * @example
    * Postpaid
@@ -31921,16 +34866,23 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   payType?: string;
   /**
    * @remarks
-   * The port number that is used to connect to the instance.
+   * Instance port number.
    * 
    * @example
    * 5432
    */
   port?: string;
+  /**
+   * @remarks
+   * The service type.
+   * 
+   * @example
+   * standard
+   */
   prodType?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter has been deprecated and will not return a value.
    * 
    * @example
    * null
@@ -31938,7 +34890,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   readDelayTime?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -31946,7 +34898,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs.
+   * ID of the resource group where the instance is located.
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -31954,7 +34906,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   resourceGroupId?: string;
   /**
    * @remarks
-   * The running duration of the instance.
+   * Instance running time.
    * 
    * @example
    * 4 days 22:58:55
@@ -31962,15 +34914,15 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   runningTime?: string;
   /**
    * @remarks
-   * An invalid parameter. It is no longer returned when you call this operation.
+   * This parameter is deprecated and will not return any value.
    * 
    * @example
-   * 127.0.0.1
+   * null
    */
   securityIPList?: string;
   /**
    * @remarks
-   * The performance level of ESSDs. Only **PL1** is supported.
+   * Performance Level (PL), currently only **PL1** is supported.
    * 
    * @example
    * PL1
@@ -31978,9 +34930,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   segDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The number of compute nodes.
+   * Number of Segment nodes.
    * 
-   * >  This parameter is returned only for instances in elastic storage mode or Serverless manual scheduling mode.
+   * > This parameter applies only to instances in the storage elastic mode and Serverless manual scheduling mode.
    * 
    * @example
    * 4
@@ -31988,9 +34940,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   segNodeNum?: number;
   /**
    * @remarks
-   * The number of compute groups.
+   * Number of compute groups.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter applies only to storage-reserved mode instances.
    * 
    * @example
    * 0
@@ -31998,12 +34950,12 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   segmentCounts?: number;
   /**
    * @remarks
-   * The type of the Serverless mode. Valid values:
+   * The mode of the Serverless instance, with the following values:
    * 
-   * *   **Manual**: manual scheduling.
-   * *   **Auto**: automatic scheduling.
+   * - **Manual**: Manual scheduling.
+   * - **Auto**: Automatic scheduling.
    * 
-   * >  This parameter is returned only for instances in Serverless mode.
+   * > This parameter is returned only for Serverless mode instances.
    * 
    * @example
    * Auto
@@ -32011,9 +34963,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   serverlessMode?: string;
   /**
    * @remarks
-   * The threshold of computing resources. Unit: AnalyticDB compute units (ACUs).
+   * Compute resource threshold. Unit: ACU.
    * 
-   * >  This parameter is returned only for instances in Serverless automatic scheduling mode.
+   * > This parameter is returned only for instances in the Serverless automatic scheduling mode.
    * 
    * @example
    * 32
@@ -32021,7 +34973,15 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   serverlessResource?: number;
   /**
    * @remarks
-   * The time when the instance started to run.
+   * The secondary zone ID.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  standbyZoneId?: string;
+  /**
+   * @remarks
+   * The time when the instance started running.
    * 
    * @example
    * 2022-08-11T09:26:43Z
@@ -32029,9 +34989,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   startTime?: string;
   /**
    * @remarks
-   * The storage capacity per node. The unit of this parameter can be one of the valid values of **StorageUnit**.
+   * Storage size per replica, see the **StorageUnit** parameter for units.
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter applies only to storage-reserved mode instances.
    * 
    * @example
    * 0
@@ -32039,7 +34999,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   storagePerNode?: number;
   /**
    * @remarks
-   * The storage capacity of the instance. Unit: GB.
+   * Storage space size, unit: GB.
    * 
    * @example
    * 50
@@ -32047,12 +35007,12 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   storageSize?: number;
   /**
    * @remarks
-   * The storage type of the instance. Valid values:
+   * Storage type, with the following values:
    * 
-   * *   **cloud_essd**: enhanced SSD (ESSD).
-   * *   **cloud_efficiency**: ultra disk.
+   * - **cloud_essd**: ESSD cloud disk.
+   * - **cloud_efficiency**: Efficient cloud disk.
    * 
-   * >  This parameter is returned only for instances in elastic storage mode.
+   * > This parameter is only applicable to instances in the storage elastic mode.
    * 
    * @example
    * cloud_essd
@@ -32060,13 +35020,13 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   storageType?: string;
   /**
    * @remarks
-   * The unit of the storage capacity. Valid values:
+   * Storage unit, with the following values:
    * 
-   * *   **GB SSD**
-   * *   **TB SSD**
-   * *   **GB HDD**
+   * - **GB SSD**
+   * - **TB SSD**
+   * - **GB HDD**
    * 
-   * >  This parameter is returned only for instances in reserved storage mode.
+   * > This parameter is only applicable to instances in the storage reserved mode.
    * 
    * @example
    * GB SSD
@@ -32074,10 +35034,10 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   storageUnit?: string;
   /**
    * @remarks
-   * Indicates whether the instance supports backup and restoration. Valid values:
+   * Indicates whether backup recovery is supported, with the following values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Backup recovery is supported.
+   * - **false**: Backup recovery is not supported.
    * 
    * @example
    * true
@@ -32085,12 +35045,12 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   supportRestore?: boolean;
   /**
    * @remarks
-   * The tags that are added to the instance.
+   * Tag key-value pairs.
    */
   tags?: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeTags;
   /**
    * @remarks
-   * The vSwitch ID of the instance.
+   * vSwitch ID.
    * 
    * @example
    * vsw-bp1cpq8mr64paltkb****
@@ -32098,10 +35058,9 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   vSwitchId?: string;
   /**
    * @remarks
-   * Indicates whether vector search engine optimization is enabled. Valid values:
-   * 
-   * *   **enabled**
-   * *   **disabled**
+   * Indicates whether vector engine optimization is enabled. The values are as follows:
+   * - **enabled**: Indicates that vector engine optimization is enabled.
+   * - **disabled**: Indicates that vector engine optimization is disabled.
    * 
    * @example
    * enabled
@@ -32109,7 +35068,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   vectorConfigurationStatus?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) ID of the instance.
+   * VPC ID.
    * 
    * @example
    * vpc-bp19ame5m1r3oejns****
@@ -32117,7 +35076,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   vpcId?: string;
   /**
    * @remarks
-   * The zone ID of the instance.
+   * Zone ID.
    * 
    * @example
    * cn-hangzhou-j
@@ -32145,6 +35104,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceNetType: 'DBInstanceNetType',
       DBInstanceStatus: 'DBInstanceStatus',
       DBInstanceStorage: 'DBInstanceStorage',
+      deployMode: 'DeployMode',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
       engine: 'Engine',
@@ -32177,6 +35137,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       segmentCounts: 'SegmentCounts',
       serverlessMode: 'ServerlessMode',
       serverlessResource: 'ServerlessResource',
+      standbyZoneId: 'StandbyZoneId',
       startTime: 'StartTime',
       storagePerNode: 'StoragePerNode',
       storageSize: 'StorageSize',
@@ -32213,6 +35174,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceNetType: 'string',
       DBInstanceStatus: 'string',
       DBInstanceStorage: 'number',
+      deployMode: 'string',
       encryptionKey: 'string',
       encryptionType: 'string',
       engine: 'string',
@@ -32245,6 +35207,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       segmentCounts: 'number',
       serverlessMode: 'string',
       serverlessResource: 'number',
+      standbyZoneId: 'string',
       startTime: 'string',
       storagePerNode: 'number',
       storageSize: 'number',
@@ -33382,11 +36345,17 @@ export class DescribeDBInstanceSupportMaxPerformanceResponseBodyPerformancesPerf
   /**
    * @remarks
    * The name of the performance metric.
+   * 
+   * @example
+   * adbpg_status,adbpg_disk_status,adbpg_connection_status,adbgp_segment_disk_usage_percent_max,adbpg_master_disk_usage_percent_max,adbpg_disk_usage_percent
    */
   key?: string;
   /**
    * @remarks
    * The unit of the performance metric.
+   * 
+   * @example
+   * %
    */
   unit?: string;
   /**
@@ -33744,6 +36713,9 @@ export class DescribeDBInstancesResponseBodyItemsDBInstance extends $tea.Model {
    */
   payType?: string;
   /**
+   * @remarks
+   * product type
+   * 
    * @example
    * standard
    */
@@ -34818,26 +37790,44 @@ export class DescribeDownloadRecordsResponseBodyRecords extends $tea.Model {
 
 export class DescribeDownloadSQLLogsResponseBodyRecords extends $tea.Model {
   /**
+   * @remarks
+   * Download record ID.
+   * 
    * @example
    * 1150
    */
   downloadId?: number;
   /**
+   * @remarks
+   * Download link.
+   * 
    * @example
    * https://perth-download-task.oss-cn-beijing.aliyuncs.com/*****
    */
   downloadUrl?: string;
   /**
+   * @remarks
+   * Error message.
+   * 
    * @example
    * Error message
    */
   exceptionMsg?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * 20220509113448-20220509173448.csv
    */
   fileName?: string;
   /**
+   * @remarks
+   * Task status, with possible values being:
+   * - **running**: Downloading.
+   * - **finished**: Completed.
+   * - **failed**: Download failed.
+   * 
    * @example
    * finished
    */
@@ -36662,6 +39652,22 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
   DBRole?: string;
   /**
    * @remarks
+   * The error code.
+   * 
+   * @example
+   * InternalError
+   */
+  errorCode?: string;
+  /**
+   * @remarks
+   * The error message.
+   * 
+   * @example
+   * User not authorized to operate on the specified resource.
+   */
+  errorMsg?: string;
+  /**
+   * @remarks
    * The execution duration of the SQL statement.
    * 
    * @example
@@ -36705,6 +39711,14 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
   operationType?: string;
   /**
    * @remarks
+   * The query ID.
+   * 
+   * @example
+   * 2548026401648157601713924318883
+   */
+  queryId?: string;
+  /**
+   * @remarks
    * The number of entries returned.
    * 
    * @example
@@ -36729,6 +39743,14 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
   scanRowCounts?: number;
   /**
    * @remarks
+   * The ID of the session.
+   * 
+   * @example
+   * efc33bd7-f1dc-4b24-b4fb-ab0d5329b7bb
+   */
+  sessionId?: string;
+  /**
+   * @remarks
    * The source IP address.
    * 
    * @example
@@ -36748,14 +39770,18 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
       accountName: 'AccountName',
       DBName: 'DBName',
       DBRole: 'DBRole',
+      errorCode: 'ErrorCode',
+      errorMsg: 'ErrorMsg',
       executeCost: 'ExecuteCost',
       executeState: 'ExecuteState',
       operationClass: 'OperationClass',
       operationExecuteTime: 'OperationExecuteTime',
       operationType: 'OperationType',
+      queryId: 'QueryId',
       returnRowCounts: 'ReturnRowCounts',
       SQLText: 'SQLText',
       scanRowCounts: 'ScanRowCounts',
+      sessionId: 'SessionId',
       sourceIP: 'SourceIP',
       sourcePort: 'SourcePort',
     };
@@ -36766,14 +39792,18 @@ export class DescribeSQLLogsV2ResponseBodyItems extends $tea.Model {
       accountName: 'string',
       DBName: 'string',
       DBRole: 'string',
+      errorCode: 'string',
+      errorMsg: 'string',
       executeCost: 'number',
       executeState: 'string',
       operationClass: 'string',
       operationExecuteTime: 'string',
       operationType: 'string',
+      queryId: 'string',
       returnRowCounts: 'number',
       SQLText: 'string',
       scanRowCounts: 'number',
+      sessionId: 'string',
       sourceIP: 'string',
       sourcePort: 'number',
     };
@@ -37240,6 +40270,14 @@ export class GetUploadDocumentJobResponseBodyJob extends $tea.Model {
   error?: string;
   /**
    * @remarks
+   * The error code.
+   * 
+   * @example
+   * InternalError
+   */
+  errorCode?: string;
+  /**
+   * @remarks
    * The job ID.
    * 
    * @example
@@ -37283,6 +40321,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $tea.Model {
       completed: 'Completed',
       createTime: 'CreateTime',
       error: 'Error',
+      errorCode: 'ErrorCode',
       id: 'Id',
       progress: 'Progress',
       status: 'Status',
@@ -37295,6 +40334,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $tea.Model {
       completed: 'boolean',
       createTime: 'string',
       error: 'string',
+      errorCode: 'string',
       id: 'string',
       progress: 'number',
       status: 'string',
@@ -37308,6 +40348,13 @@ export class GetUploadDocumentJobResponseBodyJob extends $tea.Model {
 }
 
 export class GetUploadDocumentJobResponseBodyUsage extends $tea.Model {
+  /**
+   * @remarks
+   * The count of embedding entries.
+   * 
+   * @example
+   * 10
+   */
   embeddingEntries?: number;
   /**
    * @remarks
@@ -37840,6 +40887,9 @@ export class ListExternalDataSourcesResponseBodyItems extends $tea.Model {
    */
   dataSourceType?: string;
   /**
+   * @remarks
+   * The Id of external data service
+   * 
    * @example
    * 123
    */
@@ -38010,6 +41060,153 @@ export class ListNamespacesResponseBodyNamespaces extends $tea.Model {
   }
 }
 
+export class ListRemoteADBDataSourcesResponseBodyDataSourceItemsRemoteDataSources extends $tea.Model {
+  /**
+   * @remarks
+   * Data source name
+   * 
+   * @example
+   * db1_gptest1_to_db2_gp-test2
+   */
+  dataSourceName?: string;
+  /**
+   * @remarks
+   * Description.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * ID.
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Local database name
+   * 
+   * @example
+   * db1
+   */
+  localDatabase?: string;
+  /**
+   * @remarks
+   * Local instance name
+   * 
+   * @example
+   * gp-test1
+   */
+  localInstanceName?: string;
+  /**
+   * @remarks
+   * Manager user name
+   * 
+   * @example
+   * admin
+   */
+  managerUserName?: string;
+  /**
+   * @remarks
+   * Region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Remote database name
+   * 
+   * @example
+   * db2
+   */
+  remoteDatabase?: string;
+  /**
+   * @remarks
+   * Remote instance name
+   * 
+   * @example
+   * gp-test2
+   */
+  remoteInstanceName?: string;
+  /**
+   * @remarks
+   * Data source status
+   * 
+   * @example
+   * creating
+   */
+  status?: string;
+  /**
+   * @remarks
+   * User name
+   * 
+   * @example
+   * user1
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      description: 'Description',
+      id: 'Id',
+      localDatabase: 'LocalDatabase',
+      localInstanceName: 'LocalInstanceName',
+      managerUserName: 'ManagerUserName',
+      regionId: 'RegionId',
+      remoteDatabase: 'RemoteDatabase',
+      remoteInstanceName: 'RemoteInstanceName',
+      status: 'Status',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      description: 'string',
+      id: 'number',
+      localDatabase: 'string',
+      localInstanceName: 'string',
+      managerUserName: 'string',
+      regionId: 'string',
+      remoteDatabase: 'string',
+      remoteInstanceName: 'string',
+      status: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListRemoteADBDataSourcesResponseBodyDataSourceItems extends $tea.Model {
+  remoteDataSources?: ListRemoteADBDataSourcesResponseBodyDataSourceItemsRemoteDataSources[];
+  static names(): { [key: string]: string } {
+    return {
+      remoteDataSources: 'RemoteDataSources',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      remoteDataSources: { 'type': 'array', 'itemType': ListRemoteADBDataSourcesResponseBodyDataSourceItemsRemoteDataSources },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListSchemasResponseBodySchemas extends $tea.Model {
   schemas?: string[];
   static names(): { [key: string]: string } {
@@ -38136,53 +41333,107 @@ export class ListSecretsResponseBodySecrets extends $tea.Model {
 
 export class ListStreamingDataServicesResponseBodyServiceItems extends $tea.Model {
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2019-09-08T16:00:00Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * Last modified time
+   * 
    * @example
    * 2019-09-08T17:00:00Z
    */
   modifyTime?: string;
   /**
+   * @remarks
+   * Service description.
+   * 
    * @example
    * test-adbpgss
    */
   serviceDescription?: string;
   /**
+   * @remarks
+   * Service ID.
+   * 
    * @example
    * 1
    */
   serviceId?: string;
   /**
+   * @remarks
+   * Service IP.
+   * 
    * @example
    * 192.168.0.1
    */
   serviceIp?: string;
+  /**
+   * @remarks
+   * Whether it is a managed service.
+   * 
+   * @example
+   * true
+   */
   serviceManaged?: boolean;
   /**
+   * @remarks
+   * Service name.
+   * 
    * @example
    * test-adbpgss
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * Service owner ID.
+   * 
+   * @example
+   * 123
+   */
   serviceOwnerId?: string;
   /**
+   * @remarks
+   * Service port.
+   * 
    * @example
    * 5432
    */
   servicePort?: string;
   /**
+   * @remarks
+   * Service specification (in CU).
+   * 
    * @example
-   * 2
+   * 8
    */
   serviceSpec?: string;
   /**
+   * @remarks
+   * Service type, with the following value:
+   * 
+   * - **adbpgss**
+   * 
    * @example
    * adbpgss
    */
   serviceType?: string;
   /**
+   * @remarks
+   * Service status, with the following values:
+   * 
+   * - Init: Initializing
+   * 
+   * - Running: In operation
+   * 
+   * - Exception: Abnormal
+   * 
+   * - Paused: Suspended
+   * 
    * @example
    * Running
    */
@@ -38776,10 +42027,164 @@ export class ModifyDBResourceGroupRequestResourceGroupItems extends $tea.Model {
   }
 }
 
+export class ModifyRemoteADBDataSourceResponseBodyDataSourceItem extends $tea.Model {
+  /**
+   * @remarks
+   * Data source name.
+   * 
+   * @example
+   * db1_gptest1_to_db2_gp-test2
+   */
+  dataSourceName?: string;
+  /**
+   * @remarks
+   * Description information.
+   * 
+   * @example
+   * test
+   */
+  description?: string;
+  /**
+   * @remarks
+   * ID
+   * 
+   * @example
+   * 1
+   */
+  id?: number;
+  /**
+   * @remarks
+   * Local database name
+   * 
+   * @example
+   * db1
+   */
+  localDatabase?: string;
+  /**
+   * @remarks
+   * Local instance name
+   * 
+   * @example
+   * gp-test1
+   */
+  localInstanceName?: string;
+  /**
+   * @remarks
+   * Manager user name
+   * 
+   * @example
+   * test
+   */
+  managerUserName?: string;
+  /**
+   * @remarks
+   * Region ID where the instance is located.
+   * 
+   * @example
+   * cn-beijing
+   */
+  regionId?: string;
+  /**
+   * @remarks
+   * Remote database name
+   * 
+   * @example
+   * db2
+   */
+  remoteDatabase?: string;
+  /**
+   * @remarks
+   * Remote instance name
+   * 
+   * @example
+   * gp-test2
+   */
+  remoteInstanceName?: string;
+  /**
+   * @remarks
+   * Data source status
+   * 
+   * @example
+   * creating
+   */
+  status?: string;
+  /**
+   * @remarks
+   * User name
+   * 
+   * @example
+   * user1
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataSourceName: 'DataSourceName',
+      description: 'Description',
+      id: 'Id',
+      localDatabase: 'LocalDatabase',
+      localInstanceName: 'LocalInstanceName',
+      managerUserName: 'ManagerUserName',
+      regionId: 'RegionId',
+      remoteDatabase: 'RemoteDatabase',
+      remoteInstanceName: 'RemoteInstanceName',
+      status: 'Status',
+      userName: 'UserName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataSourceName: 'string',
+      description: 'string',
+      id: 'number',
+      localDatabase: 'string',
+      localInstanceName: 'string',
+      managerUserName: 'string',
+      regionId: 'string',
+      remoteDatabase: 'string',
+      remoteInstanceName: 'string',
+      status: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCollectionDataRequestRelationalTableFilter extends $tea.Model {
+  /**
+   * @remarks
+   * The Metadata field of the vector collection, used to associate with the fields in the vector table.
+   * 
+   * @example
+   * doc_id
+   */
   collectionMetadataField?: string;
+  /**
+   * @remarks
+   * The filtering condition for the relational table.
+   * 
+   * @example
+   * tags @> ARRAY[\\"art\\"]
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The field in the relational table, used to associate with the Metadata field of the vector collection.
+   * 
+   * @example
+   * id
+   */
   tableField?: string;
+  /**
+   * @remarks
+   * The name of the relational table.
+   * 
+   * @example
+   * my_rds_table
+   */
   tableName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -38834,12 +42239,12 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
   id?: string;
   /**
    * @remarks
-   * The metadata.
+   * Metadata.
    */
   metadata?: { [key: string]: string };
   /**
    * @remarks
-   * The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+   * The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
    * 
    * @example
    * 0.12345
@@ -38847,7 +42252,7 @@ export class QueryCollectionDataResponseBodyMatchesMatch extends $tea.Model {
   score?: number;
   /**
    * @remarks
-   * The retrieved vector data.
+   * List of vector data.
    */
   values?: QueryCollectionDataResponseBodyMatchesMatchValues;
   static names(): { [key: string]: string } {
@@ -38912,43 +42317,89 @@ export class QueryContentResponseBodyMatchesMatchListVector extends $tea.Model {
 }
 
 export class QueryContentResponseBodyMatchesMatchList extends $tea.Model {
+  /**
+   * @remarks
+   * The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
+   * 
+   * >  You must specify at least one of the Content and Vector parameters.
+   * 
+   * @example
+   * Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
+   */
   content?: string;
   /**
+   * @remarks
+   * The name of the document.
+   * 
+   * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
+   * 
    * @example
    * my_doc.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * The public URL of the query result image, valid for 2 hours
+   * 
    * @example
    * https://xxx-cn-beijing.aliyuncs.com/image/test.png
    */
   fileURL?: string;
   /**
+   * @remarks
+   * The unique ID of the vector data.
+   * 
    * @example
    * doca-1234
    */
   id?: string;
   /**
+   * @remarks
+   * Metadata during document loader loading.
+   * 
    * @example
    * {"page_pos": 1}
    */
   loaderMetadata?: string;
+  /**
+   * @remarks
+   * The metadata.
+   */
   metadata?: { [key: string]: string };
   /**
+   * @remarks
+   * Re-ranking score.
+   * 
    * @example
    * 6.2345
    */
   rerankScore?: number;
   /**
+   * @remarks
+   * Source of the retrieval results:
+   * 
+   * - 1 indicates vector retrieval
+   * - 2 indicates full-text retrieval
+   * - 3 indicates dual-path recall
+   * 
    * @example
    * 1
    */
   retrievalSource?: number;
   /**
+   * @remarks
+   * The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+   * 
    * @example
    * 0.12345
    */
   score?: number;
+  /**
+   * @remarks
+   * The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
+   * 
+   * >  If you leave this parameter empty, only full-text search results are returned.
+   */
   vector?: QueryContentResponseBodyMatchesMatchListVector;
   static names(): { [key: string]: string } {
     return {
@@ -39006,11 +42457,20 @@ export class QueryContentResponseBodyMatches extends $tea.Model {
 
 export class QueryContentResponseBodyUsage extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries used for vectorization.
+   * > An entry refers to the number of processing items when performing vectorization on text or images. For example, processing one piece of text counts as 1 entry, while processing one image counts as 2 entries.
+   * 
    * @example
    * 10
    */
   embeddingEntries?: string;
   /**
+   * @remarks
+   * Number of tokens used for vectorization.
+   * 
+   * > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
+   * 
    * @example
    * 100
    */
@@ -39035,22 +42495,42 @@ export class QueryContentResponseBodyUsage extends $tea.Model {
 }
 
 export class QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatchWindowMatch extends $tea.Model {
+  /**
+   * @remarks
+   * Text content.
+   * 
+   * @example
+   * AnalyticDB for PostgreSQL is a cloud-native data warehouse service that provides large-scale parallel processing (MPP) capabilities for massive online data analysis.
+   */
   content?: string;
   /**
+   * @remarks
+   * File name.
+   * 
    * @example
    * my_doc.txt
    */
   fileName?: string;
   /**
+   * @remarks
+   * Unique ID of the vector data.
+   * 
    * @example
    * doca-2345
    */
   id?: string;
   /**
+   * @remarks
+   * Metadata information when the document loader was loaded.
+   * 
    * @example
    * {"page_pos": 2}
    */
   loaderMetadata?: string;
+  /**
+   * @remarks
+   * Metadata map.
+   */
   metadata?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -39097,6 +42577,10 @@ export class QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatch exten
 }
 
 export class QueryContentResponseBodyWindowMatchesWindowMatches extends $tea.Model {
+  /**
+   * @remarks
+   * List of individual top windowed matches.
+   */
   windowMatch?: QueryContentResponseBodyWindowMatchesWindowMatchesWindowMatch;
   static names(): { [key: string]: string } {
     return {
@@ -39126,6 +42610,71 @@ export class QueryContentResponseBodyWindowMatches extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       windowMatches: { 'type': 'array', 'itemType': QueryContentResponseBodyWindowMatchesWindowMatches },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankResponseBodyResultsResults extends $tea.Model {
+  /**
+   * @remarks
+   * Re-ordered document information.
+   * 
+   * @example
+   * ADBPG is the OLAP database of Alibaba Cloud.
+   */
+  document?: string;
+  /**
+   * @remarks
+   * Index of this document in the request parameter Documents, starting from 0.
+   * 
+   * @example
+   * 1
+   */
+  index?: number;
+  /**
+   * @remarks
+   * Rerank similarity score.
+   * 
+   * @example
+   * 2.31412
+   */
+  relevanceScore?: number;
+  static names(): { [key: string]: string } {
+    return {
+      document: 'Document',
+      index: 'Index',
+      relevanceScore: 'RelevanceScore',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      document: 'string',
+      index: 'number',
+      relevanceScore: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RerankResponseBodyResults extends $tea.Model {
+  results?: RerankResponseBodyResultsResults[];
+  static names(): { [key: string]: string } {
+    return {
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      results: { 'type': 'array', 'itemType': RerankResponseBodyResultsResults },
     };
   }
 
@@ -39174,13 +42723,85 @@ export class TagResourcesRequestTag extends $tea.Model {
   }
 }
 
+export class TextEmbeddingResponseBodyResultsResultsEmbedding extends $tea.Model {
+  embedding?: number[];
+  static names(): { [key: string]: string } {
+    return {
+      embedding: 'Embedding',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedding: { 'type': 'array', 'itemType': 'number' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextEmbeddingResponseBodyResultsResults extends $tea.Model {
+  embedding?: TextEmbeddingResponseBodyResultsResultsEmbedding;
+  /**
+   * @example
+   * 0
+   */
+  index?: number;
+  static names(): { [key: string]: string } {
+    return {
+      embedding: 'Embedding',
+      index: 'Index',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      embedding: TextEmbeddingResponseBodyResultsResultsEmbedding,
+      index: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TextEmbeddingResponseBodyResults extends $tea.Model {
+  results?: TextEmbeddingResponseBodyResultsResults[];
+  static names(): { [key: string]: string } {
+    return {
+      results: 'Results',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      results: { 'type': 'array', 'itemType': TextEmbeddingResponseBodyResultsResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpsertChunksRequestTextChunks extends $tea.Model {
   /**
    * @remarks
+   * Document content.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
    */
   content?: string;
   /**
+   * @remarks
+   * Metadata.
+   * 
    * @example
    * {"title":"test"}
    */
@@ -39618,7 +43239,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查hadoop集群网络连通性
+   * Check Hadoop Cluster Network Connectivity
    * 
    * @param request - CheckHadoopNetConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39661,7 +43282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 检查hadoop集群网络连通性
+   * Check Hadoop Cluster Network Connectivity
    * 
    * @param request - CheckHadoopNetConnectionRequest
    * @returns CheckHadoopNetConnectionResponse
@@ -39672,7 +43293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the network connectivity of a connection specified by a Java Database Connectivity (JDBC) connection string.
+   * Check the network connectivity of the JDBC connection string
    * 
    * @param request - CheckJDBCSourceNetConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39715,7 +43336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the network connectivity of a connection specified by a Java Database Connectivity (JDBC) connection string.
+   * Check the network connectivity of the JDBC connection string
    * 
    * @param request - CheckJDBCSourceNetConnectionRequest
    * @returns CheckJDBCSourceNetConnectionResponse
@@ -39811,10 +43432,6 @@ export default class Client extends OpenApi {
       query["OwnerId"] = request.ownerId;
     }
 
-    if (!Util.isUnset(request.resourceGroupId)) {
-      query["ResourceGroupId"] = request.resourceGroupId;
-    }
-
     let req = new $OpenApi.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -39895,6 +43512,10 @@ export default class Client extends OpenApi {
       query["Metadata"] = request.metadata;
     }
 
+    if (!Util.isUnset(request.metadataIndices)) {
+      query["MetadataIndices"] = request.metadataIndices;
+    }
+
     if (!Util.isUnset(request.metrics)) {
       query["Metrics"] = request.metrics;
     }
@@ -39952,13 +43573,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for PostgreSQL instance.
+   * Create Instance
    * 
    * @remarks
-   * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
    * 
    * @param request - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -39997,6 +43615,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.DBInstanceMode)) {
       query["DBInstanceMode"] = request.DBInstanceMode;
+    }
+
+    if (!Util.isUnset(request.deployMode)) {
+      query["DeployMode"] = request.deployMode;
     }
 
     if (!Util.isUnset(request.enableSSL)) {
@@ -40095,6 +43717,14 @@ export default class Client extends OpenApi {
       query["SrcDbInstanceName"] = request.srcDbInstanceName;
     }
 
+    if (!Util.isUnset(request.standbyVSwitchId)) {
+      query["StandbyVSwitchId"] = request.standbyVSwitchId;
+    }
+
+    if (!Util.isUnset(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
+    }
+
     if (!Util.isUnset(request.storageSize)) {
       query["StorageSize"] = request.storageSize;
     }
@@ -40145,13 +43775,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an AnalyticDB for PostgreSQL instance.
+   * Create Instance
    * 
    * @remarks
-   * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+   * Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -40300,7 +43927,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a document collection.
+   * Create Knowledge Base
    * 
    * @param request - CreateDocumentCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40345,6 +43972,10 @@ export default class Client extends OpenApi {
       query["Metadata"] = request.metadata;
     }
 
+    if (!Util.isUnset(request.metadataIndices)) {
+      query["MetadataIndices"] = request.metadataIndices;
+    }
+
     if (!Util.isUnset(request.metrics)) {
       query["Metrics"] = request.metrics;
     }
@@ -40387,7 +44018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a document collection.
+   * Create Knowledge Base
    * 
    * @param request - CreateDocumentCollectionRequest
    * @returns CreateDocumentCollectionResponse
@@ -40452,7 +44083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an external data service.
+   * Create External Data Service
    * 
    * @param request - CreateExternalDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40499,7 +44130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an external data service.
+   * Create External Data Service
    * 
    * @param request - CreateExternalDataServiceRequest
    * @returns CreateExternalDataServiceResponse
@@ -40510,7 +44141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the configurations for a Hadoop data source.
+   * Create Hadoop data source configuration
    * 
    * @param request - CreateHadoopDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40589,7 +44220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the configurations for a Hadoop data source.
+   * Create Hadoop data source configuration
    * 
    * @param request - CreateHadoopDataSourceRequest
    * @returns CreateHadoopDataSourceResponse
@@ -40600,7 +44231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Java Database Connectivity (JDBC) data source.
+   * Creates a JDBC data source.
    * 
    * @param request - CreateJDBCDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40659,7 +44290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Java Database Connectivity (JDBC) data source.
+   * Creates a JDBC data source.
    * 
    * @param request - CreateJDBCDataSourceRequest
    * @returns CreateJDBCDataSourceResponse
@@ -40737,6 +44368,84 @@ export default class Client extends OpenApi {
   async createNamespace(request: CreateNamespaceRequest): Promise<CreateNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Create Homogeneous Data Source
+   * 
+   * @param request - CreateRemoteADBDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRemoteADBDataSourceResponse
+   */
+  async createRemoteADBDataSourceWithOptions(request: CreateRemoteADBDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<CreateRemoteADBDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceName)) {
+      query["DataSourceName"] = request.dataSourceName;
+    }
+
+    if (!Util.isUnset(request.localDBInstanceId)) {
+      query["LocalDBInstanceId"] = request.localDBInstanceId;
+    }
+
+    if (!Util.isUnset(request.localDatabase)) {
+      query["LocalDatabase"] = request.localDatabase;
+    }
+
+    if (!Util.isUnset(request.managerUserName)) {
+      query["ManagerUserName"] = request.managerUserName;
+    }
+
+    if (!Util.isUnset(request.managerUserPassword)) {
+      query["ManagerUserPassword"] = request.managerUserPassword;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.remoteDBInstanceId)) {
+      query["RemoteDBInstanceId"] = request.remoteDBInstanceId;
+    }
+
+    if (!Util.isUnset(request.remoteDatabase)) {
+      query["RemoteDatabase"] = request.remoteDatabase;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.userPassword)) {
+      query["UserPassword"] = request.userPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRemoteADBDataSource",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRemoteADBDataSourceResponse>(await this.callApi(params, req, runtime), new CreateRemoteADBDataSourceResponse({}));
+  }
+
+  /**
+   * Create Homogeneous Data Source
+   * 
+   * @param request - CreateRemoteADBDataSourceRequest
+   * @returns CreateRemoteADBDataSourceResponse
+   */
+  async createRemoteADBDataSource(request: CreateRemoteADBDataSourceRequest): Promise<CreateRemoteADBDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRemoteADBDataSourceWithOptions(request, runtime);
   }
 
   /**
@@ -40910,7 +44619,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time data service.
+   * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -40957,7 +44666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time data service.
+   * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingDataServiceRequest
    * @returns CreateStreamingDataServiceResponse
@@ -40968,7 +44677,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time data source.
+   * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41023,7 +44732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a real-time data source.
+   * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingDataSourceRequest
    * @returns CreateStreamingDataSourceResponse
@@ -41034,7 +44743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the configurations for an external data source.
+   * Create External Data Source Configuration
    * 
    * @param tmpReq - CreateStreamingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41167,7 +44876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates the configurations for an external data source.
+   * Create External Data Source Configuration
    * 
    * @param request - CreateStreamingJobRequest
    * @returns CreateStreamingJobResponse
@@ -41178,7 +44887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a vector index.
+   * Create Vector Index
    * 
    * @param request - CreateVectorIndexRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41253,7 +44962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a vector index.
+   * Create Vector Index
    * 
    * @param request - CreateVectorIndexRequest
    * @returns CreateVectorIndexResponse
@@ -41261,6 +44970,52 @@ export default class Client extends OpenApi {
   async createVectorIndex(request: CreateVectorIndexRequest): Promise<CreateVectorIndexResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createVectorIndexWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除数据库账号
+   * 
+   * @param request - DeleteAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAccountResponse
+   */
+  async deleteAccountWithOptions(request: DeleteAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAccountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAccount",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAccountResponse>(await this.callApi(params, req, runtime), new DeleteAccountResponse({}));
+  }
+
+  /**
+   * 删除数据库账号
+   * 
+   * @param request - DeleteAccountRequest
+   * @returns DeleteAccountResponse
+   */
+  async deleteAccount(request: DeleteAccountRequest): Promise<DeleteAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAccountWithOptions(request, runtime);
   }
 
   /**
@@ -41580,7 +45335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a document from a document collection.
+   * Delete Document
    * 
    * @param request - DeleteDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41635,7 +45390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a document from a document collection.
+   * Delete Document
    * 
    * @param request - DeleteDocumentRequest
    * @returns DeleteDocumentResponse
@@ -41646,7 +45401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a document collection.
+   * Delete Knowledge Base
    * 
    * @param request - DeleteDocumentCollectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41697,7 +45452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a document collection.
+   * Delete Knowledge Base
    * 
    * @param request - DeleteDocumentCollectionRequest
    * @returns DeleteDocumentCollectionResponse
@@ -41762,7 +45517,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an external data service.
+   * Delete External Data Service
    * 
    * @param request - DeleteExternalDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41801,7 +45556,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an external data service.
+   * Delete External Data Service
    * 
    * @param request - DeleteExternalDataServiceRequest
    * @returns DeleteExternalDataServiceResponse
@@ -41862,7 +45617,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Java Database Connectivity (JDBC) data source.
+   * Delete JDBC data source
    * 
    * @param request - DeleteJDBCDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -41901,7 +45656,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Java Database Connectivity (JDBC) data source.
+   * Delete JDBC data source
    * 
    * @param request - DeleteJDBCDataSourceRequest
    * @returns DeleteJDBCDataSourceResponse
@@ -41975,6 +45730,56 @@ export default class Client extends OpenApi {
   async deleteNamespace(request: DeleteNamespaceRequest): Promise<DeleteNamespaceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteNamespaceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a remote AnalyticDB data source.
+   * 
+   * @param request - DeleteRemoteADBDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRemoteADBDataSourceResponse
+   */
+  async deleteRemoteADBDataSourceWithOptions(request: DeleteRemoteADBDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRemoteADBDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.localDBInstanceId)) {
+      query["LocalDBInstanceId"] = request.localDBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRemoteADBDataSource",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRemoteADBDataSourceResponse>(await this.callApi(params, req, runtime), new DeleteRemoteADBDataSourceResponse({}));
+  }
+
+  /**
+   * Deletes a remote AnalyticDB data source.
+   * 
+   * @param request - DeleteRemoteADBDataSourceRequest
+   * @returns DeleteRemoteADBDataSourceResponse
+   */
+  async deleteRemoteADBDataSource(request: DeleteRemoteADBDataSourceRequest): Promise<DeleteRemoteADBDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRemoteADBDataSourceWithOptions(request, runtime);
   }
 
   /**
@@ -42690,13 +46495,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for PostgreSQL instance.
+   * Query detailed information about the instance
    * 
    * @remarks
-   * ##
-   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * ## Usage Instructions
+   * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
+   * ## QPS Limitation
+   * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
+   * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -42735,13 +46541,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about an AnalyticDB for PostgreSQL instance.
+   * Query detailed information about the instance
    * 
    * @remarks
-   * ##
-   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * ## Usage Instructions
+   * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
+   * ## QPS Limitation
+   * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
+   * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -44248,7 +48055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a document.
+   * Get Document Details
    * 
    * @param request - DescribeDocumentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44303,7 +48110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a document.
+   * Get Document Details
    * 
    * @param request - DescribeDocumentRequest
    * @returns DescribeDocumentResponse
@@ -44364,7 +48171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+   * Get download records
    * 
    * @param request - DescribeDownloadSQLLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44395,7 +48202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+   * Get download records
    * 
    * @param request - DescribeDownloadSQLLogsRequest
    * @returns DescribeDownloadSQLLogsResponse
@@ -44502,7 +48309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取hadoop配置信息
+   * Queries the configuration information about a Hadoop cluster.
    * 
    * @param request - DescribeHadoopConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -44545,7 +48352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取hadoop配置信息
+   * Queries the configuration information about a Hadoop cluster.
    * 
    * @param request - DescribeHadoopConfigsRequest
    * @returns DescribeHadoopConfigsResponse
@@ -45664,7 +49471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time data source.
+   * Get external data source configuration information
    * 
    * @param request - DescribeStreamingDataSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45703,7 +49510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time data source.
+   * Get external data source configuration information
    * 
    * @param request - DescribeStreamingDataSourceRequest
    * @returns DescribeStreamingDataSourceResponse
@@ -45714,7 +49521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time data service.
+   * Delete External Data Source Configuration
    * 
    * @param request - DescribeStreamingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -45753,7 +49560,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a real-time data service.
+   * Delete External Data Source Configuration
    * 
    * @param request - DescribeStreamingJobRequest
    * @returns DescribeStreamingJobResponse
@@ -46526,6 +50333,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取特定的账号信息
+   * 
+   * @param request - GetAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAccountResponse
+   */
+  async getAccountWithOptions(request: GetAccountRequest, runtime: $Util.RuntimeOptions): Promise<GetAccountResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.accountName)) {
+      query["AccountName"] = request.accountName;
+    }
+
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetAccount",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetAccountResponse>(await this.callApi(params, req, runtime), new GetAccountResponse({}));
+  }
+
+  /**
+   * 获取特定的账号信息
+   * 
+   * @param request - GetAccountRequest
+   * @returns GetAccountResponse
+   */
+  async getAccount(request: GetAccountRequest): Promise<GetAccountResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.getAccountWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the information about an access credential.
    * 
    * @param request - GetSecretValueRequest
@@ -47184,7 +51037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of external data sources.
+   * Queries a list of external data services.
    * 
    * @param request - ListExternalDataServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47227,7 +51080,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of external data sources.
+   * Queries a list of external data services.
    * 
    * @param request - ListExternalDataServicesRequest
    * @returns ListExternalDataServicesResponse
@@ -47416,6 +51269,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Get Homogeneous Data Source
+   * 
+   * @param request - ListRemoteADBDataSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRemoteADBDataSourcesResponse
+   */
+  async listRemoteADBDataSourcesWithOptions(request: ListRemoteADBDataSourcesRequest, runtime: $Util.RuntimeOptions): Promise<ListRemoteADBDataSourcesResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ListRemoteADBDataSources",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ListRemoteADBDataSourcesResponse>(await this.callApi(params, req, runtime), new ListRemoteADBDataSourcesResponse({}));
+  }
+
+  /**
+   * Get Homogeneous Data Source
+   * 
+   * @param request - ListRemoteADBDataSourcesRequest
+   * @returns ListRemoteADBDataSourcesResponse
+   */
+  async listRemoteADBDataSources(request: ListRemoteADBDataSourcesRequest): Promise<ListRemoteADBDataSourcesResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.listRemoteADBDataSourcesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a list of schemas.
    * 
    * @param request - ListSchemasRequest
@@ -47536,7 +51439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about real-time data services.
+   * Create External Data Source Configuration
    * 
    * @param request - ListStreamingDataServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47579,7 +51482,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about real-time data services.
+   * Create External Data Source Configuration
    * 
    * @param request - ListStreamingDataServicesRequest
    * @returns ListStreamingDataServicesResponse
@@ -47644,7 +51547,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries real-time data service jobs.
+   * Queries real-time data synchronization jobs.
    * 
    * @param request - ListStreamingJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -47687,7 +51590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries real-time data service jobs.
+   * Queries real-time data synchronization jobs.
    * 
    * @param request - ListStreamingJobsRequest
    * @returns ListStreamingJobsResponse
@@ -47863,6 +51766,10 @@ export default class Client extends OpenApi {
       query["AccountName"] = request.accountName;
     }
 
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -48025,6 +51932,10 @@ export default class Client extends OpenApi {
   async modifyDBInstanceConnectionStringWithOptions(request: ModifyDBInstanceConnectionStringRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceConnectionStringResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!Util.isUnset(request.connectionStringPrefix)) {
       query["ConnectionStringPrefix"] = request.connectionStringPrefix;
     }
@@ -48191,6 +52102,130 @@ export default class Client extends OpenApi {
   async modifyDBInstanceMaintainTime(request: ModifyDBInstanceMaintainTimeRequest): Promise<ModifyDBInstanceMaintainTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyDBInstanceMaintainTimeWithOptions(request, runtime);
+  }
+
+  /**
+   * Changes the network type of an AnalyticDB for PostgreSQL instance.
+   * 
+   * @remarks
+   * ##
+   * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+   * ## QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ModifyDBInstanceNetworkTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstanceNetworkTypeResponse
+   */
+  async modifyDBInstanceNetworkTypeWithOptions(request: ModifyDBInstanceNetworkTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstanceNetworkTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.instanceNetworkType)) {
+      query["InstanceNetworkType"] = request.instanceNetworkType;
+    }
+
+    if (!Util.isUnset(request.privateIpAddress)) {
+      query["PrivateIpAddress"] = request.privateIpAddress;
+    }
+
+    if (!Util.isUnset(request.VPCId)) {
+      query["VPCId"] = request.VPCId;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstanceNetworkType",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstanceNetworkTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstanceNetworkTypeResponse({}));
+  }
+
+  /**
+   * Changes the network type of an AnalyticDB for PostgreSQL instance.
+   * 
+   * @remarks
+   * ##
+   * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+   * ## QPS limits
+   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * 
+   * @param request - ModifyDBInstanceNetworkTypeRequest
+   * @returns ModifyDBInstanceNetworkTypeResponse
+   */
+  async modifyDBInstanceNetworkType(request: ModifyDBInstanceNetworkTypeRequest): Promise<ModifyDBInstanceNetworkTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstanceNetworkTypeWithOptions(request, runtime);
+  }
+
+  /**
+   * 包年包月/按量付费转换改造
+   * 
+   * @param request - ModifyDBInstancePayTypeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyDBInstancePayTypeResponse
+   */
+  async modifyDBInstancePayTypeWithOptions(request: ModifyDBInstancePayTypeRequest, runtime: $Util.RuntimeOptions): Promise<ModifyDBInstancePayTypeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyDBInstancePayType",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyDBInstancePayTypeResponse>(await this.callApi(params, req, runtime), new ModifyDBInstancePayTypeResponse({}));
+  }
+
+  /**
+   * 包年包月/按量付费转换改造
+   * 
+   * @param request - ModifyDBInstancePayTypeRequest
+   * @returns ModifyDBInstancePayTypeResponse
+   */
+  async modifyDBInstancePayType(request: ModifyDBInstancePayTypeRequest): Promise<ModifyDBInstancePayTypeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyDBInstancePayTypeWithOptions(request, runtime);
   }
 
   /**
@@ -48372,7 +52407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an external data service.
+   * Modify External Data Service
    * 
    * @param request - ModifyExternalDataServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48419,7 +52454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an external data service.
+   * Modify External Data Service
    * 
    * @param request - ModifyExternalDataServiceRequest
    * @returns ModifyExternalDataServiceResponse
@@ -48712,7 +52747,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modify Homogeneous Data Source
+   * 
+   * @param request - ModifyRemoteADBDataSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRemoteADBDataSourceResponse
+   */
+  async modifyRemoteADBDataSourceWithOptions(request: ModifyRemoteADBDataSourceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRemoteADBDataSourceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataSourceId)) {
+      query["DataSourceId"] = request.dataSourceId;
+    }
+
+    if (!Util.isUnset(request.dataSourceName)) {
+      query["DataSourceName"] = request.dataSourceName;
+    }
+
+    if (!Util.isUnset(request.localDBInstanceId)) {
+      query["LocalDBInstanceId"] = request.localDBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.userName)) {
+      query["UserName"] = request.userName;
+    }
+
+    if (!Util.isUnset(request.userPassword)) {
+      query["UserPassword"] = request.userPassword;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRemoteADBDataSource",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRemoteADBDataSourceResponse>(await this.callApi(params, req, runtime), new ModifyRemoteADBDataSourceResponse({}));
+  }
+
+  /**
+   * Modify Homogeneous Data Source
+   * 
+   * @param request - ModifyRemoteADBDataSourceRequest
+   * @returns ModifyRemoteADBDataSourceResponse
+   */
+  async modifyRemoteADBDataSource(request: ModifyRemoteADBDataSourceRequest): Promise<ModifyRemoteADBDataSourceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRemoteADBDataSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+   * 
+   * @remarks
+   *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+   * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
    * 
    * @param request - ModifySQLCollectorPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -48748,6 +52849,10 @@ export default class Client extends OpenApi {
 
   /**
    * Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
+   * 
+   * @remarks
+   *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+   * *   You can call this operation only for AnalyticDB for PostgreSQL instances in Serverless automatic scheduling mode.
    * 
    * @param request - ModifySQLCollectorPolicyRequest
    * @returns ModifySQLCollectorPolicyResponse
@@ -48946,7 +53051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外部数据源配置
+   * Create External Data Source Configuration
    * 
    * @param tmpReq - ModifyStreamingJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49071,7 +53176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建外部数据源配置
+   * Create External Data Source Configuration
    * 
    * @param request - ModifyStreamingJobRequest
    * @returns ModifyStreamingJobResponse
@@ -49238,7 +53343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vector data.
+   * Query Vector Data
    * 
    * @param tmpReq - QueryCollectionDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49355,7 +53460,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vector data.
+   * Query Vector Data
    * 
    * @param request - QueryCollectionDataRequest
    * @returns QueryCollectionDataResponse
@@ -49366,7 +53471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vector data and metadata from a document collection by using natural statements.
+   * Query
    * 
    * @param tmpReq - QueryContentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -49483,7 +53588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves vector data and metadata from a document collection by using natural statements.
+   * Query
    * 
    * @param request - QueryContentRequest
    * @returns QueryContentResponse
@@ -49662,6 +53767,88 @@ export default class Client extends OpenApi {
   async releaseInstancePublicConnection(request: ReleaseInstancePublicConnectionRequest): Promise<ReleaseInstancePublicConnectionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.releaseInstancePublicConnectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Score and re-order documents using a model
+   * 
+   * @param tmpReq - RerankRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RerankResponse
+   */
+  async rerankWithOptions(tmpReq: RerankRequest, runtime: $Util.RuntimeOptions): Promise<RerankResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RerankShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.documents)) {
+      request.documentsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.documents, "Documents", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.documentsShrink)) {
+      body["Documents"] = request.documentsShrink;
+    }
+
+    if (!Util.isUnset(request.maxChunksPerDoc)) {
+      body["MaxChunksPerDoc"] = request.maxChunksPerDoc;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["Query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.returnDocuments)) {
+      body["ReturnDocuments"] = request.returnDocuments;
+    }
+
+    if (!Util.isUnset(request.topK)) {
+      body["TopK"] = request.topK;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "Rerank",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RerankResponse>(await this.callApi(params, req, runtime), new RerankResponse({}));
+  }
+
+  /**
+   * Score and re-order documents using a model
+   * 
+   * @param request - RerankRequest
+   * @returns RerankResponse
+   */
+  async rerank(request: RerankRequest): Promise<RerankResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.rerankWithOptions(request, runtime);
   }
 
   /**
@@ -50183,6 +54370,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 通过模型对文本文档进行向量化
+   * 
+   * @param tmpReq - TextEmbeddingRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TextEmbeddingResponse
+   */
+  async textEmbeddingWithOptions(tmpReq: TextEmbeddingRequest, runtime: $Util.RuntimeOptions): Promise<TextEmbeddingResponse> {
+    Util.validateModel(tmpReq);
+    let request = new TextEmbeddingShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!Util.isUnset(request.model)) {
+      body["Model"] = request.model;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "TextEmbedding",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TextEmbeddingResponse>(await this.callApi(params, req, runtime), new TextEmbeddingResponse({}));
+  }
+
+  /**
+   * 通过模型对文本文档进行向量化
+   * 
+   * @param request - TextEmbeddingRequest
+   * @returns TextEmbeddingResponse
+   */
+  async textEmbedding(request: TextEmbeddingRequest): Promise<TextEmbeddingResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.textEmbeddingWithOptions(request, runtime);
+  }
+
+  /**
    * Unbinds database roles from a resource group.
    * 
    * @param tmpReq - UnbindDBResourceGroupWithRoleRequest
@@ -50299,7 +54552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+   * Remove resource tags
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50362,7 +54615,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+   * Remove resource tags
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -50373,7 +54626,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates metadata in the vector data.
+   * Update Metadata of Collection Data
    * 
    * @param tmpReq - UpdateCollectionDataMetadataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -50450,7 +54703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates metadata in the vector data.
+   * Update Metadata of Collection Data
    * 
    * @param request - UpdateCollectionDataMetadataRequest
    * @returns UpdateCollectionDataMetadataResponse
@@ -50722,6 +54975,10 @@ export default class Client extends OpenApi {
       query["DBInstanceId"] = request.DBInstanceId;
     }
 
+    if (!Util.isUnset(request.databaseName)) {
+      query["DatabaseName"] = request.databaseName;
+    }
+
     if (!Util.isUnset(request.extensions)) {
       query["Extensions"] = request.extensions;
     }
@@ -50759,7 +55016,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a document in an asynchronous manner by using an on-premises file or an Internet-accessible file URL. After a document is uploaded, the server loads, chunks, embeds, and stores the document. A document can be up to 200 MB in size.
+   * Asynchronous Document Upload
    * 
    * @remarks
    * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
@@ -50872,7 +55129,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uploads a document in an asynchronous manner by using an on-premises file or an Internet-accessible file URL. After a document is uploaded, the server loads, chunks, embeds, and stores the document. A document can be up to 200 MB in size.
+   * Asynchronous Document Upload
    * 
    * @remarks
    * The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
@@ -50968,7 +55225,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Splits a document into chunks and uploads the vectorized chunks to a document collection.
+   * Upload split text
+   * 
+   * @remarks
+   * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
    * 
    * @param tmpReq - UpsertChunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -51035,7 +55295,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Splits a document into chunks and uploads the vectorized chunks to a document collection.
+   * Upload split text
+   * 
+   * @remarks
+   * The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
    * 
    * @param request - UpsertChunksRequest
    * @returns UpsertChunksResponse
