@@ -49,6 +49,7 @@ export class AISearchQuery extends $tea.Model {
 
 export class GenericSearchResult extends $tea.Model {
   pageItems?: ScorePageItem[];
+  queryContext?: QueryContext;
   /**
    * @example
    * 123456
@@ -60,6 +61,7 @@ export class GenericSearchResult extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       pageItems: 'pageItems',
+      queryContext: 'queryContext',
       requestId: 'requestId',
       sceneItems: 'sceneItems',
       searchInformation: 'searchInformation',
@@ -70,6 +72,7 @@ export class GenericSearchResult extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       pageItems: { 'type': 'array', 'itemType': ScorePageItem },
+      queryContext: QueryContext,
       requestId: 'string',
       sceneItems: { 'type': 'array', 'itemType': SceneItem },
       searchInformation: SearchInformation,
@@ -111,6 +114,28 @@ export class IncludeImage extends $tea.Model {
       height: 'number',
       imageLink: 'string',
       width: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContext extends $tea.Model {
+  originalQuery?: QueryContextOriginalQuery;
+  rewrite?: QueryContextRewrite;
+  static names(): { [key: string]: string } {
+    return {
+      originalQuery: 'originalQuery',
+      rewrite: 'rewrite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalQuery: QueryContextOriginalQuery,
+      rewrite: QueryContextRewrite,
     };
   }
 
@@ -616,6 +641,128 @@ export class GenericSearchResponse extends $tea.Model {
   }
 }
 
+export class QueryContextOriginalQuery extends $tea.Model {
+  industry?: string;
+  page?: string;
+  query?: string;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'string',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryContextRewrite extends $tea.Model {
+  enabled?: boolean;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContextOriginalQuery extends $tea.Model {
+  industry?: string;
+  page?: number;
+  query?: string;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      industry: 'industry',
+      page: 'page',
+      query: 'query',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      industry: 'string',
+      page: 'number',
+      query: 'string',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContextRewrite extends $tea.Model {
+  enabled?: boolean;
+  timeRange?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enabled: 'enabled',
+      timeRange: 'timeRange',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enabled: 'boolean',
+      timeRange: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AiSearchResponseBodyHeaderQueryContext extends $tea.Model {
+  originalQuery?: AiSearchResponseBodyHeaderQueryContextOriginalQuery;
+  rewrite?: AiSearchResponseBodyHeaderQueryContextRewrite;
+  static names(): { [key: string]: string } {
+    return {
+      originalQuery: 'originalQuery',
+      rewrite: 'rewrite',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      originalQuery: AiSearchResponseBodyHeaderQueryContextOriginalQuery,
+      rewrite: AiSearchResponseBodyHeaderQueryContextRewrite,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class AiSearchResponseBodyHeader extends $tea.Model {
   /**
    * @example
@@ -627,6 +774,7 @@ export class AiSearchResponseBodyHeader extends $tea.Model {
    * 988021f0-951a-43d0-ba4d-785359e7e7be
    */
   eventId?: string;
+  queryContext?: AiSearchResponseBodyHeaderQueryContext;
   /**
    * @example
    * 1293
@@ -636,6 +784,7 @@ export class AiSearchResponseBodyHeader extends $tea.Model {
     return {
       event: 'event',
       eventId: 'eventId',
+      queryContext: 'queryContext',
       responseTime: 'responseTime',
     };
   }
@@ -644,6 +793,7 @@ export class AiSearchResponseBodyHeader extends $tea.Model {
     return {
       event: 'string',
       eventId: 'string',
+      queryContext: AiSearchResponseBodyHeaderQueryContext,
       responseTime: 'number',
     };
   }
