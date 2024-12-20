@@ -546,11 +546,13 @@ export class ListDomainsRequest extends $tea.Model {
    */
   pageSize?: number;
   search?: string;
+  withoutMeteringData?: boolean;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       search: 'Search',
+      withoutMeteringData: 'WithoutMeteringData',
     };
   }
 
@@ -559,6 +561,7 @@ export class ListDomainsRequest extends $tea.Model {
       pageNumber: 'number',
       pageSize: 'number',
       search: 'string',
+      withoutMeteringData: 'boolean',
     };
   }
 
@@ -687,6 +690,9 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
    * 1337****
    */
   accountId?: string;
+  dohEnabled?: boolean;
+  dohResolveAllEnabled?: boolean;
+  monthDohResolveCount?: number;
   /**
    * @example
    * 1500000
@@ -735,6 +741,9 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       accountId: 'AccountId',
+      dohEnabled: 'DohEnabled',
+      dohResolveAllEnabled: 'DohResolveAllEnabled',
+      monthDohResolveCount: 'MonthDohResolveCount',
       monthFreeCount: 'MonthFreeCount',
       monthHttpsResolveCount: 'MonthHttpsResolveCount',
       monthResolveCount: 'MonthResolveCount',
@@ -750,6 +759,9 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       accountId: 'string',
+      dohEnabled: 'boolean',
+      dohResolveAllEnabled: 'boolean',
+      monthDohResolveCount: 'number',
       monthFreeCount: 'number',
       monthHttpsResolveCount: 'number',
       monthResolveCount: 'number',
@@ -768,6 +780,7 @@ export class GetAccountInfoResponseBodyAccountInfo extends $tea.Model {
 }
 
 export class GetResolveCountSummaryResponseBodyResolveSummary extends $tea.Model {
+  doh?: number;
   /**
    * @example
    * 123
@@ -790,6 +803,7 @@ export class GetResolveCountSummaryResponseBodyResolveSummary extends $tea.Model
   https6?: number;
   static names(): { [key: string]: string } {
     return {
+      doh: 'Doh',
       http: 'Http',
       http6: 'Http6',
       https: 'Https',
@@ -799,6 +813,7 @@ export class GetResolveCountSummaryResponseBodyResolveSummary extends $tea.Model
 
   static types(): { [key: string]: any } {
     return {
+      doh: 'number',
       http: 'number',
       http6: 'number',
       https: 'number',
@@ -876,6 +891,7 @@ export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
    * 20
    */
   resolved6?: number;
+  resolvedDoh?: number;
   /**
    * @example
    * 10
@@ -892,6 +908,7 @@ export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
       domainName: 'DomainName',
       resolved: 'Resolved',
       resolved6: 'Resolved6',
+      resolvedDoh: 'ResolvedDoh',
       resolvedHttps: 'ResolvedHttps',
       resolvedHttps6: 'ResolvedHttps6',
       timeModified: 'TimeModified',
@@ -903,6 +920,7 @@ export class ListDomainsResponseBodyDomainInfosDomainInfo extends $tea.Model {
       domainName: 'string',
       resolved: 'number',
       resolved6: 'number',
+      resolvedDoh: 'number',
       resolvedHttps: 'number',
       resolvedHttps6: 'number',
       timeModified: 'number',
@@ -957,6 +975,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加域名
+   * 
    * @param request - AddDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns AddDomainResponse
@@ -990,6 +1010,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加域名
+   * 
    * @param request - AddDomainRequest
    * @returns AddDomainResponse
    */
@@ -999,6 +1021,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除域名
+   * 
    * @param request - DeleteDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDomainResponse
@@ -1032,6 +1056,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 删除域名
+   * 
    * @param request - DeleteDomainRequest
    * @returns DeleteDomainResponse
    */
@@ -1087,6 +1113,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户信息包含配置项
+   * 
    * @param request - GetAccountInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAccountInfoResponse
@@ -1108,6 +1136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取用户信息包含配置项
    * @returns GetAccountInfoResponse
    */
   async getAccountInfo(): Promise<GetAccountInfoResponse> {
@@ -1116,6 +1145,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解析次数概览
+   * 
    * @param request - GetResolveCountSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetResolveCountSummaryResponse
@@ -1149,6 +1180,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解析次数概览
+   * 
    * @param request - GetResolveCountSummaryRequest
    * @returns GetResolveCountSummaryResponse
    */
@@ -1208,6 +1241,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举域名以及解析统计信息
+   * 
    * @param request - ListDomainsRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListDomainsResponse
@@ -1225,6 +1260,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.search)) {
       query["Search"] = request.search;
+    }
+
+    if (!Util.isUnset(request.withoutMeteringData)) {
+      query["WithoutMeteringData"] = request.withoutMeteringData;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -1245,6 +1284,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 列举域名以及解析统计信息
+   * 
    * @param request - ListDomainsRequest
    * @returns ListDomainsResponse
    */
