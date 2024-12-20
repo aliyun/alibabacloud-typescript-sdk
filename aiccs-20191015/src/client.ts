@@ -1,6 +1,5 @@
 // This file is auto-generated, don't edit it
 /**
- *
  */
 import Util, * as $Util from '@alicloud/tea-util';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-client';
@@ -9,15 +8,79 @@ import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
 export class AddHotlineNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInboundEvaluation?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutboundEvaluation?: boolean;
+  /**
+   * @example
+   * 2
+   */
   evaluationLevel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05710000****
+   */
   hotlineNumber?: string;
+  /**
+   * @example
+   * 123456
+   */
   inboundFlowId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   outboundAllDepart?: boolean;
   outboundRangeList?: AddHotlineNumberRequestOutboundRangeList[];
   static names(): { [key: string]: string } {
@@ -58,15 +121,79 @@ export class AddHotlineNumberRequest extends $tea.Model {
 }
 
 export class AddHotlineNumberShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInboundEvaluation?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutboundEvaluation?: boolean;
+  /**
+   * @example
+   * 2
+   */
   evaluationLevel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05710000****
+   */
   hotlineNumber?: string;
+  /**
+   * @example
+   * 123456
+   */
   inboundFlowId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   outboundAllDepart?: boolean;
   outboundRangeListShrink?: string;
   static names(): { [key: string]: string } {
@@ -107,10 +234,30 @@ export class AddHotlineNumberShrinkRequest extends $tea.Model {
 }
 
 export class AddHotlineNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE339D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -138,9 +285,9 @@ export class AddHotlineNumberResponseBody extends $tea.Model {
 }
 
 export class AddHotlineNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddHotlineNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddHotlineNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -163,14 +310,48 @@ export class AddHotlineNumberResponse extends $tea.Model {
 }
 
 export class AddOuterAccountRequest extends $tea.Model {
+  /**
+   * @example
+   * http://****
+   */
   avatar?: string;
   ext?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1212
+   */
   outerAccountId?: string;
   outerAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alipay
+   */
   outerAccountType?: string;
+  /**
+   * @example
+   * 3
+   */
   outerDepartmentId?: string;
+  /**
+   * @example
+   * type_invalid
+   */
   outerDepartmentType?: string;
+  /**
+   * @example
+   * ["222","333","444"]
+   */
   outerGroupIds?: string;
+  /**
+   * @example
+   * mybank
+   */
   outerGroupType?: string;
   realName?: string;
   static names(): { [key: string]: string } {
@@ -209,10 +390,30 @@ export class AddOuterAccountRequest extends $tea.Model {
 }
 
 export class AddOuterAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -240,9 +441,9 @@ export class AddOuterAccountResponseBody extends $tea.Model {
 }
 
 export class AddOuterAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddOuterAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddOuterAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -265,10 +466,36 @@ export class AddOuterAccountResponse extends $tea.Model {
 }
 
 export class AddSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   outerDepartmentId?: string;
+  /**
+   * @example
+   * type_invalid
+   */
   outerDepartmentType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   outerGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outerGroupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mybank
+   */
   outerGroupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -296,10 +523,30 @@ export class AddSkillGroupRequest extends $tea.Model {
 }
 
 export class AddSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -327,9 +574,9 @@ export class AddSkillGroupResponseBody extends $tea.Model {
 }
 
 export class AddSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AddSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -352,37 +599,158 @@ export class AddSkillGroupResponse extends $tea.Model {
 }
 
 export class AiccsSmartCallRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   actionCodeBreak?: boolean;
+  /**
+   * @example
+   * 120
+   */
   actionCodeTimeBreak?: number;
+  /**
+   * @example
+   * 23387****
+   */
   asrAlsAmId?: string;
+  /**
+   * @example
+   * customer_service_8k
+   */
   asrBaseId?: string;
+  /**
+   * @example
+   * bf71664d30d2478fb8cb8c39c6b6****
+   */
   asrModelId?: string;
+  /**
+   * @example
+   * 6689****
+   */
   asrVocabularyId?: string;
+  /**
+   * @example
+   * 2d4c-4e78-8d2a-afbb06cf****.wav
+   */
   backgroundFileCode?: string;
+  /**
+   * @example
+   * 1
+   */
   backgroundSpeed?: number;
+  /**
+   * @example
+   * 1
+   */
   backgroundVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1862222****
+   */
   calledNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571000****
+   */
   calledShowNumber?: string;
+  /**
+   * @example
+   * 2234****
+   */
   dynamicId?: string;
+  /**
+   * @example
+   * fasle
+   */
   earlyMediaAsr?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableITN?: boolean;
+  /**
+   * @example
+   * 10000
+   */
   muteTime?: number;
+  /**
+   * @example
+   * 222356****
+   */
   outId?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 800
+   */
   pauseTime?: number;
+  /**
+   * @example
+   * 1
+   */
   playTimes?: number;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
+  /**
+   * @example
+   * true
+   */
   recordFlag?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 120
+   */
   sessionTimeout?: number;
+  /**
+   * @example
+   * 1
+   */
   speed?: number;
+  /**
+   * @example
+   * true
+   */
   ttsConf?: boolean;
+  /**
+   * @example
+   * 100
+   */
   ttsSpeed?: number;
+  /**
+   * @example
+   * xiaoyun
+   */
   ttsStyle?: string;
+  /**
+   * @example
+   * 10
+   */
   ttsVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2d4c-4e78-8d2a-afbb06cf****.wav,$name$
+   */
   voiceCode?: string;
   voiceCodeParam?: string;
+  /**
+   * @example
+   * 1
+   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -464,9 +832,25 @@ export class AiccsSmartCallRequest extends $tea.Model {
 }
 
 export class AiccsSmartCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 116012854210^10281427****
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -492,9 +876,9 @@ export class AiccsSmartCallResponseBody extends $tea.Model {
 }
 
 export class AiccsSmartCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AiccsSmartCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AiccsSmartCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -517,10 +901,26 @@ export class AiccsSmartCallResponse extends $tea.Model {
 }
 
 export class AiccsSmartCallOperateRequest extends $tea.Model {
+  /**
+   * @example
+   * 116012854210^102814279****
+   */
   callId?: string;
+  /**
+   * @example
+   * parallelBridge
+   */
   command?: string;
   ownerId?: number;
+  /**
+   * @example
+   * Param
+   */
   param?: string;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -554,9 +954,25 @@ export class AiccsSmartCallOperateRequest extends $tea.Model {
 }
 
 export class AiccsSmartCallOperateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -582,9 +998,9 @@ export class AiccsSmartCallOperateResponseBody extends $tea.Model {
 }
 
 export class AiccsSmartCallOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AiccsSmartCallOperateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AiccsSmartCallOperateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -607,11 +1023,41 @@ export class AiccsSmartCallOperateResponse extends $tea.Model {
 }
 
 export class AnswerCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -641,9 +1087,25 @@ export class AnswerCallRequest extends $tea.Model {
 }
 
 export class AnswerCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -669,9 +1131,9 @@ export class AnswerCallResponseBody extends $tea.Model {
 }
 
 export class AnswerCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AnswerCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AnswerCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -698,6 +1160,13 @@ export class AttachTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -725,10 +1194,30 @@ export class AttachTaskRequest extends $tea.Model {
 }
 
 export class AttachTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 10
+   */
   data?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -756,9 +1245,9 @@ export class AttachTaskResponseBody extends $tea.Model {
 }
 
 export class AttachTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: AttachTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AttachTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -781,10 +1270,26 @@ export class AttachTaskResponse extends $tea.Model {
 }
 
 export class BatchCreateQualityProjectsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   analysisIds?: number[];
   channelTouchType?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   checkFreqType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
   timeRangeEnd?: string;
   timeRangeStart?: string;
@@ -849,9 +1354,9 @@ export class BatchCreateQualityProjectsResponseBody extends $tea.Model {
 }
 
 export class BatchCreateQualityProjectsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: BatchCreateQualityProjectsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchCreateQualityProjectsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -877,6 +1382,13 @@ export class CancelTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -902,10 +1414,30 @@ export class CancelTaskRequest extends $tea.Model {
 }
 
 export class CancelTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * Ok
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -933,9 +1465,9 @@ export class CancelTaskResponseBody extends $tea.Model {
 }
 
 export class CancelTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CancelTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CancelTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -958,9 +1490,34 @@ export class CancelTaskResponse extends $tea.Model {
 }
 
 export class ChangeChatAgentStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * account1
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * requestLogout
+   */
   method?: string;
   static names(): { [key: string]: string } {
     return {
@@ -986,11 +1543,35 @@ export class ChangeChatAgentStatusRequest extends $tea.Model {
 }
 
 export class ChangeChatAgentStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 0
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * success
+   */
   message?: string;
+  /**
+   * @example
+   * DF6A3FB7-A5AA-43BE-A65B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1020,9 +1601,9 @@ export class ChangeChatAgentStatusResponseBody extends $tea.Model {
 }
 
 export class ChangeChatAgentStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeChatAgentStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeChatAgentStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1045,8 +1626,20 @@ export class ChangeChatAgentStatusResponse extends $tea.Model {
 }
 
 export class ChangeQualityProjectStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   status?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1101,9 +1694,9 @@ export class ChangeQualityProjectStatusResponseBody extends $tea.Model {
 }
 
 export class ChangeQualityProjectStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ChangeQualityProjectStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChangeQualityProjectStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1126,9 +1719,31 @@ export class ChangeQualityProjectStatusResponse extends $tea.Model {
 }
 
 export class CreateAgentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   skillGroupId?: number[];
   skillGroupIdList?: number[];
@@ -1160,11 +1775,35 @@ export class CreateAgentRequest extends $tea.Model {
 }
 
 export class CreateAgentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 2578****
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1194,9 +1833,9 @@ export class CreateAgentResponseBody extends $tea.Model {
 }
 
 export class CreateAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1219,16 +1858,73 @@ export class CreateAgentResponse extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   concurrentRate?: number;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
   executionTime?: string;
+  /**
+   * @example
+   * 1.5
+   */
   forecastCallRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   handlerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   numRepeated?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundNums?: string[];
   recallRule?: CreateAiOutboundTaskRequestRecallRule;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   * 
+   * **if can be null:**
+   * false
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1268,16 +1964,73 @@ export class CreateAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   concurrentRate?: number;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
   executionTime?: string;
+  /**
+   * @example
+   * 1.5
+   */
   forecastCallRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   handlerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   numRepeated?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundNumsShrink?: string;
   recallRuleShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   * 
+   * **if can be null:**
+   * false
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1317,10 +2070,30 @@ export class CreateAiOutboundTaskShrinkRequest extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1348,9 +2121,9 @@ export class CreateAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1373,7 +2146,21 @@ export class CreateAiOutboundTaskResponse extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskBatchRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1395,10 +2182,30 @@ export class CreateAiOutboundTaskBatchRequest extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskBatchResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1426,9 +2233,9 @@ export class CreateAiOutboundTaskBatchResponseBody extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskBatchResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateAiOutboundTaskBatchResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateAiOutboundTaskBatchResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1451,7 +2258,18 @@ export class CreateAiOutboundTaskBatchResponse extends $tea.Model {
 }
 
 export class CreateDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1473,11 +2291,35 @@ export class CreateDepartmentRequest extends $tea.Model {
 }
 
 export class CreateDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 98B032F5-6473-4EAC-8BA8-C28993513A1F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1507,9 +2349,9 @@ export class CreateDepartmentResponseBody extends $tea.Model {
 }
 
 export class CreateDepartmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateDepartmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDepartmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1532,22 +2374,58 @@ export class CreateDepartmentResponse extends $tea.Model {
 }
 
 export class CreateOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ani?: string;
   callInfos?: string;
   departmentId?: number;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   endTime?: string;
   extAttrs?: string;
   groupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   model?: number;
   retryInterval?: number;
   retryTime?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   skillGroup?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startDate?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1630,9 +2508,9 @@ export class CreateOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class CreateOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1655,13 +2533,33 @@ export class CreateOutboundTaskResponse extends $tea.Model {
 }
 
 export class CreateQualityProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   analysisIds?: number[];
   channelTouchType?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   checkFreqType?: number;
   depList?: number[];
   groupList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   scopeType?: number;
   servicerList?: string[];
   timeRangeEnd?: string;
@@ -1735,9 +2633,9 @@ export class CreateQualityProjectResponseBody extends $tea.Model {
 }
 
 export class CreateQualityProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQualityProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQualityProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1760,10 +2658,30 @@ export class CreateQualityProjectResponse extends $tea.Model {
 }
 
 export class CreateQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   keyWords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleTag?: number;
   static names(): { [key: string]: string } {
     return {
@@ -1819,9 +2737,9 @@ export class CreateQualityRuleResponseBody extends $tea.Model {
 }
 
 export class CreateQualityRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateQualityRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateQualityRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1844,12 +2762,38 @@ export class CreateQualityRuleResponse extends $tea.Model {
 }
 
 export class CreateSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   channelType?: number;
+  /**
+   * @example
+   * 46c1341e-2648-447a-****-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 123
+   */
   departmentId?: number;
   description?: string;
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   skillGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -1881,10 +2825,30 @@ export class CreateSkillGroupRequest extends $tea.Model {
 }
 
 export class CreateSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -1912,9 +2876,9 @@ export class CreateSkillGroupResponseBody extends $tea.Model {
 }
 
 export class CreateSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -1938,20 +2902,82 @@ export class CreateSkillGroupResponse extends $tea.Model {
 
 export class CreateTaskRequest extends $tea.Model {
   callString?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * JSON
+   */
   callStringType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571****5678,0571****5679
+   */
   caller?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 2
+   */
   retryCount?: number;
+  /**
+   * @example
+   * 1
+   */
   retryFlag?: number;
+  /**
+   * @example
+   * 2
+   */
   retryInterval?: number;
+  /**
+   * @example
+   * 200010,200011
+   */
   retryStatusCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   robotId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 3
+   */
   seatCount?: string;
   startNow?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   taskName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   workDay?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10:00-12:00,13:00-14:00
+   */
   workTimeList?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2001,10 +3027,30 @@ export class CreateTaskRequest extends $tea.Model {
 }
 
 export class CreateTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2032,9 +3078,9 @@ export class CreateTaskResponseBody extends $tea.Model {
 }
 
 export class CreateTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2057,11 +3103,43 @@ export class CreateTaskResponse extends $tea.Model {
 }
 
 export class CreateThirdSsoAgentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accountId1
+   */
   accountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * accountName1
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
   roleIds?: number[];
   skillGroupIds?: number[];
@@ -2097,11 +3175,38 @@ export class CreateThirdSsoAgentRequest extends $tea.Model {
 }
 
 export class CreateThirdSsoAgentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 123456
+   */
   data?: number;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * requestId
+   * 
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2131,9 +3236,9 @@ export class CreateThirdSsoAgentResponseBody extends $tea.Model {
 }
 
 export class CreateThirdSsoAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: CreateThirdSsoAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateThirdSsoAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2156,8 +3261,26 @@ export class CreateThirdSsoAgentResponse extends $tea.Model {
 }
 
 export class DeleteAgentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2181,10 +3304,30 @@ export class DeleteAgentRequest extends $tea.Model {
 }
 
 export class DeleteAgentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2212,9 +3355,9 @@ export class DeleteAgentResponseBody extends $tea.Model {
 }
 
 export class DeleteAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2237,7 +3380,21 @@ export class DeleteAgentResponse extends $tea.Model {
 }
 
 export class DeleteAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2259,9 +3416,25 @@ export class DeleteAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class DeleteAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2287,9 +3460,9 @@ export class DeleteAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2312,7 +3485,21 @@ export class DeleteAiOutboundTaskResponse extends $tea.Model {
 }
 
 export class DeleteDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   departmentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2334,11 +3521,35 @@ export class DeleteDepartmentRequest extends $tea.Model {
 }
 
 export class DeleteDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * seccessful
+   */
   message?: string;
+  /**
+   * @example
+   * 98B032F5-6473-4EAC-8BA8-C28993513A1F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2368,9 +3579,9 @@ export class DeleteDepartmentResponseBody extends $tea.Model {
 }
 
 export class DeleteDepartmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteDepartmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteDepartmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2393,7 +3604,21 @@ export class DeleteDepartmentResponse extends $tea.Model {
 }
 
 export class DeleteHotlineNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 05710000****
+   */
   hotlineNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2415,10 +3640,30 @@ export class DeleteHotlineNumberRequest extends $tea.Model {
 }
 
 export class DeleteHotlineNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * 98B032F5-6473-4EAC-8BA8-C28993513A1F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2446,9 +3691,9 @@ export class DeleteHotlineNumberResponseBody extends $tea.Model {
 }
 
 export class DeleteHotlineNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteHotlineNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteHotlineNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2471,7 +3716,15 @@ export class DeleteHotlineNumberResponse extends $tea.Model {
 }
 
 export class DeleteOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundTaskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2524,9 +3777,9 @@ export class DeleteOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class DeleteOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2549,7 +3802,21 @@ export class DeleteOutboundTaskResponse extends $tea.Model {
 }
 
 export class DeleteOuterAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   outerAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * aliyun
+   */
   outerAccountType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2571,10 +3838,30 @@ export class DeleteOuterAccountRequest extends $tea.Model {
 }
 
 export class DeleteOuterAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2602,9 +3889,9 @@ export class DeleteOuterAccountResponseBody extends $tea.Model {
 }
 
 export class DeleteOuterAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteOuterAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteOuterAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2627,6 +3914,10 @@ export class DeleteOuterAccountResponse extends $tea.Model {
 }
 
 export class DeleteQualityProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   projectId?: number;
   static names(): { [key: string]: string } {
@@ -2680,9 +3971,9 @@ export class DeleteQualityProjectResponseBody extends $tea.Model {
 }
 
 export class DeleteQualityProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQualityProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQualityProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2705,7 +3996,15 @@ export class DeleteQualityProjectResponse extends $tea.Model {
 }
 
 export class DeleteQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   id?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2758,9 +4057,9 @@ export class DeleteQualityRuleResponseBody extends $tea.Model {
 }
 
 export class DeleteQualityRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteQualityRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteQualityRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2783,7 +4082,15 @@ export class DeleteQualityRuleResponse extends $tea.Model {
 }
 
 export class DeleteSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   outerGroupId?: string;
+  /**
+   * @example
+   * 2
+   */
   outerGroupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2805,10 +4112,30 @@ export class DeleteSkillGroupRequest extends $tea.Model {
 }
 
 export class DeleteSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -2836,9 +4163,9 @@ export class DeleteSkillGroupResponseBody extends $tea.Model {
 }
 
 export class DeleteSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DeleteSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2861,13 +4188,33 @@ export class DeleteSkillGroupResponse extends $tea.Model {
 }
 
 export class DescribeRecordDataRequest extends $tea.Model {
+  /**
+   * @example
+   * 2235****
+   */
   accountId?: string;
+  /**
+   * @example
+   * BUC_TYPE
+   */
   accountType?: string;
+  /**
+   * @example
+   * 1004849****
+   */
   acid?: string;
   ownerId?: number;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 2
+   */
   secLevel?: number;
   static names(): { [key: string]: string } {
     return {
@@ -2901,11 +4248,35 @@ export class DescribeRecordDataRequest extends $tea.Model {
 }
 
 export class DescribeRecordDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1004849****
+   */
   acid?: string;
+  /**
+   * @example
+   * 1212****
+   */
   agentId?: string;
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * https://****
+   */
   ossLink?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2935,9 +4306,9 @@ export class DescribeRecordDataResponseBody extends $tea.Model {
 }
 
 export class DescribeRecordDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: DescribeRecordDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRecordDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -2960,15 +4331,47 @@ export class DescribeRecordDataResponse extends $tea.Model {
 }
 
 export class EditQualityProjectRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   analysisIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   channelTouchType?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   checkFreqType?: number;
   depList?: number[];
   groupList?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   projectVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   scopeType?: number;
   servicerList?: string[];
   timeRangeEnd?: string;
@@ -3046,9 +4449,9 @@ export class EditQualityProjectResponseBody extends $tea.Model {
 }
 
 export class EditQualityProjectResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditQualityProjectResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditQualityProjectResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3071,11 +4474,35 @@ export class EditQualityProjectResponse extends $tea.Model {
 }
 
 export class EditQualityRuleRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   keyWords?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   matchType?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   qualityRuleId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   ruleTag?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3133,9 +4560,9 @@ export class EditQualityRuleResponseBody extends $tea.Model {
 }
 
 export class EditQualityRuleResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditQualityRuleResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditQualityRuleResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3158,7 +4585,15 @@ export class EditQualityRuleResponse extends $tea.Model {
 }
 
 export class EditQualityRuleTagRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   analysisTypes?: EditQualityRuleTagRequestAnalysisTypes[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3211,9 +4646,9 @@ export class EditQualityRuleTagResponseBody extends $tea.Model {
 }
 
 export class EditQualityRuleTagResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EditQualityRuleTagResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EditQualityRuleTagResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3236,7 +4671,21 @@ export class EditQualityRuleTagResponse extends $tea.Model {
 }
 
 export class EncryptPhoneNumRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 130****0000
+   */
   phoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3258,10 +4707,26 @@ export class EncryptPhoneNumRequest extends $tea.Model {
 }
 
 export class EncryptPhoneNumResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3289,9 +4754,9 @@ export class EncryptPhoneNumResponseBody extends $tea.Model {
 }
 
 export class EncryptPhoneNumResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: EncryptPhoneNumResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: EncryptPhoneNumResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3314,12 +4779,46 @@ export class EncryptPhoneNumResponse extends $tea.Model {
 }
 
 export class FetchCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @example
+   * 0
+   */
   holdConnectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3351,9 +4850,25 @@ export class FetchCallRequest extends $tea.Model {
 }
 
 export class FetchCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3379,9 +4894,9 @@ export class FetchCallResponseBody extends $tea.Model {
 }
 
 export class FetchCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FetchCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FetchCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3404,8 +4919,26 @@ export class FetchCallResponse extends $tea.Model {
 }
 
 export class FinishHotlineServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3429,10 +4962,30 @@ export class FinishHotlineServiceRequest extends $tea.Model {
 }
 
 export class FinishHotlineServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3460,9 +5013,9 @@ export class FinishHotlineServiceResponseBody extends $tea.Model {
 }
 
 export class FinishHotlineServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: FinishHotlineServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: FinishHotlineServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3485,8 +5038,26 @@ export class FinishHotlineServiceResponse extends $tea.Model {
 }
 
 export class GenerateWebSocketSignRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3510,11 +5081,35 @@ export class GenerateWebSocketSignRequest extends $tea.Model {
 }
 
 export class GenerateWebSocketSignResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * dnthF_oinHg7JMJDmKqex3UxDD7
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3544,9 +5139,9 @@ export class GenerateWebSocketSignResponseBody extends $tea.Model {
 }
 
 export class GenerateWebSocketSignResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GenerateWebSocketSignResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateWebSocketSignResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3569,8 +5164,26 @@ export class GenerateWebSocketSignResponse extends $tea.Model {
 }
 
 export class GetAgentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3594,10 +5207,26 @@ export class GetAgentRequest extends $tea.Model {
 }
 
 export class GetAgentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetAgentResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -3625,9 +5254,9 @@ export class GetAgentResponseBody extends $tea.Model {
 }
 
 export class GetAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3651,11 +5280,34 @@ export class GetAgentResponse extends $tea.Model {
 
 export class GetAgentBasisStatusRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3688,11 +5340,34 @@ export class GetAgentBasisStatusRequest extends $tea.Model {
 
 export class GetAgentBasisStatusShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -3724,10 +5399,26 @@ export class GetAgentBasisStatusShrinkRequest extends $tea.Model {
 }
 
 export class GetAgentBasisStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAgentBasisStatusResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3755,9 +5446,9 @@ export class GetAgentBasisStatusResponseBody extends $tea.Model {
 }
 
 export class GetAgentBasisStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentBasisStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentBasisStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3780,7 +5471,15 @@ export class GetAgentBasisStatusResponse extends $tea.Model {
 }
 
 export class GetAgentByIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3833,9 +5532,9 @@ export class GetAgentByIdResponseBody extends $tea.Model {
 }
 
 export class GetAgentByIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentByIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentByIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -3859,14 +5558,49 @@ export class GetAgentByIdResponse extends $tea.Model {
 
 export class GetAgentDetailReportRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true/false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true/false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * day
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3905,14 +5639,49 @@ export class GetAgentDetailReportRequest extends $tea.Model {
 
 export class GetAgentDetailReportShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true/false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true/false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * day
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3950,10 +5719,26 @@ export class GetAgentDetailReportShrinkRequest extends $tea.Model {
 }
 
 export class GetAgentDetailReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAgentDetailReportResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -3981,9 +5766,9 @@ export class GetAgentDetailReportResponseBody extends $tea.Model {
 }
 
 export class GetAgentDetailReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentDetailReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentDetailReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4006,10 +5791,25 @@ export class GetAgentDetailReportResponse extends $tea.Model {
 }
 
 export class GetAgentIndexRealTimeRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4037,10 +5837,26 @@ export class GetAgentIndexRealTimeRequest extends $tea.Model {
 }
 
 export class GetAgentIndexRealTimeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAgentIndexRealTimeResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4068,9 +5884,9 @@ export class GetAgentIndexRealTimeResponseBody extends $tea.Model {
 }
 
 export class GetAgentIndexRealTimeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentIndexRealTimeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentIndexRealTimeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4094,14 +5910,49 @@ export class GetAgentIndexRealTimeResponse extends $tea.Model {
 
 export class GetAgentServiceStatusRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4140,14 +5991,49 @@ export class GetAgentServiceStatusRequest extends $tea.Model {
 
 export class GetAgentServiceStatusShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4185,10 +6071,26 @@ export class GetAgentServiceStatusShrinkRequest extends $tea.Model {
 }
 
 export class GetAgentServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAgentServiceStatusResponseBodyData;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4216,9 +6118,9 @@ export class GetAgentServiceStatusResponseBody extends $tea.Model {
 }
 
 export class GetAgentServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4242,14 +6144,49 @@ export class GetAgentServiceStatusResponse extends $tea.Model {
 
 export class GetAgentStatisticsRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4288,14 +6225,49 @@ export class GetAgentStatisticsRequest extends $tea.Model {
 
 export class GetAgentStatisticsShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4333,10 +6305,26 @@ export class GetAgentStatisticsShrinkRequest extends $tea.Model {
 }
 
 export class GetAgentStatisticsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAgentStatisticsResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4364,9 +6352,9 @@ export class GetAgentStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetAgentStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAgentStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAgentStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4389,7 +6377,21 @@ export class GetAgentStatisticsResponse extends $tea.Model {
 }
 
 export class GetAiOutboundTaskBizDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   channelId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4411,10 +6413,26 @@ export class GetAiOutboundTaskBizDataRequest extends $tea.Model {
 }
 
 export class GetAiOutboundTaskBizDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAiOutboundTaskBizDataResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4442,9 +6460,9 @@ export class GetAiOutboundTaskBizDataResponseBody extends $tea.Model {
 }
 
 export class GetAiOutboundTaskBizDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAiOutboundTaskBizDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAiOutboundTaskBizDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4467,7 +6485,21 @@ export class GetAiOutboundTaskBizDataResponse extends $tea.Model {
 }
 
 export class GetAiOutboundTaskDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4489,10 +6521,26 @@ export class GetAiOutboundTaskDetailRequest extends $tea.Model {
 }
 
 export class GetAiOutboundTaskDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAiOutboundTaskDetailResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4520,9 +6568,9 @@ export class GetAiOutboundTaskDetailResponseBody extends $tea.Model {
 }
 
 export class GetAiOutboundTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAiOutboundTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAiOutboundTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4545,15 +6593,67 @@ export class GetAiOutboundTaskDetailResponse extends $tea.Model {
 }
 
 export class GetAiOutboundTaskExecDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   batchVersion?: number;
+  /**
+   * @example
+   * 123456
+   */
   caseId?: number;
+  /**
+   * @example
+   * 1
+   */
   caseStatus?: number;
+  /**
+   * @example
+   * 1632290119000
+   */
   createTimeEnd?: number;
+  /**
+   * @example
+   * 1632289999000
+   */
   createTimeStart?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 150****000
+   */
   phoneNum?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4591,10 +6691,26 @@ export class GetAiOutboundTaskExecDetailRequest extends $tea.Model {
 }
 
 export class GetAiOutboundTaskExecDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAiOutboundTaskExecDetailResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4622,9 +6738,9 @@ export class GetAiOutboundTaskExecDetailResponseBody extends $tea.Model {
 }
 
 export class GetAiOutboundTaskExecDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAiOutboundTaskExecDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAiOutboundTaskExecDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4647,13 +6763,57 @@ export class GetAiOutboundTaskExecDetailResponse extends $tea.Model {
 }
 
 export class GetAiOutboundTaskListRequest extends $tea.Model {
+  /**
+   * @example
+   * 1617761765000
+   */
   createTimeEnd?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   createTimeStart?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1763****
+   */
   searchKey?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4687,10 +6847,26 @@ export class GetAiOutboundTaskListRequest extends $tea.Model {
 }
 
 export class GetAiOutboundTaskListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: GetAiOutboundTaskListResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4718,9 +6894,9 @@ export class GetAiOutboundTaskListResponseBody extends $tea.Model {
 }
 
 export class GetAiOutboundTaskListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAiOutboundTaskListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAiOutboundTaskListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4743,8 +6919,26 @@ export class GetAiOutboundTaskListResponse extends $tea.Model {
 }
 
 export class GetAiOutboundTaskProgressRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   batchVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -4768,10 +6962,26 @@ export class GetAiOutboundTaskProgressRequest extends $tea.Model {
 }
 
 export class GetAiOutboundTaskProgressResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ok
+   */
   code?: string;
   data?: GetAiOutboundTaskProgressResponseBodyData;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4799,9 +7009,9 @@ export class GetAiOutboundTaskProgressResponseBody extends $tea.Model {
 }
 
 export class GetAiOutboundTaskProgressResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAiOutboundTaskProgressResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAiOutboundTaskProgressResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4824,6 +7034,13 @@ export class GetAiOutboundTaskProgressResponse extends $tea.Model {
 }
 
 export class GetAllDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4843,11 +7060,31 @@ export class GetAllDepartmentRequest extends $tea.Model {
 }
 
 export class GetAllDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAllDepartmentResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 98B032F5-6473-4EAC-8BA8-C28993513A1F
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4877,9 +7114,9 @@ export class GetAllDepartmentResponseBody extends $tea.Model {
 }
 
 export class GetAllDepartmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetAllDepartmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetAllDepartmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4902,7 +7139,21 @@ export class GetAllDepartmentResponse extends $tea.Model {
 }
 
 export class GetCallSoundRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 125165515022^11195613****
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-10-15 08:56:23
+   */
   createTime?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -4933,10 +7184,30 @@ export class GetCallSoundRecordRequest extends $tea.Model {
 }
 
 export class GetCallSoundRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/1001067****.wav
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -4964,9 +7235,9 @@ export class GetCallSoundRecordResponseBody extends $tea.Model {
 }
 
 export class GetCallSoundRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCallSoundRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCallSoundRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -4989,8 +7260,23 @@ export class GetCallSoundRecordResponse extends $tea.Model {
 }
 
 export class GetConfigNumListRequest extends $tea.Model {
+  /**
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 12345
+   */
   departmentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5014,10 +7300,26 @@ export class GetConfigNumListRequest extends $tea.Model {
 }
 
 export class GetConfigNumListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: string[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE339D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5045,9 +7347,9 @@ export class GetConfigNumListResponseBody extends $tea.Model {
 }
 
 export class GetConfigNumListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetConfigNumListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetConfigNumListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5070,7 +7372,21 @@ export class GetConfigNumListResponse extends $tea.Model {
 }
 
 export class GetCustomerInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 82345678****
+   */
   memberId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5092,10 +7408,26 @@ export class GetCustomerInfoRequest extends $tea.Model {
 }
 
 export class GetCustomerInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetCustomerInfoResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * DF6A3FB7-A5AA-43BE-A65B
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5123,9 +7455,9 @@ export class GetCustomerInfoResponseBody extends $tea.Model {
 }
 
 export class GetCustomerInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetCustomerInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetCustomerInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5148,7 +7480,21 @@ export class GetCustomerInfoResponse extends $tea.Model {
 }
 
 export class GetDepGroupTreeDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   agentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5170,10 +7516,26 @@ export class GetDepGroupTreeDataRequest extends $tea.Model {
 }
 
 export class GetDepGroupTreeDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetDepGroupTreeDataResponseBodyData[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5201,9 +7563,9 @@ export class GetDepGroupTreeDataResponseBody extends $tea.Model {
 }
 
 export class GetDepGroupTreeDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDepGroupTreeDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDepGroupTreeDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5226,12 +7588,39 @@ export class GetDepGroupTreeDataResponse extends $tea.Model {
 }
 
 export class GetDepartmentalLatitudeAgentStatusRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5263,12 +7652,39 @@ export class GetDepartmentalLatitudeAgentStatusRequest extends $tea.Model {
 }
 
 export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5300,10 +7716,26 @@ export class GetDepartmentalLatitudeAgentStatusShrinkRequest extends $tea.Model 
 }
 
 export class GetDepartmentalLatitudeAgentStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetDepartmentalLatitudeAgentStatusResponseBodyData;
+  /**
+   * @example
+   * message
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5331,9 +7763,9 @@ export class GetDepartmentalLatitudeAgentStatusResponseBody extends $tea.Model {
 }
 
 export class GetDepartmentalLatitudeAgentStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetDepartmentalLatitudeAgentStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetDepartmentalLatitudeAgentStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5356,8 +7788,26 @@ export class GetDepartmentalLatitudeAgentStatusResponse extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5381,11 +7831,31 @@ export class GetHotlineAgentDetailRequest extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetHotlineAgentDetailResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5415,9 +7885,9 @@ export class GetHotlineAgentDetailResponseBody extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineAgentDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineAgentDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5440,12 +7910,41 @@ export class GetHotlineAgentDetailResponse extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614824972
+   */
   endDate?: number;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614824872
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5477,11 +7976,31 @@ export class GetHotlineAgentDetailReportRequest extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetHotlineAgentDetailReportResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5511,9 +8030,9 @@ export class GetHotlineAgentDetailReportResponseBody extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineAgentDetailReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineAgentDetailReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5536,7 +8055,21 @@ export class GetHotlineAgentDetailReportResponse extends $tea.Model {
 }
 
 export class GetHotlineAgentStatusRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5558,11 +8091,31 @@ export class GetHotlineAgentStatusRequest extends $tea.Model {
 }
 
 export class GetHotlineAgentStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5592,9 +8145,9 @@ export class GetHotlineAgentStatusResponseBody extends $tea.Model {
 }
 
 export class GetHotlineAgentStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineAgentStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineAgentStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5617,12 +8170,43 @@ export class GetHotlineAgentStatusResponse extends $tea.Model {
 }
 
 export class GetHotlineCallActionRequest extends $tea.Model {
+  /**
+   * @example
+   * {"time":1}
+   */
   acc?: string;
+  /**
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 1
+   */
   act?: number;
+  /**
+   * @example
+   * {"name":123}
+   */
   biz?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d9****
+   */
   clientToken?: string;
+  /**
+   * @example
+   * hotlinebs_out
+   */
   fromSource?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5654,10 +8238,26 @@ export class GetHotlineCallActionRequest extends $tea.Model {
 }
 
 export class GetHotlineCallActionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetHotlineCallActionResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE339D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5685,9 +8285,9 @@ export class GetHotlineCallActionResponseBody extends $tea.Model {
 }
 
 export class GetHotlineCallActionResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineCallActionResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineCallActionResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5710,12 +8310,41 @@ export class GetHotlineCallActionResponse extends $tea.Model {
 }
 
 export class GetHotlineGroupDetailReportRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614824972
+   */
   endDate?: number;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1614824872
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -5747,10 +8376,26 @@ export class GetHotlineGroupDetailReportRequest extends $tea.Model {
 }
 
 export class GetHotlineGroupDetailReportResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetHotlineGroupDetailReportResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * Public
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5778,9 +8423,9 @@ export class GetHotlineGroupDetailReportResponseBody extends $tea.Model {
 }
 
 export class GetHotlineGroupDetailReportResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineGroupDetailReportResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineGroupDetailReportResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5803,7 +8448,21 @@ export class GetHotlineGroupDetailReportResponse extends $tea.Model {
 }
 
 export class GetHotlineMessageLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100****2077
+   */
   acid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5825,10 +8484,26 @@ export class GetHotlineMessageLogRequest extends $tea.Model {
 }
 
 export class GetHotlineMessageLogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetHotlineMessageLogResponseBodyData[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5856,9 +8531,9 @@ export class GetHotlineMessageLogResponseBody extends $tea.Model {
 }
 
 export class GetHotlineMessageLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineMessageLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineMessageLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5881,7 +8556,21 @@ export class GetHotlineMessageLogResponse extends $tea.Model {
 }
 
 export class GetHotlineRuntimeInfoRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5903,10 +8592,26 @@ export class GetHotlineRuntimeInfoRequest extends $tea.Model {
 }
 
 export class GetHotlineRuntimeInfoResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: { [key: string]: any };
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -5934,9 +8639,9 @@ export class GetHotlineRuntimeInfoResponseBody extends $tea.Model {
 }
 
 export class GetHotlineRuntimeInfoResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineRuntimeInfoResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineRuntimeInfoResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -5960,16 +8665,55 @@ export class GetHotlineRuntimeInfoResponse extends $tea.Model {
 
 export class GetHotlineServiceStatisticsRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6012,16 +8756,55 @@ export class GetHotlineServiceStatisticsRequest extends $tea.Model {
 
 export class GetHotlineServiceStatisticsShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6063,10 +8846,26 @@ export class GetHotlineServiceStatisticsShrinkRequest extends $tea.Model {
 }
 
 export class GetHotlineServiceStatisticsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetHotlineServiceStatisticsResponseBodyData;
+  /**
+   * @example
+   * message
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6094,9 +8893,9 @@ export class GetHotlineServiceStatisticsResponseBody extends $tea.Model {
 }
 
 export class GetHotlineServiceStatisticsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineServiceStatisticsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineServiceStatisticsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6119,8 +8918,26 @@ export class GetHotlineServiceStatisticsResponse extends $tea.Model {
 }
 
 export class GetHotlineWaitingNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6144,10 +8961,30 @@ export class GetHotlineWaitingNumberRequest extends $tea.Model {
 }
 
 export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 2
+   */
   data?: number;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6175,9 +9012,9 @@ export class GetHotlineWaitingNumberResponseBody extends $tea.Model {
 }
 
 export class GetHotlineWaitingNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetHotlineWaitingNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetHotlineWaitingNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6200,8 +9037,20 @@ export class GetHotlineWaitingNumberResponse extends $tea.Model {
 }
 
 export class GetIndexCurrentValueRequest extends $tea.Model {
+  /**
+   * @example
+   * 2332****,2334****
+   */
   depIds?: string;
+  /**
+   * @example
+   * 2323****,2324****
+   */
   groupIds?: string;
+  /**
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6225,10 +9074,26 @@ export class GetIndexCurrentValueRequest extends $tea.Model {
 }
 
 export class GetIndexCurrentValueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: { [key: string]: any }[];
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6256,9 +9121,9 @@ export class GetIndexCurrentValueResponseBody extends $tea.Model {
 }
 
 export class GetIndexCurrentValueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetIndexCurrentValueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetIndexCurrentValueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6349,9 +9214,9 @@ export class GetInstanceListResponseBody extends $tea.Model {
 }
 
 export class GetInstanceListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetInstanceListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetInstanceListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6374,6 +9239,13 @@ export class GetInstanceListResponse extends $tea.Model {
 }
 
 export class GetMcuLvsIpRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6393,10 +9265,30 @@ export class GetMcuLvsIpRequest extends $tea.Model {
 }
 
 export class GetMcuLvsIpResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * { "xmculvs":[ 0:{ "port":00 "ip":"0.0.0.0" "name":"lvs1" } ]}
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6424,9 +9316,9 @@ export class GetMcuLvsIpResponseBody extends $tea.Model {
 }
 
 export class GetMcuLvsIpResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetMcuLvsIpResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetMcuLvsIpResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6449,8 +9341,26 @@ export class GetMcuLvsIpResponse extends $tea.Model {
 }
 
 export class GetNumLocationRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1360987****
+   */
   phoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6474,10 +9384,26 @@ export class GetNumLocationRequest extends $tea.Model {
 }
 
 export class GetNumLocationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6505,9 +9431,9 @@ export class GetNumLocationResponseBody extends $tea.Model {
 }
 
 export class GetNumLocationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetNumLocationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetNumLocationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6531,11 +9457,34 @@ export class GetNumLocationResponse extends $tea.Model {
 
 export class GetOnlineSeatInformationRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6568,11 +9517,34 @@ export class GetOnlineSeatInformationRequest extends $tea.Model {
 
 export class GetOnlineSeatInformationShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6604,10 +9576,26 @@ export class GetOnlineSeatInformationShrinkRequest extends $tea.Model {
 }
 
 export class GetOnlineSeatInformationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetOnlineSeatInformationResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6635,9 +9623,9 @@ export class GetOnlineSeatInformationResponseBody extends $tea.Model {
 }
 
 export class GetOnlineSeatInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOnlineSeatInformationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOnlineSeatInformationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6661,16 +9649,55 @@ export class GetOnlineSeatInformationResponse extends $tea.Model {
 
 export class GetOnlineServiceVolumeRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6713,16 +9740,55 @@ export class GetOnlineServiceVolumeRequest extends $tea.Model {
 
 export class GetOnlineServiceVolumeShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6764,10 +9830,26 @@ export class GetOnlineServiceVolumeShrinkRequest extends $tea.Model {
 }
 
 export class GetOnlineServiceVolumeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetOnlineServiceVolumeResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6795,9 +9877,9 @@ export class GetOnlineServiceVolumeResponseBody extends $tea.Model {
 }
 
 export class GetOnlineServiceVolumeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOnlineServiceVolumeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOnlineServiceVolumeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6820,8 +9902,26 @@ export class GetOnlineServiceVolumeResponse extends $tea.Model {
 }
 
 export class GetOutbounNumListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-****
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6845,11 +9945,31 @@ export class GetOutbounNumListRequest extends $tea.Model {
 }
 
 export class GetOutbounNumListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: GetOutbounNumListResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -6879,9 +9999,9 @@ export class GetOutbounNumListResponseBody extends $tea.Model {
 }
 
 export class GetOutbounNumListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetOutbounNumListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOutbounNumListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6904,7 +10024,21 @@ export class GetOutbounNumListResponse extends $tea.Model {
 }
 
 export class GetQualityProjectDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 15977801
+   */
   projectId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -6926,10 +10060,26 @@ export class GetQualityProjectDetailRequest extends $tea.Model {
 }
 
 export class GetQualityProjectDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetQualityProjectDetailResponseBodyData;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -6957,9 +10107,9 @@ export class GetQualityProjectDetailResponseBody extends $tea.Model {
 }
 
 export class GetQualityProjectDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityProjectDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityProjectDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -6982,12 +10132,39 @@ export class GetQualityProjectDetailResponse extends $tea.Model {
 }
 
 export class GetQualityProjectListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 15
+   */
   projectId?: number;
   projectName?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 1
+   */
   checkFreqType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7019,10 +10196,26 @@ export class GetQualityProjectListRequest extends $tea.Model {
 }
 
 export class GetQualityProjectListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetQualityProjectListResponseBodyData;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7050,9 +10243,9 @@ export class GetQualityProjectListResponseBody extends $tea.Model {
 }
 
 export class GetQualityProjectListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityProjectListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityProjectListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7075,6 +10268,10 @@ export class GetQualityProjectListResponse extends $tea.Model {
 }
 
 export class GetQualityProjectLogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   projectId?: number;
   static names(): { [key: string]: string } {
@@ -7128,9 +10325,9 @@ export class GetQualityProjectLogResponseBody extends $tea.Model {
 }
 
 export class GetQualityProjectLogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityProjectLogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityProjectLogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7156,12 +10353,24 @@ export class GetQualityResultRequest extends $tea.Model {
   channelType?: string;
   groupIds?: number[];
   hitStatus?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
   projectIds?: number[];
   qualityRuleIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   touchEndTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   touchStartTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7233,9 +10442,9 @@ export class GetQualityResultResponseBody extends $tea.Model {
 }
 
 export class GetQualityResultResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityResultResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityResultResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7258,7 +10467,15 @@ export class GetQualityResultResponse extends $tea.Model {
 }
 
 export class GetQualityRuleDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   qualityRuleId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7311,9 +10528,9 @@ export class GetQualityRuleDetailResponseBody extends $tea.Model {
 }
 
 export class GetQualityRuleDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityRuleDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityRuleDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7336,6 +10553,10 @@ export class GetQualityRuleDetailResponse extends $tea.Model {
 }
 
 export class GetQualityRuleListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   pageNo?: number;
   pageSize?: number;
@@ -7392,9 +10613,9 @@ export class GetQualityRuleListResponseBody extends $tea.Model {
 }
 
 export class GetQualityRuleListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityRuleListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityRuleListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7417,6 +10638,10 @@ export class GetQualityRuleListResponse extends $tea.Model {
 }
 
 export class GetQualityRuleTagListRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7467,9 +10692,9 @@ export class GetQualityRuleTagListResponseBody extends $tea.Model {
 }
 
 export class GetQualityRuleTagListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQualityRuleTagListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQualityRuleTagListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7492,14 +10717,45 @@ export class GetQualityRuleTagListResponse extends $tea.Model {
 }
 
 export class GetQueueInformationRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7535,14 +10791,45 @@ export class GetQueueInformationRequest extends $tea.Model {
 }
 
 export class GetQueueInformationShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7578,10 +10865,26 @@ export class GetQueueInformationShrinkRequest extends $tea.Model {
 }
 
 export class GetQueueInformationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetQueueInformationResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7609,9 +10912,9 @@ export class GetQueueInformationResponseBody extends $tea.Model {
 }
 
 export class GetQueueInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetQueueInformationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetQueueInformationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7634,7 +10937,21 @@ export class GetQueueInformationResponse extends $tea.Model {
 }
 
 export class GetRecordDataRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1001067****
+   */
   acid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7656,11 +10973,31 @@ export class GetRecordDataRequest extends $tea.Model {
 }
 
 export class GetRecordDataResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetRecordDataResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7690,9 +11027,9 @@ export class GetRecordDataResponseBody extends $tea.Model {
 }
 
 export class GetRecordDataResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRecordDataResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRecordDataResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7715,8 +11052,29 @@ export class GetRecordDataResponse extends $tea.Model {
 }
 
 export class GetRecordUrlRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1001067****
+   */
   acid?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * DUP_CALL
+   */
   recordType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7741,8 +11099,20 @@ export class GetRecordUrlRequest extends $tea.Model {
 
 export class GetRecordUrlResponseBody extends $tea.Model {
   data?: GetRecordUrlResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7768,9 +11138,9 @@ export class GetRecordUrlResponseBody extends $tea.Model {
 }
 
 export class GetRecordUrlResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRecordUrlResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRecordUrlResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7793,7 +11163,21 @@ export class GetRecordUrlResponse extends $tea.Model {
 }
 
 export class GetRtcTokenRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7815,10 +11199,30 @@ export class GetRtcTokenRequest extends $tea.Model {
 }
 
 export class GetRtcTokenResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * {"cleansession":true,"clientId":"GID_VOIP@@@ClientId_2000000001271771_100685295007","conferenceTopic":"cs_alicom_voip_conference_pre","dataTopic":"alicom_voip_data_pre","host":"mqtt-cn-4590mdhb901.mqtt.aliyuncs.com","meetingEventKeepAliveInterval":0,"phoneTopic":"alicom_voip_phone","port":0,"reconnectTimeout":2000,"registerTime":0,"sdkClientPort":8883,"serverId":"GID_VOIP@@@MTEuMjIuMTQ1Ljgy","sgwServerTopic":"alicom_voip_server_pre","tlsport":443,"tokenData":"LzMT+XLFl5s/YWJ/MlDz4t/Lq5HC1iGU1P28HAMaxYzmBSHQsWXgdISJ1ZJ+2cxaU0jwYsoyG8Q8cCIbLZTwwaFHf7gc7pPXbJGYgJWUr5ooKsoHaVvvG34cww7W8woWE1OsmZGFDODvooOIjF1CZSorVrR8OwRdprW99yqhMhkJKh7r5f3HfiQgoJWL8b3A85RrRGCSP057skgQ5rIqVAlx7jDFrOTdLtz+krken8qYvpaVBO9wRfFyWQLvxAgNJNx3Oql/hpzc2o3+xbKGTA/P2siLn6Nee1FYk5ClpXcnvfSTM4BAauuWR+oES10VblKEKTU5R/pfjXj3UKOlZ1+OdGO93WA16BR/l1uRb3cOLqya5pjWM+oSmo0sOR7B0ATLz6K1xA0Pc+p6Mu8hZl+OdGO93WA1kj1L0h9Z6CAZG4ol/BNdIg9z6noy7yFmX450Y73dYDWSPUvSH1noIBkbiiX8E10iT0a6ypXxupQdyyrhh8j1yw6otqnw5AT5Tj5VsVWVfflXeZ8nPt1ydXC9nWeHX7K80O6vtOU9M8Qn5VrhkP0F1umbOoYs3NfM+WYZIQx4pkViQo6qqkxgbEg1l6oHJbmOVzrxYRrDTIxqgE/pb0YVJQ==","useTLS":false,"username":"LTAI27GqAW1VrcQA"}
+   */
   data?: GetRtcTokenResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -7846,9 +11250,9 @@ export class GetRtcTokenResponseBody extends $tea.Model {
 }
 
 export class GetRtcTokenResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetRtcTokenResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetRtcTokenResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -7871,12 +11275,39 @@ export class GetRtcTokenResponse extends $tea.Model {
 }
 
 export class GetSeatInformationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7908,12 +11339,39 @@ export class GetSeatInformationRequest extends $tea.Model {
 }
 
 export class GetSeatInformationShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -7945,10 +11403,26 @@ export class GetSeatInformationShrinkRequest extends $tea.Model {
 }
 
 export class GetSeatInformationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSeatInformationResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -7976,9 +11450,9 @@ export class GetSeatInformationResponseBody extends $tea.Model {
 }
 
 export class GetSeatInformationResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSeatInformationResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSeatInformationResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8001,14 +11475,45 @@ export class GetSeatInformationResponse extends $tea.Model {
 }
 
 export class GetSkillGroupAgentStatusDetailsRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1614824972
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1614824872
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8044,14 +11549,45 @@ export class GetSkillGroupAgentStatusDetailsRequest extends $tea.Model {
 }
 
 export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1614824972
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1614824872
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8087,10 +11623,26 @@ export class GetSkillGroupAgentStatusDetailsShrinkRequest extends $tea.Model {
 }
 
 export class GetSkillGroupAgentStatusDetailsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupAgentStatusDetailsResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8118,9 +11670,9 @@ export class GetSkillGroupAgentStatusDetailsResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupAgentStatusDetailsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupAgentStatusDetailsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupAgentStatusDetailsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8143,14 +11695,45 @@ export class GetSkillGroupAgentStatusDetailsResponse extends $tea.Model {
 }
 
 export class GetSkillGroupAndAgentStatusSummaryRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8186,14 +11769,45 @@ export class GetSkillGroupAndAgentStatusSummaryRequest extends $tea.Model {
 }
 
 export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8229,10 +11843,26 @@ export class GetSkillGroupAndAgentStatusSummaryShrinkRequest extends $tea.Model 
 }
 
 export class GetSkillGroupAndAgentStatusSummaryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupAndAgentStatusSummaryResponseBodyData;
+  /**
+   * @example
+   * message
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8260,9 +11890,9 @@ export class GetSkillGroupAndAgentStatusSummaryResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupAndAgentStatusSummaryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupAndAgentStatusSummaryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupAndAgentStatusSummaryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8285,14 +11915,45 @@ export class GetSkillGroupAndAgentStatusSummaryResponse extends $tea.Model {
 }
 
 export class GetSkillGroupLatitudeStateRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8328,14 +11989,45 @@ export class GetSkillGroupLatitudeStateRequest extends $tea.Model {
 }
 
 export class GetSkillGroupLatitudeStateShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8371,10 +12063,26 @@ export class GetSkillGroupLatitudeStateShrinkRequest extends $tea.Model {
 }
 
 export class GetSkillGroupLatitudeStateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupLatitudeStateResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8402,9 +12110,9 @@ export class GetSkillGroupLatitudeStateResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupLatitudeStateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupLatitudeStateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupLatitudeStateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8427,14 +12135,45 @@ export class GetSkillGroupLatitudeStateResponse extends $tea.Model {
 }
 
 export class GetSkillGroupServiceCapabilityRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8470,14 +12209,45 @@ export class GetSkillGroupServiceCapabilityRequest extends $tea.Model {
 }
 
 export class GetSkillGroupServiceCapabilityShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * true
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * true
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -8513,10 +12283,26 @@ export class GetSkillGroupServiceCapabilityShrinkRequest extends $tea.Model {
 }
 
 export class GetSkillGroupServiceCapabilityResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupServiceCapabilityResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8544,9 +12330,9 @@ export class GetSkillGroupServiceCapabilityResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupServiceCapabilityResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupServiceCapabilityResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupServiceCapabilityResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8570,18 +12356,65 @@ export class GetSkillGroupServiceCapabilityResponse extends $tea.Model {
 
 export class GetSkillGroupServiceStatusRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existChannelInstanceGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existRobotInstanceGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8628,18 +12461,65 @@ export class GetSkillGroupServiceStatusRequest extends $tea.Model {
 
 export class GetSkillGroupServiceStatusShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existChannelInstanceGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existRobotInstanceGrouping?: boolean;
+  /**
+   * @example
+   * false
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8685,10 +12565,26 @@ export class GetSkillGroupServiceStatusShrinkRequest extends $tea.Model {
 }
 
 export class GetSkillGroupServiceStatusResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupServiceStatusResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8716,9 +12612,9 @@ export class GetSkillGroupServiceStatusResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupServiceStatusResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupServiceStatusResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupServiceStatusResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8742,16 +12638,55 @@ export class GetSkillGroupServiceStatusResponse extends $tea.Model {
 
 export class GetSkillGroupStatusTotalRequest extends $tea.Model {
   agentIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIds?: number[];
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existSkillGroupGrouping?: boolean;
   groupIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8794,16 +12729,55 @@ export class GetSkillGroupStatusTotalRequest extends $tea.Model {
 
 export class GetSkillGroupStatusTotalShrinkRequest extends $tea.Model {
   agentIdsShrink?: string;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   depIdsShrink?: string;
+  /**
+   * @example
+   * 1617761765000
+   */
   endDate?: number;
+  /**
+   * @example
+   * false
+   */
   existAgentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existDepartmentGrouping?: boolean;
+  /**
+   * @example
+   * fasle
+   */
   existSkillGroupGrouping?: boolean;
   groupIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   startDate?: number;
+  /**
+   * @example
+   * minute
+   */
   timeLatitudeType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8845,10 +12819,26 @@ export class GetSkillGroupStatusTotalShrinkRequest extends $tea.Model {
 }
 
 export class GetSkillGroupStatusTotalResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetSkillGroupStatusTotalResponseBodyData;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8876,9 +12866,9 @@ export class GetSkillGroupStatusTotalResponseBody extends $tea.Model {
 }
 
 export class GetSkillGroupStatusTotalResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: GetSkillGroupStatusTotalResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetSkillGroupStatusTotalResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8901,7 +12891,15 @@ export class GetSkillGroupStatusTotalResponse extends $tea.Model {
 }
 
 export class HangUpDoubleCallRequest extends $tea.Model {
+  /**
+   * @example
+   * 68255155****
+   */
   acid?: string;
+  /**
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -8923,9 +12921,25 @@ export class HangUpDoubleCallRequest extends $tea.Model {
 }
 
 export class HangUpDoubleCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -8951,9 +12965,9 @@ export class HangUpDoubleCallResponseBody extends $tea.Model {
 }
 
 export class HangUpDoubleCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: HangUpDoubleCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HangUpDoubleCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -8976,11 +12990,41 @@ export class HangUpDoubleCallResponse extends $tea.Model {
 }
 
 export class HangupCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9010,9 +13054,25 @@ export class HangupCallRequest extends $tea.Model {
 }
 
 export class HangupCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9038,9 +13098,9 @@ export class HangupCallResponseBody extends $tea.Model {
 }
 
 export class HangupCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: HangupCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HangupCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9063,11 +13123,41 @@ export class HangupCallResponse extends $tea.Model {
 }
 
 export class HangupThirdCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9097,9 +13187,25 @@ export class HangupThirdCallRequest extends $tea.Model {
 }
 
 export class HangupThirdCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9125,9 +13231,9 @@ export class HangupThirdCallResponseBody extends $tea.Model {
 }
 
 export class HangupThirdCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: HangupThirdCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HangupThirdCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9150,11 +13256,41 @@ export class HangupThirdCallResponse extends $tea.Model {
 }
 
 export class HoldCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9184,9 +13320,25 @@ export class HoldCallRequest extends $tea.Model {
 }
 
 export class HoldCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9212,9 +13364,9 @@ export class HoldCallResponseBody extends $tea.Model {
 }
 
 export class HoldCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: HoldCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HoldCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9237,30 +13389,97 @@ export class HoldCallResponse extends $tea.Model {
 }
 
 export class HotlineSessionQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * 7719786****
+   */
   acid?: string;
   acidList?: string[];
+  /**
+   * @example
+   * normal
+   */
   callResult?: string;
   callResultList?: string[];
+  /**
+   * @example
+   * 1
+   */
   callType?: number;
   callTypeList?: number[];
+  /**
+   * @example
+   * 135615****
+   */
   calledNumber?: string;
   calledNumberList?: string[];
+  /**
+   * @example
+   * 057177****
+   */
   callingNumber?: string;
   callingNumberList?: string[];
+  /**
+   * @example
+   * 123456
+   */
   groupId?: number;
   groupIdList?: number[];
   groupName?: string;
+  /**
+   * @example
+   * acc1c58dab4a4dd280e3813c66
+   */
   id?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7856****
+   */
   memberId?: string;
   memberIdList?: string[];
   memberName?: string;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * xxxx
+   */
   params?: string;
+  /**
+   * @example
+   * 161482972
+   */
   queryEndTime?: number;
+  /**
+   * @example
+   * 161482872
+   */
   queryStartTime?: number;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * 555555
+   */
   servicerId?: string;
   servicerIdList?: string[];
   servicerName?: string;
@@ -9334,10 +13553,26 @@ export class HotlineSessionQueryRequest extends $tea.Model {
 }
 
 export class HotlineSessionQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: HotlineSessionQueryResponseBodyData;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE339D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9365,9 +13600,9 @@ export class HotlineSessionQueryResponseBody extends $tea.Model {
 }
 
 export class HotlineSessionQueryResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: HotlineSessionQueryResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: HotlineSessionQueryResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9390,9 +13625,31 @@ export class HotlineSessionQueryResponse extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   batchVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   details?: InsertAiOutboundPhoneNumsRequestDetails[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9418,9 +13675,31 @@ export class InsertAiOutboundPhoneNumsRequest extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   batchVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   detailsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9446,10 +13725,26 @@ export class InsertAiOutboundPhoneNumsShrinkRequest extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: InsertAiOutboundPhoneNumsResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9477,9 +13772,9 @@ export class InsertAiOutboundPhoneNumsResponseBody extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertAiOutboundPhoneNumsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertAiOutboundPhoneNumsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9502,8 +13797,20 @@ export class InsertAiOutboundPhoneNumsResponse extends $tea.Model {
 }
 
 export class InsertTaskDetailRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   callInfos?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundTaskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9558,9 +13865,9 @@ export class InsertTaskDetailResponseBody extends $tea.Model {
 }
 
 export class InsertTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: InsertTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: InsertTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9583,12 +13890,46 @@ export class InsertTaskDetailResponse extends $tea.Model {
 }
 
 export class JoinThirdCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @example
+   * 0
+   */
   holdConnectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -9620,9 +13961,25 @@ export class JoinThirdCallRequest extends $tea.Model {
 }
 
 export class JoinThirdCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9648,9 +14005,9 @@ export class JoinThirdCallResponseBody extends $tea.Model {
 }
 
 export class JoinThirdCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: JoinThirdCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: JoinThirdCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9673,8 +14030,26 @@ export class JoinThirdCallResponse extends $tea.Model {
 }
 
 export class ListAgentBySkillGroupIdRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 666666
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9698,10 +14073,26 @@ export class ListAgentBySkillGroupIdRequest extends $tea.Model {
 }
 
 export class ListAgentBySkillGroupIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: ListAgentBySkillGroupIdResponseBodyData[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9729,9 +14120,9 @@ export class ListAgentBySkillGroupIdResponseBody extends $tea.Model {
 }
 
 export class ListAgentBySkillGroupIdResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAgentBySkillGroupIdResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAgentBySkillGroupIdResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9782,10 +14173,26 @@ export class ListAiccsRobotRequest extends $tea.Model {
 }
 
 export class ListAiccsRobotResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListAiccsRobotResponseBodyData[];
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9813,9 +14220,9 @@ export class ListAiccsRobotResponseBody extends $tea.Model {
 }
 
 export class ListAiccsRobotResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListAiccsRobotResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListAiccsRobotResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9838,11 +14245,38 @@ export class ListAiccsRobotResponse extends $tea.Model {
 }
 
 export class ListChatRecordDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1614582000000
+   */
   closeTimeEnd?: number;
+  /**
+   * @example
+   * 1614578400000
+   */
   closeTimeStart?: number;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9872,11 +14306,31 @@ export class ListChatRecordDetailRequest extends $tea.Model {
 }
 
 export class ListChatRecordDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
   resultData?: ListChatRecordDetailResponseBodyResultData;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9906,9 +14360,9 @@ export class ListChatRecordDetailResponseBody extends $tea.Model {
 }
 
 export class ListChatRecordDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListChatRecordDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListChatRecordDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -9931,10 +14385,24 @@ export class ListChatRecordDetailResponse extends $tea.Model {
 }
 
 export class ListDialogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 130****0000
+   */
   called?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -9962,10 +14430,26 @@ export class ListDialogRequest extends $tea.Model {
 }
 
 export class ListDialogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListDialogResponseBodyData[];
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -9993,9 +14477,9 @@ export class ListDialogResponseBody extends $tea.Model {
 }
 
 export class ListDialogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListDialogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListDialogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10018,8 +14502,26 @@ export class ListDialogResponse extends $tea.Model {
 }
 
 export class ListHotlineRecordRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100365558
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10043,10 +14545,26 @@ export class ListHotlineRecordRequest extends $tea.Model {
 }
 
 export class ListHotlineRecordResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: ListHotlineRecordResponseBodyData[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10074,9 +14592,9 @@ export class ListHotlineRecordResponseBody extends $tea.Model {
 }
 
 export class ListHotlineRecordResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListHotlineRecordResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotlineRecordResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10099,11 +14617,38 @@ export class ListHotlineRecordResponse extends $tea.Model {
 }
 
 export class ListHotlineRecordDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1614582000000
+   */
   closeTimeEnd?: number;
+  /**
+   * @example
+   * 1614578400000
+   */
   closeTimeStart?: number;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 100
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10133,11 +14678,31 @@ export class ListHotlineRecordDetailRequest extends $tea.Model {
 }
 
 export class ListHotlineRecordDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
   resultData?: ListHotlineRecordDetailResponseBodyResultData;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10167,9 +14732,9 @@ export class ListHotlineRecordDetailResponseBody extends $tea.Model {
 }
 
 export class ListHotlineRecordDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListHotlineRecordDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListHotlineRecordDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10192,8 +14757,23 @@ export class ListHotlineRecordDetailResponse extends $tea.Model {
 }
 
 export class ListOutboundPhoneNumberRequest extends $tea.Model {
+  /**
+   * @example
+   * 123@****.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d****
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10217,11 +14797,31 @@ export class ListOutboundPhoneNumberRequest extends $tea.Model {
 }
 
 export class ListOutboundPhoneNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: string[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10251,9 +14851,9 @@ export class ListOutboundPhoneNumberResponseBody extends $tea.Model {
 }
 
 export class ListOutboundPhoneNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOutboundPhoneNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListOutboundPhoneNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10275,89 +14875,22 @@ export class ListOutboundPhoneNumberResponse extends $tea.Model {
   }
 }
 
-export class ListOuterOrderedNumbersRequest extends $tea.Model {
-  ownerId?: number;
-  prodCode?: string;
-  resourceOwnerAccount?: string;
-  resourceOwnerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      prodCode: 'ProdCode',
-      resourceOwnerAccount: 'ResourceOwnerAccount',
-      resourceOwnerId: 'ResourceOwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      prodCode: 'string',
-      resourceOwnerAccount: 'string',
-      resourceOwnerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOuterOrderedNumbersResponseBody extends $tea.Model {
-  code?: string;
-  message?: string;
-  numbers?: string[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      code: 'Code',
-      message: 'Message',
-      numbers: 'Numbers',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      code: 'string',
-      message: 'string',
-      numbers: { 'type': 'array', 'itemType': 'string' },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class ListOuterOrderedNumbersResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListOuterOrderedNumbersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: ListOuterOrderedNumbersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class ListRobotCallDialogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 125165515022^11195613****
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2021-05-20 00:00:00
+   */
   createTime?: string;
   ownerId?: number;
   resourceOwnerAccount?: string;
@@ -10388,10 +14921,26 @@ export class ListRobotCallDialogRequest extends $tea.Model {
 }
 
 export class ListRobotCallDialogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListRobotCallDialogResponseBodyData[];
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10419,9 +14968,9 @@ export class ListRobotCallDialogResponseBody extends $tea.Model {
 }
 
 export class ListRobotCallDialogResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRobotCallDialogResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRobotCallDialogResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10447,6 +14996,13 @@ export class ListRobotNodeRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 100002674****
+   */
   robotId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10472,10 +15028,26 @@ export class ListRobotNodeRequest extends $tea.Model {
 }
 
 export class ListRobotNodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Ok
+   */
   code?: string;
   data?: ListRobotNodeResponseBodyData[];
+  /**
+   * @example
+   * Ok
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10503,9 +15075,9 @@ export class ListRobotNodeResponseBody extends $tea.Model {
 }
 
 export class ListRobotNodeResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRobotNodeResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRobotNodeResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10531,6 +15103,13 @@ export class ListRobotParamsRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   robotId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10556,10 +15135,26 @@ export class ListRobotParamsRequest extends $tea.Model {
 }
 
 export class ListRobotParamsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListRobotParamsResponseBodyData[];
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * FF67D4D5-4E90-1DF5-BB8F-060BBFAD72DB
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10587,9 +15182,9 @@ export class ListRobotParamsResponseBody extends $tea.Model {
 }
 
 export class ListRobotParamsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRobotParamsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRobotParamsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10612,7 +15207,18 @@ export class ListRobotParamsResponse extends $tea.Model {
 }
 
 export class ListRolesRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10635,9 +15241,25 @@ export class ListRolesRequest extends $tea.Model {
 
 export class ListRolesResponseBody extends $tea.Model {
   data?: ListRolesResponseBodyData[];
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10665,9 +15287,9 @@ export class ListRolesResponseBody extends $tea.Model {
 }
 
 export class ListRolesResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListRolesResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListRolesResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10690,8 +15312,23 @@ export class ListRolesResponse extends $tea.Model {
 }
 
 export class ListSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   channelType?: number;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -10715,10 +15352,26 @@ export class ListSkillGroupRequest extends $tea.Model {
 }
 
 export class ListSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: ListSkillGroupResponseBodyData[];
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10746,9 +15399,9 @@ export class ListSkillGroupResponseBody extends $tea.Model {
 }
 
 export class ListSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10772,11 +15425,23 @@ export class ListSkillGroupResponse extends $tea.Model {
 
 export class ListTaskRequest extends $tea.Model {
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   robotName?: string;
+  /**
+   * @example
+   * STOP
+   */
   status?: string;
   taskId?: number;
   taskName?: string;
@@ -10814,10 +15479,26 @@ export class ListTaskRequest extends $tea.Model {
 }
 
 export class ListTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListTaskResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10845,9 +15526,9 @@ export class ListTaskResponseBody extends $tea.Model {
 }
 
 export class ListTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10870,15 +15551,46 @@ export class ListTaskResponse extends $tea.Model {
 }
 
 export class ListTaskDetailRequest extends $tea.Model {
+  /**
+   * @example
+   * 186****0000
+   */
   called?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: number;
   ownerId?: number;
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 000001
+   */
   statusCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -10916,10 +15628,26 @@ export class ListTaskDetailRequest extends $tea.Model {
 }
 
 export class ListTaskDetailResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
   data?: ListTaskDetailResponseBodyData;
+  /**
+   * @example
+   * Ok
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -10947,9 +15675,9 @@ export class ListTaskDetailResponseBody extends $tea.Model {
 }
 
 export class ListTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ListTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ListTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -10971,12 +15699,235 @@ export class ListTaskDetailResponse extends $tea.Model {
   }
 }
 
-export class MakeCallRequest extends $tea.Model {
+export class LlmSmartCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * F32XXX2CF9
+   */
+  applicationCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 137****0000
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 057188040000
+   */
+  callerNumber?: string;
+  /**
+   * @example
+   * 222356****
+   */
+  outId?: string;
+  promptParam?: { [key: string]: any };
+  startWordParam?: { [key: string]: any };
+  static names(): { [key: string]: string } {
+    return {
+      applicationCode: 'ApplicationCode',
+      calledNumber: 'CalledNumber',
+      callerNumber: 'CallerNumber',
+      outId: 'OutId',
+      promptParam: 'PromptParam',
+      startWordParam: 'StartWordParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationCode: 'string',
+      calledNumber: 'string',
+      callerNumber: 'string',
+      outId: 'string',
+      promptParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      startWordParam: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LlmSmartCallShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * F32XXX2CF9
+   */
+  applicationCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 137****0000
+   */
+  calledNumber?: string;
+  /**
+   * @example
+   * 057188040000
+   */
+  callerNumber?: string;
+  /**
+   * @example
+   * 222356****
+   */
+  outId?: string;
+  promptParamShrink?: string;
+  startWordParamShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationCode: 'ApplicationCode',
+      calledNumber: 'CalledNumber',
+      callerNumber: 'CallerNumber',
+      outId: 'OutId',
+      promptParamShrink: 'PromptParam',
+      startWordParamShrink: 'StartWordParam',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationCode: 'string',
+      calledNumber: 'string',
+      callerNumber: 'string',
+      outId: 'string',
+      promptParamShrink: 'string',
+      startWordParamShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LlmSmartCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 125165515***^11195613****
+   */
+  callId?: string;
+  /**
+   * @example
+   * OK
+   */
+  code?: string;
+  /**
+   * @example
+   * OK
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * EE338D98-9BD3-XX13-B165
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      callId: 'CallId',
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      callId: 'string',
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class LlmSmartCallResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: LlmSmartCallResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: LlmSmartCallResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class MakeCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 130****0000
+   */
+  calledNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571456****
+   */
   callingNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * outBound_Call
+   */
   commandCode?: string;
+  /**
+   * @example
+   * {"bizId": 23323}
+   */
   extInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   outerAccountId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ALIPAY
+   */
   outerAccountType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11006,10 +15957,30 @@ export class MakeCallRequest extends $tea.Model {
 }
 
 export class MakeCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11037,9 +16008,9 @@ export class MakeCallResponseBody extends $tea.Model {
 }
 
 export class MakeCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MakeCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MakeCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11062,11 +16033,47 @@ export class MakeCallResponse extends $tea.Model {
 }
 
 export class MakeDoubleCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12345
+   */
   accountName?: string;
+  /**
+   * @example
+   * {"bizId": 123456}
+   */
   bizData?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1502123****
+   */
   memberPhone?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571000****
+   */
   outboundCallNumber?: string;
+  /**
+   * @example
+   * 150****1234
+   */
   servicerPhone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11096,10 +16103,26 @@ export class MakeDoubleCallRequest extends $tea.Model {
 }
 
 export class MakeDoubleCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
   data?: MakeDoubleCallResponseBodyData;
+  /**
+   * @example
+   * Successful
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11127,9 +16150,9 @@ export class MakeDoubleCallResponseBody extends $tea.Model {
 }
 
 export class MakeDoubleCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: MakeDoubleCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: MakeDoubleCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11152,7 +16175,21 @@ export class MakeDoubleCallResponse extends $tea.Model {
 }
 
 export class QueryHotlineInQueueRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   outerGroupId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * mybank
+   */
   outerGroupType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -11174,10 +16211,30 @@ export class QueryHotlineInQueueRequest extends $tea.Model {
 }
 
 export class QueryHotlineInQueueResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * {"n_online_now":10,"n_idle_now":3,"n_resttype_now":3,"n_acw_now":1}
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11205,9 +16262,9 @@ export class QueryHotlineInQueueResponseBody extends $tea.Model {
 }
 
 export class QueryHotlineInQueueResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryHotlineInQueueResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryHotlineInQueueResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11230,11 +16287,40 @@ export class QueryHotlineInQueueResponse extends $tea.Model {
 }
 
 export class QueryHotlineNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 2256****
+   */
   departmentId?: number;
   groupIds?: number[];
+  /**
+   * @example
+   * 0571****2211
+   */
   hotlineNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11264,11 +16350,40 @@ export class QueryHotlineNumberRequest extends $tea.Model {
 }
 
 export class QueryHotlineNumberShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 2256****
+   */
   departmentId?: number;
   groupIdsShrink?: string;
+  /**
+   * @example
+   * 0571****2211
+   */
   hotlineNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11298,10 +16413,26 @@ export class QueryHotlineNumberShrinkRequest extends $tea.Model {
 }
 
 export class QueryHotlineNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: QueryHotlineNumberResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE339D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11329,9 +16460,9 @@ export class QueryHotlineNumberResponseBody extends $tea.Model {
 }
 
 export class QueryHotlineNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryHotlineNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryHotlineNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11360,6 +16491,10 @@ export class QueryOutboundTaskRequest extends $tea.Model {
   endDate?: string;
   endTime?: string;
   groupName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   pageSize?: number;
   skillGroup?: number;
@@ -11449,9 +16584,9 @@ export class QueryOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class QueryOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11474,11 +16609,44 @@ export class QueryOutboundTaskResponse extends $tea.Model {
 }
 
 export class QuerySkillGroupsRequest extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   channelType?: number;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 1023****
+   */
   departmentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20
+   */
   pageSize?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11508,11 +16676,31 @@ export class QuerySkillGroupsRequest extends $tea.Model {
 }
 
 export class QuerySkillGroupsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: QuerySkillGroupsResponseBodyData[];
+  /**
+   * @example
+   * 20
+   */
   onePageSize?: number;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * 4
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 76
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11542,9 +16730,9 @@ export class QuerySkillGroupsResponseBody extends $tea.Model {
 }
 
 export class QuerySkillGroupsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QuerySkillGroupsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QuerySkillGroupsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11572,6 +16760,10 @@ export class QueryTaskDetailRequest extends $tea.Model {
   departmentIdList?: string;
   dnis?: string;
   endReasonList?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
   outboundTaskId?: string;
   pageSize?: number;
@@ -11662,9 +16854,9 @@ export class QueryTaskDetailResponseBody extends $tea.Model {
 }
 
 export class QueryTaskDetailResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTaskDetailResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTaskDetailResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11687,18 +16879,69 @@ export class QueryTaskDetailResponse extends $tea.Model {
 }
 
 export class QueryTicketsRequest extends $tea.Model {
+  /**
+   * @example
+   * 223468****
+   */
   caseId?: number;
+  /**
+   * @example
+   * 2
+   */
   caseStatus?: number;
+  /**
+   * @example
+   * 1223
+   */
   caseType?: number;
+  /**
+   * @example
+   * 02acfefd3fa14049826ac1a89e1xxxxx
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1
+   */
   channelType?: number;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 123456
+   */
   dealId?: number;
   extra?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 29506
+   */
   srType?: number;
+  /**
+   * @example
+   * 3
+   */
   taskStatus?: number;
+  /**
+   * @example
+   * 15030609
+   */
   touchId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11742,18 +16985,69 @@ export class QueryTicketsRequest extends $tea.Model {
 }
 
 export class QueryTicketsShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 223468****
+   */
   caseId?: number;
+  /**
+   * @example
+   * 2
+   */
   caseStatus?: number;
+  /**
+   * @example
+   * 1223
+   */
   caseType?: number;
+  /**
+   * @example
+   * 02acfefd3fa14049826ac1a89e1xxxxx
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1
+   */
   channelType?: number;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * 123456
+   */
   dealId?: number;
   extraShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 29506
+   */
   srType?: number;
+  /**
+   * @example
+   * 3
+   */
   taskStatus?: number;
+  /**
+   * @example
+   * 15030609
+   */
   touchId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -11797,10 +17091,30 @@ export class QueryTicketsShrinkRequest extends $tea.Model {
 }
 
 export class QueryTicketsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * { "totalResults":1 "previousPage":1 "data":[ 0:{ "serviceType":1 "lastUrgeTime":0 "queueId":0 "sopCateId":252011 "totalUrgeMemo":"" "taskGmtModified":0 "departmentId":10 "groupId":0 "channelType":1 "questionInfo":"" "templateId":0 "deadLine":0 "srType":30701 "caseId":2000000001165962}
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11828,9 +17142,9 @@ export class QueryTicketsResponseBody extends $tea.Model {
 }
 
 export class QueryTicketsResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTicketsResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTicketsResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11855,17 +17169,48 @@ export class QueryTicketsResponse extends $tea.Model {
 export class QueryTouchListRequest extends $tea.Model {
   channelId?: string[];
   channelType?: number[];
+  /**
+   * @example
+   * 1614600500000
+   */
   closeTimeEnd?: number;
+  /**
+   * @example
+   * 1614600400000
+   */
   closeTimeStart?: number;
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   evaluationLevel?: number[];
   evaluationScore?: number[];
   evaluationStatus?: number[];
+  /**
+   * @example
+   * 1614599400000
+   */
   firstTimeEnd?: number;
+  /**
+   * @example
+   * 1614596400000
+   */
   firstTimeStart?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   memberId?: number[];
   memberName?: string[];
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   queueId?: number[];
   servicerId?: number[];
@@ -11926,10 +17271,26 @@ export class QueryTouchListRequest extends $tea.Model {
 }
 
 export class QueryTouchListResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @example
+   * 865658FD-80DE-5D49-ABEB-F3CC9863F4F1
+   */
   requestId?: string;
   resultData?: QueryTouchListResponseBodyResultData;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -11957,9 +17318,9 @@ export class QueryTouchListResponseBody extends $tea.Model {
 }
 
 export class QueryTouchListResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: QueryTouchListResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryTouchListResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -11982,8 +17343,26 @@ export class QueryTouchListResponse extends $tea.Model {
 }
 
 export class RemoveAgentFromSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   agentIds?: number[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1146****
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12007,8 +17386,26 @@ export class RemoveAgentFromSkillGroupRequest extends $tea.Model {
 }
 
 export class RemoveAgentFromSkillGroupShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   agentIdsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1146****
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12032,10 +17429,26 @@ export class RemoveAgentFromSkillGroupShrinkRequest extends $tea.Model {
 }
 
 export class RemoveAgentFromSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
   data?: RemoveAgentFromSkillGroupResponseBodyData;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12063,9 +17476,9 @@ export class RemoveAgentFromSkillGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveAgentFromSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveAgentFromSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveAgentFromSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12088,8 +17501,26 @@ export class RemoveAgentFromSkillGroupResponse extends $tea.Model {
 }
 
 export class RemoveSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   skillGroupId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12113,9 +17544,25 @@ export class RemoveSkillGroupRequest extends $tea.Model {
 }
 
 export class RemoveSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12141,9 +17588,9 @@ export class RemoveSkillGroupResponseBody extends $tea.Model {
 }
 
 export class RemoveSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RemoveSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RemoveSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12166,15 +17613,79 @@ export class RemoveSkillGroupResponse extends $tea.Model {
 }
 
 export class ResetHotlineNumberRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInboundEvaluation?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutboundEvaluation?: boolean;
+  /**
+   * @example
+   * 2
+   */
   evaluationLevel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571********
+   */
   hotlineNumber?: string;
+  /**
+   * @example
+   * 123456
+   */
   inboundFlowId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   outboundAllDepart?: boolean;
   outboundRangeList?: ResetHotlineNumberRequestOutboundRangeList[];
   static names(): { [key: string]: string } {
@@ -12215,15 +17726,79 @@ export class ResetHotlineNumberRequest extends $tea.Model {
 }
 
 export class ResetHotlineNumberShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * desc
+   */
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableInboundEvaluation?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutbound?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   enableOutboundEvaluation?: boolean;
+  /**
+   * @example
+   * 2
+   */
   evaluationLevel?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571********
+   */
   hotlineNumber?: string;
+  /**
+   * @example
+   * 123456
+   */
   inboundFlowId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * true
+   */
   outboundAllDepart?: boolean;
   outboundRangeListShrink?: string;
   static names(): { [key: string]: string } {
@@ -12264,10 +17839,30 @@ export class ResetHotlineNumberShrinkRequest extends $tea.Model {
 }
 
 export class ResetHotlineNumberResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * xxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12295,9 +17890,9 @@ export class ResetHotlineNumberResponseBody extends $tea.Model {
 }
 
 export class ResetHotlineNumberResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: ResetHotlineNumberResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ResetHotlineNumberResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12320,7 +17915,15 @@ export class ResetHotlineNumberResponse extends $tea.Model {
 }
 
 export class RestartOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundTaskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12373,9 +17976,9 @@ export class RestartOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class RestartOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RestartOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RestartOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12398,15 +18001,48 @@ export class RestartOutboundTaskResponse extends $tea.Model {
 }
 
 export class RobotCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 131****2204
+   */
   calledNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571****5678
+   */
   calledShowNumber?: string;
+  /**
+   * @example
+   * false
+   */
   earlyMediaAsr?: boolean;
+  /**
+   * @example
+   * abcdefgh
+   */
   outId?: string;
   ownerId?: number;
   params?: string;
+  /**
+   * @example
+   * true
+   */
   recordFlag?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 350000****
+   */
   robotId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12444,9 +18080,25 @@ export class RobotCallRequest extends $tea.Model {
 }
 
 export class RobotCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * 116012854210^10281427*****
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12472,9 +18124,9 @@ export class RobotCallResponseBody extends $tea.Model {
 }
 
 export class RobotCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: RobotCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RobotCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12497,37 +18149,158 @@ export class RobotCallResponse extends $tea.Model {
 }
 
 export class SendCcoSmartCallRequest extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   actionCodeBreak?: boolean;
+  /**
+   * @example
+   * 120
+   */
   actionCodeTimeBreak?: number;
+  /**
+   * @example
+   * 123456
+   */
   asrAlsAmId?: string;
+  /**
+   * @example
+   * customer_service_8k
+   */
   asrBaseId?: string;
+  /**
+   * @example
+   * bf71664d30d2478fb8cb8c39c6b6****
+   */
   asrModelId?: string;
+  /**
+   * @example
+   * 123456
+   */
   asrVocabularyId?: string;
+  /**
+   * @example
+   * 2d4c-4e78-8d2a-afbb06cf****.wav
+   */
   backgroundFileCode?: string;
+  /**
+   * @example
+   * 1
+   */
   backgroundSpeed?: number;
+  /**
+   * @example
+   * 1
+   */
   backgroundVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 137****0000
+   */
   calledNumber?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0571****0000
+   */
   calledShowNumber?: string;
+  /**
+   * @example
+   * 123456
+   */
   dynamicId?: string;
+  /**
+   * @example
+   * fasle
+   */
   earlyMediaAsr?: boolean;
+  /**
+   * @example
+   * true
+   */
   enableITN?: boolean;
+  /**
+   * @example
+   * 10000
+   */
   muteTime?: number;
+  /**
+   * @example
+   * 222356****
+   */
   outId?: string;
   ownerId?: number;
+  /**
+   * @example
+   * 800
+   */
   pauseTime?: number;
+  /**
+   * @example
+   * 1
+   */
   playTimes?: number;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
+  /**
+   * @example
+   * true
+   */
   recordFlag?: boolean;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * 120
+   */
   sessionTimeout?: number;
+  /**
+   * @example
+   * 1
+   */
   speed?: number;
+  /**
+   * @example
+   * true
+   */
   ttsConf?: boolean;
+  /**
+   * @example
+   * 100
+   */
   ttsSpeed?: number;
+  /**
+   * @example
+   * xiaoyun
+   */
   ttsStyle?: string;
+  /**
+   * @example
+   * 10
+   */
   ttsVolume?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2d4c-4e78-8d2a-afbb06cf****.wav,$name$
+   */
   voiceCode?: string;
   voiceCodeParam?: string;
+  /**
+   * @example
+   * 1
+   */
   volume?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12609,9 +18382,25 @@ export class SendCcoSmartCallRequest extends $tea.Model {
 }
 
 export class SendCcoSmartCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 16012854210^10281427****
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12637,9 +18426,9 @@ export class SendCcoSmartCallResponseBody extends $tea.Model {
 }
 
 export class SendCcoSmartCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendCcoSmartCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendCcoSmartCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12662,10 +18451,32 @@ export class SendCcoSmartCallResponse extends $tea.Model {
 }
 
 export class SendCcoSmartCallOperateRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 116012854210^102814279****
+   */
   callId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * parallelBridge
+   */
   command?: string;
   ownerId?: number;
+  /**
+   * @example
+   * Param
+   */
   param?: string;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -12699,9 +18510,25 @@ export class SendCcoSmartCallOperateRequest extends $tea.Model {
 }
 
 export class SendCcoSmartCallOperateResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * A90E4451-FED7-49D2-87C8-00700A8C4D0D
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12727,9 +18554,9 @@ export class SendCcoSmartCallOperateResponseBody extends $tea.Model {
 }
 
 export class SendCcoSmartCallOperateResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendCcoSmartCallOperateResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendCcoSmartCallOperateResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12752,9 +18579,34 @@ export class SendCcoSmartCallOperateResponse extends $tea.Model {
 }
 
 export class SendHotlineHeartBeatRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0079e7a845e373****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12780,9 +18632,25 @@ export class SendHotlineHeartBeatRequest extends $tea.Model {
 }
 
 export class SendHotlineHeartBeatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12808,9 +18676,9 @@ export class SendHotlineHeartBeatResponseBody extends $tea.Model {
 }
 
 export class SendHotlineHeartBeatResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SendHotlineHeartBeatResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SendHotlineHeartBeatResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12833,7 +18701,21 @@ export class SendHotlineHeartBeatResponse extends $tea.Model {
 }
 
 export class StartAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1763****
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -12855,9 +18737,25 @@ export class StartAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class StartAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12883,9 +18781,9 @@ export class StartAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class StartAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12908,10 +18806,42 @@ export class StartAiOutboundTaskResponse extends $tea.Model {
 }
 
 export class StartCallRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1360987****
+   */
   callee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 906****
+   */
   caller?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -12939,9 +18869,25 @@ export class StartCallRequest extends $tea.Model {
 }
 
 export class StartCallResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -12967,9 +18913,9 @@ export class StartCallResponseBody extends $tea.Model {
 }
 
 export class StartCallResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartCallResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartCallResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -12992,11 +18938,50 @@ export class StartCallResponse extends $tea.Model {
 }
 
 export class StartCallV2Request extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 136****1111
+   */
   callee?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 9065****
+   */
   caller?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   callerType?: number;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13026,9 +19011,25 @@ export class StartCallV2Request extends $tea.Model {
 }
 
 export class StartCallV2ResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13054,9 +19055,9 @@ export class StartCallV2ResponseBody extends $tea.Model {
 }
 
 export class StartCallV2Response extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartCallV2ResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartCallV2ResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13079,7 +19080,21 @@ export class StartCallV2Response extends $tea.Model {
 }
 
 export class StartChatWorkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13101,11 +19116,35 @@ export class StartChatWorkRequest extends $tea.Model {
 }
 
 export class StartChatWorkResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * 1
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13135,9 +19174,9 @@ export class StartChatWorkResponseBody extends $tea.Model {
 }
 
 export class StartChatWorkResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartChatWorkResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartChatWorkResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13160,8 +19199,26 @@ export class StartChatWorkResponse extends $tea.Model {
 }
 
 export class StartHotlineServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13185,11 +19242,35 @@ export class StartHotlineServiceRequest extends $tea.Model {
 }
 
 export class StartHotlineServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 0079e7a845e37334ff
+   */
   data?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13219,9 +19300,9 @@ export class StartHotlineServiceResponseBody extends $tea.Model {
 }
 
 export class StartHotlineServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartHotlineServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartHotlineServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13244,14 +19325,46 @@ export class StartHotlineServiceResponse extends $tea.Model {
 }
 
 export class StartMicroOutboundRequest extends $tea.Model {
+  /**
+   * @example
+   * 223457****
+   */
   accountId?: string;
+  /**
+   * @example
+   * BUC_TYPE
+   */
   accountType?: string;
+  /**
+   * @example
+   * aliyun
+   */
   appName?: string;
+  /**
+   * @example
+   * 0571456****
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 1367123****
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * outBound_Call
+   */
   commandCode?: string;
+  /**
+   * @example
+   * {"caseId":23232****}
+   */
   extInfo?: string;
   ownerId?: number;
+  /**
+   * @example
+   * aiccs
+   */
   prodCode?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
@@ -13293,11 +19406,35 @@ export class StartMicroOutboundRequest extends $tea.Model {
 }
 
 export class StartMicroOutboundResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * {\\"caseId\\":2323****}
+   */
   customerInfo?: string;
+  /**
+   * @example
+   * 8883f165-4a0d-4da2-a2d2
+   */
   invokeCmdId?: string;
+  /**
+   * @example
+   * 2019-05-23 17:30:32.525
+   */
   invokeCreateTime?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -13327,9 +19464,9 @@ export class StartMicroOutboundResponseBody extends $tea.Model {
 }
 
 export class StartMicroOutboundResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartMicroOutboundResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartMicroOutboundResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13355,7 +19492,18 @@ export class StartTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @example
+   * true
+   */
   startNow?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13383,10 +19531,30 @@ export class StartTaskRequest extends $tea.Model {
 }
 
 export class StartTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13414,9 +19582,9 @@ export class StartTaskResponseBody extends $tea.Model {
 }
 
 export class StartTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StartTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13439,7 +19607,21 @@ export class StartTaskResponse extends $tea.Model {
 }
 
 export class StopAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13461,9 +19643,25 @@ export class StopAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class StopAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13489,9 +19687,9 @@ export class StopAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class StopAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13517,6 +19715,13 @@ export class StopTaskRequest extends $tea.Model {
   ownerId?: number;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13542,10 +19747,30 @@ export class StopTaskRequest extends $tea.Model {
 }
 
 export class StopTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Ok
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13573,9 +19798,9 @@ export class StopTaskResponseBody extends $tea.Model {
 }
 
 export class StopTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: StopTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StopTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13598,9 +19823,31 @@ export class StopTaskResponse extends $tea.Model {
 }
 
 export class SuspendHotlineServiceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13626,9 +19873,25 @@ export class SuspendHotlineServiceRequest extends $tea.Model {
 }
 
 export class SuspendHotlineServiceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13654,9 +19917,9 @@ export class SuspendHotlineServiceResponseBody extends $tea.Model {
 }
 
 export class SuspendHotlineServiceResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendHotlineServiceResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendHotlineServiceResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13679,7 +19942,15 @@ export class SuspendHotlineServiceResponse extends $tea.Model {
 }
 
 export class SuspendOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundTaskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13732,9 +20003,9 @@ export class SuspendOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class SuspendOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: SuspendOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SuspendOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13757,7 +20028,21 @@ export class SuspendOutboundTaskResponse extends $tea.Model {
 }
 
 export class TerminateAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_****
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1763****
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13779,9 +20064,25 @@ export class TerminateAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class TerminateAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * OK
+   */
   code?: string;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13807,9 +20108,9 @@ export class TerminateAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class TerminateAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TerminateAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TerminateAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13832,15 +20133,64 @@ export class TerminateAiOutboundTaskResponse extends $tea.Model {
 }
 
 export class TransferCallToSkillGroupRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 7719786
+   */
   callId?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @example
+   * 7719788
+   */
   connectionId?: string;
+  /**
+   * @example
+   * 0
+   */
   holdConnectionId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @example
+   * true
+   */
   isSingleTransfer?: boolean;
+  /**
+   * @example
+   * 7719787
+   */
   jobId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 356543
+   */
   skillGroupId?: number;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -13878,9 +20228,25 @@ export class TransferCallToSkillGroupRequest extends $tea.Model {
 }
 
 export class TransferCallToSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13906,9 +20272,9 @@ export class TransferCallToSkillGroupResponseBody extends $tea.Model {
 }
 
 export class TransferCallToSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: TransferCallToSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransferCallToSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -13931,9 +20297,31 @@ export class TransferCallToSkillGroupResponse extends $tea.Model {
 }
 
 export class UpdateAgentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   skillGroupId?: number[];
   skillGroupIdList?: number[];
@@ -13965,10 +20353,30 @@ export class UpdateAgentRequest extends $tea.Model {
 }
 
 export class UpdateAgentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * OK
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -13996,9 +20404,9 @@ export class UpdateAgentResponseBody extends $tea.Model {
 }
 
 export class UpdateAgentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAgentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAgentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14021,16 +20429,70 @@ export class UpdateAgentResponse extends $tea.Model {
 }
 
 export class UpdateAiOutboundTaskRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   concurrentRate?: number;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
   executionTime?: string;
+  /**
+   * @example
+   * 1.2
+   */
   forecastCallRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   handlerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   numRepeated?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundNums?: string[];
   recallRule?: UpdateAiOutboundTaskRequestRecallRule;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14070,16 +20532,70 @@ export class UpdateAiOutboundTaskRequest extends $tea.Model {
 }
 
 export class UpdateAiOutboundTaskShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   concurrentRate?: number;
   description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
   executionTime?: string;
+  /**
+   * @example
+   * 1.2
+   */
   forecastCallRate?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   handlerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * agent_***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
   numRepeated?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   outboundNumsShrink?: string;
   recallRuleShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14119,9 +20635,25 @@ export class UpdateAiOutboundTaskShrinkRequest extends $tea.Model {
 }
 
 export class UpdateAiOutboundTaskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * ok
+   */
   code?: string;
+  /**
+   * @example
+   * ok
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14147,9 +20679,9 @@ export class UpdateAiOutboundTaskResponseBody extends $tea.Model {
 }
 
 export class UpdateAiOutboundTaskResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateAiOutboundTaskResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAiOutboundTaskResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14172,8 +20704,26 @@ export class UpdateAiOutboundTaskResponse extends $tea.Model {
 }
 
 export class UpdateDepartmentRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   departmentId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
   departmentName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14197,11 +20747,35 @@ export class UpdateDepartmentRequest extends $tea.Model {
 }
 
 export class UpdateDepartmentResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: boolean;
+  /**
+   * @example
+   * 200
+   */
   httpStatusCode?: number;
+  /**
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @example
+   * 98B032F5-6473-4EAC-8BA8-C28993513A1
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14231,9 +20805,9 @@ export class UpdateDepartmentResponseBody extends $tea.Model {
 }
 
 export class UpdateDepartmentResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateDepartmentResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateDepartmentResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14256,14 +20830,48 @@ export class UpdateDepartmentResponse extends $tea.Model {
 }
 
 export class UpdateOuterAccountRequest extends $tea.Model {
+  /**
+   * @example
+   * http://****
+   */
   avatar?: string;
   ext?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   outerAccountId?: string;
   outerAccountName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * alipay
+   */
   outerAccountType?: string;
+  /**
+   * @example
+   * 3
+   */
   outerDepartmentId?: string;
+  /**
+   * @example
+   * type_invalid
+   */
   outerDepartmentType?: string;
+  /**
+   * @example
+   * ["222","333","444"]
+   */
   outerGroupIds?: string;
+  /**
+   * @example
+   * mybank
+   */
   outerGroupType?: string;
   realName?: string;
   static names(): { [key: string]: string } {
@@ -14302,10 +20910,30 @@ export class UpdateOuterAccountRequest extends $tea.Model {
 }
 
 export class UpdateOuterAccountResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @example
+   * true
+   */
   data?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14333,9 +20961,9 @@ export class UpdateOuterAccountResponseBody extends $tea.Model {
 }
 
 export class UpdateOuterAccountResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateOuterAccountResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateOuterAccountResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14358,10 +20986,28 @@ export class UpdateOuterAccountResponse extends $tea.Model {
 }
 
 export class UpdateSkillGroupRequest extends $tea.Model {
+  /**
+   * @example
+   * 46c1341e-2648-447a-9b11-70b6a298d94d
+   */
   clientToken?: string;
   description?: string;
   displayName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   instanceId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 123456
+   */
   skillGroupId?: number;
   skillGroupName?: string;
   static names(): { [key: string]: string } {
@@ -14392,9 +21038,25 @@ export class UpdateSkillGroupRequest extends $tea.Model {
 }
 
 export class UpdateSkillGroupResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Success
+   */
   code?: string;
+  /**
+   * @example
+   * xxxx
+   */
   message?: string;
+  /**
+   * @example
+   * EE338D98-9BD3-4413-B165
+   */
   requestId?: string;
+  /**
+   * @example
+   * true
+   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -14420,9 +21082,9 @@ export class UpdateSkillGroupResponseBody extends $tea.Model {
 }
 
 export class UpdateSkillGroupResponse extends $tea.Model {
-  headers: { [key: string]: string };
-  statusCode: number;
-  body: UpdateSkillGroupResponseBody;
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateSkillGroupResponseBody;
   static names(): { [key: string]: string } {
     return {
       headers: 'headers',
@@ -14445,6 +21107,10 @@ export class UpdateSkillGroupResponse extends $tea.Model {
 }
 
 export class AddHotlineNumberRequestOutboundRangeList extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   departmentId?: number;
   groupIdList?: number[];
   static names(): { [key: string]: string } {
@@ -14492,7 +21158,15 @@ export class BatchCreateQualityProjectsResponseBodyData extends $tea.Model {
 }
 
 export class CreateAiOutboundTaskRequestRecallRule extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   count?: number;
+  /**
+   * @example
+   * 1
+   */
   interval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14586,10 +21260,18 @@ export class EditQualityRuleTagRequestAnalysisTypes extends $tea.Model {
 }
 
 export class GetAgentResponseBodyDataGroupList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   channelType?: number;
   description?: string;
   displayName?: string;
   name?: string;
+  /**
+   * @example
+   * 123456
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14617,11 +21299,27 @@ export class GetAgentResponseBodyDataGroupList extends $tea.Model {
 }
 
 export class GetAgentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 123@123.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 222222
+   */
   agentId?: number;
   displayName?: string;
   groupList?: GetAgentResponseBodyDataGroupList[];
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 0
+   */
   tenantId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14651,9 +21349,21 @@ export class GetAgentResponseBodyData extends $tea.Model {
 }
 
 export class GetAgentBasisStatusResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14716,9 +21426,25 @@ export class GetAgentByIdResponseBodyData extends $tea.Model {
 }
 
 export class GetAgentDetailReportResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {"t_wait":379322.0,"hotline_time_outcall_avg":"32.00","n_ringing":0,"t_outbound_40":0.0,"hotline_time_incall_avg":-1,"t_calldialing":0.0,"n_inbound":276,"servicer_id":"-1","call_in_sep_sat_cnt":13,"request_cnt":231,"n_not_ready_99":811,"t_work_outbound":49338.0,"hotline_rate_handle_in_60s":"96%","n_not_ready_login":811,"t_not_ready_login":0.0,"n_work_inbound":176,"}
+   */
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14745,6 +21471,10 @@ export class GetAgentDetailReportResponseBodyData extends $tea.Model {
 
 export class GetAgentIndexRealTimeResponseBodyDataColumns extends $tea.Model {
   key?: string;
+  /**
+   * @example
+   * servicerId
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {
@@ -14767,9 +21497,21 @@ export class GetAgentIndexRealTimeResponseBodyDataColumns extends $tea.Model {
 
 export class GetAgentIndexRealTimeResponseBodyData extends $tea.Model {
   columns?: GetAgentIndexRealTimeResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 4
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14797,9 +21539,25 @@ export class GetAgentIndexRealTimeResponseBodyData extends $tea.Model {
 }
 
 export class GetAgentServiceStatusResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {"online_40s_transfer_ready_cnt":81,"minute_id":"-1","online_unsatis_cnt":0,"online_simple_cnt":0,"average_queue_time":-1,"service_pickup":"2086","total_waiting_time":"981","online_service_time_len":58208,"online_direct_give_up_len":0,"break_ratio":"2%"}
+   */
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14825,9 +21583,25 @@ export class GetAgentServiceStatusResponseBodyData extends $tea.Model {
 }
 
 export class GetAgentStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {"n_resttype_1":15,"t_outcall_speak":829747,"average_incoming_time":"8451.29","n_resttype_3":0,"minute_id":"-1","n_conference_speak":0,"n_resttype_2":0,"n_resttype_5":0,"n_resttype_4":0,"n_resttype_7":0,"n_resttype_6":0,"n_resttype_9":0,"n_resttype_8":0,"n_outcall_dial":25,"total_break_time":"58555","n_internal_speak":0,"n_send_step_transfer":7,"n_consulted_internal_speak":0}
+   */
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14853,9 +21627,25 @@ export class GetAgentStatisticsResponseBodyData extends $tea.Model {
 }
 
 export class GetAiOutboundTaskBizDataResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * {"customer":123}
+   */
   bizData?: string;
+  /**
+   * @example
+   * 123
+   */
   caseId?: number;
+  /**
+   * @example
+   * 158****0000
+   */
   phoneNum?: string;
+  /**
+   * @example
+   * 123456
+   */
   taskId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14881,7 +21671,15 @@ export class GetAiOutboundTaskBizDataResponseBodyData extends $tea.Model {
 }
 
 export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   count?: number;
+  /**
+   * @example
+   * 2
+   */
   interval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14903,19 +21701,63 @@ export class GetAiOutboundTaskDetailResponseBodyDataRecallRule extends $tea.Mode
 }
 
 export class GetAiOutboundTaskDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   concurrentRate?: number;
   description?: string;
+  /**
+   * @example
+   * {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
+   */
   executionTime?: string;
+  /**
+   * @example
+   * 1.2
+   */
   forecastCallRate?: number;
+  /**
+   * @example
+   * 123456
+   */
   handlerId?: number;
+  /**
+   * @example
+   * 热线技能组
+   */
   handlerName?: string;
+  /**
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   numRepeated?: number;
   outboundNums?: string[];
   recallRule?: GetAiOutboundTaskDetailResponseBodyDataRecallRule;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 未开始
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 123
+   */
   taskId?: number;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -14961,14 +21803,50 @@ export class GetAiOutboundTaskDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   batchVersion?: number;
+  /**
+   * @example
+   * 123
+   */
   bizData?: string;
+  /**
+   * @example
+   * 1
+   */
   callCount?: number;
+  /**
+   * @example
+   * 123456
+   */
   caseId?: number;
+  /**
+   * @example
+   * 1632289999000
+   */
   createTime?: number;
+  /**
+   * @example
+   * 未接通
+   */
   lastCallResult?: string;
+  /**
+   * @example
+   * 150****0000
+   */
   phoneNum?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * 待呼叫
+   */
   statusDesc?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15004,10 +21882,26 @@ export class GetAiOutboundTaskExecDetailResponseBodyDataList extends $tea.Model 
 }
 
 export class GetAiOutboundTaskExecDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * true
+   */
   hasNextPage?: boolean;
   list?: GetAiOutboundTaskExecDetailResponseBodyDataList[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 199
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15035,17 +21929,61 @@ export class GetAiOutboundTaskExecDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetAiOutboundTaskListResponseBodyDataList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   concurrentRate?: number;
+  /**
+   * @example
+   * 1615083365000
+   */
   createTime?: number;
   description?: string;
+  /**
+   * @example
+   * 70
+   */
   finishCount?: number;
+  /**
+   * @example
+   * 0.7
+   */
   finishRate?: number;
+  /**
+   * @example
+   * 2468****
+   */
   handlerId?: number;
+  /**
+   * @example
+   * 热线技能组
+   */
   handlerName?: string;
+  /**
+   * @example
+   * xx外呼任务
+   */
   name?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 未开始
+   */
   statusDesc?: string;
+  /**
+   * @example
+   * 1763****
+   */
   taskId?: number;
+  /**
+   * @example
+   * 100
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15087,10 +22025,26 @@ export class GetAiOutboundTaskListResponseBodyDataList extends $tea.Model {
 }
 
 export class GetAiOutboundTaskListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
+  /**
+   * @example
+   * false
+   */
   hasNextPage?: boolean;
   list?: GetAiOutboundTaskListResponseBodyDataList[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15118,14 +22072,50 @@ export class GetAiOutboundTaskListResponseBodyData extends $tea.Model {
 }
 
 export class GetAiOutboundTaskProgressResponseBodyDataCalloutProgress extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   callLossCount?: number;
+  /**
+   * @example
+   * 0.01
+   */
   callLossRate?: number;
+  /**
+   * @example
+   * 5
+   */
   callOutConnectCount?: number;
+  /**
+   * @example
+   * 0.5
+   */
   callOutConnectRate?: number;
+  /**
+   * @example
+   * 10
+   */
   callOutCount?: number;
+  /**
+   * @example
+   * 4
+   */
   callOutServicerPickupCount?: number;
+  /**
+   * @example
+   * 0.4
+   */
   callOutServicerPickupRate?: number;
+  /**
+   * @example
+   * 5
+   */
   callOutUserPickupCount?: number;
+  /**
+   * @example
+   * 0.5
+   */
   callOutUserPickupRate?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15161,18 +22151,70 @@ export class GetAiOutboundTaskProgressResponseBodyDataCalloutProgress extends $t
 }
 
 export class GetAiOutboundTaskProgressResponseBodyDataTaskProgress extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   callingCount?: number;
+  /**
+   * @example
+   * 2
+   */
   connectCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
   connectRate?: number;
+  /**
+   * @example
+   * 2
+   */
   finishCount?: number;
+  /**
+   * @example
+   * 0.20
+   */
   finishRate?: number;
+  /**
+   * @example
+   * 2
+   */
   servicerPickupCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
   servicerPickupRate?: number;
+  /**
+   * @example
+   * 2
+   */
   terminateCount?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
+  /**
+   * @example
+   * 2
+   */
   userPickupCount?: number;
+  /**
+   * @example
+   * 0.2
+   */
   userPickupRate?: number;
+  /**
+   * @example
+   * 2
+   */
   waitingCallCount?: number;
+  /**
+   * @example
+   * 2
+   */
   waitingRecallCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15217,8 +22259,16 @@ export class GetAiOutboundTaskProgressResponseBodyDataTaskProgress extends $tea.
 
 export class GetAiOutboundTaskProgressResponseBodyData extends $tea.Model {
   calloutProgress?: GetAiOutboundTaskProgressResponseBodyDataCalloutProgress;
+  /**
+   * @example
+   * 123456
+   */
   taskId?: number;
   taskProgress?: GetAiOutboundTaskProgressResponseBodyDataTaskProgress;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15244,6 +22294,10 @@ export class GetAiOutboundTaskProgressResponseBodyData extends $tea.Model {
 }
 
 export class GetAllDepartmentResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   departmentId?: number;
   departmentName?: string;
   static names(): { [key: string]: string } {
@@ -15268,9 +22322,21 @@ export class GetAllDepartmentResponseBodyData extends $tea.Model {
 export class GetCustomerInfoResponseBodyData extends $tea.Model {
   customizeFields?: { [key: string]: any };
   nick?: string;
+  /**
+   * @example
+   * 6666666
+   */
   outerId?: string;
+  /**
+   * @example
+   * https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSW7XPFlJDwVunXP8pr84TvltwtLlNqTlOVSFeM3bCgn57mAB4JuZZmvMW0qicqW0PyzyUdZpxiaFQ
+   */
   photo?: string;
   realName?: string;
+  /**
+   * @example
+   * 823456789023
+   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15301,6 +22367,10 @@ export class GetCustomerInfoResponseBodyData extends $tea.Model {
 
 export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $tea.Model {
   name?: string;
+  /**
+   * @example
+   * 555555
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15322,6 +22392,10 @@ export class GetDepGroupTreeDataResponseBodyDataGroupDTOS extends $tea.Model {
 }
 
 export class GetDepGroupTreeDataResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 10
+   */
   depGroupId?: string;
   depGroupName?: string;
   groupDTOS?: GetDepGroupTreeDataResponseBodyDataGroupDTOS[];
@@ -15347,9 +22421,21 @@ export class GetDepGroupTreeDataResponseBodyData extends $tea.Model {
 }
 
 export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15375,12 +22461,40 @@ export class GetDepartmentalLatitudeAgentStatusResponseBodyData extends $tea.Mod
 }
 
 export class GetHotlineAgentDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2235****
+   */
   agentId?: number;
+  /**
+   * @example
+   * 1
+   */
   agentStatus?: number;
+  /**
+   * @example
+   * AgentCheckout
+   */
   agentStatusCode?: string;
+  /**
+   * @example
+   * false
+   */
   assigned?: boolean;
+  /**
+   * @example
+   * 1
+   */
   restType?: number;
+  /**
+   * @example
+   * ccc_xp_pre-cn-***
+   */
   tenantId?: number;
+  /**
+   * @example
+   * dnthF_oinHg7JMJDmKqex3Ux****
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15412,6 +22526,10 @@ export class GetHotlineAgentDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $tea.Model {
+  /**
+   * @example
+   * realName
+   */
   key?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -15435,9 +22553,21 @@ export class GetHotlineAgentDetailReportResponseBodyDataColumns extends $tea.Mod
 
 export class GetHotlineAgentDetailReportResponseBodyData extends $tea.Model {
   columns?: GetHotlineAgentDetailReportResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 7
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15465,22 +22595,78 @@ export class GetHotlineAgentDetailReportResponseBodyData extends $tea.Model {
 }
 
 export class GetHotlineCallActionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 8999****
+   */
   actionId?: number;
+  /**
+   * @example
+   * 2367****
+   */
   buId?: number;
+  /**
+   * @example
+   * 1122****
+   */
   calloutId?: number;
   calloutName?: string;
+  /**
+   * @example
+   * 1138902****
+   */
   caseId?: number;
+  /**
+   * @example
+   * 2377****
+   */
   channelId?: string;
+  /**
+   * @example
+   * 2
+   */
   channelType?: number;
+  /**
+   * @example
+   * 1223****
+   */
   depId?: number;
+  /**
+   * @example
+   * true
+   */
   isTransfer?: string;
+  /**
+   * @example
+   * 7856876****
+   */
   memberId?: number;
+  /**
+   * @example
+   * 8900****
+   */
   memberList?: string;
   memberName?: string;
+  /**
+   * @example
+   * 1332****
+   */
   servicerId?: number;
   servicerName?: string;
+  /**
+   * @example
+   * 3423****
+   */
   subTouchId?: number;
+  /**
+   * @example
+   * 12345****
+   */
   taskId?: number;
+  /**
+   * @example
+   * 2235****
+   */
   touchId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15532,6 +22718,10 @@ export class GetHotlineCallActionResponseBodyData extends $tea.Model {
 }
 
 export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $tea.Model {
+  /**
+   * @example
+   * skillGroupName
+   */
   key?: string;
   title?: string;
   static names(): { [key: string]: string } {
@@ -15555,9 +22745,21 @@ export class GetHotlineGroupDetailReportResponseBodyDataColumns extends $tea.Mod
 
 export class GetHotlineGroupDetailReportResponseBodyData extends $tea.Model {
   columns?: GetHotlineGroupDetailReportResponseBodyDataColumns[];
+  /**
+   * @example
+   * 1
+   */
   page?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   rows?: { [key: string]: any }[];
+  /**
+   * @example
+   * 9
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15585,11 +22787,31 @@ export class GetHotlineGroupDetailReportResponseBodyData extends $tea.Model {
 }
 
 export class GetHotlineMessageLogResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100****2077
+   */
   acid?: string;
   content?: string;
+  /**
+   * @example
+   * 1623738027480
+   */
   endTime?: number;
+  /**
+   * @example
+   * 11deca999****
+   */
   mid?: string;
+  /**
+   * @example
+   * 1
+   */
   senderType?: number;
+  /**
+   * @example
+   * 1623738026460
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15619,9 +22841,21 @@ export class GetHotlineMessageLogResponseBodyData extends $tea.Model {
 }
 
 export class GetHotlineServiceStatisticsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15669,9 +22903,21 @@ export class GetInstanceListResponseBodyCommodityInstances extends $tea.Model {
 }
 
 export class GetOnlineSeatInformationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15697,9 +22943,25 @@ export class GetOnlineSeatInformationResponseBodyData extends $tea.Model {
 }
 
 export class GetOnlineServiceVolumeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
+  /**
+   * @example
+   * {"tenant_id":"905","online_40s_transfer_ready_cnt":109,"minute_id":"-1","wait_time_len":1215,"pickup_rate":"63.09%","thirty_seconds_to_pickUp":"2560","date_id":"-1","online_over_out_cnt":0,"online_20s_transfer_ready_cnt":109,"thirty_seconds_response_rate":"63.09%","abandonment_rate":"63.09%","service_time_len":68378,"service_pickup":"2560","hour_id":"-1","online_10s_transfer_ready_cnt":109}
+   */
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15726,7 +22988,15 @@ export class GetOnlineServiceVolumeResponseBodyData extends $tea.Model {
 
 export class GetOutbounNumListResponseBodyDataNum extends $tea.Model {
   description?: string;
+  /**
+   * @example
+   * 1
+   */
   type?: number;
+  /**
+   * @example
+   * 07512234****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15750,8 +23020,20 @@ export class GetOutbounNumListResponseBodyDataNum extends $tea.Model {
 }
 
 export class GetOutbounNumListResponseBodyDataNumGroup extends $tea.Model {
+  /**
+   * @example
+   * Jella
+   */
   description?: string;
+  /**
+   * @example
+   * 2
+   */
   type?: number;
+  /**
+   * @example
+   * 7688****
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -15797,17 +23079,45 @@ export class GetOutbounNumListResponseBodyData extends $tea.Model {
 }
 
 export class GetQualityProjectDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   checkFreqType?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:18
+   */
   createTime?: string;
   depList?: number[];
   groupList?: number[];
+  /**
+   * @example
+   * 15977801
+   */
   id?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:19
+   */
   modifyTime?: string;
   projectName?: string;
   qualityRuleIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   qualityType?: number;
   servicerList?: number[];
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15849,17 +23159,45 @@ export class GetQualityProjectDetailResponseBodyData extends $tea.Model {
 }
 
 export class GetQualityProjectListResponseBodyDataQualityProjectList extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   checkFreqType?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:18
+   */
   createTime?: string;
   depList?: number[];
   groupList?: number[];
+  /**
+   * @example
+   * 15977801
+   */
   id?: number;
+  /**
+   * @example
+   * 2021-04-07 18:07:19
+   */
   modifyTime?: string;
   projectName?: string;
   qualityRuleIds?: number[];
+  /**
+   * @example
+   * 1
+   */
   qualityType?: number;
   servicerList?: number[];
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 1
+   */
   version?: number;
   static names(): { [key: string]: string } {
     return {
@@ -15901,9 +23239,21 @@ export class GetQualityProjectListResponseBodyDataQualityProjectList extends $te
 }
 
 export class GetQualityProjectListResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
   qualityProjectList?: GetQualityProjectListResponseBodyDataQualityProjectList[];
+  /**
+   * @example
+   * 35
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16170,9 +23520,21 @@ export class GetQualityRuleTagListResponseBodyData extends $tea.Model {
 }
 
 export class GetQueueInformationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16198,7 +23560,15 @@ export class GetQueueInformationResponseBodyData extends $tea.Model {
 }
 
 export class GetRecordDataResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1001067****
+   */
   acid?: string;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
+   */
   ossLink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16220,7 +23590,15 @@ export class GetRecordDataResponseBodyData extends $tea.Model {
 }
 
 export class GetRecordUrlResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1001067****
+   */
   acid?: string;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com/accrec_tmp/10010679716-12-01-56.wav?***
+   */
   ossLink?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16242,8 +23620,20 @@ export class GetRecordUrlResponseBodyData extends $tea.Model {
 }
 
 export class GetRtcTokenResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 139000000
+   */
   accountName?: string;
+  /**
+   * @example
+   * 200000000*******
+   */
   rtcId?: string;
+  /**
+   * @example
+   * {“cleansession”:true,”clientId”:”GID_VOIP@@@ClientId_****”,”conferenceTopic”:”cs_alicom_voip_conference”,”host”:”mqtt-cn-4590mdhb901.mqtt.aliyuncs.com”,”meetingEventKeepAliveInterval”:0,”phoneTopic”:”alicom_voip_phone”,”port”:0,”reconnectTimeout”:2000,”registerTime”:0,”sdkClientPort”:8883,”serverId”:”GID_VOIP@@@MTEuMTMuMTM2LjExOA==”,”sgwServerTopic”:”alicom_voip_server_pre”,”tlsport”:443,”tokenData”:”abcdef”,”useTLS”:false}
+   */
   token?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16267,9 +23657,21 @@ export class GetRtcTokenResponseBodyData extends $tea.Model {
 }
 
 export class GetSeatInformationResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rowr?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16295,9 +23697,21 @@ export class GetSeatInformationResponseBodyData extends $tea.Model {
 }
 
 export class GetSkillGroupAgentStatusDetailsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16323,9 +23737,21 @@ export class GetSkillGroupAgentStatusDetailsResponseBodyData extends $tea.Model 
 }
 
 export class GetSkillGroupAndAgentStatusSummaryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16351,9 +23777,21 @@ export class GetSkillGroupAndAgentStatusSummaryResponseBodyData extends $tea.Mod
 }
 
 export class GetSkillGroupLatitudeStateResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16379,9 +23817,21 @@ export class GetSkillGroupLatitudeStateResponseBodyData extends $tea.Model {
 }
 
 export class GetSkillGroupServiceCapabilityResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16407,9 +23857,21 @@ export class GetSkillGroupServiceCapabilityResponseBodyData extends $tea.Model {
 }
 
 export class GetSkillGroupServiceStatusResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16435,9 +23897,21 @@ export class GetSkillGroupServiceStatusResponseBodyData extends $tea.Model {
 }
 
 export class GetSkillGroupStatusTotalResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNum?: number;
+  /**
+   * @example
+   * 2000
+   */
   pageSize?: number;
   rows?: string;
+  /**
+   * @example
+   * 4
+   */
   totalNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16463,34 +23937,138 @@ export class GetSkillGroupStatusTotalResponseBodyData extends $tea.Model {
 }
 
 export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $tea.Model {
+  /**
+   * @example
+   * 7719786
+   */
   acid?: string;
+  /**
+   * @example
+   * 12
+   */
   activeTransferId?: string;
+  /**
+   * @example
+   * 37
+   */
   callContinueTime?: number;
+  /**
+   * @example
+   * normal
+   */
   callResult?: string;
+  /**
+   * @example
+   * 1
+   */
   callType?: number;
+  /**
+   * @example
+   * 135615*****
+   */
   calledNumber?: string;
+  /**
+   * @example
+   * 0571773
+   */
   callingNumber?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:55
+   */
   createTime?: string;
+  /**
+   * @example
+   * 4
+   */
   evaluationLevel?: number;
+  /**
+   * @example
+   * 4
+   */
   evaluationScore?: number;
+  /**
+   * @example
+   * 123456
+   */
   groupId?: number;
   groupName?: string;
+  /**
+   * @example
+   * 2
+   */
   hangUpRole?: string;
+  /**
+   * @example
+   * 2020-10-02 22:33:46
+   */
   hangUpTime?: string;
+  /**
+   * @example
+   * acc1c58dab4a4dd280e3813c66
+   */
   id?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:55
+   */
   inQueueTime?: string;
+  /**
+   * @example
+   * 7856876
+   */
   memberId?: string;
   memberName?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:59
+   */
   outQueueTime?: string;
+  /**
+   * @example
+   * 12
+   */
   passiveTransferId?: string;
+  /**
+   * @example
+   * 1
+   */
   passiveTransferIdType?: string;
+  /**
+   * @example
+   * 2020-10-02 22:33:09
+   */
   pickUpTime?: string;
+  /**
+   * @example
+   * 4
+   */
   queueUpContinueTime?: number;
+  /**
+   * @example
+   * 10
+   */
   ringContinueTime?: number;
+  /**
+   * @example
+   * 2020-10-02 22:33:09
+   */
   ringEndTime?: string;
+  /**
+   * @example
+   * 2020-10-02 22:32:59
+   */
   ringStartTime?: string;
+  /**
+   * @example
+   * 555555
+   */
   servicerId?: string;
   servicerName?: string;
+  /**
+   * @example
+   * 1861111****
+   */
   trunkCall?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16567,8 +24145,20 @@ export class HotlineSessionQueryResponseBodyDataCallDetailRecord extends $tea.Mo
 
 export class HotlineSessionQueryResponseBodyData extends $tea.Model {
   callDetailRecord?: HotlineSessionQueryResponseBodyDataCallDetailRecord[];
+  /**
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 26
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16594,7 +24184,15 @@ export class HotlineSessionQueryResponseBodyData extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsRequestDetails extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
   bizData?: string;
+  /**
+   * @example
+   * 150****0000
+   */
   phoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16616,8 +24214,20 @@ export class InsertAiOutboundPhoneNumsRequestDetails extends $tea.Model {
 }
 
 export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
   bizData?: string;
+  /**
+   * @example
+   * 号码格式异常
+   */
   msg?: string;
+  /**
+   * @example
+   * 150****0000
+   */
   phoneNum?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16642,7 +24252,15 @@ export class InsertAiOutboundPhoneNumsResponseBodyDataFailInfo extends $tea.Mode
 
 export class InsertAiOutboundPhoneNumsResponseBodyData extends $tea.Model {
   failInfo?: InsertAiOutboundPhoneNumsResponseBodyDataFailInfo[];
+  /**
+   * @example
+   * 7
+   */
   successCount?: number;
+  /**
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16666,10 +24284,26 @@ export class InsertAiOutboundPhoneNumsResponseBodyData extends $tea.Model {
 }
 
 export class ListAgentBySkillGroupIdResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * username@example.com
+   */
   accountName?: string;
+  /**
+   * @example
+   * 666666
+   */
   agentId?: number;
   displayName?: string;
+  /**
+   * @example
+   * 0
+   */
   status?: number;
+  /**
+   * @example
+   * 0
+   */
   tenantId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16699,8 +24333,16 @@ export class ListAgentBySkillGroupIdResponseBodyData extends $tea.Model {
 export class ListAiccsRobotResponseBodyData extends $tea.Model {
   atProfession?: string;
   atSence?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: number;
   robotName?: string;
+  /**
+   * @example
+   * CUSTOM
+   */
   robotType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16729,9 +24371,25 @@ export class ListAiccsRobotResponseBodyData extends $tea.Model {
 
 export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
   createTime?: number;
+  /**
+   * @example
+   * MSG
+   */
   msgType?: string;
+  /**
+   * @example
+   * account1
+   */
   senderName?: string;
+  /**
+   * @example
+   * 2
+   */
   senderType?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16759,9 +24417,21 @@ export class ListChatRecordDetailResponseBodyResultDataDataMessageList extends $
 }
 
 export class ListChatRecordDetailResponseBodyResultDataData extends $tea.Model {
+  /**
+   * @example
+   * 1614578410000
+   */
   endTime?: number;
   messageList?: ListChatRecordDetailResponseBodyResultDataDataMessageList[];
+  /**
+   * @example
+   * 123@123.com
+   */
   servicerName?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16787,10 +24457,26 @@ export class ListChatRecordDetailResponseBodyResultDataData extends $tea.Model {
 }
 
 export class ListChatRecordDetailResponseBodyResultData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: ListChatRecordDetailResponseBodyResultDataData[];
+  /**
+   * @example
+   * 10
+   */
   onePageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 100
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16819,9 +24505,21 @@ export class ListChatRecordDetailResponseBodyResultData extends $tea.Model {
 
 export class ListDialogResponseBodyData extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * normal
+   */
   nodeType?: string;
+  /**
+   * @example
+   * robot
+   */
   role?: string;
   tag?: string;
+  /**
+   * @example
+   * 1619763900718
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16849,10 +24547,30 @@ export class ListDialogResponseBodyData extends $tea.Model {
 }
 
 export class ListHotlineRecordResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 100365558
+   */
   callId?: string;
+  /**
+   * @example
+   * 100365548
+   */
   connectionId?: string;
+  /**
+   * @example
+   * 16128694810
+   */
   endTime?: number;
+  /**
+   * @example
+   * 16128694110
+   */
   startTime?: number;
+  /**
+   * @example
+   * http://aliccrec-shvpc.oss-cn-shanghai.aliyuncs.com
+   */
   url?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16880,9 +24598,25 @@ export class ListHotlineRecordResponseBodyData extends $tea.Model {
 }
 
 export class ListHotlineRecordDetailResponseBodyResultDataData extends $tea.Model {
+  /**
+   * @example
+   * 1614578410000
+   */
   endTime?: number;
+  /**
+   * @example
+   * http://xxx.xxxxx/xx.wav
+   */
   ossUrl?: string;
+  /**
+   * @example
+   * 123@123.com
+   */
   servicerName?: string;
+  /**
+   * @example
+   * 1614578400000
+   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16908,10 +24642,26 @@ export class ListHotlineRecordDetailResponseBodyResultDataData extends $tea.Mode
 }
 
 export class ListHotlineRecordDetailResponseBodyResultData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: ListHotlineRecordDetailResponseBodyResultDataData[];
+  /**
+   * @example
+   * 100
+   */
   onePageSize?: number;
+  /**
+   * @example
+   * 10
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 945
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -16940,9 +24690,21 @@ export class ListHotlineRecordDetailResponseBodyResultData extends $tea.Model {
 
 export class ListRobotCallDialogResponseBodyData extends $tea.Model {
   content?: string;
+  /**
+   * @example
+   * normal
+   */
   nodeType?: string;
+  /**
+   * @example
+   * robot
+   */
   role?: string;
   tag?: string;
+  /**
+   * @example
+   * 1621483557000
+   */
   time?: string;
   static names(): { [key: string]: string } {
     return {
@@ -16970,8 +24732,16 @@ export class ListRobotCallDialogResponseBodyData extends $tea.Model {
 }
 
 export class ListRobotNodeResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   isOutput?: number;
   modelName?: string;
+  /**
+   * @example
+   * 123456
+   */
   nodeIdentifier?: string;
   nodeName?: string;
   processName?: string;
@@ -17001,7 +24771,15 @@ export class ListRobotNodeResponseBodyData extends $tea.Model {
 }
 
 export class ListRobotParamsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
   isEmpty?: number;
+  /**
+   * @example
+   * name
+   */
   paramCode?: string;
   paramName?: string;
   static names(): { [key: string]: string } {
@@ -17026,12 +24804,36 @@ export class ListRobotParamsResponseBodyData extends $tea.Model {
 }
 
 export class ListRolesResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   buId?: number;
+  /**
+   * @example
+   * admin
+   */
   code?: string;
+  /**
+   * @example
+   * 2020-01-03T20:25:33Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * Admin
+   */
   description?: string;
+  /**
+   * @example
+   * 0
+   */
   roleGroupId?: number;
   roleGroupName?: string;
+  /**
+   * @example
+   * 1
+   */
   roleId?: number;
   title?: string;
   static names(): { [key: string]: string } {
@@ -17066,10 +24868,18 @@ export class ListRolesResponseBodyData extends $tea.Model {
 }
 
 export class ListSkillGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   channelType?: number;
   description?: string;
   displayName?: string;
   name?: string;
+  /**
+   * @example
+   * 123456
+   */
   skillGroupId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17097,14 +24907,42 @@ export class ListSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class ListTaskResponseBodyDataRecord extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   completeCount?: number;
+  /**
+   * @example
+   * 1618477232000
+   */
   fireTime?: string;
+  /**
+   * @example
+   * 1618477232000
+   */
   gmtCreate?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: number;
+  /**
+   * @example
+   * 123456
+   */
   robotId?: number;
   robotName?: string;
+  /**
+   * @example
+   * RELEASE
+   */
   status?: string;
   taskName?: string;
+  /**
+   * @example
+   * 1
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17140,9 +24978,21 @@ export class ListTaskResponseBodyDataRecord extends $tea.Model {
 }
 
 export class ListTaskResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 20
+   */
   pageSize?: number;
   record?: ListTaskResponseBodyDataRecord[];
+  /**
+   * @example
+   * 50
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17168,16 +25018,56 @@ export class ListTaskResponseBodyData extends $tea.Model {
 }
 
 export class ListTaskDetailResponseBodyDataRecord extends $tea.Model {
+  /**
+   * @example
+   * 186****0000
+   */
   called?: string;
+  /**
+   * @example
+   * 136****0000
+   */
   caller?: string;
   direction?: string;
+  /**
+   * @example
+   * 30
+   */
   duration?: number;
+  /**
+   * @example
+   * 2021-05-20 00:03:00
+   */
   endTime?: string;
+  /**
+   * @example
+   * 123456
+   */
   id?: number;
+  /**
+   * @example
+   * 1
+   */
   retryCurTimes?: number;
+  /**
+   * @example
+   * 1
+   */
   retryTimes?: number;
+  /**
+   * @example
+   * 2021-05-20 00:00:00
+   */
   startTime?: string;
+  /**
+   * @example
+   * SUCCESS
+   */
   status?: string;
+  /**
+   * @example
+   * 00001
+   */
   statusCode?: string;
   statusCodeDesc?: string;
   tags?: string;
@@ -17223,9 +25113,21 @@ export class ListTaskDetailResponseBodyDataRecord extends $tea.Model {
 }
 
 export class ListTaskDetailResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 20
+   */
   pageNo?: number;
+  /**
+   * @example
+   * 1
+   */
   pageSize?: number;
   record?: ListTaskDetailResponseBodyDataRecord[];
+  /**
+   * @example
+   * 50
+   */
   total?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17251,6 +25153,10 @@ export class ListTaskDetailResponseBodyData extends $tea.Model {
 }
 
 export class MakeDoubleCallResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 68255155365620598
+   */
   acid?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17270,6 +25176,10 @@ export class MakeDoubleCallResponseBodyData extends $tea.Model {
 }
 
 export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList extends $tea.Model {
+  /**
+   * @example
+   * 6083****
+   */
   groupId?: number;
   groupName?: string;
   static names(): { [key: string]: string } {
@@ -17292,6 +25202,10 @@ export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGro
 }
 
 export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList extends $tea.Model {
+  /**
+   * @example
+   * 2256****
+   */
   departmentId?: number;
   departmentName?: string;
   groupDOList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeListGroupDOList[];
@@ -17317,16 +25231,56 @@ export class QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList ex
 }
 
 export class QueryHotlineNumberResponseBodyDataHotlineNumList extends $tea.Model {
+  /**
+   * @example
+   * true
+   */
   calloutAllDepartment?: boolean;
   calloutRangeList?: QueryHotlineNumberResponseBodyDataHotlineNumListCalloutRangeList[];
+  /**
+   * @example
+   * 测试
+   */
   description?: string;
+  /**
+   * @example
+   * 0
+   */
   evaluationStatus?: number;
+  /**
+   * @example
+   * 12
+   */
   flowId?: number;
+  /**
+   * @example
+   * 测试流程
+   */
   flowName?: string;
+  /**
+   * @example
+   * 0571****2211
+   */
   hotlineNumber?: string;
+  /**
+   * @example
+   * true
+   */
   inBoundEnabled?: boolean;
+  /**
+   * @example
+   * 浙江杭州
+   */
   location?: string;
+  /**
+   * @example
+   * true
+   */
   outboundEnabled?: boolean;
+  /**
+   * @example
+   * 电信
+   */
   sp?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17366,9 +25320,21 @@ export class QueryHotlineNumberResponseBodyDataHotlineNumList extends $tea.Model
 }
 
 export class QueryHotlineNumberResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   hotlineNumList?: QueryHotlineNumberResponseBodyDataHotlineNumList[];
+  /**
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @example
+   * 123
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17504,9 +25470,17 @@ export class QueryOutboundTaskResponseBodyData extends $tea.Model {
 }
 
 export class QuerySkillGroupsResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   channelType?: number;
   description?: string;
   displayName?: string;
+  /**
+   * @example
+   * 123456
+   */
   skillGroupId?: number;
   skillGroupName?: string;
   static names(): { [key: string]: string } {
@@ -17636,14 +25610,50 @@ export class QueryTaskDetailResponseBodyData extends $tea.Model {
 }
 
 export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $tea.Model {
+  /**
+   * @example
+   * 187****0000
+   */
   ani?: string;
+  /**
+   * @example
+   * 05712688****
+   */
   dnis?: string;
+  /**
+   * @example
+   * 2
+   */
   evaluationLevel?: number;
+  /**
+   * @example
+   * 1
+   */
   evaluationScore?: number;
+  /**
+   * @example
+   * 0
+   */
   evaluationSolution?: number;
+  /**
+   * @example
+   * 1
+   */
   evaluationStatus?: number;
+  /**
+   * @example
+   * 1
+   */
   onlineJoinRespInterval?: number;
+  /**
+   * @example
+   * 0
+   */
   onlineSessionSource?: number;
+  /**
+   * @example
+   * 05712688****
+   */
   outCallRouteNumber?: string;
   static names(): { [key: string]: string } {
     return {
@@ -17679,33 +25689,129 @@ export class QueryTouchListResponseBodyResultDataDataExtAttrs extends $tea.Model
 }
 
 export class QueryTouchListResponseBodyResultDataData extends $tea.Model {
+  /**
+   * @example
+   * 905
+   */
   buId?: number;
+  /**
+   * @example
+   * 4f8807a9de024507a3090b5b66a8****
+   */
   channelId?: string;
+  /**
+   * @example
+   * 1
+   */
   channelType?: number;
+  /**
+   * @example
+   * 1611207976000
+   */
   closeTime?: number;
   commonQueueName?: string;
+  /**
+   * @example
+   * 100
+   */
   depId?: number;
   extAttrs?: QueryTouchListResponseBodyResultDataDataExtAttrs;
   extAttrsString?: { [key: string]: any };
+  /**
+   * @example
+   * xxxx
+   */
   feedback?: string;
+  /**
+   * @example
+   * 1611209971000
+   */
   firstTime?: number;
+  /**
+   * @example
+   * 6400665****
+   */
   fromId?: number;
+  /**
+   * @example
+   * 1611209971000
+   */
   gmtCreate?: number;
+  /**
+   * @example
+   * 1611207979000
+   */
   gmtModified?: number;
+  /**
+   * @example
+   * 6400665****
+   */
   memberId?: number;
   memberName?: string;
+  /**
+   * @example
+   * 0
+   */
   parentTouchId?: number;
+  /**
+   * @example
+   * 111
+   */
   queueId?: number;
+  /**
+   * @example
+   * 67****
+   */
   servicerId?: number;
+  /**
+   * @example
+   * 13900001234
+   */
   servicerName?: string;
+  /**
+   * @example
+   * 1
+   */
   status?: number;
+  /**
+   * @example
+   * null
+   */
   switchUser?: string;
+  /**
+   * @example
+   * 678026
+   */
   toId?: number;
+  /**
+   * @example
+   * 1
+   */
   touchContent?: string;
+  /**
+   * @example
+   * 2
+   */
   touchEndReason?: number;
+  /**
+   * @example
+   * 1386****
+   */
   touchId?: string;
+  /**
+   * @example
+   * 111
+   */
   touchTime?: string;
+  /**
+   * @example
+   * 2
+   */
   touchType?: number;
+  /**
+   * @example
+   * 1386****
+   */
   userTouchId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17779,13 +25885,41 @@ export class QueryTouchListResponseBodyResultDataData extends $tea.Model {
 }
 
 export class QueryTouchListResponseBodyResultData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
   currentPage?: number;
   data?: QueryTouchListResponseBodyResultDataData[];
+  /**
+   * @example
+   * false
+   */
   empty?: boolean;
+  /**
+   * @example
+   * 2
+   */
   nextPage?: number;
+  /**
+   * @example
+   * 2
+   */
   onePageSize?: number;
+  /**
+   * @example
+   * 2
+   */
   previousPage?: number;
+  /**
+   * @example
+   * 4
+   */
   totalPage?: number;
+  /**
+   * @example
+   * 100
+   */
   totalResults?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17819,6 +25953,10 @@ export class QueryTouchListResponseBodyResultData extends $tea.Model {
 }
 
 export class RemoveAgentFromSkillGroupResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   successCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17838,6 +25976,10 @@ export class RemoveAgentFromSkillGroupResponseBodyData extends $tea.Model {
 }
 
 export class ResetHotlineNumberRequestOutboundRangeList extends $tea.Model {
+  /**
+   * @example
+   * 123456
+   */
   departmentId?: number;
   groupIdList?: number[];
   static names(): { [key: string]: string } {
@@ -17860,7 +26002,15 @@ export class ResetHotlineNumberRequestOutboundRangeList extends $tea.Model {
 }
 
 export class UpdateAiOutboundTaskRequestRecallRule extends $tea.Model {
+  /**
+   * @example
+   * 2
+   */
   count?: number;
+  /**
+   * @example
+   * 5
+   */
   interval?: number;
   static names(): { [key: string]: string } {
     return {
@@ -17904,6 +26054,13 @@ export default class Client extends OpenApi {
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
   }
 
+  /**
+   * 新增热线号码
+   * 
+   * @param tmpReq - AddHotlineNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddHotlineNumberResponse
+   */
   async addHotlineNumberWithOptions(tmpReq: AddHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<AddHotlineNumberResponse> {
     Util.validateModel(tmpReq);
     let request = new AddHotlineNumberShrinkRequest({ });
@@ -17974,11 +26131,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AddHotlineNumberResponse>(await this.callApi(params, req, runtime), new AddHotlineNumberResponse({}));
   }
 
+  /**
+   * 新增热线号码
+   * 
+   * @param request - AddHotlineNumberRequest
+   * @returns AddHotlineNumberResponse
+   */
   async addHotlineNumber(request: AddHotlineNumberRequest): Promise<AddHotlineNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addHotlineNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AddOuterAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddOuterAccountResponse
+   */
   async addOuterAccountWithOptions(request: AddOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<AddOuterAccountResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -17999,11 +26167,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddOuterAccountResponse>(await this.callApi(params, req, runtime), new AddOuterAccountResponse({}));
   }
 
+  /**
+   * @param request - AddOuterAccountRequest
+   * @returns AddOuterAccountResponse
+   */
   async addOuterAccount(request: AddOuterAccountRequest): Promise<AddOuterAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addOuterAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AddSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddSkillGroupResponse
+   */
   async addSkillGroupWithOptions(request: AddSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<AddSkillGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -18024,11 +26201,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AddSkillGroupResponse>(await this.callApi(params, req, runtime), new AddSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - AddSkillGroupRequest
+   * @returns AddSkillGroupResponse
+   */
   async addSkillGroup(request: AddSkillGroupRequest): Promise<AddSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.addSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AiccsSmartCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AiccsSmartCallResponse
+   */
   async aiccsSmartCallWithOptions(request: AiccsSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<AiccsSmartCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18177,11 +26363,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AiccsSmartCallResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallResponse({}));
   }
 
+  /**
+   * @param request - AiccsSmartCallRequest
+   * @returns AiccsSmartCallResponse
+   */
   async aiccsSmartCall(request: AiccsSmartCallRequest): Promise<AiccsSmartCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.aiccsSmartCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AiccsSmartCallOperateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AiccsSmartCallOperateResponse
+   */
   async aiccsSmartCallOperateWithOptions(request: AiccsSmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<AiccsSmartCallOperateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18230,11 +26425,20 @@ export default class Client extends OpenApi {
     return $tea.cast<AiccsSmartCallOperateResponse>(await this.callApi(params, req, runtime), new AiccsSmartCallOperateResponse({}));
   }
 
+  /**
+   * @param request - AiccsSmartCallOperateRequest
+   * @returns AiccsSmartCallOperateResponse
+   */
   async aiccsSmartCallOperate(request: AiccsSmartCallOperateRequest): Promise<AiccsSmartCallOperateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.aiccsSmartCallOperateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - AnswerCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AnswerCallResponse
+   */
   async answerCallWithOptions(request: AnswerCallRequest, runtime: $Util.RuntimeOptions): Promise<AnswerCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18279,11 +26483,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AnswerCallResponse>(await this.callApi(params, req, runtime), new AnswerCallResponse({}));
   }
 
+  /**
+   * @param request - AnswerCallRequest
+   * @returns AnswerCallResponse
+   */
   async answerCall(request: AnswerCallRequest): Promise<AnswerCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.answerCallWithOptions(request, runtime);
   }
 
+  /**
+   * 追加任务明细
+   * 
+   * @param request - AttachTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AttachTaskResponse
+   */
   async attachTaskWithOptions(request: AttachTaskRequest, runtime: $Util.RuntimeOptions): Promise<AttachTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18324,11 +26539,22 @@ export default class Client extends OpenApi {
     return $tea.cast<AttachTaskResponse>(await this.callApi(params, req, runtime), new AttachTaskResponse({}));
   }
 
+  /**
+   * 追加任务明细
+   * 
+   * @param request - AttachTaskRequest
+   * @returns AttachTaskResponse
+   */
   async attachTask(request: AttachTaskRequest): Promise<AttachTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.attachTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - BatchCreateQualityProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateQualityProjectsResponse
+   */
   async batchCreateQualityProjectsWithOptions(request: BatchCreateQualityProjectsRequest, runtime: $Util.RuntimeOptions): Promise<BatchCreateQualityProjectsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18377,11 +26603,22 @@ export default class Client extends OpenApi {
     return $tea.cast<BatchCreateQualityProjectsResponse>(await this.callApi(params, req, runtime), new BatchCreateQualityProjectsResponse({}));
   }
 
+  /**
+   * @param request - BatchCreateQualityProjectsRequest
+   * @returns BatchCreateQualityProjectsResponse
+   */
   async batchCreateQualityProjects(request: BatchCreateQualityProjectsRequest): Promise<BatchCreateQualityProjectsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.batchCreateQualityProjectsWithOptions(request, runtime);
   }
 
+  /**
+   * 删除智能外呼任务
+   * 
+   * @param request - CancelTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelTaskResponse
+   */
   async cancelTaskWithOptions(request: CancelTaskRequest, runtime: $Util.RuntimeOptions): Promise<CancelTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18418,11 +26655,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CancelTaskResponse>(await this.callApi(params, req, runtime), new CancelTaskResponse({}));
   }
 
+  /**
+   * 删除智能外呼任务
+   * 
+   * @param request - CancelTaskRequest
+   * @returns CancelTaskResponse
+   */
   async cancelTask(request: CancelTaskRequest): Promise<CancelTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.cancelTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 修改在线客服状态
+   * 
+   * @param request - ChangeChatAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeChatAgentStatusResponse
+   */
   async changeChatAgentStatusWithOptions(request: ChangeChatAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeChatAgentStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18459,11 +26709,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeChatAgentStatusResponse>(await this.callApi(params, req, runtime), new ChangeChatAgentStatusResponse({}));
   }
 
+  /**
+   * 修改在线客服状态
+   * 
+   * @param request - ChangeChatAgentStatusRequest
+   * @returns ChangeChatAgentStatusResponse
+   */
   async changeChatAgentStatus(request: ChangeChatAgentStatusRequest): Promise<ChangeChatAgentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeChatAgentStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ChangeQualityProjectStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeQualityProjectStatusResponse
+   */
   async changeQualityProjectStatusWithOptions(request: ChangeQualityProjectStatusRequest, runtime: $Util.RuntimeOptions): Promise<ChangeQualityProjectStatusResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18496,11 +26757,20 @@ export default class Client extends OpenApi {
     return $tea.cast<ChangeQualityProjectStatusResponse>(await this.callApi(params, req, runtime), new ChangeQualityProjectStatusResponse({}));
   }
 
+  /**
+   * @param request - ChangeQualityProjectStatusRequest
+   * @returns ChangeQualityProjectStatusResponse
+   */
   async changeQualityProjectStatus(request: ChangeQualityProjectStatusRequest): Promise<ChangeQualityProjectStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.changeQualityProjectStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAgentResponse
+   */
   async createAgentWithOptions(request: CreateAgentRequest, runtime: $Util.RuntimeOptions): Promise<CreateAgentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18550,11 +26820,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAgentResponse>(await this.callApi(params, req, runtime), new CreateAgentResponse({}));
   }
 
+  /**
+   * @param request - CreateAgentRequest
+   * @returns CreateAgentResponse
+   */
   async createAgent(request: CreateAgentRequest): Promise<CreateAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAgentWithOptions(request, runtime);
   }
 
+  /**
+   * 创建智能外呼任务（预测式外呼、自动外呼）
+   * 
+   * @param tmpReq - CreateAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiOutboundTaskResponse
+   */
   async createAiOutboundTaskWithOptions(tmpReq: CreateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateAiOutboundTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new CreateAiOutboundTaskShrinkRequest({ });
@@ -18629,11 +26910,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 创建智能外呼任务（预测式外呼、自动外呼）
+   * 
+   * @param request - CreateAiOutboundTaskRequest
+   * @returns CreateAiOutboundTaskResponse
+   */
   async createAiOutboundTask(request: CreateAiOutboundTaskRequest): Promise<CreateAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 创建智能外呼任务批次
+   * 
+   * @param request - CreateAiOutboundTaskBatchRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiOutboundTaskBatchResponse
+   */
   async createAiOutboundTaskBatchWithOptions(request: CreateAiOutboundTaskBatchRequest, runtime: $Util.RuntimeOptions): Promise<CreateAiOutboundTaskBatchResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18662,11 +26956,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateAiOutboundTaskBatchResponse>(await this.callApi(params, req, runtime), new CreateAiOutboundTaskBatchResponse({}));
   }
 
+  /**
+   * 创建智能外呼任务批次
+   * 
+   * @param request - CreateAiOutboundTaskBatchRequest
+   * @returns CreateAiOutboundTaskBatchResponse
+   */
   async createAiOutboundTaskBatch(request: CreateAiOutboundTaskBatchRequest): Promise<CreateAiOutboundTaskBatchResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createAiOutboundTaskBatchWithOptions(request, runtime);
   }
 
+  /**
+   * 创建部门信息
+   * 
+   * @param request - CreateDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDepartmentResponse
+   */
   async createDepartmentWithOptions(request: CreateDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<CreateDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18695,11 +27002,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateDepartmentResponse>(await this.callApi(params, req, runtime), new CreateDepartmentResponse({}));
   }
 
+  /**
+   * 创建部门信息
+   * 
+   * @param request - CreateDepartmentRequest
+   * @returns CreateDepartmentResponse
+   */
   async createDepartment(request: CreateDepartmentRequest): Promise<CreateDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOutboundTaskResponse
+   */
   async createOutboundTaskWithOptions(request: CreateOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -18788,11 +27106,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateOutboundTaskResponse>(await this.callApi(params, req, runtime), new CreateOutboundTaskResponse({}));
   }
 
+  /**
+   * @param request - CreateOutboundTaskRequest
+   * @returns CreateOutboundTaskResponse
+   */
   async createOutboundTask(request: CreateOutboundTaskRequest): Promise<CreateOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateQualityProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQualityProjectResponse
+   */
   async createQualityProjectWithOptions(request: CreateQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityProjectResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18857,11 +27184,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityProjectResponse>(await this.callApi(params, req, runtime), new CreateQualityProjectResponse({}));
   }
 
+  /**
+   * @param request - CreateQualityProjectRequest
+   * @returns CreateQualityProjectResponse
+   */
   async createQualityProject(request: CreateQualityProjectRequest): Promise<CreateQualityProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateQualityRuleResponse
+   */
   async createQualityRuleWithOptions(request: CreateQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<CreateQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18902,11 +27238,20 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateQualityRuleResponse>(await this.callApi(params, req, runtime), new CreateQualityRuleResponse({}));
   }
 
+  /**
+   * @param request - CreateQualityRuleRequest
+   * @returns CreateQualityRuleResponse
+   */
   async createQualityRule(request: CreateQualityRuleRequest): Promise<CreateQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - CreateSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateSkillGroupResponse
+   */
   async createSkillGroupWithOptions(request: CreateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<CreateSkillGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -18955,11 +27300,22 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateSkillGroupResponse>(await this.callApi(params, req, runtime), new CreateSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - CreateSkillGroupRequest
+   * @returns CreateSkillGroupResponse
+   */
   async createSkillGroup(request: CreateSkillGroupRequest): Promise<CreateSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * 创建外呼任务
+   * 
+   * @param request - CreateTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTaskResponse
+   */
   async createTaskWithOptions(request: CreateTaskRequest, runtime: $Util.RuntimeOptions): Promise<CreateTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19044,11 +27400,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateTaskResponse>(await this.callApi(params, req, runtime), new CreateTaskResponse({}));
   }
 
+  /**
+   * 创建外呼任务
+   * 
+   * @param request - CreateTaskRequest
+   * @returns CreateTaskResponse
+   */
   async createTask(request: CreateTaskRequest): Promise<CreateTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 创建坐席并开通sso登录能力
+   * 
+   * @param request - CreateThirdSsoAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateThirdSsoAgentResponse
+   */
   async createThirdSsoAgentWithOptions(request: CreateThirdSsoAgentRequest, runtime: $Util.RuntimeOptions): Promise<CreateThirdSsoAgentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19106,11 +27475,24 @@ export default class Client extends OpenApi {
     return $tea.cast<CreateThirdSsoAgentResponse>(await this.callApi(params, req, runtime), new CreateThirdSsoAgentResponse({}));
   }
 
+  /**
+   * 创建坐席并开通sso登录能力
+   * 
+   * @param request - CreateThirdSsoAgentRequest
+   * @returns CreateThirdSsoAgentResponse
+   */
   async createThirdSsoAgent(request: CreateThirdSsoAgentRequest): Promise<CreateThirdSsoAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.createThirdSsoAgentWithOptions(request, runtime);
   }
 
+  /**
+   * 删除坐席账号
+   * 
+   * @param request - DeleteAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAgentResponse
+   */
   async deleteAgentWithOptions(request: DeleteAgentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAgentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19143,11 +27525,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAgentResponse>(await this.callApi(params, req, runtime), new DeleteAgentResponse({}));
   }
 
+  /**
+   * 删除坐席账号
+   * 
+   * @param request - DeleteAgentRequest
+   * @returns DeleteAgentResponse
+   */
   async deleteAgent(request: DeleteAgentRequest): Promise<DeleteAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAgentWithOptions(request, runtime);
   }
 
+  /**
+   * 删除智能外呼任务
+   * 
+   * @param request - DeleteAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAiOutboundTaskResponse
+   */
   async deleteAiOutboundTaskWithOptions(request: DeleteAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAiOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19176,11 +27571,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 删除智能外呼任务
+   * 
+   * @param request - DeleteAiOutboundTaskRequest
+   * @returns DeleteAiOutboundTaskResponse
+   */
   async deleteAiOutboundTask(request: DeleteAiOutboundTaskRequest): Promise<DeleteAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 删除部门信息
+   * 
+   * @param request - DeleteDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDepartmentResponse
+   */
   async deleteDepartmentWithOptions(request: DeleteDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<DeleteDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19209,11 +27617,24 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteDepartmentResponse>(await this.callApi(params, req, runtime), new DeleteDepartmentResponse({}));
   }
 
+  /**
+   * 删除部门信息
+   * 
+   * @param request - DeleteDepartmentRequest
+   * @returns DeleteDepartmentResponse
+   */
   async deleteDepartment(request: DeleteDepartmentRequest): Promise<DeleteDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * 删除热线号码
+   * 
+   * @param request - DeleteHotlineNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteHotlineNumberResponse
+   */
   async deleteHotlineNumberWithOptions(request: DeleteHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<DeleteHotlineNumberResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19242,11 +27663,22 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteHotlineNumberResponse>(await this.callApi(params, req, runtime), new DeleteHotlineNumberResponse({}));
   }
 
+  /**
+   * 删除热线号码
+   * 
+   * @param request - DeleteHotlineNumberRequest
+   * @returns DeleteHotlineNumberResponse
+   */
   async deleteHotlineNumber(request: DeleteHotlineNumberRequest): Promise<DeleteHotlineNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteHotlineNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOutboundTaskResponse
+   */
   async deleteOutboundTaskWithOptions(request: DeleteOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19275,11 +27707,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOutboundTaskResponse>(await this.callApi(params, req, runtime), new DeleteOutboundTaskResponse({}));
   }
 
+  /**
+   * @param request - DeleteOutboundTaskRequest
+   * @returns DeleteOutboundTaskResponse
+   */
   async deleteOutboundTask(request: DeleteOutboundTaskRequest): Promise<DeleteOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteOuterAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteOuterAccountResponse
+   */
   async deleteOuterAccountWithOptions(request: DeleteOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<DeleteOuterAccountResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19300,11 +27741,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteOuterAccountResponse>(await this.callApi(params, req, runtime), new DeleteOuterAccountResponse({}));
   }
 
+  /**
+   * @param request - DeleteOuterAccountRequest
+   * @returns DeleteOuterAccountResponse
+   */
   async deleteOuterAccount(request: DeleteOuterAccountRequest): Promise<DeleteOuterAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteOuterAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteQualityProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualityProjectResponse
+   */
   async deleteQualityProjectWithOptions(request: DeleteQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19333,11 +27783,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityProjectResponse>(await this.callApi(params, req, runtime), new DeleteQualityProjectResponse({}));
   }
 
+  /**
+   * @param request - DeleteQualityProjectRequest
+   * @returns DeleteQualityProjectResponse
+   */
   async deleteQualityProject(request: DeleteQualityProjectRequest): Promise<DeleteQualityProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteQualityRuleResponse
+   */
   async deleteQualityRuleWithOptions(request: DeleteQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<DeleteQualityRuleResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19366,11 +27825,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteQualityRuleResponse>(await this.callApi(params, req, runtime), new DeleteQualityRuleResponse({}));
   }
 
+  /**
+   * @param request - DeleteQualityRuleRequest
+   * @returns DeleteQualityRuleResponse
+   */
   async deleteQualityRule(request: DeleteQualityRuleRequest): Promise<DeleteQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DeleteSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteSkillGroupResponse
+   */
   async deleteSkillGroupWithOptions(request: DeleteSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<DeleteSkillGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19391,11 +27859,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DeleteSkillGroupResponse>(await this.callApi(params, req, runtime), new DeleteSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - DeleteSkillGroupRequest
+   * @returns DeleteSkillGroupResponse
+   */
   async deleteSkillGroup(request: DeleteSkillGroupRequest): Promise<DeleteSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - DescribeRecordDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRecordDataResponse
+   */
   async describeRecordDataWithOptions(request: DescribeRecordDataRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRecordDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19448,11 +27925,20 @@ export default class Client extends OpenApi {
     return $tea.cast<DescribeRecordDataResponse>(await this.callApi(params, req, runtime), new DescribeRecordDataResponse({}));
   }
 
+  /**
+   * @param request - DescribeRecordDataRequest
+   * @returns DescribeRecordDataResponse
+   */
   async describeRecordData(request: DescribeRecordDataRequest): Promise<DescribeRecordDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRecordDataWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - EditQualityProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditQualityProjectResponse
+   */
   async editQualityProjectWithOptions(request: EditQualityProjectRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityProjectResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19527,11 +28013,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EditQualityProjectResponse>(await this.callApi(params, req, runtime), new EditQualityProjectResponse({}));
   }
 
+  /**
+   * @param request - EditQualityProjectRequest
+   * @returns EditQualityProjectResponse
+   */
   async editQualityProject(request: EditQualityProjectRequest): Promise<EditQualityProjectResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editQualityProjectWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - EditQualityRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditQualityRuleResponse
+   */
   async editQualityRuleWithOptions(request: EditQualityRuleRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityRuleResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19576,11 +28071,20 @@ export default class Client extends OpenApi {
     return $tea.cast<EditQualityRuleResponse>(await this.callApi(params, req, runtime), new EditQualityRuleResponse({}));
   }
 
+  /**
+   * @param request - EditQualityRuleRequest
+   * @returns EditQualityRuleResponse
+   */
   async editQualityRule(request: EditQualityRuleRequest): Promise<EditQualityRuleResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editQualityRuleWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - EditQualityRuleTagRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EditQualityRuleTagResponse
+   */
   async editQualityRuleTagWithOptions(request: EditQualityRuleTagRequest, runtime: $Util.RuntimeOptions): Promise<EditQualityRuleTagResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19609,11 +28113,22 @@ export default class Client extends OpenApi {
     return $tea.cast<EditQualityRuleTagResponse>(await this.callApi(params, req, runtime), new EditQualityRuleTagResponse({}));
   }
 
+  /**
+   * @param request - EditQualityRuleTagRequest
+   * @returns EditQualityRuleTagResponse
+   */
   async editQualityRuleTag(request: EditQualityRuleTagRequest): Promise<EditQualityRuleTagResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.editQualityRuleTagWithOptions(request, runtime);
   }
 
+  /**
+   * 热线号码加密
+   * 
+   * @param request - EncryptPhoneNumRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EncryptPhoneNumResponse
+   */
   async encryptPhoneNumWithOptions(request: EncryptPhoneNumRequest, runtime: $Util.RuntimeOptions): Promise<EncryptPhoneNumResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19634,11 +28149,22 @@ export default class Client extends OpenApi {
     return $tea.cast<EncryptPhoneNumResponse>(await this.callApi(params, req, runtime), new EncryptPhoneNumResponse({}));
   }
 
+  /**
+   * 热线号码加密
+   * 
+   * @param request - EncryptPhoneNumRequest
+   * @returns EncryptPhoneNumResponse
+   */
   async encryptPhoneNum(request: EncryptPhoneNumRequest): Promise<EncryptPhoneNumResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.encryptPhoneNumWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - FetchCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FetchCallResponse
+   */
   async fetchCallWithOptions(request: FetchCallRequest, runtime: $Util.RuntimeOptions): Promise<FetchCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19687,11 +28213,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FetchCallResponse>(await this.callApi(params, req, runtime), new FetchCallResponse({}));
   }
 
+  /**
+   * @param request - FetchCallRequest
+   * @returns FetchCallResponse
+   */
   async fetchCall(request: FetchCallRequest): Promise<FetchCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.fetchCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - FinishHotlineServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishHotlineServiceResponse
+   */
   async finishHotlineServiceWithOptions(request: FinishHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<FinishHotlineServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19724,11 +28259,20 @@ export default class Client extends OpenApi {
     return $tea.cast<FinishHotlineServiceResponse>(await this.callApi(params, req, runtime), new FinishHotlineServiceResponse({}));
   }
 
+  /**
+   * @param request - FinishHotlineServiceRequest
+   * @returns FinishHotlineServiceResponse
+   */
   async finishHotlineService(request: FinishHotlineServiceRequest): Promise<FinishHotlineServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.finishHotlineServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GenerateWebSocketSignRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateWebSocketSignResponse
+   */
   async generateWebSocketSignWithOptions(request: GenerateWebSocketSignRequest, runtime: $Util.RuntimeOptions): Promise<GenerateWebSocketSignResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19761,11 +28305,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GenerateWebSocketSignResponse>(await this.callApi(params, req, runtime), new GenerateWebSocketSignResponse({}));
   }
 
+  /**
+   * @param request - GenerateWebSocketSignRequest
+   * @returns GenerateWebSocketSignResponse
+   */
   async generateWebSocketSign(request: GenerateWebSocketSignRequest): Promise<GenerateWebSocketSignResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.generateWebSocketSignWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentResponse
+   */
   async getAgentWithOptions(request: GetAgentRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -19786,11 +28339,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentResponse>(await this.callApi(params, req, runtime), new GetAgentResponse({}));
   }
 
+  /**
+   * @param request - GetAgentRequest
+   * @returns GetAgentResponse
+   */
   async getAgent(request: GetAgentRequest): Promise<GetAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentWithOptions(request, runtime);
   }
 
+  /**
+   * 坐席纬度基础状态量
+   * 
+   * @param tmpReq - GetAgentBasisStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentBasisStatusResponse
+   */
   async getAgentBasisStatusWithOptions(tmpReq: GetAgentBasisStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentBasisStatusResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAgentBasisStatusShrinkRequest({ });
@@ -19821,11 +28385,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentBasisStatusResponse>(await this.callApi(params, req, runtime), new GetAgentBasisStatusResponse({}));
   }
 
+  /**
+   * 坐席纬度基础状态量
+   * 
+   * @param request - GetAgentBasisStatusRequest
+   * @returns GetAgentBasisStatusResponse
+   */
   async getAgentBasisStatus(request: GetAgentBasisStatusRequest): Promise<GetAgentBasisStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentBasisStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetAgentByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentByIdResponse
+   */
   async getAgentByIdWithOptions(request: GetAgentByIdRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentByIdResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -19854,11 +28429,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentByIdResponse>(await this.callApi(params, req, runtime), new GetAgentByIdResponse({}));
   }
 
+  /**
+   * @param request - GetAgentByIdRequest
+   * @returns GetAgentByIdResponse
+   */
   async getAgentById(request: GetAgentByIdRequest): Promise<GetAgentByIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentByIdWithOptions(request, runtime);
   }
 
+  /**
+   * 热线坐席纬度详情汇总
+   * 
+   * @param tmpReq - GetAgentDetailReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentDetailReportResponse
+   */
   async getAgentDetailReportWithOptions(tmpReq: GetAgentDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentDetailReportResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAgentDetailReportShrinkRequest({ });
@@ -19889,11 +28475,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetAgentDetailReportResponse({}));
   }
 
+  /**
+   * 热线坐席纬度详情汇总
+   * 
+   * @param request - GetAgentDetailReportRequest
+   * @returns GetAgentDetailReportResponse
+   */
   async getAgentDetailReport(request: GetAgentDetailReportRequest): Promise<GetAgentDetailReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentDetailReportWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetAgentIndexRealTimeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentIndexRealTimeResponse
+   */
   async getAgentIndexRealTimeWithOptions(request: GetAgentIndexRealTimeRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentIndexRealTimeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -19934,11 +28531,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentIndexRealTimeResponse>(await this.callApi(params, req, runtime), new GetAgentIndexRealTimeResponse({}));
   }
 
+  /**
+   * @param request - GetAgentIndexRealTimeRequest
+   * @returns GetAgentIndexRealTimeResponse
+   */
   async getAgentIndexRealTime(request: GetAgentIndexRealTimeRequest): Promise<GetAgentIndexRealTimeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentIndexRealTimeWithOptions(request, runtime);
   }
 
+  /**
+   * 坐席服务状态量
+   * 
+   * @param tmpReq - GetAgentServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentServiceStatusResponse
+   */
   async getAgentServiceStatusWithOptions(tmpReq: GetAgentServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentServiceStatusResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAgentServiceStatusShrinkRequest({ });
@@ -19969,11 +28577,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentServiceStatusResponse>(await this.callApi(params, req, runtime), new GetAgentServiceStatusResponse({}));
   }
 
+  /**
+   * 坐席服务状态量
+   * 
+   * @param request - GetAgentServiceStatusRequest
+   * @returns GetAgentServiceStatusResponse
+   */
   async getAgentServiceStatus(request: GetAgentServiceStatusRequest): Promise<GetAgentServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * 坐席纬度统计量
+   * 
+   * @param tmpReq - GetAgentStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentStatisticsResponse
+   */
   async getAgentStatisticsWithOptions(tmpReq: GetAgentStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetAgentStatisticsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetAgentStatisticsShrinkRequest({ });
@@ -20004,11 +28625,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAgentStatisticsResponse>(await this.callApi(params, req, runtime), new GetAgentStatisticsResponse({}));
   }
 
+  /**
+   * 坐席纬度统计量
+   * 
+   * @param request - GetAgentStatisticsRequest
+   * @returns GetAgentStatisticsResponse
+   */
   async getAgentStatistics(request: GetAgentStatisticsRequest): Promise<GetAgentStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAgentStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * 获取智能外呼任务业务自定义信息
+   * 
+   * @param request - GetAiOutboundTaskBizDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiOutboundTaskBizDataResponse
+   */
   async getAiOutboundTaskBizDataWithOptions(request: GetAiOutboundTaskBizDataRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskBizDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20029,11 +28663,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAiOutboundTaskBizDataResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskBizDataResponse({}));
   }
 
+  /**
+   * 获取智能外呼任务业务自定义信息
+   * 
+   * @param request - GetAiOutboundTaskBizDataRequest
+   * @returns GetAiOutboundTaskBizDataResponse
+   */
   async getAiOutboundTaskBizData(request: GetAiOutboundTaskBizDataRequest): Promise<GetAiOutboundTaskBizDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAiOutboundTaskBizDataWithOptions(request, runtime);
   }
 
+  /**
+   * 智能外呼任务配置详情查询
+   * 
+   * @param request - GetAiOutboundTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiOutboundTaskDetailResponse
+   */
   async getAiOutboundTaskDetailWithOptions(request: GetAiOutboundTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20054,11 +28701,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAiOutboundTaskDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskDetailResponse({}));
   }
 
+  /**
+   * 智能外呼任务配置详情查询
+   * 
+   * @param request - GetAiOutboundTaskDetailRequest
+   * @returns GetAiOutboundTaskDetailResponse
+   */
   async getAiOutboundTaskDetail(request: GetAiOutboundTaskDetailRequest): Promise<GetAiOutboundTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAiOutboundTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * 智能外呼任务执行详情
+   * 
+   * @param request - GetAiOutboundTaskExecDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiOutboundTaskExecDetailResponse
+   */
   async getAiOutboundTaskExecDetailWithOptions(request: GetAiOutboundTaskExecDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskExecDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20079,11 +28739,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAiOutboundTaskExecDetailResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskExecDetailResponse({}));
   }
 
+  /**
+   * 智能外呼任务执行详情
+   * 
+   * @param request - GetAiOutboundTaskExecDetailRequest
+   * @returns GetAiOutboundTaskExecDetailResponse
+   */
   async getAiOutboundTaskExecDetail(request: GetAiOutboundTaskExecDetailRequest): Promise<GetAiOutboundTaskExecDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAiOutboundTaskExecDetailWithOptions(request, runtime);
   }
 
+  /**
+   * 智能外呼任务列表查询
+   * 
+   * @param request - GetAiOutboundTaskListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiOutboundTaskListResponse
+   */
   async getAiOutboundTaskListWithOptions(request: GetAiOutboundTaskListRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20104,11 +28777,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAiOutboundTaskListResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskListResponse({}));
   }
 
+  /**
+   * 智能外呼任务列表查询
+   * 
+   * @param request - GetAiOutboundTaskListRequest
+   * @returns GetAiOutboundTaskListResponse
+   */
   async getAiOutboundTaskList(request: GetAiOutboundTaskListRequest): Promise<GetAiOutboundTaskListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAiOutboundTaskListWithOptions(request, runtime);
   }
 
+  /**
+   * 智能外呼任务执行进度
+   * 
+   * @param request - GetAiOutboundTaskProgressRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiOutboundTaskProgressResponse
+   */
   async getAiOutboundTaskProgressWithOptions(request: GetAiOutboundTaskProgressRequest, runtime: $Util.RuntimeOptions): Promise<GetAiOutboundTaskProgressResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20129,11 +28815,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAiOutboundTaskProgressResponse>(await this.callApi(params, req, runtime), new GetAiOutboundTaskProgressResponse({}));
   }
 
+  /**
+   * 智能外呼任务执行进度
+   * 
+   * @param request - GetAiOutboundTaskProgressRequest
+   * @returns GetAiOutboundTaskProgressResponse
+   */
   async getAiOutboundTaskProgress(request: GetAiOutboundTaskProgressRequest): Promise<GetAiOutboundTaskProgressResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAiOutboundTaskProgressWithOptions(request, runtime);
   }
 
+  /**
+   * getAllDepartment
+   * 
+   * @param request - GetAllDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAllDepartmentResponse
+   */
   async getAllDepartmentWithOptions(request: GetAllDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<GetAllDepartmentResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20154,11 +28853,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetAllDepartmentResponse>(await this.callApi(params, req, runtime), new GetAllDepartmentResponse({}));
   }
 
+  /**
+   * getAllDepartment
+   * 
+   * @param request - GetAllDepartmentRequest
+   * @returns GetAllDepartmentResponse
+   */
   async getAllDepartment(request: GetAllDepartmentRequest): Promise<GetAllDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getAllDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * 获取通话录音文件
+   * 
+   * @param request - GetCallSoundRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCallSoundRecordResponse
+   */
   async getCallSoundRecordWithOptions(request: GetCallSoundRecordRequest, runtime: $Util.RuntimeOptions): Promise<GetCallSoundRecordResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20199,11 +28911,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCallSoundRecordResponse>(await this.callApi(params, req, runtime), new GetCallSoundRecordResponse({}));
   }
 
+  /**
+   * 获取通话录音文件
+   * 
+   * @param request - GetCallSoundRecordRequest
+   * @returns GetCallSoundRecordResponse
+   */
   async getCallSoundRecord(request: GetCallSoundRecordRequest): Promise<GetCallSoundRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCallSoundRecordWithOptions(request, runtime);
   }
 
+  /**
+   * 获取热线配置号码列表
+   * 
+   * @param request - GetConfigNumListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConfigNumListResponse
+   */
   async getConfigNumListWithOptions(request: GetConfigNumListRequest, runtime: $Util.RuntimeOptions): Promise<GetConfigNumListResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20224,11 +28949,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetConfigNumListResponse>(await this.callApi(params, req, runtime), new GetConfigNumListResponse({}));
   }
 
+  /**
+   * 获取热线配置号码列表
+   * 
+   * @param request - GetConfigNumListRequest
+   * @returns GetConfigNumListResponse
+   */
   async getConfigNumList(request: GetConfigNumListRequest): Promise<GetConfigNumListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getConfigNumListWithOptions(request, runtime);
   }
 
+  /**
+   * 获取会员信息
+   * 
+   * @param request - GetCustomerInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCustomerInfoResponse
+   */
   async getCustomerInfoWithOptions(request: GetCustomerInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetCustomerInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20249,11 +28987,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetCustomerInfoResponse>(await this.callApi(params, req, runtime), new GetCustomerInfoResponse({}));
   }
 
+  /**
+   * 获取会员信息
+   * 
+   * @param request - GetCustomerInfoRequest
+   * @returns GetCustomerInfoResponse
+   */
   async getCustomerInfo(request: GetCustomerInfoRequest): Promise<GetCustomerInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getCustomerInfoWithOptions(request, runtime);
   }
 
+  /**
+   * 获取技能组分组
+   * 
+   * @param request - GetDepGroupTreeDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDepGroupTreeDataResponse
+   */
   async getDepGroupTreeDataWithOptions(request: GetDepGroupTreeDataRequest, runtime: $Util.RuntimeOptions): Promise<GetDepGroupTreeDataResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20274,11 +29025,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDepGroupTreeDataResponse>(await this.callApi(params, req, runtime), new GetDepGroupTreeDataResponse({}));
   }
 
+  /**
+   * 获取技能组分组
+   * 
+   * @param request - GetDepGroupTreeDataRequest
+   * @returns GetDepGroupTreeDataResponse
+   */
   async getDepGroupTreeData(request: GetDepGroupTreeDataRequest): Promise<GetDepGroupTreeDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDepGroupTreeDataWithOptions(request, runtime);
   }
 
+  /**
+   * 部门纬度坐席状态量
+   * 
+   * @param tmpReq - GetDepartmentalLatitudeAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDepartmentalLatitudeAgentStatusResponse
+   */
   async getDepartmentalLatitudeAgentStatusWithOptions(tmpReq: GetDepartmentalLatitudeAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetDepartmentalLatitudeAgentStatusResponse> {
     Util.validateModel(tmpReq);
     let request = new GetDepartmentalLatitudeAgentStatusShrinkRequest({ });
@@ -20305,11 +29069,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetDepartmentalLatitudeAgentStatusResponse>(await this.callApi(params, req, runtime), new GetDepartmentalLatitudeAgentStatusResponse({}));
   }
 
+  /**
+   * 部门纬度坐席状态量
+   * 
+   * @param request - GetDepartmentalLatitudeAgentStatusRequest
+   * @returns GetDepartmentalLatitudeAgentStatusResponse
+   */
   async getDepartmentalLatitudeAgentStatus(request: GetDepartmentalLatitudeAgentStatusRequest): Promise<GetDepartmentalLatitudeAgentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getDepartmentalLatitudeAgentStatusWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetHotlineAgentDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineAgentDetailResponse
+   */
   async getHotlineAgentDetailWithOptions(request: GetHotlineAgentDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20330,11 +29105,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineAgentDetailResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailResponse({}));
   }
 
+  /**
+   * @param request - GetHotlineAgentDetailRequest
+   * @returns GetHotlineAgentDetailResponse
+   */
   async getHotlineAgentDetail(request: GetHotlineAgentDetailRequest): Promise<GetHotlineAgentDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineAgentDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetHotlineAgentDetailReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineAgentDetailReportResponse
+   */
   async getHotlineAgentDetailReportWithOptions(request: GetHotlineAgentDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentDetailReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20383,11 +29167,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineAgentDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentDetailReportResponse({}));
   }
 
+  /**
+   * @param request - GetHotlineAgentDetailReportRequest
+   * @returns GetHotlineAgentDetailReportResponse
+   */
   async getHotlineAgentDetailReport(request: GetHotlineAgentDetailReportRequest): Promise<GetHotlineAgentDetailReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineAgentDetailReportWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetHotlineAgentStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineAgentStatusResponse
+   */
   async getHotlineAgentStatusWithOptions(request: GetHotlineAgentStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineAgentStatusResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20416,11 +29209,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineAgentStatusResponse>(await this.callApi(params, req, runtime), new GetHotlineAgentStatusResponse({}));
   }
 
+  /**
+   * @param request - GetHotlineAgentStatusRequest
+   * @returns GetHotlineAgentStatusResponse
+   */
   async getHotlineAgentStatus(request: GetHotlineAgentStatusRequest): Promise<GetHotlineAgentStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineAgentStatusWithOptions(request, runtime);
   }
 
+  /**
+   * 查询话务动作结果数据
+   * 
+   * @param request - GetHotlineCallActionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineCallActionResponse
+   */
   async getHotlineCallActionWithOptions(request: GetHotlineCallActionRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineCallActionResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20469,11 +29273,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineCallActionResponse>(await this.callApi(params, req, runtime), new GetHotlineCallActionResponse({}));
   }
 
+  /**
+   * 查询话务动作结果数据
+   * 
+   * @param request - GetHotlineCallActionRequest
+   * @returns GetHotlineCallActionResponse
+   */
   async getHotlineCallAction(request: GetHotlineCallActionRequest): Promise<GetHotlineCallActionResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineCallActionWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetHotlineGroupDetailReportRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineGroupDetailReportResponse
+   */
   async getHotlineGroupDetailReportWithOptions(request: GetHotlineGroupDetailReportRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineGroupDetailReportResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20522,11 +29337,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineGroupDetailReportResponse>(await this.callApi(params, req, runtime), new GetHotlineGroupDetailReportResponse({}));
   }
 
+  /**
+   * @param request - GetHotlineGroupDetailReportRequest
+   * @returns GetHotlineGroupDetailReportResponse
+   */
   async getHotlineGroupDetailReport(request: GetHotlineGroupDetailReportRequest): Promise<GetHotlineGroupDetailReportResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineGroupDetailReportWithOptions(request, runtime);
   }
 
+  /**
+   * 获取热线聊天记录
+   * 
+   * @param request - GetHotlineMessageLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineMessageLogResponse
+   */
   async getHotlineMessageLogWithOptions(request: GetHotlineMessageLogRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineMessageLogResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20547,11 +29373,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineMessageLogResponse>(await this.callApi(params, req, runtime), new GetHotlineMessageLogResponse({}));
   }
 
+  /**
+   * 获取热线聊天记录
+   * 
+   * @param request - GetHotlineMessageLogRequest
+   * @returns GetHotlineMessageLogResponse
+   */
   async getHotlineMessageLog(request: GetHotlineMessageLogRequest): Promise<GetHotlineMessageLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineMessageLogWithOptions(request, runtime);
   }
 
+  /**
+   * 获取热线当前信息
+   * 
+   * @param request - GetHotlineRuntimeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineRuntimeInfoResponse
+   */
   async getHotlineRuntimeInfoWithOptions(request: GetHotlineRuntimeInfoRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineRuntimeInfoResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20572,11 +29411,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineRuntimeInfoResponse>(await this.callApi(params, req, runtime), new GetHotlineRuntimeInfoResponse({}));
   }
 
+  /**
+   * 获取热线当前信息
+   * 
+   * @param request - GetHotlineRuntimeInfoRequest
+   * @returns GetHotlineRuntimeInfoResponse
+   */
   async getHotlineRuntimeInfo(request: GetHotlineRuntimeInfoRequest): Promise<GetHotlineRuntimeInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineRuntimeInfoWithOptions(request, runtime);
   }
 
+  /**
+   * 服务统计量数据
+   * 
+   * @param tmpReq - GetHotlineServiceStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineServiceStatisticsResponse
+   */
   async getHotlineServiceStatisticsWithOptions(tmpReq: GetHotlineServiceStatisticsRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineServiceStatisticsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetHotlineServiceStatisticsShrinkRequest({ });
@@ -20611,11 +29463,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineServiceStatisticsResponse>(await this.callApi(params, req, runtime), new GetHotlineServiceStatisticsResponse({}));
   }
 
+  /**
+   * 服务统计量数据
+   * 
+   * @param request - GetHotlineServiceStatisticsRequest
+   * @returns GetHotlineServiceStatisticsResponse
+   */
   async getHotlineServiceStatistics(request: GetHotlineServiceStatisticsRequest): Promise<GetHotlineServiceStatisticsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineServiceStatisticsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetHotlineWaitingNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetHotlineWaitingNumberResponse
+   */
   async getHotlineWaitingNumberWithOptions(request: GetHotlineWaitingNumberRequest, runtime: $Util.RuntimeOptions): Promise<GetHotlineWaitingNumberResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20636,11 +29499,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetHotlineWaitingNumberResponse>(await this.callApi(params, req, runtime), new GetHotlineWaitingNumberResponse({}));
   }
 
+  /**
+   * @param request - GetHotlineWaitingNumberRequest
+   * @returns GetHotlineWaitingNumberResponse
+   */
   async getHotlineWaitingNumber(request: GetHotlineWaitingNumberRequest): Promise<GetHotlineWaitingNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getHotlineWaitingNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetIndexCurrentValueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetIndexCurrentValueResponse
+   */
   async getIndexCurrentValueWithOptions(request: GetIndexCurrentValueRequest, runtime: $Util.RuntimeOptions): Promise<GetIndexCurrentValueResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20673,11 +29545,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetIndexCurrentValueResponse>(await this.callApi(params, req, runtime), new GetIndexCurrentValueResponse({}));
   }
 
+  /**
+   * @param request - GetIndexCurrentValueRequest
+   * @returns GetIndexCurrentValueResponse
+   */
   async getIndexCurrentValue(request: GetIndexCurrentValueRequest): Promise<GetIndexCurrentValueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getIndexCurrentValueWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetInstanceListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInstanceListResponse
+   */
   async getInstanceListWithOptions(request: GetInstanceListRequest, runtime: $Util.RuntimeOptions): Promise<GetInstanceListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20710,11 +29591,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetInstanceListResponse>(await this.callApi(params, req, runtime), new GetInstanceListResponse({}));
   }
 
+  /**
+   * @param request - GetInstanceListRequest
+   * @returns GetInstanceListResponse
+   */
   async getInstanceList(request: GetInstanceListRequest): Promise<GetInstanceListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getInstanceListWithOptions(request, runtime);
   }
 
+  /**
+   * 热线检测获取mcu ip地址
+   * 
+   * @param request - GetMcuLvsIpRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMcuLvsIpResponse
+   */
   async getMcuLvsIpWithOptions(request: GetMcuLvsIpRequest, runtime: $Util.RuntimeOptions): Promise<GetMcuLvsIpResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20735,11 +29627,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetMcuLvsIpResponse>(await this.callApi(params, req, runtime), new GetMcuLvsIpResponse({}));
   }
 
+  /**
+   * 热线检测获取mcu ip地址
+   * 
+   * @param request - GetMcuLvsIpRequest
+   * @returns GetMcuLvsIpResponse
+   */
   async getMcuLvsIp(request: GetMcuLvsIpRequest): Promise<GetMcuLvsIpResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getMcuLvsIpWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetNumLocationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNumLocationResponse
+   */
   async getNumLocationWithOptions(request: GetNumLocationRequest, runtime: $Util.RuntimeOptions): Promise<GetNumLocationResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -20760,11 +29663,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetNumLocationResponse>(await this.callApi(params, req, runtime), new GetNumLocationResponse({}));
   }
 
+  /**
+   * @param request - GetNumLocationRequest
+   * @returns GetNumLocationResponse
+   */
   async getNumLocation(request: GetNumLocationRequest): Promise<GetNumLocationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getNumLocationWithOptions(request, runtime);
   }
 
+  /**
+   * 在线坐席信息
+   * 
+   * @param tmpReq - GetOnlineSeatInformationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOnlineSeatInformationResponse
+   */
   async getOnlineSeatInformationWithOptions(tmpReq: GetOnlineSeatInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetOnlineSeatInformationResponse> {
     Util.validateModel(tmpReq);
     let request = new GetOnlineSeatInformationShrinkRequest({ });
@@ -20795,11 +29709,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOnlineSeatInformationResponse>(await this.callApi(params, req, runtime), new GetOnlineSeatInformationResponse({}));
   }
 
+  /**
+   * 在线坐席信息
+   * 
+   * @param request - GetOnlineSeatInformationRequest
+   * @returns GetOnlineSeatInformationResponse
+   */
   async getOnlineSeatInformation(request: GetOnlineSeatInformationRequest): Promise<GetOnlineSeatInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOnlineSeatInformationWithOptions(request, runtime);
   }
 
+  /**
+   * 在线服务总量
+   * 
+   * @param tmpReq - GetOnlineServiceVolumeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOnlineServiceVolumeResponse
+   */
   async getOnlineServiceVolumeWithOptions(tmpReq: GetOnlineServiceVolumeRequest, runtime: $Util.RuntimeOptions): Promise<GetOnlineServiceVolumeResponse> {
     Util.validateModel(tmpReq);
     let request = new GetOnlineServiceVolumeShrinkRequest({ });
@@ -20834,11 +29761,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOnlineServiceVolumeResponse>(await this.callApi(params, req, runtime), new GetOnlineServiceVolumeResponse({}));
   }
 
+  /**
+   * 在线服务总量
+   * 
+   * @param request - GetOnlineServiceVolumeRequest
+   * @returns GetOnlineServiceVolumeResponse
+   */
   async getOnlineServiceVolume(request: GetOnlineServiceVolumeRequest): Promise<GetOnlineServiceVolumeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOnlineServiceVolumeWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetOutbounNumListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOutbounNumListResponse
+   */
   async getOutbounNumListWithOptions(request: GetOutbounNumListRequest, runtime: $Util.RuntimeOptions): Promise<GetOutbounNumListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -20871,11 +29809,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetOutbounNumListResponse>(await this.callApi(params, req, runtime), new GetOutbounNumListResponse({}));
   }
 
+  /**
+   * @param request - GetOutbounNumListRequest
+   * @returns GetOutbounNumListResponse
+   */
   async getOutbounNumList(request: GetOutbounNumListRequest): Promise<GetOutbounNumListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getOutbounNumListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityProjectDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityProjectDetailResponse
+   */
   async getQualityProjectDetailWithOptions(request: GetQualityProjectDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20904,11 +29851,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityProjectDetailResponse>(await this.callApi(params, req, runtime), new GetQualityProjectDetailResponse({}));
   }
 
+  /**
+   * @param request - GetQualityProjectDetailRequest
+   * @returns GetQualityProjectDetailResponse
+   */
   async getQualityProjectDetail(request: GetQualityProjectDetailRequest): Promise<GetQualityProjectDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityProjectDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityProjectListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityProjectListResponse
+   */
   async getQualityProjectListWithOptions(request: GetQualityProjectListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20957,11 +29913,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityProjectListResponse>(await this.callApi(params, req, runtime), new GetQualityProjectListResponse({}));
   }
 
+  /**
+   * @param request - GetQualityProjectListRequest
+   * @returns GetQualityProjectListResponse
+   */
   async getQualityProjectList(request: GetQualityProjectListRequest): Promise<GetQualityProjectListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityProjectListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityProjectLogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityProjectLogResponse
+   */
   async getQualityProjectLogWithOptions(request: GetQualityProjectLogRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityProjectLogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -20990,11 +29955,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityProjectLogResponse>(await this.callApi(params, req, runtime), new GetQualityProjectLogResponse({}));
   }
 
+  /**
+   * @param request - GetQualityProjectLogRequest
+   * @returns GetQualityProjectLogResponse
+   */
   async getQualityProjectLog(request: GetQualityProjectLogRequest): Promise<GetQualityProjectLogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityProjectLogWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityResultResponse
+   */
   async getQualityResultWithOptions(request: GetQualityResultRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityResultResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21055,11 +30029,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityResultResponse>(await this.callApi(params, req, runtime), new GetQualityResultResponse({}));
   }
 
+  /**
+   * @param request - GetQualityResultRequest
+   * @returns GetQualityResultResponse
+   */
   async getQualityResult(request: GetQualityResultRequest): Promise<GetQualityResultResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityResultWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityRuleDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleDetailResponse
+   */
   async getQualityRuleDetailWithOptions(request: GetQualityRuleDetailRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21088,11 +30071,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityRuleDetailResponse>(await this.callApi(params, req, runtime), new GetQualityRuleDetailResponse({}));
   }
 
+  /**
+   * @param request - GetQualityRuleDetailRequest
+   * @returns GetQualityRuleDetailResponse
+   */
   async getQualityRuleDetail(request: GetQualityRuleDetailRequest): Promise<GetQualityRuleDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityRuleDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityRuleListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleListResponse
+   */
   async getQualityRuleListWithOptions(request: GetQualityRuleListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21125,11 +30117,20 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityRuleListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleListResponse({}));
   }
 
+  /**
+   * @param request - GetQualityRuleListRequest
+   * @returns GetQualityRuleListResponse
+   */
   async getQualityRuleList(request: GetQualityRuleListRequest): Promise<GetQualityRuleListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityRuleListWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetQualityRuleTagListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQualityRuleTagListResponse
+   */
   async getQualityRuleTagListWithOptions(request: GetQualityRuleTagListRequest, runtime: $Util.RuntimeOptions): Promise<GetQualityRuleTagListResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21154,11 +30155,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQualityRuleTagListResponse>(await this.callApi(params, req, runtime), new GetQualityRuleTagListResponse({}));
   }
 
+  /**
+   * @param request - GetQualityRuleTagListRequest
+   * @returns GetQualityRuleTagListResponse
+   */
   async getQualityRuleTagList(request: GetQualityRuleTagListRequest): Promise<GetQualityRuleTagListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQualityRuleTagListWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组纬度队列信息
+   * 
+   * @param tmpReq - GetQueueInformationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetQueueInformationResponse
+   */
   async getQueueInformationWithOptions(tmpReq: GetQueueInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetQueueInformationResponse> {
     Util.validateModel(tmpReq);
     let request = new GetQueueInformationShrinkRequest({ });
@@ -21189,11 +30201,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetQueueInformationResponse>(await this.callApi(params, req, runtime), new GetQueueInformationResponse({}));
   }
 
+  /**
+   * 技能组纬度队列信息
+   * 
+   * @param request - GetQueueInformationRequest
+   * @returns GetQueueInformationResponse
+   */
   async getQueueInformation(request: GetQueueInformationRequest): Promise<GetQueueInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getQueueInformationWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - GetRecordDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecordDataResponse
+   */
   async getRecordDataWithOptions(request: GetRecordDataRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordDataResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21222,11 +30245,22 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRecordDataResponse>(await this.callApi(params, req, runtime), new GetRecordDataResponse({}));
   }
 
+  /**
+   * @param request - GetRecordDataRequest
+   * @returns GetRecordDataResponse
+   */
   async getRecordData(request: GetRecordDataRequest): Promise<GetRecordDataResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRecordDataWithOptions(request, runtime);
   }
 
+  /**
+   * 获取录音链接
+   * 
+   * @param request - GetRecordUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRecordUrlResponse
+   */
   async getRecordUrlWithOptions(request: GetRecordUrlRequest, runtime: $Util.RuntimeOptions): Promise<GetRecordUrlResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -21247,11 +30281,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRecordUrlResponse>(await this.callApi(params, req, runtime), new GetRecordUrlResponse({}));
   }
 
+  /**
+   * 获取录音链接
+   * 
+   * @param request - GetRecordUrlRequest
+   * @returns GetRecordUrlResponse
+   */
   async getRecordUrl(request: GetRecordUrlRequest): Promise<GetRecordUrlResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRecordUrlWithOptions(request, runtime);
   }
 
+  /**
+   * 获取RtcToken
+   * 
+   * @param request - GetRtcTokenRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRtcTokenResponse
+   */
   async getRtcTokenWithOptions(request: GetRtcTokenRequest, runtime: $Util.RuntimeOptions): Promise<GetRtcTokenResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -21272,11 +30319,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetRtcTokenResponse>(await this.callApi(params, req, runtime), new GetRtcTokenResponse({}));
   }
 
+  /**
+   * 获取RtcToken
+   * 
+   * @param request - GetRtcTokenRequest
+   * @returns GetRtcTokenResponse
+   */
   async getRtcToken(request: GetRtcTokenRequest): Promise<GetRtcTokenResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getRtcTokenWithOptions(request, runtime);
   }
 
+  /**
+   * 部门纬度坐席信息数据
+   * 
+   * @param tmpReq - GetSeatInformationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSeatInformationResponse
+   */
   async getSeatInformationWithOptions(tmpReq: GetSeatInformationRequest, runtime: $Util.RuntimeOptions): Promise<GetSeatInformationResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSeatInformationShrinkRequest({ });
@@ -21303,11 +30363,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSeatInformationResponse>(await this.callApi(params, req, runtime), new GetSeatInformationResponse({}));
   }
 
+  /**
+   * 部门纬度坐席信息数据
+   * 
+   * @param request - GetSeatInformationRequest
+   * @returns GetSeatInformationResponse
+   */
   async getSeatInformation(request: GetSeatInformationRequest): Promise<GetSeatInformationResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSeatInformationWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组坐席状态详情
+   * 
+   * @param tmpReq - GetSkillGroupAgentStatusDetailsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupAgentStatusDetailsResponse
+   */
   async getSkillGroupAgentStatusDetailsWithOptions(tmpReq: GetSkillGroupAgentStatusDetailsRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupAgentStatusDetailsResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupAgentStatusDetailsShrinkRequest({ });
@@ -21338,11 +30411,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupAgentStatusDetailsResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAgentStatusDetailsResponse({}));
   }
 
+  /**
+   * 技能组坐席状态详情
+   * 
+   * @param request - GetSkillGroupAgentStatusDetailsRequest
+   * @returns GetSkillGroupAgentStatusDetailsResponse
+   */
   async getSkillGroupAgentStatusDetails(request: GetSkillGroupAgentStatusDetailsRequest): Promise<GetSkillGroupAgentStatusDetailsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupAgentStatusDetailsWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组坐席汇总状态量
+   * 
+   * @param tmpReq - GetSkillGroupAndAgentStatusSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupAndAgentStatusSummaryResponse
+   */
   async getSkillGroupAndAgentStatusSummaryWithOptions(tmpReq: GetSkillGroupAndAgentStatusSummaryRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupAndAgentStatusSummaryResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupAndAgentStatusSummaryShrinkRequest({ });
@@ -21373,11 +30459,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupAndAgentStatusSummaryResponse>(await this.callApi(params, req, runtime), new GetSkillGroupAndAgentStatusSummaryResponse({}));
   }
 
+  /**
+   * 技能组坐席汇总状态量
+   * 
+   * @param request - GetSkillGroupAndAgentStatusSummaryRequest
+   * @returns GetSkillGroupAndAgentStatusSummaryResponse
+   */
   async getSkillGroupAndAgentStatusSummary(request: GetSkillGroupAndAgentStatusSummaryRequest): Promise<GetSkillGroupAndAgentStatusSummaryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupAndAgentStatusSummaryWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组纬度状态量
+   * 
+   * @param tmpReq - GetSkillGroupLatitudeStateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupLatitudeStateResponse
+   */
   async getSkillGroupLatitudeStateWithOptions(tmpReq: GetSkillGroupLatitudeStateRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupLatitudeStateResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupLatitudeStateShrinkRequest({ });
@@ -21408,11 +30507,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupLatitudeStateResponse>(await this.callApi(params, req, runtime), new GetSkillGroupLatitudeStateResponse({}));
   }
 
+  /**
+   * 技能组纬度状态量
+   * 
+   * @param request - GetSkillGroupLatitudeStateRequest
+   * @returns GetSkillGroupLatitudeStateResponse
+   */
   async getSkillGroupLatitudeState(request: GetSkillGroupLatitudeStateRequest): Promise<GetSkillGroupLatitudeStateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupLatitudeStateWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组纬度服务能力
+   * 
+   * @param tmpReq - GetSkillGroupServiceCapabilityRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupServiceCapabilityResponse
+   */
   async getSkillGroupServiceCapabilityWithOptions(tmpReq: GetSkillGroupServiceCapabilityRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupServiceCapabilityResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupServiceCapabilityShrinkRequest({ });
@@ -21443,11 +30555,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupServiceCapabilityResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceCapabilityResponse({}));
   }
 
+  /**
+   * 技能组纬度服务能力
+   * 
+   * @param request - GetSkillGroupServiceCapabilityRequest
+   * @returns GetSkillGroupServiceCapabilityResponse
+   */
   async getSkillGroupServiceCapability(request: GetSkillGroupServiceCapabilityRequest): Promise<GetSkillGroupServiceCapabilityResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupServiceCapabilityWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组服务状态量
+   * 
+   * @param tmpReq - GetSkillGroupServiceStatusRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupServiceStatusResponse
+   */
   async getSkillGroupServiceStatusWithOptions(tmpReq: GetSkillGroupServiceStatusRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupServiceStatusResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupServiceStatusShrinkRequest({ });
@@ -21482,11 +30607,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupServiceStatusResponse>(await this.callApi(params, req, runtime), new GetSkillGroupServiceStatusResponse({}));
   }
 
+  /**
+   * 技能组服务状态量
+   * 
+   * @param request - GetSkillGroupServiceStatusRequest
+   * @returns GetSkillGroupServiceStatusResponse
+   */
   async getSkillGroupServiceStatus(request: GetSkillGroupServiceStatusRequest): Promise<GetSkillGroupServiceStatusResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupServiceStatusWithOptions(request, runtime);
   }
 
+  /**
+   * 技能组状态总量
+   * 
+   * @param tmpReq - GetSkillGroupStatusTotalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSkillGroupStatusTotalResponse
+   */
   async getSkillGroupStatusTotalWithOptions(tmpReq: GetSkillGroupStatusTotalRequest, runtime: $Util.RuntimeOptions): Promise<GetSkillGroupStatusTotalResponse> {
     Util.validateModel(tmpReq);
     let request = new GetSkillGroupStatusTotalShrinkRequest({ });
@@ -21521,11 +30659,24 @@ export default class Client extends OpenApi {
     return $tea.cast<GetSkillGroupStatusTotalResponse>(await this.callApi(params, req, runtime), new GetSkillGroupStatusTotalResponse({}));
   }
 
+  /**
+   * 技能组状态总量
+   * 
+   * @param request - GetSkillGroupStatusTotalRequest
+   * @returns GetSkillGroupStatusTotalResponse
+   */
   async getSkillGroupStatusTotal(request: GetSkillGroupStatusTotalRequest): Promise<GetSkillGroupStatusTotalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getSkillGroupStatusTotalWithOptions(request, runtime);
   }
 
+  /**
+   * 移动端呼叫挂断
+   * 
+   * @param request - HangUpDoubleCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HangUpDoubleCallResponse
+   */
   async hangUpDoubleCallWithOptions(request: HangUpDoubleCallRequest, runtime: $Util.RuntimeOptions): Promise<HangUpDoubleCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21554,11 +30705,22 @@ export default class Client extends OpenApi {
     return $tea.cast<HangUpDoubleCallResponse>(await this.callApi(params, req, runtime), new HangUpDoubleCallResponse({}));
   }
 
+  /**
+   * 移动端呼叫挂断
+   * 
+   * @param request - HangUpDoubleCallRequest
+   * @returns HangUpDoubleCallResponse
+   */
   async hangUpDoubleCall(request: HangUpDoubleCallRequest): Promise<HangUpDoubleCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.hangUpDoubleCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - HangupCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HangupCallResponse
+   */
   async hangupCallWithOptions(request: HangupCallRequest, runtime: $Util.RuntimeOptions): Promise<HangupCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21603,11 +30765,20 @@ export default class Client extends OpenApi {
     return $tea.cast<HangupCallResponse>(await this.callApi(params, req, runtime), new HangupCallResponse({}));
   }
 
+  /**
+   * @param request - HangupCallRequest
+   * @returns HangupCallResponse
+   */
   async hangupCall(request: HangupCallRequest): Promise<HangupCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.hangupCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - HangupThirdCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HangupThirdCallResponse
+   */
   async hangupThirdCallWithOptions(request: HangupThirdCallRequest, runtime: $Util.RuntimeOptions): Promise<HangupThirdCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21652,11 +30823,20 @@ export default class Client extends OpenApi {
     return $tea.cast<HangupThirdCallResponse>(await this.callApi(params, req, runtime), new HangupThirdCallResponse({}));
   }
 
+  /**
+   * @param request - HangupThirdCallRequest
+   * @returns HangupThirdCallResponse
+   */
   async hangupThirdCall(request: HangupThirdCallRequest): Promise<HangupThirdCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.hangupThirdCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - HoldCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HoldCallResponse
+   */
   async holdCallWithOptions(request: HoldCallRequest, runtime: $Util.RuntimeOptions): Promise<HoldCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21701,11 +30881,20 @@ export default class Client extends OpenApi {
     return $tea.cast<HoldCallResponse>(await this.callApi(params, req, runtime), new HoldCallResponse({}));
   }
 
+  /**
+   * @param request - HoldCallRequest
+   * @returns HoldCallResponse
+   */
   async holdCall(request: HoldCallRequest): Promise<HoldCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.holdCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - HotlineSessionQueryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HotlineSessionQueryResponse
+   */
   async hotlineSessionQueryWithOptions(request: HotlineSessionQueryRequest, runtime: $Util.RuntimeOptions): Promise<HotlineSessionQueryResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21834,11 +31023,22 @@ export default class Client extends OpenApi {
     return $tea.cast<HotlineSessionQueryResponse>(await this.callApi(params, req, runtime), new HotlineSessionQueryResponse({}));
   }
 
+  /**
+   * @param request - HotlineSessionQueryRequest
+   * @returns HotlineSessionQueryResponse
+   */
   async hotlineSessionQuery(request: HotlineSessionQueryRequest): Promise<HotlineSessionQueryResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.hotlineSessionQueryWithOptions(request, runtime);
   }
 
+  /**
+   * 智能外呼任务导入号码
+   * 
+   * @param tmpReq - InsertAiOutboundPhoneNumsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertAiOutboundPhoneNumsResponse
+   */
   async insertAiOutboundPhoneNumsWithOptions(tmpReq: InsertAiOutboundPhoneNumsRequest, runtime: $Util.RuntimeOptions): Promise<InsertAiOutboundPhoneNumsResponse> {
     Util.validateModel(tmpReq);
     let request = new InsertAiOutboundPhoneNumsShrinkRequest({ });
@@ -21881,11 +31081,22 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertAiOutboundPhoneNumsResponse>(await this.callApi(params, req, runtime), new InsertAiOutboundPhoneNumsResponse({}));
   }
 
+  /**
+   * 智能外呼任务导入号码
+   * 
+   * @param request - InsertAiOutboundPhoneNumsRequest
+   * @returns InsertAiOutboundPhoneNumsResponse
+   */
   async insertAiOutboundPhoneNums(request: InsertAiOutboundPhoneNumsRequest): Promise<InsertAiOutboundPhoneNumsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertAiOutboundPhoneNumsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - InsertTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InsertTaskDetailResponse
+   */
   async insertTaskDetailWithOptions(request: InsertTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<InsertTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -21918,11 +31129,20 @@ export default class Client extends OpenApi {
     return $tea.cast<InsertTaskDetailResponse>(await this.callApi(params, req, runtime), new InsertTaskDetailResponse({}));
   }
 
+  /**
+   * @param request - InsertTaskDetailRequest
+   * @returns InsertTaskDetailResponse
+   */
   async insertTaskDetail(request: InsertTaskDetailRequest): Promise<InsertTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.insertTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - JoinThirdCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns JoinThirdCallResponse
+   */
   async joinThirdCallWithOptions(request: JoinThirdCallRequest, runtime: $Util.RuntimeOptions): Promise<JoinThirdCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -21971,11 +31191,20 @@ export default class Client extends OpenApi {
     return $tea.cast<JoinThirdCallResponse>(await this.callApi(params, req, runtime), new JoinThirdCallResponse({}));
   }
 
+  /**
+   * @param request - JoinThirdCallRequest
+   * @returns JoinThirdCallResponse
+   */
   async joinThirdCall(request: JoinThirdCallRequest): Promise<JoinThirdCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.joinThirdCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListAgentBySkillGroupIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentBySkillGroupIdResponse
+   */
   async listAgentBySkillGroupIdWithOptions(request: ListAgentBySkillGroupIdRequest, runtime: $Util.RuntimeOptions): Promise<ListAgentBySkillGroupIdResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -21996,11 +31225,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAgentBySkillGroupIdResponse>(await this.callApi(params, req, runtime), new ListAgentBySkillGroupIdResponse({}));
   }
 
+  /**
+   * @param request - ListAgentBySkillGroupIdRequest
+   * @returns ListAgentBySkillGroupIdResponse
+   */
   async listAgentBySkillGroupId(request: ListAgentBySkillGroupIdRequest): Promise<ListAgentBySkillGroupIdResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAgentBySkillGroupIdWithOptions(request, runtime);
   }
 
+  /**
+   * 查询所有机器人列表
+   * 
+   * @param request - ListAiccsRobotRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiccsRobotResponse
+   */
   async listAiccsRobotWithOptions(request: ListAiccsRobotRequest, runtime: $Util.RuntimeOptions): Promise<ListAiccsRobotResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22037,11 +31277,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListAiccsRobotResponse>(await this.callApi(params, req, runtime), new ListAiccsRobotResponse({}));
   }
 
+  /**
+   * 查询所有机器人列表
+   * 
+   * @param request - ListAiccsRobotRequest
+   * @returns ListAiccsRobotResponse
+   */
   async listAiccsRobot(request: ListAiccsRobotRequest): Promise<ListAiccsRobotResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listAiccsRobotWithOptions(request, runtime);
   }
 
+  /**
+   * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
+   * 
+   * @param request - ListChatRecordDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatRecordDetailResponse
+   */
   async listChatRecordDetailWithOptions(request: ListChatRecordDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListChatRecordDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22062,11 +31315,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListChatRecordDetailResponse>(await this.callApi(params, req, runtime), new ListChatRecordDetailResponse({}));
   }
 
+  /**
+   * 根据时间段查询在线会话详情，包含会话内容，时间段范围最长不超过1天
+   * 
+   * @param request - ListChatRecordDetailRequest
+   * @returns ListChatRecordDetailResponse
+   */
   async listChatRecordDetail(request: ListChatRecordDetailRequest): Promise<ListChatRecordDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listChatRecordDetailWithOptions(request, runtime);
   }
 
+  /**
+   * 查看对话记录
+   * 
+   * @param request - ListDialogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDialogResponse
+   */
   async listDialogWithOptions(request: ListDialogRequest, runtime: $Util.RuntimeOptions): Promise<ListDialogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22107,11 +31373,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListDialogResponse>(await this.callApi(params, req, runtime), new ListDialogResponse({}));
   }
 
+  /**
+   * 查看对话记录
+   * 
+   * @param request - ListDialogRequest
+   * @returns ListDialogResponse
+   */
   async listDialog(request: ListDialogRequest): Promise<ListDialogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDialogWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListHotlineRecordRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotlineRecordResponse
+   */
   async listHotlineRecordWithOptions(request: ListHotlineRecordRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineRecordResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22132,11 +31409,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotlineRecordResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordResponse({}));
   }
 
+  /**
+   * @param request - ListHotlineRecordRequest
+   * @returns ListHotlineRecordResponse
+   */
   async listHotlineRecord(request: ListHotlineRecordRequest): Promise<ListHotlineRecordResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotlineRecordWithOptions(request, runtime);
   }
 
+  /**
+   * 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
+   * 
+   * @param request - ListHotlineRecordDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListHotlineRecordDetailResponse
+   */
   async listHotlineRecordDetailWithOptions(request: ListHotlineRecordDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListHotlineRecordDetailResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22157,11 +31445,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListHotlineRecordDetailResponse>(await this.callApi(params, req, runtime), new ListHotlineRecordDetailResponse({}));
   }
 
+  /**
+   * 根据时间段查询热线详情列表，包含热线通话信息，时间段范围最长不超过1天
+   * 
+   * @param request - ListHotlineRecordDetailRequest
+   * @returns ListHotlineRecordDetailResponse
+   */
   async listHotlineRecordDetail(request: ListHotlineRecordDetailRequest): Promise<ListHotlineRecordDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listHotlineRecordDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListOutboundPhoneNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListOutboundPhoneNumberResponse
+   */
   async listOutboundPhoneNumberWithOptions(request: ListOutboundPhoneNumberRequest, runtime: $Util.RuntimeOptions): Promise<ListOutboundPhoneNumberResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22182,52 +31481,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListOutboundPhoneNumberResponse>(await this.callApi(params, req, runtime), new ListOutboundPhoneNumberResponse({}));
   }
 
+  /**
+   * @param request - ListOutboundPhoneNumberRequest
+   * @returns ListOutboundPhoneNumberResponse
+   */
   async listOutboundPhoneNumber(request: ListOutboundPhoneNumberRequest): Promise<ListOutboundPhoneNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listOutboundPhoneNumberWithOptions(request, runtime);
   }
 
-  async listOuterOrderedNumbersWithOptions(request: ListOuterOrderedNumbersRequest, runtime: $Util.RuntimeOptions): Promise<ListOuterOrderedNumbersResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.prodCode)) {
-      query["ProdCode"] = request.prodCode;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerAccount)) {
-      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
-    }
-
-    if (!Util.isUnset(request.resourceOwnerId)) {
-      query["ResourceOwnerId"] = request.resourceOwnerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "ListOuterOrderedNumbers",
-      version: "2019-10-15",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<ListOuterOrderedNumbersResponse>(await this.callApi(params, req, runtime), new ListOuterOrderedNumbersResponse({}));
-  }
-
-  async listOuterOrderedNumbers(request: ListOuterOrderedNumbersRequest): Promise<ListOuterOrderedNumbersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.listOuterOrderedNumbersWithOptions(request, runtime);
-  }
-
+  /**
+   * 查看对话记录
+   * 
+   * @param request - ListRobotCallDialogRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRobotCallDialogResponse
+   */
   async listRobotCallDialogWithOptions(request: ListRobotCallDialogRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotCallDialogResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22268,11 +31537,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRobotCallDialogResponse>(await this.callApi(params, req, runtime), new ListRobotCallDialogResponse({}));
   }
 
+  /**
+   * 查看对话记录
+   * 
+   * @param request - ListRobotCallDialogRequest
+   * @returns ListRobotCallDialogResponse
+   */
   async listRobotCallDialog(request: ListRobotCallDialogRequest): Promise<ListRobotCallDialogResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRobotCallDialogWithOptions(request, runtime);
   }
 
+  /**
+   * 查询机器人输出列表
+   * 
+   * @param request - ListRobotNodeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRobotNodeResponse
+   */
   async listRobotNodeWithOptions(request: ListRobotNodeRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotNodeResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22309,11 +31591,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRobotNodeResponse>(await this.callApi(params, req, runtime), new ListRobotNodeResponse({}));
   }
 
+  /**
+   * 查询机器人输出列表
+   * 
+   * @param request - ListRobotNodeRequest
+   * @returns ListRobotNodeResponse
+   */
   async listRobotNode(request: ListRobotNodeRequest): Promise<ListRobotNodeResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRobotNodeWithOptions(request, runtime);
   }
 
+  /**
+   * 查询参数列表
+   * 
+   * @param request - ListRobotParamsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRobotParamsResponse
+   */
   async listRobotParamsWithOptions(request: ListRobotParamsRequest, runtime: $Util.RuntimeOptions): Promise<ListRobotParamsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22350,11 +31645,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRobotParamsResponse>(await this.callApi(params, req, runtime), new ListRobotParamsResponse({}));
   }
 
+  /**
+   * 查询参数列表
+   * 
+   * @param request - ListRobotParamsRequest
+   * @returns ListRobotParamsResponse
+   */
   async listRobotParams(request: ListRobotParamsRequest): Promise<ListRobotParamsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRobotParamsWithOptions(request, runtime);
   }
 
+  /**
+   * 获取租户下的所有角色
+   * 
+   * @param request - ListRolesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRolesResponse
+   */
   async listRolesWithOptions(request: ListRolesRequest, runtime: $Util.RuntimeOptions): Promise<ListRolesResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22375,11 +31683,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListRolesResponse>(await this.callApi(params, req, runtime), new ListRolesResponse({}));
   }
 
+  /**
+   * 获取租户下的所有角色
+   * 
+   * @param request - ListRolesRequest
+   * @returns ListRolesResponse
+   */
   async listRoles(request: ListRolesRequest): Promise<ListRolesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listRolesWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - ListSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSkillGroupResponse
+   */
   async listSkillGroupWithOptions(request: ListSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<ListSkillGroupResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22400,11 +31719,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ListSkillGroupResponse>(await this.callApi(params, req, runtime), new ListSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - ListSkillGroupRequest
+   * @returns ListSkillGroupResponse
+   */
   async listSkillGroup(request: ListSkillGroupRequest): Promise<ListSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * 查询任务列表
+   * 
+   * @param request - ListTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskResponse
+   */
   async listTaskWithOptions(request: ListTaskRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22461,11 +31791,24 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskResponse>(await this.callApi(params, req, runtime), new ListTaskResponse({}));
   }
 
+  /**
+   * 查询任务列表
+   * 
+   * @param request - ListTaskRequest
+   * @returns ListTaskResponse
+   */
   async listTask(request: ListTaskRequest): Promise<ListTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 任务详情查看通话列表
+   * 
+   * @param request - ListTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListTaskDetailResponse
+   */
   async listTaskDetailWithOptions(request: ListTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<ListTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22526,11 +31869,94 @@ export default class Client extends OpenApi {
     return $tea.cast<ListTaskDetailResponse>(await this.callApi(params, req, runtime), new ListTaskDetailResponse({}));
   }
 
+  /**
+   * 任务详情查看通话列表
+   * 
+   * @param request - ListTaskDetailRequest
+   * @returns ListTaskDetailResponse
+   */
   async listTaskDetail(request: ListTaskDetailRequest): Promise<ListTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * 基于大模型的智能外呼
+   * 
+   * @param tmpReq - LlmSmartCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns LlmSmartCallResponse
+   */
+  async llmSmartCallWithOptions(tmpReq: LlmSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<LlmSmartCallResponse> {
+    Util.validateModel(tmpReq);
+    let request = new LlmSmartCallShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.promptParam)) {
+      request.promptParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.promptParam, "PromptParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.startWordParam)) {
+      request.startWordParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.startWordParam, "StartWordParam", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.applicationCode)) {
+      query["ApplicationCode"] = request.applicationCode;
+    }
+
+    if (!Util.isUnset(request.calledNumber)) {
+      query["CalledNumber"] = request.calledNumber;
+    }
+
+    if (!Util.isUnset(request.callerNumber)) {
+      query["CallerNumber"] = request.callerNumber;
+    }
+
+    if (!Util.isUnset(request.outId)) {
+      query["OutId"] = request.outId;
+    }
+
+    if (!Util.isUnset(request.promptParamShrink)) {
+      query["PromptParam"] = request.promptParamShrink;
+    }
+
+    if (!Util.isUnset(request.startWordParamShrink)) {
+      query["StartWordParam"] = request.startWordParamShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "LlmSmartCall",
+      version: "2019-10-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<LlmSmartCallResponse>(await this.callApi(params, req, runtime), new LlmSmartCallResponse({}));
+  }
+
+  /**
+   * 基于大模型的智能外呼
+   * 
+   * @param request - LlmSmartCallRequest
+   * @returns LlmSmartCallResponse
+   */
+  async llmSmartCall(request: LlmSmartCallRequest): Promise<LlmSmartCallResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.llmSmartCallWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - MakeCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MakeCallResponse
+   */
   async makeCallWithOptions(request: MakeCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22575,11 +32001,22 @@ export default class Client extends OpenApi {
     return $tea.cast<MakeCallResponse>(await this.callApi(params, req, runtime), new MakeCallResponse({}));
   }
 
+  /**
+   * @param request - MakeCallRequest
+   * @returns MakeCallResponse
+   */
   async makeCall(request: MakeCallRequest): Promise<MakeCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.makeCallWithOptions(request, runtime);
   }
 
+  /**
+   * 移动端发起呼叫
+   * 
+   * @param request - MakeDoubleCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MakeDoubleCallResponse
+   */
   async makeDoubleCallWithOptions(request: MakeDoubleCallRequest, runtime: $Util.RuntimeOptions): Promise<MakeDoubleCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22624,11 +32061,22 @@ export default class Client extends OpenApi {
     return $tea.cast<MakeDoubleCallResponse>(await this.callApi(params, req, runtime), new MakeDoubleCallResponse({}));
   }
 
+  /**
+   * 移动端发起呼叫
+   * 
+   * @param request - MakeDoubleCallRequest
+   * @returns MakeDoubleCallResponse
+   */
   async makeDoubleCall(request: MakeDoubleCallRequest): Promise<MakeDoubleCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.makeDoubleCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - QueryHotlineInQueueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHotlineInQueueResponse
+   */
   async queryHotlineInQueueWithOptions(request: QueryHotlineInQueueRequest, runtime: $Util.RuntimeOptions): Promise<QueryHotlineInQueueResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -22649,11 +32097,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryHotlineInQueueResponse>(await this.callApi(params, req, runtime), new QueryHotlineInQueueResponse({}));
   }
 
+  /**
+   * @param request - QueryHotlineInQueueRequest
+   * @returns QueryHotlineInQueueResponse
+   */
   async queryHotlineInQueue(request: QueryHotlineInQueueRequest): Promise<QueryHotlineInQueueResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryHotlineInQueueWithOptions(request, runtime);
   }
 
+  /**
+   * 查询热线号码配置
+   * 
+   * @param tmpReq - QueryHotlineNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryHotlineNumberResponse
+   */
   async queryHotlineNumberWithOptions(tmpReq: QueryHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<QueryHotlineNumberResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryHotlineNumberShrinkRequest({ });
@@ -22680,11 +32139,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryHotlineNumberResponse>(await this.callApi(params, req, runtime), new QueryHotlineNumberResponse({}));
   }
 
+  /**
+   * 查询热线号码配置
+   * 
+   * @param request - QueryHotlineNumberRequest
+   * @returns QueryHotlineNumberResponse
+   */
   async queryHotlineNumber(request: QueryHotlineNumberRequest): Promise<QueryHotlineNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryHotlineNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - QueryOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryOutboundTaskResponse
+   */
   async queryOutboundTaskWithOptions(request: QueryOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<QueryOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22765,11 +32235,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryOutboundTaskResponse>(await this.callApi(params, req, runtime), new QueryOutboundTaskResponse({}));
   }
 
+  /**
+   * @param request - QueryOutboundTaskRequest
+   * @returns QueryOutboundTaskResponse
+   */
   async queryOutboundTask(request: QueryOutboundTaskRequest): Promise<QueryOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - QuerySkillGroupsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySkillGroupsResponse
+   */
   async querySkillGroupsWithOptions(request: QuerySkillGroupsRequest, runtime: $Util.RuntimeOptions): Promise<QuerySkillGroupsResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22814,11 +32293,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QuerySkillGroupsResponse>(await this.callApi(params, req, runtime), new QuerySkillGroupsResponse({}));
   }
 
+  /**
+   * @param request - QuerySkillGroupsRequest
+   * @returns QuerySkillGroupsResponse
+   */
   async querySkillGroups(request: QuerySkillGroupsRequest): Promise<QuerySkillGroupsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.querySkillGroupsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - QueryTaskDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTaskDetailResponse
+   */
   async queryTaskDetailWithOptions(request: QueryTaskDetailRequest, runtime: $Util.RuntimeOptions): Promise<QueryTaskDetailResponse> {
     Util.validateModel(request);
     let query = { };
@@ -22899,11 +32387,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTaskDetailResponse>(await this.callApi(params, req, runtime), new QueryTaskDetailResponse({}));
   }
 
+  /**
+   * @param request - QueryTaskDetailRequest
+   * @returns QueryTaskDetailResponse
+   */
   async queryTaskDetail(request: QueryTaskDetailRequest): Promise<QueryTaskDetailResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTaskDetailWithOptions(request, runtime);
   }
 
+  /**
+   * @param tmpReq - QueryTicketsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTicketsResponse
+   */
   async queryTicketsWithOptions(tmpReq: QueryTicketsRequest, runtime: $Util.RuntimeOptions): Promise<QueryTicketsResponse> {
     Util.validateModel(tmpReq);
     let request = new QueryTicketsShrinkRequest({ });
@@ -22982,11 +32479,20 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTicketsResponse>(await this.callApi(params, req, runtime), new QueryTicketsResponse({}));
   }
 
+  /**
+   * @param request - QueryTicketsRequest
+   * @returns QueryTicketsResponse
+   */
   async queryTickets(request: QueryTicketsRequest): Promise<QueryTicketsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTicketsWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - QueryTouchListRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryTouchListResponse
+   */
   async queryTouchListWithOptions(request: QueryTouchListRequest, runtime: $Util.RuntimeOptions): Promise<QueryTouchListResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23083,11 +32589,22 @@ export default class Client extends OpenApi {
     return $tea.cast<QueryTouchListResponse>(await this.callApi(params, req, runtime), new QueryTouchListResponse({}));
   }
 
+  /**
+   * @param request - QueryTouchListRequest
+   * @returns QueryTouchListResponse
+   */
   async queryTouchList(request: QueryTouchListRequest): Promise<QueryTouchListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.queryTouchListWithOptions(request, runtime);
   }
 
+  /**
+   * 从技能组中移除坐席
+   * 
+   * @param tmpReq - RemoveAgentFromSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveAgentFromSkillGroupResponse
+   */
   async removeAgentFromSkillGroupWithOptions(tmpReq: RemoveAgentFromSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveAgentFromSkillGroupResponse> {
     Util.validateModel(tmpReq);
     let request = new RemoveAgentFromSkillGroupShrinkRequest({ });
@@ -23126,11 +32643,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveAgentFromSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveAgentFromSkillGroupResponse({}));
   }
 
+  /**
+   * 从技能组中移除坐席
+   * 
+   * @param request - RemoveAgentFromSkillGroupRequest
+   * @returns RemoveAgentFromSkillGroupResponse
+   */
   async removeAgentFromSkillGroup(request: RemoveAgentFromSkillGroupRequest): Promise<RemoveAgentFromSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeAgentFromSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - RemoveSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveSkillGroupResponse
+   */
   async removeSkillGroupWithOptions(request: RemoveSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<RemoveSkillGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23163,11 +32691,22 @@ export default class Client extends OpenApi {
     return $tea.cast<RemoveSkillGroupResponse>(await this.callApi(params, req, runtime), new RemoveSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - RemoveSkillGroupRequest
+   * @returns RemoveSkillGroupResponse
+   */
   async removeSkillGroup(request: RemoveSkillGroupRequest): Promise<RemoveSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.removeSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * 重置热线号码
+   * 
+   * @param tmpReq - ResetHotlineNumberRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResetHotlineNumberResponse
+   */
   async resetHotlineNumberWithOptions(tmpReq: ResetHotlineNumberRequest, runtime: $Util.RuntimeOptions): Promise<ResetHotlineNumberResponse> {
     Util.validateModel(tmpReq);
     let request = new ResetHotlineNumberShrinkRequest({ });
@@ -23238,11 +32777,22 @@ export default class Client extends OpenApi {
     return $tea.cast<ResetHotlineNumberResponse>(await this.callApi(params, req, runtime), new ResetHotlineNumberResponse({}));
   }
 
+  /**
+   * 重置热线号码
+   * 
+   * @param request - ResetHotlineNumberRequest
+   * @returns ResetHotlineNumberResponse
+   */
   async resetHotlineNumber(request: ResetHotlineNumberRequest): Promise<ResetHotlineNumberResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.resetHotlineNumberWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - RestartOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RestartOutboundTaskResponse
+   */
   async restartOutboundTaskWithOptions(request: RestartOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<RestartOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23271,11 +32821,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RestartOutboundTaskResponse>(await this.callApi(params, req, runtime), new RestartOutboundTaskResponse({}));
   }
 
+  /**
+   * @param request - RestartOutboundTaskRequest
+   * @returns RestartOutboundTaskResponse
+   */
   async restartOutboundTask(request: RestartOutboundTaskRequest): Promise<RestartOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.restartOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - RobotCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RobotCallResponse
+   */
   async robotCallWithOptions(request: RobotCallRequest, runtime: $Util.RuntimeOptions): Promise<RobotCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23336,11 +32895,20 @@ export default class Client extends OpenApi {
     return $tea.cast<RobotCallResponse>(await this.callApi(params, req, runtime), new RobotCallResponse({}));
   }
 
+  /**
+   * @param request - RobotCallRequest
+   * @returns RobotCallResponse
+   */
   async robotCall(request: RobotCallRequest): Promise<RobotCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.robotCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - SendCcoSmartCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendCcoSmartCallResponse
+   */
   async sendCcoSmartCallWithOptions(request: SendCcoSmartCallRequest, runtime: $Util.RuntimeOptions): Promise<SendCcoSmartCallResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23489,11 +33057,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SendCcoSmartCallResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallResponse({}));
   }
 
+  /**
+   * @param request - SendCcoSmartCallRequest
+   * @returns SendCcoSmartCallResponse
+   */
   async sendCcoSmartCall(request: SendCcoSmartCallRequest): Promise<SendCcoSmartCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendCcoSmartCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - SendCcoSmartCallOperateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendCcoSmartCallOperateResponse
+   */
   async sendCcoSmartCallOperateWithOptions(request: SendCcoSmartCallOperateRequest, runtime: $Util.RuntimeOptions): Promise<SendCcoSmartCallOperateResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23542,11 +33119,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SendCcoSmartCallOperateResponse>(await this.callApi(params, req, runtime), new SendCcoSmartCallOperateResponse({}));
   }
 
+  /**
+   * @param request - SendCcoSmartCallOperateRequest
+   * @returns SendCcoSmartCallOperateResponse
+   */
   async sendCcoSmartCallOperate(request: SendCcoSmartCallOperateRequest): Promise<SendCcoSmartCallOperateResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendCcoSmartCallOperateWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - SendHotlineHeartBeatRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendHotlineHeartBeatResponse
+   */
   async sendHotlineHeartBeatWithOptions(request: SendHotlineHeartBeatRequest, runtime: $Util.RuntimeOptions): Promise<SendHotlineHeartBeatResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23583,11 +33169,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SendHotlineHeartBeatResponse>(await this.callApi(params, req, runtime), new SendHotlineHeartBeatResponse({}));
   }
 
+  /**
+   * @param request - SendHotlineHeartBeatRequest
+   * @returns SendHotlineHeartBeatResponse
+   */
   async sendHotlineHeartBeat(request: SendHotlineHeartBeatRequest): Promise<SendHotlineHeartBeatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.sendHotlineHeartBeatWithOptions(request, runtime);
   }
 
+  /**
+   * 启动智能外呼任务
+   * 
+   * @param request - StartAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartAiOutboundTaskResponse
+   */
   async startAiOutboundTaskWithOptions(request: StartAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartAiOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23616,11 +33213,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StartAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 启动智能外呼任务
+   * 
+   * @param request - StartAiOutboundTaskRequest
+   * @returns StartAiOutboundTaskResponse
+   */
   async startAiOutboundTask(request: StartAiOutboundTaskRequest): Promise<StartAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - StartCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCallResponse
+   */
   async startCallWithOptions(request: StartCallRequest, runtime: $Util.RuntimeOptions): Promise<StartCallResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23661,11 +33269,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCallResponse>(await this.callApi(params, req, runtime), new StartCallResponse({}));
   }
 
+  /**
+   * @param request - StartCallRequest
+   * @returns StartCallResponse
+   */
   async startCall(request: StartCallRequest): Promise<StartCallResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startCallWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - StartCallV2Request
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartCallV2Response
+   */
   async startCallV2WithOptions(request: StartCallV2Request, runtime: $Util.RuntimeOptions): Promise<StartCallV2Response> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23710,11 +33327,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartCallV2Response>(await this.callApi(params, req, runtime), new StartCallV2Response({}));
   }
 
+  /**
+   * @param request - StartCallV2Request
+   * @returns StartCallV2Response
+   */
   async startCallV2(request: StartCallV2Request): Promise<StartCallV2Response> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startCallV2WithOptions(request, runtime);
   }
 
+  /**
+   * 修改在线客服为上班状态
+   * 
+   * @param request - StartChatWorkRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartChatWorkResponse
+   */
   async startChatWorkWithOptions(request: StartChatWorkRequest, runtime: $Util.RuntimeOptions): Promise<StartChatWorkResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23743,11 +33371,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartChatWorkResponse>(await this.callApi(params, req, runtime), new StartChatWorkResponse({}));
   }
 
+  /**
+   * 修改在线客服为上班状态
+   * 
+   * @param request - StartChatWorkRequest
+   * @returns StartChatWorkResponse
+   */
   async startChatWork(request: StartChatWorkRequest): Promise<StartChatWorkResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startChatWorkWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - StartHotlineServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartHotlineServiceResponse
+   */
   async startHotlineServiceWithOptions(request: StartHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<StartHotlineServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -23780,11 +33419,20 @@ export default class Client extends OpenApi {
     return $tea.cast<StartHotlineServiceResponse>(await this.callApi(params, req, runtime), new StartHotlineServiceResponse({}));
   }
 
+  /**
+   * @param request - StartHotlineServiceRequest
+   * @returns StartHotlineServiceResponse
+   */
   async startHotlineService(request: StartHotlineServiceRequest): Promise<StartHotlineServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startHotlineServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - StartMicroOutboundRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartMicroOutboundResponse
+   */
   async startMicroOutboundWithOptions(request: StartMicroOutboundRequest, runtime: $Util.RuntimeOptions): Promise<StartMicroOutboundResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23849,11 +33497,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StartMicroOutboundResponse>(await this.callApi(params, req, runtime), new StartMicroOutboundResponse({}));
   }
 
+  /**
+   * @param request - StartMicroOutboundRequest
+   * @returns StartMicroOutboundResponse
+   */
   async startMicroOutbound(request: StartMicroOutboundRequest): Promise<StartMicroOutboundResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startMicroOutboundWithOptions(request, runtime);
   }
 
+  /**
+   * 立即或定时启动智能外呼任务
+   * 
+   * @param request - StartTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTaskResponse
+   */
   async startTaskWithOptions(request: StartTaskRequest, runtime: $Util.RuntimeOptions): Promise<StartTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23894,11 +33553,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StartTaskResponse>(await this.callApi(params, req, runtime), new StartTaskResponse({}));
   }
 
+  /**
+   * 立即或定时启动智能外呼任务
+   * 
+   * @param request - StartTaskRequest
+   * @returns StartTaskResponse
+   */
   async startTask(request: StartTaskRequest): Promise<StartTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.startTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 手动暂停智能外呼任务
+   * 
+   * @param request - StopAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopAiOutboundTaskResponse
+   */
   async stopAiOutboundTaskWithOptions(request: StopAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopAiOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23927,11 +33599,24 @@ export default class Client extends OpenApi {
     return $tea.cast<StopAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new StopAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 手动暂停智能外呼任务
+   * 
+   * @param request - StopAiOutboundTaskRequest
+   * @returns StopAiOutboundTaskResponse
+   */
   async stopAiOutboundTask(request: StopAiOutboundTaskRequest): Promise<StopAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 暂停外呼任务
+   * 
+   * @param request - StopTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopTaskResponse
+   */
   async stopTaskWithOptions(request: StopTaskRequest, runtime: $Util.RuntimeOptions): Promise<StopTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -23968,11 +33653,22 @@ export default class Client extends OpenApi {
     return $tea.cast<StopTaskResponse>(await this.callApi(params, req, runtime), new StopTaskResponse({}));
   }
 
+  /**
+   * 暂停外呼任务
+   * 
+   * @param request - StopTaskRequest
+   * @returns StopTaskResponse
+   */
   async stopTask(request: StopTaskRequest): Promise<StopTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.stopTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - SuspendHotlineServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendHotlineServiceResponse
+   */
   async suspendHotlineServiceWithOptions(request: SuspendHotlineServiceRequest, runtime: $Util.RuntimeOptions): Promise<SuspendHotlineServiceResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24009,11 +33705,20 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendHotlineServiceResponse>(await this.callApi(params, req, runtime), new SuspendHotlineServiceResponse({}));
   }
 
+  /**
+   * @param request - SuspendHotlineServiceRequest
+   * @returns SuspendHotlineServiceResponse
+   */
   async suspendHotlineService(request: SuspendHotlineServiceRequest): Promise<SuspendHotlineServiceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendHotlineServiceWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - SuspendOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SuspendOutboundTaskResponse
+   */
   async suspendOutboundTaskWithOptions(request: SuspendOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<SuspendOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24042,11 +33747,22 @@ export default class Client extends OpenApi {
     return $tea.cast<SuspendOutboundTaskResponse>(await this.callApi(params, req, runtime), new SuspendOutboundTaskResponse({}));
   }
 
+  /**
+   * @param request - SuspendOutboundTaskRequest
+   * @returns SuspendOutboundTaskResponse
+   */
   async suspendOutboundTask(request: SuspendOutboundTaskRequest): Promise<SuspendOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.suspendOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 终止智能外呼任务
+   * 
+   * @param request - TerminateAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TerminateAiOutboundTaskResponse
+   */
   async terminateAiOutboundTaskWithOptions(request: TerminateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<TerminateAiOutboundTaskResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24075,11 +33791,22 @@ export default class Client extends OpenApi {
     return $tea.cast<TerminateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new TerminateAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 终止智能外呼任务
+   * 
+   * @param request - TerminateAiOutboundTaskRequest
+   * @returns TerminateAiOutboundTaskResponse
+   */
   async terminateAiOutboundTask(request: TerminateAiOutboundTaskRequest): Promise<TerminateAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - TransferCallToSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransferCallToSkillGroupResponse
+   */
   async transferCallToSkillGroupWithOptions(request: TransferCallToSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<TransferCallToSkillGroupResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24140,11 +33867,20 @@ export default class Client extends OpenApi {
     return $tea.cast<TransferCallToSkillGroupResponse>(await this.callApi(params, req, runtime), new TransferCallToSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - TransferCallToSkillGroupRequest
+   * @returns TransferCallToSkillGroupResponse
+   */
   async transferCallToSkillGroup(request: TransferCallToSkillGroupRequest): Promise<TransferCallToSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.transferCallToSkillGroupWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - UpdateAgentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAgentResponse
+   */
   async updateAgentWithOptions(request: UpdateAgentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAgentResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
@@ -24189,11 +33925,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAgentResponse>(await this.callApi(params, req, runtime), new UpdateAgentResponse({}));
   }
 
+  /**
+   * @param request - UpdateAgentRequest
+   * @returns UpdateAgentResponse
+   */
   async updateAgent(request: UpdateAgentRequest): Promise<UpdateAgentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAgentWithOptions(request, runtime);
   }
 
+  /**
+   * 更新智能外呼任务（预测式外呼、自动外呼）
+   * 
+   * @param tmpReq - UpdateAiOutboundTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiOutboundTaskResponse
+   */
   async updateAiOutboundTaskWithOptions(tmpReq: UpdateAiOutboundTaskRequest, runtime: $Util.RuntimeOptions): Promise<UpdateAiOutboundTaskResponse> {
     Util.validateModel(tmpReq);
     let request = new UpdateAiOutboundTaskShrinkRequest({ });
@@ -24268,11 +34015,24 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateAiOutboundTaskResponse>(await this.callApi(params, req, runtime), new UpdateAiOutboundTaskResponse({}));
   }
 
+  /**
+   * 更新智能外呼任务（预测式外呼、自动外呼）
+   * 
+   * @param request - UpdateAiOutboundTaskRequest
+   * @returns UpdateAiOutboundTaskResponse
+   */
   async updateAiOutboundTask(request: UpdateAiOutboundTaskRequest): Promise<UpdateAiOutboundTaskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateAiOutboundTaskWithOptions(request, runtime);
   }
 
+  /**
+   * 更新部门信息
+   * 
+   * @param request - UpdateDepartmentRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateDepartmentResponse
+   */
   async updateDepartmentWithOptions(request: UpdateDepartmentRequest, runtime: $Util.RuntimeOptions): Promise<UpdateDepartmentResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24305,11 +34065,22 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateDepartmentResponse>(await this.callApi(params, req, runtime), new UpdateDepartmentResponse({}));
   }
 
+  /**
+   * 更新部门信息
+   * 
+   * @param request - UpdateDepartmentRequest
+   * @returns UpdateDepartmentResponse
+   */
   async updateDepartment(request: UpdateDepartmentRequest): Promise<UpdateDepartmentResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateDepartmentWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - UpdateOuterAccountRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateOuterAccountResponse
+   */
   async updateOuterAccountWithOptions(request: UpdateOuterAccountRequest, runtime: $Util.RuntimeOptions): Promise<UpdateOuterAccountResponse> {
     Util.validateModel(request);
     let query = OpenApiUtil.query(Util.toMap(request));
@@ -24330,11 +34101,20 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateOuterAccountResponse>(await this.callApi(params, req, runtime), new UpdateOuterAccountResponse({}));
   }
 
+  /**
+   * @param request - UpdateOuterAccountRequest
+   * @returns UpdateOuterAccountResponse
+   */
   async updateOuterAccount(request: UpdateOuterAccountRequest): Promise<UpdateOuterAccountResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateOuterAccountWithOptions(request, runtime);
   }
 
+  /**
+   * @param request - UpdateSkillGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateSkillGroupResponse
+   */
   async updateSkillGroupWithOptions(request: UpdateSkillGroupRequest, runtime: $Util.RuntimeOptions): Promise<UpdateSkillGroupResponse> {
     Util.validateModel(request);
     let query = { };
@@ -24379,6 +34159,10 @@ export default class Client extends OpenApi {
     return $tea.cast<UpdateSkillGroupResponse>(await this.callApi(params, req, runtime), new UpdateSkillGroupResponse({}));
   }
 
+  /**
+   * @param request - UpdateSkillGroupRequest
+   * @returns UpdateSkillGroupResponse
+   */
   async updateSkillGroup(request: UpdateSkillGroupRequest): Promise<UpdateSkillGroupResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateSkillGroupWithOptions(request, runtime);
