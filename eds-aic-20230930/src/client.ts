@@ -1593,6 +1593,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
    * name
    */
   androidInstanceName?: string;
+  bizRegionId?: string;
   chargeType?: string;
   /**
    * @example
@@ -1626,10 +1627,12 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
    * RUNNING
    */
   status?: string;
+  tag?: DescribeAndroidInstancesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       androidInstanceIds: 'AndroidInstanceIds',
       androidInstanceName: 'AndroidInstanceName',
+      bizRegionId: 'BizRegionId',
       chargeType: 'ChargeType',
       instanceGroupId: 'InstanceGroupId',
       instanceGroupIds: 'InstanceGroupIds',
@@ -1639,6 +1642,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
       nextToken: 'NextToken',
       saleMode: 'SaleMode',
       status: 'Status',
+      tag: 'Tag',
     };
   }
 
@@ -1646,6 +1650,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
     return {
       androidInstanceIds: { 'type': 'array', 'itemType': 'string' },
       androidInstanceName: 'string',
+      bizRegionId: 'string',
       chargeType: 'string',
       instanceGroupId: 'string',
       instanceGroupIds: { 'type': 'array', 'itemType': 'string' },
@@ -1655,6 +1660,7 @@ export class DescribeAndroidInstancesRequest extends $tea.Model {
       nextToken: 'string',
       saleMode: 'string',
       status: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeAndroidInstancesRequestTag },
     };
   }
 
@@ -5283,6 +5289,28 @@ export class DescribeAndroidInstanceGroupsResponseBodyInstanceGroupModel extends
   }
 }
 
+export class DescribeAndroidInstancesRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $tea.Model {
   diskSize?: number;
   diskType?: string;
@@ -5297,6 +5325,28 @@ export class DescribeAndroidInstancesResponseBodyInstanceModelDisks extends $tea
     return {
       diskSize: 'number',
       diskType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeAndroidInstancesResponseBodyInstanceModelTags extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -5396,6 +5446,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
    */
   regionId?: string;
   renderingType?: string;
+  tags?: DescribeAndroidInstancesResponseBodyInstanceModelTags[];
   static names(): { [key: string]: string } {
     return {
       androidInstanceGroupId: 'AndroidInstanceGroupId',
@@ -5424,6 +5475,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       rate: 'Rate',
       regionId: 'RegionId',
       renderingType: 'RenderingType',
+      tags: 'Tags',
     };
   }
 
@@ -5455,6 +5507,7 @@ export class DescribeAndroidInstancesResponseBodyInstanceModel extends $tea.Mode
       rate: 'number',
       regionId: 'string',
       renderingType: 'string',
+      tags: { 'type': 'array', 'itemType': DescribeAndroidInstancesResponseBodyInstanceModelTags },
     };
   }
 
@@ -7261,6 +7314,10 @@ export default class Client extends OpenApi {
       query["AndroidInstanceName"] = request.androidInstanceName;
     }
 
+    if (!Util.isUnset(request.bizRegionId)) {
+      query["BizRegionId"] = request.bizRegionId;
+    }
+
     if (!Util.isUnset(request.chargeType)) {
       query["ChargeType"] = request.chargeType;
     }
@@ -7295,6 +7352,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.status)) {
       query["Status"] = request.status;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
     }
 
     let req = new $OpenApi.OpenApiRequest({
