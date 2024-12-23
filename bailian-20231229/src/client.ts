@@ -132,7 +132,7 @@ export class AddCategoryResponse extends $tea.Model {
 export class AddFileRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
+   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId`<props="china"> returned by the [AddCategory](https://www.alibabacloud.com/help/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
    * 
    * This parameter is required.
    * 
@@ -142,7 +142,7 @@ export class AddFileRequest extends $tea.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
+   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
    * 
    * This parameter is required.
    * 
@@ -193,7 +193,7 @@ export class AddFileRequest extends $tea.Model {
 export class AddFileShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId` returned by the [AddCategory](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.aliyun.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
+   * The primary key ID of the category to which the document is uploaded. This parameter corresponds to the `CategoryId`<props="china"> returned by the [AddCategory](https://www.alibabacloud.com/help/zh/model-studio/developer-reference/api-bailian-2023-12-29-addcategory) operation. You can also click the ID icon next to the category name on the Unstructured Data tab of the [Data Management](https://bailian.console.alibabacloud.com/#/data-center) page to view the ID. You can set the parameter to default, which specifies the Default Category created by the system.
    * 
    * This parameter is required.
    * 
@@ -203,7 +203,7 @@ export class AddFileShrinkRequest extends $tea.Model {
   categoryId?: string;
   /**
    * @remarks
-   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
+   * The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
    * 
    * This parameter is required.
    * 
@@ -507,12 +507,14 @@ export class CreateAndPulishAgentRequest extends $tea.Model {
   instructions?: string;
   modelId?: string;
   name?: string;
+  sampleLibrary?: CreateAndPulishAgentRequestSampleLibrary;
   static names(): { [key: string]: string } {
     return {
       applicationConfig: 'applicationConfig',
       instructions: 'instructions',
       modelId: 'modelId',
       name: 'name',
+      sampleLibrary: 'sampleLibrary',
     };
   }
 
@@ -522,6 +524,7 @@ export class CreateAndPulishAgentRequest extends $tea.Model {
       instructions: 'string',
       modelId: 'string',
       name: 'string',
+      sampleLibrary: CreateAndPulishAgentRequestSampleLibrary,
     };
   }
 
@@ -535,12 +538,14 @@ export class CreateAndPulishAgentShrinkRequest extends $tea.Model {
   instructions?: string;
   modelId?: string;
   name?: string;
+  sampleLibraryShrink?: string;
   static names(): { [key: string]: string } {
     return {
       applicationConfigShrink: 'applicationConfig',
       instructions: 'instructions',
       modelId: 'modelId',
       name: 'name',
+      sampleLibraryShrink: 'sampleLibrary',
     };
   }
 
@@ -550,6 +555,7 @@ export class CreateAndPulishAgentShrinkRequest extends $tea.Model {
       instructions: 'string',
       modelId: 'string',
       name: 'string',
+      sampleLibraryShrink: 'string',
     };
   }
 
@@ -4520,12 +4526,14 @@ export class UpdateAndPublishAgentRequest extends $tea.Model {
   instructions?: string;
   modelId?: string;
   name?: string;
+  sampleLibrary?: UpdateAndPublishAgentRequestSampleLibrary;
   static names(): { [key: string]: string } {
     return {
       applicationConfig: 'applicationConfig',
       instructions: 'instructions',
       modelId: 'modelId',
       name: 'name',
+      sampleLibrary: 'sampleLibrary',
     };
   }
 
@@ -4535,6 +4543,7 @@ export class UpdateAndPublishAgentRequest extends $tea.Model {
       instructions: 'string',
       modelId: 'string',
       name: 'string',
+      sampleLibrary: UpdateAndPublishAgentRequestSampleLibrary,
     };
   }
 
@@ -4548,12 +4557,14 @@ export class UpdateAndPublishAgentShrinkRequest extends $tea.Model {
   instructions?: string;
   modelId?: string;
   name?: string;
+  sampleLibraryShrink?: string;
   static names(): { [key: string]: string } {
     return {
       applicationConfigShrink: 'applicationConfig',
       instructions: 'instructions',
       modelId: 'modelId',
       name: 'name',
+      sampleLibraryShrink: 'sampleLibrary',
     };
   }
 
@@ -4563,6 +4574,7 @@ export class UpdateAndPublishAgentShrinkRequest extends $tea.Model {
       instructions: 'string',
       modelId: 'string',
       name: 'string',
+      sampleLibraryShrink: 'string',
     };
   }
 
@@ -4622,6 +4634,127 @@ export class UpdateAndPublishAgentResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateAndPublishAgentResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequest extends $tea.Model {
+  applicationConfig?: UpdateAndPublishAgentSelectiveRequestApplicationConfig;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  sampleLibrary?: UpdateAndPublishAgentSelectiveRequestSampleLibrary;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfig: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+      sampleLibrary: 'sampleLibrary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfig: UpdateAndPublishAgentSelectiveRequestApplicationConfig,
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+      sampleLibrary: UpdateAndPublishAgentSelectiveRequestSampleLibrary,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveShrinkRequest extends $tea.Model {
+  applicationConfigShrink?: string;
+  instructions?: string;
+  modelId?: string;
+  name?: string;
+  sampleLibraryShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      applicationConfigShrink: 'applicationConfig',
+      instructions: 'instructions',
+      modelId: 'modelId',
+      name: 'name',
+      sampleLibraryShrink: 'sampleLibrary',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationConfigShrink: 'string',
+      instructions: 'string',
+      modelId: 'string',
+      name: 'string',
+      sampleLibraryShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveResponseBody extends $tea.Model {
+  code?: string;
+  data?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateAndPublishAgentSelectiveResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateAndPublishAgentSelectiveResponseBody,
     };
   }
 
@@ -5202,24 +5335,48 @@ export class CreateAndPulishAgentRequestApplicationConfigParameters extends $tea
 }
 
 export class CreateAndPulishAgentRequestApplicationConfigRagConfig extends $tea.Model {
+  answerScope?: string;
   enableCitation?: boolean;
   enableSearch?: boolean;
+  enableWebSearch?: boolean;
+  fixedReplyDetail?: string;
   knowledgeBaseCodeList?: string[];
+  promptStrategy?: string;
+  ragRejectType?: string;
+  rejectFilterPrompt?: string;
+  rejectFilterType?: string;
+  retrieveMaxLength?: number;
   topK?: number;
   static names(): { [key: string]: string } {
     return {
+      answerScope: 'answerScope',
       enableCitation: 'enableCitation',
       enableSearch: 'enableSearch',
+      enableWebSearch: 'enableWebSearch',
+      fixedReplyDetail: 'fixedReplyDetail',
       knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      promptStrategy: 'promptStrategy',
+      ragRejectType: 'ragRejectType',
+      rejectFilterPrompt: 'rejectFilterPrompt',
+      rejectFilterType: 'rejectFilterType',
+      retrieveMaxLength: 'retrieveMaxLength',
       topK: 'topK',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      answerScope: 'string',
       enableCitation: 'boolean',
       enableSearch: 'boolean',
+      enableWebSearch: 'boolean',
+      fixedReplyDetail: 'string',
       knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      promptStrategy: 'string',
+      ragRejectType: 'string',
+      rejectFilterPrompt: 'string',
+      rejectFilterType: 'string',
+      retrieveMaxLength: 'number',
       topK: 'number',
     };
   }
@@ -5315,6 +5472,31 @@ export class CreateAndPulishAgentRequestApplicationConfig extends $tea.Model {
       securityConfig: CreateAndPulishAgentRequestApplicationConfigSecurityConfig,
       tools: { 'type': 'array', 'itemType': CreateAndPulishAgentRequestApplicationConfigTools },
       workFlows: { 'type': 'array', 'itemType': CreateAndPulishAgentRequestApplicationConfigWorkFlows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateAndPulishAgentRequestSampleLibrary extends $tea.Model {
+  enableSample?: boolean;
+  sampleLibraryIdList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableSample: 'enableSample',
+      sampleLibraryIdList: 'sampleLibraryIdList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSample: 'boolean',
+      sampleLibraryIdList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
     };
   }
 
@@ -7330,24 +7512,48 @@ export class UpdateAndPublishAgentRequestApplicationConfigParameters extends $te
 }
 
 export class UpdateAndPublishAgentRequestApplicationConfigRagConfig extends $tea.Model {
+  answerScope?: string;
   enableCitation?: boolean;
   enableSearch?: boolean;
+  enableWebSearch?: boolean;
+  fixedReplyDetail?: string;
   knowledgeBaseCodeList?: string[];
+  promptStrategy?: string;
+  ragRejectType?: string;
+  rejectFilterPrompt?: string;
+  rejectFilterType?: string;
+  retrieveMaxLength?: number;
   topK?: number;
   static names(): { [key: string]: string } {
     return {
+      answerScope: 'answerScope',
       enableCitation: 'enableCitation',
       enableSearch: 'enableSearch',
+      enableWebSearch: 'enableWebSearch',
+      fixedReplyDetail: 'fixedReplyDetail',
       knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      promptStrategy: 'promptStrategy',
+      ragRejectType: 'ragRejectType',
+      rejectFilterPrompt: 'rejectFilterPrompt',
+      rejectFilterType: 'rejectFilterType',
+      retrieveMaxLength: 'retrieveMaxLength',
       topK: 'topK',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      answerScope: 'string',
       enableCitation: 'boolean',
       enableSearch: 'boolean',
+      enableWebSearch: 'boolean',
+      fixedReplyDetail: 'string',
       knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      promptStrategy: 'string',
+      ragRejectType: 'string',
+      rejectFilterPrompt: 'string',
+      rejectFilterType: 'string',
+      retrieveMaxLength: 'number',
       topK: 'number',
     };
   }
@@ -7443,6 +7649,277 @@ export class UpdateAndPublishAgentRequestApplicationConfig extends $tea.Model {
       security: UpdateAndPublishAgentRequestApplicationConfigSecurity,
       tools: { 'type': 'array', 'itemType': UpdateAndPublishAgentRequestApplicationConfigTools },
       workFlows: { 'type': 'array', 'itemType': UpdateAndPublishAgentRequestApplicationConfigWorkFlows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentRequestSampleLibrary extends $tea.Model {
+  enableSample?: boolean;
+  sampleLibraryIdList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableSample: 'enableSample',
+      sampleLibraryIdList: 'sampleLibraryIdList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSample: 'boolean',
+      sampleLibraryIdList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig extends $tea.Model {
+  enableAdbRecord?: boolean;
+  enableRecord?: boolean;
+  instanceId?: string;
+  region?: string;
+  storeCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      enableAdbRecord: 'enableAdbRecord',
+      enableRecord: 'enableRecord',
+      instanceId: 'instanceId',
+      region: 'region',
+      storeCode: 'storeCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableAdbRecord: 'boolean',
+      enableRecord: 'boolean',
+      instanceId: 'string',
+      region: 'string',
+      storeCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory extends $tea.Model {
+  enable?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      enable: 'enable',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enable: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters extends $tea.Model {
+  dialogRound?: number;
+  maxTokens?: number;
+  temperature?: number;
+  static names(): { [key: string]: string } {
+    return {
+      dialogRound: 'dialogRound',
+      maxTokens: 'maxTokens',
+      temperature: 'temperature',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dialogRound: 'number',
+      maxTokens: 'number',
+      temperature: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig extends $tea.Model {
+  answerScope?: string;
+  enableCitation?: boolean;
+  enableSearch?: boolean;
+  enableWebSearch?: string;
+  fixedReplyDetail?: string;
+  knowledgeBaseCodeList?: string[];
+  promptStrategy?: string;
+  ragRejectType?: string;
+  rejectFilterPrompt?: string;
+  rejectFilterType?: string;
+  retrieveMaxLength?: number;
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      answerScope: 'answerScope',
+      enableCitation: 'enableCitation',
+      enableSearch: 'enableSearch',
+      enableWebSearch: 'enableWebSearch',
+      fixedReplyDetail: 'fixedReplyDetail',
+      knowledgeBaseCodeList: 'knowledgeBaseCodeList',
+      promptStrategy: 'promptStrategy',
+      ragRejectType: 'ragRejectType',
+      rejectFilterPrompt: 'rejectFilterPrompt',
+      rejectFilterType: 'rejectFilterType',
+      retrieveMaxLength: 'retrieveMaxLength',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answerScope: 'string',
+      enableCitation: 'boolean',
+      enableSearch: 'boolean',
+      enableWebSearch: 'string',
+      fixedReplyDetail: 'string',
+      knowledgeBaseCodeList: { 'type': 'array', 'itemType': 'string' },
+      promptStrategy: 'string',
+      ragRejectType: 'string',
+      rejectFilterPrompt: 'string',
+      rejectFilterType: 'string',
+      retrieveMaxLength: 'number',
+      topK: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity extends $tea.Model {
+  processingStrategy?: string;
+  static names(): { [key: string]: string } {
+    return {
+      processingStrategy: 'processingStrategy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      processingStrategy: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigTools extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows extends $tea.Model {
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestApplicationConfig extends $tea.Model {
+  historyConfig?: UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig;
+  longTermMemory?: UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory;
+  parameters?: UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters;
+  ragConfig?: UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig;
+  security?: UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity;
+  tools?: UpdateAndPublishAgentSelectiveRequestApplicationConfigTools[];
+  workFlows?: UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows[];
+  static names(): { [key: string]: string } {
+    return {
+      historyConfig: 'historyConfig',
+      longTermMemory: 'longTermMemory',
+      parameters: 'parameters',
+      ragConfig: 'ragConfig',
+      security: 'security',
+      tools: 'tools',
+      workFlows: 'workFlows',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      historyConfig: UpdateAndPublishAgentSelectiveRequestApplicationConfigHistoryConfig,
+      longTermMemory: UpdateAndPublishAgentSelectiveRequestApplicationConfigLongTermMemory,
+      parameters: UpdateAndPublishAgentSelectiveRequestApplicationConfigParameters,
+      ragConfig: UpdateAndPublishAgentSelectiveRequestApplicationConfigRagConfig,
+      security: UpdateAndPublishAgentSelectiveRequestApplicationConfigSecurity,
+      tools: { 'type': 'array', 'itemType': UpdateAndPublishAgentSelectiveRequestApplicationConfigTools },
+      workFlows: { 'type': 'array', 'itemType': UpdateAndPublishAgentSelectiveRequestApplicationConfigWorkFlows },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateAndPublishAgentSelectiveRequestSampleLibrary extends $tea.Model {
+  enableSample?: boolean;
+  sampleLibraryIdList?: string[];
+  topK?: number;
+  static names(): { [key: string]: string } {
+    return {
+      enableSample: 'enableSample',
+      sampleLibraryIdList: 'sampleLibraryIdList',
+      topK: 'topK',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      enableSample: 'boolean',
+      sampleLibraryIdList: { 'type': 'array', 'itemType': 'string' },
+      topK: 'number',
     };
   }
 
@@ -7547,12 +8024,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an unstructured document stored in the temporary storage space to Data Management.
+   * Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
    * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
-   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
    * *   After you call this operation, the system parses and imports your document. The process takes some time.
    * *   This interface is not idempotent.
    * 
@@ -7605,12 +8082,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports an unstructured document stored in the temporary storage space to Data Management.
+   * Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
    * 
    * @remarks
-   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+   *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
    * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
-   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+   * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
    * *   After you call this operation, the system parses and imports your document. The process takes some time.
    * *   This interface is not idempotent.
    * 
@@ -7704,6 +8181,10 @@ export default class Client extends OpenApi {
       request.applicationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfig, "applicationConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.sampleLibrary)) {
+      request.sampleLibraryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sampleLibrary, "sampleLibrary", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applicationConfigShrink)) {
       body["applicationConfig"] = request.applicationConfigShrink;
@@ -7719,6 +8200,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sampleLibraryShrink)) {
+      body["sampleLibrary"] = request.sampleLibraryShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9416,6 +9901,10 @@ export default class Client extends OpenApi {
       request.applicationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfig, "applicationConfig", "json");
     }
 
+    if (!Util.isUnset(tmpReq.sampleLibrary)) {
+      request.sampleLibraryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sampleLibrary, "sampleLibrary", "json");
+    }
+
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.applicationConfigShrink)) {
       body["applicationConfig"] = request.applicationConfigShrink;
@@ -9431,6 +9920,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.name)) {
       body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sampleLibraryShrink)) {
+      body["sampleLibrary"] = request.sampleLibraryShrink;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -9461,6 +9954,77 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAndPublishAgentWithOptions(workspaceId, appCode, request, headers, runtime);
+  }
+
+  /**
+   * 选择更新并发布智能体应用
+   * 
+   * @param tmpReq - UpdateAndPublishAgentSelectiveRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAndPublishAgentSelectiveResponse
+   */
+  async updateAndPublishAgentSelectiveWithOptions(workspaceId: string, appCode: string, tmpReq: UpdateAndPublishAgentSelectiveRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateAndPublishAgentSelectiveResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateAndPublishAgentSelectiveShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.applicationConfig)) {
+      request.applicationConfigShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationConfig, "applicationConfig", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sampleLibrary)) {
+      request.sampleLibraryShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sampleLibrary, "sampleLibrary", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.applicationConfigShrink)) {
+      body["applicationConfig"] = request.applicationConfigShrink;
+    }
+
+    if (!Util.isUnset(request.instructions)) {
+      body["instructions"] = request.instructions;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.sampleLibraryShrink)) {
+      body["sampleLibrary"] = request.sampleLibraryShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateAndPublishAgentSelective",
+      version: "2023-12-29",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/application/agents/${OpenApiUtil.getEncodeParam(appCode)}/updateAndPublishAgentSelective`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateAndPublishAgentSelectiveResponse>(await this.callApi(params, req, runtime), new UpdateAndPublishAgentSelectiveResponse({}));
+  }
+
+  /**
+   * 选择更新并发布智能体应用
+   * 
+   * @param request - UpdateAndPublishAgentSelectiveRequest
+   * @returns UpdateAndPublishAgentSelectiveResponse
+   */
+  async updateAndPublishAgentSelective(workspaceId: string, appCode: string, request: UpdateAndPublishAgentSelectiveRequest): Promise<UpdateAndPublishAgentSelectiveResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAndPublishAgentSelectiveWithOptions(workspaceId, appCode, request, headers, runtime);
   }
 
   /**
