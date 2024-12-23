@@ -6507,7 +6507,7 @@ export class CreateApiTemplateResponse extends $tea.Model {
 export class CreateClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The service configurations. Number of elements in the array: 1 to 1000.
+   * The application configurations. Number of elements in the array: 1 to 1000.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
@@ -6572,13 +6572,16 @@ export class CreateClusterRequest extends $tea.Model {
    */
   deployMode?: string;
   /**
+   * @remarks
+   * The cluster description.
+   * 
    * @example
    * Emr cluster for ETL
    */
   description?: string;
   /**
    * @remarks
-   * The attributes of all ECS instances. The basic attributes of all ECS instances in the cluster.
+   * The attributes of all ECS instances.
    * 
    * This parameter is required.
    */
@@ -6618,7 +6621,7 @@ export class CreateClusterRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
+   * The EMR version. You can query available E-MapReduce (EMR) versions in the EMR console.
    * 
    * This parameter is required.
    * 
@@ -6647,12 +6650,12 @@ export class CreateClusterRequest extends $tea.Model {
   securityMode?: string;
   /**
    * @remarks
-   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   * The subscription configurations. This parameter takes effect only if you set the PaymentType parameter to Subscription.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * The list of tags. Number of elements in the array: 0 to 20.
+   * The tags. Number of elements in the array: 0 to 20.
    * 
    * @example
    * A7D960FA-6DBA-5E07-8746-A63E3E4D****
@@ -7016,7 +7019,15 @@ export class CreateScriptResponse extends $tea.Model {
 }
 
 export class DecreaseNodesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The cooldown interval between two batches.
+   */
   batchInterval?: number;
+  /**
+   * @remarks
+   * The number of nodes to be removed in a single batch.
+   */
   batchSize?: number;
   /**
    * @remarks
@@ -7157,7 +7168,7 @@ export class DecreaseNodesResponse extends $tea.Model {
 export class DeleteApiTemplateRequest extends $tea.Model {
   /**
    * @remarks
-   * 接口名。
+   * Interface name.
    * 
    * This parameter is required.
    * 
@@ -7167,7 +7178,7 @@ export class DeleteApiTemplateRequest extends $tea.Model {
   apiName?: string;
   /**
    * @remarks
-   * 区域ID。
+   * Region ID
    * 
    * This parameter is required.
    * 
@@ -7177,7 +7188,7 @@ export class DeleteApiTemplateRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 资源组ID。
+   * Resource group ID.
    * 
    * @example
    * rg-acfmzabjyop****
@@ -7185,7 +7196,7 @@ export class DeleteApiTemplateRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * 集群模板id。
+   * Cluster template ID.
    * 
    * This parameter is required.
    * 
@@ -7219,13 +7230,16 @@ export class DeleteApiTemplateRequest extends $tea.Model {
 export class DeleteApiTemplateResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the call was successful: - true: Call succeeded - false: Call failed.
+   * 
    * @example
    * true
    * 
@@ -14686,7 +14700,7 @@ export class ListReleaseVersionsResponse extends $tea.Model {
 export class ListScriptsRequest extends $tea.Model {
   /**
    * @remarks
-   * 集群ID。
+   * Cluster ID.
    * 
    * This parameter is required.
    * 
@@ -14696,7 +14710,7 @@ export class ListScriptsRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 一次获取的最大记录数。取值范围：1~100。
+   * The maximum number of records to retrieve at once.
    * 
    * @example
    * 10
@@ -14704,7 +14718,7 @@ export class ListScriptsRequest extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 标记当前开始读取的位置，置空表示从头开始。
+   * Marks the current position to start reading from.
    * 
    * @example
    * dd6b1b2a-5837-5237-abe4-ff0c89568980
@@ -14712,7 +14726,7 @@ export class ListScriptsRequest extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 区域ID。
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -14722,7 +14736,10 @@ export class ListScriptsRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * 集群脚本类型。
+   * Type of cluster script. Possible values:
+   * 
+   * - BOOTSTRAP: Bootstrap script.
+   * - NORMAL: Regular cluster script.
    * 
    * This parameter is required.
    * 
@@ -14758,7 +14775,7 @@ export class ListScriptsRequest extends $tea.Model {
 export class ListScriptsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 本次请求所返回的最大记录条数。
+   * The maximum number of records returned in this request.
    * 
    * @example
    * 10
@@ -14766,7 +14783,7 @@ export class ListScriptsResponseBody extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * 返回读取到的数据位置，空代表数据已经读取完毕。
+   * The position of the data read.
    * 
    * @example
    * dd6b1b2a-5837-5237-abe4-ff0c89568982
@@ -14774,7 +14791,7 @@ export class ListScriptsResponseBody extends $tea.Model {
   nextToken?: string;
   /**
    * @remarks
-   * 请求ID。
+   * Request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
@@ -14782,12 +14799,12 @@ export class ListScriptsResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scripts.
+   * List of scripts.
    */
   scripts?: ListScriptsResponseBodyScripts[];
   /**
    * @remarks
-   * 本次请求条件下的数据总量。
+   * The total amount of data under the conditions of this request.
    * 
    * @example
    * 200
@@ -15545,12 +15562,12 @@ export class RunApplicationActionResponse extends $tea.Model {
 export class RunClusterRequest extends $tea.Model {
   /**
    * @remarks
-   * The service configurations. Number of elements in the array: 1 to 1,000.
+   * The application configurations. Number of elements in the array: 1 to 1000.
    */
   applicationConfigs?: ApplicationConfig[];
   /**
    * @remarks
-   * The list of services. Number of elements in the array: 1 to 100.
+   * The services. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
@@ -15619,7 +15636,7 @@ export class RunClusterRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The basic attributes of all ECS instances in the cluster.
+   * The attributes of all ECS instances.
    */
   nodeAttributes?: NodeAttributes;
   /**
@@ -15683,12 +15700,12 @@ export class RunClusterRequest extends $tea.Model {
   securityMode?: string;
   /**
    * @remarks
-   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   * The subscription configurations. This parameter takes effect only if you set the PaymentType parameter to Subscription.
    */
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * The list of tags. Number of elements in the array: 0 to 20.
+   * The tags. Number of elements in the array: 0 to 20.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {
@@ -15745,12 +15762,12 @@ export class RunClusterRequest extends $tea.Model {
 export class RunClusterShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The service configurations. Number of elements in the array: 1 to 1,000.
+   * The application configurations. Number of elements in the array: 1 to 1000.
    */
   applicationConfigsShrink?: string;
   /**
    * @remarks
-   * The list of services. Number of elements in the array: 1 to 100.
+   * The services. Number of elements in the array: 1 to 100.
    * 
    * This parameter is required.
    */
@@ -15819,7 +15836,7 @@ export class RunClusterShrinkRequest extends $tea.Model {
   description?: string;
   /**
    * @remarks
-   * The basic attributes of all ECS instances in the cluster.
+   * The attributes of all ECS instances.
    */
   nodeAttributesShrink?: string;
   /**
@@ -15883,12 +15900,12 @@ export class RunClusterShrinkRequest extends $tea.Model {
   securityMode?: string;
   /**
    * @remarks
-   * The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+   * The subscription configurations. This parameter takes effect only if you set the PaymentType parameter to Subscription.
    */
   subscriptionConfigShrink?: string;
   /**
    * @remarks
-   * The list of tags. Number of elements in the array: 0 to 20.
+   * The tags. Number of elements in the array: 0 to 20.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
@@ -16585,6 +16602,121 @@ export class UpdateApplicationConfigsResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: UpdateApplicationConfigsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterAttributeRequest extends $tea.Model {
+  /**
+   * @remarks
+   * 集群ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * c-b933c5aac8fe****
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * 集群名称。
+   * 
+   * @example
+   * emrtest
+   */
+  clusterName?: string;
+  /**
+   * @example
+   * false
+   */
+  deletionProtection?: boolean;
+  /**
+   * @example
+   * Emr cluster for ETL
+   */
+  description?: string;
+  /**
+   * @remarks
+   * 区域ID。
+   * 
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      clusterName: 'ClusterName',
+      deletionProtection: 'DeletionProtection',
+      description: 'Description',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      clusterName: 'string',
+      deletionProtection: 'boolean',
+      description: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterAttributeResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * 请求ID。
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateClusterAttributeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateClusterAttributeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateClusterAttributeResponseBody,
     };
   }
 
@@ -18252,6 +18384,10 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPoliciesConst
    * 200
    */
   maxCapacity?: number;
+  /**
+   * @remarks
+   * The maximum number of nodes that you can configure based on your business requirements.
+   */
   maxOnDemandCapacity?: number;
   /**
    * @remarks
@@ -18388,6 +18524,10 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMetaScalingPolicies exte
    * asp-asduwe23znl***
    */
   scalingPolicyId?: string;
+  /**
+   * @remarks
+   * The type of the auto scaling policy.
+   */
   scalingPolicyType?: string;
   /**
    * @remarks
@@ -18515,7 +18655,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
   existCloneConfig?: boolean;
   /**
    * @remarks
-   * The attributes of all ECS instances.
+   * The node attributes.
    */
   nodeAttributes?: NodeAttributes;
   /**
@@ -18581,7 +18721,7 @@ export class GetClusterCloneMetaResponseBodyClusterCloneMeta extends $tea.Model 
   subscriptionConfig?: SubscriptionConfig;
   /**
    * @remarks
-   * The list of tags.
+   * The tags.
    */
   tags?: Tag[];
   static names(): { [key: string]: string } {
@@ -50182,7 +50322,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $tea.Model {
 export class ListScriptsResponseBodyScripts extends $tea.Model {
   /**
    * @remarks
-   * The name of the API operation.
+   * API name.
    * 
    * @example
    * ListScripts
@@ -50190,7 +50330,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   action?: string;
   /**
    * @remarks
-   * The time when the system finishes the running of the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+   * End execution time. This value is returned only when `ScriptType` is `NORMAL`.
    * 
    * @example
    * 1639715635819
@@ -50198,10 +50338,10 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   endTime?: number;
   /**
    * @remarks
-   * The policy that is used to handle execution failures of the script. Valid values:
+   * Execution failure strategy. Possible values:
    * 
-   * *   FAILED_CONTINUE
-   * *   FAILED_BLOCK
+   * - FAILED_CONTINUE: Continue after failure.
+   * - FAILED_BLOCK: Block after failure.
    * 
    * @example
    * FAILED_CONTINUE
@@ -50209,10 +50349,10 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   executionFailStrategy?: string;
   /**
    * @remarks
-   * The time based on which the system runs the script. Valid values:
+   * Execution timing. Possible values:
    * 
-   * *   BEFORE_INSTALL
-   * *   AFTER_STARTED
+   * - BEFORE_INSTALL: Before application installation.
+   * - AFTER_STARTED: After application startup.
    * 
    * @example
    * BEFORE_INSTALL
@@ -50220,11 +50360,11 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   executionMoment?: string;
   /**
    * @remarks
-   * The status of the script. This parameter is returned only if the `ScriptType` parameter is set to `NORMAL`. Valid values:
+   * Script execution state. This value is returned only when `ScriptType` is `NORMAL`. Possible values:
    * 
-   * *   SCRIPT_COMPLETED
-   * *   SCRIPT_SUBMISSION_FAILED
-   * *   SCRIPT_RUNNING
+   * - SCRIPT_COMPLETED: Script executed successfully.
+   * - SCRIPT_SUBMISSION_FAILED: Script execution failed.
+   * - SCRIPT_RUNNING: Script is running.
    * 
    * @example
    * SCRIPT_COMPLETED
@@ -50232,7 +50372,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   executionState?: string;
   /**
    * @remarks
-   * The time when the script was last modified.
+   * Time of the last update.
    * 
    * @example
    * 1639714634819
@@ -50240,12 +50380,12 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The node selector.
+   * Node selector.
    */
   nodeSelector?: NodeSelector;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * @example
    * cn-hangzhou
@@ -50253,7 +50393,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
-   * The runtime parameters of the script.
+   * Script execution parameters.
    * 
    * @example
    * --mode=client -h -p
@@ -50261,7 +50401,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   scriptArgs?: string;
   /**
    * @remarks
-   * The script ID.
+   * Script ID.
    * 
    * @example
    * cs-bf25219d103043a0820613e32781****
@@ -50269,7 +50409,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script.
+   * Script name.
    * 
    * @example
    * check_env
@@ -50277,7 +50417,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The path in which the script is stored.
+   * Script path.
    * 
    * @example
    * oss://bucket1/check_evn.sh
@@ -50285,7 +50425,7 @@ export class ListScriptsResponseBodyScripts extends $tea.Model {
   scriptPath?: string;
   /**
    * @remarks
-   * The time when the system starts to run the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+   * Start execution time. This value is returned only when `ScriptType` is `NORMAL`.
    * 
    * @example
    * 1639714634000
@@ -53984,7 +54124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+   * Query EMR cluster bootstrap scripts or regular scripts.
    * 
    * @param request - ListScriptsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54031,7 +54171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+   * Query EMR cluster bootstrap scripts or regular scripts.
    * 
    * @param request - ListScriptsRequest
    * @returns ListScriptsResponse
@@ -54337,7 +54477,7 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
    * 
    * @remarks
-   * RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+   * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
    * 
    * @param tmpReq - RunClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -54471,7 +54611,7 @@ export default class Client extends OpenApi {
    * Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
    * 
    * @remarks
-   * RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+   * RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
    * 
    * @param request - RunClusterRequest
    * @returns RunClusterResponse
@@ -54740,6 +54880,60 @@ export default class Client extends OpenApi {
   async updateApplicationConfigs(request: UpdateApplicationConfigsRequest): Promise<UpdateApplicationConfigsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateApplicationConfigsWithOptions(request, runtime);
+  }
+
+  /**
+   * @param request - UpdateClusterAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateClusterAttributeResponse
+   */
+  async updateClusterAttributeWithOptions(request: UpdateClusterAttributeRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterAttributeResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.clusterName)) {
+      query["ClusterName"] = request.clusterName;
+    }
+
+    if (!Util.isUnset(request.deletionProtection)) {
+      query["DeletionProtection"] = request.deletionProtection;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateClusterAttribute",
+      version: "2021-03-20",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateClusterAttributeResponse>(await this.callApi(params, req, runtime), new UpdateClusterAttributeResponse({}));
+  }
+
+  /**
+   * @param request - UpdateClusterAttributeRequest
+   * @returns UpdateClusterAttributeResponse
+   */
+  async updateClusterAttribute(request: UpdateClusterAttributeRequest): Promise<UpdateClusterAttributeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.updateClusterAttributeWithOptions(request, runtime);
   }
 
   /**
