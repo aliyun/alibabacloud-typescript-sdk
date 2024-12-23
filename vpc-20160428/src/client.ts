@@ -7835,8 +7835,19 @@ export class CreateExpressConnectTrafficQosRequest extends $tea.Model {
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmxazfdgdg****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  /**
+   * @remarks
+   * The tag to add to the resource.
+   */
   tags?: CreateExpressConnectTrafficQosRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -9767,28 +9778,60 @@ export class CreateHaVipResponse extends $tea.Model {
 
 export class CreateHighReliablePhysicalConnectionRequest extends $tea.Model {
   /**
+   * @remarks
+   * The language to display the results. Valid values:
+   * 
+   * *   **zh-CN** (default): Chinese
+   * *   **en-US**: English
+   * 
    * @example
    * zh-CN
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The access points.
+   * 
    * This parameter is required.
    */
   apList?: CreateHighReliablePhysicalConnectionRequestApList[];
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The advanced features of the device.
+   */
   deviceAdvancedCapacity?: string[];
   /**
+   * @remarks
+   * Specifies whether to perform a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
    * @example
    * false
    */
   dryRun?: string;
   /**
    * @remarks
+   * The high availability mode. Valid values:
+   * 
+   * - **MultiApMultiDevice** : This mode supports two access points and two devices, and provides the maximum disaster recovery capability.
+   * - **MultiApSingleDevice** : This mode supports two access points and one device, and provides robust disaster recovery capability.
+   * - **SingleApMultiDevice** : This mode supports one access point and two devices, and is recommended for non-critical business test and development.
+   * - **SingleApMultiConnection** : This mode supports one access point, one device, and multiple physical ports. Only users in the whitelist can use this mode. To use this mode, contact your account manager.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9799,6 +9842,18 @@ export class CreateHighReliablePhysicalConnectionRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The port type. Valid values:
+   * 
+   * *   **100Base-T**: 100 Mbit/s copper Ethernet port
+   * *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+   * *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+   * *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+   * *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
+   * *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+   * *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+   * 
+   * >  To use ports 40GBase-LR and 100GBase-LR, you must first contact your account manager.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -9806,17 +9861,29 @@ export class CreateHighReliablePhysicalConnectionRequest extends $tea.Model {
    */
   portType?: string;
   /**
+   * @remarks
+   * The region ID of the Express Connect circuit.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-acfmxazb4p****
    */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
+  /**
+   * @remarks
+   * The tags.
+   */
   tag?: CreateHighReliablePhysicalConnectionRequestTag[];
   static names(): { [key: string]: string } {
     return {
@@ -9862,9 +9929,25 @@ export class CreateHighReliablePhysicalConnectionRequest extends $tea.Model {
 }
 
 export class CreateHighReliablePhysicalConnectionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * If the request fails the dry run, the following error codes and error messages may be returned:
+   * 
+   * - pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing. Billing for outbound data transfer is not enabled.
+   * - pconn.high.reliable.dryrun.error.incompatable.device.capacity. No device in the access point supports advanced features.
+   * - pconn.high.reliable.dryrun.error.quota.exceeded. The quota is insufficient.
+   * - pconn.high.reliable.dryrun.error.not.enough.resource. The access point resources are insufficient.
+   */
   errorInfoList?: CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList;
+  /**
+   * @remarks
+   * The Express Connect circuits.
+   */
   physicalConnectionList?: CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
    */
@@ -20889,6 +20972,13 @@ export class DeleteExpressConnectTrafficQosResponse extends $tea.Model {
 
 export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
    */
@@ -20897,6 +20987,8 @@ export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The ID of the QoS policy.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20905,6 +20997,8 @@ export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
   qosId?: string;
   /**
    * @remarks
+   * The ID of the QoS queue.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20913,6 +21007,10 @@ export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
   queueId?: string;
   /**
    * @remarks
+   * The region ID of the QoS policy.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20951,6 +21049,9 @@ export class DeleteExpressConnectTrafficQosQueueRequest extends $tea.Model {
 
 export class DeleteExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 9B9300FE-11E2-4E3B-949C-BED3B44DD26D
    */
@@ -29339,34 +29440,73 @@ export class DescribeEipSegmentResponse extends $tea.Model {
 
 export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 02fb3da4-130e-11e9-8e44-0016e04115b
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The maximum number of entries to return. Valid values: **1** to **100**. Default value: **10**.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token that is used in the next request to retrieve a new page of results.
+   * 
+   * - If no value is returned for NetToken, you do not need to specify this parameter.
+   * - If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
   nextToken?: string;
   ownerAccount?: string;
   ownerId?: number;
+  /**
+   * @remarks
+   * The IDs of QoS policies.
+   */
   qosIdList?: string[];
+  /**
+   * @remarks
+   * The names of QoS policies.
+   */
   qosNameList?: string[];
   /**
    * @remarks
+   * The ID of the region in which the QoS policy is created.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-shanghai
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-acfmxazfdgdg****
+   */
   resourceGroupId?: string;
   resourceOwnerAccount?: string;
+  /**
+   * @remarks
+   * The tags of the resource.
+   */
   tags?: DescribeExpressConnectTrafficQosRequestTags[];
   static names(): { [key: string]: string } {
     return {
@@ -29407,27 +29547,49 @@ export class DescribeExpressConnectTrafficQosRequest extends $tea.Model {
 
 export class DescribeExpressConnectTrafficQosResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 1
    */
   count?: string;
   /**
+   * @remarks
+   * The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * 
+   * *   If **NextToken** is empty, no next page exists.
+   * *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The information about QoS policies.
+   */
   qosList?: DescribeExpressConnectTrafficQosResponseBodyQosList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of returned entries.
+   * 
    * @example
    * 10
    */
@@ -29486,6 +29648,13 @@ export class DescribeExpressConnectTrafficQosResponse extends $tea.Model {
 
 export class DescribeExpressConnectTrafficQosQueueRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+   * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe63****
    */
@@ -29493,14 +29662,29 @@ export class DescribeExpressConnectTrafficQosQueueRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The ID of the QoS policy.
+   * 
    * @example
    * qos-2giu0a6vd5x0mv4700
    */
   qosId?: string;
+  /**
+   * @remarks
+   * The IDs of the QoS queues.
+   */
   queueIdList?: string[];
+  /**
+   * @remarks
+   * The names of the QoS queues.
+   */
   queueNameList?: string[];
   /**
    * @remarks
+   * The region ID of the QoS policy.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -29540,8 +29724,15 @@ export class DescribeExpressConnectTrafficQosQueueRequest extends $tea.Model {
 }
 
 export class DescribeExpressConnectTrafficQosQueueResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the QoS queues.
+   */
   queueList?: DescribeExpressConnectTrafficQosQueueResponseBodyQueueList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 606998F0-B94D-48FE-8316-ACA81BB230DA
    */
@@ -29883,6 +30074,12 @@ export class DescribeFailoverTestJobsRequest extends $tea.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The token that is used for the next query. Valid values:
+   * 
+   * *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+   * *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
@@ -29933,6 +30130,9 @@ export class DescribeFailoverTestJobsRequest extends $tea.Model {
 
 export class DescribeFailoverTestJobsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The number of entries on the current page.
+   * 
    * @example
    * 10
    */
@@ -29951,16 +30151,28 @@ export class DescribeFailoverTestJobsResponseBody extends $tea.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+   * 
+   * *   If no value is returned for **NextToken**, no next queries are sent.
+   * *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+   * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of entries returned.
+   * 
    * @example
    * 10
    */
@@ -39702,6 +39914,16 @@ export class DescribeVpcsRequest extends $tea.Model {
    */
   dryRun?: boolean;
   /**
+   * @remarks
+   * Query for VPCs in the specified region that have enabled IPv6 CIDR blocks. The value is empty by default, which means no filtering based on IPv6 availability is conducted. Valid values:
+   * 
+   * - false: disabled
+   * 
+   * - true: enabled
+   * 
+   * @example
+   * false
+   * 
    * **if can be null:**
    * true
    */
@@ -39721,7 +39943,7 @@ export class DescribeVpcsRequest extends $tea.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -39870,7 +40092,7 @@ export class DescribeVpcsResponseBody extends $tea.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The details about the VPC.
+   * The details of the VPC.
    */
   vpcs?: DescribeVpcsResponseBodyVpcs;
   static names(): { [key: string]: string } {
@@ -59336,6 +59558,12 @@ export class ModifyVirtualBorderRouterAttributeRequest extends $tea.Model {
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
+   * @remarks
+   * Indicates whether to allow service access between data centers. Valid values:
+   * 
+   * - **true**
+   * - **false**
+   * 
    * @example
    * false
    */
@@ -65487,12 +65715,21 @@ export class StartFailoverTestJobResponse extends $tea.Model {
 
 export class StopFailoverTestJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
    * @remarks
+   * The ID of the failover test.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65502,6 +65739,11 @@ export class StopFailoverTestJobRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID of the failover test.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -65536,6 +65778,9 @@ export class StopFailoverTestJobRequest extends $tea.Model {
 
 export class StopFailoverTestJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C44F62BE-9CE7-4277-B117-69243F3988BF
    */
@@ -66076,6 +66321,132 @@ export class TerminateVirtualBorderRouterResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: TerminateVirtualBorderRouterResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformEipSegmentToPublicIpAddressPoolRequest extends $tea.Model {
+  /**
+   * @example
+   * 02fb3da4-130e-11****
+   */
+  clientToken?: string;
+  /**
+   * @example
+   * AddressPoolDescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * eipsg-2zett8ba055tbsxme****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * AddressPoolName
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * rg-acfmxazb4pcdvf****
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clientToken: 'ClientToken',
+      description: 'Description',
+      instanceId: 'InstanceId',
+      name: 'Name',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clientToken: 'string',
+      description: 'string',
+      instanceId: 'string',
+      name: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformEipSegmentToPublicIpAddressPoolResponseBody extends $tea.Model {
+  /**
+   * @example
+   * pippool-6wetvn6fumkgycssx****
+   */
+  publicIpAddressPoolId?: string;
+  /**
+   * @example
+   * 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * rg-acfmxazb4pcdvf****
+   */
+  resourceGroupId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      publicIpAddressPoolId: 'PublicIpAddressPoolId',
+      requestId: 'RequestId',
+      resourceGroupId: 'ResourceGroupId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      publicIpAddressPoolId: 'string',
+      requestId: 'string',
+      resourceGroupId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class TransformEipSegmentToPublicIpAddressPoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: TransformEipSegmentToPublicIpAddressPoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: TransformEipSegmentToPublicIpAddressPoolResponseBody,
     };
   }
 
@@ -67554,23 +67925,50 @@ export class UpdateDhcpOptionsSetAttributeResponse extends $tea.Model {
 
 export class UpdateFailoverTestJobRequest extends $tea.Model {
   /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
+   * 
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * 
+   * >  If you do not set this parameter, the system uses the value of **RequestId** as **ClientToken**. The value of **RequestId** for each API request is different.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
   /**
+   * @remarks
+   * The description of the failover test.
+   * 
+   * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test
    */
   description?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+   * 
+   * *   **true**: performs only a dry run. The system checks the request for potential issues, including invalid AccessKey pairs, unauthorized RAM users, and missing parameter values. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The duration of the failover test. Unit: minutes. Valid values: **1** to **4320**.
+   * 
    * @example
    * 60
    */
   jobDuration?: number;
   /**
    * @remarks
+   * The ID of the failover test.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67578,6 +67976,11 @@ export class UpdateFailoverTestJobRequest extends $tea.Model {
    */
   jobId?: string;
   /**
+   * @remarks
+   * The name of the failover test.
+   * 
+   * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * test
    */
@@ -67585,10 +67988,19 @@ export class UpdateFailoverTestJobRequest extends $tea.Model {
   ownerAccount?: string;
   ownerId?: number;
   /**
+   * @remarks
+   * The region ID of the failover test.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The IDs of the failover test resources. You can add at most 16 resources.
+   */
   resourceId?: string[];
   resourceOwnerAccount?: string;
   static names(): { [key: string]: string } {
@@ -67630,6 +68042,9 @@ export class UpdateFailoverTestJobRequest extends $tea.Model {
 
 export class UpdateFailoverTestJobResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C44F62BE-9CE7-4277-B117-69243F3988BF
    */
@@ -70348,7 +70763,25 @@ export class CreateDhcpOptionsSetRequestTag extends $tea.Model {
 }
 
 export class CreateExpressConnectTrafficQosRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key to add to the resource. You must enter at least one tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value to add to the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -70452,6 +70885,10 @@ export class CreateHaVipRequestTag extends $tea.Model {
 export class CreateHighReliablePhysicalConnectionRequestApList extends $tea.Model {
   /**
    * @remarks
+   * The ID of the access point that is associated with the Express Connect circuit.
+   * 
+   * > Two access points must be specified when **HighReliableType** is set to **MultiApMultiDevice** or **MultiApSingleDevice**. One access point must be specified when **HighReliableType** is set to **SingleApMultiDevice** or **SingleApMultiConnection**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70459,22 +70896,44 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $tea.Mode
    */
   accessPointId?: string;
   /**
+   * @remarks
+   * The maximum bandwidth of the hosted connection. Unit: Mbit/s.
+   * 
+   * Valid values: 50, 100, 200, 300, 400, 500, 1000, 2000, 4000, 5000, 8000, and 10000.
+   * 
    * @example
    * 50
    */
   bandwidth?: number;
   /**
+   * @remarks
+   * The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
+   * 
    * @example
    * longtel001
    */
   circuitCode?: string;
   /**
+   * @remarks
+   * The description of the Express Connect circuit.
+   * 
+   * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+   * 
    * @example
    * description
    */
   description?: string;
   /**
    * @remarks
+   * The connectivity provider of the Express Connect circuit. Valid values:
+   * 
+   * *   **CT**: China Telecom.
+   * *   **CU**: China Unicom.
+   * *   **CM**: China Mobile.
+   * *   **CO**: other connectivity providers in the Chinese mainland.
+   * *   **Equinix**: Equinix.
+   * *   **Other**: other connectivity providers outside the Chinese mainland.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70482,18 +70941,37 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $tea.Mode
    */
   lineOperator?: string;
   /**
+   * @remarks
+   * The name of the Express Connect circuit.
+   * 
+   * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or` https://`.
+   * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * The geographical location of the data center.
+   * 
+   * @example
+   * ram-test
+   */
   peerLocation?: string;
   /**
+   * @remarks
+   * The number of ports. Valid values: 2 to 16. This parameter is required only when **HighReliableType** is set to **SingleApMultiConnection**.
+   * 
    * @example
    * 2
    */
   portNum?: number;
   /**
    * @remarks
+   * The region ID of the Express Connect circuit.
+   * 
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70501,6 +70979,9 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $tea.Mode
    */
   regionId?: string;
   /**
+   * @remarks
+   * The type of the Express Connect circuit. Default value: **VPC**.
+   * 
    * @example
    * VPC
    */
@@ -70542,11 +71023,21 @@ export class CreateHighReliablePhysicalConnectionRequestApList extends $tea.Mode
 
 export class CreateHighReliablePhysicalConnectionRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * The key of tag N to add to the resource. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+   * 
+   * The tag key can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
    * @example
    * FinanceDept
    */
   key?: string;
   /**
+   * @remarks
+   * The value of tag N to add to the resource. Valid values of N: 1 to 20. The tag value cannot be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter but cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
    * @example
    * FinanceJoshua
    */
@@ -70572,16 +71063,25 @@ export class CreateHighReliablePhysicalConnectionRequestTag extends $tea.Model {
 
 export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoListErrorInfoList extends $tea.Model {
   /**
+   * @remarks
+   * Error codes.
+   * 
    * @example
    * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The returned error message.
+   * 
    * @example
    * pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The ID of the Express Connect circuit.
+   * 
    * @example
    * pc-j5e5qqo616p81ncspbll1
    */
@@ -70628,11 +71128,17 @@ export class CreateHighReliablePhysicalConnectionResponseBodyErrorInfoList exten
 
 export class CreateHighReliablePhysicalConnectionResponseBodyPhysicalConnectionListPhysicalConnectionList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the Express Connect circuit.
+   * 
    * @example
    * pc-j5e5qqo616p81ncspbll1
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID of the Express Connect circuit.
+   * 
    * @example
    * cn-shanghai
    */
@@ -76161,7 +76667,25 @@ export class DescribeEipSegmentResponseBodyEipSegments extends $tea.Model {
 }
 
 export class DescribeExpressConnectTrafficQosRequestTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key. You must enter at least one tag key. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * 
+   * A tag key can be at most 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag values of the resources. You can specify up to 20 tag values. The tag value can be an empty string.
+   * 
+   * The tag value can be up to 128 characters in length, and cannot contain `http://` or `https://`. The tag value cannot start with `aliyun` or `acs:`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76184,21 +76708,37 @@ export class DescribeExpressConnectTrafficQosRequestTags extends $tea.Model {
 
 export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the instance to which the QoS policy is associated.
+   * 
    * @example
    * pc-bp159zj8zujwy3p07j83e
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The configuration progress of the instance to which the QoS policy is associated. Valid values: **0** to **100**.
+   * 
    * @example
    * 100
    */
   instanceProgressing?: number;
   /**
+   * @remarks
+   * The state of the instance to which the QoS policy is associated. Valid values:
+   * 
+   * - **Normal**: The instance is available.
+   * - **Configuring**: The instance is being configured.
+   * - **Deleting**: The instance is being deleted.
+   * 
    * @example
    * Normal
    */
   instanceStatus?: string;
   /**
+   * @remarks
+   * The type of the instance to which the QoS policy is associated. Only **PHYSICALCONNECTION** is returned.
+   * 
    * @example
    * PHYSICALCONNECTION
    */
@@ -76228,35 +76768,78 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstan
 
 export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extends $tea.Model {
   /**
+   * @remarks
+   * The percentage of bandwidth allocated to a QoS queue.
+   * 
+   * - If QueueType is set to **Medium**, this parameter is required. Valid values: **1** to **100**.
+   * - If QueueType is set to **Default**, a value of - is returned.
+   * 
    * @example
    * 100
    */
   bandwidthPercent?: string;
   /**
+   * @remarks
+   * The ID of the QoS policy.
+   * 
    * @example
    * qos-pksbqfmotl5hzqmhf8
    */
   qosId?: string;
   /**
+   * @remarks
+   * The description of the QoS queue.
+   * 
+   * The description can be up to **256** characters in length. It cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-queue-test
    */
   queueDescription?: string;
   /**
+   * @remarks
+   * The ID of the QoS queue.
+   * 
    * @example
    * qos-queue-9nyx2u7n71s2rcy4n5
    */
   queueId?: string;
   /**
+   * @remarks
+   * The name of the QoS queue.
+   * 
+   * The name can be up to **128** characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-queue-test
    */
   queueName?: string;
   /**
+   * @remarks
+   * The type of the QoS queue. Valid values:
+   * 
+   * - **High**: high-priority queue.
+   * - **Medium**: standard queue.
+   * - **Default**: default queue.
+   * 
+   * 
+   * > You cannot create a default queue.
+   * 
    * @example
    * High
    */
   queueType?: string;
+  /**
+   * @remarks
+   * The state of the QoS queue. Valid values:
+   * 
+   * - **Normal**: The QoS queue is available.
+   * - **Configuring**: The QoS queue is being configured.
+   * - **Deleting**: The QoS queue is being deleted.
+   * 
+   * @example
+   * Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76288,7 +76871,21 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListQueueList extend
 }
 
 export class DescribeExpressConnectTrafficQosResponseBodyQosListTags extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76310,34 +76907,77 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosListTags extends $te
 }
 
 export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Model {
+  /**
+   * @remarks
+   * The information about the instances to which the QoS policy is associated.
+   */
   associatedInstanceList?: DescribeExpressConnectTrafficQosResponseBodyQosListAssociatedInstanceList[];
   /**
+   * @remarks
+   * The configuration progress of the QoS policy. Valid values: **0** to **100**.
+   * 
    * @example
    * 100
    */
   progressing?: number;
   /**
+   * @remarks
+   * The description of the QoS policy.
+   * 
+   * The description can be up to 256 characters in length. It cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-test
    */
   qosDescription?: string;
   /**
+   * @remarks
+   * The ID of the QoS policy.
+   * 
    * @example
-   * qos-pksbqfmotl5hzqmhf8
+   * qos-pksbqfmotl5hzq****
    */
   qosId?: string;
   /**
+   * @remarks
+   * The name of the QoS policy.
+   * 
+   * The name can be up to 128 characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-test
    */
   qosName?: string;
+  /**
+   * @remarks
+   * The information about the QoS queues.
+   */
   queueList?: DescribeExpressConnectTrafficQosResponseBodyQosListQueueList[];
+  /**
+   * @remarks
+   * The ID of the resource group.
+   * 
+   * @example
+   * rg-acfmz7vtyl4f***
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The state of the QoS policy. Valid values:
+   * 
+   * - **Normal**: The QoS policy is available.
+   * - **Configuring**: The QoS policy is being configured.
+   * 
+   *  > If a QoS policy is in the Configuring state, you cannot perform most of the operations to create, update, or delete QoS policies, QoS queues, or QoS rules.
+   * 
    * @example
    * Normal
    */
   status?: string;
+  /**
+   * @remarks
+   * The tag list.
+   */
   tags?: DescribeExpressConnectTrafficQosResponseBodyQosListTags[];
   static names(): { [key: string]: string } {
     return {
@@ -76374,80 +77014,190 @@ export class DescribeExpressConnectTrafficQosResponseBodyQosList extends $tea.Mo
 
 export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList extends $tea.Model {
   /**
+   * @remarks
+   * The destination IPv4 CIDR block that matches the QoS rule traffic.
+   * 
+   * 
+   * 
+   * > If the parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
+   * 
    * @example
    * 1.1.1.0/24
    */
   dstCidr?: string;
   /**
+   * @remarks
+   * The destination IPv6 CIDR block that matches the QoS rule traffic.
+   * 
+   * 
+   * 
+   * > If the parameter is unavailable, specify **SrcCidr** or **DstCidr**.
+   * 
    * @example
    * 2001:0db8:1234:5678::/64
    */
   dstIPv6Cidr?: string;
   /**
+   * @remarks
+   * The range of destination ports that match the QoS rule traffic. Valid values: **0** to **65535**. If the traffic does not match, the value is -1. You can specify only one port. The start port number must be the same as the end port number. Different protocols correspond to different ports. Valid values:
+   * 
+   * *   **ALL** (uneditable): -1/-1.
+   * *   **ICMP(IPv4)** (uneditable): -1/-1.
+   * *   **ICMPv6(IPv6)** (uneditable): -1/-1.
+   * *   **TCP** (editable): -1/-1.
+   * *   **UDP** (editable): -1/-1.
+   * *   **GRE** (uneditable): -1/-1.
+   * *   **SSH** (uneditable): 22/22.
+   * *   **Telnet** (uneditable): 23/23.
+   * *   **HTTP** (uneditable): 80/80.
+   * *   **HTTPS** (uneditable): 443/443.
+   * *   **MS SQL** (uneditable): 1443/1443.
+   * *   **Oracle** (uneditable): 1521/1521.
+   * *   **MySql** (uneditable): 3306/3306.
+   * *   **RDP** (uneditable): 3389/3389.
+   * *   **PostgreSQL** (uneditable): 5432/5432.
+   * *   **Redis** (uneditable): 6379/6379.
+   * 
    * @example
    * -1/-1
    */
   dstPortRange?: string;
   /**
+   * @remarks
+   * The DSCP value that matches the QoS rule traffic. Valid values: **0** to **63**. If no value is matched, the value is -1.
+   * 
    * @example
    * 1
    */
   matchDscp?: number;
   /**
+   * @remarks
+   * The priority of the QoS rule. Valid values: **1** to **9000**. A larger value indicates a higher priority. The priority of each QoS rule must be unique in the same QoS policy.
+   * 
    * @example
    * 1
    */
   priority?: number;
   /**
+   * @remarks
+   * The protocol of the QoS rule. Valid values:
+   * 
+   * *   **ALL**
+   * *   **ICMP(IPv4)**
+   * *   **ICMPv6(IPv6)**
+   * *   **TCP**
+   * *   **UDP**
+   * *   **GRE**
+   * *   **SSH**
+   * *   **Telnet**
+   * *   **HTTP**
+   * *   **HTTPS**
+   * *   **MS SQL**
+   * *   **Oracle**
+   * *   **MySql**
+   * *   **RDP**
+   * *   **PostgreSQL**
+   * *   **Redis**
+   * 
    * @example
    * ALL
    */
   protocol?: string;
   /**
+   * @remarks
+   * The ID of the QoS policy.
+   * 
    * @example
    * qos-91xz9f8zd7yj8xwknz
    */
   qosId?: string;
   /**
+   * @remarks
+   * The ID of the QoS queue.
+   * 
    * @example
    * qos-queue-iugg0l9x27f2nocouj
    */
   queueId?: string;
   /**
+   * @remarks
+   * The new DSCP value. Valid values: **0** to **63**. If you do not change the value, the value is -1.
+   * 
    * @example
    * 1
    */
   remarkingDscp?: number;
   /**
+   * @remarks
+   * The description of the QoS rule.
+   * 
+   * The name must be **0** to **256** characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-rule-test
    */
   ruleDescription?: string;
   /**
+   * @remarks
+   * The ID of the QoS rule.
+   * 
    * @example
    * qos-rule-iugg0l9x27f2nocouj
    */
   ruleId?: string;
   /**
+   * @remarks
+   * The name of the QoS rule.
+   * 
+   * The name must be **0** to **128** characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-rule-test
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The source IPv4 CIDR block that matches the QoS rule traffic.
+   * 
+   * 
+   * 
+   *  > If the parameter is unavailable, specify **SrcIPv6Cidr** or **DstIPv6Cidr**.
+   * 
    * @example
    * 1.1.1.0/24
    */
   srcCidr?: string;
   /**
+   * @remarks
+   * The source IPv6 CIDR block that matches the QoS rule traffic.
+   * 
+   * 
+   * 
+   * > If the parameter is unavailable, specify **SrcCidr** or **DstCidr**.
+   * 
    * @example
    * 2001:0db8:1234:5678::/64
    */
   srcIPv6Cidr?: string;
   /**
+   * @remarks
+   * The range of source ports that match the QoS rule traffic. Valid values: **0** to **65535**. If the traffic does not match, the value is -1. You can specify only one port. The start port number must be the same as the end port number.
+   * 
    * @example
    * -1/-1
    */
   srcPortRange?: string;
+  /**
+   * @remarks
+   * The status of the QoS rule. Valid values:
+   * 
+   * *   **Normal**: The QoS queue is available.
+   * *   **Configuring**: The QoS queue is being configured.
+   * *   **Deleting**: The QoS queue is being deleted.
+   * 
+   * @example
+   * Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -76498,36 +77248,84 @@ export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList 
 
 export class DescribeExpressConnectTrafficQosQueueResponseBodyQueueList extends $tea.Model {
   /**
+   * @remarks
+   * The percentage of bandwidth allocated to a QoS queue.
+   * 
+   * *   If QueueType is set to **Medium**, this parameter is returned. Valid values: **1** to **100**.
+   * *   If QueueType is set to **Default**, a value of - is returned.
+   * 
    * @example
    * 100
    */
   bandwidthPercent?: string;
   /**
+   * @remarks
+   * The ID of the QoS policy.
+   * 
    * @example
    * qos-ncfgzxg40zks5n0qze
    */
   qosId?: string;
   /**
+   * @remarks
+   * The description of the QoS queue.
+   * 
+   * The name must be **0** to **256** characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-queue-test
    */
   queueDescription?: string;
   /**
+   * @remarks
+   * The ID of the QoS queue.
+   * 
    * @example
    * qos-queue-9nyx2u7n71s2rcy4n5
    */
   queueId?: string;
   /**
+   * @remarks
+   * The name of the QoS queue.
+   * 
+   * The name must be **0** to **128** characters in length and cannot start with `http://` or `https://`.
+   * 
    * @example
    * qos-queue-test
    */
   queueName?: string;
   /**
+   * @remarks
+   * The priority of the QoS queue. Valid values:
+   * 
+   * *   **High**
+   * *   **Medium**
+   * *   **Default**
+   * 
+   * 
+   * 
+   * >  You cannot create a QoS queue of the default priority.
+   * 
    * @example
    * High
    */
   queueType?: string;
+  /**
+   * @remarks
+   * The information about the QoS rules.
+   */
   ruleList?: DescribeExpressConnectTrafficQosQueueResponseBodyQueueListRuleList[];
+  /**
+   * @remarks
+   * The state of the QoS queue. Valid values:
+   * 
+   * *   **Normal**: The QoS queue is available.
+   * *   **Configuring**: The QoS queue is being configured.
+   * *   **Deleting**: The QoS queue is being deleted.
+   * 
+   * @example
+   * Normal
+   */
   status?: string;
   static names(): { [key: string]: string } {
     return {
@@ -77018,6 +77816,9 @@ export class DescribeFailoverTestJobsResponseBodyFailoverTestJobList extends $te
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The beginning of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+   * 
    * @example
    * 2023-11-21T14:00:00Z
    */
@@ -77037,6 +77838,9 @@ export class DescribeFailoverTestJobsResponseBodyFailoverTestJobList extends $te
    */
   status?: string;
   /**
+   * @remarks
+   * The end of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+   * 
    * @example
    * 2023-11-21T15:00:00Z
    */
@@ -86609,6 +87413,13 @@ export class DescribeVirtualBorderRoutersResponseBodyVirtualBorderRouterSetVirtu
    * ecr-7vrbqv9lcgvzqbwwkm
    */
   ecrId?: string;
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account (primary account)  to which the ECR belongs.
+   * 
+   * @example
+   * 192732132151xxxx
+   */
   ecrOwnerId?: string;
   /**
    * @remarks
@@ -88009,7 +88820,27 @@ export class DescribeVpcsResponseBodyVpcsVpc extends $tea.Model {
    * Available
    */
   dhcpOptionsSetStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the Domain Name System (DNS) feature is enabled.
+   * 
+   * @example
+   * DISABLED
+   */
   dnsHostnameStatus?: string;
+  /**
+   * @remarks
+   * Indicates whether the IPv6 is enabled.
+   * 
+   * Valid values:
+   * 
+   * - false: false
+   * 
+   * - true: true
+   * 
+   * @example
+   * false
+   */
   enabledIpv6?: boolean;
   /**
    * @remarks
@@ -105561,7 +106392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建高可靠物理专线
+   * Creates Express Connect circuits in high reliability mode. This improves the stability of multiple Express Connect circuits and prevents service interruptions caused by single points of failures (SPOFs).
    * 
    * @param request - CreateHighReliablePhysicalConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -105648,7 +106479,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建高可靠物理专线
+   * Creates Express Connect circuits in high reliability mode. This improves the stability of multiple Express Connect circuits and prevents service interruptions caused by single points of failures (SPOFs).
    * 
    * @param request - CreateHighReliablePhysicalConnectionRequest
    * @returns CreateHighReliablePhysicalConnectionResponse
@@ -110677,7 +111508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高速通道Qos队列
+   * Deletes a quality of service (QoS) queue.
    * 
    * @param request - DeleteExpressConnectTrafficQosQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -110736,7 +111567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除高速通道Qos队列
+   * Deletes a quality of service (QoS) queue.
    * 
    * @param request - DeleteExpressConnectTrafficQosQueueRequest
    * @returns DeleteExpressConnectTrafficQosQueueResponse
@@ -115505,7 +116336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高速通道Qos
+   * Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
    * 
    * @param request - DescribeExpressConnectTrafficQosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -115580,7 +116411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高速通道Qos
+   * Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
    * 
    * @param request - DescribeExpressConnectTrafficQosRequest
    * @returns DescribeExpressConnectTrafficQosResponse
@@ -115591,7 +116422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高速通道Qos队列
+   * Queries the information about the quality of service (QoS) queues of the Express Connect circuit.
    * 
    * @param request - DescribeExpressConnectTrafficQosQueueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -115654,7 +116485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询高速通道Qos队列
+   * Queries the information about the quality of service (QoS) queues of the Express Connect circuit.
    * 
    * @param request - DescribeExpressConnectTrafficQosQueueRequest
    * @returns DescribeExpressConnectTrafficQosQueueResponse
@@ -131383,7 +132214,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 结束故障演练任务
+   * Terminates a failover test.
    * 
    * @param request - StopFailoverTestJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -131438,7 +132269,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 结束故障演练任务
+   * Terminates a failover test.
    * 
    * @param request - StopFailoverTestJobRequest
    * @returns StopFailoverTestJobResponse
@@ -131774,6 +132605,68 @@ export default class Client extends OpenApi {
   async terminateVirtualBorderRouter(request: TerminateVirtualBorderRouterRequest): Promise<TerminateVirtualBorderRouterResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.terminateVirtualBorderRouterWithOptions(request, runtime);
+  }
+
+  /**
+   * 连续EIP组转换为公网IP地址池
+   * 
+   * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TransformEipSegmentToPublicIpAddressPoolResponse
+   */
+  async transformEipSegmentToPublicIpAddressPoolWithOptions(request: TransformEipSegmentToPublicIpAddressPoolRequest, runtime: $Util.RuntimeOptions): Promise<TransformEipSegmentToPublicIpAddressPoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "TransformEipSegmentToPublicIpAddressPool",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<TransformEipSegmentToPublicIpAddressPoolResponse>(await this.callApi(params, req, runtime), new TransformEipSegmentToPublicIpAddressPoolResponse({}));
+  }
+
+  /**
+   * 连续EIP组转换为公网IP地址池
+   * 
+   * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
+   * @returns TransformEipSegmentToPublicIpAddressPoolResponse
+   */
+  async transformEipSegmentToPublicIpAddressPool(request: TransformEipSegmentToPublicIpAddressPoolRequest): Promise<TransformEipSegmentToPublicIpAddressPoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.transformEipSegmentToPublicIpAddressPoolWithOptions(request, runtime);
   }
 
   /**
@@ -132609,7 +133502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新故障演练任务
+   * Updates a failover test.
    * 
    * @param request - UpdateFailoverTestJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -132684,7 +133577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新故障演练任务
+   * Updates a failover test.
    * 
    * @param request - UpdateFailoverTestJobRequest
    * @returns UpdateFailoverTestJobResponse
