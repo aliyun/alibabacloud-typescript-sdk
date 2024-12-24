@@ -11833,108 +11833,6 @@ export class GetEdgeContainerTerminalResponse extends $tea.Model {
   }
 }
 
-export class GetErServiceRequest extends $tea.Model {
-  ownerId?: number;
-  securityToken?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      securityToken: 'SecurityToken',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      securityToken: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErServiceResponseBody extends $tea.Model {
-  /**
-   * @remarks
-   * The billing mode. Valid values:
-   * 
-   * *   er_paymode: billed for customers on the China site.
-   * *   er_freemode: free for customers on the China site.
-   * *   er_paymodeintl: billed for customers on the International site.
-   * *   err_freemodeintl: free for customers on the International site
-   * 
-   * @example
-   * er_paymode
-   */
-  planName?: string;
-  /**
-   * @remarks
-   * The request ID.
-   * 
-   * @example
-   * CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
-   */
-  requestId?: string;
-  /**
-   * @remarks
-   * The service status. Valid values:
-   * 
-   * *   Creating
-   * *   Running
-   * *   NotOpened
-   * 
-   * @example
-   * Running
-   */
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      planName: 'PlanName',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      planName: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class GetErServiceResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: GetErServiceResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: GetErServiceResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class GetKvRequest extends $tea.Model {
   /**
    * @remarks
@@ -12481,6 +12379,8 @@ export class GetOriginProtectionRequest extends $tea.Model {
   /**
    * @remarks
    * The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 123456789****
@@ -43077,44 +42977,6 @@ export default class Client extends OpenApi {
   async getEdgeContainerTerminal(request: GetEdgeContainerTerminalRequest): Promise<GetEdgeContainerTerminalResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.getEdgeContainerTerminalWithOptions(request, runtime);
-  }
-
-  /**
-   * Checks the status of Edge Routine.
-   * 
-   * @param request - GetErServiceRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns GetErServiceResponse
-   */
-  async getErServiceWithOptions(request: GetErServiceRequest, runtime: $Util.RuntimeOptions): Promise<GetErServiceResponse> {
-    Util.validateModel(request);
-    let query = OpenApiUtil.query(Util.toMap(request));
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "GetErService",
-      version: "2024-09-10",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "GET",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<GetErServiceResponse>(await this.callApi(params, req, runtime), new GetErServiceResponse({}));
-  }
-
-  /**
-   * Checks the status of Edge Routine.
-   * 
-   * @param request - GetErServiceRequest
-   * @returns GetErServiceResponse
-   */
-  async getErService(request: GetErServiceRequest): Promise<GetErServiceResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.getErServiceWithOptions(request, runtime);
   }
 
   /**
