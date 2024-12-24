@@ -7738,6 +7738,7 @@ export class CreateScheduleConferenceRequest extends $tea.Model {
    * 1687928400000L
    */
   endTime?: number;
+  scheduleConfSettingModel?: CreateScheduleConferenceRequestScheduleConfSettingModel;
   /**
    * @remarks
    * This parameter is required.
@@ -7758,6 +7759,7 @@ export class CreateScheduleConferenceRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      scheduleConfSettingModel: 'ScheduleConfSettingModel',
       startTime: 'StartTime',
       tenantContext: 'TenantContext',
       title: 'Title',
@@ -7767,6 +7769,7 @@ export class CreateScheduleConferenceRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      scheduleConfSettingModel: CreateScheduleConferenceRequestScheduleConfSettingModel,
       startTime: 'number',
       tenantContext: CreateScheduleConferenceRequestTenantContext,
       title: 'string',
@@ -7787,6 +7790,7 @@ export class CreateScheduleConferenceShrinkRequest extends $tea.Model {
    * 1687928400000L
    */
   endTime?: number;
+  scheduleConfSettingModelShrink?: string;
   /**
    * @remarks
    * This parameter is required.
@@ -7807,6 +7811,7 @@ export class CreateScheduleConferenceShrinkRequest extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       endTime: 'EndTime',
+      scheduleConfSettingModelShrink: 'ScheduleConfSettingModel',
       startTime: 'StartTime',
       tenantContextShrink: 'TenantContext',
       title: 'Title',
@@ -7816,6 +7821,7 @@ export class CreateScheduleConferenceShrinkRequest extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       endTime: 'number',
+      scheduleConfSettingModelShrink: 'string',
       startTime: 'number',
       tenantContextShrink: 'string',
       title: 'string',
@@ -20663,6 +20669,197 @@ export class GetOrgLiveListResponse extends $tea.Model {
   }
 }
 
+export class GetOrgOrWebOpenDocContentTaskIdHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20eMKjyp810mMdK4Hz4B5BA6JxAZB1Gv
+   */
+  dentryUuid?: string;
+  generateCp?: boolean;
+  /**
+   * @example
+   * markdown
+   */
+  targetFormat?: string;
+  tenantContext?: GetOrgOrWebOpenDocContentTaskIdRequestTenantContext;
+  static names(): { [key: string]: string } {
+    return {
+      dentryUuid: 'DentryUuid',
+      generateCp: 'GenerateCp',
+      targetFormat: 'TargetFormat',
+      tenantContext: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryUuid: 'string',
+      generateCp: 'boolean',
+      targetFormat: 'string',
+      tenantContext: GetOrgOrWebOpenDocContentTaskIdRequestTenantContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 20eMKjyp810mMdK4Hz4B5BA6JxAZB1Gv
+   */
+  dentryUuid?: string;
+  generateCp?: boolean;
+  /**
+   * @example
+   * markdown
+   */
+  targetFormat?: string;
+  tenantContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dentryUuid: 'DentryUuid',
+      generateCp: 'GenerateCp',
+      targetFormat: 'TargetFormat',
+      tenantContextShrink: 'TenantContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dentryUuid: 'string',
+      generateCp: 'boolean',
+      targetFormat: 'string',
+      tenantContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 158740210521
+   */
+  taskId?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'requestId',
+      taskId: 'taskId',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      taskId: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetOrgOrWebOpenDocContentTaskIdResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetOrgOrWebOpenDocContentTaskIdResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetProcessDefinitionHeaders extends $tea.Model {
   commonHeaders?: { [key: string]: string };
   accountContext?: GetProcessDefinitionHeadersAccountContext;
@@ -30383,6 +30580,239 @@ export class QueryConferenceInfoResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: QueryConferenceInfoResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContext?: QueryConferenceInfoByRoomCodeHeadersAccountContext;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContext: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContext: QueryConferenceInfoByRoomCodeHeadersAccountContext,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeShrinkHeaders extends $tea.Model {
+  commonHeaders?: { [key: string]: string };
+  accountContextShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      commonHeaders: 'commonHeaders',
+      accountContextShrink: 'AccountContext',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      commonHeaders: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      accountContextShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeRequest extends $tea.Model {
+  tenantContext?: QueryConferenceInfoByRoomCodeRequestTenantContext;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 583 480 813
+   */
+  roomCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContext: 'TenantContext',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      roomCode: 'roomCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContext: QueryConferenceInfoByRoomCodeRequestTenantContext,
+      maxResults: 'number',
+      nextToken: 'string',
+      roomCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeShrinkRequest extends $tea.Model {
+  tenantContextShrink?: string;
+  /**
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 583 480 813
+   */
+  roomCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantContextShrink: 'TenantContext',
+      maxResults: 'maxResults',
+      nextToken: 'nextToken',
+      roomCode: 'roomCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantContextShrink: 'string',
+      maxResults: 'number',
+      nextToken: 'string',
+      roomCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeResponseBody extends $tea.Model {
+  /**
+   * @example
+   * []
+   */
+  conferenceList?: QueryConferenceInfoByRoomCodeResponseBodyConferenceList[];
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  dingtalkRequestId?: string;
+  /**
+   * @example
+   * true
+   */
+  hasMore?: boolean;
+  /**
+   * @example
+   * 1296
+   */
+  nextToken?: string;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  requestId?: string;
+  /**
+   * @example
+   * 20
+   */
+  totalCount?: number;
+  /**
+   * @example
+   * 0FAAEC9C-C6C8-5C87-AF8E-1195889BBXXX
+   */
+  vendorRequestId?: string;
+  /**
+   * @example
+   * dingtalk
+   */
+  vendorType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      conferenceList: 'conferenceList',
+      dingtalkRequestId: 'dingtalkRequestId',
+      hasMore: 'hasMore',
+      nextToken: 'nextToken',
+      requestId: 'requestId',
+      totalCount: 'totalCount',
+      vendorRequestId: 'vendorRequestId',
+      vendorType: 'vendorType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conferenceList: { 'type': 'array', 'itemType': QueryConferenceInfoByRoomCodeResponseBodyConferenceList },
+      dingtalkRequestId: 'string',
+      hasMore: 'boolean',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+      vendorRequestId: 'string',
+      vendorType: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: QueryConferenceInfoByRoomCodeResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: QueryConferenceInfoByRoomCodeResponseBody,
     };
   }
 
@@ -48730,6 +49160,219 @@ export class CreateScheduleConferenceHeadersAccountContext extends $tea.Model {
   }
 }
 
+export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting extends $tea.Model {
+  isFollowHost?: boolean;
+  /**
+   * @example
+   * grid
+   */
+  mode?: string;
+  /**
+   * @example
+   * 0
+   */
+  recordAutoStart?: number;
+  /**
+   * @example
+   * 0
+   */
+  recordAutoStartType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isFollowHost: 'IsFollowHost',
+      mode: 'Mode',
+      recordAutoStart: 'RecordAutoStart',
+      recordAutoStartType: 'RecordAutoStartType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isFollowHost: 'boolean',
+      mode: 'string',
+      recordAutoStart: 'number',
+      recordAutoStartType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  autoOpenMode?: number;
+  /**
+   * @example
+   * xxx
+   */
+  coolAppCode?: string;
+  /**
+   * @example
+   * xxx
+   */
+  extensionAppBizData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoOpenMode: 'AutoOpenMode',
+      coolAppCode: 'CoolAppCode',
+      extensionAppBizData: 'ExtensionAppBizData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoOpenMode: 'number',
+      coolAppCode: 'string',
+      extensionAppBizData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $tea.Model {
+  /**
+   * @example
+   * 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+   */
+  cloudRecordOwnerUserId?: string;
+  /**
+   * @example
+   * 0
+   */
+  enableChat?: number;
+  enableWebAnonymousJoin?: boolean;
+  /**
+   * @example
+   * 0
+   */
+  joinBeforeHost?: number;
+  /**
+   * @example
+   * 0
+   */
+  lockMediaStatusMicMute?: number;
+  /**
+   * @example
+   * 0
+   */
+  lockNick?: number;
+  minutesOwnerUserId?: string;
+  moziConfExtensionAppSettings?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings[];
+  pushAllMeetingRecords?: boolean;
+  pushCloudRecordCard?: boolean;
+  pushMinutesCard?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  waitingRoom?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudRecordOwnerUserId: 'CloudRecordOwnerUserId',
+      enableChat: 'EnableChat',
+      enableWebAnonymousJoin: 'EnableWebAnonymousJoin',
+      joinBeforeHost: 'JoinBeforeHost',
+      lockMediaStatusMicMute: 'LockMediaStatusMicMute',
+      lockNick: 'LockNick',
+      minutesOwnerUserId: 'MinutesOwnerUserId',
+      moziConfExtensionAppSettings: 'MoziConfExtensionAppSettings',
+      pushAllMeetingRecords: 'PushAllMeetingRecords',
+      pushCloudRecordCard: 'PushCloudRecordCard',
+      pushMinutesCard: 'PushMinutesCard',
+      waitingRoom: 'WaitingRoom',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudRecordOwnerUserId: 'string',
+      enableChat: 'number',
+      enableWebAnonymousJoin: 'boolean',
+      joinBeforeHost: 'number',
+      lockMediaStatusMicMute: 'number',
+      lockNick: 'number',
+      minutesOwnerUserId: 'string',
+      moziConfExtensionAppSettings: { 'type': 'array', 'itemType': CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings },
+      pushAllMeetingRecords: 'boolean',
+      pushCloudRecordCard: 'boolean',
+      pushMinutesCard: 'boolean',
+      waitingRoom: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateScheduleConferenceRequestScheduleConfSettingModel extends $tea.Model {
+  cohostUserIds?: string[];
+  /**
+   * @example
+   * dingc02f685fa06381c44ac5d6980864d335
+   */
+  confAllowedCorpId?: string;
+  /**
+   * @example
+   * 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+   */
+  hostUserId?: string;
+  /**
+   * @example
+   * 0
+   */
+  lockRoom?: number;
+  moziConfOpenRecordSetting?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting;
+  moziConfVirtualExtraSetting?: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
+  /**
+   * @example
+   * 1
+   */
+  muteOnJoin?: number;
+  /**
+   * @example
+   * 0
+   */
+  screenShareForbidden?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cohostUserIds: 'CohostUserIds',
+      confAllowedCorpId: 'ConfAllowedCorpId',
+      hostUserId: 'HostUserId',
+      lockRoom: 'LockRoom',
+      moziConfOpenRecordSetting: 'MoziConfOpenRecordSetting',
+      moziConfVirtualExtraSetting: 'MoziConfVirtualExtraSetting',
+      muteOnJoin: 'MuteOnJoin',
+      screenShareForbidden: 'ScreenShareForbidden',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cohostUserIds: { 'type': 'array', 'itemType': 'string' },
+      confAllowedCorpId: 'string',
+      hostUserId: 'string',
+      lockRoom: 'number',
+      moziConfOpenRecordSetting: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfOpenRecordSetting,
+      moziConfVirtualExtraSetting: CreateScheduleConferenceRequestScheduleConfSettingModelMoziConfVirtualExtraSetting,
+      muteOnJoin: 'number',
+      screenShareForbidden: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateScheduleConferenceRequestTenantContext extends $tea.Model {
   /**
    * @example
@@ -55538,6 +56181,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $tea.Model 
    * nickName
    */
   anchorNickname?: string;
+  anchorUnionId?: string;
   /**
    * @example
    * ersqqdddf
@@ -55571,6 +56215,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $tea.Model 
   static names(): { [key: string]: string } {
     return {
       anchorNickname: 'AnchorNickname',
+      anchorUnionId: 'AnchorUnionId',
       anchorUserId: 'AnchorUserId',
       liveEndTime: 'LiveEndTime',
       liveStartTime: 'LiveStartTime',
@@ -55583,6 +56228,7 @@ export class GetOrgLiveListResponseBodyResultNewLiveLiveList extends $tea.Model 
   static types(): { [key: string]: any } {
     return {
       anchorNickname: 'string',
+      anchorUnionId: 'string',
       anchorUserId: 'string',
       liveEndTime: 'number',
       liveStartTime: 'number',
@@ -55654,6 +56300,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $tea.Mod
    * nickName
    */
   anchorNickname?: string;
+  anchorUnionId?: string;
   /**
    * @example
    * 012345
@@ -55682,6 +56329,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $tea.Mod
   static names(): { [key: string]: string } {
     return {
       anchorNickname: 'AnchorNickname',
+      anchorUnionId: 'AnchorUnionId',
       anchorUserId: 'AnchorUserId',
       liveEndTime: 'LiveEndTime',
       liveStartTime: 'LiveStartTime',
@@ -55693,6 +56341,7 @@ export class GetOrgLiveListResponseBodyResultUpdateLiveLiveList extends $tea.Mod
   static types(): { [key: string]: any } {
     return {
       anchorNickname: 'string',
+      anchorUnionId: 'string',
       anchorUserId: 'string',
       liveEndTime: 'number',
       liveStartTime: 'number',
@@ -55779,6 +56428,55 @@ export class GetOrgLiveListResponseBodyResult extends $tea.Model {
     return {
       newLive: GetOrgLiveListResponseBodyResultNewLive,
       updateLive: GetOrgLiveListResponseBodyResultUpdateLive,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetOrgOrWebOpenDocContentTaskIdRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
     };
   }
 
@@ -63826,6 +64524,147 @@ export class QueryConferenceInfoResponseBodyConfInfo extends $tea.Model {
   }
 }
 
+export class QueryConferenceInfoByRoomCodeHeadersAccountContext extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 012345
+   */
+  accountId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accountId: 'accountId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accountId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeRequestTenantContext extends $tea.Model {
+  /**
+   * @example
+   * xxxxxx
+   */
+  tenantId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tenantId: 'tenantId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tenantId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class QueryConferenceInfoByRoomCodeResponseBodyConferenceList extends $tea.Model {
+  /**
+   * @example
+   * 3
+   */
+  bizType?: string;
+  /**
+   * @example
+   * 1000
+   */
+  confDuration?: number;
+  /**
+   * @example
+   * 636cf59f2b032f014ae32902
+   */
+  conferenceId?: string;
+  /**
+   * @example
+   * 527079
+   */
+  creatorId?: string;
+  creatorNick?: string;
+  /**
+   * @example
+   * 1668087732000
+   */
+  endTime?: number;
+  /**
+   * @example
+   * https//:xxx
+   */
+  externalLinkUrl?: string;
+  /**
+   * @example
+   * 123456789
+   */
+  roomCode?: string;
+  /**
+   * @example
+   * 2d79cbde-b9d8-4256-9788-78b05834944e
+   */
+  scheduleConferenceId?: string;
+  /**
+   * @example
+   * 1668087731000
+   */
+  startTime?: number;
+  /**
+   * @example
+   * 2
+   */
+  status?: number;
+  title?: string;
+  static names(): { [key: string]: string } {
+    return {
+      bizType: 'BizType',
+      confDuration: 'ConfDuration',
+      conferenceId: 'ConferenceId',
+      creatorId: 'CreatorId',
+      creatorNick: 'CreatorNick',
+      endTime: 'EndTime',
+      externalLinkUrl: 'ExternalLinkUrl',
+      roomCode: 'RoomCode',
+      scheduleConferenceId: 'ScheduleConferenceId',
+      startTime: 'StartTime',
+      status: 'Status',
+      title: 'Title',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bizType: 'string',
+      confDuration: 'number',
+      conferenceId: 'string',
+      creatorId: 'string',
+      creatorNick: 'string',
+      endTime: 'number',
+      externalLinkUrl: 'string',
+      roomCode: 'string',
+      scheduleConferenceId: 'string',
+      startTime: 'number',
+      status: 'number',
+      title: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryConferenceMembersHeadersAccountContext extends $tea.Model {
   /**
    * @remarks
@@ -69635,6 +70474,83 @@ export class UpdateScheduleConfSettingsHeadersAccountContext extends $tea.Model 
   }
 }
 
+export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting extends $tea.Model {
+  isFollowHost?: boolean;
+  /**
+   * @example
+   * grid
+   */
+  mode?: string;
+  /**
+   * @example
+   * 0
+   */
+  recordAutoStart?: number;
+  /**
+   * @example
+   * 0
+   */
+  recordAutoStartType?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isFollowHost: 'IsFollowHost',
+      mode: 'Mode',
+      recordAutoStart: 'RecordAutoStart',
+      recordAutoStartType: 'RecordAutoStartType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isFollowHost: 'boolean',
+      mode: 'string',
+      recordAutoStart: 'number',
+      recordAutoStartType: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings extends $tea.Model {
+  /**
+   * @example
+   * 0
+   */
+  autoOpenMode?: number;
+  /**
+   * @example
+   * xxxx
+   */
+  coolAppCode?: string;
+  /**
+   * @example
+   * xxx
+   */
+  extensionAppBizData?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoOpenMode: 'AutoOpenMode',
+      coolAppCode: 'CoolAppCode',
+      extensionAppBizData: 'ExtensionAppBizData',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoOpenMode: 'number',
+      coolAppCode: 'string',
+      extensionAppBizData: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting extends $tea.Model {
   cloudRecordOwnerUserId?: string;
   /**
@@ -69659,6 +70575,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
    */
   lockNick?: number;
   minutesOwnerUserId?: string;
+  moziConfExtensionAppSettings?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings[];
   pushAllMeetingRecords?: boolean;
   pushCloudRecordCard?: boolean;
   pushMinutesCard?: boolean;
@@ -69676,6 +70593,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
       lockMediaStatusMicMute: 'LockMediaStatusMicMute',
       lockNick: 'LockNick',
       minutesOwnerUserId: 'MinutesOwnerUserId',
+      moziConfExtensionAppSettings: 'MoziConfExtensionAppSettings',
       pushAllMeetingRecords: 'PushAllMeetingRecords',
       pushCloudRecordCard: 'PushCloudRecordCard',
       pushMinutesCard: 'PushMinutesCard',
@@ -69692,6 +70610,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVi
       lockMediaStatusMicMute: 'number',
       lockNick: 'number',
       minutesOwnerUserId: 'string',
+      moziConfExtensionAppSettings: { 'type': 'array', 'itemType': UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSettingMoziConfExtensionAppSettings },
       pushAllMeetingRecords: 'boolean',
       pushCloudRecordCard: 'boolean',
       pushMinutesCard: 'boolean',
@@ -69721,6 +70640,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $
    * 1
    */
   lockRoom?: number;
+  moziConfOpenRecordSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting;
   moziConfVirtualExtraSetting?: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting;
   /**
    * @example
@@ -69738,6 +70658,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $
       confAllowedCorpId: 'ConfAllowedCorpId',
       hostUserId: 'HostUserId',
       lockRoom: 'LockRoom',
+      moziConfOpenRecordSetting: 'MoziConfOpenRecordSetting',
       moziConfVirtualExtraSetting: 'MoziConfVirtualExtraSetting',
       muteOnJoin: 'MuteOnJoin',
       screenShareForbidden: 'ScreenShareForbidden',
@@ -69750,6 +70671,7 @@ export class UpdateScheduleConfSettingsRequestScheduleConfSettingModel extends $
       confAllowedCorpId: 'string',
       hostUserId: 'string',
       lockRoom: 'number',
+      moziConfOpenRecordSetting: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfOpenRecordSetting,
       moziConfVirtualExtraSetting: UpdateScheduleConfSettingsRequestScheduleConfSettingModelMoziConfVirtualExtraSetting,
       muteOnJoin: 'number',
       screenShareForbidden: 'number',
@@ -73517,6 +74439,10 @@ export default class Client extends OpenApi {
       headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
     }
 
+    if (!Util.isUnset(tmpReq.scheduleConfSettingModel)) {
+      request.scheduleConfSettingModelShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.scheduleConfSettingModel, "ScheduleConfSettingModel", "json");
+    }
+
     if (!Util.isUnset(tmpReq.tenantContext)) {
       request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
     }
@@ -73524,6 +74450,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!Util.isUnset(request.endTime)) {
       body["EndTime"] = request.endTime;
+    }
+
+    if (!Util.isUnset(request.scheduleConfSettingModelShrink)) {
+      body["ScheduleConfSettingModel"] = request.scheduleConfSettingModelShrink;
     }
 
     if (!Util.isUnset(request.startTime)) {
@@ -78918,6 +79848,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 委托权限获取组织或者互联网公开文档内容taskId
+   * 
+   * @param tmpReq - GetOrgOrWebOpenDocContentTaskIdRequest
+   * @param tmpHeader - GetOrgOrWebOpenDocContentTaskIdHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetOrgOrWebOpenDocContentTaskIdResponse
+   */
+  async getOrgOrWebOpenDocContentTaskIdWithOptions(tmpReq: GetOrgOrWebOpenDocContentTaskIdRequest, tmpHeader: GetOrgOrWebOpenDocContentTaskIdHeaders, runtime: $Util.RuntimeOptions): Promise<GetOrgOrWebOpenDocContentTaskIdResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GetOrgOrWebOpenDocContentTaskIdShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new GetOrgOrWebOpenDocContentTaskIdShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.dentryUuid)) {
+      body["DentryUuid"] = request.dentryUuid;
+    }
+
+    if (!Util.isUnset(request.generateCp)) {
+      body["GenerateCp"] = request.generateCp;
+    }
+
+    if (!Util.isUnset(request.targetFormat)) {
+      body["TargetFormat"] = request.targetFormat;
+    }
+
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetOrgOrWebOpenDocContentTaskId",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v2/documents/getOrgOrWebOpenDocContentTaskId`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GetOrgOrWebOpenDocContentTaskIdResponse>(await this.callApi(params, req, runtime), new GetOrgOrWebOpenDocContentTaskIdResponse({}));
+  }
+
+  /**
+   * 委托权限获取组织或者互联网公开文档内容taskId
+   * 
+   * @param request - GetOrgOrWebOpenDocContentTaskIdRequest
+   * @returns GetOrgOrWebOpenDocContentTaskIdResponse
+   */
+  async getOrgOrWebOpenDocContentTaskId(request: GetOrgOrWebOpenDocContentTaskIdRequest): Promise<GetOrgOrWebOpenDocContentTaskIdResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new GetOrgOrWebOpenDocContentTaskIdHeaders({ });
+    return await this.getOrgOrWebOpenDocContentTaskIdWithOptions(request, headers, runtime);
+  }
+
+  /**
    * 获取流程定义
    * 
    * @param request - GetProcessDefinitionRequest
@@ -82677,6 +83685,84 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers = new QueryConferenceInfoHeaders({ });
     return await this.queryConferenceInfoWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 根据会议码查询视频会议信息
+   * 
+   * @param tmpReq - QueryConferenceInfoByRoomCodeRequest
+   * @param tmpHeader - QueryConferenceInfoByRoomCodeHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QueryConferenceInfoByRoomCodeResponse
+   */
+  async queryConferenceInfoByRoomCodeWithOptions(tmpReq: QueryConferenceInfoByRoomCodeRequest, tmpHeader: QueryConferenceInfoByRoomCodeHeaders, runtime: $Util.RuntimeOptions): Promise<QueryConferenceInfoByRoomCodeResponse> {
+    Util.validateModel(tmpReq);
+    let request = new QueryConferenceInfoByRoomCodeShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    let headers = new QueryConferenceInfoByRoomCodeShrinkHeaders({ });
+    OpenApiUtil.convert(tmpHeader, headers);
+    if (!Util.isUnset(tmpHeader.accountContext)) {
+      headers.accountContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpHeader.accountContext, "AccountContext", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tenantContext)) {
+      request.tenantContextShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tenantContext, "TenantContext", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.tenantContextShrink)) {
+      body["TenantContext"] = request.tenantContextShrink;
+    }
+
+    if (!Util.isUnset(request.maxResults)) {
+      body["maxResults"] = request.maxResults;
+    }
+
+    if (!Util.isUnset(request.nextToken)) {
+      body["nextToken"] = request.nextToken;
+    }
+
+    if (!Util.isUnset(request.roomCode)) {
+      body["roomCode"] = request.roomCode;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!Util.isUnset(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!Util.isUnset(headers.accountContextShrink)) {
+      realHeaders["AccountContext"] = Util.toJSONString(headers.accountContextShrink);
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: realHeaders,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "QueryConferenceInfoByRoomCode",
+      version: "2023-04-26",
+      protocol: "HTTPS",
+      pathname: `/dingtalk/v1/ysp/queryConferenceInfoByRoomCode`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<QueryConferenceInfoByRoomCodeResponse>(await this.callApi(params, req, runtime), new QueryConferenceInfoByRoomCodeResponse({}));
+  }
+
+  /**
+   * 根据会议码查询视频会议信息
+   * 
+   * @param request - QueryConferenceInfoByRoomCodeRequest
+   * @returns QueryConferenceInfoByRoomCodeResponse
+   */
+  async queryConferenceInfoByRoomCode(request: QueryConferenceInfoByRoomCodeRequest): Promise<QueryConferenceInfoByRoomCodeResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers = new QueryConferenceInfoByRoomCodeHeaders({ });
+    return await this.queryConferenceInfoByRoomCodeWithOptions(request, headers, runtime);
   }
 
   /**
