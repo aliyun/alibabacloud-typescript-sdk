@@ -642,6 +642,109 @@ export class ListDomainsResponse extends $tea.Model {
   }
 }
 
+export class RefreshResolveCacheRequest extends $tea.Model {
+  domains?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      domains: 'Domains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domains: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshResolveCacheShrinkRequest extends $tea.Model {
+  domainsShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      domainsShrink: 'Domains',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      domainsShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshResolveCacheResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * success
+   */
+  message?: string;
+  /**
+   * @example
+   * FA8C2599-362D-4113-8FB4-E88A40C2****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RefreshResolveCacheResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RefreshResolveCacheResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RefreshResolveCacheResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDomainsResponseBodyDomainsDomain extends $tea.Model {
   /**
    * @example
@@ -1292,6 +1395,54 @@ export default class Client extends OpenApi {
   async listDomains(request: ListDomainsRequest): Promise<ListDomainsResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.listDomainsWithOptions(request, runtime);
+  }
+
+  /**
+   * 刷新域名缓存
+   * 
+   * @param tmpReq - RefreshResolveCacheRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RefreshResolveCacheResponse
+   */
+  async refreshResolveCacheWithOptions(tmpReq: RefreshResolveCacheRequest, runtime: $Util.RuntimeOptions): Promise<RefreshResolveCacheResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RefreshResolveCacheShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.domains)) {
+      request.domainsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.domains, "Domains", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.domainsShrink)) {
+      query["Domains"] = request.domainsShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "RefreshResolveCache",
+      version: "2016-02-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RefreshResolveCacheResponse>(await this.callApi(params, req, runtime), new RefreshResolveCacheResponse({}));
+  }
+
+  /**
+   * 刷新域名缓存
+   * 
+   * @param request - RefreshResolveCacheRequest
+   * @returns RefreshResolveCacheResponse
+   */
+  async refreshResolveCache(request: RefreshResolveCacheRequest): Promise<RefreshResolveCacheResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.refreshResolveCacheWithOptions(request, runtime);
   }
 
 }
