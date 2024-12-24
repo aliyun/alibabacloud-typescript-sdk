@@ -46485,6 +46485,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
    * true
    */
   coldDataEnabled?: boolean;
+  compressionMode?: string;
   /**
    * @remarks
    * The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
@@ -46742,6 +46743,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       coldDataEnabled: 'ColdDataEnabled',
+      compressionMode: 'CompressionMode',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -46778,6 +46780,7 @@ export class ModifyDBInstanceSpecRequest extends $tea.Model {
       burstingEnabled: 'boolean',
       category: 'string',
       coldDataEnabled: 'boolean',
+      compressionMode: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -46878,6 +46881,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
    * true
    */
   coldDataEnabled?: boolean;
+  compressionMode?: string;
   /**
    * @remarks
    * The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
@@ -47135,6 +47139,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       burstingEnabled: 'BurstingEnabled',
       category: 'Category',
       coldDataEnabled: 'ColdDataEnabled',
+      compressionMode: 'CompressionMode',
       DBInstanceClass: 'DBInstanceClass',
       DBInstanceId: 'DBInstanceId',
       DBInstanceStorage: 'DBInstanceStorage',
@@ -47171,6 +47176,7 @@ export class ModifyDBInstanceSpecShrinkRequest extends $tea.Model {
       burstingEnabled: 'boolean',
       category: 'string',
       coldDataEnabled: 'boolean',
+      compressionMode: 'string',
       DBInstanceClass: 'string',
       DBInstanceId: 'string',
       DBInstanceStorage: 'number',
@@ -55151,11 +55157,35 @@ export class RenewInstanceResponse extends $tea.Model {
 }
 
 export class ReplaceRCInstanceSystemDiskRequest extends $tea.Model {
+  /**
+   * @example
+   * m-2zec4lvlhcdkyd13****
+   */
   imageId?: string;
+  /**
+   * @example
+   * rc-m5ei7b1w38w2l91x****
+   */
   instanceId?: string;
+  /**
+   * @example
+   * None
+   */
   isLocalDisk?: boolean;
+  /**
+   * @example
+   * testKeyPairName
+   */
   keyPairName?: string;
+  /**
+   * @example
+   * testPassword
+   */
   password?: string;
+  /**
+   * @example
+   * cn-beijing
+   */
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -55185,6 +55215,10 @@ export class ReplaceRCInstanceSystemDiskRequest extends $tea.Model {
 }
 
 export class ReplaceRCInstanceSystemDiskResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -65289,6 +65323,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * Chinese_PRC_CI_AS
    */
   collation?: string;
+  compressionMode?: string;
+  compressionRatio?: string;
   /**
    * @remarks
    * The connection mode of the instance. Valid values:
@@ -65809,6 +65845,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
    * Disabled
    */
   superPermissionMode?: string;
+  supportCompression?: boolean;
   /**
    * @remarks
    * The ID of the temporary instance that is attached to the primary instance.
@@ -65920,6 +65957,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       category: 'Category',
       coldDataEnabled: 'ColdDataEnabled',
       collation: 'Collation',
+      compressionMode: 'CompressionMode',
+      compressionRatio: 'CompressionRatio',
       connectionMode: 'ConnectionMode',
       connectionString: 'ConnectionString',
       consoleVersion: 'ConsoleVersion',
@@ -65978,6 +66017,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       serverlessConfig: 'ServerlessConfig',
       slaveZones: 'SlaveZones',
       superPermissionMode: 'SuperPermissionMode',
+      supportCompression: 'SupportCompression',
       tempDBInstanceId: 'TempDBInstanceId',
       tempUpgradeTimeEnd: 'TempUpgradeTimeEnd',
       tempUpgradeTimeStart: 'TempUpgradeTimeStart',
@@ -66005,6 +66045,8 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       category: 'string',
       coldDataEnabled: 'boolean',
       collation: 'string',
+      compressionMode: 'string',
+      compressionRatio: 'string',
       connectionMode: 'string',
       connectionString: 'string',
       consoleVersion: 'string',
@@ -66063,6 +66105,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       serverlessConfig: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeServerlessConfig,
       slaveZones: DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttributeSlaveZones,
       superPermissionMode: 'string',
+      supportCompression: 'boolean',
       tempDBInstanceId: 'string',
       tempUpgradeTimeEnd: 'string',
       tempUpgradeTimeStart: 'string',
@@ -82855,6 +82898,7 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
    * cloud_essd
    */
   category?: string;
+  performanceLevel?: string;
   /**
    * @remarks
    * The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
@@ -82866,6 +82910,7 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      performanceLevel: 'PerformanceLevel',
       size: 'Size',
     };
   }
@@ -82873,6 +82918,7 @@ export class RunRCInstancesRequestSystemDisk extends $tea.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      performanceLevel: 'string',
       size: 'number',
     };
   }
@@ -104649,6 +104695,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.coldDataEnabled)) {
       query["ColdDataEnabled"] = request.coldDataEnabled;
+    }
+
+    if (!Util.isUnset(request.compressionMode)) {
+      query["CompressionMode"] = request.compressionMode;
     }
 
     if (!Util.isUnset(request.DBInstanceClass)) {
