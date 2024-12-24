@@ -1098,6 +1098,356 @@ export class CancelJobRunResponse extends $tea.Model {
   }
 }
 
+export class CreateProcessDefinitionWithScheduleRequest extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods batch workflow
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PARALLEL
+   */
+  executionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_batch_workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SS
+   */
+  productNamespace?: string;
+  /**
+   * @example
+   * true
+   */
+  publish?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * root_queue
+   */
+  resourceQueue?: string;
+  /**
+   * @example
+   * 1
+   */
+  retryTimes?: number;
+  /**
+   * @example
+   * 113***************
+   */
+  runAs?: string;
+  schedule?: CreateProcessDefinitionWithScheduleRequestSchedule;
+  tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskDefinitionJson?: CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson[];
+  /**
+   * @example
+   * 1
+   */
+  taskParallelism?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskRelationJson?: CreateProcessDefinitionWithScheduleRequestTaskRelationJson[];
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      description: 'description',
+      executionType: 'executionType',
+      name: 'name',
+      productNamespace: 'productNamespace',
+      publish: 'publish',
+      regionId: 'regionId',
+      resourceQueue: 'resourceQueue',
+      retryTimes: 'retryTimes',
+      runAs: 'runAs',
+      schedule: 'schedule',
+      tags: 'tags',
+      taskDefinitionJson: 'taskDefinitionJson',
+      taskParallelism: 'taskParallelism',
+      taskRelationJson: 'taskRelationJson',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      description: 'string',
+      executionType: 'string',
+      name: 'string',
+      productNamespace: 'string',
+      publish: 'boolean',
+      regionId: 'string',
+      resourceQueue: 'string',
+      retryTimes: 'number',
+      runAs: 'string',
+      schedule: CreateProcessDefinitionWithScheduleRequestSchedule,
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      taskDefinitionJson: { 'type': 'array', 'itemType': CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson },
+      taskParallelism: 'number',
+      taskRelationJson: { 'type': 'array', 'itemType': CreateProcessDefinitionWithScheduleRequestTaskRelationJson },
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods batch workflow
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PARALLEL
+   */
+  executionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_batch_workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SS
+   */
+  productNamespace?: string;
+  /**
+   * @example
+   * true
+   */
+  publish?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * root_queue
+   */
+  resourceQueue?: string;
+  /**
+   * @example
+   * 1
+   */
+  retryTimes?: number;
+  /**
+   * @example
+   * 113***************
+   */
+  runAs?: string;
+  scheduleShrink?: string;
+  tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskDefinitionJsonShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  taskParallelism?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskRelationJsonShrink?: string;
+  /**
+   * @example
+   * 60
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      description: 'description',
+      executionType: 'executionType',
+      name: 'name',
+      productNamespace: 'productNamespace',
+      publish: 'publish',
+      regionId: 'regionId',
+      resourceQueue: 'resourceQueue',
+      retryTimes: 'retryTimes',
+      runAs: 'runAs',
+      scheduleShrink: 'schedule',
+      tagsShrink: 'tags',
+      taskDefinitionJsonShrink: 'taskDefinitionJson',
+      taskParallelism: 'taskParallelism',
+      taskRelationJsonShrink: 'taskRelationJson',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      description: 'string',
+      executionType: 'string',
+      name: 'string',
+      productNamespace: 'string',
+      publish: 'boolean',
+      regionId: 'string',
+      resourceQueue: 'string',
+      retryTimes: 'number',
+      runAs: 'string',
+      scheduleShrink: 'string',
+      tagsShrink: 'string',
+      taskDefinitionJsonShrink: 'string',
+      taskParallelism: 'number',
+      taskRelationJsonShrink: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1400009
+   */
+  code?: number;
+  data?: CreateProcessDefinitionWithScheduleResponseBodyData;
+  /**
+   * @example
+   * false
+   */
+  failed?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * No permission for resource action
+   */
+  msg?: string;
+  /**
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      failed: 'failed',
+      httpStatusCode: 'httpStatusCode',
+      msg: 'msg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: CreateProcessDefinitionWithScheduleResponseBodyData,
+      failed: 'string',
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateProcessDefinitionWithScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateProcessDefinitionWithScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateSqlStatementRequest extends $tea.Model {
   /**
    * @remarks
@@ -1318,6 +1668,9 @@ export class GetJobRunResponse extends $tea.Model {
 
 export class GetSessionClusterRequest extends $tea.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -1342,12 +1695,16 @@ export class GetSessionClusterRequest extends $tea.Model {
 export class GetSessionClusterResponseBody extends $tea.Model {
   /**
    * @remarks
-   * 请求ID。
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The session.
+   */
   sessionCluster?: GetSessionClusterResponseBodySessionCluster;
   static names(): { [key: string]: string } {
     return {
@@ -1422,7 +1779,7 @@ export class GetSqlStatementRequest extends $tea.Model {
 export class GetSqlStatementResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response parameters.
    */
   data?: GetSqlStatementResponseBodyData;
   /**
@@ -1479,11 +1836,20 @@ export class GetSqlStatementResponse extends $tea.Model {
 
 export class GetTemplateRequest extends $tea.Model {
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The template type.
+   * 
+   * *   TASK
+   * *   SESSION
+   * 
    * @example
    * TASK
    */
@@ -1508,31 +1874,49 @@ export class GetTemplateRequest extends $tea.Model {
 }
 
 export class GetTemplateResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: Template;
   /**
+   * @remarks
+   * *   If the value of success was false, an error code was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
    * @example
    * 040003
    */
   errorCode?: string;
   /**
+   * @remarks
+   * *   If the value of success was false, an error message was returned.
+   * *   If the value of success was true, a null value was returned.
+   * 
    * @example
    * InvalidUser.NotFound
    */
   errorMessage?: string;
   /**
    * @remarks
-   * Id of the request
+   * The HTTP status code.
    * 
    * @example
    * 200
    */
   httpStatusCode?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 484D9DDA-300D-525E-AF7A-0CCCA5C64A7A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * True
    */
@@ -1926,7 +2310,7 @@ export class ListJobRunsShrinkRequest extends $tea.Model {
 export class ListJobRunsResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The list of Spark jobs.
+   * The Spark jobs.
    */
   jobRuns?: ListJobRunsResponseBodyJobRuns[];
   /**
@@ -2362,7 +2746,7 @@ export class ListSessionClustersResponseBody extends $tea.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results.
+   * A pagination token.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -2378,7 +2762,7 @@ export class ListSessionClustersResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of sessions.
+   * The sessions.
    */
   sessionClusters?: ListSessionClustersResponseBodySessionClusters[];
   /**
@@ -2797,7 +3181,7 @@ export class StartJobRunRequest extends $tea.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: Tag[];
   /**
@@ -2902,6 +3286,170 @@ export class StartJobRunResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: StartJobRunResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartProcessInstanceRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  isProd?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 12***********
+   */
+  processDefinitionCode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SS
+   */
+  productNamespace?: string;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * root_queue
+   */
+  runtimeQueue?: string;
+  /**
+   * @example
+   * dh*********
+   */
+  versionHashCode?: string;
+  /**
+   * @example
+   * 1
+   */
+  versionNumber?: number;
+  static names(): { [key: string]: string } {
+    return {
+      isProd: 'isProd',
+      processDefinitionCode: 'processDefinitionCode',
+      productNamespace: 'productNamespace',
+      regionId: 'regionId',
+      runtimeQueue: 'runtimeQueue',
+      versionHashCode: 'versionHashCode',
+      versionNumber: 'versionNumber',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      isProd: 'boolean',
+      processDefinitionCode: 'number',
+      productNamespace: 'string',
+      regionId: 'string',
+      runtimeQueue: 'string',
+      versionHashCode: 'string',
+      versionNumber: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartProcessInstanceResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1400009
+   */
+  code?: number;
+  /**
+   * @example
+   * {\\"sessionBizId\\": \\"sc-dc85644dba1c8c63\\", \\"bizId\\": \\"st-aeed3b0d4f87418a9a9dcbd757477658\\", \\"gmtCreated\\": \\"Thu Sep 12 02:28:45 UTC 2024\\"}
+   */
+  data?: any;
+  /**
+   * @example
+   * false
+   */
+  failed?: boolean;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * No permission for resource action
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      failed: 'failed',
+      httpStatusCode: 'httpStatusCode',
+      msg: 'msg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: 'any',
+      failed: 'boolean',
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class StartProcessInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: StartProcessInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: StartProcessInstanceResponseBody,
     };
   }
 
@@ -3201,6 +3749,367 @@ export class TerminateSqlStatementResponse extends $tea.Model {
   }
 }
 
+export class UpdateProcessDefinitionWithScheduleRequest extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @example
+   * ods batch workflow
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PARALLEL
+   */
+  executionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_batch_workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SS
+   */
+  productNamespace?: string;
+  /**
+   * @example
+   * true
+   */
+  publish?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * ONLINE
+   */
+  releaseState?: string;
+  /**
+   * @example
+   * root_queue
+   */
+  resourceQueue?: string;
+  /**
+   * @example
+   * 1
+   */
+  retryTimes?: number;
+  /**
+   * @example
+   * 113***************
+   */
+  runAs?: string;
+  schedule?: UpdateProcessDefinitionWithScheduleRequestSchedule;
+  tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskDefinitionJson?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson[];
+  /**
+   * @example
+   * 1
+   */
+  taskParallelism?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskRelationJson?: UpdateProcessDefinitionWithScheduleRequestTaskRelationJson[];
+  /**
+   * @example
+   * 300
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      description: 'description',
+      executionType: 'executionType',
+      name: 'name',
+      productNamespace: 'productNamespace',
+      publish: 'publish',
+      regionId: 'regionId',
+      releaseState: 'releaseState',
+      resourceQueue: 'resourceQueue',
+      retryTimes: 'retryTimes',
+      runAs: 'runAs',
+      schedule: 'schedule',
+      tags: 'tags',
+      taskDefinitionJson: 'taskDefinitionJson',
+      taskParallelism: 'taskParallelism',
+      taskRelationJson: 'taskRelationJson',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      description: 'string',
+      executionType: 'string',
+      name: 'string',
+      productNamespace: 'string',
+      publish: 'boolean',
+      regionId: 'string',
+      releaseState: 'string',
+      resourceQueue: 'string',
+      retryTimes: 'number',
+      runAs: 'string',
+      schedule: UpdateProcessDefinitionWithScheduleRequestSchedule,
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      taskDefinitionJson: { 'type': 'array', 'itemType': UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson },
+      taskParallelism: 'number',
+      taskRelationJson: { 'type': 'array', 'itemType': UpdateProcessDefinitionWithScheduleRequestTaskRelationJson },
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @example
+   * ods batch workflow
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * PARALLEL
+   */
+  executionType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_batch_workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * SS
+   */
+  productNamespace?: string;
+  /**
+   * @example
+   * true
+   */
+  publish?: boolean;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  /**
+   * @example
+   * ONLINE
+   */
+  releaseState?: string;
+  /**
+   * @example
+   * root_queue
+   */
+  resourceQueue?: string;
+  /**
+   * @example
+   * 1
+   */
+  retryTimes?: number;
+  /**
+   * @example
+   * 113***************
+   */
+  runAs?: string;
+  scheduleShrink?: string;
+  tagsShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskDefinitionJsonShrink?: string;
+  /**
+   * @example
+   * 1
+   */
+  taskParallelism?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskRelationJsonShrink?: string;
+  /**
+   * @example
+   * 300
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      description: 'description',
+      executionType: 'executionType',
+      name: 'name',
+      productNamespace: 'productNamespace',
+      publish: 'publish',
+      regionId: 'regionId',
+      releaseState: 'releaseState',
+      resourceQueue: 'resourceQueue',
+      retryTimes: 'retryTimes',
+      runAs: 'runAs',
+      scheduleShrink: 'schedule',
+      tagsShrink: 'tags',
+      taskDefinitionJsonShrink: 'taskDefinitionJson',
+      taskParallelism: 'taskParallelism',
+      taskRelationJsonShrink: 'taskRelationJson',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      description: 'string',
+      executionType: 'string',
+      name: 'string',
+      productNamespace: 'string',
+      publish: 'boolean',
+      regionId: 'string',
+      releaseState: 'string',
+      resourceQueue: 'string',
+      retryTimes: 'number',
+      runAs: 'string',
+      scheduleShrink: 'string',
+      tagsShrink: 'string',
+      taskDefinitionJsonShrink: 'string',
+      taskParallelism: 'number',
+      taskRelationJsonShrink: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 1400009
+   */
+  code?: number;
+  data?: UpdateProcessDefinitionWithScheduleResponseBodyData;
+  /**
+   * @example
+   * false
+   */
+  failed?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * No permission for resource action
+   */
+  msg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * DD6B1B2A-5837-5237-ABE4-FF0C8944****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      failed: 'failed',
+      httpStatusCode: 'httpStatusCode',
+      msg: 'msg',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      data: UpdateProcessDefinitionWithScheduleResponseBodyData,
+      failed: 'string',
+      httpStatusCode: 'number',
+      msg: 'string',
+      requestId: 'string',
+      success: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateProcessDefinitionWithScheduleResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateProcessDefinitionWithScheduleResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ConfigurationOverridesConfigurations extends $tea.Model {
   configFileName?: string;
   configItemKey?: string;
@@ -3350,6 +4259,396 @@ export class TaskCredential extends $tea.Model {
       policy: 'string',
       securityToken: 'string',
       signature: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleRequestSchedule extends $tea.Model {
+  /**
+   * @example
+   * 0 0 0 * * ?
+   */
+  crontab?: string;
+  /**
+   * @example
+   * 2025-12-23 16:13:27
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 2024-12-23 16:13:27
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crontab: 'crontab',
+      endTime: 'endTime',
+      startTime: 'startTime',
+      timezoneId: 'timezoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crontab: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      timezoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf extends $tea.Model {
+  /**
+   * @example
+   * spark.dynamicAllocation.enabled
+   */
+  key?: string;
+  /**
+   * @example
+   * true
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams extends $tea.Model {
+  /**
+   * @example
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
+   */
+  displaySparkVersion?: string;
+  /**
+   * @example
+   * env-crhq2h5lhtgju93buhkg
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * false
+   */
+  fusion?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * root_queue
+   */
+  resourceQueueId?: string;
+  sparkConf?: CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf[];
+  /**
+   * @example
+   * 1
+   */
+  sparkDriverCores?: number;
+  /**
+   * @example
+   * 4g
+   */
+  sparkDriverMemory?: number;
+  /**
+   * @example
+   * 1
+   */
+  sparkExecutorCores?: number;
+  /**
+   * @example
+   * 4g
+   */
+  sparkExecutorMemory?: number;
+  /**
+   * @example
+   * INFO
+   */
+  sparkLogLevel?: string;
+  sparkLogPath?: string;
+  /**
+   * @example
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
+   */
+  sparkVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TSK-d87******************
+   */
+  taskBizId?: string;
+  /**
+   * @example
+   * VPC
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * w-d8********
+   */
+  workspaceBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displaySparkVersion: 'displaySparkVersion',
+      environmentId: 'environmentId',
+      fusion: 'fusion',
+      resourceQueueId: 'resourceQueueId',
+      sparkConf: 'sparkConf',
+      sparkDriverCores: 'sparkDriverCores',
+      sparkDriverMemory: 'sparkDriverMemory',
+      sparkExecutorCores: 'sparkExecutorCores',
+      sparkExecutorMemory: 'sparkExecutorMemory',
+      sparkLogLevel: 'sparkLogLevel',
+      sparkLogPath: 'sparkLogPath',
+      sparkVersion: 'sparkVersion',
+      taskBizId: 'taskBizId',
+      type: 'type',
+      workspaceBizId: 'workspaceBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displaySparkVersion: 'string',
+      environmentId: 'string',
+      fusion: 'boolean',
+      resourceQueueId: 'string',
+      sparkConf: { 'type': 'array', 'itemType': CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf },
+      sparkDriverCores: 'number',
+      sparkDriverMemory: 'number',
+      sparkExecutorCores: 'number',
+      sparkExecutorMemory: 'number',
+      sparkLogLevel: 'string',
+      sparkLogPath: 'string',
+      sparkVersion: 'string',
+      taskBizId: 'string',
+      type: 'string',
+      workspaceBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 36************
+   */
+  code?: number;
+  /**
+   * @example
+   * ods transform task
+   */
+  description?: string;
+  /**
+   * @example
+   * false
+   */
+  failAlertEnable?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  failRetryTimes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_transform_task
+   */
+  name?: string;
+  /**
+   * @example
+   * false
+   */
+  startAlertEnable?: boolean;
+  tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskParams?: CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * MigrateData
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 1200
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      code: 'code',
+      description: 'description',
+      failAlertEnable: 'failAlertEnable',
+      failRetryTimes: 'failRetryTimes',
+      name: 'name',
+      startAlertEnable: 'startAlertEnable',
+      tags: 'tags',
+      taskParams: 'taskParams',
+      taskType: 'taskType',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      code: 'number',
+      description: 'string',
+      failAlertEnable: 'boolean',
+      failRetryTimes: 'number',
+      name: 'string',
+      startAlertEnable: 'boolean',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      taskParams: CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams,
+      taskType: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleRequestTaskRelationJson extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods batch workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 28************
+   */
+  postTaskCode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  postTaskVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16************
+   */
+  preTaskCode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  preTaskVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      postTaskCode: 'postTaskCode',
+      postTaskVersion: 'postTaskVersion',
+      preTaskCode: 'preTaskCode',
+      preTaskVersion: 'preTaskVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      postTaskCode: 'number',
+      postTaskVersion: 'number',
+      preTaskCode: 'number',
+      preTaskVersion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateProcessDefinitionWithScheduleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 160************
+   */
+  code?: number;
+  /**
+   * @example
+   * 12342
+   */
+  id?: number;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      id: 'id',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'number',
+      id: 'number',
     };
   }
 
@@ -3553,7 +4852,7 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: Tag[];
   /**
@@ -3629,16 +4928,25 @@ export class GetJobRunResponseBodyJobRun extends $tea.Model {
 
 export class GetSessionClusterResponseBodySessionClusterApplicationConfigs extends $tea.Model {
   /**
+   * @remarks
+   * The name of the configuration file.
+   * 
    * @example
    * spark-defaults.conf
    */
   configFileName?: string;
   /**
+   * @remarks
+   * The key of the configuration.
+   * 
    * @example
    * spark.app.name
    */
   configItemKey?: string;
   /**
+   * @remarks
+   * The configuration value.
+   * 
    * @example
    * test
    */
@@ -3666,6 +4974,9 @@ export class GetSessionClusterResponseBodySessionClusterApplicationConfigs exten
 
 export class GetSessionClusterResponseBodySessionClusterAutoStartConfiguration extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether automatic startup is enabled.
+   * 
    * @example
    * false
    */
@@ -3689,11 +5000,17 @@ export class GetSessionClusterResponseBodySessionClusterAutoStartConfiguration e
 
 export class GetSessionClusterResponseBodySessionClusterAutoStopConfiguration extends $tea.Model {
   /**
+   * @remarks
+   * Indicates whether automatic termination is enabled.
+   * 
    * @example
    * false
    */
   enable?: boolean;
   /**
+   * @remarks
+   * The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
+   * 
    * @example
    * 60
    */
@@ -3719,11 +5036,17 @@ export class GetSessionClusterResponseBodySessionClusterAutoStopConfiguration ex
 
 export class GetSessionClusterResponseBodySessionClusterStateChangeReason extends $tea.Model {
   /**
+   * @remarks
+   * The status change code.
+   * 
    * @example
    * 1000000
    */
   code?: string;
   /**
+   * @remarks
+   * The status change message.
+   * 
    * @example
    * ok
    */
@@ -3748,98 +5071,169 @@ export class GetSessionClusterResponseBodySessionClusterStateChangeReason extend
 }
 
 export class GetSessionClusterResponseBodySessionCluster extends $tea.Model {
+  /**
+   * @remarks
+   * The Spark configurations.
+   */
   applicationConfigs?: GetSessionClusterResponseBodySessionClusterApplicationConfigs[];
+  /**
+   * @remarks
+   * The automatic startup configurations.
+   */
   autoStartConfiguration?: GetSessionClusterResponseBodySessionClusterAutoStartConfiguration;
+  /**
+   * @remarks
+   * The automatic termination configurations.
+   */
   autoStopConfiguration?: GetSessionClusterResponseBodySessionClusterAutoStopConfiguration;
   /**
+   * @remarks
+   * The version of the Spark engine.
+   * 
    * @example
    * esr-2.2(Java Runtime)
    */
   displayReleaseVersion?: string;
   /**
+   * @remarks
+   * The domain name to which the Spark UI of the session belongs.
+   * 
    * @example
    * your.domain.com
    */
   domain?: string;
+  /**
+   * @remarks
+   * The internal endpoint.
+   * 
+   * @example
+   * emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
+   */
   domainInner?: string;
   /**
+   * @remarks
+   * The ID of the job that is associated with the session.
+   * 
    * @example
    * TSK-xxxxxxxx
    */
   draftId?: string;
   /**
+   * @remarks
+   * The environment ID.
+   * 
    * @example
    * env-cpv569tlhtgndjl86t40
    */
   envId?: string;
   /**
+   * @remarks
+   * Indicates whether the Fusion engine is used for acceleration.
+   * 
    * @example
    * false
    */
   fusion?: boolean;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 2024-09-01 06:23:01
+   */
   gmtCreate?: number;
   /**
+   * @remarks
+   * The type of the job. This parameter is required and cannot be modified after the deployment is created. Valid values:
+   * 
+   * *   SQLSCRIPT
+   * *   JAR
+   * *   PYTHON
+   * 
    * @example
    * SQL
    */
   kind?: string;
   /**
+   * @remarks
+   * The name of the session.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
    * @remarks
-   * 作业实例名称。
+   * The queue name.
    * 
    * @example
    * jobName
    */
   queueName?: string;
   /**
+   * @remarks
+   * The version of E-MapReduce (EMR) Serverless Spark.
+   * 
    * @example
-   * esr-2.2（Java Runtime）
+   * esr-2.2(Java Runtime)
    */
   releaseVersion?: string;
   /**
    * @remarks
-   * 交互式作业会话id。
+   * The session ID.
    * 
    * @example
    * 1234abcd-12ab-34cd-56ef-1234567890ab
    */
   sessionClusterId?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 2024-09-01 06:23:01
+   */
   startTime?: number;
   /**
    * @remarks
-   * 作业状态。
+   * The job status.
    * 
    * @example
    * Running
    */
   state?: string;
+  /**
+   * @remarks
+   * The reason of the job status change.
+   */
   stateChangeReason?: GetSessionClusterResponseBodySessionClusterStateChangeReason;
   /**
    * @remarks
-   * 任务实例ID。
+   * The user ID.
    * 
    * @example
    * jr-231231
    */
   userId?: string;
   /**
+   * @remarks
+   * The name of the account that is used to create the session.
+   * 
    * @example
    * user1
    */
   userName?: string;
   /**
+   * @remarks
+   * The Spark UI of the session.
+   * 
    * @example
    * https://spark-ui/link
    */
   webUI?: string;
   /**
    * @remarks
-   * 工作空间id。
+   * The workspace ID.
    * 
    * @example
    * w-1234abcd
@@ -4213,7 +5607,15 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * 1509789347011222
    */
   creator?: string;
+  /**
+   * @example
+   * 2.059
+   */
   cuHours?: number;
+  /**
+   * @example
+   * esr-3.0.0 (Spark 3.4.3, Scala 2.12)
+   */
   displayReleaseVersion?: string;
   /**
    * @remarks
@@ -4231,6 +5633,10 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * 3600
    */
   executionTimeoutSeconds?: number;
+  /**
+   * @example
+   * true
+   */
   fusion?: boolean;
   /**
    * @remarks
@@ -4250,6 +5656,10 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
    * The path where the operational logs are stored.
    */
   log?: RunLog;
+  /**
+   * @example
+   * 33030784
+   */
   mbSeconds?: number;
   /**
    * @remarks
@@ -4290,9 +5700,13 @@ export class ListJobRunsResponseBodyJobRuns extends $tea.Model {
   submitTime?: number;
   /**
    * @remarks
-   * The tags of the job.
+   * The tags.
    */
   tags?: Tag[];
+  /**
+   * @example
+   * 8236
+   */
   vcoreSeconds?: number;
   /**
    * @remarks
@@ -4692,9 +6106,26 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
   /**
    * @remarks
    * The version of the Spark engine.
+   * 
+   * @example
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
    */
   displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * The public endpoint of the Thrift server.
+   * 
+   * @example
+   * emr-spark-gateway-cn-hangzhou.data.aliyun.com
+   */
   domain?: string;
+  /**
+   * @remarks
+   * The internal endpoint of the Thrift server.
+   * 
+   * @example
+   * emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
+   */
   domainInner?: string;
   /**
    * @remarks
@@ -4712,6 +6143,13 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    * false
    */
   fusion?: boolean;
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * 1732267598000
+   */
   gmtCreate?: number;
   /**
    * @remarks
@@ -4759,10 +6197,23 @@ export class ListSessionClustersResponseBodySessionClusters extends $tea.Model {
    * sc-123131
    */
   sessionClusterId?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 1732267598000
+   */
   startTime?: number;
   /**
    * @remarks
    * The status of the session.
+   * 
+   * *   Starting
+   * *   Running
+   * *   Stopping
+   * *   Stopped
+   * *   Error
    * 
    * @example
    * Running
@@ -5379,6 +6830,515 @@ export class StartJobRunRequestConfigurationOverrides extends $tea.Model {
   }
 }
 
+export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $tea.Model {
+  /**
+   * @example
+   * 0 0 0 * * ?
+   */
+  crontab?: string;
+  /**
+   * @example
+   * 2025-12-23 16:13:27
+   */
+  endTime?: string;
+  /**
+   * @example
+   * 2024-12-23 16:13:27
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      crontab: 'crontab',
+      endTime: 'endTime',
+      startTime: 'startTime',
+      timezoneId: 'timezoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      crontab: 'string',
+      endTime: 'string',
+      startTime: 'string',
+      timezoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf extends $tea.Model {
+  /**
+   * @example
+   * spark.dynamicAllocation.enabled
+   */
+  key?: string;
+  /**
+   * @example
+   * true
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams extends $tea.Model {
+  /**
+   * @example
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
+   */
+  displaySparkVersion?: string;
+  /**
+   * @example
+   * ev-h*************
+   */
+  environmentId?: string;
+  /**
+   * @example
+   * false
+   */
+  fusion?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * root_queue
+   */
+  resourceQueueId?: string;
+  sparkConf?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf[];
+  /**
+   * @example
+   * 1
+   */
+  sparkDriverCores?: number;
+  /**
+   * @example
+   * 4g
+   */
+  sparkDriverMemory?: number;
+  /**
+   * @example
+   * 1
+   */
+  sparkExecutorCores?: number;
+  /**
+   * @example
+   * 4g
+   */
+  sparkExecutorMemory?: number;
+  /**
+   * @example
+   * INFO
+   */
+  sparkLogLevel?: string;
+  sparkLogPath?: string;
+  /**
+   * @example
+   * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
+   */
+  sparkVersion?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * TSK-d87******************
+   */
+  taskBizId?: string;
+  /**
+   * @example
+   * SQL
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * w-d8********
+   */
+  workspaceBizId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      displaySparkVersion: 'displaySparkVersion',
+      environmentId: 'environmentId',
+      fusion: 'fusion',
+      resourceQueueId: 'resourceQueueId',
+      sparkConf: 'sparkConf',
+      sparkDriverCores: 'sparkDriverCores',
+      sparkDriverMemory: 'sparkDriverMemory',
+      sparkExecutorCores: 'sparkExecutorCores',
+      sparkExecutorMemory: 'sparkExecutorMemory',
+      sparkLogLevel: 'sparkLogLevel',
+      sparkLogPath: 'sparkLogPath',
+      sparkVersion: 'sparkVersion',
+      taskBizId: 'taskBizId',
+      type: 'type',
+      workspaceBizId: 'workspaceBizId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      displaySparkVersion: 'string',
+      environmentId: 'string',
+      fusion: 'boolean',
+      resourceQueueId: 'string',
+      sparkConf: { 'type': 'array', 'itemType': UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf },
+      sparkDriverCores: 'number',
+      sparkDriverMemory: 'number',
+      sparkExecutorCores: 'number',
+      sparkExecutorMemory: 'number',
+      sparkLogLevel: 'string',
+      sparkLogPath: 'string',
+      sparkVersion: 'string',
+      taskBizId: 'string',
+      type: 'string',
+      workspaceBizId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 23************
+   */
+  code?: number;
+  /**
+   * @example
+   * ods transform task
+   */
+  description?: string;
+  /**
+   * @example
+   * true
+   */
+  failAlertEnable?: boolean;
+  /**
+   * @example
+   * 1
+   */
+  failRetryTimes?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods_transform_task
+   */
+  name?: string;
+  /**
+   * @example
+   * true
+   */
+  startAlertEnable?: boolean;
+  tags?: { [key: string]: string };
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  taskParams?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * EMR-SERVERLESS-SPARK
+   */
+  taskType?: string;
+  /**
+   * @example
+   * 30
+   */
+  timeout?: number;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      code: 'code',
+      description: 'description',
+      failAlertEnable: 'failAlertEnable',
+      failRetryTimes: 'failRetryTimes',
+      name: 'name',
+      startAlertEnable: 'startAlertEnable',
+      tags: 'tags',
+      taskParams: 'taskParams',
+      taskType: 'taskType',
+      timeout: 'timeout',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      code: 'number',
+      description: 'string',
+      failAlertEnable: 'boolean',
+      failRetryTimes: 'number',
+      name: 'string',
+      startAlertEnable: 'boolean',
+      tags: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      taskParams: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParams,
+      taskType: 'string',
+      timeout: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ods batch workflow
+   */
+  name?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 19************
+   */
+  postTaskCode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  postTaskVersion?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 16************
+   */
+  preTaskCode?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1
+   */
+  preTaskVersion?: number;
+  static names(): { [key: string]: string } {
+    return {
+      name: 'name',
+      postTaskCode: 'postTaskCode',
+      postTaskVersion: 'postTaskVersion',
+      preTaskCode: 'preTaskCode',
+      preTaskVersion: 'preTaskVersion',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      name: 'string',
+      postTaskCode: 'number',
+      postTaskVersion: 'number',
+      preTaskCode: 'number',
+      preTaskVersion: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * foo_bar@spark.alert.invalid.com
+   */
+  alertEmailAddress?: string;
+  /**
+   * @example
+   * alicloud_ack_one_cluster
+   */
+  bizId?: string;
+  /**
+   * @example
+   * 12***********
+   */
+  code?: string;
+  /**
+   * @example
+   * 2024-09-05T02:03:19Z
+   */
+  createTime?: string;
+  /**
+   * @example
+   * 0 0 0 * * ?
+   */
+  crontab?: string;
+  /**
+   * @example
+   * 1
+   */
+  description?: string;
+  /**
+   * @example
+   * 1710432000000
+   */
+  endTime?: string;
+  /**
+   * @example
+   * SERIAL
+   */
+  executionType?: string;
+  /**
+   * @example
+   * 123223
+   */
+  id?: string;
+  /**
+   * @example
+   * ods_batch_workflow
+   */
+  name?: string;
+  /**
+   * @example
+   * w-********
+   */
+  projectName?: string;
+  /**
+   * @example
+   * ONLINE
+   */
+  releaseState?: string;
+  /**
+   * @example
+   * 0
+   */
+  startTime?: string;
+  /**
+   * @example
+   * Asia/Shanghai
+   */
+  timezoneId?: string;
+  /**
+   * @example
+   * 2024-03-05T06:24:27Z
+   */
+  updateTime?: string;
+  /**
+   * @example
+   * 113*********
+   */
+  userId?: string;
+  /**
+   * @example
+   * w-********
+   */
+  userName?: string;
+  /**
+   * @example
+   * 1
+   */
+  version?: number;
+  /**
+   * @example
+   * dwerf*********
+   */
+  versionHashCode?: string;
+  static names(): { [key: string]: string } {
+    return {
+      alertEmailAddress: 'alertEmailAddress',
+      bizId: 'bizId',
+      code: 'code',
+      createTime: 'createTime',
+      crontab: 'crontab',
+      description: 'description',
+      endTime: 'endTime',
+      executionType: 'executionType',
+      id: 'id',
+      name: 'name',
+      projectName: 'projectName',
+      releaseState: 'releaseState',
+      startTime: 'startTime',
+      timezoneId: 'timezoneId',
+      updateTime: 'updateTime',
+      userId: 'userId',
+      userName: 'userName',
+      version: 'version',
+      versionHashCode: 'versionHashCode',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      alertEmailAddress: 'string',
+      bizId: 'string',
+      code: 'string',
+      createTime: 'string',
+      crontab: 'string',
+      description: 'string',
+      endTime: 'string',
+      executionType: 'string',
+      id: 'string',
+      name: 'string',
+      projectName: 'string',
+      releaseState: 'string',
+      startTime: 'string',
+      timezoneId: 'string',
+      updateTime: 'string',
+      userId: 'string',
+      userName: 'string',
+      version: 'number',
+      versionHashCode: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -5503,6 +7463,129 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建工作流定义
+   * 
+   * @param tmpReq - CreateProcessDefinitionWithScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProcessDefinitionWithScheduleResponse
+   */
+  async createProcessDefinitionWithScheduleWithOptions(bizId: string, tmpReq: CreateProcessDefinitionWithScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateProcessDefinitionWithScheduleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateProcessDefinitionWithScheduleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "schedule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.taskDefinitionJson)) {
+      request.taskDefinitionJsonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskDefinitionJson, "taskDefinitionJson", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.taskRelationJson)) {
+      request.taskRelationJsonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskRelationJson, "taskRelationJson", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertEmailAddress)) {
+      query["alertEmailAddress"] = request.alertEmailAddress;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionType)) {
+      query["executionType"] = request.executionType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.productNamespace)) {
+      query["productNamespace"] = request.productNamespace;
+    }
+
+    if (!Util.isUnset(request.publish)) {
+      query["publish"] = request.publish;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceQueue)) {
+      query["resourceQueue"] = request.resourceQueue;
+    }
+
+    if (!Util.isUnset(request.retryTimes)) {
+      query["retryTimes"] = request.retryTimes;
+    }
+
+    if (!Util.isUnset(request.runAs)) {
+      query["runAs"] = request.runAs;
+    }
+
+    if (!Util.isUnset(request.scheduleShrink)) {
+      query["schedule"] = request.scheduleShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskDefinitionJsonShrink)) {
+      query["taskDefinitionJson"] = request.taskDefinitionJsonShrink;
+    }
+
+    if (!Util.isUnset(request.taskParallelism)) {
+      query["taskParallelism"] = request.taskParallelism;
+    }
+
+    if (!Util.isUnset(request.taskRelationJsonShrink)) {
+      query["taskRelationJson"] = request.taskRelationJsonShrink;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateProcessDefinitionWithSchedule",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/dolphinscheduler/projects/${OpenApiUtil.getEncodeParam(bizId)}/process-definition`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateProcessDefinitionWithScheduleResponse>(await this.callApi(params, req, runtime), new CreateProcessDefinitionWithScheduleResponse({}));
+  }
+
+  /**
+   * 创建工作流定义
+   * 
+   * @param request - CreateProcessDefinitionWithScheduleRequest
+   * @returns CreateProcessDefinitionWithScheduleResponse
+   */
+  async createProcessDefinitionWithSchedule(bizId: string, request: CreateProcessDefinitionWithScheduleRequest): Promise<CreateProcessDefinitionWithScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createProcessDefinitionWithScheduleWithOptions(bizId, request, headers, runtime);
+  }
+
+  /**
    * Creates an SQL query task.
    * 
    * @param request - CreateSqlStatementRequest
@@ -5615,7 +7698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SessionCluster集群
+   * Queries a list of sessions.
    * 
    * @param request - GetSessionClusterRequest
    * @param headers - map
@@ -5648,7 +7731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询SessionCluster集群
+   * Queries a list of sessions.
    * 
    * @param request - GetSessionClusterRequest
    * @returns GetSessionClusterResponse
@@ -5705,7 +7788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板
+   * Queries task templates.
    * 
    * @param request - GetTemplateRequest
    * @param headers - map
@@ -5742,7 +7825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取任务模板
+   * Queries task templates.
    * 
    * @param request - GetTemplateRequest
    * @returns GetTemplateResponse
@@ -6304,6 +8387,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 启动工作流实例
+   * 
+   * @param request - StartProcessInstanceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartProcessInstanceResponse
+   */
+  async startProcessInstanceWithOptions(bizId: string, request: StartProcessInstanceRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<StartProcessInstanceResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.isProd)) {
+      query["isProd"] = request.isProd;
+    }
+
+    if (!Util.isUnset(request.processDefinitionCode)) {
+      query["processDefinitionCode"] = request.processDefinitionCode;
+    }
+
+    if (!Util.isUnset(request.productNamespace)) {
+      query["productNamespace"] = request.productNamespace;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.runtimeQueue)) {
+      query["runtimeQueue"] = request.runtimeQueue;
+    }
+
+    if (!Util.isUnset(request.versionHashCode)) {
+      query["versionHashCode"] = request.versionHashCode;
+    }
+
+    if (!Util.isUnset(request.versionNumber)) {
+      query["versionNumber"] = request.versionNumber;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "StartProcessInstance",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/dolphinscheduler/projects/${OpenApiUtil.getEncodeParam(bizId)}/executors/start-process-instance`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<StartProcessInstanceResponse>(await this.callApi(params, req, runtime), new StartProcessInstanceResponse({}));
+  }
+
+  /**
+   * 启动工作流实例
+   * 
+   * @param request - StartProcessInstanceRequest
+   * @returns StartProcessInstanceResponse
+   */
+  async startProcessInstance(bizId: string, request: StartProcessInstanceRequest): Promise<StartProcessInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.startProcessInstanceWithOptions(bizId, request, headers, runtime);
+  }
+
+  /**
    * Starts a session.
    * 
    * @param request - StartSessionClusterRequest
@@ -6456,6 +8608,133 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.terminateSqlStatementWithOptions(workspaceId, statementId, request, headers, runtime);
+  }
+
+  /**
+   * 更新工作流定义和定时调度
+   * 
+   * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProcessDefinitionWithScheduleResponse
+   */
+  async updateProcessDefinitionWithScheduleWithOptions(bizId: string, code: string, tmpReq: UpdateProcessDefinitionWithScheduleRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateProcessDefinitionWithScheduleResponse> {
+    Util.validateModel(tmpReq);
+    let request = new UpdateProcessDefinitionWithScheduleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.schedule)) {
+      request.scheduleShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.schedule, "schedule", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.taskDefinitionJson)) {
+      request.taskDefinitionJsonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskDefinitionJson, "taskDefinitionJson", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.taskRelationJson)) {
+      request.taskRelationJsonShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.taskRelationJson, "taskRelationJson", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.alertEmailAddress)) {
+      query["alertEmailAddress"] = request.alertEmailAddress;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.executionType)) {
+      query["executionType"] = request.executionType;
+    }
+
+    if (!Util.isUnset(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!Util.isUnset(request.productNamespace)) {
+      query["productNamespace"] = request.productNamespace;
+    }
+
+    if (!Util.isUnset(request.publish)) {
+      query["publish"] = request.publish;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.releaseState)) {
+      query["releaseState"] = request.releaseState;
+    }
+
+    if (!Util.isUnset(request.resourceQueue)) {
+      query["resourceQueue"] = request.resourceQueue;
+    }
+
+    if (!Util.isUnset(request.retryTimes)) {
+      query["retryTimes"] = request.retryTimes;
+    }
+
+    if (!Util.isUnset(request.runAs)) {
+      query["runAs"] = request.runAs;
+    }
+
+    if (!Util.isUnset(request.scheduleShrink)) {
+      query["schedule"] = request.scheduleShrink;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      query["tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskDefinitionJsonShrink)) {
+      query["taskDefinitionJson"] = request.taskDefinitionJsonShrink;
+    }
+
+    if (!Util.isUnset(request.taskParallelism)) {
+      query["taskParallelism"] = request.taskParallelism;
+    }
+
+    if (!Util.isUnset(request.taskRelationJsonShrink)) {
+      query["taskRelationJson"] = request.taskRelationJsonShrink;
+    }
+
+    if (!Util.isUnset(request.timeout)) {
+      query["timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateProcessDefinitionWithSchedule",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/dolphinscheduler/projects/${OpenApiUtil.getEncodeParam(bizId)}/process-definition/${OpenApiUtil.getEncodeParam(code)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateProcessDefinitionWithScheduleResponse>(await this.callApi(params, req, runtime), new UpdateProcessDefinitionWithScheduleResponse({}));
+  }
+
+  /**
+   * 更新工作流定义和定时调度
+   * 
+   * @param request - UpdateProcessDefinitionWithScheduleRequest
+   * @returns UpdateProcessDefinitionWithScheduleResponse
+   */
+  async updateProcessDefinitionWithSchedule(bizId: string, code: string, request: UpdateProcessDefinitionWithScheduleRequest): Promise<UpdateProcessDefinitionWithScheduleResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateProcessDefinitionWithScheduleWithOptions(bizId, code, request, headers, runtime);
   }
 
 }
