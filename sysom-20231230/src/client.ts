@@ -213,6 +213,7 @@ export class GetAbnormalEventsCountRequest extends $tea.Model {
    * test-pod
    */
   pod?: string;
+  showPod?: number;
   /**
    * @example
    * 1725797727754
@@ -225,6 +226,7 @@ export class GetAbnormalEventsCountRequest extends $tea.Model {
       instance: 'instance',
       namespace: 'namespace',
       pod: 'pod',
+      showPod: 'showPod',
       start: 'start',
     };
   }
@@ -236,6 +238,7 @@ export class GetAbnormalEventsCountRequest extends $tea.Model {
       instance: 'string',
       namespace: 'string',
       pod: 'string',
+      showPod: 'number',
       start: 'number',
     };
   }
@@ -1190,6 +1193,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.pod)) {
       query["pod"] = request.pod;
+    }
+
+    if (!Util.isUnset(request.showPod)) {
+      query["showPod"] = request.showPod;
     }
 
     if (!Util.isUnset(request.start)) {
