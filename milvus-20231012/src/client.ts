@@ -1054,6 +1054,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
    * 8
    */
   cuNum?: number;
+  cuRatio?: number;
   /**
    * @example
    * 100
@@ -1073,6 +1074,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
     return {
       componentType: 'ComponentType',
       cuNum: 'CuNum',
+      cuRatio: 'CuRatio',
       diskSize: 'DiskSize',
       diskType: 'DiskType',
       replica: 'Replica',
@@ -1083,6 +1085,7 @@ export class GetInstanceDetailResponseBodyDataClusterInfoMilvusResourceInfoList 
     return {
       componentType: 'string',
       cuNum: 'number',
+      cuRatio: 'number',
       diskSize: 'number',
       diskType: 'string',
       replica: 'number',
@@ -1242,6 +1245,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
    * aliyun-test
    */
   clusterName?: string;
+  enableHa?: boolean;
   /**
    * @example
    * 1721664000000
@@ -1258,6 +1262,7 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
    */
   instanceStatus?: string;
   measureConfig?: GetInstanceDetailResponseBodyDataMeasureConfig;
+  nodeType?: string;
   /**
    * @example
    * true
@@ -1336,10 +1341,12 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       bucketPath: 'BucketPath',
       clusterInfo: 'ClusterInfo',
       clusterName: 'ClusterName',
+      enableHa: 'EnableHa',
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
       measureConfig: 'MeasureConfig',
+      nodeType: 'NodeType',
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
       payType: 'PayType',
@@ -1365,10 +1372,12 @@ export class GetInstanceDetailResponseBodyData extends $tea.Model {
       bucketPath: 'string',
       clusterInfo: GetInstanceDetailResponseBodyDataClusterInfo,
       clusterName: 'string',
+      enableHa: 'boolean',
       expireTime: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
       measureConfig: GetInstanceDetailResponseBodyDataMeasureConfig,
+      nodeType: 'string',
       openPublicNet: 'boolean',
       packageType: 'string',
       payType: 'number',
@@ -1530,6 +1539,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
    * running
    */
   instanceStatus?: string;
+  nodeType?: string;
   /**
    * @example
    * true
@@ -1593,6 +1603,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       expireTime: 'ExpireTime',
       instanceId: 'InstanceId',
       instanceStatus: 'InstanceStatus',
+      nodeType: 'NodeType',
       openPublicNet: 'OpenPublicNet',
       packageType: 'PackageType',
       payType: 'PayType',
@@ -1615,6 +1626,7 @@ export class ListInstancesResponseBodyData extends $tea.Model {
       expireTime: 'number',
       instanceId: 'string',
       instanceStatus: 'string',
+      nodeType: 'string',
       openPublicNet: 'boolean',
       packageType: 'string',
       payType: 'number',
