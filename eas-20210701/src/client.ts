@@ -5081,6 +5081,67 @@ export class DescribeGroupResponse extends $tea.Model {
   }
 }
 
+export class DescribeGroupEndpointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Nzc5N2FhNTM4OTQ0YzBmYTIy****ZTUxN2NkYjg4MTJmMWQxZmY1****
+   */
+  accessToken?: string;
+  endpoints?: DescribeGroupEndpointsResponseBodyEndpoints;
+  message?: string;
+  /**
+   * @example
+   * 890772EF-3AD6-129A-8E15-8F349C944783
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      endpoints: 'Endpoints',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      endpoints: DescribeGroupEndpointsResponseBodyEndpoints,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeGroupEndpointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeGroupEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeGroupEndpointsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeResourceResponseBody extends $tea.Model {
   /**
    * @remarks
@@ -5747,6 +5808,67 @@ export class DescribeServiceDiagnosisResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeServiceDiagnosisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEndpointsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Nzc5N2FhN****TQ0YzBmYTIyN2MxZTUxN2NkYjg4MTJmMWQxZmY1****
+   */
+  accessToken?: string;
+  endpoints?: DescribeServiceEndpointsResponseBodyEndpoints;
+  message?: string;
+  /**
+   * @example
+   * 739998B5-FB39-12A3-8323-0FA340317298
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      accessToken: 'AccessToken',
+      endpoints: 'Endpoints',
+      message: 'Message',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessToken: 'string',
+      endpoints: DescribeServiceEndpointsResponseBodyEndpoints,
+      message: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEndpointsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServiceEndpointsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceEndpointsResponseBody,
     };
   }
 
@@ -7312,10 +7434,17 @@ export class ListGatewayIntranetLinkedVpcPeerResponse extends $tea.Model {
 
 export class ListGatewayIntranetSupportedZoneResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 40325405-579C-4D82****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The zones that are supported by the region.
+   */
   zones?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -12617,6 +12746,56 @@ export class DeleteGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $tea.Mode
   }
 }
 
+export class DescribeGroupEndpointsResponseBodyEndpoints extends $tea.Model {
+  /**
+   * @example
+   * gw-26340kjxjx8l3r****
+   */
+  backendId?: string;
+  /**
+   * @example
+   * PrivateGateway
+   */
+  endpointType?: string;
+  internetEndpoints?: string[];
+  intranetEndpoints?: string[];
+  /**
+   * @example
+   * Group
+   */
+  pathType?: string;
+  /**
+   * @example
+   * 9090
+   */
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      endpointType: 'EndpointType',
+      internetEndpoints: 'InternetEndpoints',
+      intranetEndpoints: 'IntranetEndpoints',
+      pathType: 'PathType',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      endpointType: 'string',
+      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      pathType: 'string',
+      port: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeServiceAutoScalerResponseBodyCurrentMetrics extends $tea.Model {
   /**
    * @remarks
@@ -12836,6 +13015,56 @@ export class DescribeServiceDiagnosisResponseBodyDiagnosisList extends $tea.Mode
       advices: { 'type': 'array', 'itemType': 'string' },
       causes: { 'type': 'array', 'itemType': 'string' },
       error: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceEndpointsResponseBodyEndpoints extends $tea.Model {
+  /**
+   * @example
+   * nlb-5q4sp7u6oorkha****
+   */
+  backendId?: string;
+  /**
+   * @example
+   * Nlb
+   */
+  endpointType?: string;
+  internetEndpoints?: string[];
+  intranetEndpoints?: string[];
+  /**
+   * @example
+   * Service
+   */
+  pathType?: string;
+  /**
+   * @example
+   * 9090
+   */
+  port?: number;
+  static names(): { [key: string]: string } {
+    return {
+      backendId: 'BackendId',
+      endpointType: 'EndpointType',
+      internetEndpoints: 'InternetEndpoints',
+      intranetEndpoints: 'IntranetEndpoints',
+      pathType: 'PathType',
+      port: 'Port',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      backendId: 'string',
+      endpointType: 'string',
+      internetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      intranetEndpoints: { 'type': 'array', 'itemType': 'string' },
+      pathType: 'string',
+      port: 'number',
     };
   }
 
@@ -13513,6 +13742,9 @@ export class ListGatewayResponseBodyGateways extends $tea.Model {
    */
   replicas?: number;
   /**
+   * @remarks
+   * Specifies whether to enable HTTP to HTTPS redirection.
+   * 
    * @example
    * true
    */
@@ -16191,6 +16423,41 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 获取群组端点列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeGroupEndpointsResponse
+   */
+  async describeGroupEndpointsWithOptions(ClusterId: string, GroupName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeGroupEndpointsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeGroupEndpoints",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/groups/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(GroupName)}/endpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeGroupEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeGroupEndpointsResponse({}));
+  }
+
+  /**
+   * 获取群组端点列表
+   * @returns DescribeGroupEndpointsResponse
+   */
+  async describeGroupEndpoints(ClusterId: string, GroupName: string): Promise<DescribeGroupEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeGroupEndpointsWithOptions(ClusterId, GroupName, headers, runtime);
+  }
+
+  /**
    * Queries the information about a resource group.
    * 
    * @param headers - map
@@ -16433,6 +16700,41 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceDiagnosisWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
+  /**
+   * 获取服务端点列表
+   * 
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceEndpointsResponse
+   */
+  async describeServiceEndpointsWithOptions(ClusterId: string, ServiceName: string, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceEndpointsResponse> {
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceEndpoints",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/endpoints`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceEndpointsResponse>(await this.callApi(params, req, runtime), new DescribeServiceEndpointsResponse({}));
+  }
+
+  /**
+   * 获取服务端点列表
+   * @returns DescribeServiceEndpointsResponse
+   */
+  async describeServiceEndpoints(ClusterId: string, ServiceName: string): Promise<DescribeServiceEndpointsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeServiceEndpointsWithOptions(ClusterId, ServiceName, headers, runtime);
   }
 
   /**
@@ -17106,7 +17408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关内网支持的可用区
+   * Obtains the zones supported by a gateway within an intranet.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17131,7 +17433,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取网关内网支持的可用区
+   * Obtains the zones supported by a gateway within an intranet.
    * @returns ListGatewayIntranetSupportedZoneResponse
    */
   async listGatewayIntranetSupportedZone(GatewayId: string, ClusterId: string): Promise<ListGatewayIntranetSupportedZoneResponse> {
