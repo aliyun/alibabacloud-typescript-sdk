@@ -2535,91 +2535,6 @@ export class ContinuousMoveResponse extends $tea.Model {
   }
 }
 
-export class CreateClusterRequest extends $tea.Model {
-  description?: string;
-  internalPorts?: string;
-  maintainTime?: string;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  name?: string;
-  ownerId?: number;
-  securityGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      description: 'Description',
-      internalPorts: 'InternalPorts',
-      maintainTime: 'MaintainTime',
-      name: 'Name',
-      ownerId: 'OwnerId',
-      securityGroupId: 'SecurityGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      description: 'string',
-      internalPorts: 'string',
-      maintainTime: 'string',
-      name: 'string',
-      ownerId: 'number',
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterResponseBody extends $tea.Model {
-  clusterId?: string;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class CreateClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: CreateClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: CreateClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class CreateDeviceRequest extends $tea.Model {
   /**
    * @example
@@ -3424,6 +3339,94 @@ export class CreateParentPlatformResponse extends $tea.Model {
   }
 }
 
+export class CreateRenderingDataPackageRequest extends $tea.Model {
+  /**
+   * @example
+   * testdescription
+   */
+  description?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * render-9f8c57355d224ad7beaf95e145f22111
+   */
+  renderingInstanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      description: 'Description',
+      renderingInstanceId: 'RenderingInstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      description: 'string',
+      renderingInstanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRenderingDataPackageResponseBody extends $tea.Model {
+  /**
+   * @example
+   * dp-9f8c57355d224ad7beaf95e145f22111
+   */
+  dataPackageId?: string;
+  /**
+   * @example
+   * BEA5625F-8FCF-48F4-851B-CA63946DA664
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataPackageId: 'DataPackageId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPackageId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRenderingDataPackageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRenderingDataPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRenderingDataPackageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRenderingInstanceRequest extends $tea.Model {
   /**
    * @example
@@ -3431,6 +3434,7 @@ export class CreateRenderingInstanceRequest extends $tea.Model {
    */
   autoRenew?: boolean;
   clientInfo?: CreateRenderingInstanceRequestClientInfo;
+  instanceBillingCycle?: string;
   /**
    * @example
    * PrePaid
@@ -3459,15 +3463,18 @@ export class CreateRenderingInstanceRequest extends $tea.Model {
    * crs.cp.l1
    */
   renderingSpec?: string;
+  storageSize?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
       clientInfo: 'ClientInfo',
+      instanceBillingCycle: 'InstanceBillingCycle',
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       internetMaxBandwidth: 'InternetMaxBandwidth',
       period: 'Period',
       renderingSpec: 'RenderingSpec',
+      storageSize: 'StorageSize',
     };
   }
 
@@ -3475,11 +3482,13 @@ export class CreateRenderingInstanceRequest extends $tea.Model {
     return {
       autoRenew: 'boolean',
       clientInfo: CreateRenderingInstanceRequestClientInfo,
+      instanceBillingCycle: 'string',
       instanceChargeType: 'string',
       internetChargeType: 'string',
       internetMaxBandwidth: 'number',
       period: 'string',
       renderingSpec: 'string',
+      storageSize: 'string',
     };
   }
 
@@ -3495,6 +3504,7 @@ export class CreateRenderingInstanceShrinkRequest extends $tea.Model {
    */
   autoRenew?: boolean;
   clientInfoShrink?: string;
+  instanceBillingCycle?: string;
   /**
    * @example
    * PrePaid
@@ -3523,15 +3533,18 @@ export class CreateRenderingInstanceShrinkRequest extends $tea.Model {
    * crs.cp.l1
    */
   renderingSpec?: string;
+  storageSize?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'AutoRenew',
       clientInfoShrink: 'ClientInfo',
+      instanceBillingCycle: 'InstanceBillingCycle',
       instanceChargeType: 'InstanceChargeType',
       internetChargeType: 'InternetChargeType',
       internetMaxBandwidth: 'InternetMaxBandwidth',
       period: 'Period',
       renderingSpec: 'RenderingSpec',
+      storageSize: 'StorageSize',
     };
   }
 
@@ -3539,11 +3552,13 @@ export class CreateRenderingInstanceShrinkRequest extends $tea.Model {
     return {
       autoRenew: 'boolean',
       clientInfoShrink: 'string',
+      instanceBillingCycle: 'string',
       instanceChargeType: 'string',
       internetChargeType: 'string',
       internetMaxBandwidth: 'number',
       period: 'string',
       renderingSpec: 'string',
+      storageSize: 'string',
     };
   }
 
@@ -4120,76 +4135,6 @@ export class DeleteCloudAppResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteCloudAppResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  clusterId?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DeleteClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DeleteClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DeleteClusterResponseBody,
     };
   }
 
@@ -4936,9 +4881,6 @@ export class DeleteTemplateRequest extends $tea.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * 323*****998-cn-qingdao
    */
   id?: string;
   ownerId?: number;
@@ -4962,10 +4904,6 @@ export class DeleteTemplateRequest extends $tea.Model {
 }
 
 export class DeleteTemplateResponseBody extends $tea.Model {
-  /**
-   * @example
-   * BEA5625F-8FCF-48F4-851B-CA63946DA664
-   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -5283,347 +5221,6 @@ export class DescribeAccountStatResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeAccountStatResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  clusterId?: string;
-  ownerId?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      ownerId: 'OwnerId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      ownerId: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterResponseBody extends $tea.Model {
-  clusterId?: string;
-  description?: string;
-  internalPorts?: DescribeClusterResponseBodyInternalPorts[];
-  maintainTime?: string;
-  name?: string;
-  requestId?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      description: 'Description',
-      internalPorts: 'InternalPorts',
-      maintainTime: 'MaintainTime',
-      name: 'Name',
-      requestId: 'RequestId',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      description: 'string',
-      internalPorts: { 'type': 'array', 'itemType': DescribeClusterResponseBodyInternalPorts },
-      maintainTime: 'string',
-      name: 'string',
-      requestId: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  clusterId?: string;
-  description?: string;
-  edgeNodeName?: string;
-  ownerId?: number;
-  pageNo?: number;
-  pageSize?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  platform?: string;
-  specification?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      description: 'Description',
-      edgeNodeName: 'EdgeNodeName',
-      ownerId: 'OwnerId',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-      platform: 'Platform',
-      specification: 'Specification',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      description: 'string',
-      edgeNodeName: 'string',
-      ownerId: 'number',
-      pageNo: 'number',
-      pageSize: 'number',
-      platform: 'string',
-      specification: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponseBody extends $tea.Model {
-  devices?: DescribeClusterDevicesResponseBodyDevices[];
-  requestId?: string;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      devices: 'Devices',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      devices: { 'type': 'array', 'itemType': DescribeClusterDevicesResponseBodyDevices },
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeClusterDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeClusterDevicesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClustersRequest extends $tea.Model {
-  ownerId?: number;
-  pageNo?: number;
-  pageSize?: number;
-  static names(): { [key: string]: string } {
-    return {
-      ownerId: 'OwnerId',
-      pageNo: 'PageNo',
-      pageSize: 'PageSize',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ownerId: 'number',
-      pageNo: 'number',
-      pageSize: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClustersResponseBody extends $tea.Model {
-  clusters?: DescribeClustersResponseBodyClusters[];
-  requestId?: string;
-  total?: number;
-  static names(): { [key: string]: string } {
-    return {
-      clusters: 'Clusters',
-      requestId: 'RequestId',
-      total: 'Total',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusters: { 'type': 'array', 'itemType': DescribeClustersResponseBodyClusters },
-      requestId: 'string',
-      total: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClustersResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeClustersResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeClustersResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerInstanceIdRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  nodeName?: string;
-  ownerId?: number;
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  podIndex?: number;
-  static names(): { [key: string]: string } {
-    return {
-      nodeName: 'NodeName',
-      ownerId: 'OwnerId',
-      podIndex: 'PodIndex',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      nodeName: 'string',
-      ownerId: 'number',
-      podIndex: 'number',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerInstanceIdResponseBody extends $tea.Model {
-  instanceDetail?: DescribeContainerInstanceIdResponseBodyInstanceDetail;
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceDetail: 'InstanceDetail',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceDetail: DescribeContainerInstanceIdResponseBodyInstanceDetail,
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerInstanceIdResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeContainerInstanceIdResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeContainerInstanceIdResponseBody,
     };
   }
 
@@ -8276,12 +7873,14 @@ export class DescribeRenderingInstanceResponseBody extends $tea.Model {
    * render-9f8c57355d224ad7beaf95e145f22111
    */
   renderingInstanceId?: string;
+  renderingSpec?: string;
   renderingStatus?: DescribeRenderingInstanceResponseBodyRenderingStatus;
   /**
    * @example
    * BEA5625F-8FCF-48F4-851B-CA63946DA664
    */
   requestId?: string;
+  storageSize?: number;
   systemInfo?: DescribeRenderingInstanceResponseBodySystemInfo;
   static names(): { [key: string]: string } {
     return {
@@ -8290,8 +7889,10 @@ export class DescribeRenderingInstanceResponseBody extends $tea.Model {
       hostname: 'Hostname',
       portMappings: 'PortMappings',
       renderingInstanceId: 'RenderingInstanceId',
+      renderingSpec: 'RenderingSpec',
       renderingStatus: 'RenderingStatus',
       requestId: 'RequestId',
+      storageSize: 'StorageSize',
       systemInfo: 'SystemInfo',
     };
   }
@@ -8303,8 +7904,10 @@ export class DescribeRenderingInstanceResponseBody extends $tea.Model {
       hostname: 'string',
       portMappings: { 'type': 'array', 'itemType': DescribeRenderingInstanceResponseBodyPortMappings },
       renderingInstanceId: 'string',
+      renderingSpec: 'string',
       renderingStatus: DescribeRenderingInstanceResponseBodyRenderingStatus,
       requestId: 'string',
+      storageSize: 'number',
       systemInfo: DescribeRenderingInstanceResponseBodySystemInfo,
     };
   }
@@ -9399,78 +9002,6 @@ export class DescribeTemplatesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeTemplatesResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserDevicesRequest extends $tea.Model {
-  ensInstanceIds?: string;
-  ownerId?: number;
-  serverName?: string;
-  static names(): { [key: string]: string } {
-    return {
-      ensInstanceIds: 'EnsInstanceIds',
-      ownerId: 'OwnerId',
-      serverName: 'ServerName',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ensInstanceIds: 'string',
-      ownerId: 'number',
-      serverName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserDevicesResponseBody extends $tea.Model {
-  list?: DescribeUserDevicesResponseBodyList[];
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      list: 'List',
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      list: { 'type': 'array', 'itemType': DescribeUserDevicesResponseBodyList },
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserDevicesResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: DescribeUserDevicesResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: DescribeUserDevicesResponseBody,
     };
   }
 
@@ -13377,12 +12908,14 @@ export class ListRenderingInstancesRequest extends $tea.Model {
    * crs.cp.l1
    */
   renderingSpec?: string;
+  storageSize?: number;
   static names(): { [key: string]: string } {
     return {
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       renderingInstanceId: 'RenderingInstanceId',
       renderingSpec: 'RenderingSpec',
+      storageSize: 'StorageSize',
     };
   }
 
@@ -13392,6 +12925,7 @@ export class ListRenderingInstancesRequest extends $tea.Model {
       pageSize: 'number',
       renderingInstanceId: 'string',
       renderingSpec: 'string',
+      storageSize: 'number',
     };
   }
 
@@ -14446,6 +13980,97 @@ export class ModifyParentPlatformResponse extends $tea.Model {
   }
 }
 
+export class ModifyRenderingInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * render-9f8c57355d224ad7beaf95e145f22111
+   */
+  renderingInstanceId?: string;
+  /**
+   * @example
+   * crs.cp.l1
+   */
+  renderingSpec?: string;
+  /**
+   * @example
+   * 20
+   */
+  storageSize?: string;
+  static names(): { [key: string]: string } {
+    return {
+      renderingInstanceId: 'RenderingInstanceId',
+      renderingSpec: 'RenderingSpec',
+      storageSize: 'StorageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      renderingInstanceId: 'string',
+      renderingSpec: 'string',
+      storageSize: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRenderingInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 6DFE7B89-8532-566F-B5CE-924B10FCE7AC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyRenderingInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyRenderingInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyRenderingInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ModifyRenderingInstanceBandwidthRequest extends $tea.Model {
   /**
    * @example
@@ -14948,6 +14573,83 @@ export class RebootRenderingInstanceResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: RebootRenderingInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseRenderingDataPackageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * dp-9f8c57355d224ad7beaf95e145f22111
+   */
+  dataPackageId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dataPackageId: 'DataPackageId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dataPackageId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseRenderingDataPackageResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 5BEF36E7-3838-5B92-BA32-87DBF1425ABC
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ReleaseRenderingDataPackageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ReleaseRenderingDataPackageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ReleaseRenderingDataPackageResponseBody,
     };
   }
 
@@ -17554,94 +17256,6 @@ export class UpdateCloudAppInfoResponse extends $tea.Model {
   }
 }
 
-export class UpdateClusterRequest extends $tea.Model {
-  /**
-   * @remarks
-   * This parameter is required.
-   */
-  clusterId?: string;
-  description?: string;
-  effectiveTime?: string;
-  internalPorts?: string;
-  maintainTime?: string;
-  name?: string;
-  ownerId?: number;
-  securityGroupId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      description: 'Description',
-      effectiveTime: 'EffectiveTime',
-      internalPorts: 'InternalPorts',
-      maintainTime: 'MaintainTime',
-      name: 'Name',
-      ownerId: 'OwnerId',
-      securityGroupId: 'SecurityGroupId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      description: 'string',
-      effectiveTime: 'string',
-      internalPorts: 'string',
-      maintainTime: 'string',
-      name: 'string',
-      ownerId: 'number',
-      securityGroupId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClusterResponseBody extends $tea.Model {
-  requestId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      requestId: 'RequestId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      requestId: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class UpdateClusterResponse extends $tea.Model {
-  headers?: { [key: string]: string };
-  statusCode?: number;
-  body?: UpdateClusterResponseBody;
-  static names(): { [key: string]: string } {
-    return {
-      headers: 'headers',
-      statusCode: 'statusCode',
-      body: 'body',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
-      statusCode: 'number',
-      body: UpdateClusterResponseBody,
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
 export class UpdateFileInfoRequest extends $tea.Model {
   /**
    * @remarks
@@ -19215,275 +18829,6 @@ export class DeleteRenderingInstanceConfigurationRequestConfiguration extends $t
     return {
       attributeNames: { 'type': 'array', 'itemType': 'string' },
       moduleName: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterResponseBodyInternalPorts extends $tea.Model {
-  ipProtocol?: string;
-  platform?: string;
-  port?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ipProtocol: 'IpProtocol',
-      platform: 'Platform',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipProtocol: 'string',
-      platform: 'string',
-      port: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponseBodyDevicesIpInfos extends $tea.Model {
-  externalIp?: string;
-  externalPort?: string;
-  ISP?: string;
-  internalIp?: string;
-  internalPort?: string;
-  ipProtocol?: string;
-  natType?: string;
-  static names(): { [key: string]: string } {
-    return {
-      externalIp: 'ExternalIp',
-      externalPort: 'ExternalPort',
-      ISP: 'ISP',
-      internalIp: 'InternalIp',
-      internalPort: 'InternalPort',
-      ipProtocol: 'IpProtocol',
-      natType: 'NatType',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      externalIp: 'string',
-      externalPort: 'string',
-      ISP: 'string',
-      internalIp: 'string',
-      internalPort: 'string',
-      ipProtocol: 'string',
-      natType: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponseBodyDevicesPodInfosNetwork extends $tea.Model {
-  containerPorts?: string;
-  externalIp?: string;
-  externalIsp?: string;
-  externalPorts?: string;
-  outgoingIp?: string;
-  outgoingIsp?: string;
-  static names(): { [key: string]: string } {
-    return {
-      containerPorts: 'ContainerPorts',
-      externalIp: 'ExternalIp',
-      externalIsp: 'ExternalIsp',
-      externalPorts: 'ExternalPorts',
-      outgoingIp: 'OutgoingIp',
-      outgoingIsp: 'OutgoingIsp',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      containerPorts: 'string',
-      externalIp: 'string',
-      externalIsp: 'string',
-      externalPorts: 'string',
-      outgoingIp: 'string',
-      outgoingIsp: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponseBodyDevicesPodInfos extends $tea.Model {
-  network?: DescribeClusterDevicesResponseBodyDevicesPodInfosNetwork[];
-  podId?: string;
-  podIp?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      network: 'Network',
-      podId: 'PodId',
-      podIp: 'PodIp',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      network: { 'type': 'array', 'itemType': DescribeClusterDevicesResponseBodyDevicesPodInfosNetwork },
-      podId: 'string',
-      podIp: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClusterDevicesResponseBodyDevices extends $tea.Model {
-  autoRenew?: boolean;
-  autoRenewPeriod?: number;
-  description?: string;
-  edgeNodeName?: string;
-  hostRom?: string;
-  imageId?: string;
-  instanceChargeType?: string;
-  instanceId?: string;
-  instanceName?: string;
-  ipInfos?: DescribeClusterDevicesResponseBodyDevicesIpInfos[];
-  macAddress?: string;
-  period?: number;
-  periodUnit?: string;
-  platformType?: string;
-  podInfos?: DescribeClusterDevicesResponseBodyDevicesPodInfos[];
-  server?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      autoRenew: 'AutoRenew',
-      autoRenewPeriod: 'AutoRenewPeriod',
-      description: 'Description',
-      edgeNodeName: 'EdgeNodeName',
-      hostRom: 'HostRom',
-      imageId: 'ImageId',
-      instanceChargeType: 'InstanceChargeType',
-      instanceId: 'InstanceId',
-      instanceName: 'InstanceName',
-      ipInfos: 'IpInfos',
-      macAddress: 'MacAddress',
-      period: 'Period',
-      periodUnit: 'PeriodUnit',
-      platformType: 'PlatformType',
-      podInfos: 'PodInfos',
-      server: 'Server',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      autoRenew: 'boolean',
-      autoRenewPeriod: 'number',
-      description: 'string',
-      edgeNodeName: 'string',
-      hostRom: 'string',
-      imageId: 'string',
-      instanceChargeType: 'string',
-      instanceId: 'string',
-      instanceName: 'string',
-      ipInfos: { 'type': 'array', 'itemType': DescribeClusterDevicesResponseBodyDevicesIpInfos },
-      macAddress: 'string',
-      period: 'number',
-      periodUnit: 'string',
-      platformType: 'string',
-      podInfos: { 'type': 'array', 'itemType': DescribeClusterDevicesResponseBodyDevicesPodInfos },
-      server: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClustersResponseBodyClustersInternalPorts extends $tea.Model {
-  ipProtocol?: string;
-  platform?: string;
-  port?: string[];
-  static names(): { [key: string]: string } {
-    return {
-      ipProtocol: 'IpProtocol',
-      platform: 'Platform',
-      port: 'Port',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      ipProtocol: 'string',
-      platform: 'string',
-      port: { 'type': 'array', 'itemType': 'string' },
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeClustersResponseBodyClusters extends $tea.Model {
-  clusterId?: string;
-  description?: string;
-  internalPorts?: DescribeClustersResponseBodyClustersInternalPorts[];
-  maintainTime?: string;
-  name?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      clusterId: 'ClusterId',
-      description: 'Description',
-      internalPorts: 'InternalPorts',
-      maintainTime: 'MaintainTime',
-      name: 'Name',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      clusterId: 'string',
-      description: 'string',
-      internalPorts: { 'type': 'array', 'itemType': DescribeClustersResponseBodyClustersInternalPorts },
-      maintainTime: 'string',
-      name: 'string',
-      status: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeContainerInstanceIdResponseBodyInstanceDetail extends $tea.Model {
-  instanceId?: string;
-  static names(): { [key: string]: string } {
-    return {
-      instanceId: 'InstanceId',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      instanceId: 'string',
     };
   }
 
@@ -21371,46 +20716,6 @@ export class DescribeTemplatesResponseBodyTemplates extends $tea.Model {
       transConfigs: { 'type': 'array', 'itemType': DescribeTemplatesResponseBodyTemplatesTransConfigs },
       trigger: 'string',
       type: 'string',
-    };
-  }
-
-  constructor(map?: { [key: string]: any }) {
-    super(map);
-  }
-}
-
-export class DescribeUserDevicesResponseBodyList extends $tea.Model {
-  aliUid?: string;
-  edgeNodeName?: string;
-  instanceId?: string;
-  macAddress?: string;
-  matrixId?: string;
-  server?: string;
-  specification?: string;
-  status?: string;
-  static names(): { [key: string]: string } {
-    return {
-      aliUid: 'AliUid',
-      edgeNodeName: 'EdgeNodeName',
-      instanceId: 'InstanceId',
-      macAddress: 'MacAddress',
-      matrixId: 'MatrixId',
-      server: 'Server',
-      specification: 'Specification',
-      status: 'Status',
-    };
-  }
-
-  static types(): { [key: string]: any } {
-    return {
-      aliUid: 'string',
-      edgeNodeName: 'string',
-      instanceId: 'string',
-      macAddress: 'string',
-      matrixId: 'string',
-      server: 'string',
-      specification: 'string',
-      status: 'string',
     };
   }
 
@@ -23309,11 +22614,13 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $tea.M
    * crs.cp.l1
    */
   renderingSpec?: string;
+  storageSize?: number;
   static names(): { [key: string]: string } {
     return {
       creationTime: 'CreationTime',
       renderingInstanceId: 'RenderingInstanceId',
       renderingSpec: 'RenderingSpec',
+      storageSize: 'StorageSize',
     };
   }
 
@@ -23322,6 +22629,7 @@ export class ListRenderingInstancesResponseBodyRenderingInstances extends $tea.M
       creationTime: 'string',
       renderingInstanceId: 'string',
       renderingSpec: 'string',
+      storageSize: 'number',
     };
   }
 
@@ -24761,64 +24069,6 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * @param request - CreateClusterRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns CreateClusterResponse
-   */
-  async createClusterWithOptions(request: CreateClusterRequest, runtime: $Util.RuntimeOptions): Promise<CreateClusterResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.internalPorts)) {
-      query["InternalPorts"] = request.internalPorts;
-    }
-
-    if (!Util.isUnset(request.maintainTime)) {
-      query["MaintainTime"] = request.maintainTime;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityGroupId)) {
-      query["SecurityGroupId"] = request.securityGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "CreateCluster",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<CreateClusterResponse>(await this.callApi(params, req, runtime), new CreateClusterResponse({}));
-  }
-
-  /**
-   * @param request - CreateClusterRequest
-   * @returns CreateClusterResponse
-   */
-  async createCluster(request: CreateClusterRequest): Promise<CreateClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.createClusterWithOptions(request, runtime);
-  }
-
-  /**
    * @param request - CreateDeviceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateDeviceResponse
@@ -25225,6 +24475,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建云渲染数据包
+   * 
+   * @param request - CreateRenderingDataPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRenderingDataPackageResponse
+   */
+  async createRenderingDataPackageWithOptions(request: CreateRenderingDataPackageRequest, runtime: $Util.RuntimeOptions): Promise<CreateRenderingDataPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRenderingDataPackage",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRenderingDataPackageResponse>(await this.callApi(params, req, runtime), new CreateRenderingDataPackageResponse({}));
+  }
+
+  /**
+   * 创建云渲染数据包
+   * 
+   * @param request - CreateRenderingDataPackageRequest
+   * @returns CreateRenderingDataPackageResponse
+   */
+  async createRenderingDataPackage(request: CreateRenderingDataPackageRequest): Promise<CreateRenderingDataPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRenderingDataPackageWithOptions(request, runtime);
+  }
+
+  /**
    * 申请云渲染资源实例
    * 
    * @param tmpReq - CreateRenderingInstanceRequest
@@ -25248,6 +24544,10 @@ export default class Client extends OpenApi {
       query["ClientInfo"] = request.clientInfoShrink;
     }
 
+    if (!Util.isUnset(request.instanceBillingCycle)) {
+      query["InstanceBillingCycle"] = request.instanceBillingCycle;
+    }
+
     if (!Util.isUnset(request.instanceChargeType)) {
       query["InstanceChargeType"] = request.instanceChargeType;
     }
@@ -25266,6 +24566,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.renderingSpec)) {
       query["RenderingSpec"] = request.renderingSpec;
+    }
+
+    if (!Util.isUnset(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
     }
 
     let req = new $OpenApi.OpenApiRequest({
@@ -25546,48 +24850,6 @@ export default class Client extends OpenApi {
   async deleteCloudApp(request: DeleteCloudAppRequest): Promise<DeleteCloudAppResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteCloudAppWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DeleteClusterRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DeleteClusterResponse
-   */
-  async deleteClusterWithOptions(request: DeleteClusterRequest, runtime: $Util.RuntimeOptions): Promise<DeleteClusterResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DeleteCluster",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DeleteClusterResponse>(await this.callApi(params, req, runtime), new DeleteClusterResponse({}));
-  }
-
-  /**
-   * @param request - DeleteClusterRequest
-   * @returns DeleteClusterResponse
-   */
-  async deleteCluster(request: DeleteClusterRequest): Promise<DeleteClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.deleteClusterWithOptions(request, runtime);
   }
 
   /**
@@ -26158,206 +25420,6 @@ export default class Client extends OpenApi {
   async describeAccountStat(request: DescribeAccountStatRequest): Promise<DescribeAccountStatResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeAccountStatWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DescribeClusterRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeClusterResponse
-   */
-  async describeClusterWithOptions(request: DescribeClusterRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeCluster",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeClusterResponse>(await this.callApi(params, req, runtime), new DescribeClusterResponse({}));
-  }
-
-  /**
-   * @param request - DescribeClusterRequest
-   * @returns DescribeClusterResponse
-   */
-  async describeCluster(request: DescribeClusterRequest): Promise<DescribeClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeClusterWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DescribeClusterDevicesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeClusterDevicesResponse
-   */
-  async describeClusterDevicesWithOptions(request: DescribeClusterDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClusterDevicesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.edgeNodeName)) {
-      query["EdgeNodeName"] = request.edgeNodeName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    if (!Util.isUnset(request.platform)) {
-      query["Platform"] = request.platform;
-    }
-
-    if (!Util.isUnset(request.specification)) {
-      query["Specification"] = request.specification;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeClusterDevices",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeClusterDevicesResponse>(await this.callApi(params, req, runtime), new DescribeClusterDevicesResponse({}));
-  }
-
-  /**
-   * @param request - DescribeClusterDevicesRequest
-   * @returns DescribeClusterDevicesResponse
-   */
-  async describeClusterDevices(request: DescribeClusterDevicesRequest): Promise<DescribeClusterDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeClusterDevicesWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DescribeClustersRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeClustersResponse
-   */
-  async describeClustersWithOptions(request: DescribeClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeClustersResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.pageNo)) {
-      query["PageNo"] = request.pageNo;
-    }
-
-    if (!Util.isUnset(request.pageSize)) {
-      query["PageSize"] = request.pageSize;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeClusters",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeClustersResponse>(await this.callApi(params, req, runtime), new DescribeClustersResponse({}));
-  }
-
-  /**
-   * @param request - DescribeClustersRequest
-   * @returns DescribeClustersResponse
-   */
-  async describeClusters(request: DescribeClustersRequest): Promise<DescribeClustersResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeClustersWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DescribeContainerInstanceIdRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeContainerInstanceIdResponse
-   */
-  async describeContainerInstanceIdWithOptions(request: DescribeContainerInstanceIdRequest, runtime: $Util.RuntimeOptions): Promise<DescribeContainerInstanceIdResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.nodeName)) {
-      query["NodeName"] = request.nodeName;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.podIndex)) {
-      query["PodIndex"] = request.podIndex;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeContainerInstanceId",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeContainerInstanceIdResponse>(await this.callApi(params, req, runtime), new DescribeContainerInstanceIdResponse({}));
-  }
-
-  /**
-   * @param request - DescribeContainerInstanceIdRequest
-   * @returns DescribeContainerInstanceIdResponse
-   */
-  async describeContainerInstanceId(request: DescribeContainerInstanceIdRequest): Promise<DescribeContainerInstanceIdResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeContainerInstanceIdWithOptions(request, runtime);
   }
 
   /**
@@ -27786,52 +26848,6 @@ export default class Client extends OpenApi {
   async describeTemplates(request: DescribeTemplatesRequest): Promise<DescribeTemplatesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeTemplatesWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - DescribeUserDevicesRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns DescribeUserDevicesResponse
-   */
-  async describeUserDevicesWithOptions(request: DescribeUserDevicesRequest, runtime: $Util.RuntimeOptions): Promise<DescribeUserDevicesResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.ensInstanceIds)) {
-      query["EnsInstanceIds"] = request.ensInstanceIds;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.serverName)) {
-      query["ServerName"] = request.serverName;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "DescribeUserDevices",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<DescribeUserDevicesResponse>(await this.callApi(params, req, runtime), new DescribeUserDevicesResponse({}));
-  }
-
-  /**
-   * @param request - DescribeUserDevicesRequest
-   * @returns DescribeUserDevicesResponse
-   */
-  async describeUserDevices(request: DescribeUserDevicesRequest): Promise<DescribeUserDevicesResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.describeUserDevicesWithOptions(request, runtime);
   }
 
   /**
@@ -30151,6 +29167,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 变配云渲染资源实例
+   * 
+   * @param request - ModifyRenderingInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyRenderingInstanceResponse
+   */
+  async modifyRenderingInstanceWithOptions(request: ModifyRenderingInstanceRequest, runtime: $Util.RuntimeOptions): Promise<ModifyRenderingInstanceResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.renderingInstanceId)) {
+      query["RenderingInstanceId"] = request.renderingInstanceId;
+    }
+
+    if (!Util.isUnset(request.renderingSpec)) {
+      query["RenderingSpec"] = request.renderingSpec;
+    }
+
+    if (!Util.isUnset(request.storageSize)) {
+      query["StorageSize"] = request.storageSize;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyRenderingInstance",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyRenderingInstanceResponse>(await this.callApi(params, req, runtime), new ModifyRenderingInstanceResponse({}));
+  }
+
+  /**
+   * 变配云渲染资源实例
+   * 
+   * @param request - ModifyRenderingInstanceRequest
+   * @returns ModifyRenderingInstanceResponse
+   */
+  async modifyRenderingInstance(request: ModifyRenderingInstanceRequest): Promise<ModifyRenderingInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyRenderingInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * 修改云渲染实例限速带宽
    * 
    * @param request - ModifyRenderingInstanceBandwidthRequest
@@ -30433,6 +29499,48 @@ export default class Client extends OpenApi {
   async rebootRenderingInstance(request: RebootRenderingInstanceRequest): Promise<RebootRenderingInstanceResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.rebootRenderingInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * 释放云渲染数据包
+   * 
+   * @param request - ReleaseRenderingDataPackageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ReleaseRenderingDataPackageResponse
+   */
+  async releaseRenderingDataPackageWithOptions(request: ReleaseRenderingDataPackageRequest, runtime: $Util.RuntimeOptions): Promise<ReleaseRenderingDataPackageResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dataPackageId)) {
+      query["DataPackageId"] = request.dataPackageId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "ReleaseRenderingDataPackage",
+      version: "2018-12-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ReleaseRenderingDataPackageResponse>(await this.callApi(params, req, runtime), new ReleaseRenderingDataPackageResponse({}));
+  }
+
+  /**
+   * 释放云渲染数据包
+   * 
+   * @param request - ReleaseRenderingDataPackageRequest
+   * @returns ReleaseRenderingDataPackageResponse
+   */
+  async releaseRenderingDataPackage(request: ReleaseRenderingDataPackageRequest): Promise<ReleaseRenderingDataPackageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.releaseRenderingDataPackageWithOptions(request, runtime);
   }
 
   /**
@@ -31791,72 +30899,6 @@ export default class Client extends OpenApi {
   async updateCloudAppInfo(request: UpdateCloudAppInfoRequest): Promise<UpdateCloudAppInfoResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.updateCloudAppInfoWithOptions(request, runtime);
-  }
-
-  /**
-   * @param request - UpdateClusterRequest
-   * @param runtime - runtime options for this request RuntimeOptions
-   * @returns UpdateClusterResponse
-   */
-  async updateClusterWithOptions(request: UpdateClusterRequest, runtime: $Util.RuntimeOptions): Promise<UpdateClusterResponse> {
-    Util.validateModel(request);
-    let query = { };
-    if (!Util.isUnset(request.clusterId)) {
-      query["ClusterId"] = request.clusterId;
-    }
-
-    if (!Util.isUnset(request.description)) {
-      query["Description"] = request.description;
-    }
-
-    if (!Util.isUnset(request.effectiveTime)) {
-      query["EffectiveTime"] = request.effectiveTime;
-    }
-
-    if (!Util.isUnset(request.internalPorts)) {
-      query["InternalPorts"] = request.internalPorts;
-    }
-
-    if (!Util.isUnset(request.maintainTime)) {
-      query["MaintainTime"] = request.maintainTime;
-    }
-
-    if (!Util.isUnset(request.name)) {
-      query["Name"] = request.name;
-    }
-
-    if (!Util.isUnset(request.ownerId)) {
-      query["OwnerId"] = request.ownerId;
-    }
-
-    if (!Util.isUnset(request.securityGroupId)) {
-      query["SecurityGroupId"] = request.securityGroupId;
-    }
-
-    let req = new $OpenApi.OpenApiRequest({
-      query: OpenApiUtil.query(query),
-    });
-    let params = new $OpenApi.Params({
-      action: "UpdateCluster",
-      version: "2018-12-12",
-      protocol: "HTTPS",
-      pathname: "/",
-      method: "POST",
-      authType: "AK",
-      style: "RPC",
-      reqBodyType: "formData",
-      bodyType: "json",
-    });
-    return $tea.cast<UpdateClusterResponse>(await this.callApi(params, req, runtime), new UpdateClusterResponse({}));
-  }
-
-  /**
-   * @param request - UpdateClusterRequest
-   * @returns UpdateClusterResponse
-   */
-  async updateCluster(request: UpdateClusterRequest): Promise<UpdateClusterResponse> {
-    let runtime = new $Util.RuntimeOptions({ });
-    return await this.updateClusterWithOptions(request, runtime);
   }
 
   /**
