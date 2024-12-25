@@ -315,6 +315,96 @@ export class BackupFileResponse extends $tea.Model {
   }
 }
 
+export class BatchGetAcpConnectionTicketRequest extends $tea.Model {
+  /**
+   * @example
+   * user
+   */
+  endUserId?: string;
+  /**
+   * @example
+   * ag-25nt4kk9whjh****
+   */
+  instanceGroupId?: string;
+  instanceIds?: string[];
+  instanceTasks?: BatchGetAcpConnectionTicketRequestInstanceTasks[];
+  static names(): { [key: string]: string } {
+    return {
+      endUserId: 'EndUserId',
+      instanceGroupId: 'InstanceGroupId',
+      instanceIds: 'InstanceIds',
+      instanceTasks: 'InstanceTasks',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      endUserId: 'string',
+      instanceGroupId: 'string',
+      instanceIds: { 'type': 'array', 'itemType': 'string' },
+      instanceTasks: { 'type': 'array', 'itemType': BatchGetAcpConnectionTicketRequestInstanceTasks },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetAcpConnectionTicketResponseBody extends $tea.Model {
+  instanceConnectionModels?: BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels[];
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 7B9EFA4F-4305-5968-BAEE-BD8B8DE5****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceConnectionModels: 'InstanceConnectionModels',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceConnectionModels: { 'type': 'array', 'itemType': BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetAcpConnectionTicketResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: BatchGetAcpConnectionTicketResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: BatchGetAcpConnectionTicketResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResourceStockRequest extends $tea.Model {
   /**
    * @example
@@ -4909,6 +4999,87 @@ export class BackupFileResponseBodyData extends $tea.Model {
   }
 }
 
+export class BatchGetAcpConnectionTicketRequestInstanceTasks extends $tea.Model {
+  /**
+   * @example
+   * acp-fkuit0cmyfvzz****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class BatchGetAcpConnectionTicketResponseBodyInstanceConnectionModels extends $tea.Model {
+  /**
+   * @example
+   * aig-1uzb6heg797z3****
+   */
+  appInstanceGroupId?: string;
+  /**
+   * @example
+   * acp-ajxvwo1u0hqvd****
+   */
+  instanceId?: string;
+  /**
+   * @example
+   * cn-hangzhou@c9f5c2e8-f5c4-4b01-8602-000cae94****
+   */
+  taskId?: string;
+  /**
+   * @example
+   * FINISHED
+   */
+  taskStatus?: string;
+  /**
+   * @example
+   * piVE58_AdmVSVW7SEW3*AE5*p8mmO5gvItsNOmv4S_f_cNpoU_BOTwChTBoNM1ZJeedfK9zxYnbN5hossqIZCr6t7SGxRigm2Cb4fGaCdBZWIzmgdHq6sXXZQg4KFWufyvpeV*0*Cm58slMT1tJw3****
+   */
+  ticket?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appInstanceGroupId: 'AppInstanceGroupId',
+      instanceId: 'InstanceId',
+      taskId: 'TaskId',
+      taskStatus: 'TaskStatus',
+      ticket: 'Ticket',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appInstanceGroupId: 'string',
+      instanceId: 'string',
+      taskId: 'string',
+      taskStatus: 'string',
+      ticket: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CheckResourceStockResponseBodyResourceStockModels extends $tea.Model {
   /**
    * @example
@@ -6598,6 +6769,60 @@ export default class Client extends OpenApi {
   async backupFile(request: BackupFileRequest): Promise<BackupFileResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.backupFileWithOptions(request, runtime);
+  }
+
+  /**
+   * 批量获取ticket
+   * 
+   * @param request - BatchGetAcpConnectionTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetAcpConnectionTicketResponse
+   */
+  async batchGetAcpConnectionTicketWithOptions(request: BatchGetAcpConnectionTicketRequest, runtime: $Util.RuntimeOptions): Promise<BatchGetAcpConnectionTicketResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.endUserId)) {
+      query["EndUserId"] = request.endUserId;
+    }
+
+    if (!Util.isUnset(request.instanceGroupId)) {
+      query["InstanceGroupId"] = request.instanceGroupId;
+    }
+
+    if (!Util.isUnset(request.instanceIds)) {
+      query["InstanceIds"] = request.instanceIds;
+    }
+
+    if (!Util.isUnset(request.instanceTasks)) {
+      query["InstanceTasks"] = request.instanceTasks;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "BatchGetAcpConnectionTicket",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<BatchGetAcpConnectionTicketResponse>(await this.callApi(params, req, runtime), new BatchGetAcpConnectionTicketResponse({}));
+  }
+
+  /**
+   * 批量获取ticket
+   * 
+   * @param request - BatchGetAcpConnectionTicketRequest
+   * @returns BatchGetAcpConnectionTicketResponse
+   */
+  async batchGetAcpConnectionTicket(request: BatchGetAcpConnectionTicketRequest): Promise<BatchGetAcpConnectionTicketResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.batchGetAcpConnectionTicketWithOptions(request, runtime);
   }
 
   /**
