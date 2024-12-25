@@ -8752,6 +8752,80 @@ export class DeleteDiskResponse extends $tea.Model {
   }
 }
 
+export class DeleteEipRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * i-5sg1owx0g4ojy66ab2tez77r2
+   */
+  instanceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceId: 'InstanceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEipResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 9341CDC2-D6AC-5992-86C8-D5774CFCC708
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteEipResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteEipResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteEipResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteEnsRouteEntryRequest extends $tea.Model {
   /**
    * @remarks
@@ -61638,6 +61712,48 @@ export default class Client extends OpenApi {
   async deleteDisk(request: DeleteDiskRequest): Promise<DeleteDiskResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteDiskWithOptions(request, runtime);
+  }
+
+  /**
+   * 调用DeleteEip删除后付费的弹性公网EIP实例。
+   * 
+   * @param request - DeleteEipRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEipResponse
+   */
+  async deleteEipWithOptions(request: DeleteEipRequest, runtime: $Util.RuntimeOptions): Promise<DeleteEipResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteEip",
+      version: "2017-11-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteEipResponse>(await this.callApi(params, req, runtime), new DeleteEipResponse({}));
+  }
+
+  /**
+   * 调用DeleteEip删除后付费的弹性公网EIP实例。
+   * 
+   * @param request - DeleteEipRequest
+   * @returns DeleteEipResponse
+   */
+  async deleteEip(request: DeleteEipRequest): Promise<DeleteEipResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteEipWithOptions(request, runtime);
   }
 
   /**
