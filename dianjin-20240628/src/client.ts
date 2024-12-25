@@ -159,6 +159,161 @@ export class CreateAnnualDocSummaryTaskResponse extends $tea.Model {
   }
 }
 
+export class CreateDialogRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * taobao
+   */
+  channel?: string;
+  enableLibrary?: boolean;
+  /**
+   * @example
+   * null
+   */
+  metaData?: { [key: string]: any };
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * live_broadcast_qa
+   */
+  playCode?: string;
+  qaLibraryList?: string[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * ebf83826-dc1c-46f8-9759-0fb6da4c8xxx
+   */
+  requestId?: string;
+  selfDirected?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      channel: 'channel',
+      enableLibrary: 'enableLibrary',
+      metaData: 'metaData',
+      playCode: 'playCode',
+      qaLibraryList: 'qaLibraryList',
+      requestId: 'requestId',
+      selfDirected: 'selfDirected',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      channel: 'string',
+      enableLibrary: 'boolean',
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      playCode: 'string',
+      qaLibraryList: { 'type': 'array', 'itemType': 'string' },
+      requestId: 'string',
+      selfDirected: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: CreateDialogResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 003D019A-1BB3-53EC-A0D2-CE76DA5D73B1
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: CreateDialogResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateDialogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateDialogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDocsSummaryTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -1388,6 +1543,145 @@ export class EvictTaskResponse extends $tea.Model {
   }
 }
 
+export class GenDocQaResultRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 182364872346
+   */
+  docId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * sjdgdsfg
+   */
+  libraryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0FC6636E-380A-5369-AE01-D1C15BB9B254
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      docId: 'docId',
+      libraryId: 'libraryId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      docId: 'string',
+      libraryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenDocQaResultResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GenDocQaResultResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 44BD277A-87F9-5310-8D63-3E6645F1DA85
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GenDocQaResultResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenDocQaResultResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenDocQaResultResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenDocQaResultResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppConfigResponseBody extends $tea.Model {
   /**
    * @example
@@ -1473,6 +1767,135 @@ export class GetAppConfigResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: GetAppConfigResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatQuestionRespRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1869307330227937280
+   */
+  batchId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 237645726354
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchId: 'batchId',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatQuestionRespResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: GetChatQuestionRespResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 44BD277A-87F9-5310-8D63-3E6645F1DA85
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-01-01 00:00:00
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: GetChatQuestionRespResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatQuestionRespResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GetChatQuestionRespResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GetChatQuestionRespResponseBody,
     };
   }
 
@@ -3388,6 +3811,149 @@ export class ReIndexResponse extends $tea.Model {
   }
 }
 
+export class RealTimeDialogRequest extends $tea.Model {
+  /**
+   * @example
+   * false
+   */
+  analysis?: boolean;
+  /**
+   * @example
+   * mixIntentChat
+   */
+  bizType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  conversationModel?: RealTimeDialogRequestConversationModel[];
+  /**
+   * @example
+   * 3
+   */
+  dialogMemoryTurns?: number;
+  metaData?: { [key: string]: any };
+  /**
+   * @example
+   * false
+   */
+  recommend?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 237645726354
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * false
+   */
+  stream?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      analysis: 'analysis',
+      bizType: 'bizType',
+      conversationModel: 'conversationModel',
+      dialogMemoryTurns: 'dialogMemoryTurns',
+      metaData: 'metaData',
+      recommend: 'recommend',
+      sessionId: 'sessionId',
+      stream: 'stream',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysis: 'boolean',
+      bizType: 'string',
+      conversationModel: { 'type': 'array', 'itemType': RealTimeDialogRequestConversationModel },
+      dialogMemoryTurns: 'number',
+      metaData: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
+      recommend: 'boolean',
+      sessionId: 'string',
+      stream: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RealTimeDialogResponseBody extends $tea.Model {
+  choices?: RealTimeDialogResponseBodyChoices[];
+  /**
+   * @example
+   * 1735139569523
+   */
+  created?: string;
+  /**
+   * @example
+   * eb2b6139-ddf1-91a0-a47f-df7617ae9032
+   */
+  id?: string;
+  /**
+   * @example
+   * 5E3FBAF1-17AF-53B7-AF0A-CDCEEB6DE658
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      choices: 'choices',
+      created: 'created',
+      id: 'id',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      choices: { 'type': 'array', 'itemType': RealTimeDialogResponseBodyChoices },
+      created: 'string',
+      id: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RealTimeDialogResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RealTimeDialogResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RealTimeDialogResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RebuildTaskRequest extends $tea.Model {
   /**
    * @remarks
@@ -4166,6 +4732,166 @@ export class RunLibraryChatGenerationResponse extends $tea.Model {
   }
 }
 
+export class SubmitChatQuestionRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-09-27 11:23:20
+   */
+  gmtService?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  liveScriptContent?: string;
+  /**
+   * @example
+   * true
+   */
+  openSmallTalk?: boolean;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  questionList?: SubmitChatQuestionRequestQuestionList[];
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0FC6636E-380A-5369-AE01-D1C15BB9B254
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 237645726354
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      gmtService: 'gmtService',
+      liveScriptContent: 'liveScriptContent',
+      openSmallTalk: 'openSmallTalk',
+      questionList: 'questionList',
+      requestId: 'requestId',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      gmtService: 'string',
+      liveScriptContent: 'string',
+      openSmallTalk: 'boolean',
+      questionList: { 'type': 'array', 'itemType': SubmitChatQuestionRequestQuestionList },
+      requestId: 'string',
+      sessionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitChatQuestionResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: SubmitChatQuestionResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * 915AAAB9-4908-5224-9E53-9E9D7D0AA94B
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: SubmitChatQuestionResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitChatQuestionResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: SubmitChatQuestionResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: SubmitChatQuestionResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateDocumentRequest extends $tea.Model {
   /**
    * @remarks
@@ -4447,6 +5173,139 @@ export class UpdateLibraryResponse extends $tea.Model {
   }
 }
 
+export class UpdateQaLibraryRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  parseQaResults?: UpdateQaLibraryRequestParseQaResults[];
+  /**
+   * @example
+   * 6jh378d
+   */
+  qaLibraryId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0FC6636E-380A-5369-AE01-D1C15BB9B254
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      parseQaResults: 'parseQaResults',
+      qaLibraryId: 'qaLibraryId',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      parseQaResults: { 'type': 'array', 'itemType': UpdateQaLibraryRequestParseQaResults },
+      qaLibraryId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateQaLibraryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  cost?: number;
+  data?: UpdateQaLibraryResponseBodyData;
+  /**
+   * @example
+   * null
+   */
+  dataType?: string;
+  /**
+   * @example
+   * 0
+   */
+  errCode?: string;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @example
+   * EF4B5C9B-3BC8-5171-A47B-4C5CF3DC3258
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @example
+   * 2024-04-24 11:54:34
+   */
+  time?: string;
+  static names(): { [key: string]: string } {
+    return {
+      cost: 'cost',
+      data: 'data',
+      dataType: 'dataType',
+      errCode: 'errCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+      time: 'time',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cost: 'number',
+      data: UpdateQaLibraryResponseBodyData,
+      dataType: 'string',
+      errCode: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      time: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateQaLibraryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: UpdateQaLibraryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: UpdateQaLibraryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UploadDocumentRequest extends $tea.Model {
   data?: string;
   /**
@@ -4694,6 +5553,32 @@ export class CreateAnnualDocSummaryTaskRequestDocInfos extends $tea.Model {
       endPage: 'number',
       libraryId: 'string',
       startPage: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateDialogResponseBodyData extends $tea.Model {
+  openingRemarks?: string;
+  /**
+   * @example
+   * 1728545917713234
+   */
+  sessionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      openingRemarks: 'openingRemarks',
+      sessionId: 'sessionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      openingRemarks: 'string',
+      sessionId: 'string',
     };
   }
 
@@ -5314,6 +6199,68 @@ export class CreateQualityCheckTaskResponseBodyData extends $tea.Model {
   }
 }
 
+export class GenDocQaResultResponseBodyDataParseQaResults extends $tea.Model {
+  answer?: string;
+  question?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'answer',
+      question: 'question',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      question: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenDocQaResultResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PROCESSING
+   */
+  currentStatus?: string;
+  /**
+   * @example
+   * 873648346573245
+   */
+  docId?: string;
+  /**
+   * @example
+   * 7wxwrjpabj
+   */
+  libraryId?: string;
+  parseQaResults?: GenDocQaResultResponseBodyDataParseQaResults[];
+  static names(): { [key: string]: string } {
+    return {
+      currentStatus: 'currentStatus',
+      docId: 'docId',
+      libraryId: 'libraryId',
+      parseQaResults: 'parseQaResults',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentStatus: 'string',
+      docId: 'string',
+      libraryId: 'string',
+      parseQaResults: { 'type': 'array', 'itemType': GenDocQaResultResponseBodyDataParseQaResults },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAppConfigResponseBodyData extends $tea.Model {
   embeddingTypeList?: { [key: string]: string }[];
   frontendConfig?: { [key: string]: boolean };
@@ -5340,6 +6287,85 @@ export class GetAppConfigResponseBodyData extends $tea.Model {
       llmHelperTypeList: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'string' } },
       textIndexCategoryList: { 'type': 'array', 'itemType': 'string' },
       vectorIndexCategoryList: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatQuestionRespResponseBodyDataQuestionList extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * 2024-11-17 10:05:00
+   */
+  gmtCreate?: string;
+  reply?: string;
+  /**
+   * @example
+   * 1732846760323001
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * PRODUCT_QA
+   */
+  type?: string;
+  /**
+   * @example
+   * 39847834568436
+   */
+  userId?: string;
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      gmtCreate: 'gmtCreate',
+      reply: 'reply',
+      sessionId: 'sessionId',
+      type: 'type',
+      userId: 'userId',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      gmtCreate: 'string',
+      reply: 'string',
+      sessionId: 'string',
+      type: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GetChatQuestionRespResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * PROCESSING
+   */
+  currentState?: string;
+  questionList?: GetChatQuestionRespResponseBodyDataQuestionList[];
+  static names(): { [key: string]: string } {
+    return {
+      currentState: 'currentState',
+      questionList: 'questionList',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentState: 'string',
+      questionList: { 'type': 'array', 'itemType': GetChatQuestionRespResponseBodyDataQuestionList },
     };
   }
 
@@ -7481,6 +8507,277 @@ export class PreviewDocumentResponseBodyData extends $tea.Model {
   }
 }
 
+export class RealTimeDialogRequestConversationModel extends $tea.Model {
+  /**
+   * @example
+   * 5
+   */
+  begin?: number;
+  /**
+   * @example
+   * 2024-11-08 09:51:16
+   */
+  beginTime?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @example
+   * 98457834685635
+   */
+  customerId?: string;
+  /**
+   * @example
+   * 1374683645635
+   */
+  customerServiceId?: string;
+  /**
+   * @example
+   * 0
+   */
+  customerServiceType?: string;
+  /**
+   * @example
+   * 10
+   */
+  end?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 0
+   */
+  role?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * audio
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      begin: 'begin',
+      beginTime: 'beginTime',
+      content: 'content',
+      customerId: 'customerId',
+      customerServiceId: 'customerServiceId',
+      customerServiceType: 'customerServiceType',
+      end: 'end',
+      role: 'role',
+      type: 'type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      begin: 'number',
+      beginTime: 'string',
+      content: 'string',
+      customerId: 'string',
+      customerServiceId: 'string',
+      customerServiceType: 'string',
+      end: 'number',
+      role: 'number',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RealTimeDialogResponseBodyChoicesDelta extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  analysisProcess?: string;
+  /**
+   * @remarks
+   * time
+   * 
+   * @example
+   * null
+   */
+  callTime?: string;
+  /**
+   * @example
+   * false
+   */
+  hangUpDialog?: boolean;
+  /**
+   * @example
+   * 1853360771162058752
+   */
+  intentionCode?: string;
+  intentionName?: string;
+  intentionScript?: string;
+  /**
+   * @example
+   * null
+   */
+  recommendIntention?: string;
+  /**
+   * @example
+   * null
+   */
+  recommendScript?: string;
+  selfDirectedScript?: string;
+  selfDirectedScriptFullContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisProcess: 'analysisProcess',
+      callTime: 'callTime',
+      hangUpDialog: 'hangUpDialog',
+      intentionCode: 'intentionCode',
+      intentionName: 'intentionName',
+      intentionScript: 'intentionScript',
+      recommendIntention: 'recommendIntention',
+      recommendScript: 'recommendScript',
+      selfDirectedScript: 'selfDirectedScript',
+      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisProcess: 'string',
+      callTime: 'string',
+      hangUpDialog: 'boolean',
+      intentionCode: 'string',
+      intentionName: 'string',
+      intentionScript: 'string',
+      recommendIntention: 'string',
+      recommendScript: 'string',
+      selfDirectedScript: 'string',
+      selfDirectedScriptFullContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RealTimeDialogResponseBodyChoicesMessage extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  analysisProcess?: string;
+  /**
+   * @remarks
+   * time
+   * 
+   * @example
+   * 1735139569523
+   */
+  callTime?: string;
+  /**
+   * @example
+   * false
+   */
+  hangUpDialog?: boolean;
+  /**
+   * @example
+   * 1853360771162058752
+   */
+  intentionCode?: string;
+  intentionName?: string;
+  intentionScript?: string;
+  /**
+   * @example
+   * null
+   */
+  recommendIntention?: string;
+  /**
+   * @example
+   * null
+   */
+  recommendScript?: string;
+  /**
+   * @example
+   * null
+   */
+  selfDirectedScript?: string;
+  selfDirectedScriptFullContent?: string;
+  static names(): { [key: string]: string } {
+    return {
+      analysisProcess: 'analysisProcess',
+      callTime: 'callTime',
+      hangUpDialog: 'hangUpDialog',
+      intentionCode: 'intentionCode',
+      intentionName: 'intentionName',
+      intentionScript: 'intentionScript',
+      recommendIntention: 'recommendIntention',
+      recommendScript: 'recommendScript',
+      selfDirectedScript: 'selfDirectedScript',
+      selfDirectedScriptFullContent: 'selfDirectedScriptFullContent',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      analysisProcess: 'string',
+      callTime: 'string',
+      hangUpDialog: 'boolean',
+      intentionCode: 'string',
+      intentionName: 'string',
+      intentionScript: 'string',
+      recommendIntention: 'string',
+      recommendScript: 'string',
+      selfDirectedScript: 'string',
+      selfDirectedScriptFullContent: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RealTimeDialogResponseBodyChoices extends $tea.Model {
+  delta?: RealTimeDialogResponseBodyChoicesDelta;
+  /**
+   * @example
+   * stop
+   */
+  finishReason?: string;
+  /**
+   * @example
+   * 0
+   */
+  index?: number;
+  message?: RealTimeDialogResponseBodyChoicesMessage;
+  static names(): { [key: string]: string } {
+    return {
+      delta: 'delta',
+      finishReason: 'finishReason',
+      index: 'index',
+      message: 'message',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      delta: RealTimeDialogResponseBodyChoicesDelta,
+      finishReason: 'string',
+      index: 'number',
+      message: RealTimeDialogResponseBodyChoicesMessage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RecallDocumentRequestFiltersAnd extends $tea.Model {
   /**
    * @example
@@ -8781,6 +10078,99 @@ export class RunLibraryChatGenerationRequestVectorSearchParameter extends $tea.M
   }
 }
 
+export class SubmitChatQuestionRequestQuestionList extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2024-11-17 10:05:00
+   */
+  gmtCreate?: string;
+  reply?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 1869300950603128834
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * PRODUCT_QA
+   */
+  type?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 39485783475638465
+   */
+  userId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  userName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      gmtCreate: 'gmtCreate',
+      reply: 'reply',
+      sessionId: 'sessionId',
+      type: 'type',
+      userId: 'userId',
+      userName: 'userName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      gmtCreate: 'string',
+      reply: 'string',
+      sessionId: 'string',
+      type: 'string',
+      userId: 'string',
+      userName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class SubmitChatQuestionResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1869307330227937280
+   */
+  batchId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      batchId: 'batchId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      batchId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateLibraryRequestIndexSettingChunkStrategy extends $tea.Model {
   /**
    * @example
@@ -9134,6 +10524,59 @@ export class UpdateLibraryRequestIndexSetting extends $tea.Model {
   }
 }
 
+export class UpdateQaLibraryRequestParseQaResults extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  answer?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  question?: string;
+  static names(): { [key: string]: string } {
+    return {
+      answer: 'answer',
+      question: 'question',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      answer: 'string',
+      question: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class UpdateQaLibraryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 6jh378d
+   */
+  qaLibraryId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      qaLibraryId: 'qaLibraryId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      qaLibraryId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -9216,6 +10659,75 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAnnualDocSummaryTaskWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 创建外呼会话
+   * 
+   * @param request - CreateDialogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDialogResponse
+   */
+  async createDialogWithOptions(workspaceId: string, request: CreateDialogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateDialogResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.channel)) {
+      body["channel"] = request.channel;
+    }
+
+    if (!Util.isUnset(request.enableLibrary)) {
+      body["enableLibrary"] = request.enableLibrary;
+    }
+
+    if (!Util.isUnset(request.metaData)) {
+      body["metaData"] = request.metaData;
+    }
+
+    if (!Util.isUnset(request.playCode)) {
+      body["playCode"] = request.playCode;
+    }
+
+    if (!Util.isUnset(request.qaLibraryList)) {
+      body["qaLibraryList"] = request.qaLibraryList;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.selfDirected)) {
+      body["selfDirected"] = request.selfDirected;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateDialog",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/dialog/create`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateDialogResponse>(await this.callApi(params, req, runtime), new CreateDialogResponse({}));
+  }
+
+  /**
+   * 创建外呼会话
+   * 
+   * @param request - CreateDialogRequest
+   * @returns CreateDialogResponse
+   */
+  async createDialog(workspaceId: string, request: CreateDialogRequest): Promise<CreateDialogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDialogWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -9724,6 +11236,59 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 根据文档解析问答QA
+   * 
+   * @param request - GenDocQaResultRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenDocQaResultResponse
+   */
+  async genDocQaResultWithOptions(workspaceId: string, request: GenDocQaResultRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenDocQaResultResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.docId)) {
+      body["docId"] = request.docId;
+    }
+
+    if (!Util.isUnset(request.libraryId)) {
+      body["libraryId"] = request.libraryId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenDocQaResult",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/qa/parse`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GenDocQaResultResponse>(await this.callApi(params, req, runtime), new GenDocQaResultResponse({}));
+  }
+
+  /**
+   * 根据文档解析问答QA
+   * 
+   * @param request - GenDocQaResultRequest
+   * @returns GenDocQaResultResponse
+   */
+  async genDocQaResult(workspaceId: string, request: GenDocQaResultRequest): Promise<GenDocQaResultResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.genDocQaResultWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 获取app配置
    * 
    * @param headers - map
@@ -9756,6 +11321,55 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getAppConfigWithOptions(workspaceId, headers, runtime);
+  }
+
+  /**
+   * 获取问答结果
+   * 
+   * @param request - GetChatQuestionRespRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetChatQuestionRespResponse
+   */
+  async getChatQuestionRespWithOptions(workspaceId: string, request: GetChatQuestionRespRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GetChatQuestionRespResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.batchId)) {
+      body["batchId"] = request.batchId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GetChatQuestionResp",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/chat/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<GetChatQuestionRespResponse>(await this.callApi(params, req, runtime), new GetChatQuestionRespResponse({}));
+  }
+
+  /**
+   * 获取问答结果
+   * 
+   * @param request - GetChatQuestionRespRequest
+   * @returns GetChatQuestionRespResponse
+   */
+  async getChatQuestionResp(workspaceId: string, request: GetChatQuestionRespRequest): Promise<GetChatQuestionRespResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getChatQuestionRespWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -10530,6 +12144,79 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 实时对话
+   * 
+   * @param request - RealTimeDialogRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RealTimeDialogResponse
+   */
+  async realTimeDialogWithOptions(workspaceId: string, request: RealTimeDialogRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RealTimeDialogResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.analysis)) {
+      body["analysis"] = request.analysis;
+    }
+
+    if (!Util.isUnset(request.bizType)) {
+      body["bizType"] = request.bizType;
+    }
+
+    if (!Util.isUnset(request.conversationModel)) {
+      body["conversationModel"] = request.conversationModel;
+    }
+
+    if (!Util.isUnset(request.dialogMemoryTurns)) {
+      body["dialogMemoryTurns"] = request.dialogMemoryTurns;
+    }
+
+    if (!Util.isUnset(request.metaData)) {
+      body["metaData"] = request.metaData;
+    }
+
+    if (!Util.isUnset(request.recommend)) {
+      body["recommend"] = request.recommend;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!Util.isUnset(request.stream)) {
+      body["stream"] = request.stream;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RealTimeDialog",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/realtime/dialog/chat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<RealTimeDialogResponse>(await this.callApi(params, req, runtime), new RealTimeDialogResponse({}));
+  }
+
+  /**
+   * 实时对话
+   * 
+   * @param request - RealTimeDialogRequest
+   * @returns RealTimeDialogResponse
+   */
+  async realTimeDialog(workspaceId: string, request: RealTimeDialogRequest): Promise<RealTimeDialogResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.realTimeDialogWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 重建任务
    * 
    * @param request - RebuildTaskRequest
@@ -10887,6 +12574,71 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 提交问题列表
+   * 
+   * @param request - SubmitChatQuestionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitChatQuestionResponse
+   */
+  async submitChatQuestionWithOptions(workspaceId: string, request: SubmitChatQuestionRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<SubmitChatQuestionResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.gmtService)) {
+      body["gmtService"] = request.gmtService;
+    }
+
+    if (!Util.isUnset(request.liveScriptContent)) {
+      body["liveScriptContent"] = request.liveScriptContent;
+    }
+
+    if (!Util.isUnset(request.openSmallTalk)) {
+      body["openSmallTalk"] = request.openSmallTalk;
+    }
+
+    if (!Util.isUnset(request.questionList)) {
+      body["questionList"] = request.questionList;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    if (!Util.isUnset(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "SubmitChatQuestion",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/chat/submit`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<SubmitChatQuestionResponse>(await this.callApi(params, req, runtime), new SubmitChatQuestionResponse({}));
+  }
+
+  /**
+   * 提交问题列表
+   * 
+   * @param request - SubmitChatQuestionRequest
+   * @returns SubmitChatQuestionResponse
+   */
+  async submitChatQuestion(workspaceId: string, request: SubmitChatQuestionRequest): Promise<SubmitChatQuestionResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.submitChatQuestionWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 更新文档
    * 
    * @param request - UpdateDocumentRequest
@@ -10998,6 +12750,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateLibraryWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 更新QA问答库
+   * 
+   * @param request - UpdateQaLibraryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateQaLibraryResponse
+   */
+  async updateQaLibraryWithOptions(workspaceId: string, request: UpdateQaLibraryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateQaLibraryResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.parseQaResults)) {
+      body["parseQaResults"] = request.parseQaResults;
+    }
+
+    if (!Util.isUnset(request.qaLibraryId)) {
+      body["qaLibraryId"] = request.qaLibraryId;
+    }
+
+    if (!Util.isUnset(request.requestId)) {
+      body["requestId"] = request.requestId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "UpdateQaLibrary",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/api/virtualHuman/qa/upload`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<UpdateQaLibraryResponse>(await this.callApi(params, req, runtime), new UpdateQaLibraryResponse({}));
+  }
+
+  /**
+   * 更新QA问答库
+   * 
+   * @param request - UpdateQaLibraryRequest
+   * @returns UpdateQaLibraryResponse
+   */
+  async updateQaLibrary(workspaceId: string, request: UpdateQaLibraryRequest): Promise<UpdateQaLibraryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateQaLibraryWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
