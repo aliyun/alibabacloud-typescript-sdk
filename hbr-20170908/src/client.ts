@@ -856,10 +856,9 @@ export class CheckRoleResponse extends $tea.Model {
 export class CreateBackupJobRequest extends $tea.Model {
   /**
    * @remarks
-   * The backup type. Valid values:
+   * The backup type. This parameter is required only if you set the SourceType parameter to UDM_ECS.
    * 
    * *   **COMPLETE**: full backup
-   * *   **INCREMENTAL**: incremental backup
    * 
    * @example
    * INCREMENTAL
@@ -867,7 +866,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * You do not need to specify this parameter.
    * 
    * @example
    * cl-00068btz******oku
@@ -875,7 +874,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the cluster. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+   * You do not need to specify this parameter.
    * 
    * @example
    * cc-000xxxxxxxxxxxxxxi00
@@ -883,7 +882,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   containerClusterId?: string;
   /**
    * @remarks
-   * The cluster resources. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+   * You do not need to specify this parameter.
    * 
    * @example
    * [{\\"resourceType\\":\\"PV\\",\\"backupMethod\\":\\"FILE\\",\\"resourceId\\":\\"674dac6d-74cd-47e9-a675-09e2f10d2c45\\",\\"resourceInfo\\":\\"{\\\\\\"pv_name\\\\\\":\\\\\\"nas-650dac6d-74cd-47e9-a675-09e2f10d2c45\\\\\\",\\\\\\"pv_size\\\\\\":\\\\\\"8Gi\\\\\\",\\\\\\"storage_class\\\\\\":\\\\\\"alibabacloud-cnfs-nas\\\\\\",\\\\\\"pvc_name\\\\\\":\\\\\\"data-postgresql-default-0\\\\\\",\\\\\\"namespace\\\\\\":\\\\\\"database\\\\\\"}\\",\\"host\\":\\"cn-huhehaote.192.168.13.133\\",\\"hostPrefix\\":\\"6f5e758e-8d35-4584-b9ce-8333adfc7547/volumes/kubernetes.io~csi/nas-670dac6d-74cd-47e9-a675-09e2f10d2c45/mount\\",\\"pvPath\\":\\"/\\"}]
@@ -918,7 +917,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The details about ECS instance backup. The value is a JSON string.
+   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. The value is a JSON string. Valid values:
    * 
    * *   doCopy: specifies whether to enable remote replication.
    * 
@@ -938,7 +937,7 @@ export class CreateBackupJobRequest extends $tea.Model {
    * 
    * *   enableWriters: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots.
    * 
-   *     *   true (default): creates application-consistent snapshots.
+   *     *   true: creates application-consistent snapshots.
    *     *   false: creates file system-consistent snapshots.
    * 
    * *   enableFsFreeze: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
@@ -963,7 +962,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
    * 
    * @example
    * ["/var", "/proc"]
@@ -971,7 +970,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   exclude?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are backed up. The value can be up to 255 characters in length.
    * 
    * @example
    * ["/home/alice/*.pdf", "/home/bob/*.txt"]
@@ -979,7 +978,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   include?: string;
   /**
    * @remarks
-   * This parameter specifies whether to initiate the request by using Container Service for Kubernetes (ACK). Default value: false.
+   * false or left empty
    * 
    * @example
    * false
@@ -987,7 +986,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   initiatedByAck?: boolean;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the Elastic Compute Service (ECS) instance.
+   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the ECS instance.
    * 
    * @example
    * i-bp1xxxxxxxxxxxxxxysm
@@ -1003,11 +1002,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   jobName?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a source path.
-   * 
-   * *   This parameter is available only for Windows ECS instances.
-   * *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-   * *   If you use VSS, you cannot back up data from multiple directories.
+   * You do not need to specify this parameter.
    * 
    * @example
    * {"UseVSS":false}
@@ -1025,9 +1020,7 @@ export class CreateBackupJobRequest extends $tea.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **ECS_FILE**: Elastic Compute Service (ECS) files
-   * *   **UDM_ECS**: ECS instances
-   * *   **CONTAINER**: containers
+   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance
    * 
    * This parameter is required.
    * 
@@ -1037,7 +1030,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
    * 
    * *   **start**: the start hour.
    * *   **end**: the end hour.
@@ -1049,7 +1042,7 @@ export class CreateBackupJobRequest extends $tea.Model {
   speedLimit?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * The ID of the backup vault. This parameter is not required if you set the SourceType parameter to UDM_ECS.
    * 
    * @example
    * v-000xxxxxxxxxxxxxxy1v
@@ -1109,10 +1102,9 @@ export class CreateBackupJobRequest extends $tea.Model {
 export class CreateBackupJobShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The backup type. Valid values:
+   * The backup type. This parameter is required only if you set the SourceType parameter to UDM_ECS.
    * 
    * *   **COMPLETE**: full backup
-   * *   **INCREMENTAL**: incremental backup
    * 
    * @example
    * INCREMENTAL
@@ -1120,7 +1112,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * You do not need to specify this parameter.
    * 
    * @example
    * cl-00068btz******oku
@@ -1128,7 +1120,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the cluster. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+   * You do not need to specify this parameter.
    * 
    * @example
    * cc-000xxxxxxxxxxxxxxi00
@@ -1136,7 +1128,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   containerClusterId?: string;
   /**
    * @remarks
-   * The cluster resources. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+   * You do not need to specify this parameter.
    * 
    * @example
    * [{\\"resourceType\\":\\"PV\\",\\"backupMethod\\":\\"FILE\\",\\"resourceId\\":\\"674dac6d-74cd-47e9-a675-09e2f10d2c45\\",\\"resourceInfo\\":\\"{\\\\\\"pv_name\\\\\\":\\\\\\"nas-650dac6d-74cd-47e9-a675-09e2f10d2c45\\\\\\",\\\\\\"pv_size\\\\\\":\\\\\\"8Gi\\\\\\",\\\\\\"storage_class\\\\\\":\\\\\\"alibabacloud-cnfs-nas\\\\\\",\\\\\\"pvc_name\\\\\\":\\\\\\"data-postgresql-default-0\\\\\\",\\\\\\"namespace\\\\\\":\\\\\\"database\\\\\\"}\\",\\"host\\":\\"cn-huhehaote.192.168.13.133\\",\\"hostPrefix\\":\\"6f5e758e-8d35-4584-b9ce-8333adfc7547/volumes/kubernetes.io~csi/nas-670dac6d-74cd-47e9-a675-09e2f10d2c45/mount\\",\\"pvPath\\":\\"/\\"}]
@@ -1171,7 +1163,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The details about ECS instance backup. The value is a JSON string.
+   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. The value is a JSON string. Valid values:
    * 
    * *   doCopy: specifies whether to enable remote replication.
    * 
@@ -1191,7 +1183,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
    * 
    * *   enableWriters: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots.
    * 
-   *     *   true (default): creates application-consistent snapshots.
+   *     *   true: creates application-consistent snapshots.
    *     *   false: creates file system-consistent snapshots.
    * 
    * *   enableFsFreeze: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
@@ -1216,7 +1208,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   detailShrink?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
    * 
    * @example
    * ["/var", "/proc"]
@@ -1224,7 +1216,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   exclude?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are backed up. The value can be up to 255 characters in length.
    * 
    * @example
    * ["/home/alice/*.pdf", "/home/bob/*.txt"]
@@ -1232,7 +1224,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   include?: string;
   /**
    * @remarks
-   * This parameter specifies whether to initiate the request by using Container Service for Kubernetes (ACK). Default value: false.
+   * false or left empty
    * 
    * @example
    * false
@@ -1240,7 +1232,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   initiatedByAck?: boolean;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the Elastic Compute Service (ECS) instance.
+   * This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the ECS instance.
    * 
    * @example
    * i-bp1xxxxxxxxxxxxxxysm
@@ -1256,11 +1248,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   jobName?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a source path.
-   * 
-   * *   This parameter is available only for Windows ECS instances.
-   * *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-   * *   If you use VSS, you cannot back up data from multiple directories.
+   * You do not need to specify this parameter.
    * 
    * @example
    * {"UseVSS":false}
@@ -1278,9 +1266,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
    * @remarks
    * The type of the data source. Valid values:
    * 
-   * *   **ECS_FILE**: Elastic Compute Service (ECS) files
-   * *   **UDM_ECS**: ECS instances
-   * *   **CONTAINER**: containers
+   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance
    * 
    * This parameter is required.
    * 
@@ -1290,7 +1276,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+   * This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
    * 
    * *   **start**: the start hour.
    * *   **end**: the end hour.
@@ -1302,7 +1288,7 @@ export class CreateBackupJobShrinkRequest extends $tea.Model {
   speedLimit?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * The ID of the backup vault. This parameter is not required if you set the SourceType parameter to UDM_ECS.
    * 
    * @example
    * v-000xxxxxxxxxxxxxxy1v
@@ -1456,7 +1442,7 @@ export class CreateBackupJobResponse extends $tea.Model {
 export class CreateBackupPlanRequest extends $tea.Model {
   /**
    * @remarks
-   * The backup type. Valid value: **COMPLETE**, which indicates full backup.
+   * Backup type. Value: **COMPLETE**, indicating a full backup.
    * 
    * This parameter is required.
    * 
@@ -1466,7 +1452,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the name of the OSS bucket.
+   * This parameter is required when **SourceType** is set to **OSS**. It represents the OSS bucket name.
    * 
    * @example
    * hbr-backup-oss
@@ -1474,7 +1460,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   bucket?: string;
   /**
    * @remarks
-   * The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
+   * Configuration for the incremental file synchronization list. (Required only for synchronization)
    * 
    * @example
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
@@ -1482,7 +1468,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   changeListPath?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the time to create the file system. The value must be a UNIX timestamp. Unit: seconds.
+   * This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
    * 
    * @example
    * 1607436917
@@ -1490,7 +1476,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+   * The role name created in the RAM of the original account for cross-account backup.
    * 
    * @example
    * BackupRole
@@ -1498,10 +1484,9 @@ export class CreateBackupPlanRequest extends $tea.Model {
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Specifies whether data is backed up and restored within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-   * 
-   * *   SELF_ACCOUNT: Data is backed up and restored within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up and restored across Alibaba Cloud accounts.
+   * Cross-account backup type. Supported values:
+   * - SELF_ACCOUNT: Backup within the same account
+   * - CROSS_ACCOUNT: Cross-account backup
    * 
    * @example
    * CROSS_ACCOUNT
@@ -1509,35 +1494,44 @@ export class CreateBackupPlanRequest extends $tea.Model {
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+   * The original account ID used for cross-account backup.
    * 
    * @example
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
   /**
+   * @remarks
+   * Destination data source details. (Required only for synchronization)
+   * 
    * @example
    * {\\"prefix\\":\\"/\\"}
    */
   destDataSourceDetail?: { [key: string]: any };
   /**
+   * @remarks
+   * Destination data source ID. (Required only for synchronization)
+   * 
    * @example
    * ds-*********************
    */
   destDataSourceId?: string;
   /**
+   * @remarks
+   * Destination data source type. (Required only for synchronization)
+   * 
    * @example
    * OSS
    */
   destSourceType?: string;
   /**
    * @remarks
-   * The details about ECS instance backup. The value is a JSON string.
+   * Details of the whole machine backup, in JSON string format.
    * 
-   * *   snapshotGroup: specifies whether to use a snapshot-consistent group. This parameter is valid only if all disks of the ECS instance are enhanced SSDs (ESSDs).
-   * *   appConsistent: specifies whether to enable application consistency. If you set this parameter to true, you must also specify the preScriptPath and postScriptPath parameters.
-   * *   preScriptPath: the path to the prescript file.
-   * *   postScriptPath: the path to the postscript file.
+   * * snapshotGroup: Whether to use a consistent snapshot group (only valid if all instance disks are ESSD).
+   * * appConsistent: Whether to use application consistency (requires the use of preScriptPath and postScriptPath parameters).
+   * * preScriptPath: Path to the freeze script.
+   * * postScriptPath: Path to the thaw script.
    * 
    * @example
    * {\\"EnableFsFreeze\\":true,\\"appConsistent\\":false,\\"postScriptPath\\":\\"\\",\\"preScriptPath\\":\\"\\",\\"snapshotGroup\\":true,\\"timeoutInSeconds\\":60}
@@ -1545,7 +1539,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether to disable the plan by default.
+   * Is the plan disabled by default
    * 
    * @example
    * true
@@ -1553,7 +1547,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
+   * This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
    * 
    * @example
    * ["/var", "/proc"]
@@ -1561,7 +1555,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   exclude?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the ID of the NAS file system.
+   * This parameter is required when **SourceType** is set to **NAS**. It represents the file system ID.
    * 
    * @example
    * 005494
@@ -1569,7 +1563,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value can be up to 255 characters in length.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the path to be backed up, and all files under this path will be backed up. Supports up to 255 characters.
    * 
    * @example
    * ["/home/alice/*.pdf", "/home/bob/*.txt"]
@@ -1577,7 +1571,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   include?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the ID of the ECS instance.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the ECS instance ID.
    * 
    * @example
    * i-m5e*****6q
@@ -1585,7 +1579,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the Tablestore instance.
+   * Table store instance name.
    * 
    * @example
    * instancename
@@ -1593,10 +1587,9 @@ export class CreateBackupPlanRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the "Keep at least one backup version" feature. Valid values:
-   * 
-   * *   0: The feature is disabled.
-   * *   1: The feature is enabled.
+   * Whether to enable retaining at least one backup version.
+   * - 0 - Do not retain
+   * - 1 - Retain
    * 
    * @example
    * 1
@@ -1604,11 +1597,11 @@ export class CreateBackupPlanRequest extends $tea.Model {
   keepLatestSnapshots?: number;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a backup path.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It indicates whether to use the Windows system VSS to define the backup path.
    * 
-   * *   This parameter is available only for Windows ECS instances.
-   * *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before the system sets this parameter to `["UseVSS":true]`.
-   * *   If you use VSS, you cannot back up data from multiple directories.
+   * - This feature only supports Windows type ECS instances.
+   * - If there are data changes in the backup source and you need to ensure consistency between the backup data and the source data, you can configure it as `["UseVSS":true]`.
+   * - After choosing to use VSS, multiple file directories cannot be backed up simultaneously.
    * 
    * @example
    * {"UseVSS":false}
@@ -1616,17 +1609,17 @@ export class CreateBackupPlanRequest extends $tea.Model {
   options?: string;
   /**
    * @remarks
-   * The details about the Tablestore instance.
+   * Table store instance details.
    */
   otsDetail?: OtsDetail;
   /**
    * @remarks
-   * The backup paths.
+   * Backup paths.
    */
   path?: string[];
   /**
    * @remarks
-   * The name of the backup schedule. The name must be 1 to 64 characters in length. The name of a backup schedule for each type of data source must be unique within a backup vault.
+   * Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
    * 
    * This parameter is required.
    * 
@@ -1636,7 +1629,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   planName?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the prefix of objects that you want to back up. After a prefix is specified, only objects whose names start with the prefix are backed up.
+   * This parameter is required when **SourceType** is set to **OSS**. It represents the backup prefix. When specified, only objects matching the prefix are backed up.
    * 
    * @example
    * oss-prefix
@@ -1644,7 +1637,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   prefix?: string;
   /**
    * @remarks
-   * The retention period of backup data. Minimum value: 1. Unit: days.
+   * Number of days to retain the backup, with a minimum value of 1, in days.
    * 
    * @example
    * 7
@@ -1652,15 +1645,15 @@ export class CreateBackupPlanRequest extends $tea.Model {
   retention?: number;
   /**
    * @remarks
-   * The rules of the backup schedule.
+   * Backup plan rules.
    */
   rule?: CreateBackupPlanRequestRule[];
   /**
    * @remarks
-   * The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the `{startTime}` parameter and the subsequent backup jobs at an interval that is specified in the `{interval}` parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * Backup policy. Optional format: `I|{startTime}|{interval}`. This indicates that a backup task will be executed every `{interval}` starting from `{startTime}`. It does not compensate for missed backup tasks due to past time. If the previous backup task has not been completed, the next backup task will not be triggered. For example, `I|1631685600|P1D` means a backup is performed every day starting from 2021-09-15 14:00:00.
    * 
-   * *   **startTime**: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   * *   **interval**: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+   * - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
+   * - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
    * 
    * This parameter is required.
    * 
@@ -1670,13 +1663,13 @@ export class CreateBackupPlanRequest extends $tea.Model {
   schedule?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
+   * Data source type, with the following options:
    * 
-   * *   **ECS_FILE**: backs up Elastic Compute Service (ECS) files.
-   * *   **OSS**: backs up Object Storage Service (OSS) buckets.
-   * *   **NAS**: backs up Apsara File Storage NAS file systems.
-   * *   **OTS**: backs up Tablestore instances.
-   * *   **UDM_ECS**: backs up ECS instances.
+   * - **ECS_FILE**: Backs up ECS files
+   * - **OSS**: Backs up Alibaba Cloud OSS
+   * - **NAS**: Backs up Alibaba Cloud NAS
+   * - **OTS**: Backs up Alibaba Cloud OTS
+   * - **UDM_ECS**: Backs up the entire ECS instance
    * 
    * This parameter is required.
    * 
@@ -1686,11 +1679,11 @@ export class CreateBackupPlanRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the backup traffic control. Format: `{start}:{end}:{bandwidth}`. Multiple traffic control configurations are separated by |, and the configured times should not overlap.
    * 
-   * *   **start**: the start hour.
-   * *   **end**: the end hour.
-   * *   **bandwidth**: the bandwidth. Unit: KB/s.
+   * - **start**: Start hour.
+   * - **end**: End hour.
+   * - **bandwidth**: Limit rate, in KB/s.
    * 
    * @example
    * 0:24:5120
@@ -1698,7 +1691,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   speedLimit?: string;
   /**
    * @remarks
-   * The region in which the ECS instance that you want to back up resides.
+   * Region where the whole machine backup instance is located.
    * 
    * @example
    * cn-shanghai
@@ -1706,7 +1699,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
   udmRegionId?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * Backup vault ID.
    * 
    * @example
    * v-0006******q
@@ -1790,7 +1783,7 @@ export class CreateBackupPlanRequest extends $tea.Model {
 export class CreateBackupPlanShrinkRequest extends $tea.Model {
   /**
    * @remarks
-   * The backup type. Valid value: **COMPLETE**, which indicates full backup.
+   * Backup type. Value: **COMPLETE**, indicating a full backup.
    * 
    * This parameter is required.
    * 
@@ -1800,7 +1793,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the name of the OSS bucket.
+   * This parameter is required when **SourceType** is set to **OSS**. It represents the OSS bucket name.
    * 
    * @example
    * hbr-backup-oss
@@ -1808,7 +1801,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   bucket?: string;
   /**
    * @remarks
-   * The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
+   * Configuration for the incremental file synchronization list. (Required only for synchronization)
    * 
    * @example
    * {"dataSourceId": "ds-123456789", "path": "/changelist"}
@@ -1816,7 +1809,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   changeListPath?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the time to create the file system. The value must be a UNIX timestamp. Unit: seconds.
+   * This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
    * 
    * @example
    * 1607436917
@@ -1824,7 +1817,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   createTime?: number;
   /**
    * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+   * The role name created in the RAM of the original account for cross-account backup.
    * 
    * @example
    * BackupRole
@@ -1832,10 +1825,9 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Specifies whether data is backed up and restored within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-   * 
-   * *   SELF_ACCOUNT: Data is backed up and restored within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up and restored across Alibaba Cloud accounts.
+   * Cross-account backup type. Supported values:
+   * - SELF_ACCOUNT: Backup within the same account
+   * - CROSS_ACCOUNT: Cross-account backup
    * 
    * @example
    * CROSS_ACCOUNT
@@ -1843,35 +1835,44 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+   * The original account ID used for cross-account backup.
    * 
    * @example
    * 15897534xxxx4625
    */
   crossAccountUserId?: number;
   /**
+   * @remarks
+   * Destination data source details. (Required only for synchronization)
+   * 
    * @example
    * {\\"prefix\\":\\"/\\"}
    */
   destDataSourceDetailShrink?: string;
   /**
+   * @remarks
+   * Destination data source ID. (Required only for synchronization)
+   * 
    * @example
    * ds-*********************
    */
   destDataSourceId?: string;
   /**
+   * @remarks
+   * Destination data source type. (Required only for synchronization)
+   * 
    * @example
    * OSS
    */
   destSourceType?: string;
   /**
    * @remarks
-   * The details about ECS instance backup. The value is a JSON string.
+   * Details of the whole machine backup, in JSON string format.
    * 
-   * *   snapshotGroup: specifies whether to use a snapshot-consistent group. This parameter is valid only if all disks of the ECS instance are enhanced SSDs (ESSDs).
-   * *   appConsistent: specifies whether to enable application consistency. If you set this parameter to true, you must also specify the preScriptPath and postScriptPath parameters.
-   * *   preScriptPath: the path to the prescript file.
-   * *   postScriptPath: the path to the postscript file.
+   * * snapshotGroup: Whether to use a consistent snapshot group (only valid if all instance disks are ESSD).
+   * * appConsistent: Whether to use application consistency (requires the use of preScriptPath and postScriptPath parameters).
+   * * preScriptPath: Path to the freeze script.
+   * * postScriptPath: Path to the thaw script.
    * 
    * @example
    * {\\"EnableFsFreeze\\":true,\\"appConsistent\\":false,\\"postScriptPath\\":\\"\\",\\"preScriptPath\\":\\"\\",\\"snapshotGroup\\":true,\\"timeoutInSeconds\\":60}
@@ -1879,7 +1880,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   detailShrink?: string;
   /**
    * @remarks
-   * Specifies whether to disable the plan by default.
+   * Is the plan disabled by default
    * 
    * @example
    * true
@@ -1887,7 +1888,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   disabled?: boolean;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
+   * This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
    * 
    * @example
    * ["/var", "/proc"]
@@ -1895,7 +1896,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   exclude?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the ID of the NAS file system.
+   * This parameter is required when **SourceType** is set to **NAS**. It represents the file system ID.
    * 
    * @example
    * 005494
@@ -1903,7 +1904,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value can be up to 255 characters in length.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the path to be backed up, and all files under this path will be backed up. Supports up to 255 characters.
    * 
    * @example
    * ["/home/alice/*.pdf", "/home/bob/*.txt"]
@@ -1911,7 +1912,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   include?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the ID of the ECS instance.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the ECS instance ID.
    * 
    * @example
    * i-m5e*****6q
@@ -1919,7 +1920,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the Tablestore instance.
+   * Table store instance name.
    * 
    * @example
    * instancename
@@ -1927,10 +1928,9 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the "Keep at least one backup version" feature. Valid values:
-   * 
-   * *   0: The feature is disabled.
-   * *   1: The feature is enabled.
+   * Whether to enable retaining at least one backup version.
+   * - 0 - Do not retain
+   * - 1 - Retain
    * 
    * @example
    * 1
@@ -1938,11 +1938,11 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   keepLatestSnapshots?: number;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a backup path.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It indicates whether to use the Windows system VSS to define the backup path.
    * 
-   * *   This parameter is available only for Windows ECS instances.
-   * *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before the system sets this parameter to `["UseVSS":true]`.
-   * *   If you use VSS, you cannot back up data from multiple directories.
+   * - This feature only supports Windows type ECS instances.
+   * - If there are data changes in the backup source and you need to ensure consistency between the backup data and the source data, you can configure it as `["UseVSS":true]`.
+   * - After choosing to use VSS, multiple file directories cannot be backed up simultaneously.
    * 
    * @example
    * {"UseVSS":false}
@@ -1950,17 +1950,17 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   options?: string;
   /**
    * @remarks
-   * The details about the Tablestore instance.
+   * Table store instance details.
    */
   otsDetailShrink?: string;
   /**
    * @remarks
-   * The backup paths.
+   * Backup paths.
    */
   path?: string[];
   /**
    * @remarks
-   * The name of the backup schedule. The name must be 1 to 64 characters in length. The name of a backup schedule for each type of data source must be unique within a backup vault.
+   * Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
    * 
    * This parameter is required.
    * 
@@ -1970,7 +1970,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   planName?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the prefix of objects that you want to back up. After a prefix is specified, only objects whose names start with the prefix are backed up.
+   * This parameter is required when **SourceType** is set to **OSS**. It represents the backup prefix. When specified, only objects matching the prefix are backed up.
    * 
    * @example
    * oss-prefix
@@ -1978,7 +1978,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   prefix?: string;
   /**
    * @remarks
-   * The retention period of backup data. Minimum value: 1. Unit: days.
+   * Number of days to retain the backup, with a minimum value of 1, in days.
    * 
    * @example
    * 7
@@ -1986,15 +1986,15 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   retention?: number;
   /**
    * @remarks
-   * The rules of the backup schedule.
+   * Backup plan rules.
    */
   rule?: CreateBackupPlanShrinkRequestRule[];
   /**
    * @remarks
-   * The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the `{startTime}` parameter and the subsequent backup jobs at an interval that is specified in the `{interval}` parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * Backup policy. Optional format: `I|{startTime}|{interval}`. This indicates that a backup task will be executed every `{interval}` starting from `{startTime}`. It does not compensate for missed backup tasks due to past time. If the previous backup task has not been completed, the next backup task will not be triggered. For example, `I|1631685600|P1D` means a backup is performed every day starting from 2021-09-15 14:00:00.
    * 
-   * *   **startTime**: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-   * *   **interval**: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+   * - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
+   * - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
    * 
    * This parameter is required.
    * 
@@ -2004,13 +2004,13 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   schedule?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
+   * Data source type, with the following options:
    * 
-   * *   **ECS_FILE**: backs up Elastic Compute Service (ECS) files.
-   * *   **OSS**: backs up Object Storage Service (OSS) buckets.
-   * *   **NAS**: backs up Apsara File Storage NAS file systems.
-   * *   **OTS**: backs up Tablestore instances.
-   * *   **UDM_ECS**: backs up ECS instances.
+   * - **ECS_FILE**: Backs up ECS files
+   * - **OSS**: Backs up Alibaba Cloud OSS
+   * - **NAS**: Backs up Alibaba Cloud NAS
+   * - **OTS**: Backs up Alibaba Cloud OTS
+   * - **UDM_ECS**: Backs up the entire ECS instance
    * 
    * This parameter is required.
    * 
@@ -2020,11 +2020,11 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+   * This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the backup traffic control. Format: `{start}:{end}:{bandwidth}`. Multiple traffic control configurations are separated by |, and the configured times should not overlap.
    * 
-   * *   **start**: the start hour.
-   * *   **end**: the end hour.
-   * *   **bandwidth**: the bandwidth. Unit: KB/s.
+   * - **start**: Start hour.
+   * - **end**: End hour.
+   * - **bandwidth**: Limit rate, in KB/s.
    * 
    * @example
    * 0:24:5120
@@ -2032,7 +2032,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   speedLimit?: string;
   /**
    * @remarks
-   * The region in which the ECS instance that you want to back up resides.
+   * Region where the whole machine backup instance is located.
    * 
    * @example
    * cn-shanghai
@@ -2040,7 +2040,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
   udmRegionId?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * Backup vault ID.
    * 
    * @example
    * v-0006******q
@@ -2124,7 +2124,7 @@ export class CreateBackupPlanShrinkRequest extends $tea.Model {
 export class CreateBackupPlanResponseBody extends $tea.Model {
   /**
    * @remarks
-   * The HTTP status code. The status code 200 indicates that the request is successful.
+   * Return code, 200 indicates success.
    * 
    * @example
    * 200
@@ -2132,7 +2132,7 @@ export class CreateBackupPlanResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The message that is returned. If the request is successful, a value of successful is returned. If the request fails, an error message is returned.
+   * Description of the return message, usually returns \\"successful\\" upon success, and corresponding error messages in case of failure.
    * 
    * @example
    * successful
@@ -2140,7 +2140,7 @@ export class CreateBackupPlanResponseBody extends $tea.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * Backup plan ID.
    * 
    * @example
    * plan-*********************
@@ -2148,7 +2148,7 @@ export class CreateBackupPlanResponseBody extends $tea.Model {
   planId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -2156,10 +2156,10 @@ export class CreateBackupPlanResponseBody extends $tea.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Whether the request was successful.
    * 
-   * *   true: The request is successful.
-   * *   false: The request fails.
+   * - true: Success.
+   * - false: Failure.
    * 
    * @example
    * true
@@ -3573,11 +3573,20 @@ export class CreateReplicationVaultRequest extends $tea.Model {
    */
   description?: string;
   /**
+   * @remarks
+   * The method that is used to encrypt the source data. This parameter is valid only if you set the VaultType parameter to STANDARD or OTS_BACKUP. Valid values:
+   * 
+   * *   **HBR_PRIVATE**: The source data is encrypted by using the built-in encryption method of Hybrid Backup Recovery (HBR).
+   * *   **KMS**: The source data is encrypted by using Key Management Service (KMS).
+   * 
    * @example
    * HBR_PRIVATE
    */
   encryptType?: string;
   /**
+   * @remarks
+   * The customer master key (CMK) created in KMS or the alias of the key. This parameter is required only if you set the EncryptType parameter to KMS.
+   * 
    * @example
    * alias/test
    */
@@ -3635,7 +3644,7 @@ export class CreateReplicationVaultRequest extends $tea.Model {
   vaultRegionId?: string;
   /**
    * @remarks
-   * The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+   * The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
    * 
    * @example
    * STANDARD
@@ -3814,6 +3823,10 @@ export class CreateRestoreJobRequest extends $tea.Model {
    * ["/var", "/proc"]
    */
   exclude?: string;
+  /**
+   * @remarks
+   * Details of restoration to local.
+   */
   failbackDetail?: { [key: string]: any };
   /**
    * @remarks
@@ -3831,6 +3844,13 @@ export class CreateRestoreJobRequest extends $tea.Model {
    * false
    */
   initiatedByAck?: boolean;
+  /**
+   * @remarks
+   * Parameters for restoring a task
+   * 
+   * @example
+   * {\\"includes\\":[],\\"excludes\\":[],\\"conflictPolicy\\":\\"OVERWRITE_EXISTING\\"}
+   */
   options?: string;
   /**
    * @remarks
@@ -4102,6 +4122,10 @@ export class CreateRestoreJobShrinkRequest extends $tea.Model {
    * ["/var", "/proc"]
    */
   exclude?: string;
+  /**
+   * @remarks
+   * Details of restoration to local.
+   */
   failbackDetailShrink?: string;
   /**
    * @remarks
@@ -4119,6 +4143,13 @@ export class CreateRestoreJobShrinkRequest extends $tea.Model {
    * false
    */
   initiatedByAck?: boolean;
+  /**
+   * @remarks
+   * Parameters for restoring a task
+   * 
+   * @example
+   * {\\"includes\\":[],\\"excludes\\":[],\\"conflictPolicy\\":\\"OVERWRITE_EXISTING\\"}
+   */
   options?: string;
   /**
    * @remarks
@@ -4830,6 +4861,166 @@ export class CreateVaultResponse extends $tea.Model {
   }
 }
 
+export class DeleteAirEcsInstanceRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
+   * @example
+   * i-uf6ir9y******hvisj
+   */
+  ecsInstanceId?: string;
+  /**
+   * @remarks
+   * The data sources for which the client needs to be uninstalled.
+   */
+  uninstallClientSourceTypes?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      ecsInstanceId: 'EcsInstanceId',
+      uninstallClientSourceTypes: 'UninstallClientSourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsInstanceId: 'string',
+      uninstallClientSourceTypes: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAirEcsInstanceShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The ID of the ECS instance.
+   * 
+   * @example
+   * i-uf6ir9y******hvisj
+   */
+  ecsInstanceId?: string;
+  /**
+   * @remarks
+   * The data sources for which the client needs to be uninstalled.
+   */
+  uninstallClientSourceTypesShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      ecsInstanceId: 'EcsInstanceId',
+      uninstallClientSourceTypesShrink: 'UninstallClientSourceTypes',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      ecsInstanceId: 'string',
+      uninstallClientSourceTypesShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAirEcsInstanceResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The response code. The status code 200 indicates that the request was successful.
+   * 
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @remarks
+   * The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
+   * 
+   * @example
+   * successful
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 33AA3AAE-89E1-5D3A-A51D-0C0A80850F68
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * *   true
+   * *   false
+   * 
+   * @example
+   * true
+   */
+  success?: boolean;
+  /**
+   * @remarks
+   * The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of an asynchronous job.
+   * 
+   * @example
+   * t-*********************
+   */
+  taskId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+      taskId: 'TaskId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+      taskId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteAirEcsInstanceResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteAirEcsInstanceResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteAirEcsInstanceResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DeleteBackupClientRequest extends $tea.Model {
   /**
    * @remarks
@@ -5232,16 +5423,25 @@ export class DeleteBackupPlanResponse extends $tea.Model {
 
 export class DeleteClientRequest extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the client.
+   * 
    * @example
    * c-000************f3h
    */
   clientId?: string;
   /**
+   * @remarks
+   * The ID of the resource group.
+   * 
    * @example
    * rg-acf************kwy
    */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * The ID of the backup vault.
+   * 
    * @example
    * v-000************gs3
    */
@@ -5269,21 +5469,36 @@ export class DeleteClientRequest extends $tea.Model {
 
 export class DeleteClientResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * C51A9094-64B7-5DC0-B9FE-5FC1AC7E081D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * 
+   * *   true: The call is successful.
+   * *   false: The call fails.
+   * 
    * @example
    * true
    */
@@ -7016,7 +7231,7 @@ export class DescribeBackupJobs2Response extends $tea.Model {
 export class DescribeBackupPlansRequest extends $tea.Model {
   /**
    * @remarks
-   * The filter.
+   * The filters.
    */
   filters?: DescribeBackupPlansRequestFilters[];
   /**
@@ -8804,7 +9019,7 @@ export class DescribeHanaRestoresRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 99. Default value: 10.
+   * The number of entries per page. Valid values: 1 to 99. Default value: 10.\\`
    * 
    * @example
    * 10
@@ -9589,29 +9804,47 @@ export class DescribePoliciesV2Response extends $tea.Model {
 }
 
 export class DescribePolicyBindingsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * List of data source IDs.
+   */
   dataSourceIds?: string[];
+  /**
+   * @remarks
+   * Query filters.
+   */
   filters?: DescribePolicyBindingsRequestFilters[];
   /**
    * @remarks
-   * The number of results for each query.
+   * Number of results per query.
    * 
-   * Valid values: 10 to 100. Default value: 10.
+   * Range: 10~100. Default: 10.
    * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token required to fetch the next page of policy and data source associations.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Policy ID.
+   * 
    * @example
    * po-000************hky
    */
   policyId?: string;
   /**
+   * @remarks
+   * Data source type. Possible values:
+   * * **UDM_ECS**: Indicates ECS full machine backup.
+   * 
    * @example
    * UDM_ECS
    */
@@ -9644,29 +9877,47 @@ export class DescribePolicyBindingsRequest extends $tea.Model {
 }
 
 export class DescribePolicyBindingsShrinkRequest extends $tea.Model {
+  /**
+   * @remarks
+   * List of data source IDs.
+   */
   dataSourceIdsShrink?: string;
+  /**
+   * @remarks
+   * Query filters.
+   */
   filters?: DescribePolicyBindingsShrinkRequestFilters[];
   /**
    * @remarks
-   * The number of results for each query.
+   * Number of results per query.
    * 
-   * Valid values: 10 to 100. Default value: 10.
+   * Range: 10~100. Default: 10.
    * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Token required to fetch the next page of policy and data source associations.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Policy ID.
+   * 
    * @example
    * po-000************hky
    */
   policyId?: string;
   /**
+   * @remarks
+   * Data source type. Possible values:
+   * * **UDM_ECS**: Indicates ECS full machine backup.
+   * 
    * @example
    * UDM_ECS
    */
@@ -9700,41 +9951,67 @@ export class DescribePolicyBindingsShrinkRequest extends $tea.Model {
 
 export class DescribePolicyBindingsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return code, 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The number of results per query.
+   * 
+   * Range: 10~100. Default: 10.
+   * 
    * @example
    * 10
    */
   maxResults?: number;
   /**
+   * @remarks
+   * Description of the return message. A successful response usually returns \\"successful\\", while an error will return a corresponding error message.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The token required to fetch the next page of policy and data source bindings.
+   * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a
    */
   nextToken?: string;
   /**
    * @remarks
-   * The association between the backup policy and data sources.
+   * List of bound policies.
    */
   policyBindings?: DescribePolicyBindingsResponseBodyPolicyBindings[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 5225929A-4EBD-55EE-9FE1-4A130E582A76
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - true: Success
+   * - false: Failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 38
    */
@@ -10734,7 +11011,7 @@ export class DescribeUdmSnapshotsResponse extends $tea.Model {
 export class DescribeVaultReplicationRegionsRequest extends $tea.Model {
   /**
    * @remarks
-   * The access token.
+   * This parameter is deprecated.
    * 
    * @example
    * 01W3ZZOQ
@@ -10742,7 +11019,7 @@ export class DescribeVaultReplicationRegionsRequest extends $tea.Model {
   token?: string;
   /**
    * @remarks
-   * The ID of the backup vault.
+   * This parameter is deprecated.
    * 
    * @example
    * v-00030j3c******sn
@@ -10878,6 +11155,9 @@ export class DescribeVaultsRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Resource group ID.
+   * 
    * @example
    * rg-*********************
    */
@@ -10896,21 +11176,35 @@ export class DescribeVaultsRequest extends $tea.Model {
    */
   status?: string;
   /**
+   * @remarks
+   * Tag information. Supports up to 20 tags.
+   * 
    * @example
    * 6a745bceffb042959b3b5206d6f12ad1
    */
   tag?: DescribeVaultsRequestTag[];
   /**
+   * @remarks
+   * Backup vault ID.
+   * 
    * @example
    * v-*********************
    */
   vaultId?: string;
   /**
+   * @remarks
+   * The region ID to which the backup vault belongs.
+   * 
    * @example
    * cn-shanghai
    */
   vaultRegionId?: string;
   /**
+   * @remarks
+   * Backup repository type. The values are as follows: 
+   * - **STANDARD**: Represents a standard repository, which can be used for ECS file backups, OSS backups, NAS backups, etc. 
+   * - **OTS_BACKUP**: Represents a TableStore repository, which is only used for TableStore backups, and TableStore must use this type of repository.
+   * 
    * @example
    * STANDARD
    */
@@ -10948,36 +11242,58 @@ export class DescribeVaultsRequest extends $tea.Model {
 
 export class DescribeVaultsResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The HTTP status code. The status code 200 indicates that the call is successful.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Page number for pagination, starting from 1. The default value is 1.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size, with a minimum value of 1, a maximum value of 99, and a default value of 10.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the request was successful.
+   * - true: Success - false: Failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Returns the total number of backup repositories.
+   * 
    * @example
    * 8
    */
@@ -11935,12 +12251,17 @@ export class ExecuteBackupPlanResponse extends $tea.Model {
 
 export class ExecutePolicyV2Request extends $tea.Model {
   /**
+   * @remarks
+   * Data source ID.
+   * 
    * @example
    * i-bp1************dtv
    */
   dataSourceId?: string;
   /**
    * @remarks
+   * Policy ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11949,6 +12270,8 @@ export class ExecutePolicyV2Request extends $tea.Model {
   policyId?: string;
   /**
    * @remarks
+   * Rule ID, limited to executing rules of **RuleType** **BACKUP**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -11956,6 +12279,11 @@ export class ExecutePolicyV2Request extends $tea.Model {
    */
   ruleId?: string;
   /**
+   * @remarks
+   * Data source type, with the value range as follows:
+   * 
+   * - **UDM_ECS**: Represents ECS full machine backup.
+   * 
    * @example
    * UDM_ECS
    */
@@ -11985,26 +12313,44 @@ export class ExecutePolicyV2Request extends $tea.Model {
 
 export class ExecutePolicyV2ResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return code, 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Backup job ID.
+   * 
    * @example
    * job-*********************
    */
   jobId?: string;
   /**
+   * @remarks
+   * Description of the return message, usually returns \\"successful\\" on success, and corresponding error messages on failure.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * F4EEB401-DD21-588D-AE3B-1E835C7655E1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
+   * - true: Success
+   * - false: Failure
+   * 
    * @example
    * true
    */
@@ -12685,7 +13031,7 @@ export class SearchHistoricalSnapshotsRequest extends $tea.Model {
    *     *   VaultId: specifies the ID of the backup vault. This field is required.
    *     *   InstanceId: specifies the ID of the Elastic Compute Service (ECS) instance. If the SourceType parameter is set to ECS_FILE, this field is required.
    *     *   Bucket: specifies the name of the Object Storage Service (OSS) bucket. If the SourceType parameter is set to OSS, this field is required.
-   *     *   FileSystemId: specifies the ID of the Apsara File Storage NAS (NAS) file system. If the SourceType parameter is set to NAS, this field is required.
+   *     *   FileSystemId: specifies the ID of the File Storage NAS (NAS) file system. If the SourceType parameter is set to NAS, this field is required.
    *     *   CreateTime: specifies the time when the NAS file system was created. If the SourceType parameter is set to NAS, this field is required.
    *     *   CompleteTime: specifies the time when the backup snapshot was completed.
    *     *   PlanId: the ID of a backup plan.
@@ -12812,7 +13158,7 @@ export class SearchHistoricalSnapshotsShrinkRequest extends $tea.Model {
    *     *   VaultId: specifies the ID of the backup vault. This field is required.
    *     *   InstanceId: specifies the ID of the Elastic Compute Service (ECS) instance. If the SourceType parameter is set to ECS_FILE, this field is required.
    *     *   Bucket: specifies the name of the Object Storage Service (OSS) bucket. If the SourceType parameter is set to OSS, this field is required.
-   *     *   FileSystemId: specifies the ID of the Apsara File Storage NAS (NAS) file system. If the SourceType parameter is set to NAS, this field is required.
+   *     *   FileSystemId: specifies the ID of the File Storage NAS (NAS) file system. If the SourceType parameter is set to NAS, this field is required.
    *     *   CreateTime: specifies the time when the NAS file system was created. If the SourceType parameter is set to NAS, this field is required.
    *     *   CompleteTime: specifies the time when the backup snapshot was completed.
    *     *   PlanId: the ID of a backup plan.
@@ -13322,7 +13668,7 @@ export class UninstallBackupClientsRequest extends $tea.Model {
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The IDs of ECS instances. You can specify a maximum of 20 ECS instances.
+   * The IDs of Elastic Compute Service (ECS) instances. You can specify a maximum of 20 ECS instances.
    * 
    * @example
    * ["i-0xi5wj5*****v3j3bh2gj5"]
@@ -13391,7 +13737,7 @@ export class UninstallBackupClientsShrinkRequest extends $tea.Model {
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The IDs of ECS instances. You can specify a maximum of 20 ECS instances.
+   * The IDs of Elastic Compute Service (ECS) instances. You can specify a maximum of 20 ECS instances.
    * 
    * @example
    * ["i-0xi5wj5*****v3j3bh2gj5"]
@@ -14439,6 +14785,8 @@ export class UpdateClientSettingsResponse extends $tea.Model {
 export class UpdateContainerClusterRequest extends $tea.Model {
   /**
    * @remarks
+   * Cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14446,21 +14794,35 @@ export class UpdateContainerClusterRequest extends $tea.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * Cluster description.
+   * 
    * @example
    * description ack pv backup
    */
   description?: string;
   /**
+   * @remarks
+   * Cluster name.
+   * 
    * @example
    * ack_pv_backup_location
    */
   name?: string;
   /**
+   * @remarks
+   * Network type, with possible values including:
+   * * **CLASSIC**: Classic Network.
+   * * **VPC**: Virtual Private Cloud.
+   * 
    * @example
    * VPC
    */
   networkType?: string;
   /**
+   * @remarks
+   * Whether to regenerate the token.
+   * 
    * @example
    * false
    */
@@ -14492,31 +14854,52 @@ export class UpdateContainerClusterRequest extends $tea.Model {
 
 export class UpdateContainerClusterResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Return code, 200 indicates success.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * Return information.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates if the request was successful.
+   * 
+   * - true: Success
+   * - false: Failure
+   * 
    * @example
    * true
    */
   success?: boolean;
   /**
+   * @remarks
+   * Cluster token, used for registering HBR clients within the cluster.
+   * 
    * @example
    * eyJhY2NvdW*****VnZpgXQC5A==
    */
   token?: string;
   /**
+   * @remarks
+   * Indicates whether the cluster token has been updated.
+   * 
    * @example
    * false
    */
@@ -15395,11 +15778,17 @@ export class UpdatePolicyBindingRequest extends $tea.Model {
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+   * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
    */
   exclude?: string;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+   * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
    */
@@ -15423,6 +15812,10 @@ export class UpdatePolicyBindingRequest extends $tea.Model {
    */
   policyId?: string;
   /**
+   * @remarks
+   * *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
+   * *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+   * 
    * @example
    * backup/
    */
@@ -15440,6 +15833,13 @@ export class UpdatePolicyBindingRequest extends $tea.Model {
    */
   sourceType?: string;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
+   * 
+   * *   **start**: the start hour.
+   * *   **end**: the end hour.
+   * *   **bandwidth**: the bandwidth. Unit: KB/s.
+   * 
    * @example
    * 0:24:5120
    */
@@ -15507,11 +15907,17 @@ export class UpdatePolicyBindingShrinkRequest extends $tea.Model {
    */
   disabled?: boolean;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+   * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
    */
   exclude?: string;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+   * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
    */
@@ -15535,6 +15941,10 @@ export class UpdatePolicyBindingShrinkRequest extends $tea.Model {
    */
   policyId?: string;
   /**
+   * @remarks
+   * *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
+   * *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+   * 
    * @example
    * backup/
    */
@@ -15552,6 +15962,13 @@ export class UpdatePolicyBindingShrinkRequest extends $tea.Model {
    */
   sourceType?: string;
   /**
+   * @remarks
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
+   * 
+   * *   **start**: the start hour.
+   * *   **end**: the end hour.
+   * *   **bandwidth**: the bandwidth. Unit: KB/s.
+   * 
    * @example
    * 0:24:5120
    */
@@ -16389,7 +16806,7 @@ export class UpgradeClientResponse extends $tea.Model {
 export class CreateBackupPlanRequestRule extends $tea.Model {
   /**
    * @remarks
-   * The backup type.
+   * Backup type.
    * 
    * @example
    * COMPLETE
@@ -16397,7 +16814,7 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * The ID of the region to which data is replicated.
+   * ID of the region for offsite replication.
    * 
    * @example
    * cn-hangzhou
@@ -16405,7 +16822,7 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
   destinationRegionId?: string;
   /**
    * @remarks
-   * The retention period of the backup data in geo-redundancy mode. Unit: days.
+   * Number of days to retain offsite backups.
    * 
    * @example
    * 7
@@ -16413,23 +16830,23 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
   destinationRetention?: number;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Whether the rule is enabled.
    * 
    * @example
-   * false
+   * true
    */
   disabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable cross-region replication.
+   * Whether to enable offsite replication.
    * 
    * @example
-   * false
+   * true
    */
   doCopy?: boolean;
   /**
    * @remarks
-   * The retention period of the backup data. Unit: days.
+   * Backup retention period.
    * 
    * @example
    * 7
@@ -16437,7 +16854,7 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
   retention?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * Rule name.
    * 
    * @example
    * rule-test-name
@@ -16445,9 +16862,10 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The backup policy. Format: I|{startTime}|{interval}. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, I|1631685600|P1D specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * Backup strategy. Optional format: I|{startTime}|{interval}. This means that a backup task is executed every {interval} starting from {startTime}. Backup tasks for past times will not be executed. If the previous backup task has not been completed, the next backup task will not be triggered. For example, I|1631685600|P1D means a backup is performed every day starting from 2021-09-15 14:00:00.
    * 
-   * startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds. interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+   * - startTime: The start time of the backup, in UNIX time, in seconds.
+   * - interval: ISO8601 time interval. For example, PT1H means an interval of one hour. P1D means an interval of one day.
    * 
    * @example
    * I|1602673264|P1D
@@ -16487,7 +16905,7 @@ export class CreateBackupPlanRequestRule extends $tea.Model {
 export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   /**
    * @remarks
-   * The backup type.
+   * Backup type.
    * 
    * @example
    * COMPLETE
@@ -16495,7 +16913,7 @@ export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   backupType?: string;
   /**
    * @remarks
-   * The ID of the region to which data is replicated.
+   * ID of the region for offsite replication.
    * 
    * @example
    * cn-hangzhou
@@ -16503,7 +16921,7 @@ export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   destinationRegionId?: string;
   /**
    * @remarks
-   * The retention period of the backup data in geo-redundancy mode. Unit: days.
+   * Number of days to retain offsite backups.
    * 
    * @example
    * 7
@@ -16511,23 +16929,23 @@ export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   destinationRetention?: number;
   /**
    * @remarks
-   * Specifies whether to enable the rule.
+   * Whether the rule is enabled.
    * 
    * @example
-   * false
+   * true
    */
   disabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable cross-region replication.
+   * Whether to enable offsite replication.
    * 
    * @example
-   * false
+   * true
    */
   doCopy?: boolean;
   /**
    * @remarks
-   * The retention period of the backup data. Unit: days.
+   * Backup retention period.
    * 
    * @example
    * 7
@@ -16535,7 +16953,7 @@ export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   retention?: number;
   /**
    * @remarks
-   * The name of the rule.
+   * Rule name.
    * 
    * @example
    * rule-test-name
@@ -16543,9 +16961,10 @@ export class CreateBackupPlanShrinkRequestRule extends $tea.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The backup policy. Format: I|{startTime}|{interval}. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, I|1631685600|P1D specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+   * Backup strategy. Optional format: I|{startTime}|{interval}. This means that a backup task is executed every {interval} starting from {startTime}. Backup tasks for past times will not be executed. If the previous backup task has not been completed, the next backup task will not be triggered. For example, I|1631685600|P1D means a backup is performed every day starting from 2021-09-15 14:00:00.
    * 
-   * startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds. interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+   * - startTime: The start time of the backup, in UNIX time, in seconds.
+   * - interval: ISO8601 time interval. For example, PT1H means an interval of one hour. P1D means an interval of one day.
    * 
    * @example
    * I|1602673264|P1D
@@ -16771,6 +17190,13 @@ export class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsFileDeta
 }
 
 export class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsOssDetail extends $tea.Model {
+  /**
+   * @remarks
+   * Do not prompt for archival type objects in task statistics and failed file lists.
+   * 
+   * @example
+   * true
+   */
   ignoreArchiveObject?: boolean;
   /**
    * @remarks
@@ -16949,7 +17375,7 @@ export class CreatePolicyBindingsRequestPolicyBindingListAdvancedOptions extends
   fileDetail?: CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsFileDetail;
   /**
    * @remarks
-   * The advanced options for OSS backup.
+   * The advanced options for Object Storage Service (OSS) backup.
    */
   ossDetail?: CreatePolicyBindingsRequestPolicyBindingListAdvancedOptionsOssDetail;
   /**
@@ -17021,7 +17447,7 @@ export class CreatePolicyBindingsRequestPolicyBindingList extends $tea.Model {
    * 
    * *   **UDM_ECS**: the ID of the Elastic Compute Service (ECS) instance
    * *   **OSS**: the name of the Object Storage Service (OSS) bucket
-   * *   **NAS**: the ID of the Apsara File Storage NAS (NAS) file system
+   * *   **NAS**: the ID of the File Storage NAS (NAS) file system
    * *   **COMMON_NAS**: the ID of the on-premises NAS file system
    * *   **ECS_FILE**: the ID of the ECS instance
    * *   **File**: the ID of the Cloud Backup client
@@ -17044,7 +17470,7 @@ export class CreatePolicyBindingsRequestPolicyBindingList extends $tea.Model {
   disabled?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**, **File**, **NAS**, **COMMON_NAS**, or **COMMON_FILE_SYSTEM**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -17052,7 +17478,7 @@ export class CreatePolicyBindingsRequestPolicyBindingList extends $tea.Model {
   exclude?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**, **File**, **NAS**, **COMMON_NAS**, or **COMMON_FILE_SYSTEM**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -17069,7 +17495,8 @@ export class CreatePolicyBindingsRequestPolicyBindingList extends $tea.Model {
   /**
    * @remarks
    * *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
-   * *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+   * *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths are backed up.
+   * *   This parameter is required if the SourceType parameter is set to **COMMON_FILE_SYSTEM**. This parameter specifies the path to be backed up. To back up the /src path, enter ["/src"]. To back up the root path, enter ["/"].
    * 
    * @example
    * backup/
@@ -17143,8 +17570,21 @@ export class CreatePolicyBindingsRequestPolicyBindingList extends $tea.Model {
 }
 
 export class CreatePolicyV2RequestRulesDataSourceFilters extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   dataSourceIds?: string[];
   /**
+   * @remarks
+   * The type of the data source. Valid value:
+   * 
+   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **RuleType** parameter is set to **UDM_ECS_ONLY**.
+   * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **ECS_FILE**: ECS file This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **OTS**: Tablestore instance This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * 
    * @example
    * UDM_ECS
    */
@@ -17221,16 +17661,28 @@ export class CreatePolicyV2RequestRulesRetentionRules extends $tea.Model {
 
 export class CreatePolicyV2RequestRulesTagFilters extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag-based matching rule. Valid values:
+   * 
+   * *   **EQUAL**: Both the tag key and tag value are matched.
+   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * 
    * @example
    * EQUAL
    */
   operator?: string;
   /**
+   * @remarks
+   * The tag value. If you leave this parameter empty, the value is any value.
+   * 
    * @example
    * prod
    */
@@ -17265,7 +17717,18 @@ export class CreatePolicyV2RequestRules extends $tea.Model {
    * COMPLETE
    */
   backupType?: string;
+  /**
+   * @remarks
+   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+   */
   dataSourceFilters?: CreatePolicyV2RequestRulesDataSourceFilters[];
+  /**
+   * @remarks
+   * This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+   * 
+   * @example
+   * true
+   */
   immutable?: boolean;
   /**
    * @remarks
@@ -17327,8 +17790,15 @@ export class CreatePolicyV2RequestRules extends $tea.Model {
    * I|1648647166|P1D
    */
   schedule?: string;
+  /**
+   * @remarks
+   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+   */
   tagFilters?: CreatePolicyV2RequestRulesTagFilters[];
   /**
+   * @remarks
+   * This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
+   * 
    * @example
    * v-0001************aseg
    */
@@ -18014,6 +18484,27 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJobDetail extends $t
    * true
    */
   doCopy?: boolean;
+  /**
+   * @remarks
+   * ECS instance information, including ECS instance name, instance type, etc.
+   * 
+   * @example
+   * {
+   *   "i-xxxxxxxx": {
+   *     "hostName": "test",
+   *     "instanceName": "test",
+   *     "instanceType": "ecs.c7.xlarge",
+   *     "osType": "linux",
+   *     "diskIds": [
+   *       "d-xxxxxxxx01",
+   *       "d-xxxxxxxx02"
+   *     ],
+   *     "osNameEn": "Rocky Linux 8.8 64 bit",
+   *     "osName": "Rocky Linux 8.8 64位",
+   *     "platform": "Rocky Linux"
+   *   }
+   * }
+   */
   instanceInfos?: { [key: string]: any };
   /**
    * @remarks
@@ -18315,6 +18806,9 @@ export class DescribeBackupJobs2ResponseBodyBackupJobsBackupJob extends $tea.Mod
   /**
    * @remarks
    * The identifier of the cluster that is backed up in the container backup job. This parameter is returned only if the value of SourceType is CONTAINER. If the cluster is a Container Service for Kubernetes (ACK) cluster, the value of this parameter is the ACK cluster ID.
+   * 
+   * @example
+   * c83**************************b76
    */
   identifier?: string;
   /**
@@ -18666,8 +19160,32 @@ export class DescribeBackupPlansRequestFilters extends $tea.Model {
 }
 
 export class DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTagsHitTag extends $tea.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * type
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag-based matching rule. Valid values:
+   * 
+   * *   **EQUAL**: Both the tag key and tag value are matched.
+   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * 
+   * @example
+   * EQUAL
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * 0
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -19076,6 +19594,13 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
    * 1554347313
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Indicates whether a backup plan is automatically created based on tags.
+   * 
+   * @example
+   * false
+   */
   createdByTag?: boolean;
   /**
    * @remarks
@@ -19179,6 +19704,10 @@ export class DescribeBackupPlansResponseBodyBackupPlansBackupPlan extends $tea.M
    * 00594
    */
   fileSystemId?: string;
+  /**
+   * @remarks
+   * The matched tag rules.
+   */
   hitTags?: DescribeBackupPlansResponseBodyBackupPlansBackupPlanHitTags;
   /**
    * @remarks
@@ -21123,8 +21652,20 @@ export class DescribeOtsTableSnapshotsResponseBodySnapshots extends $tea.Model {
 }
 
 export class DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters extends $tea.Model {
+  /**
+   * @remarks
+   * Deprecated.
+   */
   dataSourceIds?: string[];
   /**
+   * @remarks
+   * Data source type. The value range is as follows: 
+   * - **UDM_ECS**: Indicates ECS server backup. 
+   * - **OSS**: Indicates OSS backup. 
+   * - **NAS**: Indicates Alibaba Cloud NAS backup. 
+   * - **ECS_FILE**: Indicates ECS file backup. 
+   * - **OTS**: Indicates Tablestore backup.
+   * 
    * @example
    * UDM_ECS
    */
@@ -21200,16 +21741,25 @@ export class DescribePoliciesV2ResponseBodyPoliciesRulesRetentionRules extends $
 
 export class DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters extends $tea.Model {
   /**
+   * @remarks
+   * Tag key
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * Tag matching rules, supporting: - **EQUAL**: Matches both the tag key and tag value. - **NOT**: Matches the tag key but not the tag value.
+   * 
    * @example
    * EQUAL
    */
   operator?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * prod
    */
@@ -21252,7 +21802,18 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $tea.Model {
    * COMPLETE
    */
   backupType?: string;
+  /**
+   * @remarks
+   * This parameter is required only when **RuleType** is set to **TAG**. It defines the data source filtering rule.
+   */
   dataSourceFilters?: DescribePoliciesV2ResponseBodyPoliciesRulesDataSourceFilters[];
+  /**
+   * @remarks
+   * This parameter is returned only if the **PolicyType** is **UDM_ECS_ONLY**. This parameter indicates whether the immutable backup feature is enabled.
+   * 
+   * @example
+   * true
+   */
   immutable?: boolean;
   /**
    * @remarks
@@ -21320,6 +21881,10 @@ export class DescribePoliciesV2ResponseBodyPoliciesRules extends $tea.Model {
    * I|1648647166|P1D
    */
   schedule?: string;
+  /**
+   * @remarks
+   * This parameter is required only when **RuleType** is set to **TAG**. It defines the resource tag filtering rule.
+   */
   tagFilters?: DescribePoliciesV2ResponseBodyPoliciesRulesTagFilters[];
   /**
    * @remarks
@@ -21468,15 +22033,38 @@ export class DescribePoliciesV2ResponseBodyPolicies extends $tea.Model {
 
 export class DescribePolicyBindingsRequestFilters extends $tea.Model {
   /**
+   * @remarks
+   * Key in the query filter. Possible values include:
+   * 
+   * - **PolicyId**: Backup policy ID
+   * - **DataSourceId**: ECS instance ID
+   * - **DataSourceType**: Data source type
+   * 
    * @example
    * DataSourceType
    */
   key?: string;
   /**
+   * @remarks
+   * Matching method. Default is IN. This refers to the matching operation (Operator) supported by the Key and Value in the filter. Possible values include:
+   * 
+   * - **EQUAL**: Equal to
+   * - **NOT_EQUAL**: Not equal to
+   * - **GREATER_THAN**: Greater than
+   * - **GREATER_THAN_OR_EQUAL**: Greater than or equal to
+   * - **LESS_THAN**: Less than
+   * - **LESS_THAN_OR_EQUAL**: Less than or equal to
+   * - **BETWEEN**: Range, where value is a JSON array `[lower_bound, upper_bound]`.
+   * - **IN**: In the set, where value is an array.
+   * 
    * @example
    * IN
    */
   operator?: string;
+  /**
+   * @remarks
+   * Values to be matched in the query filter.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -21501,15 +22089,38 @@ export class DescribePolicyBindingsRequestFilters extends $tea.Model {
 
 export class DescribePolicyBindingsShrinkRequestFilters extends $tea.Model {
   /**
+   * @remarks
+   * Key in the query filter. Possible values include:
+   * 
+   * - **PolicyId**: Backup policy ID
+   * - **DataSourceId**: ECS instance ID
+   * - **DataSourceType**: Data source type
+   * 
    * @example
    * DataSourceType
    */
   key?: string;
   /**
+   * @remarks
+   * Matching method. Default is IN. This refers to the matching operation (Operator) supported by the Key and Value in the filter. Possible values include:
+   * 
+   * - **EQUAL**: Equal to
+   * - **NOT_EQUAL**: Not equal to
+   * - **GREATER_THAN**: Greater than
+   * - **GREATER_THAN_OR_EQUAL**: Greater than or equal to
+   * - **LESS_THAN**: Less than
+   * - **LESS_THAN_OR_EQUAL**: Less than or equal to
+   * - **BETWEEN**: Range, where value is a JSON array `[lower_bound, upper_bound]`.
+   * - **IN**: In the set, where value is an array.
+   * 
    * @example
    * IN
    */
   operator?: string;
+  /**
+   * @remarks
+   * Values to be matched in the query filter.
+   */
   values?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -21535,7 +22146,7 @@ export class DescribePolicyBindingsShrinkRequestFilters extends $tea.Model {
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail extends $tea.Model {
   /**
    * @remarks
-   * The size of backup shards (the number of files).
+   * Backup shard size (number of files).
    * 
    * @example
    * 100000
@@ -21543,10 +22154,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   fetchSliceSize?: number;
   /**
    * @remarks
-   * Specifies whether the system performs full backup if incremental backup fails. Valid values:
-   * 
-   * *   **true**: The system performs full backup if incremental backup fails.
-   * *   **false**: The system does not perform full backup if incremental backup fails.
+   * Whether to switch to a full backup when an incremental backup fails. Values:
+   * - **true**: Switch to full backup on failure.
+   * - **false**: Do not switch to full backup on failure.
    * 
    * @example
    * true
@@ -21574,7 +22184,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail extends $tea.Model {
   /**
    * @remarks
-   * The ID of the Cloud Backup client.
+   * Backup client ID.
    * 
    * @example
    * c-0001eg6mcvjs93f46s2d
@@ -21582,7 +22192,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   clientId?: string;
   /**
    * @remarks
-   * The ID of the client group.
+   * Client group ID.
    * 
    * @example
    * cl-000gkcofngi04j6k680a
@@ -21590,7 +22200,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   clusterId?: string;
   /**
    * @remarks
-   * The size of backup shards (the number of files).
+   * Backup slice size (number of files).
    * 
    * @example
    * 100000
@@ -21598,10 +22208,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
   fetchSliceSize?: number;
   /**
    * @remarks
-   * Indicates whether the system performs full backup if incremental backup fails. Valid values:
-   * 
-   * *   **true**: The system performs full backup if incremental backup fails.
-   * *   **false**: The system does not perform full backup if incremental backup fails.
+   * Whether to switch to a full backup when an incremental backup fails. Values:
+   * - **true**: Switch to full backup on failure.
+   * - **false**: Do not switch to full backup on failure.
    * 
    * @example
    * true
@@ -21633,10 +22242,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsComm
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFileDetail extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether an advanced policy is used. Valid values:
-   * 
-   * *   **true**
-   * *   **false**
+   * Whether to use advanced policies. Values:
+   * - **true**: Use.
+   * - **false**: Do not use.
    * 
    * @example
    * false
@@ -21644,10 +22252,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFile
   advPolicy?: boolean;
   /**
    * @remarks
-   * Indicates whether the Volume Shadow Copy Service (VSS) feature is enabled. Valid values:
-   * 
-   * *   **true**: The feature is enabled.
-   * *   **false**: The feature is disabled.
+   * Whether to enable VSS (Windows) functionality. Values:
+   * - **true**: Enable.
+   * - **false**: Disable.
    * 
    * @example
    * false
@@ -21675,7 +22282,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFile
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail extends $tea.Model {
   /**
    * @remarks
-   * 不在任务统计和失败文件列表中提示归档型对象
+   * Do not prompt for archive-type objects in the task statistics and failed file list.
    * 
    * @example
    * true
@@ -21683,11 +22290,10 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
   ignoreArchiveObject?: boolean;
   /**
    * @remarks
-   * Indicates whether the system deletes the inventory lists when a backup is completed. This parameter is valid only when OSS inventories are used. Valid values:
-   * 
-   * *   **NO_CLEANUP**: Inventory lists are not deleted.
-   * *   **DELETE_CURRENT**: The current inventory list is deleted.
-   * *   **DELETE_CURRENT_AND_PREVIOUS**: All inventory lists are deleted.
+   * Whether to delete the inventory file after the backup. This is only effective when using an OSS inventory. Supported values:
+   * - **NO_CLEANUP**: Do not delete.
+   * - **DELETE_CURRENT**: Delete the current file.
+   * - **DELETE_CURRENT_AND_PREVIOUS**: Delete all files.
    * 
    * @example
    * DELETE_CURRENT_AND_PREVIOUS
@@ -21695,10 +22301,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
   inventoryCleanupPolicy?: string;
   /**
    * @remarks
-   * The name of the OSS inventory. If this parameter is not empty, the OSS inventory is used for performance optimization.
-   * 
-   * *   If you want to back up more than 100 million OSS objects, we recommend that you use inventory lists to accelerate incremental backup. Storage fees for inventory lists are included into your OSS bills.
-   * *   A certain amount of time is required for OSS to generate inventory lists. Before inventory lists are generated, OSS objects may fail to be backed up. In this case, you can back up the OSS objects in the next backup cycle.
+   * The name of the OSS inventory. If this value is not empty, the OSS inventory will be used for performance optimization.
+   * - It is recommended to use an inventory for backing up more than 100 million OSS objects to improve incremental performance. Storage costs for the inventory files are charged separately by the OSS service.
+   * - The generation of the OSS inventory file takes time, and the backup may fail before the inventory file is generated. You can wait for the next cycle to execute.
    * 
    * @example
    * inventory_test
@@ -21728,7 +22333,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssD
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmDetail extends $tea.Model {
   /**
    * @remarks
-   * Indicates whether application consistency is enabled. You can enable application consistency only if all disks are ESSDs.
+   * 是否创建应用一致性。仅云盘类型全部为ESSD时，支持创建快照应用一致性。
    * 
    * @example
    * false
@@ -21736,7 +22341,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   appConsistent?: boolean;
   /**
    * @remarks
-   * The ID of the custom KMS key in the destination region. If this parameter is not empty and geo-replication is enabled, the key is used for encrypted geo-replication.
+   * The custom KMS key ID in the destination region. When this field is not empty and cross-region replication is enabled, the specified key will be used for encrypting the cross-region replication.
    * 
    * @example
    * 4ed37b1e-da51-4187-aceb-9db4f9b7148b
@@ -21744,12 +22349,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   destinationKmsKeyId?: string;
   /**
    * @remarks
-   * The IDs of the disks that need to be protected. If all disks need to be protected, this parameter is empty.
+   * List of disk IDs that need protection. This value is empty when protecting all disks.
    */
   diskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+   * This parameter is required when **AppConsistent** is **true**. It indicates whether to use the Linux FsFreeze mechanism to ensure the file system is in a read-only consistent state before creating an application-consistent snapshot. The default value is true.
    * 
    * @example
    * true
@@ -21757,12 +22362,11 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   enableFsFreeze?: boolean;
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether application-consistent snapshots are created. Valid values:
+   * This parameter is required when **AppConsistent** is **true**. It determines whether to set an application-consistent snapshot:
+   * - **true**: Create an application-consistent snapshot
+   * - **false**: Create a file system-consistent snapshot
    * 
-   * *   true: Application-consistent snapshots are created.
-   * *   false: File system-consistent snapshots are created.
-   * 
-   * Default value: true.
+   * The default value is true.
    * 
    * @example
    * true
@@ -21770,12 +22374,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   enableWriters?: boolean;
   /**
    * @remarks
-   * The IDs of the disks that do not need to be protected. If the DiskIdList parameter is not empty, this parameter is ignored.
+   * List of disk IDs that do not need protection. This parameter is ignored if DiskIdList is not empty.
    */
   excludeDiskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
+   * This parameter is required when **AppConsistent** is **true**. It specifies the path of the unfreeze script to be executed after creating an application-consistent snapshot.
    * 
    * @example
    * /tmp/postscript.sh
@@ -21783,7 +22387,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   postScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
+   * This parameter is required when **AppConsistent** is **true**. It specifies the path of the freeze script to be executed before creating an application-consistent snapshot.
    * 
    * @example
    * /tmp/prescript.sh
@@ -21791,7 +22395,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   preScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the name of the RAM role that is required to create application-consistent snapshots.
+   * This parameter is required when **AppConsistent** is **true**. It specifies the RAM role name needed for creating an application-consistent snapshot.
    * 
    * @example
    * AliyunECSInstanceForHbrRole
@@ -21799,7 +22403,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   ramRoleName?: string;
   /**
    * @remarks
-   * Indicates whether a snapshot-consistent group is created. You can create a snapshot-consistent group only if all disks are enhanced SSDs (ESSDs).
+   * Indicates whether to create a snapshot consistency group. Only supported when all disk types are ESSD.
    * 
    * @example
    * true
@@ -21807,7 +22411,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
   snapshotGroup?: boolean;
   /**
    * @remarks
-   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the I/O freeze timeout period. Default value: 30. Unit: seconds.
+   * This parameter is required when **AppConsistent** is **true**. It specifies the IO freeze timeout duration. The default value is 30 seconds.
    * 
    * @example
    * 30
@@ -21853,27 +22457,27 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmD
 export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions extends $tea.Model {
   /**
    * @remarks
-   * The advanced options for large-scale file system backup.
+   * Advanced options for large-scale file system backup.
    */
   commonFileSystemDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonFileSystemDetail;
   /**
    * @remarks
-   * The advanced options for on-premises NAS backup.
+   * Advanced options for local NAS.
    */
   commonNasDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsCommonNasDetail;
   /**
    * @remarks
-   * The advanced options for file backup.
+   * Advanced options for file backup.
    */
   fileDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsFileDetail;
   /**
    * @remarks
-   * The advanced options for OSS backup.
+   * Advanced options for OSS backup.
    */
   ossDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsOssDetail;
   /**
    * @remarks
-   * The advanced options for ECS instance backup.
+   * Advanced options for full machine backup.
    */
   udmDetail?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptionsUdmDetail;
   static names(): { [key: string]: string } {
@@ -21904,7 +22508,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions ext
 export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $tea.Model {
   /**
    * @remarks
-   * The tag key.
+   * Tag key.
    * 
    * @example
    * env
@@ -21912,10 +22516,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $te
   key?: string;
   /**
    * @remarks
-   * The tag-based matching rule.
-   * 
-   * *   **EQUAL**: Both the tag key and tag value are matched.
-   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * Tag matching rule.
+   * - **EQUAL**: Matches both the tag key and tag value.
+   * - **NOT**: Matches the tag key but not the tag value.
    * 
    * @example
    * EQUAL
@@ -21923,7 +22526,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $te
   operator?: string;
   /**
    * @remarks
-   * The tag value.
+   * Tag value.
    * 
    * @example
    * prod
@@ -21953,12 +22556,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindingsHitTags extends $te
 export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model {
   /**
    * @remarks
-   * The advanced options.
+   * Advanced options.
    */
   advancedOptions?: DescribePolicyBindingsResponseBodyPolicyBindingsAdvancedOptions;
   /**
    * @remarks
-   * Indicates whether the resource is automatically associated with the related resource tag in the backup policy.
+   * Whether the resource is automatically associated through the backup policy resource tag.
    * 
    * @example
    * false
@@ -21966,7 +22569,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   createdByTag?: boolean;
   /**
    * @remarks
-   * The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
+   * Creation time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1661399570
@@ -21974,7 +22577,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   createdTime?: number;
   /**
    * @remarks
-   * The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The name of the role created in the RAM of the original account for cross-account backup.
    * 
    * @example
    * hbrcrossrole
@@ -21982,10 +22585,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   crossAccountRoleName?: string;
   /**
    * @remarks
-   * Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-   * 
-   * *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-   * *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
+   * Cross-account backup type. Supported values: 
+   * - SELF_ACCOUNT: Backup within the same account
+   * - CROSS_ACCOUNT: Cross-account backup
    * 
    * @example
    * CROSS_ACCOUNT
@@ -21993,7 +22595,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   crossAccountType?: string;
   /**
    * @remarks
-   * The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+   * The ID of the original account for cross-account backup.
    * 
    * @example
    * 1480************
@@ -22001,7 +22603,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   crossAccountUserId?: number;
   /**
    * @remarks
-   * The ID of the data source.
+   * Data source ID.
    * 
    * @example
    * i-8vb************5ly
@@ -22009,10 +22611,9 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   dataSourceId?: string;
   /**
    * @remarks
-   * Indicates whether the backup policy is enabled for the data source. Valid values:
-   * 
-   * *   true: The backup policy is disabled.
-   * *   false: The backup policy is enabled.
+   * 策略是否对该数据源生效。
+   * - true：暂停
+   * - false：未暂停
    * 
    * @example
    * true
@@ -22020,7 +22621,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   disabled?: boolean;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types that should not be backed up, and all files of these types will be excluded. Supports up to 255 characters.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -22028,12 +22629,12 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   exclude?: string;
   /**
    * @remarks
-   * The matched tag rules.
+   * Hit tag rules.
    */
   hitTags?: DescribePolicyBindingsResponseBodyPolicyBindingsHitTags[];
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types to be backed up, and all files of these types will be backed up. Supports up to 255 characters.
    * 
    * @example
    * [\\"*.doc\\",\\"*.xltm\\"]
@@ -22041,7 +22642,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   include?: string;
   /**
    * @remarks
-   * The description of the association.
+   * Bound policy description.
    * 
    * @example
    * po-000************eslc-i-uf6************y5g
@@ -22049,7 +22650,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   policyBindingDescription?: string;
   /**
    * @remarks
-   * The ID of the association.
+   * Bound policy ID.
    * 
    * @example
    * pd-000************slc
@@ -22057,7 +22658,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   policyBindingId?: string;
   /**
    * @remarks
-   * The ID of the backup policy.
+   * Policy ID.
    * 
    * @example
    * po-000************56y
@@ -22065,8 +22666,8 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   policyId?: string;
   /**
    * @remarks
-   * *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
-   * *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+   * - When **SourceType** is **OSS**, it indicates the prefix to be backed up. If not specified, it means backing up the entire root directory of the Bucket.
+   * - When **SourceType** is **ECS_FILE** or **File**, it indicates the file directory to be backed up. If not specified, it means backing up all directories.
    * 
    * @example
    * backup/
@@ -22074,9 +22675,8 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   source?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * *   **UDM_ECS**: ECS instances
+   * Data source type, with the value range:
+   * - **UDM_ECS**: indicates ECS full machine backup
    * 
    * @example
    * UDM_ECS
@@ -22084,11 +22684,11 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   sourceType?: string;
   /**
    * @remarks
-   * This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
+   * This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the backup traffic control. The format is `{start}{end}{bandwidth}`. Multiple traffic control configurations are separated by commas, and the configured times must not overlap.
    * 
-   * *   **start**: the start hour.
-   * *   **end**: the end hour.
-   * *   **bandwidth**: the bandwidth. Unit: KB/s.
+   * - **start**: Start hour.
+   * - **end**: End hour.
+   * - **bandwidth**: Limit rate, in KB/s.
    * 
    * @example
    * 0:24:10240
@@ -22096,7 +22696,7 @@ export class DescribePolicyBindingsResponseBodyPolicyBindings extends $tea.Model
   speedLimit?: string;
   /**
    * @remarks
-   * The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
+   * Update time. UNIX timestamp, in seconds.
    * 
    * @example
    * 1653611573
@@ -23484,11 +24084,17 @@ export class DescribeVaultReplicationRegionsResponseBodyRegions extends $tea.Mod
 
 export class DescribeVaultsRequestTag extends $tea.Model {
   /**
+   * @remarks
+   * The key of the tag.
+   * 
    * @example
    * key1
    */
   key?: string;
   /**
+   * @remarks
+   * The Value of the tag.
+   * 
    * @example
    * value1
    */
@@ -23522,6 +24128,9 @@ export class DescribeVaultsResponseBodyVaultsVaultBackupPlanStatistics extends $
    */
   archive?: number;
   /**
+   * @remarks
+   * The number of Cloud Parallel File Storage (CPFS) backup plans.
+   * 
    * @example
    * 1
    */
@@ -23851,6 +24460,9 @@ export class DescribeVaultsResponseBodyVaultsVaultTrialInfo extends $tea.Model {
 
 export class DescribeVaultsResponseBodyVaultsVault extends $tea.Model {
   /**
+   * @remarks
+   * Archival tier backup data volume. Unit: bytes.
+   * 
    * @example
    * 1024000
    */
@@ -24047,6 +24659,9 @@ export class DescribeVaultsResponseBodyVaultsVault extends $tea.Model {
    */
   replicationSourceVaultId?: string;
   /**
+   * @remarks
+   * Target region for remote backup repository.
+   * 
    * @example
    * cn-shanghai
    */
@@ -24395,6 +25010,9 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   actualItems?: number;
   /**
+   * @remarks
+   * Time to archive
+   * 
    * @example
    * 1640334062
    */
@@ -24472,6 +25090,9 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   errorFile?: string;
   /**
+   * @remarks
+   * Backup paths not included in the backup job.
+   * 
    * @example
    * [\\"/test/example_cn-hangzhou_7.txt\\", \\"/test/example_cn-hangzhou_1.txt\\", \\"/test/example_cn-hangzhou_3.txt\\", \\"/test/example_cn-hangzhou_9.txt\\", \\"/test/example_cn-hangzhou_6.txt\\"]
    */
@@ -24493,6 +25114,9 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   fileSystemId?: string;
   /**
+   * @remarks
+   * Backup paths included in the backup job.
+   * 
    * @example
    * [\\"/test/example_cn-huhehaote_3.txt\\", \\"/test/example_cn-huhehaote_9.txt\\", \\"/test/example_cn-huhehaote_5.txt\\", \\"/test/example_cn-huhehaote_1.txt\\", \\"/test/example_cn-huhehaote_7.txt\\"]
    */
@@ -24614,11 +25238,17 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   snapshotId?: string;
   /**
+   * @remarks
+   * Parent snapshot HASH value before archiving.
+   * 
    * @example
    * qwer***
    */
   sourceParentSnapshotHash?: string;
   /**
+   * @remarks
+   * Snapshot HASH value before archiving
+   * 
    * @example
    * qwer***
    */
@@ -24656,6 +25286,12 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   status?: string;
   /**
+   * @remarks
+   * Storage type. Values: 
+   * - **Standard**: Standard. 
+   * - **Archive**: Archive. 
+   * - **ColdArchive**: Cold Archive.
+   * 
    * @example
    * STANDARD
    */
@@ -24677,6 +25313,9 @@ export class SearchHistoricalSnapshotsResponseBodySnapshotsSnapshot extends $tea
    */
   updatedTime?: number;
   /**
+   * @remarks
+   * Whether to use local NAS.
+   * 
    * @example
    * false
    */
@@ -25055,11 +25694,20 @@ export class UpdateBackupPlanShrinkRequestRule extends $tea.Model {
 
 export class UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail extends $tea.Model {
   /**
+   * @remarks
+   * The size of backup shards (the number of files).
+   * 
    * @example
    * 100000
    */
   fetchSliceSize?: number;
   /**
+   * @remarks
+   * Specifies whether the system performs full backup if incremental backup fails. Valid values:
+   * 
+   * *   **true**: The system performs full backup if incremental backup fails.
+   * *   **false**: The system does not perform full backup if incremental backup fails.
+   * 
    * @example
    * true
    */
@@ -25084,14 +25732,21 @@ export class UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail ext
 }
 
 export class UpdatePolicyBindingRequestAdvancedOptionsOssDetail extends $tea.Model {
+  /**
+   * @remarks
+   * Do not prompt for archival type objects in task statistics and failed file lists.
+   * 
+   * @example
+   * true
+   */
   ignoreArchiveObject?: boolean;
   /**
    * @remarks
-   * Specifies whether the system deletes the inventory lists after a backup is complete. This parameter is available only when OSS inventory lists are used. Valid values:
+   * Specifies whether the system deletes the inventory lists when a backup is completed. This parameter is valid only when OSS inventories are used. Valid values:
    * 
-   * *   **NO_CLEANUP**: Does not delete inventory lists.
-   * *   **DELETE_CURRENT**: Deletes the current inventory list.
-   * *   **DELETE_CURRENT_AND_PREVIOUS**: Deletes all inventory lists.
+   * *   **NO_CLEANUP**: does not delete inventory lists.
+   * *   **DELETE_CURRENT**: deletes the current inventory list.
+   * *   **DELETE_CURRENT_AND_PREVIOUS**: deletes all inventory lists.
    * 
    * @example
    * NO_CLEANUP
@@ -25099,10 +25754,10 @@ export class UpdatePolicyBindingRequestAdvancedOptionsOssDetail extends $tea.Mod
   inventoryCleanupPolicy?: string;
   /**
    * @remarks
-   * The name of the OSS inventory list. The OSS inventory list specified for this parameter is used for performance optimization.
+   * The name of the OSS inventory. If this parameter is not empty, the OSS inventory is used for performance optimization.
    * 
-   * *   If you want to back up more than 100 million OSS objects, we recommend that you use inventory lists to accelerate incremental backup. Storage fees for inventory lists are included in your OSS bills.
-   * *   An extended period of time is required for OSS to generate inventory lists. Before inventory lists are generated, OSS objects may fail to be backed up. In this case, you can back up the OSS objects in the next backup cycle.
+   * *   If you want to back up more than 100 million OSS objects, we recommend that you use inventory lists to accelerate incremental backup. Storage fees for inventory lists are included into your OSS bills.
+   * *   A certain amount of time is required for OSS to generate inventory lists. Before inventory lists are generated, OSS objects may fail to be backed up. In this case, you can back up the OSS objects in the next backup cycle.
    * 
    * @example
    * 30663060
@@ -25140,12 +25795,12 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   appConsistent?: boolean;
   /**
    * @remarks
-   * The IDs of the disks that require protection. This parameter is not required if all disks require protection.
+   * The IDs of the disks that need to be protected. If all disks need to be protected, this parameter is empty.
    */
   diskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
    * 
    * @example
    * true
@@ -25153,10 +25808,10 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   enableFsFreeze?: boolean;
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies whether to create application-consistent snapshots. Valid values:
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots. Valid values:
    * 
-   * *   true: creates application-consistent snapshots.
-   * *   false: creates file system-consistent snapshots.
+   * *   true: creates application-consistent snapshots
+   * *   false: creates file system-consistent snapshots
    * 
    * Default value: true.
    * 
@@ -25166,12 +25821,12 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   enableWriters?: boolean;
   /**
    * @remarks
-   * The IDs of the disks that require no protection. This parameter is not required if the DiskIdList parameter is specified.
+   * The IDs of the disks that do not need to be protected. If the DiskIdList parameter is not empty, this parameter is ignored.
    */
   excludeDiskIdList?: string[];
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
    * 
    * @example
    * /tmp/postscript.sh
@@ -25179,7 +25834,7 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   postScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
    * 
    * @example
    * /tmp/prescript.sh
@@ -25187,7 +25842,7 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   preScriptPath?: string;
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the name of the Resource Access Management (RAM) role that is required to create application-consistent snapshots.
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the name of the Resource Access Management (RAM) role that is required to create application-consistent snapshots.
    * 
    * @example
    * AliyunECSInstanceForHbrRole
@@ -25195,7 +25850,7 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   ramRoleName?: string;
   /**
    * @remarks
-   * Specifies whether to create a snapshot-consistent group. You can create a snapshot-consistent group only if all disks are enhanced SSDs (ESSDs).
+   * Specifies whether to create a snapshot-consistent group. You can create a snapshot-consistent group only if all disks are Enterprise SSDs (ESSDs).
    * 
    * @example
    * true
@@ -25203,7 +25858,7 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
   snapshotGroup?: boolean;
   /**
    * @remarks
-   * This parameter is required only if the **AppConsistent** parameter is set to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
+   * This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies the I/O freeze timeout period. Default value: 30. Unit: seconds.
    * 
    * @example
    * 30
@@ -25245,15 +25900,19 @@ export class UpdatePolicyBindingRequestAdvancedOptionsUdmDetail extends $tea.Mod
 }
 
 export class UpdatePolicyBindingRequestAdvancedOptions extends $tea.Model {
+  /**
+   * @remarks
+   * The details about large-scale file system backup.
+   */
   commonFileSystemDetail?: UpdatePolicyBindingRequestAdvancedOptionsCommonFileSystemDetail;
   /**
    * @remarks
-   * The details of the Object Storage Service (OSS) backup.
+   * The details about Object Storage Service (OSS) backup.
    */
   ossDetail?: UpdatePolicyBindingRequestAdvancedOptionsOssDetail;
   /**
    * @remarks
-   * The backup details of the Elastic Compute Service (ECS) instance.
+   * The details about Elastic Compute Service (ECS) instance backup.
    */
   udmDetail?: UpdatePolicyBindingRequestAdvancedOptionsUdmDetail;
   static names(): { [key: string]: string } {
@@ -25278,8 +25937,21 @@ export class UpdatePolicyBindingRequestAdvancedOptions extends $tea.Model {
 }
 
 export class UpdatePolicyV2RequestRulesDataSourceFilters extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is deprecated.
+   */
   dataSourceIds?: string[];
   /**
+   * @remarks
+   * The type of the data source. Valid values:
+   * 
+   * *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **RuleType** parameter is set to **UDM_ECS_ONLY**.
+   * *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **ECS_FILE**: ECS file This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * *   **OTS**: Tablestore instance This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+   * 
    * @example
    * UDM_ECS
    */
@@ -25355,16 +26027,28 @@ export class UpdatePolicyV2RequestRulesRetentionRules extends $tea.Model {
 
 export class UpdatePolicyV2RequestRulesTagFilters extends $tea.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag-based matching rule. Valid values:
+   * 
+   * *   **EQUAL**: Both the tag key and tag value are matched.
+   * *   **NOT**: The tag key is matched and the tag value is not matched.
+   * 
    * @example
    * EQUAL
    */
   operator?: string;
   /**
+   * @remarks
+   * The tag value. If you leave this parameter empty, the value is any value.
+   * 
    * @example
    * prod
    */
@@ -25415,7 +26099,18 @@ export class UpdatePolicyV2RequestRules extends $tea.Model {
    * 365
    */
   coldArchiveDays?: number;
+  /**
+   * @remarks
+   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+   */
   dataSourceFilters?: UpdatePolicyV2RequestRulesDataSourceFilters[];
+  /**
+   * @remarks
+   * This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+   * 
+   * @example
+   * true
+   */
   immutable?: boolean;
   /**
    * @remarks
@@ -25449,7 +26144,7 @@ export class UpdatePolicyV2RequestRules extends $tea.Model {
   retention?: number;
   /**
    * @remarks
-   * This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
+   * This parameter is required only if the value of the **RuleType** parameter is **TRANSITION**. This parameter specifies the special retention rules.
    */
   retentionRules?: UpdatePolicyV2RequestRulesRetentionRules[];
   /**
@@ -25483,6 +26178,10 @@ export class UpdatePolicyV2RequestRules extends $tea.Model {
    * I|1648647166|P1D
    */
   schedule?: string;
+  /**
+   * @remarks
+   * This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+   */
   tagFilters?: UpdatePolicyV2RequestRulesTagFilters[];
   static names(): { [key: string]: string } {
     return {
@@ -26013,13 +26712,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup plan.
+   * Create a backup plan.
    * 
    * @remarks
-   *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-   * *   You can specify only one type of data source in a backup schedule.
-   * *   You can specify only one interval as a backup cycle in a backup schedule.
-   * *   Each backup schedule allows you to back up data to only one backup vault.
+   * - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+   * - A backup plan supports only one type of data source.
+   * - A backup plan supports only a single fixed interval backup cycle strategy.
+   * - A backup plan can back up to only one backup vault.
    * 
    * @param tmpReq - CreateBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26182,13 +26881,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup plan.
+   * Create a backup plan.
    * 
    * @remarks
-   *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-   * *   You can specify only one type of data source in a backup schedule.
-   * *   You can specify only one interval as a backup cycle in a backup schedule.
-   * *   Each backup schedule allows you to back up data to only one backup vault.
+   * - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+   * - A backup plan supports only one type of data source.
+   * - A backup plan supports only a single fixed interval backup cycle strategy.
+   * - A backup plan can back up to only one backup vault.
    * 
    * @param request - CreateBackupPlanRequest
    * @returns CreateBackupPlanResponse
@@ -26199,7 +26898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs one or more HBR clients on specified instances.
+   * Installs one or more Cloud Backup clients on specified instances.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
@@ -26261,7 +26960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Installs one or more HBR clients on specified instances.
+   * Installs one or more Cloud Backup clients on specified instances.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
@@ -27091,6 +27790,58 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+   * 
+   * @param tmpReq - DeleteAirEcsInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAirEcsInstanceResponse
+   */
+  async deleteAirEcsInstanceWithOptions(tmpReq: DeleteAirEcsInstanceRequest, runtime: $Util.RuntimeOptions): Promise<DeleteAirEcsInstanceResponse> {
+    Util.validateModel(tmpReq);
+    let request = new DeleteAirEcsInstanceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.uninstallClientSourceTypes)) {
+      request.uninstallClientSourceTypesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.uninstallClientSourceTypes, "UninstallClientSourceTypes", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.ecsInstanceId)) {
+      query["EcsInstanceId"] = request.ecsInstanceId;
+    }
+
+    if (!Util.isUnset(request.uninstallClientSourceTypesShrink)) {
+      query["UninstallClientSourceTypes"] = request.uninstallClientSourceTypesShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteAirEcsInstance",
+      version: "2017-09-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteAirEcsInstanceResponse>(await this.callApi(params, req, runtime), new DeleteAirEcsInstanceResponse({}));
+  }
+
+  /**
+   * Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+   * 
+   * @param request - DeleteAirEcsInstanceRequest
+   * @returns DeleteAirEcsInstanceResponse
+   */
+  async deleteAirEcsInstance(request: DeleteAirEcsInstanceRequest): Promise<DeleteAirEcsInstanceResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteAirEcsInstanceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a Cloud Backup client.
    * 
    * @remarks
@@ -27601,7 +28352,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消保护云盘
+   * Cancels a protected disk.
    * 
    * @param request - DeleteUdmDiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -27632,7 +28383,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消保护云盘
+   * Cancels a protected disk.
    * 
    * @param request - DeleteUdmDiskRequest
    * @returns DeleteUdmDiskResponse
@@ -28748,7 +29499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+   * Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
    * 
    * @param tmpReq - DescribePolicyBindingsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -28807,7 +29558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+   * Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
    * 
    * @param request - DescribePolicyBindingsRequest
    * @returns DescribePolicyBindingsResponse
@@ -29200,7 +29951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+   * Deletes an internal mount target created by Cloud Backup.
    * 
    * @remarks
    *   If the request is successful, the mount target is deleted.
@@ -29251,7 +30002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+   * Deletes an internal mount target created by Cloud Backup.
    * 
    * @remarks
    *   If the request is successful, the mount target is deleted.
@@ -29552,6 +30303,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Execute a policy for one or all bound data sources.
+   * 
    * @param request - ExecutePolicyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ExecutePolicyV2Response
@@ -29595,6 +30348,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Execute a policy for one or all bound data sources.
+   * 
    * @param request - ExecutePolicyV2Request
    * @returns ExecutePolicyV2Response
    */
@@ -30338,7 +31093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+   * Update container cluster information, including the container cluster name, network type, etc.
    * 
    * @param request - UpdateContainerClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -30385,7 +31140,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+   * Update container cluster information, including the container cluster name, network type, etc.
    * 
    * @param request - UpdateContainerClusterRequest
    * @returns UpdateContainerClusterResponse
