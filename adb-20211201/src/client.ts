@@ -20785,6 +20785,137 @@ export class ModifyPerformanceViewResponse extends $tea.Model {
   }
 }
 
+export class ModifyUserEniVswitchOptionsRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * amv-bp11q28kvl688****
+   */
+  dbClusterId?: string;
+  ownerAccount?: string;
+  ownerId?: number;
+  /**
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  resourceOwnerAccount?: string;
+  resourceOwnerId?: number;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * vsw-rj9ixufmywqq98z******,vsw-rj95ij6wcz656v7******
+   */
+  vSwitchOptions?: string;
+  static names(): { [key: string]: string } {
+    return {
+      dbClusterId: 'DbClusterId',
+      ownerAccount: 'OwnerAccount',
+      ownerId: 'OwnerId',
+      regionId: 'RegionId',
+      resourceOwnerAccount: 'ResourceOwnerAccount',
+      resourceOwnerId: 'ResourceOwnerId',
+      vSwitchOptions: 'VSwitchOptions',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      dbClusterId: 'string',
+      ownerAccount: 'string',
+      ownerId: 'number',
+      regionId: 'string',
+      resourceOwnerAccount: 'string',
+      resourceOwnerId: 'number',
+      vSwitchOptions: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyUserEniVswitchOptionsResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 200
+   */
+  code?: string;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * SUCCESS
+   */
+  message?: string;
+  /**
+   * @example
+   * 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'Code',
+      httpStatusCode: 'HttpStatusCode',
+      message: 'Message',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ModifyUserEniVswitchOptionsResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ModifyUserEniVswitchOptionsResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ModifyUserEniVswitchOptionsResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class PreloadSparkAppMetricsRequest extends $tea.Model {
   /**
    * @remarks
@@ -25045,6 +25176,9 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
    * false
    */
   userENIStatus?: boolean;
+  userENIVSwitchOptions?: string;
+  userENIVpcId?: string;
+  userENIZoneOptions?: string;
   /**
    * @remarks
    * The virtual private cloud (VPC) ID of the cluster.
@@ -25108,6 +25242,9 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       tags: 'Tags',
       taskInfo: 'TaskInfo',
       userENIStatus: 'UserENIStatus',
+      userENIVSwitchOptions: 'UserENIVSwitchOptions',
+      userENIVpcId: 'UserENIVpcId',
+      userENIZoneOptions: 'UserENIZoneOptions',
       VPCId: 'VPCId',
       vSwitchId: 'VSwitchId',
       zoneId: 'ZoneId',
@@ -25153,6 +25290,9 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $tea.M
       tags: DescribeDBClusterAttributeResponseBodyItemsDBClusterTags,
       taskInfo: DescribeDBClusterAttributeResponseBodyItemsDBClusterTaskInfo,
       userENIStatus: 'boolean',
+      userENIVSwitchOptions: 'string',
+      userENIVpcId: 'string',
+      userENIZoneOptions: 'string',
       VPCId: 'string',
       vSwitchId: 'string',
       zoneId: 'string',
@@ -33690,6 +33830,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看集群备份设置
+   * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
@@ -33738,6 +33880,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查看集群备份设置
+   * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
@@ -36518,6 +36662,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑用户弹性网卡
+   * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
@@ -36550,6 +36696,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 解绑用户弹性网卡
+   * 
    * @remarks
    * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
    * 
@@ -39943,6 +40091,74 @@ export default class Client extends OpenApi {
   async modifyPerformanceView(request: ModifyPerformanceViewRequest): Promise<ModifyPerformanceViewResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.modifyPerformanceViewWithOptions(request, runtime);
+  }
+
+  /**
+   * 修改用户eni交换机
+   * 
+   * @param request - ModifyUserEniVswitchOptionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserEniVswitchOptionsResponse
+   */
+  async modifyUserEniVswitchOptionsWithOptions(request: ModifyUserEniVswitchOptionsRequest, runtime: $Util.RuntimeOptions): Promise<ModifyUserEniVswitchOptionsResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.dbClusterId)) {
+      query["DbClusterId"] = request.dbClusterId;
+    }
+
+    if (!Util.isUnset(request.ownerAccount)) {
+      query["OwnerAccount"] = request.ownerAccount;
+    }
+
+    if (!Util.isUnset(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerAccount)) {
+      query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+    }
+
+    if (!Util.isUnset(request.resourceOwnerId)) {
+      query["ResourceOwnerId"] = request.resourceOwnerId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.vSwitchOptions)) {
+      body["VSwitchOptions"] = request.vSwitchOptions;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ModifyUserEniVswitchOptions",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ModifyUserEniVswitchOptionsResponse>(await this.callApi(params, req, runtime), new ModifyUserEniVswitchOptionsResponse({}));
+  }
+
+  /**
+   * 修改用户eni交换机
+   * 
+   * @param request - ModifyUserEniVswitchOptionsRequest
+   * @returns ModifyUserEniVswitchOptionsResponse
+   */
+  async modifyUserEniVswitchOptions(request: ModifyUserEniVswitchOptionsRequest): Promise<ModifyUserEniVswitchOptionsResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.modifyUserEniVswitchOptionsWithOptions(request, runtime);
   }
 
   /**
