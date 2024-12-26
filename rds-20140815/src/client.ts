@@ -10501,6 +10501,315 @@ export class CreateRCDiskResponse extends $tea.Model {
   }
 }
 
+export class CreateRCNodePoolRequest extends $tea.Model {
+  amount?: number;
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  clusterId?: string;
+  createMode?: string;
+  dataDisk?: CreateRCNodePoolRequestDataDisk[];
+  deploymentSetId?: string;
+  description?: string;
+  dryRun?: boolean;
+  hostName?: string;
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  keyPairName?: string;
+  nodePoolName?: string;
+  password?: string;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  resourceGroupId?: string;
+  securityEnhancementStrategy?: string;
+  securityGroupId?: string;
+  spotStrategy?: string;
+  systemDisk?: CreateRCNodePoolRequestSystemDisk;
+  tag?: CreateRCNodePoolRequestTag[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      clusterId: 'ClusterId',
+      createMode: 'CreateMode',
+      dataDisk: 'DataDisk',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      dryRun: 'DryRun',
+      hostName: 'HostName',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
+      nodePoolName: 'NodePoolName',
+      password: 'Password',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      securityGroupId: 'SecurityGroupId',
+      spotStrategy: 'SpotStrategy',
+      systemDisk: 'SystemDisk',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      clientToken: 'string',
+      clusterId: 'string',
+      createMode: 'string',
+      dataDisk: { 'type': 'array', 'itemType': CreateRCNodePoolRequestDataDisk },
+      deploymentSetId: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      hostName: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      keyPairName: 'string',
+      nodePoolName: 'string',
+      password: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityEnhancementStrategy: 'string',
+      securityGroupId: 'string',
+      spotStrategy: 'string',
+      systemDisk: CreateRCNodePoolRequestSystemDisk,
+      tag: { 'type': 'array', 'itemType': CreateRCNodePoolRequestTag },
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolShrinkRequest extends $tea.Model {
+  amount?: number;
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  clientToken?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  clusterId?: string;
+  createMode?: string;
+  dataDiskShrink?: string;
+  deploymentSetId?: string;
+  description?: string;
+  dryRun?: boolean;
+  hostName?: string;
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceName?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  keyPairName?: string;
+  nodePoolName?: string;
+  password?: string;
+  period?: number;
+  periodUnit?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  resourceGroupId?: string;
+  securityEnhancementStrategy?: string;
+  securityGroupId?: string;
+  spotStrategy?: string;
+  systemDiskShrink?: string;
+  tag?: CreateRCNodePoolShrinkRequestTag[];
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      amount: 'Amount',
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      clientToken: 'ClientToken',
+      clusterId: 'ClusterId',
+      createMode: 'CreateMode',
+      dataDiskShrink: 'DataDisk',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      dryRun: 'DryRun',
+      hostName: 'HostName',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
+      nodePoolName: 'NodePoolName',
+      password: 'Password',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      securityGroupId: 'SecurityGroupId',
+      spotStrategy: 'SpotStrategy',
+      systemDiskShrink: 'SystemDisk',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      amount: 'number',
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      clientToken: 'string',
+      clusterId: 'string',
+      createMode: 'string',
+      dataDiskShrink: 'string',
+      deploymentSetId: 'string',
+      description: 'string',
+      dryRun: 'boolean',
+      hostName: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      keyPairName: 'string',
+      nodePoolName: 'string',
+      password: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityEnhancementStrategy: 'string',
+      securityGroupId: 'string',
+      spotStrategy: 'string',
+      systemDiskShrink: 'string',
+      tag: { 'type': 'array', 'itemType': CreateRCNodePoolShrinkRequestTag },
+      vSwitchId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolResponseBody extends $tea.Model {
+  instanceIdSets?: string[];
+  nodePoolId?: string;
+  orderId?: string;
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      instanceIdSets: 'InstanceIdSets',
+      nodePoolId: 'NodePoolId',
+      orderId: 'OrderId',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      instanceIdSets: { 'type': 'array', 'itemType': 'string' },
+      nodePoolId: 'string',
+      orderId: 'string',
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRCNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRCNodePoolResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateRCSnapshotRequest extends $tea.Model {
   /**
    * @remarks
@@ -14466,6 +14775,87 @@ export class DeleteRCInstancesResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DeleteRCInstancesResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCNodePoolRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  clusterId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  nodePoolId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodePoolId: 'NodePoolId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodePoolId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCNodePoolResponseBody extends $tea.Model {
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DeleteRCNodePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DeleteRCNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DeleteRCNodePoolResponseBody,
     };
   }
 
@@ -33244,6 +33634,7 @@ export class DescribeRCClusterNodesResponse extends $tea.Model {
 }
 
 export class DescribeRCClustersRequest extends $tea.Model {
+  profile?: string;
   /**
    * @remarks
    * The region ID.
@@ -33255,6 +33646,7 @@ export class DescribeRCClustersRequest extends $tea.Model {
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
+      profile: 'Profile',
       regionId: 'RegionId',
       vpcId: 'VpcId',
     };
@@ -33262,6 +33654,7 @@ export class DescribeRCClustersRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      profile: 'string',
       regionId: 'string',
       vpcId: 'string',
     };
@@ -34844,6 +35237,78 @@ export class DescribeRCMetricListResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeRCMetricListResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolRequest extends $tea.Model {
+  clusterId?: string;
+  nodePoolId?: string;
+  regionId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      clusterId: 'ClusterId',
+      nodePoolId: 'NodePoolId',
+      regionId: 'RegionId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      clusterId: 'string',
+      nodePoolId: 'string',
+      regionId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponseBody extends $tea.Model {
+  nodePoolList?: DescribeRCNodePoolResponseBodyNodePoolList[];
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      nodePoolList: 'NodePoolList',
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      nodePoolList: { 'type': 'array', 'itemType': DescribeRCNodePoolResponseBodyNodePoolList },
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeRCNodePoolResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeRCNodePoolResponseBody,
     };
   }
 
@@ -56377,6 +56842,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createExtraParam?: string;
   createMode?: string;
   /**
    * @remarks
@@ -56534,6 +57000,7 @@ export class RunRCInstancesRequest extends $tea.Model {
    */
   securityGroupId?: string;
   spotStrategy?: string;
+  supportCase?: string;
   /**
    * @remarks
    * The specification of the system disk.
@@ -56568,6 +57035,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDisk: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
@@ -56590,6 +57058,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
+      supportCase: 'SupportCase',
       systemDisk: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -56603,6 +57072,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createExtraParam: 'string',
       createMode: 'string',
       dataDisk: { 'type': 'array', 'itemType': RunRCInstancesRequestDataDisk },
       deploymentSetId: 'string',
@@ -56625,6 +57095,7 @@ export class RunRCInstancesRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',
+      supportCase: 'string',
       systemDisk: RunRCInstancesRequestSystemDisk,
       tag: { 'type': 'array', 'itemType': RunRCInstancesRequestTag },
       vSwitchId: 'string',
@@ -56682,6 +57153,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    * ETnLKlblzczshOTUbOCz****
    */
   clientToken?: string;
+  createExtraParam?: string;
   createMode?: string;
   /**
    * @remarks
@@ -56839,6 +57311,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
    */
   securityGroupId?: string;
   spotStrategy?: string;
+  supportCase?: string;
   /**
    * @remarks
    * The specification of the system disk.
@@ -56873,6 +57346,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'AutoPay',
       autoRenew: 'AutoRenew',
       clientToken: 'ClientToken',
+      createExtraParam: 'CreateExtraParam',
       createMode: 'CreateMode',
       dataDiskShrink: 'DataDisk',
       deploymentSetId: 'DeploymentSetId',
@@ -56895,6 +57369,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'SecurityEnhancementStrategy',
       securityGroupId: 'SecurityGroupId',
       spotStrategy: 'SpotStrategy',
+      supportCase: 'SupportCase',
       systemDiskShrink: 'SystemDisk',
       tag: 'Tag',
       vSwitchId: 'VSwitchId',
@@ -56908,6 +57383,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       autoPay: 'boolean',
       autoRenew: 'boolean',
       clientToken: 'string',
+      createExtraParam: 'string',
       createMode: 'string',
       dataDiskShrink: 'string',
       deploymentSetId: 'string',
@@ -56930,6 +57406,7 @@ export class RunRCInstancesShrinkRequest extends $tea.Model {
       securityEnhancementStrategy: 'string',
       securityGroupId: 'string',
       spotStrategy: 'string',
+      supportCase: 'string',
       systemDiskShrink: 'string',
       tag: { 'type': 'array', 'itemType': RunRCInstancesShrinkRequestTag },
       vSwitchId: 'string',
@@ -61360,6 +61837,103 @@ export class CreateMaskingRulesRequestRuleConfig extends $tea.Model {
 }
 
 export class CreateRCDeploymentSetRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolRequestDataDisk extends $tea.Model {
+  category?: string;
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolRequestSystemDisk extends $tea.Model {
+  category?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolRequestTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRCNodePoolShrinkRequestTag extends $tea.Model {
   key?: string;
   value?: string;
   static names(): { [key: string]: string } {
@@ -76231,6 +76805,7 @@ export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
    * 2024-10-30T02:16:04Z
    */
   createTime?: string;
+  profile?: string;
   /**
    * @remarks
    * The cluster status. Valid values:
@@ -76251,6 +76826,7 @@ export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
       clusterId: 'ClusterId',
       clusterName: 'ClusterName',
       createTime: 'CreateTime',
+      profile: 'Profile',
       status: 'Status',
       vpcId: 'VpcId',
     };
@@ -76261,6 +76837,7 @@ export class DescribeRCClustersResponseBodyClusters extends $tea.Model {
       clusterId: 'string',
       clusterName: 'string',
       createTime: 'string',
+      profile: 'string',
       status: 'string',
       vpcId: 'string',
     };
@@ -77632,6 +78209,187 @@ export class DescribeRCInstancesResponseBodyRCInstances extends $tea.Model {
       tagResources: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTagResources },
       tags: { 'type': 'array', 'itemType': DescribeRCInstancesResponseBodyRCInstancesTags },
       vpcId: 'string',
+      zoneId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponseBodyNodePoolListDataDisk extends $tea.Model {
+  category?: string;
+  deleteWithInstance?: boolean;
+  encrypted?: string;
+  performanceLevel?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      deleteWithInstance: 'DeleteWithInstance',
+      encrypted: 'Encrypted',
+      performanceLevel: 'PerformanceLevel',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      deleteWithInstance: 'boolean',
+      encrypted: 'string',
+      performanceLevel: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponseBodyNodePoolListSystemDisk extends $tea.Model {
+  category?: string;
+  size?: number;
+  static names(): { [key: string]: string } {
+    return {
+      category: 'Category',
+      size: 'Size',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      category: 'string',
+      size: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponseBodyNodePoolListTag extends $tea.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeRCNodePoolResponseBodyNodePoolList extends $tea.Model {
+  autoPay?: boolean;
+  autoRenew?: boolean;
+  clusterId?: string;
+  createMode?: string;
+  dataDisk?: DescribeRCNodePoolResponseBodyNodePoolListDataDisk[];
+  deploymentSetId?: string;
+  description?: string;
+  hostName?: string;
+  imageId?: string;
+  instanceChargeType?: string;
+  instanceName?: string;
+  instanceType?: string;
+  internetChargeType?: string;
+  internetMaxBandwidthOut?: number;
+  ioOptimized?: string;
+  keyPairName?: string;
+  nodePoolId?: string;
+  nodePoolName?: string;
+  password?: string;
+  period?: number;
+  periodUnit?: string;
+  regionId?: string;
+  resourceGroupId?: string;
+  securityEnhancementStrategy?: string;
+  securityGroupId?: string;
+  spotStrategy?: string;
+  systemDisk?: DescribeRCNodePoolResponseBodyNodePoolListSystemDisk;
+  tag?: DescribeRCNodePoolResponseBodyNodePoolListTag[];
+  vSwitchId?: string;
+  zoneId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      autoPay: 'AutoPay',
+      autoRenew: 'AutoRenew',
+      clusterId: 'ClusterId',
+      createMode: 'CreateMode',
+      dataDisk: 'DataDisk',
+      deploymentSetId: 'DeploymentSetId',
+      description: 'Description',
+      hostName: 'HostName',
+      imageId: 'ImageId',
+      instanceChargeType: 'InstanceChargeType',
+      instanceName: 'InstanceName',
+      instanceType: 'InstanceType',
+      internetChargeType: 'InternetChargeType',
+      internetMaxBandwidthOut: 'InternetMaxBandwidthOut',
+      ioOptimized: 'IoOptimized',
+      keyPairName: 'KeyPairName',
+      nodePoolId: 'NodePoolId',
+      nodePoolName: 'NodePoolName',
+      password: 'Password',
+      period: 'Period',
+      periodUnit: 'PeriodUnit',
+      regionId: 'RegionId',
+      resourceGroupId: 'ResourceGroupId',
+      securityEnhancementStrategy: 'SecurityEnhancementStrategy',
+      securityGroupId: 'SecurityGroupId',
+      spotStrategy: 'SpotStrategy',
+      systemDisk: 'SystemDisk',
+      tag: 'Tag',
+      vSwitchId: 'VSwitchId',
+      zoneId: 'ZoneId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPay: 'boolean',
+      autoRenew: 'boolean',
+      clusterId: 'string',
+      createMode: 'string',
+      dataDisk: { 'type': 'array', 'itemType': DescribeRCNodePoolResponseBodyNodePoolListDataDisk },
+      deploymentSetId: 'string',
+      description: 'string',
+      hostName: 'string',
+      imageId: 'string',
+      instanceChargeType: 'string',
+      instanceName: 'string',
+      instanceType: 'string',
+      internetChargeType: 'string',
+      internetMaxBandwidthOut: 'number',
+      ioOptimized: 'string',
+      keyPairName: 'string',
+      nodePoolId: 'string',
+      nodePoolName: 'string',
+      password: 'string',
+      period: 'number',
+      periodUnit: 'string',
+      regionId: 'string',
+      resourceGroupId: 'string',
+      securityEnhancementStrategy: 'string',
+      securityGroupId: 'string',
+      spotStrategy: 'string',
+      systemDisk: DescribeRCNodePoolResponseBodyNodePoolListSystemDisk,
+      tag: { 'type': 'array', 'itemType': DescribeRCNodePoolResponseBodyNodePoolListTag },
+      vSwitchId: 'string',
       zoneId: 'string',
     };
   }
@@ -87465,6 +88223,182 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 创建RC节点池模版
+   * 
+   * @param tmpReq - CreateRCNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRCNodePoolResponse
+   */
+  async createRCNodePoolWithOptions(tmpReq: CreateRCNodePoolRequest, runtime: $Util.RuntimeOptions): Promise<CreateRCNodePoolResponse> {
+    Util.validateModel(tmpReq);
+    let request = new CreateRCNodePoolShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.dataDisk)) {
+      request.dataDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDisk, "DataDisk", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.systemDisk)) {
+      request.systemDiskShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.systemDisk, "SystemDisk", "json");
+    }
+
+    let query = { };
+    if (!Util.isUnset(request.amount)) {
+      query["Amount"] = request.amount;
+    }
+
+    if (!Util.isUnset(request.autoPay)) {
+      query["AutoPay"] = request.autoPay;
+    }
+
+    if (!Util.isUnset(request.autoRenew)) {
+      query["AutoRenew"] = request.autoRenew;
+    }
+
+    if (!Util.isUnset(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.createMode)) {
+      query["CreateMode"] = request.createMode;
+    }
+
+    if (!Util.isUnset(request.dataDiskShrink)) {
+      query["DataDisk"] = request.dataDiskShrink;
+    }
+
+    if (!Util.isUnset(request.deploymentSetId)) {
+      query["DeploymentSetId"] = request.deploymentSetId;
+    }
+
+    if (!Util.isUnset(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!Util.isUnset(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!Util.isUnset(request.hostName)) {
+      query["HostName"] = request.hostName;
+    }
+
+    if (!Util.isUnset(request.imageId)) {
+      query["ImageId"] = request.imageId;
+    }
+
+    if (!Util.isUnset(request.instanceChargeType)) {
+      query["InstanceChargeType"] = request.instanceChargeType;
+    }
+
+    if (!Util.isUnset(request.instanceName)) {
+      query["InstanceName"] = request.instanceName;
+    }
+
+    if (!Util.isUnset(request.instanceType)) {
+      query["InstanceType"] = request.instanceType;
+    }
+
+    if (!Util.isUnset(request.internetChargeType)) {
+      query["InternetChargeType"] = request.internetChargeType;
+    }
+
+    if (!Util.isUnset(request.internetMaxBandwidthOut)) {
+      query["InternetMaxBandwidthOut"] = request.internetMaxBandwidthOut;
+    }
+
+    if (!Util.isUnset(request.ioOptimized)) {
+      query["IoOptimized"] = request.ioOptimized;
+    }
+
+    if (!Util.isUnset(request.keyPairName)) {
+      query["KeyPairName"] = request.keyPairName;
+    }
+
+    if (!Util.isUnset(request.nodePoolName)) {
+      query["NodePoolName"] = request.nodePoolName;
+    }
+
+    if (!Util.isUnset(request.password)) {
+      query["Password"] = request.password;
+    }
+
+    if (!Util.isUnset(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!Util.isUnset(request.periodUnit)) {
+      query["PeriodUnit"] = request.periodUnit;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!Util.isUnset(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!Util.isUnset(request.securityEnhancementStrategy)) {
+      query["SecurityEnhancementStrategy"] = request.securityEnhancementStrategy;
+    }
+
+    if (!Util.isUnset(request.securityGroupId)) {
+      query["SecurityGroupId"] = request.securityGroupId;
+    }
+
+    if (!Util.isUnset(request.spotStrategy)) {
+      query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!Util.isUnset(request.systemDiskShrink)) {
+      query["SystemDisk"] = request.systemDiskShrink;
+    }
+
+    if (!Util.isUnset(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!Util.isUnset(request.vSwitchId)) {
+      query["VSwitchId"] = request.vSwitchId;
+    }
+
+    if (!Util.isUnset(request.zoneId)) {
+      query["ZoneId"] = request.zoneId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRCNodePool",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRCNodePoolResponse>(await this.callApi(params, req, runtime), new CreateRCNodePoolResponse({}));
+  }
+
+  /**
+   * 创建RC节点池模版
+   * 
+   * @param request - CreateRCNodePoolRequest
+   * @returns CreateRCNodePoolResponse
+   */
+  async createRCNodePool(request: CreateRCNodePoolRequest): Promise<CreateRCNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRCNodePoolWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a snapshot for a cloud disk.
    * 
    * @remarks
@@ -89632,6 +90566,56 @@ export default class Client extends OpenApi {
   async deleteRCInstances(request: DeleteRCInstancesRequest): Promise<DeleteRCInstancesResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.deleteRCInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * 删除RC模版
+   * 
+   * @param request - DeleteRCNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteRCNodePoolResponse
+   */
+  async deleteRCNodePoolWithOptions(request: DeleteRCNodePoolRequest, runtime: $Util.RuntimeOptions): Promise<DeleteRCNodePoolResponse> {
+    Util.validateModel(request);
+    let query = { };
+    if (!Util.isUnset(request.clusterId)) {
+      query["ClusterId"] = request.clusterId;
+    }
+
+    if (!Util.isUnset(request.nodePoolId)) {
+      query["NodePoolId"] = request.nodePoolId;
+    }
+
+    if (!Util.isUnset(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DeleteRCNodePool",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DeleteRCNodePoolResponse>(await this.callApi(params, req, runtime), new DeleteRCNodePoolResponse({}));
+  }
+
+  /**
+   * 删除RC模版
+   * 
+   * @param request - DeleteRCNodePoolRequest
+   * @returns DeleteRCNodePoolResponse
+   */
+  async deleteRCNodePool(request: DeleteRCNodePoolRequest): Promise<DeleteRCNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.deleteRCNodePoolWithOptions(request, runtime);
   }
 
   /**
@@ -98162,6 +99146,10 @@ export default class Client extends OpenApi {
   async describeRCClustersWithOptions(request: DescribeRCClustersRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCClustersResponse> {
     Util.validateModel(request);
     let query = { };
+    if (!Util.isUnset(request.profile)) {
+      query["Profile"] = request.profile;
+    }
+
     if (!Util.isUnset(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -98516,6 +99504,44 @@ export default class Client extends OpenApi {
   async describeRCMetricList(request: DescribeRCMetricListRequest): Promise<DescribeRCMetricListResponse> {
     let runtime = new $Util.RuntimeOptions({ });
     return await this.describeRCMetricListWithOptions(request, runtime);
+  }
+
+  /**
+   * 描述RC模版
+   * 
+   * @param request - DescribeRCNodePoolRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeRCNodePoolResponse
+   */
+  async describeRCNodePoolWithOptions(request: DescribeRCNodePoolRequest, runtime: $Util.RuntimeOptions): Promise<DescribeRCNodePoolResponse> {
+    Util.validateModel(request);
+    let query = OpenApiUtil.query(Util.toMap(request));
+    let req = new $OpenApi.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeRCNodePool",
+      version: "2014-08-15",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "GET",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeRCNodePoolResponse>(await this.callApi(params, req, runtime), new DescribeRCNodePoolResponse({}));
+  }
+
+  /**
+   * 描述RC模版
+   * 
+   * @param request - DescribeRCNodePoolRequest
+   * @returns DescribeRCNodePoolResponse
+   */
+  async describeRCNodePool(request: DescribeRCNodePoolRequest): Promise<DescribeRCNodePoolResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.describeRCNodePoolWithOptions(request, runtime);
   }
 
   /**
@@ -109741,6 +110767,10 @@ export default class Client extends OpenApi {
       query["ClientToken"] = request.clientToken;
     }
 
+    if (!Util.isUnset(request.createExtraParam)) {
+      query["CreateExtraParam"] = request.createExtraParam;
+    }
+
     if (!Util.isUnset(request.createMode)) {
       query["CreateMode"] = request.createMode;
     }
@@ -109827,6 +110857,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.spotStrategy)) {
       query["SpotStrategy"] = request.spotStrategy;
+    }
+
+    if (!Util.isUnset(request.supportCase)) {
+      query["SupportCase"] = request.supportCase;
     }
 
     if (!Util.isUnset(request.systemDiskShrink)) {
