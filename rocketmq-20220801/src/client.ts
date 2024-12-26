@@ -9,16 +9,25 @@ import * as $tea from '@alicloud/tea-typescript';
 
 export class DataTopicLagMapValue extends $tea.Model {
   /**
+   * @remarks
+   * Ready message count
+   * 
    * @example
    * 1
    */
   readyCount?: number;
   /**
+   * @remarks
+   * The number of messages being consumed.
+   * 
    * @example
    * 1
    */
   inflightCount?: number;
   /**
+   * @remarks
+   * Delivery delay time, in seconds
+   * 
    * @example
    * 12
    */
@@ -36,6 +45,93 @@ export class DataTopicLagMapValue extends $tea.Model {
       readyCount: 'number',
       inflightCount: 'number',
       deliveryDuration: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemRequest extends $tea.Model {
+  topics?: AddDisasterRecoveryItemRequestTopics[];
+  static names(): { [key: string]: string } {
+    return {
+      topics: 'topics',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      topics: { 'type': 'array', 'itemType': AddDisasterRecoveryItemRequestTopics },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemResponseBody extends $tea.Model {
+  accessDeniedDetail?: string;
+  code?: string;
+  data?: number;
+  dynamicCode?: string;
+  dynamicMessage?: string;
+  httpStatusCode?: number;
+  message?: string;
+  requestId?: string;
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      accessDeniedDetail: 'accessDeniedDetail',
+      code: 'code',
+      data: 'data',
+      dynamicCode: 'dynamicCode',
+      dynamicMessage: 'dynamicMessage',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      accessDeniedDetail: 'string',
+      code: 'string',
+      data: 'number',
+      dynamicCode: 'string',
+      dynamicMessage: 'string',
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: AddDisasterRecoveryItemResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: AddDisasterRecoveryItemResponseBody,
     };
   }
 
@@ -256,6 +352,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  maxReceiveTps?: number;
   /**
    * @remarks
    * The remarks on the consumer group.
@@ -268,6 +365,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
+      maxReceiveTps: 'maxReceiveTps',
       remark: 'remark',
     };
   }
@@ -276,6 +374,7 @@ export class CreateConsumerGroupRequest extends $tea.Model {
     return {
       consumeRetryPolicy: CreateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
+      maxReceiveTps: 'number',
       remark: 'string',
     };
   }
@@ -409,10 +508,10 @@ export class CreateConsumerGroupResponse extends $tea.Model {
 export class CreateInstanceRequest extends $tea.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set PaymentType to Subscription.
+   * Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
    * 
-   * *   true: enable
-   * *   false: disable
+   * *   true
+   * *   false
    * 
    * @example
    * true
@@ -432,7 +531,7 @@ export class CreateInstanceRequest extends $tea.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The commodity code.
+   * The commodity code. Valid values:
    * 
    * *   ons_rmqpost_public_intl: pay-as-you-go
    * *   ons_rmqsub_public_intl: subscription
@@ -445,7 +544,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * @remarks
    * The name of the instance that you want to create.
    * 
-   * If you do not configure this parameter, the instance ID is used as the instance name.
+   * If you leave this parameter empty, the instance ID is used as the instance name.
    * 
    * @example
    * rmq-cn-72u3048uxxx
@@ -453,7 +552,7 @@ export class CreateInstanceRequest extends $tea.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The network configurations.
+   * The information about the network.
    * 
    * This parameter is required.
    */
@@ -477,7 +576,7 @@ export class CreateInstanceRequest extends $tea.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The subscription duration of the instance. This parameter takes effect only if you set PaymentType to Subscription.
+   * The subscription duration of the instance. This parameter takes effect only if you set paymentType to Subscription.
    * 
    * Valid values:
    * 
@@ -516,7 +615,7 @@ export class CreateInstanceRequest extends $tea.Model {
   remark?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekzy6pist7uuna
@@ -524,7 +623,7 @@ export class CreateInstanceRequest extends $tea.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+   * The primary edition of the instance. For information about the differences among primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
    * 
    * Valid values:
    * 
@@ -532,7 +631,7 @@ export class CreateInstanceRequest extends $tea.Model {
    * *   ultimate: Enterprise Platinum Edition
    * *   professional: Professional Edition
    * 
-   * >  After an instance is created, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance of Standard Edition to Professional Edition, but cannot downgrade an instance of Professional Edition to Standard Edition.
+   * >  After you create an instance, you can only upgrade the primary edition of the instance. The following editions are sorted in ascending order: Standard Edition, Professional Edition, Enterprise Platinum Edition. For example, you can upgrade an instance from Standard Edition to Professional Edition, but you cannot downgrade an instance from Professional Edition to Standard Edition.
    * 
    * This parameter is required.
    * 
@@ -552,17 +651,23 @@ export class CreateInstanceRequest extends $tea.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+   * The sub-category edition of the instance. For information about the differences among sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
    * 
    * Valid values:
    * 
-   * *   cluster_ha: High-availability Cluster Edition
+   * *   cluster_ha: Cluster High-availability Edition
    * *   single_node: Standalone Edition
-   * *   serverless: Serverless Edition
+   * *   serverless: serverless
    * 
-   * If you set seriesCode to ultimate, you can set this parameter to only cluster_ha.
+   * If you set seriesCode to ultimate, you can set this parameter only to cluster_ha.
    * 
-   * >  After an instance is created, you cannot change the sub-category edition of the instance.
+   * >  After you create an instance, you cannot change the sub-category edition of the instance.
+   * 
+   * Valid values:
+   * 
+   * *   serverless: serverless
+   * *   cluster_ha: Cluster High-availability Edition
+   * *   single_node: Standalone Edition
    * 
    * This parameter is required.
    * 
@@ -747,6 +852,8 @@ export class CreateInstanceResponse extends $tea.Model {
 export class CreateInstanceAccountRequest extends $tea.Model {
   /**
    * @remarks
+   * The password of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -755,6 +862,8 @@ export class CreateInstanceAccountRequest extends $tea.Model {
   password?: string;
   /**
    * @remarks
+   * The username of the account.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -782,42 +891,73 @@ export class CreateInstanceAccountRequest extends $tea.Model {
 
 export class CreateInstanceAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * No permission details
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code returned if the call failed.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   * 
+   * @example
+   * true
+   */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
    * @example
    * 3AE0999C-8DBA-5CEE-8D9A-BE8D4A90DF8D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -883,6 +1023,19 @@ export class CreateInstanceAccountResponse extends $tea.Model {
 export class CreateInstanceAclRequest extends $tea.Model {
   /**
    * @remarks
+   * The type of operations that can be performed on the resource.
+   * 
+   * The following types of operations are supported based on the resource type:
+   * 
+   * *   Topic: Pub, Sub, and Pub|Sub
+   * *   Consumer group: Sub
+   * 
+   * Valid values:
+   * 
+   * *   SUB: subscribe
+   * *   Pub|Sub: publish and subscribe
+   * *   Pub: publish
+   * 
    * This parameter is required.
    * 
    * @example
@@ -891,15 +1044,28 @@ export class CreateInstanceAclRequest extends $tea.Model {
   actions?: string;
   /**
    * @remarks
+   * The decision result of the authorization.
+   * 
+   * Valid values:
+   * 
+   * *   Deny
+   * *   Allow
+   * 
    * This parameter is required.
    * 
    * @example
    * Allow
    */
   decision?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhitelists?: string[];
   /**
    * @remarks
+   * The name of the resource on which you want to grant permissions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -908,6 +1074,13 @@ export class CreateInstanceAclRequest extends $tea.Model {
   resourceName?: string;
   /**
    * @remarks
+   * The type of the resource on which you want to grant permissions.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -941,46 +1114,73 @@ export class CreateInstanceAclRequest extends $tea.Model {
 
 export class CreateInstanceAclResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C7E8AE3A-219B-52EE-BE32-4036F5F88833
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1046,6 +1246,8 @@ export class CreateInstanceAclResponse extends $tea.Model {
 export class CreateInstanceIpWhitelistRequest extends $tea.Model {
   /**
    * @remarks
+   * The IP address whitelists.
+   * 
    * This parameter is required.
    */
   ipWhitelists?: string[];
@@ -1068,46 +1270,73 @@ export class CreateInstanceIpWhitelistRequest extends $tea.Model {
 
 export class CreateInstanceIpWhitelistResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 400
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * A07B41BD-6DD3-5349-9E76-00303DF04BBE
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1171,6 +1400,7 @@ export class CreateInstanceIpWhitelistResponse extends $tea.Model {
 }
 
 export class CreateTopicRequest extends $tea.Model {
+  maxSendTps?: number;
   /**
    * @remarks
    * The type of messages in the topic that you want to create.
@@ -1198,6 +1428,7 @@ export class CreateTopicRequest extends $tea.Model {
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      maxSendTps: 'maxSendTps',
       messageType: 'messageType',
       remark: 'remark',
     };
@@ -1205,6 +1436,7 @@ export class CreateTopicRequest extends $tea.Model {
 
   static types(): { [key: string]: any } {
     return {
+      maxSendTps: 'number',
       messageType: 'string',
       remark: 'string',
     };
@@ -1460,16 +1692,36 @@ export class DeleteConsumerGroupResponse extends $tea.Model {
 export class DeleteConsumerGroupSubscriptionRequest extends $tea.Model {
   /**
    * @remarks
+   * The filter expression.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * *
    */
   filterExpression?: string;
   /**
    * @remarks
+   * The type of the filter expression. Valid values:
+   * 
+   * *   SQL: filters messages by using SQL expressions.
+   * *   TAG: filters messages by using tags.
+   * 
+   * Valid values:
+   * 
+   * *   TAG: filters messages by using SQL expressions.
+   * *   SQL: filters messages by using SQL expressions.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * TAG
    */
   filterType?: string;
   /**
    * @remarks
+   * The topic name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1498,43 +1750,74 @@ export class DeleteConsumerGroupSubscriptionRequest extends $tea.Model {
 }
 
 export class DeleteConsumerGroupSubscriptionResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
+   * @example
+   * xxx
+   */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * 200
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 723CDA5C-E25C-5EAF-9601-08C286DF8A4D
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1720,46 +2003,73 @@ export class DeleteInstanceResponse extends $tea.Model {
 
 export class DeleteInstanceAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1825,6 +2135,8 @@ export class DeleteInstanceAccountResponse extends $tea.Model {
 export class DeleteInstanceAclRequest extends $tea.Model {
   /**
    * @remarks
+   * The name of the resource on which the permissions are granted.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1833,6 +2145,13 @@ export class DeleteInstanceAclRequest extends $tea.Model {
   resourceName?: string;
   /**
    * @remarks
+   * The type of the resource on which the permissions are granted.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1860,46 +2179,73 @@ export class DeleteInstanceAclRequest extends $tea.Model {
 
 export class DeleteInstanceAclResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 7358418D-83BD-507A-8079-611C63E05674
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -1965,6 +2311,8 @@ export class DeleteInstanceAclResponse extends $tea.Model {
 export class DeleteInstanceIpWhitelistRequest extends $tea.Model {
   /**
    * @remarks
+   * The IP address whitelist.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1990,46 +2338,73 @@ export class DeleteInstanceIpWhitelistRequest extends $tea.Model {
 
 export class DeleteInstanceIpWhitelistResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16425867-C948-5A0C-9A24-5259727BE727
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2333,37 +2708,62 @@ export class GetConsumerGroupResponse extends $tea.Model {
 
 export class GetConsumerGroupLagResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetConsumerGroupLagResponseBodyData;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * F5764C40-FB8C-53AE-B95D-96AB3D0E9375
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2426,37 +2826,62 @@ export class GetConsumerGroupLagResponse extends $tea.Model {
 
 export class GetConsumerGroupSubscriptionResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetConsumerGroupSubscriptionResponseBodyData[];
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2520,6 +2945,8 @@ export class GetConsumerGroupSubscriptionResponse extends $tea.Model {
 export class GetConsumerStackRequest extends $tea.Model {
   /**
    * @remarks
+   * The client ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -2545,37 +2972,62 @@ export class GetConsumerStackRequest extends $tea.Model {
 
 export class GetConsumerStackResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetConsumerStackResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 30F2CBC7-F69D-5D78-9661-0254C9E1FBFA
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2647,7 +3099,7 @@ export class GetInstanceResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: GetInstanceResponseBodyData;
   /**
@@ -2755,6 +3207,15 @@ export class GetInstanceResponse extends $tea.Model {
 }
 
 export class GetInstanceAccountRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The username of the account.
+   * 
+   * If you do not configure this parameter, the default username of the instance is used.
+   * 
+   * @example
+   * test
+   */
   username?: string;
   static names(): { [key: string]: string } {
     return {
@@ -2775,37 +3236,62 @@ export class GetInstanceAccountRequest extends $tea.Model {
 
 export class GetInstanceAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetInstanceAccountResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * ConsumerGroupId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID, each request\\"s ID is unique and can be used for troubleshooting and problem localization.
+   * 
    * @example
    * B5C59E80-FCFC-5796-ABE4-D39EAAE578E4
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -2868,37 +3354,62 @@ export class GetInstanceAccountResponse extends $tea.Model {
 
 export class GetMessageDetailResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: GetMessageDetailResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FAEBD71F-E839-52F9-BD7B-8F1290525841
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -3079,37 +3590,62 @@ export class GetTopicResponse extends $tea.Model {
 
 export class GetTraceResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidConsumerGroupId
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: GetTraceResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+   * 
    * @example
    * 7779A8FC-1BCD-5A1D-A603-C4A9BD8ADC49
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -3537,8 +4073,6 @@ export class ListConsumerGroupsRequest extends $tea.Model {
    * @remarks
    * The number of the page to return.
    * 
-   * This parameter is required.
-   * 
    * @example
    * 1
    */
@@ -3546,8 +4080,6 @@ export class ListConsumerGroupsRequest extends $tea.Model {
   /**
    * @remarks
    * The number of entries to return on each page.
-   * 
-   * This parameter is required.
    * 
    * @example
    * 10
@@ -3694,17 +4226,32 @@ export class ListConsumerGroupsResponse extends $tea.Model {
 
 export class ListInstanceAccountRequest extends $tea.Model {
   /**
+   * @remarks
+   * The status of the account.
+   * 
+   * Valid values:
+   * 
+   * *   DISABLE
+   * *   ENABLE
+   * 
    * @example
    * ENABLE
    */
   accountStatus?: string;
   /**
+   * @remarks
+   * The account type.
+   *   - CUSTOMER
+   *   - DEFAULT
+   * 
    * @example
    * CUSTOMER
    */
   accountType?: string;
   /**
    * @remarks
+   * The page number. Default value: 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3713,6 +4260,8 @@ export class ListInstanceAccountRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3720,6 +4269,9 @@ export class ListInstanceAccountRequest extends $tea.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The username of the account.
+   * 
    * @example
    * test
    */
@@ -3751,42 +4303,70 @@ export class ListInstanceAccountRequest extends $tea.Model {
 
 export class ListInstanceAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListInstanceAccountResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * C115601B-8736-5BBF-AC99-7FEAE1245A80
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -3851,12 +4431,17 @@ export class ListInstanceAccountResponse extends $tea.Model {
 
 export class ListInstanceAclRequest extends $tea.Model {
   /**
+   * @remarks
+   * The condition that you specify to filter the ACLs. If you do not specify this parameter, all ACLs are queried.
+   * 
    * @example
    * CID-TEST
    */
   filter?: string;
   /**
    * @remarks
+   * The page number. Pages start from page 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3865,6 +4450,8 @@ export class ListInstanceAclRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -3894,42 +4481,70 @@ export class ListInstanceAclRequest extends $tea.Model {
 
 export class ListInstanceAclResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned data.
+   */
   data?: ListInstanceAclResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DA4D2F89-E2C8-5F04-936B-60D55B055FA7
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -3994,12 +4609,17 @@ export class ListInstanceAclResponse extends $tea.Model {
 
 export class ListInstanceIpWhitelistRequest extends $tea.Model {
   /**
+   * @remarks
+   * IP whitelist.
+   * 
    * @example
    * 0.0.0.0/0
    */
   ipWhitelist?: string;
   /**
    * @remarks
+   * The page number. Default value: 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4008,6 +4628,8 @@ export class ListInstanceIpWhitelistRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries to return on each page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4037,42 +4659,70 @@ export class ListInstanceIpWhitelistRequest extends $tea.Model {
 
 export class ListInstanceIpWhitelistResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListInstanceIpWhitelistResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * 7358418D-83BD-507A-8079-611C63E05674
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -4189,6 +4839,14 @@ export class ListInstancesRequest extends $tea.Model {
   seriesCodes?: string[];
   /**
    * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxxxx
+   */
+  storageSecretKey?: string;
+  /**
+   * @remarks
    * The tags that are used to filter instances.
    * 
    * @example
@@ -4202,6 +4860,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
       seriesCodes: 'seriesCodes',
+      storageSecretKey: 'storageSecretKey',
       tags: 'tags',
     };
   }
@@ -4213,6 +4872,7 @@ export class ListInstancesRequest extends $tea.Model {
       pageSize: 'number',
       resourceGroupId: 'string',
       seriesCodes: { 'type': 'array', 'itemType': 'string' },
+      storageSecretKey: 'string',
       tags: 'string',
     };
   }
@@ -4276,6 +4936,14 @@ export class ListInstancesShrinkRequest extends $tea.Model {
   seriesCodesShrink?: string;
   /**
    * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxxxx
+   */
+  storageSecretKey?: string;
+  /**
+   * @remarks
    * The tags that are used to filter instances.
    * 
    * @example
@@ -4289,6 +4957,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       pageSize: 'pageSize',
       resourceGroupId: 'resourceGroupId',
       seriesCodesShrink: 'seriesCodes',
+      storageSecretKey: 'storageSecretKey',
       tags: 'tags',
     };
   }
@@ -4300,6 +4969,7 @@ export class ListInstancesShrinkRequest extends $tea.Model {
       pageSize: 'number',
       resourceGroupId: 'string',
       seriesCodesShrink: 'string',
+      storageSecretKey: 'string',
       tags: 'string',
     };
   }
@@ -4320,7 +4990,7 @@ export class ListInstancesResponseBody extends $tea.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The data returned.
    */
   data?: ListInstancesResponseBodyData;
   /**
@@ -4428,20 +5098,63 @@ export class ListInstancesResponse extends $tea.Model {
 }
 
 export class ListMessagesRequest extends $tea.Model {
+  /**
+   * @remarks
+   * The end of the time range to query.
+   * 
+   * @example
+   * 2024-09-09 09:00:00
+   */
   endTime?: string;
   /**
+   * @remarks
+   * Message Id.
+   * 
    * @example
    * 7F00000100207A4F0F294A938F7807AE
    */
   messageId?: string;
   /**
+   * @remarks
+   * Message key.
+   * 
    * @example
    * XSCBillResult
    */
   messageKey?: string;
+  /**
+   * @remarks
+   * The page number. Pages start from page 1.
+   * 
+   * @example
+   * 1
+   */
   pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries per page.
+   * 
+   * @example
+   * 10
+   */
   pageSize?: number;
+  /**
+   * @remarks
+   * The scroll ID of the request.
+   * 
+   * You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
+   * 
+   * @example
+   * B13D0B07-F24B-4790-88D8-D47A38063D00
+   */
   scrollId?: string;
+  /**
+   * @remarks
+   * The beginning of the time range to query.
+   * 
+   * @example
+   * 2024-09-09 08:00:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -4474,37 +5187,62 @@ export class ListMessagesRequest extends $tea.Model {
 
 export class ListMessagesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
+  /**
+   * @remarks
+   * The data returned.
+   */
   data?: ListMessagesResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * A3531B6A-5A88-52BD-B3C4-A024C3D0AA2E
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -4685,26 +5423,43 @@ export class ListRegionsResponse extends $tea.Model {
 
 export class ListTagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * The position from which the next query starts.
+   * 
    * @example
    * d09e2b63e1b12d905b7080ff70
    */
   nextToken?: string;
   /**
    * @remarks
+   * Region ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Resource group ID.
+   * 
+   * @example
+   * rg-acfmx7caj******
+   */
   resourceGroupId?: string;
   /**
+   * @remarks
+   * List of resource IDs, in JSON format.
+   * 
    * @example
-   * rmq-cn-lbj34bb2r0i
+   * ["rmq-cn-pe334n08h08"]
    */
   resourceId?: string;
   /**
    * @remarks
+   * Resource type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -4712,6 +5467,9 @@ export class ListTagResourcesRequest extends $tea.Model {
    */
   resourceType?: string;
   /**
+   * @remarks
+   * List of tags, in JSON format.
+   * 
    * @example
    * [{"key": "rmq-test", "value": "test"}]
    */
@@ -4745,37 +5503,62 @@ export class ListTagResourcesRequest extends $tea.Model {
 
 export class ListTagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * Return result
+   */
   data?: ListTagResourcesResponseBodyData;
   /**
+   * @remarks
+   * Dynamic error code
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * Dynamic error message
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * HTTP status code
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * The topic already exists.
    */
   message?: string;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * F00C6A70-C782-5DD6-9D11-0CFC710100C7
    */
   requestId?: string;
   /**
+   * @remarks
+   * Whether the operation was successful
+   * 
    * @example
    * true
    */
@@ -5181,6 +5964,8 @@ export class ListTopicsResponse extends $tea.Model {
 export class ListTracesRequest extends $tea.Model {
   /**
    * @remarks
+   * The end of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5188,17 +5973,29 @@ export class ListTracesRequest extends $tea.Model {
    */
   endTime?: string;
   /**
+   * @remarks
+   * The message ID.
+   * 
+   * This parameter is required if you set queryType to MESSAGE_ID.
+   * 
    * @example
    * 0100163E0EC1F1965C04C7906700000000
    */
   messageId?: string;
   /**
+   * @remarks
+   * The message key.
+   * 
+   * This parameter is required if you set queryType to MESSAGE_ID.
+   * 
    * @example
    * order_ceating
    */
   messageKey?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5207,6 +6004,8 @@ export class ListTracesRequest extends $tea.Model {
   pageNumber?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5215,6 +6014,14 @@ export class ListTracesRequest extends $tea.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The query type.
+   * 
+   * Valid values:
+   * 
+   * *   MESSAGE_ID
+   * *   MESSAGE_KEY
+   * *   TOPIC
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5223,6 +6030,8 @@ export class ListTracesRequest extends $tea.Model {
   queryType?: string;
   /**
    * @remarks
+   * The beginning of the time range to query.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5260,27 +6069,46 @@ export class ListTracesRequest extends $tea.Model {
 
 export class ListTracesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: ListTracesResponseBodyData;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * InstanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
@@ -5294,6 +6122,9 @@ export class ListTracesResponseBody extends $tea.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -5504,6 +6335,8 @@ export class ResetConsumeOffsetResponse extends $tea.Model {
 export class TagResourcesRequest extends $tea.Model {
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5512,6 +6345,8 @@ export class TagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource IDs, in the JSON format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5520,6 +6355,10 @@ export class TagResourcesRequest extends $tea.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The type of resource.
+   * 
+   * Set this parameter to **instance**. The value of this parameter cannot be changed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5528,6 +6367,8 @@ export class TagResourcesRequest extends $tea.Model {
   resourceType?: string;
   /**
    * @remarks
+   * tag, in JSON format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5559,41 +6400,65 @@ export class TagResourcesRequest extends $tea.Model {
 
 export class TagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 0B962390-D84B-5D44-8C11-79DF40299D41
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -5656,12 +6521,17 @@ export class TagResourcesResponse extends $tea.Model {
 
 export class UntagResourcesRequest extends $tea.Model {
   /**
+   * @remarks
+   * Whether to delete all tags.
+   * 
    * @example
    * true
    */
   all?: boolean;
   /**
    * @remarks
+   * The region ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5670,6 +6540,8 @@ export class UntagResourcesRequest extends $tea.Model {
   regionId?: string;
   /**
    * @remarks
+   * The resource IDs, in the JSON format.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5678,6 +6550,10 @@ export class UntagResourcesRequest extends $tea.Model {
   resourceId?: string;
   /**
    * @remarks
+   * The type of resource.
+   * 
+   * Set this parameter to **instance**. The value of this parameter cannot be changed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -5685,6 +6561,9 @@ export class UntagResourcesRequest extends $tea.Model {
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The keys of tags.
+   * 
    * @example
    * ["key1", "key2"]
    */
@@ -5716,41 +6595,65 @@ export class UntagResourcesRequest extends $tea.Model {
 
 export class UntagResourcesResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter deliveryOrderType is invalid.
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * A07B41BD-6DD3-5349-9E76-00303DF04BBE
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful.
+   * 
    * @example
    * true
    */
@@ -5834,6 +6737,7 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
    * Concurrently
    */
   deliveryOrderType?: string;
+  maxReceiveTps?: number;
   /**
    * @remarks
    * The new remarks on the consumer group.
@@ -5846,6 +6750,7 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
     return {
       consumeRetryPolicy: 'consumeRetryPolicy',
       deliveryOrderType: 'deliveryOrderType',
+      maxReceiveTps: 'maxReceiveTps',
       remark: 'remark',
     };
   }
@@ -5854,6 +6759,7 @@ export class UpdateConsumerGroupRequest extends $tea.Model {
     return {
       consumeRetryPolicy: UpdateConsumerGroupRequestConsumeRetryPolicy,
       deliveryOrderType: 'string',
+      maxReceiveTps: 'number',
       remark: 'string',
     };
   }
@@ -6164,11 +7070,22 @@ export class UpdateInstanceResponse extends $tea.Model {
 
 export class UpdateInstanceAccountRequest extends $tea.Model {
   /**
+   * @remarks
+   * The status of the account.
+   * 
+   * Valid values:
+   * 
+   * *   DISABLE
+   * *   ENABLE
+   * 
    * @example
    * ENABLE
    */
   accountStatus?: string;
   /**
+   * @remarks
+   * The password of the account.
+   * 
    * @example
    * test
    */
@@ -6194,46 +7111,73 @@ export class UpdateInstanceAccountRequest extends $tea.Model {
 
 export class UpdateInstanceAccountResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Instance.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The returned result.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+   * 
    * @example
    * AF9A8B10-C426-530F-A0DD-96320B39****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * 
    * @example
    * true
    */
@@ -6298,18 +7242,44 @@ export class UpdateInstanceAccountResponse extends $tea.Model {
 
 export class UpdateInstanceAclRequest extends $tea.Model {
   /**
+   * @remarks
+   * The following items describe the types of permissions that can be granted based on the resource type:
+   * 
+   * *   Topic: Pub, Sub, and Pub|Sub
+   * *   Consumer group: Sub
+   * 
+   * Valid values:
+   * 
+   * *   SUB: subscribe
+   * *   Pub|Sub: publish and subscribe
+   * *   Pub: publish
+   * 
    * @example
    * Pub
    */
   actions?: string;
   /**
+   * @remarks
+   * The decision result of the authorization.
+   * 
+   * Valid values:
+   * 
+   * *   Deny
+   * *   Allow
+   * 
    * @example
    * Allow
    */
   decision?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhitelists?: string[];
   /**
    * @remarks
+   * The name of the resource on which you want to grant permissions.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6318,6 +7288,13 @@ export class UpdateInstanceAclRequest extends $tea.Model {
   resourceName?: string;
   /**
    * @remarks
+   * The type of the resource on which you want to grant permissions.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6351,46 +7328,73 @@ export class UpdateInstanceAclRequest extends $tea.Model {
 
 export class UpdateInstanceAclResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+   * 
    * @example
    * xxx
    */
   accessDeniedDetail?: string;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * MissingInstanceId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * C115601B-8736-5BBF-AC99-7FEAE1245A80
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -6454,6 +7458,7 @@ export class UpdateInstanceAclResponse extends $tea.Model {
 }
 
 export class UpdateTopicRequest extends $tea.Model {
+  maxSendTps?: number;
   /**
    * @remarks
    * The new remarks on the topic.
@@ -6464,12 +7469,14 @@ export class UpdateTopicRequest extends $tea.Model {
   remark?: string;
   static names(): { [key: string]: string } {
     return {
+      maxSendTps: 'maxSendTps',
       remark: 'remark',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
+      maxSendTps: 'number',
       remark: 'string',
     };
   }
@@ -6603,6 +7610,8 @@ export class UpdateTopicResponse extends $tea.Model {
 export class VerifyConsumeMessageRequest extends $tea.Model {
   /**
    * @remarks
+   * The client ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6611,6 +7620,8 @@ export class VerifyConsumeMessageRequest extends $tea.Model {
   clientId?: string;
   /**
    * @remarks
+   * The ID of the consumer group.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -6638,41 +7649,65 @@ export class VerifyConsumeMessageRequest extends $tea.Model {
 
 export class VerifyConsumeMessageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Topic.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * InstanceId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * instanceId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter instanceId is mandatory for this action .
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 5304143F-AB0E-5AB4-A227-7C5489216FD5
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -6735,16 +7770,25 @@ export class VerifyConsumeMessageResponse extends $tea.Model {
 
 export class VerifySendMessageRequest extends $tea.Model {
   /**
+   * @remarks
+   * The message body.
+   * 
    * @example
    * successful
    */
   message?: string;
   /**
+   * @remarks
+   * The message key.
+   * 
    * @example
    * xx
    */
   messageKey?: string;
   /**
+   * @remarks
+   * The message tag.
+   * 
    * @example
    * xx
    */
@@ -6772,41 +7816,65 @@ export class VerifySendMessageRequest extends $tea.Model {
 
 export class VerifySendMessageResponseBody extends $tea.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidConsumerGroupId
    */
   code?: string;
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * 0A64228900207A4F0F2931A4E0D40BE5
    */
   data?: string;
   /**
+   * @remarks
+   * The dynamic error code.
+   * 
    * @example
    * ConsumerGroupId
    */
   dynamicCode?: string;
   /**
+   * @remarks
+   * The dynamic error message.
+   * 
    * @example
    * consumerGroupId
    */
   dynamicMessage?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The instance cannot be found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 3BD2C19B-66DE-59C7-B2F6-FD1BE21DC8C1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful.
+   * 
    * @example
    * true
    */
@@ -6859,6 +7927,48 @@ export class VerifySendMessageResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: VerifySendMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class AddDisasterRecoveryItemRequestTopics extends $tea.Model {
+  consumerGroupId?: string;
+  instanceId?: string;
+  /**
+   * @example
+   * ALIYUN_ROCKETMQ
+   */
+  instanceType?: string;
+  /**
+   * @remarks
+   * regionId
+   * 
+   * @example
+   * cn-hangzhou
+   */
+  regionId?: string;
+  topicName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      consumerGroupId: 'consumerGroupId',
+      instanceId: 'instanceId',
+      instanceType: 'instanceType',
+      regionId: 'regionId',
+      topicName: 'topicName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      consumerGroupId: 'string',
+      instanceId: 'string',
+      instanceType: 'string',
+      regionId: 'string',
+      topicName: 'string',
     };
   }
 
@@ -6941,9 +8051,9 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   payByBandwidth: pay-by-bandwidth. If Internet access is enabled for an instance, specify this value for the parameter.
-   * *   payByTraffic: pay-by-traffic. If Internet access is enabled for an instance, specify this value for the parameter.
-   * *   uninvolved: No billing method is involved. If Internet access is disabled for an instance, specify this value for the parameter.
+   * *   payByBandwidth: pay-by-bandwidth. This value is valid only if you enable Internet access.
+   * *   payByTraffic: pay-by-traffic. This value is valid only if you enable Internet access.
+   * *   uninvolved: No billing method is involved. This value is valid only if you disable Internet access.
    * 
    * This parameter is required.
    * 
@@ -6960,7 +8070,7 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
    * *   enable
    * *   disable
    * 
-   * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fee](https://help.aliyun.com/document_detail/427240.html).
+   * By default, ApsaraMQ for RocketMQ allows you to access instances in VPCs. If you enable Internet access for an instance, you can access the instance over the Internet. After you enable this feature, you are charged for outbound Internet traffic. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
    * 
    * This parameter is required.
    * 
@@ -6970,10 +8080,12 @@ export class CreateInstanceRequestNetworkInfoInternetInfo extends $tea.Model {
   internetSpec?: string;
   /**
    * @remarks
-   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use a public endpoint to access the instance.
+   * The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
    * 
    * *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-   * *   If configure an IP address whitlist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+   * 
+   * @deprecated
    */
   ipWhitelist?: string[];
   static names(): { [key: string]: string } {
@@ -7036,9 +8148,11 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
   securityGroupIds?: string;
   /**
    * @remarks
-   * The ID of the vSwitch with which you want to associate the instance, If there are multiple vSwitchs, please concatenate them using the "|" character.
+   * The ID of the vSwitch with which the instance is associated. If you want to specify multiple vSwitches, separate the vSwitches with vertical bars (|).
    * 
-   * >  After an ApsaraMQ for RocketMQ instance is created, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * 
+   * >  We recommend that you configure vSwitches instead of this parameter.
    * 
    * @example
    * vsw-uf6gwtbn6etadpv*******
@@ -7049,13 +8163,17 @@ export class CreateInstanceRequestNetworkInfoVpcInfo extends $tea.Model {
   /**
    * @remarks
    * The vSwitches.
+   * 
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+   * 
+   * >  This parameter is required. We recommend that you configure this parameter instead of vSwitchId.
    */
   vSwitches?: CreateInstanceRequestNetworkInfoVpcInfoVSwitches[];
   /**
    * @remarks
-   * The ID of the VPC in which you want to deploy the instance.
+   * The ID of the VPC with which the instance to be created is associated.
    * 
-   * >  After an ApsaraMQ for RocketMQ instance is created, you cannot change the VPC in which the instance is deployed. If you want to change the VPC in which the instance is deployed, you must release the instance and create a new instance.
+   * >  After you create an ApsaraMQ for RocketMQ instance, you cannot change the VPC with which the instance is associated. If you want to change the VPC with which the instance is associated, you must release the instance and create a new instance.
    * 
    * This parameter is required.
    * 
@@ -7127,10 +8245,10 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   true: enable
-   * *   false: disable
+   * *   true
+   * *   false
    * 
-   * After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific number of TPS that exceeds the specification limit. You are charged for using the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
+   * After you enable the elastic TPS feature for an ApsaraMQ for RocketMQ instance, you can use a specific amount of TPS that exceeds the specification limit. You are charged for the elastic TPS feature. For more information, see [Computing fees](https://help.aliyun.com/document_detail/427237.html).
    * 
    * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
    * 
@@ -7173,7 +8291,7 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
   messageRetentionTime?: number;
   /**
    * @remarks
-   * The computing specification that specifies the messaging transactions per second (TPS) of the instance. For information about computing specification limits, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+   * The computing specification that specifies the messaging transactions per second (TPS) of the instance. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
    * 
    * This parameter is required.
    * 
@@ -7183,9 +8301,9 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
   msgProcessSpec?: string;
   /**
    * @remarks
-   * The proportion of message sending TPS to the messaging TPS on the instance.
+   * The ratio of the message sending TPS to the messaging TPS of the instance.
    * 
-   * For example, you create an instance whose peak messaging TPS is specified as 1,000 and the proportion of message sending TPS is specified as 0.8. In this case, the peak message sending TPS is 800 and the peak message receiving TPS is 200 on the instance.
+   * For example, if the maximum messaging TPS of an instance is 1,000 and the ratio of the message sending TPS to the messaging TPS of the instance is 0.8, the maximum message sending TPS of the instance is 800 and the maximum message receiving TPS is 200.
    * 
    * Valid values: 0 to 1. Default value: 0.5.
    * 
@@ -7193,6 +8311,22 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
    * 0.5
    */
   sendReceiveRatio?: number;
+  /**
+   * @remarks
+   * Indicates whether storage encryption is enabled.
+   * 
+   * @example
+   * false
+   */
+  storageEncryption?: boolean;
+  /**
+   * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxx
+   */
+  storageSecretKey?: string;
   static names(): { [key: string]: string } {
     return {
       autoScaling: 'autoScaling',
@@ -7201,6 +8335,8 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       sendReceiveRatio: 'sendReceiveRatio',
+      storageEncryption: 'storageEncryption',
+      storageSecretKey: 'storageSecretKey',
     };
   }
 
@@ -7212,6 +8348,8 @@ export class CreateInstanceRequestProductInfo extends $tea.Model {
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       sendReceiveRatio: 'number',
+      storageEncryption: 'boolean',
+      storageSecretKey: 'string',
     };
   }
 
@@ -7459,16 +8597,26 @@ export class GetConsumerGroupResponseBodyData extends $tea.Model {
 
 export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
   /**
+   * @remarks
+   * Delivery delay time, in seconds
+   * 
    * @example
    * 12
    */
   deliveryDuration?: number;
   /**
+   * @remarks
+   * The number of messages being consumed.
+   * 
    * @example
    * 1
    */
   inflightCount?: number;
+  lastConsumeTimestamp?: number;
   /**
+   * @remarks
+   * Ready message count
+   * 
    * @example
    * 1
    */
@@ -7477,6 +8625,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
     return {
       deliveryDuration: 'deliveryDuration',
       inflightCount: 'inflightCount',
+      lastConsumeTimestamp: 'lastConsumeTimestamp',
       readyCount: 'readyCount',
     };
   }
@@ -7485,6 +8634,7 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
     return {
       deliveryDuration: 'number',
       inflightCount: 'number',
+      lastConsumeTimestamp: 'number',
       readyCount: 'number',
     };
   }
@@ -7496,53 +8646,56 @@ export class GetConsumerGroupLagResponseBodyDataTotalLag extends $tea.Model {
 
 export class GetConsumerGroupLagResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * Consumer Group ID
+   * 
    * @example
    * CID-TEST
    */
   consumerGroupId?: string;
   /**
-   * @example
-   * 2022-08-01 20:05:50
-   */
-  createTime?: string;
-  /**
+   * @remarks
+   * Instance ID
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Region ID
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
-  topicLagMap?: { [key: string]: DataTopicLagMapValue };
-  totalLag?: GetConsumerGroupLagResponseBodyDataTotalLag;
   /**
-   * @example
-   * 2022-08-01 20:05:50
+   * @remarks
+   * Backlog for each topic
    */
-  updateTime?: string;
+  topicLagMap?: { [key: string]: DataTopicLagMapValue };
+  /**
+   * @remarks
+   * Total lag count
+   */
+  totalLag?: GetConsumerGroupLagResponseBodyDataTotalLag;
   static names(): { [key: string]: string } {
     return {
       consumerGroupId: 'consumerGroupId',
-      createTime: 'createTime',
       instanceId: 'instanceId',
       regionId: 'regionId',
       topicLagMap: 'topicLagMap',
       totalLag: 'totalLag',
-      updateTime: 'updateTime',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       consumerGroupId: 'string',
-      createTime: 'string',
       instanceId: 'string',
       regionId: 'string',
       topicLagMap: { 'type': 'map', 'keyType': 'string', 'valueType': DataTopicLagMapValue },
       totalLag: GetConsumerGroupLagResponseBodyDataTotalLag,
-      updateTime: 'string',
     };
   }
 
@@ -7553,31 +8706,52 @@ export class GetConsumerGroupLagResponseBodyData extends $tea.Model {
 
 export class GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO extends $tea.Model {
   /**
+   * @remarks
+   * The client ID.
+   * 
    * @example
    * 192.168.50.191@19908#-2093249153#1534215565#40385215750900
    */
   clientId?: string;
   /**
+   * @remarks
+   * The public IP address of the host.
+   * 
    * @example
    * xx.xx.xx.xx
    */
   egressIp?: string;
   /**
+   * @remarks
+   * The host name.
+   * 
    * @example
    * nginx
    */
   hostname?: string;
   /**
+   * @remarks
+   * The language used by the client.
+   * 
    * @example
    * zh
    */
   language?: string;
   /**
+   * @remarks
+   * The consumption mode of the consumer group. Valid values:
+   * 
+   * *   BROADCASTING: broadcasting consumption
+   * *   CLUSTERING: clustering consumption
+   * 
    * @example
    * BROADCASTING
    */
   messageModel?: string;
   /**
+   * @remarks
+   * The client version.
+   * 
    * @example
    * 1.0.0
    */
@@ -7611,31 +8785,58 @@ export class GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO extends $
 
 export class GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO extends $tea.Model {
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * GID_inspector_group
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The filter expression.
+   * 
    * @example
    * *
    */
   filterExpression?: string;
   /**
+   * @remarks
+   * The type of the filter expression. Valid values:
+   * 
+   * *   SQL: filters messages by using SQL expressions.
+   * *   TAG: filters messages by using tags.
+   * 
    * @example
    * UNSPECIFIED
    */
   filterExpressionType?: string;
   /**
+   * @remarks
+   * The consumption mode of the consumer group. Valid values:
+   * 
+   * *   BROADCASTING: broadcasting consumption
+   * *   CLUSTERING: clustering consumption
+   * 
    * @example
    * BROADCASTING
    */
   messageModel?: string;
   /**
+   * @remarks
+   * The subscription status. Valid values:
+   * 
+   * *   ONLINE: The consumer group is online. If the consumer group contains multiple consumers, this value is returned if at least one of the consumers is online.
+   * *   OFFLINE: The consumer group is offline. If the consumer group contains multiple consumers, this value is returned only if all consumers are offline.
+   * 
    * @example
    * ONLINE
    */
   subscriptionStatus?: string;
   /**
+   * @remarks
+   * The topic to which the consumer group subscribes.
+   * 
    * @example
    * Topic_normal_inspector
    */
@@ -7668,7 +8869,15 @@ export class GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO extends
 }
 
 export class GetConsumerGroupSubscriptionResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The connection details.
+   */
   connectionDTO?: GetConsumerGroupSubscriptionResponseBodyDataConnectionDTO;
+  /**
+   * @remarks
+   * The subscription details.
+   */
   subscriptionDTO?: GetConsumerGroupSubscriptionResponseBodyDataSubscriptionDTO;
   static names(): { [key: string]: string } {
     return {
@@ -7691,10 +8900,17 @@ export class GetConsumerGroupSubscriptionResponseBodyData extends $tea.Model {
 
 export class GetConsumerStackResponseBodyDataStacks extends $tea.Model {
   /**
+   * @remarks
+   * Thread id.
+   * 
    * @example
    * 123
    */
   thread?: string;
+  /**
+   * @remarks
+   * Stack Information.
+   */
   tracks?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -7717,20 +8933,33 @@ export class GetConsumerStackResponseBodyDataStacks extends $tea.Model {
 
 export class GetConsumerStackResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The ID of the consumer group.
+   * 
    * @example
    * CID-TEST
    */
   consumerGroupId?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Stack Information.
+   */
   stacks?: GetConsumerStackResponseBodyDataStacks[];
   static names(): { [key: string]: string } {
     return {
@@ -7855,7 +9084,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $tea.Model {
    * @remarks
    * The authentication type of the instance.
    * 
-   * Valid values:
+   * Valid value:
    * 
    * *   default: intelligent authentication
    * 
@@ -7888,7 +9117,7 @@ export class GetInstanceResponseBodyDataExtConfig extends $tea.Model {
   flowOutBandwidth?: number;
   /**
    * @remarks
-   * The metering method for Internet usage.
+   * The metering method of Internet usage.
    * 
    * Valid values:
    * 
@@ -7902,14 +9131,14 @@ export class GetInstanceResponseBodyDataExtConfig extends $tea.Model {
   flowOutType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Internet access feature.
+   * Indicates whether Internet access is enabled.
    * 
    * Valid values:
    * 
    * *   enable
    * *   disable
    * 
-   * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](https://help.aliyun.com/document_detail/427240.html).
+   * By default, you can access ApsaraMQ for RocketMQ instances in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
    * 
    * @example
    * enable
@@ -8060,8 +9289,8 @@ export class GetInstanceResponseBodyDataNetworkInfoEndpoints extends $tea.Model 
    * 
    * Valid values:
    * 
-   * - TCP_VPC: VPC endpoint
-   * - TCP_INTERNET:public endpoint
+   * *   TCP_VPC: VPC endpoint
+   * *   TCP_INTERNET: public endpoint
    * 
    * @example
    * TCP_INTERNET
@@ -8271,7 +9500,7 @@ export class GetInstanceResponseBodyDataNetworkInfoVpcInfo extends $tea.Model {
 export class GetInstanceResponseBodyDataNetworkInfo extends $tea.Model {
   /**
    * @remarks
-   * The information about endpoints.
+   * The endpoints.
    */
   endpoints?: GetInstanceResponseBodyDataNetworkInfoEndpoints[];
   /**
@@ -8351,6 +9580,22 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
   sendReceiveRatio?: number;
   /**
    * @remarks
+   * Indicates whether storage encryption is enabled.
+   * 
+   * @example
+   * false
+   */
+  storageEncryption?: boolean;
+  /**
+   * @remarks
+   * The storage encryption key.
+   * 
+   * @example
+   * xxxxx
+   */
+  storageSecretKey?: string;
+  /**
+   * @remarks
    * Specifies whether to enable the elastic TPS feature for the instance.
    * 
    * Valid values:
@@ -8385,6 +9630,8 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
       messageRetentionTime: 'messageRetentionTime',
       msgProcessSpec: 'msgProcessSpec',
       sendReceiveRatio: 'sendReceiveRatio',
+      storageEncryption: 'storageEncryption',
+      storageSecretKey: 'storageSecretKey',
       supportAutoScaling: 'supportAutoScaling',
       traceOn: 'traceOn',
     };
@@ -8396,6 +9643,8 @@ export class GetInstanceResponseBodyDataProductInfo extends $tea.Model {
       messageRetentionTime: 'number',
       msgProcessSpec: 'string',
       sendReceiveRatio: 'number',
+      storageEncryption: 'boolean',
+      storageSecretKey: 'string',
       supportAutoScaling: 'boolean',
       traceOn: 'boolean',
     };
@@ -8584,7 +9833,7 @@ export class GetInstanceResponseBodyData extends $tea.Model {
    * 
    * Valid values:
    * 
-   * *   PayAsYouGo: pay-as-you-go
+   * *   PayAsYouGo
    * *   Subscription
    * 
    * @example
@@ -8794,11 +10043,17 @@ export class GetInstanceResponseBodyData extends $tea.Model {
 
 export class GetInstanceAccountResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The password of the account.
+   * 
    * @example
    * *************
    */
   password?: string;
   /**
+   * @remarks
+   * The username of the account.
+   * 
    * @example
    * xxx
    */
@@ -8824,72 +10079,123 @@ export class GetInstanceAccountResponseBodyData extends $tea.Model {
 
 export class GetMessageDetailResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The message body.
+   * 
    * @example
    * {}
    */
   body?: string;
   /**
+   * @remarks
+   * The size of the message body.
+   * 
    * @example
    * 123
    */
   bodySize?: number;
   /**
+   * @remarks
+   * The client on which the message was produced.
+   * 
    * @example
    * xxx.xx.xxx.xx
    */
   bornHost?: string;
   /**
+   * @remarks
+   * The time when the message was generated.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   bornTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The sharding key. This parameter is returned only for ordered messages.
+   * 
    * @example
    * xx
    */
   messageGroup?: string;
   /**
+   * @remarks
+   * The message ID.
+   * 
    * @example
    * 01BE87E485F0C7808C04543CAF00000001
    */
   messageId?: string;
+  /**
+   * @remarks
+   * The message keys.
+   */
   messageKeys?: string[];
   /**
+   * @remarks
+   * The tags.
+   * 
    * @example
    * xx
    */
   messageTag?: string;
   /**
+   * @remarks
+   * The message type.
+   * 
    * @example
    * NORMAL
    */
   messageType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The broker on which the message was stored.
+   * 
    * @example
    * xxx.xx.xxx.xx
    */
   storeHost?: string;
   /**
+   * @remarks
+   * The time when the message was stored.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   storeTime?: string;
+  /**
+   * @remarks
+   * The default system attributes.
+   */
   systemProperties?: { [key: string]: string };
   /**
+   * @remarks
+   * The topic name.
+   * 
    * @example
    * topic_test
    */
   topicName?: string;
+  /**
+   * @remarks
+   * The user attributes.
+   */
   userProperties?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -8955,6 +10261,7 @@ export class GetTopicResponseBodyData extends $tea.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  maxSendTps?: number;
   /**
    * @remarks
    * The message type of the topic.
@@ -9019,6 +10326,7 @@ export class GetTopicResponseBodyData extends $tea.Model {
     return {
       createTime: 'createTime',
       instanceId: 'instanceId',
+      maxSendTps: 'maxSendTps',
       messageType: 'messageType',
       regionId: 'regionId',
       remark: 'remark',
@@ -9032,6 +10340,7 @@ export class GetTopicResponseBodyData extends $tea.Model {
     return {
       createTime: 'string',
       instanceId: 'string',
+      maxSendTps: 'number',
       messageType: 'string',
       regionId: 'string',
       remark: 'string',
@@ -9048,11 +10357,17 @@ export class GetTopicResponseBodyData extends $tea.Model {
 
 export class GetTraceResponseBodyDataBrokerInfoOperations extends $tea.Model {
   /**
+   * @remarks
+   * Operation time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   operateTime?: string;
   /**
+   * @remarks
+   * Operation type.
+   * 
    * @example
    * ADD
    */
@@ -9078,12 +10393,22 @@ export class GetTraceResponseBodyDataBrokerInfoOperations extends $tea.Model {
 
 export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
   /**
+   * @remarks
+   * Delay status.
+   * 
    * @example
    * SUCCESS
    */
   delayStatus?: string;
+  /**
+   * @remarks
+   * Operation list.
+   */
   operations?: GetTraceResponseBodyDataBrokerInfoOperations[];
   /**
+   * @remarks
+   * Preset delivery time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
@@ -9111,16 +10436,25 @@ export class GetTraceResponseBodyDataBrokerInfo extends $tea.Model {
 
 export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $tea.Model {
   /**
+   * @remarks
+   * MessageId.
+   * 
    * @example
    * 7F000001001F7A4F0F29463F0376047D
    */
   messageId?: string;
   /**
+   * @remarks
+   * Arrival time in the dead letter queue.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   toDlqTime?: string;
   /**
+   * @remarks
+   * The topic name.
+   * 
    * @example
    * Register_Sync
    */
@@ -9148,21 +10482,33 @@ export class GetTraceResponseBodyDataConsumerInfosDeadLetterInfo extends $tea.Mo
 
 export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $tea.Model {
   /**
+   * @remarks
+   * Whether it is a dead letter message.
+   * 
    * @example
    * true
    */
   deadMessage?: boolean;
   /**
+   * @remarks
+   * Invisible time, milliseconds.
+   * 
    * @example
    * 100
    */
   invisibleTime?: number;
   /**
+   * @remarks
+   * Operation time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   operateTime?: string;
   /**
+   * @remarks
+   * Operation type.
+   * 
    * @example
    * ADD
    */
@@ -9192,20 +10538,33 @@ export class GetTraceResponseBodyDataConsumerInfosRecordsOperations extends $tea
 
 export class GetTraceResponseBodyDataConsumerInfosRecords extends $tea.Model {
   /**
+   * @remarks
+   * Client host.
+   * 
    * @example
    * xx.xx.xx.xx
    */
   clientHost?: string;
   /**
+   * @remarks
+   * Consume status.
+   * 
    * @example
    * SUCCESS
    */
   consumeStatus?: string;
   /**
+   * @remarks
+   * Whether to consume fifo.
+   * 
    * @example
    * true
    */
   fifoEnable?: boolean;
+  /**
+   * @remarks
+   * Operation list.
+   */
   operations?: GetTraceResponseBodyDataConsumerInfosRecordsOperations[];
   /**
    * @remarks
@@ -9216,6 +10575,9 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $tea.Model {
    */
   popCk?: string;
   /**
+   * @remarks
+   * Consumer name.
+   * 
    * @example
    * test
    */
@@ -9249,21 +10611,38 @@ export class GetTraceResponseBodyDataConsumerInfosRecords extends $tea.Model {
 
 export class GetTraceResponseBodyDataConsumerInfos extends $tea.Model {
   /**
+   * @remarks
+   * Consume status.
+   * 
    * @example
    * SUCCESS
    */
   consumeStatus?: string;
   /**
+   * @remarks
+   * The consumer group ID.
+   * 
    * @example
    * GID_inspector_group
    */
   consumerGroupId?: string;
+  /**
+   * @remarks
+   * Dead letter info.
+   */
   deadLetterInfo?: GetTraceResponseBodyDataConsumerInfosDeadLetterInfo;
   /**
+   * @remarks
+   * Whether it is a dead letter message.
+   * 
    * @example
    * true
    */
   deadMessage?: boolean;
+  /**
+   * @remarks
+   * Consumer record list.
+   */
   records?: GetTraceResponseBodyDataConsumerInfosRecords[];
   static names(): { [key: string]: string } {
     return {
@@ -9292,76 +10671,118 @@ export class GetTraceResponseBodyDataConsumerInfos extends $tea.Model {
 
 export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
   /**
+   * @remarks
+   * Message body.
+   * 
    * @example
    * {}
    */
   body?: string;
   /**
+   * @remarks
+   * Message born host.
+   * 
    * @example
    * x.x.x.x
    */
   bornHost?: string;
   /**
+   * @remarks
+   * Message born time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   bornTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-u0t2ygjq505
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Message grpup.
+   * 
    * @example
    * xx
    */
   messageGroup?: string;
   /**
+   * @remarks
+   * The message ID.
+   * 
    * @example
    * 0A79275A00207A4F0F2916C92F9A0B94
    */
   messageId?: string;
+  /**
+   * @remarks
+   * Message keys.
+   */
   messageKeys?: string[];
   /**
+   * @remarks
+   * Message tag.
+   * 
    * @example
    * xx
    */
   messageTag?: string;
   /**
+   * @remarks
+   * Message type.
+   * 
    * @example
    * NORMAL
    */
   messageType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-beijing
    */
   regionId?: string;
   /**
-   * @example
-   * true
-   */
-  setted?: boolean;
-  /**
+   * @remarks
+   * Message store host.
+   * 
    * @example
    * x.x.x.x
    */
   storeHost?: string;
   /**
+   * @remarks
+   * Message store time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   storeTime?: string;
   /**
+   * @remarks
+   * The topic name.
+   * 
    * @example
    * Topic_normal_inspector
    */
   topicName?: string;
   /**
+   * @remarks
+   * Message transaction id.
+   * 
    * @example
    * xx
    */
   transactionId?: string;
+  /**
+   * @remarks
+   * Message user properties.
+   */
   userProperties?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -9375,7 +10796,6 @@ export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
       messageTag: 'messageTag',
       messageType: 'messageType',
       regionId: 'regionId',
-      setted: 'setted',
       storeHost: 'storeHost',
       storeTime: 'storeTime',
       topicName: 'topicName',
@@ -9396,7 +10816,6 @@ export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
       messageTag: 'string',
       messageType: 'string',
       regionId: 'string',
-      setted: 'boolean',
       storeHost: 'string',
       storeTime: 'string',
       topicName: 'string',
@@ -9412,46 +10831,73 @@ export class GetTraceResponseBodyDataMessageInfo extends $tea.Model {
 
 export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
   /**
+   * @remarks
+   * Arrive time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   arriveTime?: string;
   /**
+   * @remarks
+   * Client host.
+   * 
    * @example
    * xx.xx.xx.xx
    */
   clientHost?: string;
   /**
+   * @remarks
+   * Dead-letter queue message ID.
+   * 
    * @example
    * 0A79275A00207A4F0F2916C92F9A0B94
    */
   dlqOriginMessageId?: string;
   /**
+   * @remarks
+   * Dead-letter queue topic.
+   * 
    * @example
    * test_topic
    */
   dlqOriginTopic?: string;
   /**
+   * @remarks
+   * Message source.
+   * 
    * @example
    * CONSOLE
    */
   messageSource?: string;
   /**
+   * @remarks
+   * Producer duration.
+   * 
    * @example
    * 100
    */
   produceDuration?: number;
   /**
+   * @remarks
+   * Producer status.
+   * 
    * @example
    * SUCCESS
    */
   produceStatus?: string;
   /**
+   * @remarks
+   * Producer time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   produceTime?: string;
   /**
+   * @remarks
+   * Producer name.
+   * 
    * @example
    * xxx
    */
@@ -9490,6 +10936,10 @@ export class GetTraceResponseBodyDataProducerInfoRecords extends $tea.Model {
 }
 
 export class GetTraceResponseBodyDataProducerInfo extends $tea.Model {
+  /**
+   * @remarks
+   * Producer record list.
+   */
   records?: GetTraceResponseBodyDataProducerInfoRecords[];
   static names(): { [key: string]: string } {
     return {
@@ -9509,21 +10959,46 @@ export class GetTraceResponseBodyDataProducerInfo extends $tea.Model {
 }
 
 export class GetTraceResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Broker trace info.
+   */
   brokerInfo?: GetTraceResponseBodyDataBrokerInfo;
+  /**
+   * @remarks
+   * Consumer trace info.
+   */
   consumerInfos?: GetTraceResponseBodyDataConsumerInfos[];
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The message information.
+   */
   messageInfo?: GetTraceResponseBodyDataMessageInfo;
+  /**
+   * @remarks
+   * Producer trace info.
+   */
   producerInfo?: GetTraceResponseBodyDataProducerInfo;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The topic name.
+   * 
    * @example
    * topic_test
    */
@@ -9877,6 +11352,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  maxReceiveTps?: number;
   /**
    * @remarks
    * The ID of the region in which the instance resides.
@@ -9944,6 +11420,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
       consumerGroupId: 'consumerGroupId',
       createTime: 'createTime',
       instanceId: 'instanceId',
+      maxReceiveTps: 'maxReceiveTps',
       regionId: 'regionId',
       remark: 'remark',
       status: 'status',
@@ -9956,6 +11433,7 @@ export class ListConsumerGroupsResponseBodyDataList extends $tea.Model {
       consumerGroupId: 'string',
       createTime: 'string',
       instanceId: 'string',
+      maxReceiveTps: 'number',
       regionId: 'string',
       remark: 'string',
       status: 'string',
@@ -10023,26 +11501,46 @@ export class ListConsumerGroupsResponseBodyData extends $tea.Model {
 
 export class ListInstanceAccountResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * The status of the account.
+   * Valid values:
+   *   - DISABLE
+   *   - ENABLE
+   * 
    * @example
    * ENABLE
    */
   accountStatus?: string;
   /**
+   * @remarks
+   * The account type.
+   *   - CUSTOMER
+   *   - DEFAULT
+   * 
    * @example
    * CUSTOMER
    */
   accountType?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The username of the account.
+   * 
    * @example
    * test
    */
@@ -10073,18 +11571,31 @@ export class ListInstanceAccountResponseBodyDataList extends $tea.Model {
 }
 
 export class ListInstanceAccountResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   list?: ListInstanceAccountResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 24
    */
@@ -10114,38 +11625,81 @@ export class ListInstanceAccountResponseBodyData extends $tea.Model {
 
 export class ListInstanceAclResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * The ACL type.
+   * 
+   * Valid value:
+   * 
+   * *   APACHE: open source ACL.
+   * 
    * @example
    * APACHE
    */
   aclType?: string;
+  /**
+   * @remarks
+   * The types of the operations that are allowed by the ACL.
+   */
   actions?: string[];
   /**
+   * @remarks
+   * The decision result.
+   * 
+   * Valid values:
+   * 
+   * *   Deny: Access is denied.
+   * *   Allow: Access is allowed.
+   * 
    * @example
    * Allow
    */
   decision?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The IP address whitelists.
+   */
   ipWhitelists?: string[];
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The resource name.
+   * 
    * @example
    * test
    */
   resourceName?: string;
   /**
+   * @remarks
+   * The resource type.
+   * 
+   * Valid values:
+   * 
+   * *   Group
+   * *   Topic
+   * 
    * @example
    * Topic
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * test
    */
@@ -10184,18 +11738,31 @@ export class ListInstanceAclResponseBodyDataList extends $tea.Model {
 }
 
 export class ListInstanceAclResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   list?: ListInstanceAclResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of entries returned.
+   * 
    * @example
    * 24
    */
@@ -10224,18 +11791,31 @@ export class ListInstanceAclResponseBodyData extends $tea.Model {
 }
 
 export class ListInstanceIpWhitelistResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   list?: string[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 5
    */
@@ -10461,7 +12041,7 @@ export class ListInstancesResponseBodyDataList extends $tea.Model {
   startTime?: string;
   /**
    * @remarks
-   * The instance status.
+   * The status of the instance.
    * 
    * Valid values:
    * 
@@ -10629,71 +12209,118 @@ export class ListInstancesResponseBodyData extends $tea.Model {
 
 export class ListMessagesResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * Message body.
+   * 
    * @example
    * {}
    */
   body?: string;
   /**
+   * @remarks
+   * Message body size.
+   * 
    * @example
    * 100
    */
   bodySize?: number;
   /**
+   * @remarks
+   * The client on which messages are produced.
+   * 
    * @example
    * xx.xx.xx.xx
    */
   bornHost?: string;
   /**
+   * @remarks
+   * Message born time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   bornTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The message group. This parameter is returned only for ordered messages.
+   * 
    * @example
    * xx
    */
   messageGroup?: string;
   /**
+   * @remarks
+   * Message Id.
+   * 
    * @example
    * 7F000001000114B4340C5ABF94500079
    */
   messageId?: string;
+  /**
+   * @remarks
+   * Message keys.
+   */
   messageKeys?: string[];
   /**
+   * @remarks
+   * The message tag.
+   * 
    * @example
    * xx
    */
   messageTag?: string;
   /**
+   * @remarks
+   * Message type.
+   * 
    * @example
    * NORMAL
    */
   messageType?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The broker on which messages are stored.
+   * 
    * @example
    * xx.xx.xx.xx
    */
   storeHost?: string;
   /**
+   * @remarks
+   * Message store time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   storeTime?: string;
   /**
+   * @remarks
+   * The name of the topic.
+   * 
    * @example
    * topic_test
    */
   topicName?: string;
+  /**
+   * @remarks
+   * Message user properties.
+   */
   userProperties?: { [key: string]: string };
   static names(): { [key: string]: string } {
     return {
@@ -10741,19 +12368,41 @@ export class ListMessagesResponseBodyDataList extends $tea.Model {
 }
 
 export class ListMessagesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * The pagination information.
+   */
   list?: ListMessagesResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 50
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The scroll ID of the request.
+   * 
+   * The ID is automatically generated by the system. The result can be paginated only if this parameter is included in the pagination request.
+   * 
+   * @example
+   * B13D0B07-F24B-4790-88D8-D47A38063D00
+   */
   scrollId?: string;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 0
    */
@@ -10904,36 +12553,57 @@ export class ListRegionsResponseBodyData extends $tea.Model {
 
 export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
   /**
+   * @remarks
+   * UID of the resource owner.
+   * 
    * @example
    * 1876441048322426
    */
   aliUid?: number;
   /**
+   * @remarks
+   * Tag category.
+   * 
    * @example
    * custom
    */
   category?: string;
   /**
+   * @remarks
+   * Resource ID.
+   * 
    * @example
    * rmq-cn-pe334n08h08
    */
   resourceId?: string;
   /**
+   * @remarks
+   * Resource type.
+   * 
    * @example
    * instance
    */
   resourceType?: string;
   /**
+   * @remarks
+   * Visibility scope.
+   * 
    * @example
    * public
    */
   scope?: string;
   /**
+   * @remarks
+   * Tag key.
+   * 
    * @example
    * key
    */
   tagKey?: string;
   /**
+   * @remarks
+   * Tag value.
+   * 
    * @example
    * value
    */
@@ -10969,15 +12639,25 @@ export class ListTagResourcesResponseBodyDataTagResources extends $tea.Model {
 
 export class ListTagResourcesResponseBodyData extends $tea.Model {
   /**
+   * @remarks
+   * The position from which the next query starts.
+   * 
    * @example
    * d09e2b63e1b12d905b7080ff70
    */
   nextToken?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * F00C6A70-C782-5DD6-9D11-0CFC710100C7
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Resource tag relationships.
+   */
   tagResources?: ListTagResourcesResponseBodyDataTagResources[];
   static names(): { [key: string]: string } {
     return {
@@ -11106,6 +12786,7 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
+  maxSendTps?: number;
   /**
    * @remarks
    * The message type of the topic.
@@ -11238,6 +12919,7 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
     return {
       createTime: 'createTime',
       instanceId: 'instanceId',
+      maxSendTps: 'maxSendTps',
       messageType: 'messageType',
       regionId: 'regionId',
       remark: 'remark',
@@ -11251,6 +12933,7 @@ export class ListTopicsResponseBodyDataList extends $tea.Model {
     return {
       createTime: 'string',
       instanceId: 'string',
+      maxSendTps: 'number',
       messageType: 'string',
       regionId: 'string',
       remark: 'string',
@@ -11320,32 +13003,54 @@ export class ListTopicsResponseBodyData extends $tea.Model {
 
 export class ListTracesResponseBodyDataList extends $tea.Model {
   /**
+   * @remarks
+   * Message born time.
+   * 
    * @example
    * 2023-03-22 12:17:08
    */
   bornTime?: string;
   /**
+   * @remarks
+   * The instance ID.
+   * 
    * @example
    * rmq-cn-7e22ody****
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Message id.
+   * 
    * @example
    * 7F00000100207A4F0F294A938F7807AE
    */
   messageId?: string;
+  /**
+   * @remarks
+   * Message keys.
+   */
   messageKeys?: string[];
   /**
+   * @remarks
+   * Message tag.
+   * 
    * @example
    * xx
    */
   messageTag?: string;
   /**
+   * @remarks
+   * The region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The name of the topic.
+   * 
    * @example
    * topic_test
    */
@@ -11380,18 +13085,31 @@ export class ListTracesResponseBodyDataList extends $tea.Model {
 }
 
 export class ListTracesResponseBodyData extends $tea.Model {
+  /**
+   * @remarks
+   * Trace list.
+   */
   list?: ListTracesResponseBodyDataList[];
   /**
+   * @remarks
+   * The page number of the returned page.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The total number of returned entries.
+   * 
    * @example
    * 1
    */
@@ -11660,6 +13378,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 添加容灾计划条目
+   * 
+   * @param request - AddDisasterRecoveryItemRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddDisasterRecoveryItemResponse
+   */
+  async addDisasterRecoveryItemWithOptions(planId: string, request: AddDisasterRecoveryItemRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<AddDisasterRecoveryItemResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.topics)) {
+      body["topics"] = request.topics;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "AddDisasterRecoveryItem",
+      version: "2022-08-01",
+      protocol: "HTTPS",
+      pathname: `/disaster_recovery/${OpenApiUtil.getEncodeParam(planId)}/items`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<AddDisasterRecoveryItemResponse>(await this.callApi(params, req, runtime), new AddDisasterRecoveryItemResponse({}));
+  }
+
+  /**
+   * 添加容灾计划条目
+   * 
+   * @param request - AddDisasterRecoveryItemRequest
+   * @returns AddDisasterRecoveryItemResponse
+   */
+  async addDisasterRecoveryItem(planId: string, request: AddDisasterRecoveryItemRequest): Promise<AddDisasterRecoveryItemResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.addDisasterRecoveryItemWithOptions(planId, request, headers, runtime);
+  }
+
+  /**
    * Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
    * 
    * @param request - ChangeResourceGroupRequest
@@ -11736,6 +13499,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryOrderType)) {
       body["deliveryOrderType"] = request.deliveryOrderType;
+    }
+
+    if (!Util.isUnset(request.maxReceiveTps)) {
+      body["maxReceiveTps"] = request.maxReceiveTps;
     }
 
     if (!Util.isUnset(request.remark)) {
@@ -11885,7 +13652,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制acl用户
+   * Creates an account that is used to access an instance.
    * 
    * @param request - CreateInstanceAccountRequest
    * @param headers - map
@@ -11922,7 +13689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制acl用户
+   * Creates an account that is used to access an instance.
    * 
    * @param request - CreateInstanceAccountRequest
    * @returns CreateInstanceAccountResponse
@@ -11934,7 +13701,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制acl数据
+   * Creates an access control list (ACL) in a specific instance.
    * 
    * @param request - CreateInstanceAclRequest
    * @param headers - map
@@ -11983,7 +13750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制acl数据
+   * Creates an access control list (ACL) in a specific instance.
    * 
    * @param request - CreateInstanceAclRequest
    * @returns CreateInstanceAclResponse
@@ -11995,7 +13762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制ip白名单
+   * Creates an IP address whitelist.
    * 
    * @param request - CreateInstanceIpWhitelistRequest
    * @param headers - map
@@ -12028,7 +13795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建访问控制ip白名单
+   * Creates an IP address whitelist.
    * 
    * @param request - CreateInstanceIpWhitelistRequest
    * @returns CreateInstanceIpWhitelistResponse
@@ -12050,6 +13817,10 @@ export default class Client extends OpenApi {
   async createTopicWithOptions(instanceId: string, topicName: string, request: CreateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<CreateTopicResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxSendTps)) {
+      body["maxSendTps"] = request.maxSendTps;
+    }
+
     if (!Util.isUnset(request.messageType)) {
       body["messageType"] = request.messageType;
     }
@@ -12132,7 +13903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消消费组订阅关系
+   * Deletes the subscriptions of a consumer group.
    * 
    * @param request - DeleteConsumerGroupSubscriptionRequest
    * @param headers - map
@@ -12173,7 +13944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 取消消费组订阅关系
+   * Deletes the subscriptions of a consumer group.
    * 
    * @param request - DeleteConsumerGroupSubscriptionRequest
    * @returns DeleteConsumerGroupSubscriptionResponse
@@ -12230,7 +14001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl用户
+   * Delete access control ACL user
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12255,7 +14026,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl用户
+   * Delete access control ACL user
    * @returns DeleteInstanceAccountResponse
    */
   async deleteInstanceAccount(instanceId: string, username: string): Promise<DeleteInstanceAccountResponse> {
@@ -12265,7 +14036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl数据
+   * Deletes the permissions of a specific account of an instance.
    * 
    * @param request - DeleteInstanceAclRequest
    * @param headers - map
@@ -12302,7 +14073,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl数据
+   * Deletes the permissions of a specific account of an instance.
    * 
    * @param request - DeleteInstanceAclRequest
    * @returns DeleteInstanceAclResponse
@@ -12314,7 +14085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制ip白名单
+   * Deletes a specific IP address whitelist from an instance.
    * 
    * @param request - DeleteInstanceIpWhitelistRequest
    * @param headers - map
@@ -12347,7 +14118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制ip白名单
+   * Deletes a specific IP address whitelist from an instance.
    * 
    * @param request - DeleteInstanceIpWhitelistRequest
    * @returns DeleteInstanceIpWhitelistResponse
@@ -12441,7 +14212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者组堆积信息
+   * Query Consumer Group Backlog Information
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12466,7 +14237,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者组堆积信息
+   * Query Consumer Group Backlog Information
    * @returns GetConsumerGroupLagResponse
    */
   async getConsumerGroupLag(instanceId: string, consumerGroupId: string): Promise<GetConsumerGroupLagResponse> {
@@ -12476,7 +14247,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费组订阅关系列表客户端分布
+   * Queries the subscriptions of a consumer group.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12501,7 +14272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费组订阅关系列表客户端分布
+   * Queries the subscriptions of a consumer group.
    * @returns GetConsumerGroupSubscriptionResponse
    */
   async getConsumerGroupSubscription(instanceId: string, consumerGroupId: string, topicName: string): Promise<GetConsumerGroupSubscriptionResponse> {
@@ -12511,7 +14282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者堆栈信息
+   * Queries the stack information about a consumer.
    * 
    * @param request - GetConsumerStackRequest
    * @param headers - map
@@ -12544,7 +14315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消费者堆栈信息
+   * Queries the stack information about a consumer.
    * 
    * @param request - GetConsumerStackRequest
    * @returns GetConsumerStackResponse
@@ -12597,7 +14368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例账号
+   * Obtains the account used to access a specific instance.
    * 
    * @param request - GetInstanceAccountRequest
    * @param headers - map
@@ -12630,7 +14401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取实例账号
+   * Obtains the account used to access a specific instance.
    * 
    * @param request - GetInstanceAccountRequest
    * @returns GetInstanceAccountResponse
@@ -12642,7 +14413,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息详情
+   * Obtains the details of a specific message.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12667,7 +14438,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息详情
+   * Obtains the details of a specific message.
    * @returns GetMessageDetailResponse
    */
   async getMessageDetail(instanceId: string, topicName: string, messageId: string): Promise<GetMessageDetailResponse> {
@@ -12712,7 +14483,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 轨迹查询
+   * Queries the trace of a specific message in a specific topic.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12737,7 +14508,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 轨迹查询
+   * Queries the trace of a specific message in a specific topic.
    * @returns GetTraceResponse
    */
   async getTrace(instanceId: string, topicName: string, messageId: string): Promise<GetTraceResponse> {
@@ -12911,7 +14682,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 访问控制acl用户列表
+   * Queries the accounts that are used to access a specific instance.
    * 
    * @param request - ListInstanceAccountRequest
    * @param headers - map
@@ -12960,7 +14731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 访问控制acl用户列表
+   * Queries the accounts that are used to access a specific instance.
    * 
    * @param request - ListInstanceAccountRequest
    * @returns ListInstanceAccountResponse
@@ -12972,7 +14743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 访问控制acl数据列表
+   * Queries the access control lists (ACLs) of an instance.
    * 
    * @param request - ListInstanceAclRequest
    * @param headers - map
@@ -13013,7 +14784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 访问控制acl数据列表
+   * Queries the access control lists (ACLs) of an instance.
    * 
    * @param request - ListInstanceAclRequest
    * @returns ListInstanceAclResponse
@@ -13025,7 +14796,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询访问控制ip白名单列表
+   * Queries the IP address whitelists of an instance.
    * 
    * @param request - ListInstanceIpWhitelistRequest
    * @param headers - map
@@ -13066,7 +14837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询访问控制ip白名单列表
+   * Queries the IP address whitelists of an instance.
    * 
    * @param request - ListInstanceIpWhitelistRequest
    * @returns ListInstanceIpWhitelistResponse
@@ -13117,6 +14888,10 @@ export default class Client extends OpenApi {
       query["seriesCodes"] = request.seriesCodesShrink;
     }
 
+    if (!Util.isUnset(request.storageSecretKey)) {
+      query["storageSecretKey"] = request.storageSecretKey;
+    }
+
     if (!Util.isUnset(request.tags)) {
       query["tags"] = request.tags;
     }
@@ -13155,7 +14930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消息列表
+   * Queries the list of messages.
    * 
    * @param request - ListMessagesRequest
    * @param headers - map
@@ -13212,7 +14987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询消息列表
+   * Queries the list of messages.
    * 
    * @param request - ListMessagesRequest
    * @returns ListMessagesResponse
@@ -13259,7 +15034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可见的资源标签关系
+   * Query visible resource tag relationships
    * 
    * @param request - ListTagResourcesRequest
    * @param headers - map
@@ -13312,7 +15087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询可见的资源标签关系
+   * Query visible resource tag relationships
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -13422,7 +15197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 轨迹消息列表
+   * Queries the message traces of a specific topic.
    * 
    * @param request - ListTracesRequest
    * @param headers - map
@@ -13479,7 +15254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 轨迹消息列表
+   * Queries the message traces of a specific topic.
    * 
    * @param request - ListTracesRequest
    * @returns ListTracesResponse
@@ -13540,7 +15315,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户创建标签资源关系（用户标签）
+   * Creates resource tags.
    * 
    * @param request - TagResourcesRequest
    * @param headers - map
@@ -13585,7 +15360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户创建标签资源关系（用户标签）
+   * Creates resource tags.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -13597,7 +15372,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户删除标签资源关系
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @param headers - map
@@ -13646,7 +15421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户删除标签资源关系
+   * Removes tags from resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -13677,6 +15452,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.deliveryOrderType)) {
       body["deliveryOrderType"] = request.deliveryOrderType;
+    }
+
+    if (!Util.isUnset(request.maxReceiveTps)) {
+      body["maxReceiveTps"] = request.maxReceiveTps;
     }
 
     if (!Util.isUnset(request.remark)) {
@@ -13784,7 +15563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问控制acl用户
+   * Updates the information about a specific account in a specific instance.
    * 
    * @param request - UpdateInstanceAccountRequest
    * @param headers - map
@@ -13821,7 +15600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改访问控制acl用户
+   * Updates the information about a specific account in a specific instance.
    * 
    * @param request - UpdateInstanceAccountRequest
    * @returns UpdateInstanceAccountResponse
@@ -13833,7 +15612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl数据
+   * Updates the permissions on the resources of a specific instance for a specific user.
    * 
    * @param request - UpdateInstanceAclRequest
    * @param headers - map
@@ -13882,7 +15661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除访问控制acl数据
+   * Updates the permissions on the resources of a specific instance for a specific user.
    * 
    * @param request - UpdateInstanceAclRequest
    * @returns UpdateInstanceAclResponse
@@ -13904,6 +15683,10 @@ export default class Client extends OpenApi {
   async updateTopicWithOptions(instanceId: string, topicName: string, request: UpdateTopicRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<UpdateTopicResponse> {
     Util.validateModel(request);
     let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.maxSendTps)) {
+      body["maxSendTps"] = request.maxSendTps;
+    }
+
     if (!Util.isUnset(request.remark)) {
       body["remark"] = request.remark;
     }
@@ -13939,7 +15722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消费验证
+   * Verifies the consumption status of a message in a specific topic on a specific instance.
    * 
    * @param request - VerifyConsumeMessageRequest
    * @param headers - map
@@ -13976,7 +15759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消费验证
+   * Verifies the consumption status of a message in a specific topic on a specific instance.
    * 
    * @param request - VerifyConsumeMessageRequest
    * @returns VerifyConsumeMessageResponse
@@ -13988,7 +15771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送消息
+   * Verifies the message sending feature of a specific topic on a specific instance.
    * 
    * @param request - VerifySendMessageRequest
    * @param headers - map
@@ -14029,7 +15812,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发送消息
+   * Verifies the message sending feature of a specific topic on a specific instance.
    * 
    * @param request - VerifySendMessageRequest
    * @returns VerifySendMessageResponse
