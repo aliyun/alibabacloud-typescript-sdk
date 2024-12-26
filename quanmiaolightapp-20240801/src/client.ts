@@ -109,6 +109,190 @@ export class GenerateBroadcastNewsResponse extends $tea.Model {
   }
 }
 
+export class GenerateOutputFormatRequest extends $tea.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tags?: GenerateOutputFormatRequestTags[];
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      tags: { 'type': 'array', 'itemType': GenerateOutputFormatRequestTags },
+      taskDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  tagsShrink?: string;
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatResponseBody extends $tea.Model {
+  /**
+   * @example
+   * successful
+   */
+  code?: string;
+  data?: GenerateOutputFormatResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  /**
+   * @example
+   * ok
+   */
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 117F5ABE-CF02-5502-9A3F-E56BC9081A64
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: GenerateOutputFormatResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: GenerateOutputFormatResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: GenerateOutputFormatResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListHotTopicSummariesRequest extends $tea.Model {
   /**
    * @example
@@ -1163,6 +1347,191 @@ export class RunStyleWritingResponse extends $tea.Model {
   }
 }
 
+export class RunTagMiningAnalysisRequest extends $tea.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tags?: RunTagMiningAnalysisRequestTags[];
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tags: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tags: { 'type': 'array', 'itemType': RunTagMiningAnalysisRequestTags },
+      taskDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * clueMining
+   */
+  businessType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 待分析文本
+   */
+  content?: string;
+  /**
+   * @example
+   * 额外信息
+   */
+  extraInfo?: string;
+  /**
+   * @example
+   * qwen-max
+   */
+  modelId?: string;
+  /**
+   * @example
+   * 请返回如下JSON格式，{"key1":"","key2":""}
+   */
+  outputFormat?: string;
+  tagsShrink?: string;
+  /**
+   * @example
+   * 给你一条待分析文本数据，请你按照标签体系来对数据进行打标。
+   */
+  taskDescription?: string;
+  static names(): { [key: string]: string } {
+    return {
+      businessType: 'businessType',
+      content: 'content',
+      extraInfo: 'extraInfo',
+      modelId: 'modelId',
+      outputFormat: 'outputFormat',
+      tagsShrink: 'tags',
+      taskDescription: 'taskDescription',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      businessType: 'string',
+      content: 'string',
+      extraInfo: 'string',
+      modelId: 'string',
+      outputFormat: 'string',
+      tagsShrink: 'string',
+      taskDescription: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBody extends $tea.Model {
+  header?: RunTagMiningAnalysisResponseBodyHeader;
+  payload?: RunTagMiningAnalysisResponseBodyPayload;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 085BE2D2-BB7E-59A6-B688-F2CB32124E7F
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      header: 'header',
+      payload: 'payload',
+      requestId: 'requestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      header: RunTagMiningAnalysisResponseBodyHeader,
+      payload: RunTagMiningAnalysisResponseBodyPayload,
+      requestId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunTagMiningAnalysisResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunTagMiningAnalysisResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisRequest extends $tea.Model {
   generateOptions?: string[];
   modelCustomPromptTemplate?: string;
@@ -1507,6 +1876,55 @@ export class GenerateBroadcastNewsResponseBodyData extends $tea.Model {
       taskId: 'string',
       text: 'string',
       usage: GenerateBroadcastNewsResponseBodyDataUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatRequestTags extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class GenerateOutputFormatResponseBodyData extends $tea.Model {
+  outputFormat?: string;
+  static names(): { [key: string]: string } {
+    return {
+      outputFormat: 'outputFormat',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      outputFormat: 'string',
     };
   }
 
@@ -3070,6 +3488,172 @@ export class RunStyleWritingResponseBodyPayload extends $tea.Model {
   }
 }
 
+export class RunTagMiningAnalysisRequestTags extends $tea.Model {
+  /**
+   * @example
+   * xxxx
+   */
+  tagDefinePrompt?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  tagName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagDefinePrompt: 'tagDefinePrompt',
+      tagName: 'tagName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagDefinePrompt: 'string',
+      tagName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyHeader extends $tea.Model {
+  /**
+   * @example
+   * AccessForbidden
+   */
+  errorCode?: string;
+  /**
+   * @example
+   * 错误信息
+   */
+  errorMessage?: string;
+  /**
+   * @example
+   * task-finished
+   */
+  event?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  sessionId?: string;
+  /**
+   * @example
+   * xxxx
+   */
+  taskId?: string;
+  /**
+   * @example
+   * xxxxx
+   */
+  traceId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      errorCode: 'errorCode',
+      errorMessage: 'errorMessage',
+      event: 'event',
+      sessionId: 'sessionId',
+      taskId: 'taskId',
+      traceId: 'traceId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      errorCode: 'string',
+      errorMessage: 'string',
+      event: 'string',
+      sessionId: 'string',
+      taskId: 'string',
+      traceId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayloadOutput extends $tea.Model {
+  text?: string;
+  static names(): { [key: string]: string } {
+    return {
+      text: 'text',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      text: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayloadUsage extends $tea.Model {
+  /**
+   * @example
+   * 100
+   */
+  inputTokens?: number;
+  /**
+   * @example
+   * 100
+   */
+  outputTokens?: number;
+  /**
+   * @example
+   * 200
+   */
+  totalTokens?: number;
+  static names(): { [key: string]: string } {
+    return {
+      inputTokens: 'inputTokens',
+      outputTokens: 'outputTokens',
+      totalTokens: 'totalTokens',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      inputTokens: 'number',
+      outputTokens: 'number',
+      totalTokens: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunTagMiningAnalysisResponseBodyPayload extends $tea.Model {
+  output?: RunTagMiningAnalysisResponseBodyPayloadOutput;
+  usage?: RunTagMiningAnalysisResponseBodyPayloadUsage;
+  static names(): { [key: string]: string } {
+    return {
+      output: 'output',
+      usage: 'usage',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      output: RunTagMiningAnalysisResponseBodyPayloadOutput,
+      usage: RunTagMiningAnalysisResponseBodyPayloadUsage,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class RunVideoAnalysisResponseBodyHeader extends $tea.Model {
   /**
    * @example
@@ -3721,6 +4305,73 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 轻应用-标签挖掘-获取示例输出格式
+   * 
+   * @param tmpReq - GenerateOutputFormatRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GenerateOutputFormatResponse
+   */
+  async generateOutputFormatWithOptions(workspaceId: string, tmpReq: GenerateOutputFormatRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<GenerateOutputFormatResponse> {
+    Util.validateModel(tmpReq);
+    let request = new GenerateOutputFormatShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "GenerateOutputFormat",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/generateOutputFormat`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<GenerateOutputFormatResponse>(await this.callApi(params, req, runtime), new GenerateOutputFormatResponse({}));
+  }
+
+  /**
+   * 轻应用-标签挖掘-获取示例输出格式
+   * 
+   * @param request - GenerateOutputFormatRequest
+   * @returns GenerateOutputFormatResponse
+   */
+  async generateOutputFormat(workspaceId: string, request: GenerateOutputFormatRequest): Promise<GenerateOutputFormatResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.generateOutputFormatWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
    * 轻应用-新闻播报-获取热点话题摘要列表
    * 
    * @param request - ListHotTopicSummariesRequest
@@ -4270,6 +4921,81 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runStyleWritingWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 轻应用-标签挖掘
+   * 
+   * @param tmpReq - RunTagMiningAnalysisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunTagMiningAnalysisResponse
+   */
+  async runTagMiningAnalysisWithOptions(workspaceId: string, tmpReq: RunTagMiningAnalysisRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunTagMiningAnalysisResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunTagMiningAnalysisShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.tags)) {
+      request.tagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tags, "tags", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.businessType)) {
+      body["businessType"] = request.businessType;
+    }
+
+    if (!Util.isUnset(request.content)) {
+      body["content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.extraInfo)) {
+      body["extraInfo"] = request.extraInfo;
+    }
+
+    if (!Util.isUnset(request.modelId)) {
+      body["modelId"] = request.modelId;
+    }
+
+    if (!Util.isUnset(request.outputFormat)) {
+      body["outputFormat"] = request.outputFormat;
+    }
+
+    if (!Util.isUnset(request.tagsShrink)) {
+      body["tags"] = request.tagsShrink;
+    }
+
+    if (!Util.isUnset(request.taskDescription)) {
+      body["taskDescription"] = request.taskDescription;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunTagMiningAnalysis",
+      version: "2024-08-01",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/quanmiao/lightapp/runTagMiningAnalysis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunTagMiningAnalysisResponse>(await this.callApi(params, req, runtime), new RunTagMiningAnalysisResponse({}));
+  }
+
+  /**
+   * 轻应用-标签挖掘
+   * 
+   * @param request - RunTagMiningAnalysisRequest
+   * @returns RunTagMiningAnalysisResponse
+   */
+  async runTagMiningAnalysis(workspaceId: string, request: RunTagMiningAnalysisRequest): Promise<RunTagMiningAnalysisResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runTagMiningAnalysisWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
