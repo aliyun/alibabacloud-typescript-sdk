@@ -119,6 +119,11 @@ export class Instance extends $tea.Model {
   instancePort?: number;
   /**
    * @example
+   * ecs.c7.large
+   */
+  instanceType?: string;
+  /**
+   * @example
    * false
    */
   isSpot?: boolean;
@@ -179,6 +184,7 @@ export class Instance extends $tea.Model {
       innerIP: 'InnerIP',
       instanceName: 'InstanceName',
       instancePort: 'InstancePort',
+      instanceType: 'InstanceType',
       isSpot: 'IsSpot',
       isolated: 'Isolated',
       lastState: 'LastState',
@@ -209,6 +215,7 @@ export class Instance extends $tea.Model {
       innerIP: 'string',
       instanceName: 'string',
       instancePort: 'number',
+      instanceType: 'string',
       isSpot: 'boolean',
       isolated: 'boolean',
       lastState: { 'type': 'array', 'itemType': { 'type': 'map', 'keyType': 'string', 'valueType': 'any' } },
@@ -6387,6 +6394,101 @@ export class DescribeServiceMirrorResponse extends $tea.Model {
       headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       statusCode: 'number',
       body: DescribeServiceMirrorResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceSignedUrlRequest extends $tea.Model {
+  /**
+   * @example
+   * 43200
+   */
+  expire?: number;
+  /**
+   * @example
+   * false
+   */
+  internal?: boolean;
+  /**
+   * @example
+   * webview
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      expire: 'Expire',
+      internal: 'Internal',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      expire: 'number',
+      internal: 'boolean',
+      type: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceSignedUrlResponseBody extends $tea.Model {
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 40325405-579C-4D82****
+   */
+  requestId?: string;
+  /**
+   * @example
+   * https://foo-115**.console.cn-hangzhou.eas.pai-ml.com?expire=1735202661&signature=ey*******
+   */
+  signedUrl?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+      signedUrl: 'SignedUrl',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+      signedUrl: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeServiceSignedUrlResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: DescribeServiceSignedUrlResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: DescribeServiceSignedUrlResponseBody,
     };
   }
 
@@ -16947,6 +17049,59 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeServiceMirrorWithOptions(ClusterId, ServiceName, headers, runtime);
+  }
+
+  /**
+   * 获取服务监控签名地址
+   * 
+   * @param request - DescribeServiceSignedUrlRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeServiceSignedUrlResponse
+   */
+  async describeServiceSignedUrlWithOptions(ClusterId: string, ServiceName: string, request: DescribeServiceSignedUrlRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<DescribeServiceSignedUrlResponse> {
+    Util.validateModel(request);
+    let query : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.expire)) {
+      query["Expire"] = request.expire;
+    }
+
+    if (!Util.isUnset(request.internal)) {
+      query["Internal"] = request.internal;
+    }
+
+    if (!Util.isUnset(request.type)) {
+      query["Type"] = request.type;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApi.Params({
+      action: "DescribeServiceSignedUrl",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${OpenApiUtil.getEncodeParam(ClusterId)}/${OpenApiUtil.getEncodeParam(ServiceName)}/signed_url`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $tea.cast<DescribeServiceSignedUrlResponse>(await this.callApi(params, req, runtime), new DescribeServiceSignedUrlResponse({}));
+  }
+
+  /**
+   * 获取服务监控签名地址
+   * 
+   * @param request - DescribeServiceSignedUrlRequest
+   * @returns DescribeServiceSignedUrlResponse
+   */
+  async describeServiceSignedUrl(ClusterId: string, ServiceName: string, request: DescribeServiceSignedUrlRequest): Promise<DescribeServiceSignedUrlResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeServiceSignedUrlWithOptions(ClusterId, ServiceName, request, headers, runtime);
   }
 
   /**
