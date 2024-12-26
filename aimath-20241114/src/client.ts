@@ -7,6 +7,386 @@ import OpenApiUtil from '@alicloud/openapi-util';
 import EndpointUtil from '@alicloud/endpoint-util';
 import * as $tea from '@alicloud/tea-typescript';
 
+export class ChatMessageRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * hello world！
+   */
+  content?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 723b7f0f-c28a-4123-86e7-094d3d3863f8
+   */
+  conversationId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * c28a-4123-86e7
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      conversationId: 'ConversationId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      conversationId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatMessageResponseBody extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * Param.Invalid
+   */
+  errCode?: string;
+  /**
+   * @example
+   * The specified parameter is not valid.
+   */
+  errMsg?: string;
+  eventType?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 696acaa9-eb29-4c1f-b48a-1f901579acc5
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'Content',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      eventType: 'EventType',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      eventType: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ChatMessageResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: ChatMessageResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: ChatMessageResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationRequest extends $tea.Model {
+  exerciseAnalysis?: string;
+  exerciseAnswer?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  exerciseContent?: string;
+  exerciseType?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 2r560eHAbsknrfHXVZO4L
+   */
+  outerBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * wx-xx-yy
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exerciseAnalysis: 'ExerciseAnalysis',
+      exerciseAnswer: 'ExerciseAnswer',
+      exerciseContent: 'ExerciseContent',
+      exerciseType: 'ExerciseType',
+      outerBizId: 'OuterBizId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exerciseAnalysis: 'string',
+      exerciseAnswer: 'string',
+      exerciseContent: 'string',
+      exerciseType: 'string',
+      outerBizId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * a499fef7-fef7-453c-a6b2-6a34089613e8
+   */
+  conversationId?: string;
+  /**
+   * @example
+   * InternalError
+   */
+  errCode?: string;
+  /**
+   * @example
+   * The request processing has failed due to some unknown error.
+   */
+  errMsg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 89C27D03-4C85-5420-9752-989130878F4D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      conversationId: 'ConversationId',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationId: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateConversationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateConversationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateConversationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRelatedConversationRequest extends $tea.Model {
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * Ex_pop_1731848070815_funI
+   */
+  exerciseCode?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * 725e5550-8f81-42e0-a4db-d2de1be52afc
+   */
+  outerBizId?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   * 
+   * @example
+   * pop_1731848070815
+   */
+  userId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      exerciseCode: 'ExerciseCode',
+      outerBizId: 'OuterBizId',
+      userId: 'UserId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      exerciseCode: 'string',
+      outerBizId: 'string',
+      userId: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRelatedConversationResponseBody extends $tea.Model {
+  /**
+   * @example
+   * 96d36ed0-ebde-11ee-806f-f35ee6682ec5
+   */
+  conversationId?: string;
+  /**
+   * @example
+   * InternalError
+   */
+  errCode?: string;
+  /**
+   * @example
+   * The request processing has failed due to some unknown error.
+   */
+  errMsg?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 1d31b11b-4b82-4db1-b3c0-001529fc78eb
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      conversationId: 'ConversationId',
+      errCode: 'ErrCode',
+      errMsg: 'ErrMsg',
+      requestId: 'RequestId',
+      success: 'Success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      conversationId: 'string',
+      errCode: 'string',
+      errMsg: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateRelatedConversationResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: CreateRelatedConversationResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: CreateRelatedConversationResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GenAnalysisRequest extends $tea.Model {
   /**
    * @remarks
@@ -554,6 +934,168 @@ export default class Client extends OpenApi {
     }
 
     return EndpointUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * 聊天消息API
+   * 
+   * @param request - ChatMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChatMessageResponse
+   */
+  async chatMessageWithOptions(request: ChatMessageRequest, runtime: $Util.RuntimeOptions): Promise<ChatMessageResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.content)) {
+      body["Content"] = request.content;
+    }
+
+    if (!Util.isUnset(request.conversationId)) {
+      body["ConversationId"] = request.conversationId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "ChatMessage",
+      version: "2024-11-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<ChatMessageResponse>(await this.callApi(params, req, runtime), new ChatMessageResponse({}));
+  }
+
+  /**
+   * 聊天消息API
+   * 
+   * @param request - ChatMessageRequest
+   * @returns ChatMessageResponse
+   */
+  async chatMessage(request: ChatMessageRequest): Promise<ChatMessageResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.chatMessageWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建试题相应的对话。
+   * 
+   * @param request - CreateConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateConversationResponse
+   */
+  async createConversationWithOptions(request: CreateConversationRequest, runtime: $Util.RuntimeOptions): Promise<CreateConversationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.exerciseAnalysis)) {
+      body["ExerciseAnalysis"] = request.exerciseAnalysis;
+    }
+
+    if (!Util.isUnset(request.exerciseAnswer)) {
+      body["ExerciseAnswer"] = request.exerciseAnswer;
+    }
+
+    if (!Util.isUnset(request.exerciseContent)) {
+      body["ExerciseContent"] = request.exerciseContent;
+    }
+
+    if (!Util.isUnset(request.exerciseType)) {
+      body["ExerciseType"] = request.exerciseType;
+    }
+
+    if (!Util.isUnset(request.outerBizId)) {
+      body["OuterBizId"] = request.outerBizId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateConversation",
+      version: "2024-11-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateConversationResponse>(await this.callApi(params, req, runtime), new CreateConversationResponse({}));
+  }
+
+  /**
+   * 创建试题相应的对话。
+   * 
+   * @param request - CreateConversationRequest
+   * @returns CreateConversationResponse
+   */
+  async createConversation(request: CreateConversationRequest): Promise<CreateConversationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createConversationWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建关联的对话，输入试题code即可开启对话
+   * 
+   * @param request - CreateRelatedConversationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateRelatedConversationResponse
+   */
+  async createRelatedConversationWithOptions(request: CreateRelatedConversationRequest, runtime: $Util.RuntimeOptions): Promise<CreateRelatedConversationResponse> {
+    Util.validateModel(request);
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.exerciseCode)) {
+      body["ExerciseCode"] = request.exerciseCode;
+    }
+
+    if (!Util.isUnset(request.outerBizId)) {
+      body["OuterBizId"] = request.outerBizId;
+    }
+
+    if (!Util.isUnset(request.userId)) {
+      body["UserId"] = request.userId;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "CreateRelatedConversation",
+      version: "2024-11-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<CreateRelatedConversationResponse>(await this.callApi(params, req, runtime), new CreateRelatedConversationResponse({}));
+  }
+
+  /**
+   * 创建关联的对话，输入试题code即可开启对话
+   * 
+   * @param request - CreateRelatedConversationRequest
+   * @returns CreateRelatedConversationResponse
+   */
+  async createRelatedConversation(request: CreateRelatedConversationRequest): Promise<CreateRelatedConversationResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    return await this.createRelatedConversationWithOptions(request, runtime);
   }
 
   /**
