@@ -6448,6 +6448,7 @@ export class CreateApplicationRequest extends $tea.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  customImageNetworkType?: string;
   /**
    * @remarks
    * true
@@ -6803,6 +6804,7 @@ export class CreateApplicationRequest extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      customImageNetworkType: 'CustomImageNetworkType',
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
@@ -6876,6 +6878,7 @@ export class CreateApplicationRequest extends $tea.Model {
       configMapMountDesc: 'string',
       cpu: 'number',
       customHostAlias: 'string',
+      customImageNetworkType: 'string',
       deploy: 'boolean',
       dotnet: 'string',
       edasContainerVersion: 'string',
@@ -7032,6 +7035,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  customImageNetworkType?: string;
   /**
    * @remarks
    * true
@@ -7387,6 +7391,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      customImageNetworkType: 'CustomImageNetworkType',
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
@@ -7460,6 +7465,7 @@ export class CreateApplicationShrinkRequest extends $tea.Model {
       configMapMountDesc: 'string',
       cpu: 'number',
       customHostAlias: 'string',
+      customImageNetworkType: 'string',
       deploy: 'boolean',
       dotnet: 'string',
       edasContainerVersion: 'string',
@@ -11332,6 +11338,7 @@ export class DeployApplicationRequest extends $tea.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  customImageNetworkType?: string;
   /**
    * @remarks
    * This parameter takes effect only for applications that are in the Stopped state. If you call the **DeployApplication** operation to manage a running application, the application is immediately redeployed.
@@ -11845,6 +11852,7 @@ export class DeployApplicationRequest extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      customImageNetworkType: 'CustomImageNetworkType',
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
@@ -11917,6 +11925,7 @@ export class DeployApplicationRequest extends $tea.Model {
       configMapMountDesc: 'string',
       cpu: 'number',
       customHostAlias: 'string',
+      customImageNetworkType: 'string',
       deploy: 'string',
       dotnet: 'string',
       edasContainerVersion: 'string',
@@ -12104,6 +12113,7 @@ export class DeployApplicationShrinkRequest extends $tea.Model {
    * [{"hostName":"samplehost","ip":"127.0.0.1"}]
    */
   customHostAlias?: string;
+  customImageNetworkType?: string;
   /**
    * @remarks
    * This parameter takes effect only for applications that are in the Stopped state. If you call the **DeployApplication** operation to manage a running application, the application is immediately redeployed.
@@ -12617,6 +12627,7 @@ export class DeployApplicationShrinkRequest extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      customImageNetworkType: 'CustomImageNetworkType',
       deploy: 'Deploy',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
@@ -12689,6 +12700,7 @@ export class DeployApplicationShrinkRequest extends $tea.Model {
       configMapMountDesc: 'string',
       cpu: 'number',
       customHostAlias: 'string',
+      customImageNetworkType: 'string',
       deploy: 'string',
       dotnet: 'string',
       edasContainerVersion: 'string',
@@ -13570,6 +13582,7 @@ export class DescribeApplicationInstancesRequest extends $tea.Model {
    * b2a8a925-477a-4ed7-b825-d5e22500****
    */
   groupId?: string;
+  instanceId?: string;
   /**
    * @remarks
    * 10
@@ -13591,6 +13604,7 @@ export class DescribeApplicationInstancesRequest extends $tea.Model {
       appId: 'AppId',
       currentPage: 'CurrentPage',
       groupId: 'GroupId',
+      instanceId: 'InstanceId',
       pageSize: 'PageSize',
       reverse: 'Reverse',
     };
@@ -13601,6 +13615,7 @@ export class DescribeApplicationInstancesRequest extends $tea.Model {
       appId: 'string',
       currentPage: 'number',
       groupId: 'string',
+      instanceId: 'string',
       pageSize: 'number',
       reverse: 'boolean',
     };
@@ -30346,6 +30361,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
    * [{"hostName":"test.host.name","ip":"0.0.0.0"}]
    */
   customHostAlias?: string;
+  customImageNetworkType?: string;
   dotnet?: string;
   /**
    * @remarks
@@ -30891,6 +30907,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       configMapMountDesc: 'ConfigMapMountDesc',
       cpu: 'Cpu',
       customHostAlias: 'CustomHostAlias',
+      customImageNetworkType: 'CustomImageNetworkType',
       dotnet: 'Dotnet',
       edasContainerVersion: 'EdasContainerVersion',
       enableAhas: 'EnableAhas',
@@ -30970,6 +30987,7 @@ export class DescribeApplicationConfigResponseBodyData extends $tea.Model {
       configMapMountDesc: { 'type': 'array', 'itemType': DescribeApplicationConfigResponseBodyDataConfigMapMountDesc },
       cpu: 'number',
       customHostAlias: 'string',
+      customImageNetworkType: 'string',
       dotnet: 'string',
       edasContainerVersion: 'string',
       enableAhas: 'string',
@@ -31412,6 +31430,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
    * b2a8a925-477a-4ed7-b825-d5e22500****
    */
   instanceId?: string;
+  mainContainerStatus?: string;
   /**
    * @remarks
    * The version of the package.
@@ -31421,6 +31440,7 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
    */
   packageVersion?: string;
   sidecarContainersStatus?: DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus[];
+  unhealthyMessage?: string;
   /**
    * @remarks
    * The ID of the zone where the instance is deployed.
@@ -31442,8 +31462,10 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
       instanceContainerStatus: 'InstanceContainerStatus',
       instanceHealthStatus: 'InstanceHealthStatus',
       instanceId: 'InstanceId',
+      mainContainerStatus: 'MainContainerStatus',
       packageVersion: 'PackageVersion',
       sidecarContainersStatus: 'SidecarContainersStatus',
+      unhealthyMessage: 'UnhealthyMessage',
       vSwitchId: 'VSwitchId',
     };
   }
@@ -31461,8 +31483,10 @@ export class DescribeApplicationInstancesResponseBodyDataInstances extends $tea.
       instanceContainerStatus: 'string',
       instanceHealthStatus: 'string',
       instanceId: 'string',
+      mainContainerStatus: 'string',
       packageVersion: 'string',
       sidecarContainersStatus: { 'type': 'array', 'itemType': DescribeApplicationInstancesResponseBodyDataInstancesSidecarContainersStatus },
+      unhealthyMessage: 'string',
       vSwitchId: 'string',
     };
   }
@@ -42189,6 +42213,10 @@ export default class Client extends OpenApi {
       query["CustomHostAlias"] = request.customHostAlias;
     }
 
+    if (!Util.isUnset(request.customImageNetworkType)) {
+      query["CustomImageNetworkType"] = request.customImageNetworkType;
+    }
+
     if (!Util.isUnset(request.deploy)) {
       query["Deploy"] = request.deploy;
     }
@@ -43859,6 +43887,10 @@ export default class Client extends OpenApi {
       query["CustomHostAlias"] = request.customHostAlias;
     }
 
+    if (!Util.isUnset(request.customImageNetworkType)) {
+      query["CustomImageNetworkType"] = request.customImageNetworkType;
+    }
+
     if (!Util.isUnset(request.deploy)) {
       query["Deploy"] = request.deploy;
     }
@@ -44360,6 +44392,10 @@ export default class Client extends OpenApi {
 
     if (!Util.isUnset(request.groupId)) {
       query["GroupId"] = request.groupId;
+    }
+
+    if (!Util.isUnset(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
     }
 
     if (!Util.isUnset(request.pageSize)) {
