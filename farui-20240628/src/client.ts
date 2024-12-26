@@ -618,6 +618,344 @@ export class RunLegalAdviceConsultationResponse extends $tea.Model {
   }
 }
 
+export class RunSearchCaseFullTextRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
+  appId?: string;
+  filterCondition?: RunSearchCaseFullTextRequestFilterCondition;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  pageParam?: RunSearchCaseFullTextRequestPageParam;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  queryKeywords?: string[];
+  sortKeyAndDirection?: { [key: string]: string };
+  thread?: RunSearchCaseFullTextRequestThread;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      filterCondition: 'filterCondition',
+      pageParam: 'pageParam',
+      query: 'query',
+      queryKeywords: 'queryKeywords',
+      sortKeyAndDirection: 'sortKeyAndDirection',
+      thread: 'thread',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      filterCondition: RunSearchCaseFullTextRequestFilterCondition,
+      pageParam: RunSearchCaseFullTextRequestPageParam,
+      query: 'string',
+      queryKeywords: { 'type': 'array', 'itemType': 'string' },
+      sortKeyAndDirection: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      thread: RunSearchCaseFullTextRequestThread,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
+  appId?: string;
+  filterConditionShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  pageParamShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  queryKeywordsShrink?: string;
+  sortKeyAndDirectionShrink?: string;
+  threadShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      filterConditionShrink: 'filterCondition',
+      pageParamShrink: 'pageParam',
+      query: 'query',
+      queryKeywordsShrink: 'queryKeywords',
+      sortKeyAndDirectionShrink: 'sortKeyAndDirection',
+      threadShrink: 'thread',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      filterConditionShrink: 'string',
+      pageParamShrink: 'string',
+      query: 'string',
+      queryKeywordsShrink: 'string',
+      sortKeyAndDirectionShrink: 'string',
+      threadShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponseBody extends $tea.Model {
+  /**
+   * @example
+   * null
+   */
+  code?: string;
+  data?: RunSearchCaseFullTextResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * C844BE6B-33A9-5AC4-A1AE-97B131849E0F
+   */
+  requestId?: string;
+  /**
+   * @example
+   * True
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RunSearchCaseFullTextResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunSearchCaseFullTextResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunSearchCaseFullTextResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
+  appId?: string;
+  filterCondition?: RunSearchLawQueryRequestFilterCondition;
+  pageParam?: RunSearchLawQueryRequestPageParam;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  queryKeywords?: string[];
+  thread?: RunSearchLawQueryRequestThread;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      filterCondition: 'filterCondition',
+      pageParam: 'pageParam',
+      query: 'query',
+      queryKeywords: 'queryKeywords',
+      thread: 'thread',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      filterCondition: RunSearchLawQueryRequestFilterCondition,
+      pageParam: RunSearchLawQueryRequestPageParam,
+      query: 'string',
+      queryKeywords: { 'type': 'array', 'itemType': 'string' },
+      thread: RunSearchLawQueryRequestThread,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryShrinkRequest extends $tea.Model {
+  /**
+   * @example
+   * farui
+   */
+  appId?: string;
+  filterConditionShrink?: string;
+  pageParamShrink?: string;
+  /**
+   * @remarks
+   * This parameter is required.
+   */
+  query?: string;
+  queryKeywordsShrink?: string;
+  threadShrink?: string;
+  static names(): { [key: string]: string } {
+    return {
+      appId: 'appId',
+      filterConditionShrink: 'filterCondition',
+      pageParamShrink: 'pageParam',
+      query: 'query',
+      queryKeywordsShrink: 'queryKeywords',
+      threadShrink: 'thread',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      appId: 'string',
+      filterConditionShrink: 'string',
+      pageParamShrink: 'string',
+      query: 'string',
+      queryKeywordsShrink: 'string',
+      threadShrink: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponseBody extends $tea.Model {
+  /**
+   * @example
+   * Ok
+   */
+  code?: string;
+  data?: RunSearchLawQueryResponseBodyData;
+  /**
+   * @example
+   * 200
+   */
+  httpStatusCode?: number;
+  message?: string;
+  /**
+   * @remarks
+   * Id of the request
+   * 
+   * @example
+   * 05062567-EB51-50F6-AF56-0BE44955848D
+   */
+  requestId?: string;
+  /**
+   * @example
+   * true
+   */
+  success?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      code: 'code',
+      data: 'data',
+      httpStatusCode: 'httpStatusCode',
+      message: 'message',
+      requestId: 'requestId',
+      success: 'success',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      code: 'string',
+      data: RunSearchLawQueryResponseBodyData,
+      httpStatusCode: 'number',
+      message: 'string',
+      requestId: 'string',
+      success: 'boolean',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponse extends $tea.Model {
+  headers?: { [key: string]: string };
+  statusCode?: number;
+  body?: RunSearchLawQueryResponseBody;
+  static names(): { [key: string]: string } {
+    return {
+      headers: 'headers',
+      statusCode: 'statusCode',
+      body: 'body',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      headers: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      statusCode: 'number',
+      body: RunSearchLawQueryResponseBody,
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateTextFileResponseBodyData extends $tea.Model {
   /**
    * @example
@@ -1219,6 +1557,619 @@ export class RunLegalAdviceConsultationResponseBodyUsage extends $tea.Model {
   }
 }
 
+export class RunSearchCaseFullTextRequestFilterCondition extends $tea.Model {
+  caseNo?: string;
+  caseTitle?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseNo: 'caseNo',
+      caseTitle: 'caseTitle',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseNo: 'string',
+      caseTitle: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestPageParam extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestThreadMessages extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextRequestThread extends $tea.Model {
+  messages?: RunSearchCaseFullTextRequestThreadMessages[];
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'messages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': RunSearchCaseFullTextRequestThreadMessages },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomainTrialCourt extends $tea.Model {
+  city?: string;
+  commonLevel?: string;
+  country?: string;
+  county?: string;
+  district?: string;
+  name?: string;
+  province?: string;
+  /**
+   * @example
+   * “”
+   */
+  specialLevel?: string;
+  static names(): { [key: string]: string } {
+    return {
+      city: 'city',
+      commonLevel: 'commonLevel',
+      country: 'country',
+      county: 'county',
+      district: 'district',
+      name: 'name',
+      province: 'province',
+      specialLevel: 'specialLevel',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      city: 'string',
+      commonLevel: 'string',
+      country: 'string',
+      county: 'string',
+      district: 'string',
+      name: 'string',
+      province: 'string',
+      specialLevel: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain extends $tea.Model {
+  abstractObj?: string;
+  appliedLaws?: string;
+  caseBasic?: string;
+  caseFeature?: string;
+  caseId?: string;
+  caseNo?: string;
+  caseSummary?: string;
+  caseTitle?: string;
+  caseType?: string;
+  closeCaseCause?: string;
+  courtFindOut?: string;
+  courtThink?: string;
+  dataFrom?: string;
+  disputeFocus?: string;
+  disputeFocusTag?: string[];
+  disputedpoints?: string;
+  documentType?: string;
+  keyfacts?: string;
+  legalBasis?: string;
+  litigants?: string;
+  litigationParticipant?: string;
+  openCaseCause?: string;
+  preTrialProcess?: string;
+  referLevel?: string;
+  sourceContent?: string;
+  trialCourt?: RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomainTrialCourt;
+  /**
+   * @example
+   * 2018-09-27
+   */
+  trialDate?: string;
+  trialLevel?: string;
+  trialProcess?: string;
+  trialProgram?: string;
+  verdict?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abstractObj: 'abstractObj',
+      appliedLaws: 'appliedLaws',
+      caseBasic: 'caseBasic',
+      caseFeature: 'caseFeature',
+      caseId: 'caseId',
+      caseNo: 'caseNo',
+      caseSummary: 'caseSummary',
+      caseTitle: 'caseTitle',
+      caseType: 'caseType',
+      closeCaseCause: 'closeCaseCause',
+      courtFindOut: 'courtFindOut',
+      courtThink: 'courtThink',
+      dataFrom: 'dataFrom',
+      disputeFocus: 'disputeFocus',
+      disputeFocusTag: 'disputeFocusTag',
+      disputedpoints: 'disputedpoints',
+      documentType: 'documentType',
+      keyfacts: 'keyfacts',
+      legalBasis: 'legalBasis',
+      litigants: 'litigants',
+      litigationParticipant: 'litigationParticipant',
+      openCaseCause: 'openCaseCause',
+      preTrialProcess: 'preTrialProcess',
+      referLevel: 'referLevel',
+      sourceContent: 'sourceContent',
+      trialCourt: 'trialCourt',
+      trialDate: 'trialDate',
+      trialLevel: 'trialLevel',
+      trialProcess: 'trialProcess',
+      trialProgram: 'trialProgram',
+      verdict: 'verdict',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abstractObj: 'string',
+      appliedLaws: 'string',
+      caseBasic: 'string',
+      caseFeature: 'string',
+      caseId: 'string',
+      caseNo: 'string',
+      caseSummary: 'string',
+      caseTitle: 'string',
+      caseType: 'string',
+      closeCaseCause: 'string',
+      courtFindOut: 'string',
+      courtThink: 'string',
+      dataFrom: 'string',
+      disputeFocus: 'string',
+      disputeFocusTag: { 'type': 'array', 'itemType': 'string' },
+      disputedpoints: 'string',
+      documentType: 'string',
+      keyfacts: 'string',
+      legalBasis: 'string',
+      litigants: 'string',
+      litigationParticipant: 'string',
+      openCaseCause: 'string',
+      preTrialProcess: 'string',
+      referLevel: 'string',
+      sourceContent: 'string',
+      trialCourt: RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomainTrialCourt,
+      trialDate: 'string',
+      trialLevel: 'string',
+      trialProcess: 'string',
+      trialProgram: 'string',
+      verdict: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponseBodyDataCaseResult extends $tea.Model {
+  caseDomain?: RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain;
+  /**
+   * @example
+   * 0.88
+   */
+  similarity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      caseDomain: 'caseDomain',
+      similarity: 'similarity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseDomain: RunSearchCaseFullTextResponseBodyDataCaseResultCaseDomain,
+      similarity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchCaseFullTextResponseBodyData extends $tea.Model {
+  caseResult?: RunSearchCaseFullTextResponseBodyDataCaseResult[];
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  query?: string;
+  queryKeywords?: string[];
+  /**
+   * @example
+   * 1
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      caseResult: 'caseResult',
+      currentPage: 'currentPage',
+      pageSize: 'pageSize',
+      query: 'query',
+      queryKeywords: 'queryKeywords',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      caseResult: { 'type': 'array', 'itemType': RunSearchCaseFullTextResponseBodyDataCaseResult },
+      currentPage: 'number',
+      pageSize: 'number',
+      query: 'string',
+      queryKeywords: { 'type': 'array', 'itemType': 'string' },
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryRequestFilterCondition extends $tea.Model {
+  lawName?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lawName: 'lawName',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lawName: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryRequestPageParam extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @example
+   * 10
+   */
+  pageSize?: number;
+  static names(): { [key: string]: string } {
+    return {
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      pageNumber: 'number',
+      pageSize: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryRequestThreadMessages extends $tea.Model {
+  content?: string;
+  /**
+   * @example
+   * user
+   */
+  role?: string;
+  static names(): { [key: string]: string } {
+    return {
+      content: 'content',
+      role: 'role',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      content: 'string',
+      role: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryRequestThread extends $tea.Model {
+  messages?: RunSearchLawQueryRequestThreadMessages[];
+  static names(): { [key: string]: string } {
+    return {
+      messages: 'messages',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      messages: { 'type': 'array', 'itemType': RunSearchLawQueryRequestThreadMessages },
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponseBodyDataLawResultLawDomain extends $tea.Model {
+  abolitionBasis?: string;
+  implementYearMonthDate?: string;
+  /**
+   * @example
+   * null
+   */
+  invalidBasis?: string;
+  /**
+   * @example
+   * ""
+   */
+  issuingNo?: string;
+  issuingOrgan?: string;
+  /**
+   * @example
+   * b2274825c8c3bc2343ca73680243ddc8
+   */
+  lawId?: string;
+  /**
+   * @example
+   * ccc209683be1509676174fd6890f24b8
+   */
+  lawItemId?: string;
+  lawName?: string;
+  lawOrder?: string;
+  lawSourceContent?: string;
+  lawTitle?: string;
+  /**
+   * @example
+   * "[]"
+   */
+  modifyBasis?: string;
+  potencyLevel?: string;
+  releaseYearMonthDate?: string;
+  /**
+   * @example
+   * null
+   */
+  thematicClassify?: string;
+  timeliness?: string;
+  static names(): { [key: string]: string } {
+    return {
+      abolitionBasis: 'abolitionBasis',
+      implementYearMonthDate: 'implementYearMonthDate',
+      invalidBasis: 'invalidBasis',
+      issuingNo: 'issuingNo',
+      issuingOrgan: 'issuingOrgan',
+      lawId: 'lawId',
+      lawItemId: 'lawItemId',
+      lawName: 'lawName',
+      lawOrder: 'lawOrder',
+      lawSourceContent: 'lawSourceContent',
+      lawTitle: 'lawTitle',
+      modifyBasis: 'modifyBasis',
+      potencyLevel: 'potencyLevel',
+      releaseYearMonthDate: 'releaseYearMonthDate',
+      thematicClassify: 'thematicClassify',
+      timeliness: 'timeliness',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      abolitionBasis: 'string',
+      implementYearMonthDate: 'string',
+      invalidBasis: 'string',
+      issuingNo: 'string',
+      issuingOrgan: 'string',
+      lawId: 'string',
+      lawItemId: 'string',
+      lawName: 'string',
+      lawOrder: 'string',
+      lawSourceContent: 'string',
+      lawTitle: 'string',
+      modifyBasis: 'string',
+      potencyLevel: 'string',
+      releaseYearMonthDate: 'string',
+      thematicClassify: 'string',
+      timeliness: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponseBodyDataLawResult extends $tea.Model {
+  lawDomain?: RunSearchLawQueryResponseBodyDataLawResultLawDomain;
+  /**
+   * @example
+   * 0.0050
+   */
+  similarity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      lawDomain: 'lawDomain',
+      similarity: 'similarity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      lawDomain: RunSearchLawQueryResponseBodyDataLawResultLawDomain,
+      similarity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponseBodyDataSortKeyAndDirection extends $tea.Model {
+  /**
+   * @example
+   * desc
+   */
+  releaseYearMonthDate?: string;
+  /**
+   * @example
+   * desc
+   */
+  similarity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      releaseYearMonthDate: 'releaseYearMonthDate',
+      similarity: 'similarity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      releaseYearMonthDate: 'string',
+      similarity: 'string',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class RunSearchLawQueryResponseBodyData extends $tea.Model {
+  /**
+   * @example
+   * 1
+   */
+  currentPage?: number;
+  lawResult?: RunSearchLawQueryResponseBodyDataLawResult[];
+  /**
+   * @example
+   * 0
+   */
+  pageSize?: number;
+  query?: string;
+  queryKeywords?: string[];
+  sortKeyAndDirection?: RunSearchLawQueryResponseBodyDataSortKeyAndDirection;
+  /**
+   * @example
+   * 0
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      currentPage: 'currentPage',
+      lawResult: 'lawResult',
+      pageSize: 'pageSize',
+      query: 'query',
+      queryKeywords: 'queryKeywords',
+      sortKeyAndDirection: 'sortKeyAndDirection',
+      totalCount: 'totalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      currentPage: 'number',
+      lawResult: { 'type': 'array', 'itemType': RunSearchLawQueryResponseBodyDataLawResult },
+      pageSize: 'number',
+      query: 'string',
+      queryKeywords: { 'type': 'array', 'itemType': 'string' },
+      sortKeyAndDirection: RunSearchLawQueryResponseBodyDataSortKeyAndDirection,
+      totalCount: 'number',
+    };
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 
 export default class Client extends OpenApi {
 
@@ -1557,6 +2508,180 @@ export default class Client extends OpenApi {
     let runtime = new $Util.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.runLegalAdviceConsultationWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 案例检索
+   * 
+   * @param tmpReq - RunSearchCaseFullTextRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSearchCaseFullTextResponse
+   */
+  async runSearchCaseFullTextWithOptions(workspaceId: string, tmpReq: RunSearchCaseFullTextRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunSearchCaseFullTextResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunSearchCaseFullTextShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filterCondition)) {
+      request.filterConditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterCondition, "filterCondition", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.pageParam)) {
+      request.pageParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pageParam, "pageParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.queryKeywords)) {
+      request.queryKeywordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryKeywords, "queryKeywords", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.sortKeyAndDirection)) {
+      request.sortKeyAndDirectionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.sortKeyAndDirection, "sortKeyAndDirection", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.thread)) {
+      request.threadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thread, "thread", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.filterConditionShrink)) {
+      body["filterCondition"] = request.filterConditionShrink;
+    }
+
+    if (!Util.isUnset(request.pageParamShrink)) {
+      body["pageParam"] = request.pageParamShrink;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.queryKeywordsShrink)) {
+      body["queryKeywords"] = request.queryKeywordsShrink;
+    }
+
+    if (!Util.isUnset(request.sortKeyAndDirectionShrink)) {
+      body["sortKeyAndDirection"] = request.sortKeyAndDirectionShrink;
+    }
+
+    if (!Util.isUnset(request.threadShrink)) {
+      body["thread"] = request.threadShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunSearchCaseFullText",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/farui/search/case/fulltext`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunSearchCaseFullTextResponse>(await this.callApi(params, req, runtime), new RunSearchCaseFullTextResponse({}));
+  }
+
+  /**
+   * 案例检索
+   * 
+   * @param request - RunSearchCaseFullTextRequest
+   * @returns RunSearchCaseFullTextResponse
+   */
+  async runSearchCaseFullText(workspaceId: string, request: RunSearchCaseFullTextRequest): Promise<RunSearchCaseFullTextResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runSearchCaseFullTextWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * 法规搜索
+   * 
+   * @param tmpReq - RunSearchLawQueryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunSearchLawQueryResponse
+   */
+  async runSearchLawQueryWithOptions(workspaceId: string, tmpReq: RunSearchLawQueryRequest, headers: {[key: string ]: string}, runtime: $Util.RuntimeOptions): Promise<RunSearchLawQueryResponse> {
+    Util.validateModel(tmpReq);
+    let request = new RunSearchLawQueryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!Util.isUnset(tmpReq.filterCondition)) {
+      request.filterConditionShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.filterCondition, "filterCondition", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.pageParam)) {
+      request.pageParamShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.pageParam, "pageParam", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.queryKeywords)) {
+      request.queryKeywordsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.queryKeywords, "queryKeywords", "json");
+    }
+
+    if (!Util.isUnset(tmpReq.thread)) {
+      request.threadShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.thread, "thread", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!Util.isUnset(request.appId)) {
+      body["appId"] = request.appId;
+    }
+
+    if (!Util.isUnset(request.filterConditionShrink)) {
+      body["filterCondition"] = request.filterConditionShrink;
+    }
+
+    if (!Util.isUnset(request.pageParamShrink)) {
+      body["pageParam"] = request.pageParamShrink;
+    }
+
+    if (!Util.isUnset(request.query)) {
+      body["query"] = request.query;
+    }
+
+    if (!Util.isUnset(request.queryKeywordsShrink)) {
+      body["queryKeywords"] = request.queryKeywordsShrink;
+    }
+
+    if (!Util.isUnset(request.threadShrink)) {
+      body["thread"] = request.threadShrink;
+    }
+
+    let req = new $OpenApi.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApi.Params({
+      action: "RunSearchLawQuery",
+      version: "2024-06-28",
+      protocol: "HTTPS",
+      pathname: `/${OpenApiUtil.getEncodeParam(workspaceId)}/farui/search/law/query`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $tea.cast<RunSearchLawQueryResponse>(await this.callApi(params, req, runtime), new RunSearchLawQueryResponse({}));
+  }
+
+  /**
+   * 法规搜索
+   * 
+   * @param request - RunSearchLawQueryRequest
+   * @returns RunSearchLawQueryResponse
+   */
+  async runSearchLawQuery(workspaceId: string, request: RunSearchLawQueryRequest): Promise<RunSearchLawQueryResponse> {
+    let runtime = new $Util.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.runSearchLawQueryWithOptions(workspaceId, request, headers, runtime);
   }
 
 }
